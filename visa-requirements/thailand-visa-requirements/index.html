@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Thailand Visa Requirements 2026 | Documents & Fees | My Visa Assistance</title>
+ <meta name="description" content="Complete Thailand visa requirements for 2026. Find document checklists, fees (3-5 business days), application forms, and eligibility criteria. Expert visa guidance.">
+ <meta name="author" content="Achal Kukreja">
+ 
+ <meta name="robots" content="index, follow">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://btw-design.github.io/visa-asistance/visa-requirements/thailand-visa-requirements">
+ <meta property="og:title" content="Thailand Visa Requirements 2026">
+ <meta property="og:description" content="Complete Thailand visa requirements for 2026. Find document checklists and fees.">
+ 
+ 
+ <link rel="icon" type="image/svg+xml" href="/visa-asistance/favicon/favicon.svg">
+ <link rel="canonical" href="https://btw-design.github.io/visa-asistance/visa-requirements/thailand-visa-requirements">
+
+ 
+ <link rel="preload" href="/visa-asistance/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/visa-asistance/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+</head>
+<body>
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/visa-asistance/" class="logo">
+ <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
+ My Visa <span>Assistance</span>
+ </a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu">
+ <span></span><span></span><span></span>
+ </button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/visa-asistance/">Home</a></li>
+ <li><a href="/visa-asistance/about">About</a></li>
+ <li><a href="/visa-asistance/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-requirements/" class="active">Visa Requirements</a></li>
+ <li><a href="/visa-asistance/blog/">Blog</a></li>
+ <li><a href="/visa-asistance/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <div class="country-hero">
+ <div class="container">
+ <nav class="breadcrumb">
+ <a href="/visa-asistance/">Home</a>
+ <span>/</span>
+ <a href="/visa-asistance/visa-requirements/">Visa Requirements</a>
+ <span>/</span>
+ <span>Thailand Visa Requirements</span>
+ </nav>
+ <h1>Thailand Visa Requirements 2026</h1>
+ <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;">Complete requirements for obtaining a visa for Thailand, including document checklists, fees, and eligibility criteria.</p>
+ </div>
+ </div>
+
+ <section class="country-content">
+ <div class="container">
+ <div class="content-grid">
+ <div class="main-content">
+ <h2>Thailand Visa Requirements - Overview</h2>
+ <p>Thailand visa requirements include a valid passport, completed application form, passport-sized photograph, proof of funds (₹20,000 per person), and confirmed flight booking.</p>
+
+ <h2>Required Documents</h2>
+ <p>The following documents are generally required for a Thailand visa application:</p>
+ <ul>
+ <li>Passport valid for at least 6 months</li>
+ <li>Completed visa application form</li>
+ <li>Passport-sized photograph</li>
+ <li>Proof of financial means (₹20,000/person)</li>
+ <li>Confirmed flight booking</li>
+ <li>Hotel reservations</li>
+ <li>Bank statement (last 3 months)</li>
+ </ul>
+ <p style="font-size:0.9rem;color:var(--color-text-light);">Note: Additional documents may be required depending on the visa type and your specific circumstances.</p>
+
+ <h2>Visa Fees</h2>
+ <table>
+ <thead>
+ <tr>
+ <th>Category</th>
+ <th>Fee</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr><td>Standard Application Fee</td><td>Visa-free (60 days) or ₹4,800 (₹(approximately ฿2,000)</td></tr>
+ <tr><td>Priority Processing</td><td>Additional fee may apply</td></tr>
+ <tr><td>Service Charge</td><td>Varies by visa application center</td></tr>
+ </tbody>
+ </table>
+ <p style="font-size:0.85rem;color:var(--color-text-light);">Official visa website: <a href="https://www.immigration.go.th" target="_blank" rel="noopener noreferrer">Thailand Immigration Bureau</a> | Track application: <a href="https://www.thaievisa.go.th" target="_blank" rel="noopener noreferrer">Thailand eVisa Tracking</a></p>
+ 
+
+ <h2>Eligibility Criteria</h2>
+ <p>To be eligible for a Thailand visa, applicants must generally meet the following criteria:</p>
+ <ul>
+ <li>Hold a valid passport with sufficient validity</li>
+ <li>Have a clear purpose of visit (tourism, business, study, etc.)</li>
+ <li>Demonstrate sufficient financial means for the duration of stay</li>
+ <li>Show strong ties to home country (employment, family, property)</li>
+ <li>Have no immigration violations or criminal record</li>
+ <li>Meet health requirements (may require medical examination)</li>
+ </ul>
+
+ <h2>Application Process</h2>
+ <ol style="list-style:decimal;padding-left:20px;margin-bottom:1.5rem;">
+ <li style="margin-bottom:0.5rem;">Check if you need a visa for Thailand based on your nationality</li>
+ <li style="margin-bottom:0.5rem;">Determine the correct visa type for your purpose of travel</li>
+ <li style="margin-bottom:0.5rem;">Gather all required documents listed above</li>
+ <li style="margin-bottom:0.5rem;">Complete the visa application form accurately</li>
+ <li style="margin-bottom:0.5rem;">Pay the applicable visa fee</li>
+ <li style="margin-bottom:0.5rem;">Submit your application at the embassy/consulate or online</li>
+ <li style="margin-bottom:0.5rem;">Attend visa interview if required</li>
+ <li style="margin-bottom:0.5rem;">Wait for processing and collect your visa</li>
+ </ol>
+
+ <h2>Important Notes</h2>
+ <div class="info-box">
+ <h4>Before You Apply</h4>
+ <ul>
+ <li>Visa requirements may change without notice. Always verify with the official embassy website.</li>
+ <li>Processing times vary and may take longer during peak travel seasons.</li>
+ <li>Incomplete applications with missing documents are likely to be rejected.</li>
+ <li>Providing false information can result in visa refusal and future travel bans.</li>
+ <li>Check if your nationality is eligible for visa-free travel or visa on arrival.</li>
+ </ul>
+ </div>
+
+ <h2>Frequently Asked Questions</h2>
+ <div class="faq-list" style="max-width:100%;">
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Do I need a visa for Thailand?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Citizens of 64 countries including US, UK, Australia, and most EU countries get visa-free entry for 30 days. 20 countries can get Visa on Arrival for 15 days.</p>
+ </div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Can I extend my Thai visa?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Yes, tourist visas can be extended once for 30 days at a local immigration office for ₹1,900.</p>
+ </div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ How long does Thailand visa processing take?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Tourist visas typically take 3-5 business days. Visa on Arrival is processed at the airport in about 30 minutes.</p>
+ </div>
+ </div>
+ 
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What is a cover letter for a visa application?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>A visa cover letter is a formal document submitted with your visa application that explains the purpose of your visit, travel itinerary, financial means, accommodation details, and your intent to return home. While not always mandatory, a well-written cover letter helps visa officers understand your case quickly and can strengthen your application.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ How can I track my visa application status?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>You can track your visa application status online through the official embassy or consulate website using your application reference number. Most visa application centres (such as VFS Global, TLScontact, or BLS International) also provide online tracking portals where you can check your application status in real time.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What are the different types of visa categories?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Common visa categories include tourist/visitor visa, business visa, student visa, work visa, transit visa, medical visa, diplomatic visa, and family reunification visa. Each category serves a specific purpose of travel and has its own set of eligibility requirements, document checklists, and processing conditions.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Do I need to attend a visa interview?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Many countries require a visa interview, especially for first-time applicants or certain visa categories such as student or work visas. Some countries offer interview waivers for visa renewals, applicants below a certain age, or those from low-risk nationalities. Always check the specific embassy guidelines for your visa type.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What is the difference between single-entry and multiple-entry visa?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>A single-entry visa allows you to enter the destination country only once during its validity period. A multiple-entry visa permits you to enter and exit the country multiple times. Multiple-entry visas are ideal for frequent travellers and are often valid for longer durations such as 1, 3, or 5 years.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What happens if my visa application is rejected?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>If your visa application is rejected, you will receive a refusal letter explaining the specific reason for the decision. You may be able to reapply by addressing the concerns mentioned, file an appeal if the country's regulations allow it, or request a reconsideration. It is advisable to seek professional advice before reapplying.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ How early should I apply for a visa?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>It is generally recommended to apply for a visa at least 4 to 6 weeks before your planned travel date. Some countries accept applications up to 3 to 6 months in advance. Applying early helps avoid processing delays due to high application volumes, incomplete documentation, or peak travel seasons.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Do children need a separate visa?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Yes, children typically require their own visa even if they are travelling with parents. In some cases, minors can be included on a parent's application. Additional documents such as birth certificates, parental consent letters from both parents, and school enrolment letters are usually required for minor applicants.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Is travel insurance required for a visa application?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Many countries, particularly Schengen Area states, require travel medical insurance as a mandatory part of the visa application. The insurance must typically cover medical emergencies, hospitalisation, and repatriation with a minimum coverage of €30,000. Check the specific requirements of your destination country.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Can I work on a tourist visa?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>No, tourist visas generally prohibit any form of paid or unpaid employment. You need a valid work visa or work permit to engage in employment in a foreign country. Violating visa conditions by working on a tourist visa can result in deportation, fines, and future entry bans.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What documents are commonly required for a visa application?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Commonly required documents include a valid passport with at least 6 months validity, completed visa application form, recent passport-sized photographs, round-trip flight itinerary, hotel bookings, bank statements for the last 3-6 months, employment letter, income tax returns, and travel insurance.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What is the typical visa processing time?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Visa processing time varies depending on the visa type, destination country, application volume, and time of year. Standard processing can range from 3-5 working days for e-visas to several weeks or months for complex visa categories. Priority or express processing is available in some countries for an additional fee.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Can I apply for a visa online?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Many countries now offer online visa applications or e-visa systems, allowing you to submit your application, upload supporting documents, and pay fees electronically. However, some countries still require in-person submission at an embassy, consulate, or authorised visa application centre.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What is the difference between a visa and a passport?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>A passport is a government-issued identification document that proves your identity and citizenship for international travel. A visa is an official authorisation endorsed on your passport (or issued electronically) that grants you permission to enter, stay, or transit through a foreign country for a specific purpose and duration.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What is the 6-month passport validity rule for visas?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>The 6-month passport validity rule requires your passport to be valid for at least six months beyond your intended stay in the destination country. This is a common requirement for many countries worldwide. If your passport does not meet this requirement, your visa application may be denied even if all other documents are in order.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <aside class="sidebar">
+ <div class="sidebar-card">
+ <h3>Quick Facts</h3>
+ <ul>
+ <li><strong>Country:</strong> Thailand</li>
+ <li><strong>Region:</strong> Asia</li>
+ <li><strong>Visa Required:</strong> Yes</li>
+ <li><strong>Processing Time:</strong> 3-5 business days</li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Required Documents</h3>
+ <ul>
+ <li>Passport valid for at least 6 months</li>
+ <li>Completed visa application form</li>
+ <li>Passport-sized photograph</li>
+ <li>Proof of financial means (₹20,000/person)</li>
+
+ </ul>
+ </div>
+
+ <div class="sidebar-card sidebar-cta">
+ <h3>Need Help?</h3>
+ <p>Our visa experts can help you prepare your Thailand visa application.</p>
+ <a href="/visa-asistance/contact" class="btn btn-primary" style="margin-bottom:8px;">Contact Us</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);display:block;text-align:center;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Related Guides</h3>
+ <ul>
+ <li><a href="/visa-asistance/visa-guide/thailand-visa">Thailand Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-requirements/">View All Requirements</a></li>
+ </ul>
+ </div>
+ </aside>
+ </div>
+ </div>
+ </section>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#A5D549"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#0a0a52"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#0a0a52"/>
+ </svg>
+ </span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/visa-asistance/">Home</a></li>
+ <li><a href="/visa-asistance/about">About</a></li>
+ <li><a href="/visa-asistance/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-asistance/blog/">Blog</a></li>
+ <li><a href="/visa-asistance/contact">Contact</a></li>
+ <li><a href="/visa-asistance/embassy-address/">Embassy Address</a></li>
+ <li><a href="/visa-asistance/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/visa-asistance/upcoming-events/">Upcoming Events</a></li>
+  <li><a href="/visa-asistance/visa-news/">Visa News</a></li>
+  <li><a href="/visa-asistance/tracking-links/">Tracking Links</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-asistance/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:info@myvisaassistance.com"><i class="bi bi-envelope"></i> info@myvisaassistance.com</a></li>
+ <li><a href="tel:+919022954619"><i class="bi bi-telephone"></i> +91 90229 54619</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/visa-asistance/privacy-policy">Privacy Policy</a>
+ <a href="/visa-asistance/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+ <a href="/visa-asistance/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-asistance/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-asistance/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-asistance/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-asistance/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-asistance/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-asistance/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-asistance/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-asistance/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-asistance/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-asistance/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-asistance/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-asistance/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-asistance/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-asistance/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-asistance/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-asistance/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-asistance/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-asistance/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-asistance/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-asistance/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-asistance/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-asistance/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-asistance/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-asistance/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-asistance/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-asistance/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-asistance/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ <a href="/visa-asistance/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-asistance/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-asistance/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-asistance/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-asistance/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-asistance/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-asistance/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-asistance/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-asistance/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-asistance/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-asistance/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-asistance/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-asistance/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-asistance/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-asistance/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-asistance/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-asistance/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-asistance/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-asistance/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-asistance/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-asistance/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-asistance/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-asistance/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-asistance/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-asistance/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-asistance/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-asistance/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-asistance/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ </div>
+ </div>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/visa-asistance/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
+

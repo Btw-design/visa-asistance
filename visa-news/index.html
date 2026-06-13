@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visa News — Latest Visa Updates & Travel Alerts | My Visa Assistance</title>
+<meta name="description" content="Stay updated with the latest visa news, policy changes, travel alerts, and immigration updates from around the world.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://btw-design.github.io/visa-asistance/visa-news/">
+<link rel="icon" type="image/svg+xml" href="/visa-asistance/favicon/favicon.svg">
+
+<style>
+/* ===== Reset & Global ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#1f2937;background:#f8fafc;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{color:#171299;text-decoration:none;transition:color 0.2s}
+a:hover{color:#2a2a9e}
+img{max-width:100%;height:auto;display:block}
+ul{list-style:none}
+h1,h2,h3,h4{color:#171299}
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ===== Header ===== */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:68px;border-bottom:1px solid transparent;transition:all 0.3s}
+.header.scrolled{border-bottom-color:#f1f5f9;box-shadow:0 1px 8px rgba(0,0,0,0.05)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:8px;font-size:1.25rem;font-weight:800;color:#0f172a;text-decoration:none;flex-shrink:0}
+.logo span{color:#A5D549}
+.logo-icon{width:28px;height:28px;background:#171299;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0}
+.nav-list{display:flex;align-items:center;gap:2px}
+.nav-list a{font-size:0.9rem;font-weight:500;color:#475569;padding:8px 16px;border-radius:6px;transition:all 0.2s}
+.nav-list a:hover{color:#0f172a;background:#f1f5f9}
+.nav-list a.active{color:#171299;background:rgba(23,18,153,0.06);font-weight:600}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:6px}
+.menu-toggle span{display:block;width:22px;height:2px;background:#0f172a;border-radius:2px;transition:all 0.3s}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:998;opacity:0;transition:opacity 0.3s}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+body.menu-open{overflow:hidden}
+
+/* ===== Hero ===== */
+.hero{padding:130px 0 50px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(165,213,73,0.08),transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;margin-bottom:10px}
+.hero h1 span{color:#A5D549}
+.hero p{font-size:1.1rem;color:#64748b;max-width:600px;margin:0 auto;font-weight:400}
+
+/* ===== News Feed ===== */
+.news-section{padding:20px 0 80px}
+.news-feed{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.news-card{background:#fff;border:1.5px solid #f1f5f9;border-radius:16px;padding:28px 32px;transition:all 0.25s;position:relative;overflow:hidden}
+.news-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#A5D549;border-radius:0 2px 2px 0}
+.news-card:hover{border-color:#e2e8f0;box-shadow:0 8px 28px rgba(0,0,0,0.06);transform:translateY(-2px)}
+.news-card .news-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:600;color:#059669;background:#ecfdf5;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.news-card .news-badge svg{width:12px;height:12px}
+.news-card .news-badge.urgent{color:#dc2626;background:#fef2f2}
+.news-card .news-badge.update{color:#171299;background:rgba(23,18,153,0.08)}
+.news-card h2{font-size:1.15rem;margin-bottom:8px;line-height:1.4}
+.news-card p{font-size:0.92rem;color:#64748b;margin-bottom:12px;line-height:1.6}
+.news-card .news-meta{display:flex;align-items:center;gap:16px;font-size:0.82rem;color:#94a3b8;flex-wrap:wrap}
+.news-card .news-meta span{display:flex;align-items:center;gap:4px}
+.news-card .news-meta svg{width:14px;height:14px;flex-shrink:0}
+.news-card .news-meta .author{color:#64748b;font-weight:500}
+.news-card .news-source{display:inline-flex;align-items:center;gap:4px;color:#171299;font-weight:500;font-size:0.88rem;margin-top:4px}
+.news-card .news-source:hover{text-decoration:underline}
+
+/* ===== Subscribe CTA ===== */
+.cta-section{background:#171299;padding:56px 0;text-align:center;margin-top:40px}
+.cta-section h2{color:#fff;font-size:1.5rem;margin-bottom:8px}
+.cta-section p{color:rgba(255,255,255,0.75);font-size:0.95rem;margin-bottom:0;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* ===== Footer ===== */
+.footer{background:#0a0a52;color:rgba(255,255,255,0.85);padding:56px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#A5D549,#bae56a,#A5D549)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:36px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.footer-brand .logo-icon{width:28px;height:28px;background:#171299;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0}
+.footer-brand-text{font-size:1.15rem;font-weight:700;color:#fff}
+.footer-brand-text span{color:#A5D549}
+.footer-tagline{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;max-width:300px}
+.footer-col h4{color:#fff;font-size:0.9rem;font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px}
+.footer-col ul li{margin-bottom:8px}
+.footer-col ul li a{color:rgba(255,255,255,0.65);font-size:0.88rem;transition:color 0.2s}
+.footer-col ul li a:hover{color:#fff}
+.footer-divider{height:1px;background:rgba(255,255,255,0.1);margin:0}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:0.82rem;color:rgba(255,255,255,0.5);flex-wrap:wrap;gap:12px}
+.footer-bottom a{color:rgba(255,255,255,0.65);font-size:0.82rem}
+.footer-bottom a:hover{color:#fff}
+
+/* ===== Responsive ===== */
+@media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:767px){
+.menu-toggle{display:flex}
+.nav-overlay{display:block;pointer-events:none}
+.nav-overlay.open{pointer-events:auto}
+.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:270px;height:100vh;background:#fff;padding:88px 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}
+.nav-list.open{transform:translateX(0)}
+.nav-list a{padding:14px 0;border-bottom:1px solid #f1f5f9;width:100%;font-size:0.95rem}
+.nav-list a:last-child{border-bottom:none}
+.menu-toggle{z-index:1001}
+.hero{padding:110px 0 36px}
+.news-card{padding:22px 20px}
+.news-card h2{font-size:1.05rem}
+.cta-section{padding:40px 0}
+.footer-grid{grid-template-columns:1fr;gap:24px}
+.footer-bottom{flex-direction:column;text-align:center}
+.footer-tagline{max-width:100%}
+}
+@media(max-width:420px){
+.container{padding:0 16px}
+.hero h1{font-size:1.5rem}
+.news-card{padding:18px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" role="banner">
+<div class="header-inner">
+<a href="/visa-asistance/" class="logo" aria-label="My Visa Assistance - Home">
+<div class="logo-icon" aria-hidden="true">V</div>
+My Visa <span>Assistance</span>
+</a>
+<button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+<ul class="nav-list">
+<li><a href="/visa-asistance/">Home</a></li>
+<li><a href="/visa-asistance/visa-news/" class="active">Visa News</a></li>
+<li><a href="/visa-asistance/visa-guide/">Visa Guides</a></li>
+<li><a href="/visa-asistance/contact">Contact Us</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- Nav Overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="container">
+<h1>Latest <span>Visa News</span></h1>
+<p>Stay updated with the latest visa policy changes, travel alerts, and immigration updates from around the world.</p>
+</div>
+</section>
+
+<!-- ===== NEWS FEED ===== -->
+<section class="news-section">
+<div class="container">
+<div class="news-feed">
+
+<!-- News 1 -->
+<div class="news-card">
+<span class="news-badge urgent">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+Breaking News
+</span>
+<h2>US Introduces $750 Fee to Skip Visa Interview Waitlist</h2>
+<p>The U.S. State Department is piloting a new $750 fee that lets B-1/B-2 visa applicants secure an interview appointment within 10 business days. Launching July 1, 2026 at select embassies, the optional fee runs through December 31. Standard $185 visa fee still applies, bringing the total to $935 for fast-tracked appointments.</p>
+<div class="news-meta">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>June 11, 2026</span>
+<span class="author">Source: U.S. Federal Register</span>
+</div>
+<a class="news-source" href="https://skift.com/2026/06/08/750-visa-appointment-fee/" target="_blank" rel="noopener noreferrer">Read full article →</a>
+</div>
+
+<!-- News 2 -->
+<div class="news-card">
+<span class="news-badge update">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+Coming Soon
+</span>
+<h2>ETIAS Launch Set for Late 2026 — US Citizens Will Need Pre-Travel Authorization for Europe</h2>
+<p>The European Travel Information and Authorisation System (ETIAS) is expected to go live in Q4 2026. Travelers from 59 visa-exempt countries, including the US, Canada, and Australia, will need to apply online or via app before visiting 30 Schengen Area countries. Authorization costs €7 and is valid for 3 years.</p>
+<div class="news-meta">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>June 12, 2026</span>
+<span class="author">Source: U.S. Department of State</span>
+</div>
+<a class="news-source" href="https://www.thetravel.com/us-state-department-warns-valid-passport-wont-guarantee-entry-to-europe-new-rules/" target="_blank" rel="noopener noreferrer">Read full article →</a>
+</div>
+
+<!-- News 3 -->
+<div class="news-card">
+<span class="news-badge">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+Court Ruling
+</span>
+<h2>Federal Judge Overturns USCIS Immigration Freeze for 39 Countries</h2>
+<p>A U.S. federal judge ruled that USCIS cannot freeze immigration applications — including asylum, work permits, and green cards — based solely on an applicant's nationality from 39 travel-ban countries. The ruling applies to applications processed within the US and orders an immediate restart of case adjudications.</p>
+<div class="news-meta">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>June 6, 2026</span>
+<span class="author">Source: VisaVerge</span>
+</div>
+<a class="news-source" href="https://www.visaverge.com/news/us-judge-orders-immigration-agency-to-end-travel-ban-holds-on-39-countries-cases/" target="_blank" rel="noopener noreferrer">Read full article →</a>
+</div>
+
+<!-- News 4 -->
+<div class="news-card">
+<span class="news-badge update">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+Cap Reached
+</span>
+<h2>India EB-2 &amp; EB-5 Visa Per-Country Limits Reached for FY 2026</h2>
+<p>The U.S. Department of State announced that the India per-country limit has been reached in both the EB-2 (advanced degree professionals) and EB-5 (investor) categories for fiscal year 2026. New applications in these categories will not be processed until the next fiscal year. Applicants are advised to explore alternative visa pathways.</p>
+<div class="news-meta">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>May–June 2026</span>
+<span class="author">Source: U.S. Department of State</span>
+</div>
+<a class="news-source" href="https://travel.state.gov/content/travel/en/News/visas-news.html" target="_blank" rel="noopener noreferrer">Read full article →</a>
+</div>
+
+<!-- News 5 -->
+<div class="news-card">
+<span class="news-badge">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+System Launch
+</span>
+<h2>EU Launches Digital Entry/Exit System — Passport Stamps Replaced</h2>
+<p>The Schengen Area deployed its new Entry/Exit System (EES) in April 2026, replacing physical passport stamps with digital biometric records. Travelers entering and exiting the EU now have their name, travel document type, and fingerprints recorded electronically. The system aims to speed up border processing and strengthen security.</p>
+<div class="news-meta">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>April 2026</span>
+<span class="author">Source: European Union</span>
+</div>
+<a class="news-source" href="https://www.thetravel.com/us-state-department-warns-valid-passport-wont-guarantee-entry-to-europe-new-rules/" target="_blank" rel="noopener noreferrer">Read full article →</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===== SUBSCRIBE CTA ===== -->
+<section class="cta-section">
+<div class="container">
+<h2>Stay Informed</h2>
+<p>Bookmark this page and check back regularly for the latest visa policy changes, travel alerts, and immigration updates worldwide.</p>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about">
+<div class="footer-brand">
+<div class="logo-icon" aria-hidden="true">V</div>
+<span class="footer-brand-text">My Visa <span>Assistance</span></span>
+</div>
+<p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="/visa-asistance/">Home</a></li>
+<li><a href="/visa-asistance/about">About</a></li>
+<li><a href="/visa-asistance/visa-guide/">Visa Guide</a></li>
+<li><a href="/visa-asistance/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/visa-asistance/blog/">Blog</a></li>
+<li><a href="/visa-asistance/contact">Contact</a></li>
+<li><a href="/visa-asistance/embassy-address/">Embassy Address</a></li>
+<li><a href="/visa-asistance/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/visa-asistance/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/visa-asistance/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-asistance/visa-news/">Visa News</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Top Countries</h4>
+<ul>
+<li><a href="/visa-asistance/visa-guide/usa-visa">US Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/uk-visa">UK Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/canada-visa">Canada Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/australia-visa">Australia Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/india-visa">India Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/schengen-visa">Schengen Visa</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="/visa-asistance/privacy-policy">Privacy Policy</a></li>
+<li><a href="/visa-asistance/terms-of-service">Terms &amp; Conditions</a></li>
+<li><a href="/visa-asistance/contact">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-divider"></div>
+<div class="footer-bottom">
+<span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+<span class="footer-bottom-links">
+<a href="/visa-asistance/privacy-policy">Privacy Policy</a> &middot;
+<a href="/visa-asistance/terms-of-service">Terms of Service</a>
+</span>
+</div>
+</div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// Header scroll effect
+document.addEventListener('scroll', function(){
+document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Mobile menu toggle
+document.querySelector('.menu-toggle').addEventListener('click', function(){
+this.classList.toggle('active');
+document.querySelector('.nav-list').classList.toggle('open');
+document.getElementById('navOverlay').classList.toggle('open');
+document.body.classList.toggle('menu-open');
+});
+
+document.getElementById('navOverlay').addEventListener('click', function(){
+document.querySelector('.menu-toggle').classList.remove('active');
+document.querySelector('.nav-list').classList.remove('open');
+this.classList.remove('open');
+document.body.classList.remove('menu-open');
+});
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
