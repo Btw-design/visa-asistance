@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+.blog-content{max-width:800px;margin:0 auto;padding:40px 20px}
+.blog-content h2{margin-top:1.8em;border-bottom:2px solid var(--color-accent);padding-bottom:0.3em}
+.blog-content h3{margin-top:1.5em}
+.blog-content p,.blog-content li{line-height:1.8}
+.blog-content ul,.blog-content ol{margin-bottom:1.2rem;padding-left:20px}
+.blog-content ul li{list-style:disc;margin-bottom:0.4rem}
+.blog-content ol li{list-style:decimal;margin-bottom:0.4rem}
+.blog-content .info-box{background:var(--color-bg-alt);border-left:4px solid var(--color-accent);padding:20px 25px;border-radius:0 8px 8px 0;margin:1.5rem 0}
+.blog-content .info-box h4{color:var(--color-primary);margin-bottom:0.3em}
+.blog-content table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+.blog-content th,.blog-content td{padding:12px 15px;border:1px solid var(--color-border);text-align:left}
+.blog-content th{background:var(--color-primary);color:var(--color-white)}
+.blog-content tr:nth-child(even) td{background:var(--color-bg-alt)}
+.blog-content .blog-meta{display:flex;gap:20px;color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.blog-content .blog-meta span{display:flex;align-items:center;gap:5px}
+.blog-content .infographic{background:var(--color-bg-alt);border:1px solid var(--color-border);border-radius:12px;padding:30px;margin:2rem 0;text-align:center}
+.blog-content .infographic svg{max-width:100%;height:auto}
+.blog-content .author-box{display:flex;gap:20px;align-items:center;background:var(--color-bg-alt);padding:25px;border-radius:12px;margin:2rem 0}
+.blog-content .author-box .avatar{width:60px;height:60px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;flex-shrink:0}
+.blog-content .share-buttons{display:flex;gap:10px;margin:2rem 0;flex-wrap:wrap}
+.blog-content .share-buttons a{padding:10px 20px;border-radius:6px;color:white;text-decoration:none;font-size:0.9rem}
+.blog-content .cta-section{background:var(--color-primary);color:white;padding:30px;border-radius:12px;text-align:center;margin:2rem 0}
+.blog-content .cta-section h3{color:white;margin-bottom:0.5em}
+.blog-content .cta-section p{color:rgba(255,255,255,0.85)}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.nav-list{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Henley Passport Index 2026: India's Rank, Visa-Free Score, and How to Improve Travel Freedom - My Visa Assistance</title>
+ <meta name="title" content="Henley Passport Index 2026: India's Rank, Visa-Free Score, and How to Improve Travel Freedom - My Visa Assistance">
+ <meta name="description" content="India's Henley Passport Index ranking for 2026. Current visa-free score, rank trend over the years, top passports globally, and how Indian travellers can improve their travel freedom.">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="My Visa Assistance Team">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://btw-design.github.io/visa-asistance/blog/henley-passport-index-2026">
+ <meta property="og:title" content="Henley Passport Index 2026: India's Rank, Visa-Free Score, and How to Improve Travel Freedom - My Visa Assistance">
+ <meta property="og:description" content="India's Henley Passport Index ranking for 2026. Current visa-free score, rank trend over the years, top passports globally, and how Indian travellers can improve their travel freedom.">
+ <meta property="article:published_time" content="2026-06-10">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="icon" type="image/svg+xml" href="/visa-asistance/favicon/favicon.svg">
+ <link rel="canonical" href="https://btw-design.github.io/visa-asistance/blog/henley-passport-index-2026">
+ <link rel="preload" href="/visa-asistance/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/visa-asistance/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Henley Passport Index 2026: India's Rank, Visa-Free Score, and How to Improve Travel Freedom",
+ "description": "India's Henley Passport Index ranking for 2026. Current visa-free score, rank trend over the years, top passports globally, and how Indian travellers can improve their travel freedom.",
+ "author": { "@type": "Organization", "name": "My Visa Assistance" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://btw-design.github.io/visa-asistance/favicon/favicon.svg" } },
+ "datePublished": "2026-06-10",
+ "dateModified": "2026-06-10",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://btw-design.github.io/visa-asistance/blog/henley-passport-index-2026" }
+ }
+ </script>
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [{
+ "@type": "Question",
+ "name": "What is the Henley Passport Index?",
+ "acceptedAnswer": { "@type": "Answer", "text": "The Henley Passport Index is an authoritative ranking of all the world's passports based on the number of destinations their holders can access without a prior visa. It is updated quarterly and ranks 199 passports against 227 travel destinations using data from the International Air Transport Association (IATA)." }
+ },{
+ "@type": "Question",
+ "name": "What is India's current rank on the Henley Passport Index in 2026?",
+ "acceptedAnswer": { "@type": "Answer", "text": "As of the 2026 Henley Passport Index, India ranks approximately 85th with visa-free or visa-on-arrival access to around 60+ destinations. India's ranking has been gradually improving over the past few years due to bilateral visa waiver agreements and increased diplomatic engagement." }
+ },{
+ "@type": "Question",
+ "name": "Which countries have the strongest passports in 2026?",
+ "acceptedAnswer": { "@type": "Answer", "text": "The top passports in 2026 are led by Singapore (1st, 195+ destinations), followed by Japan, Germany, France, Italy, Spain, Finland, South Korea, Sweden, and Denmark. These countries enjoy visa-free or visa-on-arrival access to nearly every travel destination worldwide." }
+ },{
+ "@type": "Question",
+ "name": "How can Indian passport holders improve their travel freedom?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Indian travellers can improve travel freedom by building a strong travel history to developed countries, obtaining multi-entry visas (especially Schengen, US, UK, Canada), maintaining a healthy bank balance, and in some cases applying for citizenship or residency in countries with stronger passports through investment or naturalisation." }
+ }]
+ }
+ </script>
+</head>
+<body>
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/visa-asistance/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/visa-asistance/">Home</a></li>
+ <li><a href="/visa-asistance/about">About</a></li>
+ <li><a href="/visa-asistance/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-asistance/blog/" class="active">Blog</a></li>
+ <li><a href="/visa-asistance/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/visa-asistance/">Home</a><span class="separator">/</span>
+ <a href="/visa-asistance/blog/">Blog</a><span class="separator">/</span>
+ <span>Henley Passport Index 2026</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+ <h1>Henley Passport Index 2026: India's Rank, Visa-Free Score, and How to Improve Travel Freedom</h1>
+
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: June 10, 2026</span>
+ <span><i class="bi bi-clock"></i> 7 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ <span><i class="bi bi-chat-dots"></i> Updated: June 10, 2026</span>
+ </div>
+
+ <div class="infographic">
+ <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+ <defs>
+ <linearGradient id="g7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0a52"/><stop offset="100%" stop-color="#171299"/></linearGradient>
+ </defs>
+ <rect width="700" height="240" rx="12" fill="url(#g7)"/>
+ <text x="350" y="30" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold" letter-spacing="0.5">Henley Passport Index 2026 â€” India at a Glance</text>
+ <rect x="60" y="55" width="260" height="80" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+ <text x="190" y="80" text-anchor="middle" fill="#A5D549" font-size="32" font-weight="bold">~85th</text>
+ <text x="190" y="105" text-anchor="middle" fill="white" font-size="13" font-weight="600">Global Rank</text>
+ <text x="190" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Improving steadily since 2015</text>
+ <rect x="380" y="55" width="260" height="80" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+ <text x="510" y="80" text-anchor="middle" fill="#A5D549" font-size="32" font-weight="bold">~60+</text>
+ <text x="510" y="105" text-anchor="middle" fill="white" font-size="13" font-weight="600">Visa-Free / VoA</text>
+ <text x="510" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Includes eVisa and visa on arrival</text>
+ <line x1="60" y1="145" x2="640" y2="145" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+ <rect x="60" y="160" width="180" height="34" rx="8" fill="rgba(165,213,73,0.12)" stroke="#A5D549" stroke-width="0.5"/>
+ <text x="150" y="181" text-anchor="middle" fill="white" font-size="11" font-weight="600">Singapore (195+)</text>
+ <rect x="260" y="160" width="180" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+ <text x="350" y="181" text-anchor="middle" fill="white" font-size="11">Afghanistan (~26)</text>
+ <rect x="460" y="160" width="180" height="34" rx="8" fill="rgba(165,213,73,0.12)" stroke="#A5D549" stroke-width="0.5"/>
+ <text x="550" y="181" text-anchor="middle" fill="white" font-size="11">+ Schengen = +29</text>
+ <text x="350" y="220" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="9">Source: Henley &amp; Partners / IATA â€” 2026</text>
+</svg>
+ </div>
+
+ <p>For Indian travellers, the passport you hold determines how freely you can explore the world. The <strong>Henley Passport Index 2026</strong> offers the most authoritative global ranking of passports based on the number of destinations accessible without a prior visa. This guide breaks down India's current rank, visa-free score, the strongest and weakest passports globally, and actionable strategies to improve your travel freedom.</p>
+
+ <h2>What is the Henley Passport Index?</h2>
+ <p>The <strong>Henley Passport Index</strong> is published by Henley &amp; Partners, a global citizenship and residency advisory firm. It ranks 199 passports against 227 travel destinations using exclusive data from the <strong>International Air Transport Association (IATA)</strong>. The index is updated quarterly, making it the most up-to-date passport ranking in the world.</p>
+ <p>The score reflects the number of destinations the passport holder can visit <strong>visa-free</strong>, with a <strong>visa on arrival</strong>, through an <strong>eVisa</strong>, or via an <strong>electronic travel authorisation (ETA)</strong>. Destinations requiring a traditional visa do not count toward the score.</p>
+
+ <div class="info-box">
+ <h4>Methodology Highlights</h4>
+ <p>Each passport is assigned a score equal to the number of destinations the holder can enter without a traditional visa. The data is cross-checked with IATA, government sources, and on-the-ground reports. Ties are broken by the number of visa-free destinations vs. visa-on-arrival destinations.</p>
+ </div>
+
+ <h2>India's Rank in the Henley Passport Index 2026</h2>
+ <p>As of the <strong>2026 Henley Passport Index</strong>, India holds approximately <strong>rank 85th</strong> with a visa-free/visa-on-arrival score of around <strong>60+ destinations</strong>. This marks a steady improvement over the past decade, driven by bilateral agreements, growing diplomatic influence, and India's economic rise.</p>
+
+ <h3>India's Rank Trend Over Recent Years</h3>
+ <table>
+ <thead><tr><th>Year</th><th>Rank</th><th>Visa-Free / VoA Score</th><th>Notable Changes</th></tr></thead>
+ <tbody>
+ <tr><td>2021</td><td>~90th</td><td>~58</td><td>Post-pandemic recovery began</td></tr>
+ <tr><td>2022</td><td>~87th</td><td>~60</td><td>Bilateral deals with Southeast Asia</td></tr>
+ <tr><td>2023</td><td>~86th</td><td>~60</td><td>E-visa expansion</td></tr>
+ <tr><td>2024</td><td>~85th</td><td>~62</td><td>Thailand visa-free, new agreements</td></tr>
+ <tr><td>2025</td><td>~84th</td><td>~63</td><td>Sri Lanka, Malaysia visa-free added</td></tr>
+ <tr><td>2026</td><td>~85th</td><td>~60+</td><td>Consolidated position</td></tr>
+ </tbody>
+ </table>
+ <p>While India's improvement is gradual, it reflects a positive trajectory. For comparison, China has also moved up the ranks but remains behind India in visa-free score, while neighbouring countries like Nepal, Bhutan, and Sri Lanka have similar scores.</p>
+
+ <h2>Top 10 Strongest Passports in 2026</h2>
+ <p>These passports offer near-global travel freedom, with access to 190+ destinations:</p>
+ <table>
+ <thead><tr><th>Rank</th><th>Passport</th><th>Visa-Free / VoA Destinations</th></tr></thead>
+ <tbody>
+ <tr><td>1</td><td>Singapore</td><td>195+</td></tr>
+ <tr><td>2</td><td>Japan</td><td>193+</td></tr>
+ <tr><td>3</td><td>Germany</td><td>192+</td></tr>
+ <tr><td>4</td><td>France</td><td>192+</td></tr>
+ <tr><td>5</td><td>Italy</td><td>192+</td></tr>
+ <tr><td>6</td><td>Spain</td><td>191+</td></tr>
+ <tr><td>7</td><td>Finland</td><td>191+</td></tr>
+ <tr><td>8</td><td>South Korea</td><td>191+</td></tr>
+ <tr><td>9</td><td>Sweden</td><td>190+</td></tr>
+ <tr><td>10</td><td>Denmark</td><td>190+</td></tr>
+ </tbody>
+ </table>
+ <p>Singapore has overtaken Japan to claim the top spot in 2026, reflecting its strong diplomatic relations and global mobility agreements.</p>
+
+ <h2>Bottom 10 Weakest Passports in 2026</h2>
+ <table>
+ <thead><tr><th>Rank</th><th>Passport</th><th>Visa-Free / VoA Destinations</th></tr></thead>
+ <tbody>
+ <tr><td>199</td><td>Afghanistan</td><td>~26</td></tr>
+ <tr><td>198</td><td>Syria</td><td>~28</td></tr>
+ <tr><td>197</td><td>Iraq</td><td>~30</td></tr>
+ <tr><td>196</td><td>Yemen</td><td>~33</td></tr>
+ <tr><td>195</td><td>Somalia</td><td>~35</td></tr>
+ <tr><td>194</td><td>Palestine</td><td>~38</td></tr>
+ <tr><td>193</td><td>Libya</td><td>~40</td></tr>
+ <tr><td>192</td><td>North Korea</td><td>~42</td></tr>
+ <tr><td>191</td><td>Nepal</td><td>~44</td></tr>
+ <tr><td>190</td><td>Bangladesh</td><td>~45</td></tr>
+ </tbody>
+ </table>
+ <p>Citizens of these countries face significant travel restrictions, requiring visas for the vast majority of international destinations.</p>
+
+ <h2>Countries Indians Can Visit Visa-Free</h2>
+ <p>Here are some of the key destinations Indian passport holders can visit without a visa:</p>
+ <ul>
+ <li><strong>Thailand</strong> — Visa-free (up to 30 days)</li>
+ <li><strong>Malaysia</strong> — Visa-free (up to 30 days)</li>
+ <li><strong>Sri Lanka</strong> — Visa-free (up to 30 days)</li>
+ <li><strong>Maldives</strong> — Visa-free (up to 30 days)</li>
+ <li><strong>Nepal</strong> — Visa-free (unlimited stay for Indians)</li>
+ <li><strong>Bhutan</strong> — Visa-free (with prior clearance)</li>
+ <li><strong>Indonesia</strong> — Visa-free (up to 30 days)</li>
+ <li><strong>Mauritius</strong> — Visa-free (up to 90 days)</li>
+ <li><strong>Seychelles</strong> — Visitor permit on arrival (free, up to 90 days)</li>
+ <li><strong>Fiji</strong> — Visa-free (up to 120 days)</li>
+ <li><strong>Jamaica</strong> — Visa-free (up to 30 days)</li>
+ <li><strong>Trinidad and Tobago</strong> — Visa-free (up to 90 days)</li>
+ <li><strong>Dominica</strong> — Visa-free (up to 90 days)</li>
+ <li><strong>Grenada</strong> — Visa-free (up to 90 days)</li>
+ <li><strong>Saint Kitts and Nevis</strong> — Visa-free (up to 90 days)</li>
+ <li><strong>Saint Lucia</strong> — Visa-free (up to 42 days)</li>
+ <li><strong>Saint Vincent and the Grenadines</strong> — Visa-free (up to 30 days)</li>
+ <li><strong>Vanuatu</strong> — Visa-free (up to 30 days)</li>
+ <li><strong>Samoa</strong> — Visa on arrival (60 days)</li>
+ </ul>
+
+ <h2>Countries with Visa on Arrival for Indians</h2>
+ <p>These countries offer visa on arrival or eVisa facilities for Indian travellers:</p>
+ <ul>
+ <li><strong>Indonesia</strong> — Visa on arrival (up to 30 days, extendable)</li>
+ <li><strong>Thailand</strong> — Visa on arrival (if arriving at certain entry points)</li>
+ <li><strong>Nepal</strong> — Visa on arrival at Kathmandu airport (free for Indians)</li>
+ <li><strong>Maldives</strong> — Visa on arrival (up to 30 days, free)</li>
+ <li><strong>Sri Lanka</strong> — ETA / eVisa (easy online process)</li>
+ <li><strong>Cambodia</strong> — Visa on arrival / eVisa (up to 30 days)</li>
+ <li><strong>Laos</strong> — Visa on arrival (up to 30 days)</li>
+ <li><strong>Myanmar</strong> — eVisa (up to 28 days)</li>
+ <li><strong>Vietnam</strong> — eVisa (up to 90 days)</li>
+ <li><strong>Philippines</strong> — Visa on arrival for certain categories</li>
+ <li><strong>Kenya</strong> — ETA / eVisa (up to 90 days)</li>
+ <li><strong>Tanzania</strong> — Visa on arrival (up to 90 days)</li>
+ <li><strong>Uganda</strong> — Visa on arrival / eVisa (up to 90 days)</li>
+ <li><strong>Rwanda</strong> — Visa on arrival / eVisa (up to 30 days)</li>
+ <li><strong>Zambia</strong> — Visa on arrival / eVisa (up to 90 days)</li>
+ <li><strong>Jordan</strong> — Visa on arrival (up to 30 days)</li>
+ <li><strong>Egypt</strong> — Visa on arrival (up to 30 days)</li>
+ <li><strong>Iran</strong> — Visa on arrival / eVisa (up to 30 days)</li>
+ <li><strong>Mozambique</strong> — Visa on arrival (up to 30 days)</li>
+ <li><strong>Madagascar</strong> — Visa on arrival (up to 60 days)</li>
+ </ul>
+
+ <div class="info-box">
+ <h4>Tip: Always Verify Before You Travel</h4>
+ <p>Visa policies change frequently. Always check with the official embassy, consulate, or our <a href="/visa-asistance/visa-requirements/">visa requirements page</a> before booking flights. Some "visa-free" destinations require prior online registration or proof of onward travel.</p>
+ </div>
+
+ <h2>How a Schengen Visa Helps Indian Travelers</h2>
+ <p>Indian passport holders cannot visit most European countries visa-free. However, obtaining a <strong>Schengen visa</strong> effectively adds <strong>29 European countries</strong> to your accessible list. With a single Schengen visa, you can explore France, Germany, Italy, Spain, Switzerland, Netherlands, and more — all on one trip.</p>
+ <p>Moreover, having a Schengen visa on your passport <strong>improves your travel profile</strong>. Many countries (like Turkey, Mexico, and some Caribbean nations) offer simplified visa processes or waiver programs for Indian travellers who hold a valid Schengen, US, or UK visa. Read our <a href="/visa-asistance/blog/schengen-area-guide">Schengen Area Guide</a> for details.</p>
+
+ <h2>How to Improve Your Travel Freedom</h2>
+ <p>Even with an Indian passport, there are proven strategies to improve your access:</p>
+
+ <h3>1. Build a Strong Travel History</h3>
+ <p>Start by visiting countries that are easier to get into (Southeast Asia, Maldives, Mauritius). A clean travel history with multiple stamps from developed nations makes future visa applications more favourable.</p>
+
+ <h3>2. Obtain Multi-Entry Visas for Gateway Countries</h3>
+ <p>A <strong>multi-entry Schengen visa</strong>, <strong>US B1/B2 visa</strong>, <strong>UK visitor visa</strong>, or <strong>Canadian visa</strong> acts as a "passport booster." Many countries offer eVisa or visa-free access specifically to Indian travellers holding these visas.</p>
+
+ <h3>3. Apply for Stronger Passports Through Citizenship or Residency</h3>
+ <p>Some countries offer <strong>citizenship by investment</strong> or <strong>residency-by-investment</strong> programs. While not affordable for everyone, programs in Portugal (Golden Visa), Malta (MERP), or Caribbean nations (St. Kitts, Antigua, Dominica) can provide a second passport with significantly better travel freedom.</p>
+
+ <h3>4. Strengthen Your Visa Application Profile</h3>
+ <p>Maintain a healthy bank balance, stable employment, clear travel purpose, and comprehensive documentation. A strong visa application profile increases approval chances and can lead to longer-validity visas over time. For Schengen visa tips, read our <a href="/visa-asistance/visa-guide/schengen-visa">Schengen Visa Guide</a>.</p>
+
+ <div class="info-box">
+ <h4>Key Takeaway</h4>
+ <p>While India's Henley Passport Index rank is modest, your individual travel freedom can be significantly higher through strategic visa planning. A single Schengen visa adds 29 destinations; a US visa opens doors across the Americas and beyond.</p>
+ </div>
+
+ <h2>Frequently Asked Questions</h2>
+
+ <h3>How often is the Henley Passport Index updated?</h3>
+ <p>The index is updated quarterly (January, April, July, and October). This regular cadence ensures it reflects the latest visa policy changes, new agreements, and geopolitical developments.</p>
+
+ <h3>How does the Henley Index differ from other passport rankings?</h3>
+ <p>The Henley Passport Index is the most widely cited ranking and uses IATA data as its primary source. Other rankings like the Arton Capital Passport Index use a different methodology and may produce slightly different results. Henley's is generally considered the gold standard.</p>
+
+ <h3>Can having a strong passport help with visa applications for other countries?</h3>
+ <p>Yes. Holding a valid US, UK, Schengen, or Canadian visa (or a second passport from a strong country) significantly improves your visa approval odds for other destinations. Many countries offer simplified procedures for visa holders of certain countries.</p>
+
+ <h3>Where can I see the full ranking of all 199 passports?</h3>
+ <p>Visit our <a href="/visa-asistance/passport-ranking/">Passport Ranking page</a> for the complete list of all 199 passports ranked by visa-free score, updated with the latest data from the Henley Passport Index.</p>
+
+ <p>For official data, visit the <a href="https://www.henleyglobal.com/passport-index" target="_blank" rel="noopener noreferrer">Henley Passport Index official website</a>.</p>
+
+ <div class="cta-section">
+ <h3>Want to Know Your Passport's True Power?</h3>
+ <p>Check our complete passport ranking database — compare any two passports, see visa requirements, and find your best travel options.</p>
+ <p style="margin-top:20px;">
+ <a href="/visa-asistance/passport-ranking/" class="btn btn-primary">View Passport Rankings</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);margin-left:10px;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ </p>
+ </div>
+
+ <div class="share-buttons">
+ <span style="font-weight:600;align-self:center;">Share this guide:</span>
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://btw-design.github.io/visa-asistance/blog/henley-passport-index-2026" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=Henley%20Passport%20Index%202026%20India%20Rank&url=https://btw-design.github.io/visa-asistance/blog/henley-passport-index-2026" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Twitter</a>
+ </div>
+
+ <div class="author-box">
+ <div class="avatar">MV</div>
+ <div>
+ <strong>My Visa Assistance Team</strong>
+ <p style="margin:5px 0 0;font-size:0.9rem;color:var(--color-text-light);">Our team specialises in passport intelligence and travel freedom strategies for Indian travellers. We track global visa policy changes and provide actionable advice to help you travel more, visa-free.</p>
+ </div>
+ </div>
+
+ <p style="text-align:center;margin:2rem 0;">
+ <a href="/visa-asistance/blog/" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Back to Blog</a>
+ <a href="/visa-asistance/passport-ranking/" class="btn btn-outline" style="margin-left:10px;">Passport Rankings</a>
+ <a href="/visa-asistance/blog/schengen-area-guide" class="btn btn-outline" style="margin-left:10px;">Schengen Area Guide</a>
+ <a href="/visa-asistance/visa-guide/schengen-visa" class="btn btn-outline" style="margin-left:10px;">Schengen Visa Guide</a>
+ </p>
+ </article>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#A5D549"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#0a0a52"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#0a0a52"/>
+ </svg>
+ </span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/visa-asistance/">Home</a></li>
+ <li><a href="/visa-asistance/about">About</a></li>
+ <li><a href="/visa-asistance/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-asistance/blog/">Blog</a></li>
+ <li><a href="/visa-asistance/contact">Contact</a></li>
+ <li><a href="/visa-asistance/embassy-address/">Embassy Address</a></li>
+ <li><a href="/visa-asistance/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/visa-asistance/upcoming-events/">Upcoming Events</a></li>
+  <li><a href="/visa-asistance/visa-news/">Visa News</a></li>
+  <li><a href="/visa-asistance/tracking-links/">Tracking Links</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-asistance/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:info@myvisaassistance.com"><i class="bi bi-envelope"></i> info@myvisaassistance.com</a></li>
+ <li><a href="tel:+919022954619"><i class="bi bi-telephone"></i> +91 90229 54619</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorised representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/visa-asistance/privacy-policy">Privacy Policy</a>
+ <a href="/visa-asistance/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+ <a href="/visa-asistance/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-asistance/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-asistance/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-asistance/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-asistance/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-asistance/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-asistance/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-asistance/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-asistance/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-asistance/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-asistance/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-asistance/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-asistance/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-asistance/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-asistance/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-asistance/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-asistance/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-asistance/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-asistance/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-asistance/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-asistance/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-asistance/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-asistance/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-asistance/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-asistance/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-asistance/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-asistance/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-asistance/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ <a href="/visa-asistance/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-asistance/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-asistance/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-asistance/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-asistance/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-asistance/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-asistance/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-asistance/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-asistance/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-asistance/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-asistance/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-asistance/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-asistance/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-asistance/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-asistance/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-asistance/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-asistance/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-asistance/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-asistance/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-asistance/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-asistance/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-asistance/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-asistance/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-asistance/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-asistance/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-asistance/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-asistance/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-asistance/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ </div>
+ </div>
+
+ 
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/visa-asistance/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
