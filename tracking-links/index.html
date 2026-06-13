@@ -1,0 +1,603 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visa Tracking Links — Find Official Visa Status Portals | My Visa Assistance</title>
+<meta name="description" content="Quickly find official visa tracking portals for 195+ countries. Track your visa application status with the correct government website.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://btw-design.github.io/visa-asistance/tracking-links/">
+<link rel="icon" type="image/svg+xml" href="/visa-asistance/favicon/favicon.svg">
+
+<style>
+/* ===== Reset & Global ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#1f2937;background:#ffffff;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{color:#171299;text-decoration:none;transition:color 0.2s}
+a:hover{color:#2a2a9e}
+img{max-width:100%;height:auto;display:block}
+ul{list-style:none}
+h1,h2,h3,h4{font-weight:700;line-height:1.3;color:#171299}
+p{color:#475569;margin-bottom:1rem}
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ===== Header ===== */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:68px;border-bottom:1px solid transparent;transition:all 0.3s}
+.header.scrolled{border-bottom-color:#f1f5f9;box-shadow:0 1px 8px rgba(0,0,0,0.05)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:8px;font-size:1.25rem;font-weight:800;color:#0f172a;text-decoration:none;flex-shrink:0}
+.logo span{color:#A5D549}
+.logo-icon{width:28px;height:28px;background:#171299;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0}
+.nav-list{display:flex;align-items:center;gap:2px}
+.nav-list a{font-size:0.9rem;font-weight:500;color:#475569;padding:8px 16px;border-radius:6px;transition:all 0.2s}
+.nav-list a:hover{color:#0f172a;background:#f1f5f9}
+.nav-list a.active{color:#171299;background:rgba(23,18,153,0.06);font-weight:600}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:6px}
+.menu-toggle span{display:block;width:22px;height:2px;background:#0f172a;border-radius:2px;transition:all 0.3s}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:998;opacity:0;transition:opacity 0.3s}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+body.menu-open{overflow:hidden}
+
+/* ===== Hero ===== */
+.hero{padding:130px 0 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(165,213,73,0.08),transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.03em;margin-bottom:12px;color:#171299}
+.hero h1 span{color:#A5D549}
+.hero p{font-size:1.15rem;color:#64748b;max-width:600px;margin:0 auto 36px;font-weight:400}
+
+/* ===== Search Area ===== */
+.search-wrapper{max-width:640px;margin:0 auto;position:relative;z-index:10}
+.search-box{display:flex;gap:0;background:#fff;border:1.5px solid #e2e8f0;border-radius:14px;padding:4px;box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:all 0.25s;align-items:center}
+.search-box:focus-within{border-color:#A5D549;box-shadow:0 4px 32px rgba(165,213,73,0.2)}
+.search-box select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:#f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 14px center;background-size:14px;border:none;border-radius:10px;padding:14px 40px 14px 18px;font-size:0.95rem;color:#0f172a;font-weight:500;cursor:pointer;min-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;outline:none;transition:background 0.2s;margin:2px}
+.search-box select:hover{background-color:#f1f5f9}
+.search-box select:focus{background-color:rgba(23,18,153,0.04)}
+.search-box input{flex:1;border:none;padding:14px 18px;font-size:1rem;outline:none;color:#0f172a;background:transparent;min-width:0;margin:2px}
+.search-box input::placeholder{color:#94a3b8}
+.search-box button{display:flex;align-items:center;gap:8px;padding:14px 28px;background:#171299;color:#fff;border:none;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.2s;white-space:nowrap;margin:2px}
+.search-box button:hover{background:#2a2a9e;transform:translateY(-1px);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.search-box button:active{transform:translateY(0)}
+.search-box button svg{width:16px;height:16px;flex-shrink:0}
+.search-hint{font-size:0.85rem;color:#94a3b8;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* ===== Autocomplete dropdown ===== */
+.autocomplete-wrap{position:relative;flex:1;min-width:0}
+.autocomplete-list{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.1);max-height:240px;overflow-y:auto;display:none;z-index:100}
+.autocomplete-list.open{display:block}
+.autocomplete-list .item{padding:12px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;font-size:0.9rem;color:#334155;transition:background 0.15s;border-bottom:1px solid #f8fafc}
+.autocomplete-list .item:last-child{border-bottom:none}
+.autocomplete-list .item:hover{background:#f1f5f9}
+.autocomplete-list .item .flag{font-size:1.3rem;line-height:1}
+.autocomplete-list .item .name{font-weight:500}
+.autocomplete-list .item .note{font-size:0.8rem;color:#94a3b8;margin-left:auto}
+
+/* ===== Result Card ===== */
+.result-card{max-width:580px;margin:32px auto 0;background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:32px;box-shadow:0 8px 32px rgba(0,0,0,0.06);display:none;opacity:0;transform:translateY(12px);transition:all 0.4s cubic-bezier(0.22,1,0.36,1)}
+.result-card.visible{display:block;opacity:1;transform:translateY(0)}
+.result-card .result-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #f1f5f9}
+.result-card .result-flag{font-size:2.8rem;line-height:1;width:52px;text-align:center}
+.result-card .result-country{flex:1}
+.result-card .result-country h3{font-size:1.3rem;margin:0 0 2px}
+.result-card .result-country span{font-size:0.85rem;color:#64748b}
+.result-card .detail-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f8fafc;font-size:0.92rem}
+.result-card .detail-row:last-of-type{border-bottom:none}
+.result-card .detail-label{color:#64748b;font-weight:500}
+.result-card .detail-value{color:#0f172a;text-align:right;word-break:break-all}
+.result-card .detail-value a{color:#171299;font-weight:500}
+.result-card .detail-value a:hover{text-decoration:underline}
+.result-card .btn-track{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:22px;padding:16px;background:#171299;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.result-card .btn-track:hover{background:#2a2a9e;transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,18,153,0.25)}
+.result-card .btn-track svg{width:18px;height:18px}
+.result-card .badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;background:#ecfdf5;color:#059669}
+.result-card .badge svg{width:12px;height:12px}
+
+/* ===== Popular Countries ===== */
+.popular-section{padding:60px 0 40px}
+.popular-section h2{text-align:center;font-size:1.5rem;margin-bottom:8px}
+.popular-section .subtitle{text-align:center;color:#64748b;margin-bottom:32px;font-size:0.95rem}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px;max-width:800px;margin:0 auto}
+.country-card{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 12px;background:#fff;border:1.5px solid #f1f5f9;border-radius:14px;cursor:pointer;transition:all 0.2s;font-size:0.88rem;font-weight:500;color:#334155}
+.country-card:hover{border-color:#A5D549;box-shadow:0 4px 16px rgba(165,213,73,0.2);transform:translateY(-3px);color:#171299}
+.country-card .flag{font-size:2rem;line-height:1}
+.country-card .name{text-align:center;font-size:0.82rem;font-weight:500;color:#334155}
+.country-card:hover .name{color:#171299}
+
+/* ===== Trust Section ===== */
+.trust-section{padding:60px 0;background:#f8fafc}
+.trust-section h2{text-align:center;font-size:1.5rem;margin-bottom:36px}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.trust-card{background:#fff;border:1.5px solid #f1f5f9;border-radius:16px;padding:28px 24px;text-align:center;transition:all 0.2s}
+.trust-card:hover{border-color:#e2e8f0;box-shadow:0 4px 16px rgba(0,0,0,0.04)}
+.trust-card .icon{width:48px;height:48px;background:rgba(23,18,153,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#171299}
+.trust-card .icon svg{width:24px;height:24px}
+.trust-card h3{font-size:1.05rem;margin-bottom:6px}
+.trust-card p{font-size:0.88rem;color:#64748b;margin:0}
+
+/* ===== Footer ===== */
+.footer{background:#0a0a52;color:rgba(255,255,255,0.85);padding:56px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#A5D549,#bae56a,#A5D549)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:36px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.footer-brand .logo-icon{width:28px;height:28px;background:#171299;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0}
+.footer-brand-text{font-size:1.15rem;font-weight:700;color:#fff}
+.footer-brand-text span{color:#A5D549}
+.footer-tagline{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;max-width:300px}
+.footer-col h4{color:#fff;font-size:0.9rem;font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px}
+.footer-col ul li{margin-bottom:8px}
+.footer-col ul li a{color:rgba(255,255,255,0.65);font-size:0.88rem;transition:color 0.2s}
+.footer-col ul li a:hover{color:#fff}
+.footer-divider{height:1px;background:rgba(255,255,255,0.1);margin:0}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:0.82rem;color:rgba(255,255,255,0.5);flex-wrap:wrap;gap:12px}
+.footer-bottom a{color:rgba(255,255,255,0.65);font-size:0.82rem}
+.footer-bottom a:hover{color:#fff}
+
+/* ===== Responsive ===== */
+@media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:767px){
+.menu-toggle{display:flex}
+.nav-overlay{display:block;pointer-events:none}
+.nav-overlay.open{pointer-events:auto}
+.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:270px;height:100vh;background:#fff;padding:88px 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}
+.nav-list.open{transform:translateX(0)}
+.nav-list a{padding:14px 0;border-bottom:1px solid #f1f5f9;width:100%;font-size:0.95rem}
+.nav-list a:last-child{border-bottom:none}
+.menu-toggle{z-index:1001}
+.hero{padding:110px 0 50px}
+.search-box{flex-direction:column;padding:8px;gap:6px;border-radius:12px}
+.search-box select{width:100%;margin:0}
+.search-box input{width:100%;padding:14px 16px;margin:0}
+.search-box button{width:100%;justify-content:center;padding:16px;margin:0}
+.autocomplete-list{position:fixed;left:24px;right:24px;top:auto;max-height:200px}
+.country-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px}
+.country-card{padding:14px 10px}
+.country-card .flag{font-size:1.6rem}
+.result-card{padding:24px;margin:24px 12px 0}
+.footer-grid{grid-template-columns:1fr;gap:24px}
+.footer-bottom{flex-direction:column;text-align:center}
+.footer-tagline{max-width:100%}
+}
+@media(max-width:420px){
+.container{padding:0 16px}
+.hero h1{font-size:1.6rem}
+.country-grid{grid-template-columns:repeat(4,1fr)}
+.country-card{padding:12px 8px}
+.country-card .flag{font-size:1.4rem}
+.country-card .name{font-size:0.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" role="banner">
+<div class="header-inner">
+<a href="/visa-asistance/" class="logo" aria-label="My Visa Assistance - Home">
+<div class="logo-icon" aria-hidden="true">V</div>
+My Visa <span>Assistance</span>
+</a>
+<button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+<ul class="nav-list">
+<li><a href="/visa-asistance/">Home</a></li>
+<li><a href="/visa-asistance/tracking-links/" class="active">Track Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/">Visa Guides</a></li>
+<li><a href="/visa-asistance/contact">Contact Us</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- Nav Overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="container">
+<h1>Find Your <span>Visa Tracking</span> Link</h1>
+<p>Access official visa tracking portals for 195+ countries worldwide. Select your destination and get the direct link to check your visa status.</p>
+
+<div class="search-wrapper">
+<div class="search-box">
+<select id="countrySelect" aria-label="Select a country">
+<option value="">All Countries</option>
+</select>
+<div class="autocomplete-wrap">
+<input type="text" id="searchInput" placeholder="Search for a country..." autocomplete="off" aria-label="Search country">
+<div class="autocomplete-list" id="autocompleteList" role="listbox"></div>
+</div>
+<button id="findBtn" type="button">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+Find Tracking Link
+</button>
+</div>
+<p class="search-hint">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+No login, passport number, or application ID required
+</p>
+</div>
+
+<!-- Result Card -->
+<div class="result-card" id="resultCard">
+<div class="result-header">
+<div class="result-flag" id="resultFlag"></div>
+<div class="result-country">
+<h3 id="resultCountryName"></h3>
+<span id="resultProvider"></span>
+</div>
+</div>
+<div class="detail-row">
+<span class="detail-label">Official Portal</span>
+<span class="detail-value"><a id="resultLink" href="#" target="_blank" rel="noopener noreferrer"></a></span>
+</div>
+<div class="detail-row">
+<span class="detail-label">Last Updated</span>
+<span class="detail-value"><span class="badge" id="resultUpdated">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+</span></span>
+</div>
+<a class="btn-track" id="openPortalBtn" href="#" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+Open Tracking Portal
+</a>
+</div>
+</div>
+</section>
+
+<!-- ===== POPULAR COUNTRIES ===== -->
+<section class="popular-section">
+<div class="container">
+<h2>Popular Countries</h2>
+<p class="subtitle">Click on a country to get its official visa tracking link instantly</p>
+<div class="country-grid" id="popularGrid">
+<!-- Populated by JS -->
+</div>
+</div>
+</section>
+
+<!-- ===== TRUST SECTION ===== -->
+<section class="trust-section">
+<div class="container">
+<h2>Why Use Our Tracking Link Finder</h2>
+<div class="trust-grid">
+<div class="trust-card">
+<div class="icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+</div>
+<h3>Official Tracking Links</h3>
+<p>Every link is verified to point to the official government visa tracking portal for that country.</p>
+</div>
+<div class="trust-card">
+<div class="icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+</div>
+<h3>195+ Countries Supported</h3>
+<p>Comprehensive coverage of visa-issuing countries worldwide — from UAE to Zimbabwe.</p>
+</div>
+<div class="trust-card">
+<div class="icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+</div>
+<h3>Updated Regularly</h3>
+<p>Portal links are reviewed and updated to ensure you always reach the correct government website.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about">
+<div class="footer-brand">
+<div class="logo-icon" aria-hidden="true">V</div>
+<span class="footer-brand-text">My Visa <span>Assistance</span></span>
+</div>
+<p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="/visa-asistance/">Home</a></li>
+<li><a href="/visa-asistance/about">About</a></li>
+<li><a href="/visa-asistance/visa-guide/">Visa Guide</a></li>
+<li><a href="/visa-asistance/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/visa-asistance/blog/">Blog</a></li>
+<li><a href="/visa-asistance/contact">Contact</a></li>
+<li><a href="/visa-asistance/embassy-address/">Embassy Address</a></li>
+<li><a href="/visa-asistance/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/visa-asistance/upcoming-events/">Upcoming Events</a></li>
+  <li><a href="/visa-asistance/visa-news/">Visa News</a></li>
+  <li><a href="/visa-asistance/tracking-links/">Tracking Links</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Top Countries</h4>
+<ul>
+<li><a href="/visa-asistance/visa-guide/usa-visa">US Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/uk-visa">UK Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/canada-visa">Canada Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/australia-visa">Australia Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/india-visa">India Visa</a></li>
+<li><a href="/visa-asistance/visa-guide/schengen-visa">Schengen Visa</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="/visa-asistance/privacy-policy">Privacy Policy</a></li>
+<li><a href="/visa-asistance/terms-of-service">Terms &amp; Conditions</a></li>
+<li><a href="/visa-asistance/contact">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-divider"></div>
+<div class="footer-bottom">
+<span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+<span class="footer-bottom-links">
+<a href="/visa-asistance/privacy-policy">Privacy Policy</a> &middot;
+<a href="/visa-asistance/terms-of-service">Terms of Service</a>
+</span>
+</div>
+</div>
+</footer>
+
+<script>
+// ===== COUNTRY DATA =====
+const countries = [
+{name:"Albania", flag:"🇦🇱", provider:"Albania e-Visa Portal", link:"https://e-visa.al/track", updated:"June 2026"},
+{name:"Algeria", flag:"🇩🇿", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/BLwYvXAhv6nG6gvm4CWdi+CTO3KkYSF/+AG6jIS3t6UKDJwb4hKEVed6TPFDRx7Y9VXAvmwKxojMFOfZB+AzeU=", updated:"June 2026"},
+{name:"Argentina", flag:"🇦🇷", provider:"Dirección Nacional de Migraciones — e-Visa", link:"https://www.dnm.gov.ar/avevisa/login", updated:"June 2026"},
+{name:"Armenia", flag:"🇦🇲", provider:"Ministry of Foreign Affairs — e-Visa", link:"https://evisa.mfa.am/check-status", updated:"June 2026"},
+{name:"Australia", flag:"🇦🇺", provider:"Department of Home Affairs — Processing Times", link:"https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-processing-times/global-visa-processing-times", updated:"June 2026"},
+{name:"Austria", flag:"🇦🇹", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/B1eRfIlnOB2pWKLJ+6DYKyWgZoHLe2GNbJkZ93iyjEl6rOHB0/cj6EXI40E2L+qrDDcWx6thm8IQSpoEhrPV5Y=", updated:"June 2026"},
+{name:"Azerbaijan", flag:"🇦🇿", provider:"e-Visa Portal — Check Status", link:"https://evisa.gov.az/en/check-status", updated:"June 2026"},
+{name:"Bahamas", flag:"🇧🇸", provider:"Bahamas Immigration — e-Permits", link:"https://epermits.immigration.gov.bs/bs-idms-entitlement-online-ui/", updated:"June 2026"},
+{name:"Bahrain", flag:"🇧🇭", provider:"Bahrain e-Visa Portal", link:"https://www.evisa.gov.bh/VISA/visaInput?nav=E01&E01=e", updated:"June 2026"},
+{name:"Bangladesh", flag:"🇧🇩", provider:"Bangladesh Visa Portal", link:"https://www.visa.gov.bd/ViewStatus.aspx", updated:"June 2026"},
+{name:"Belarus", flag:"🇧🇾", provider:"No official tracking portal available", link:"", updated:"June 2026"},
+{name:"Belgium", flag:"🇧🇪", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/ELG1mvuWayHa7D4+drYSCNPUotMvQQcOfI6+GRTL8i6GdSDGSqruYySWAW6rH7e01Yfiuv7ksa/wvUw9w0J5qI=", updated:"June 2026"},
+{name:"Belize", flag:"🇧🇿", provider:"Belize Immigration — Status Check", link:"https://status.immigration.gov.bz/", updated:"June 2026"},
+{name:"Benin", flag:"🇧🇯", provider:"Benin Visa — Check Status", link:"https://www.visagov.com/en/check-status", updated:"June 2026"},
+{name:"Brazil", flag:"🇧🇷", provider:"Ministry of Foreign Affairs — e-Visa", link:"https://formulario-mre.serpro.gov.br/sci/pages/web/ui/#/consultar-situacao", updated:"June 2026"},
+{name:"Bulgaria", flag:"🇧🇬", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/AoKGAVyoVK/e8oAZk1pB9ed+n4cBnpujmSr+kOjjctv/DpQVLzMQQ5kWY6OpyIloA==", updated:"June 2026"},
+{name:"Cambodia", flag:"🇰🇭", provider:"Ministry of Foreign Affairs — e-Visa", link:"https://www.evisa.gov.kh/check_change", updated:"June 2026"},
+{name:"Cameroon", flag:"🇨🇲", provider:"Cameroon e-Visa Portal", link:"https://evisacam.cm/ords/dl_portal/r/public_portal/home", updated:"June 2026"},
+{name:"Canada", flag:"🇨🇦", provider:"IRCC — Processing Times", link:"https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html", updated:"June 2026"},
+{name:"Central African Republic", flag:"🇨🇫", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/DHAOnlineTracking/OnlineTracking.aspx", updated:"June 2026"},
+{name:"Chile", flag:"🇨🇱", provider:"Ministry of Foreign Affairs — Visa", link:"https://tramites.minrel.gov.cl/Solicitudes/ValidarIngreso.aspx", updated:"June 2026"},
+{name:"China", flag:"🇨🇳", provider:"Chinese Visa Application Service Center", link:"https://bio.visaforchina.cn/user/login?site=BOM3_EN", updated:"June 2026"},
+{name:"Colombia", flag:"🇨🇴", provider:"Ministry of Foreign Affairs — Visa", link:"https://tramitesmre.cancilleria.gov.co/tramites/enlinea/consultarEstadoSolicitud.xhtml", updated:"June 2026"},
+{name:"Croatia", flag:"🇭🇷", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/LP5/hPag7COaFyhj+cLMlOg9lNxUTlJ+42mSIvhkjncIhk0FjanMoz2iVc3w+TEbQ==", updated:"June 2026"},
+{name:"Cyprus", flag:"🇨🇾", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/Gf42uXe16FaHjaImDmi3NThsPkForn5Z0KgMyi+TRO/LgKgOeYhx9STbQ9Tu05ACIpVIq9IsbUcEEzzIkqZcxo=", updated:"June 2026"},
+{name:"Czech Republic", flag:"🇨🇿", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/DZpo5vS2DBzwcXUbPmiXGa7mTCYYPSj9xnAnp7D0jGzqeBBr+8OOTI1wJfF0hy1bg==", updated:"June 2026"},
+{name:"Denmark", flag:"🇩🇰", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/Ey/UM5rKPMuPWoM9so6dErw9MlQ/wjq9lJGkU959vsBvrOFDstsG0wBzADuf+qGXcEGxkEz8sbjc3mvJlPR49k=", updated:"June 2026"},
+{name:"Djibouti", flag:"🇩🇯", provider:"Djibouti e-Visa — Track Status", link:"https://www.evisa.gouv.dj/suivi-demande", updated:"June 2026"},
+{name:"Dominican Republic", flag:"🇩🇴", provider:"No official tracking portal available (embassy processing)", link:"", updated:"June 2026"},
+{name:"Estonia", flag:"🇪🇪", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/CbH0A9wGBx658I5hrzrIX1gbnQaKHsBo/ZKbK61qsclzAGD3HS+9eeZitNQBHMmLSC2eA5W19fJFkwvEXpuzIw=", updated:"June 2026"},
+{name:"Ethiopia", flag:"🇪🇹", provider:"Ethiopia e-Visa Portal", link:"https://www.evisa.gov.et/status", updated:"June 2026"},
+{name:"Finland", flag:"🇫🇮", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/K3TR28D6QZe7ZMQ849/GyMRu9oyBCGJ+NHqcGb/3GtVGbtnQ4WSUJQfYtSTvHun11+DkcDbTJUiJ8V2wuqc1Kk=", updated:"June 2026"},
+{name:"France", flag:"🇫🇷", provider:"VFS Global — Passport Tracking", link:"https://visatracking.vfsglobal.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/APnFmGO26yoncx/v5lsUb/wVhluA+MrsaR4qhJ36RK6avl/NzSrRsAw16Qf5u5KryKsIvTgvqfpuNQ46nj79Lg=", updated:"June 2026"},
+{name:"Gabon", flag:"🇬🇦", provider:"Gabon e-Visa — Check Status", link:"https://evisa.dgdi.ga/#/check", updated:"June 2026"},
+{name:"Gambia", flag:"🇬🇲", provider:"BLS International — Application Tracking", link:"https://www.blsinternational.com/gambia/track_application.php", updated:"June 2026"},
+{name:"Germany", flag:"🇩🇪", provider:"VFS Global — Passport Tracking", link:"https://visatracking.vfsglobal.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/D51sQDPM3iX33nhV8ZVx5LMbcNWdvYdJSEHvBABOCM0MrfjAHarCCJrJh6xcK1iDmFZ1/ZBh5yQUOcH8Ofdiqk=", updated:"June 2026"},
+{name:"Ghana", flag:"🇬🇭", provider:"Ghana Mission — Visa Status", link:"https://visa.ghana-mission.co.in/VisaStatus", updated:"June 2026"},
+{name:"Greece", flag:"🇬🇷", provider:"GVC World — Application Status", link:"https://in-gr.gvcworld.eu/en/what-is-the-status-of-my-visa-application", updated:"June 2026"},
+{name:"Grenada", flag:"🇬🇩", provider:"Grenada Embassy — Visa Status", link:"https://grenadaembassyusa.org/consulate/status/", updated:"June 2026"},
+{name:"Guinea", flag:"🇬🇳", provider:"Guinea Immigration — Login Check", link:"https://www.paf.gov.gn/visa/EditInfo/LoginCheckStatus", updated:"June 2026"},
+{name:"Hungary", flag:"🇭🇺", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/FVWGkYuENF3aj/jI+9gY9pE83UEf2P6x9Sl8cvMqFf4a2vnsUPIp8jXj6//vTHltSIYaQ/t6pgzx+iCEHpaZ6c=", updated:"June 2026"},
+{name:"Iceland", flag:"🇮🇸", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/LZichRNvadRezZVFEYcVI60hn/qmtP4d3S1GWHyZTsihHSzv4sJBIr9693juAODdEjrqSDF/lMApWeWaJooA5w=", updated:"June 2026"},
+{name:"Indonesia", flag:"🇮🇩", provider:"Directorate General of Immigration", link:"https://evisa.imigrasi.go.id/web/find-data", updated:"June 2026"},
+{name:"Iran", flag:"🇮🇷", provider:"Iran e-Visa — Status Check", link:"https://evisatraveller.mfa.ir/en/request/status/", updated:"June 2026"},
+{name:"Ireland", flag:"🇮🇪", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/KgjqpWLKpJv1+Cz1ga9/6EJfiYm1eKv4NloVE0HSGxAWwDd5VF9ztQ5srrLkyiWzIGvaqmiihvJ+fYFO3rrCDY=", updated:"June 2026"},
+{name:"Israel", flag:"🇮🇱", provider:"Israel Visa — Application Tracking", link:"https://www.israelvisa.in/track-your-application", updated:"June 2026"},
+{name:"Italy", flag:"🇮🇹", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/NBWviHzkZm/Vty3IMuNZFf56G+QTtO86CLB7+plquVamg0bbV2srEMLfYG20hbCuqxvhqcC6jrM2mhlBt0mvyU=", updated:"June 2026"},
+{name:"Japan", flag:"🇯🇵", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/GeE86kVPpXUbBoQmFxbFZxr7yKxLOTX2/rQfKGSgE5yPAeSNEm8z3Zkkxo2lVPJiw==", updated:"June 2026"},
+{name:"Kenya", flag:"🇰🇪", provider:"eTA Kenya Portal", link:"https://etakenya.go.ke/", updated:"June 2026"},
+{name:"Kyrgyzstan", flag:"🇰🇬", provider:"Kyrgyzstan e-Visa — Status Check", link:"https://www.evisa.e-gov.kg/check_status.php?lng=en", updated:"June 2026"},
+{name:"Latvia", flag:"🇱🇻", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/H4U4Yoxvegz1LFctYtWZRfI62JQCrj2NXrFipZADwMYWhmeoXqut6WKqRfOVcdxV84uSQ9PQpcGmZumtlL3TqQ=", updated:"June 2026"},
+{name:"Lebanon", flag:"🇱🇧", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/Kwx4LbrykIWRc8wX3DTz+Ybf/FRaewJ9fBcS12qqnUumNBy5Ts9NDrwPr8zYfWQnt2ZCqs/Fonk8uEnaO9ziwM=", updated:"June 2026"},
+{name:"Lesotho", flag:"🇱🇸", provider:"Lesotho e-Visa Portal", link:"http://evisalesotho.com/visa-categories/", updated:"June 2026"},
+{name:"Liechtenstein", flag:"🇱🇮", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/JldnEmQkhedF2EE/dpQUaTBNCiiJzWaMUCzU3RA6BhRicqlI8nqwv3HjabSFHrZXaDs3IFAsdENoLQ9pItiWFE=", updated:"June 2026"},
+{name:"Lithuania", flag:"🇱🇹", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/BbG1ynWEGIgVjaroQX6qrvIiR/QAez5H/lcf/Fbhh4K5U7p/ZH8wxOBeKfCd4ZRvA==", updated:"June 2026"},
+{name:"Luxembourg", flag:"🇱🇺", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/Kd1F6s3re+hCX/0P4gAq8dza8YZ0Cuj8jgFzk/mZbpe2tEafRqR65thvWqx5t7V0Pqwwz3CmsLSxuAHoGHoWl0=", updated:"June 2026"},
+{name:"Malawi", flag:"🇲🇼", provider:"Malawi e-Visa — Check Status", link:"https://www.evisa.gov.mw/Account/Login?ReturnUrl=%2FCheckVisa%2FStatus", updated:"June 2026"},
+{name:"Malaysia", flag:"🇲🇾", provider:"Immigration Department of Malaysia", link:"https://malaysiavisa.imi.gov.my/evisa/evisa.jsp?status=404", updated:"June 2026"},
+{name:"Malta", flag:"🇲🇹", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/Ax78BwNOVdHIB9TfH0Prkk6tYGVZccJwS5aZlRMwZ9IktYYrRXz/doeyIN6AfGapCzQZBjI/nr43lxxro0XDoM=", updated:"June 2026"},
+{name:"Moldova", flag:"🇲🇩", provider:"Moldova e-Visa — Check Status", link:"https://www.evisa.gov.md/check-my-visa/", updated:"June 2026"},
+{name:"Morocco", flag:"🇲🇦", provider:"BLS Morocco — Application Tracking", link:"https://www.blsmoroccovisa.com/application-tracking.php", updated:"June 2026"},
+{name:"Mozambique", flag:"🇲🇿", provider:"Mozambique e-Visa Portal", link:"https://evisa.gov.mz/login", updated:"June 2026"},
+{name:"Myanmar", flag:"🇲🇲", provider:"Myanmar e-Visa Portal", link:"https://evisa.moip.gov.mm/Home/StatusEnquiry", updated:"June 2026"},
+{name:"Netherlands", flag:"🇳🇱", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/GAZMwphNakm2hstnNbT9MeLtMSNCgJ8GiT50RSS4w+IoAskZVw2rQ7iiIFWAOR5ntDOxlsmSQFg9knxElfrZWb0fOJES+KlD+VXNw0o9R+8", updated:"June 2026"},
+{name:"Nigeria", flag:"🇳🇬", provider:"Nigeria Immigration Service — Visa", link:"https://portal.immigration.gov.ng/visa/VisaStatusReport", updated:"June 2026"},
+{name:"Norway", flag:"🇳🇴", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/MMWoQ2u/1NQd8ht0KuMDeqNJEBHzf/pf00e1uZwPSD2zYt8RkPOrijzqBSPrG6SpBLEnwcTgTEc55ZX0BXECrU=", updated:"June 2026"},
+{name:"Oman", flag:"🇴🇲", provider:"No official tracking portal available", link:"", updated:"June 2026"},
+{name:"Papua New Guinea", flag:"🇵🇬", provider:"Papua New Guinea Visa — Check Status", link:"https://www.visagov.com/en/check-status", updated:"June 2026"},
+{name:"Philippines", flag:"🇵🇭", provider:"Philippines e-Visa Portal", link:"https://evisa.gov.ph/", updated:"June 2026"},
+{name:"Poland", flag:"🇵🇱", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/ASnHZRMROGDyz5YljrTPrmbws9m3YKnjDXuh/15KyMksdtUgr/FOny2C0bQ3U4uiw==", updated:"June 2026"},
+{name:"Portugal", flag:"🇵🇹", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/NNL8oYEDVviiH9LFkvyoJmx/fXKYWsKwvlIATddMeXNDIogAjaJXRpSlmI68Wcn+Q==", updated:"June 2026"},
+{name:"Romania", flag:"🇷🇴", provider:"No official tracking portal available", link:"", updated:"June 2026"},
+{name:"Russia", flag:"🇷🇺", provider:"Ministry of Foreign Affairs — e-Visa Portal", link:"https://evisa.kdmid.ru/Account/Login", updated:"June 2026"},
+{name:"Saint Kitts and Nevis", flag:"🇰🇳", provider:"Saint Kitts e-Visa — Status Check", link:"https://evisa.stkittsnevisonline.com/ng-kn-evisa/search", updated:"June 2026"},
+{name:"Saudi Arabia", flag:"🇸🇦", provider:"Tasheer — Visa Tracking", link:"https://vc.tasheer.com/home", updated:"June 2026"},
+{name:"Singapore", flag:"🇸🇬", provider:"Immigration & Checkpoints Authority (ICA)", link:"https://eservices.ica.gov.sg/ipsave/index.xhtml", updated:"June 2026"},
+{name:"Slovakia", flag:"🇸🇰", provider:"BLS Slovakia — Application Tracking", link:"https://blsslovakiavisa.com/india/track_application.php", updated:"June 2026"},
+{name:"Slovenia", flag:"🇸🇮", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/K8rCGxyLvtm6CtAriAdi2nwC2zSVKEIZxZS2wA6TOrncuKllso6RXHn+fF47yiUvBVqyCaXgxcBkgvI56ZTPsY=", updated:"June 2026"},
+{name:"Somalia", flag:"🇸🇴", provider:"Somalia Visa Portal", link:"https://apply.visa.gov.so/OnlineApplicationStatusv1", updated:"June 2026"},
+{name:"South Africa", flag:"🇿🇦", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/F7k1tK8h2krC6dm7vgUVS/hncGocbKYaMiSzY5eD9jkaq7ii1gGfoH8PeSpoIhK3WzBHBK6Kb6tzSDFbqwvGto=", updated:"June 2026"},
+{name:"South Korea", flag:"🇰🇷", provider:"Korea Immigration Service — Visa Portal", link:"https://www.visa.go.kr/openPage.do?MENU_ID=10301", updated:"June 2026"},
+{name:"South Sudan", flag:"🇸🇸", provider:"South Sudan e-Services", link:"https://accounts.eservices.gov.ss/login", updated:"June 2026"},
+{name:"Spain", flag:"🇪🇸", provider:"BLS Spain — Application Status", link:"https://india.blsspainglobal.com/Global/bls/VisaApplicationStatus", updated:"June 2026"},
+{name:"Sri Lanka", flag:"🇱🇰", provider:"Sri Lanka eTA — Check Status", link:"https://eta.gov.lk/etaslvisa/pages/checkStatus.jsp", updated:"June 2026"},
+{name:"Suriname", flag:"🇸🇷", provider:"Suriname VFS — Track Status", link:"https://suriname.vfsevisa.com/suriname/online/home/track-status", updated:"June 2026"},
+{name:"Sweden", flag:"🇸🇪", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/A9+3ayKh2o6XUmXfdhngCZaBlkqR6GLoYzxmyoOsM3ZZK1vcLDs42p5FZ7SBWeCAw==", updated:"June 2026"},
+{name:"Switzerland", flag:"🇨🇭", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/JldnEmQkhedF2EE/dpQUaTBNCiiJzWaMUCzU3RA6BhRicqlI8nqwv3HjabSFHrZXaDs3IFAsdENoLQ9pItiWFE=", updated:"June 2026"},
+{name:"Tajikistan", flag:"🇹🇯", provider:"Tajikistan Visa Portal", link:"https://www.visa.gov.tj/index.html#/myapplication", updated:"June 2026"},
+{name:"Tanzania", flag:"🇹🇿", provider:"Tanzania Immigration — Check Status", link:"https://visa.immigration.go.tz/checkapplicationstatus", updated:"June 2026"},
+{name:"Thailand", flag:"🇹🇭", provider:"Thailand e-Visa — Ministry of Foreign Affairs", link:"https://www.thaievisa.go.th/signin", updated:"June 2026"},
+{name:"Timor-Leste", flag:"🇹🇱", provider:"Timor-Leste Immigration — Visa Status", link:"https://migracao.gov.tl/html/sub0301.php", updated:"June 2026"},
+{name:"Turkey", flag:"🇹🇷", provider:"Gateway International — Application Tracking", link:"https://gatewayinternational.com.tr/en/india/application-tracking", updated:"June 2026"},
+{name:"Uganda", flag:"🇺🇬", provider:"Uganda e-Visa Portal", link:"https://visas.immigration.go.ug/#/check", updated:"June 2026"},
+{name:"Ukraine", flag:"🇺🇦", provider:"VFS Global — Passport Tracking", link:"https://www.vfsvisaonline.com/Global-Passporttracking/Track/Index?q=shSA0YnE4pLF9Xzwon/x/CYgMREU0Y6EL5WH6xs/qmdafSmNXx7RLSmhG7f2S0+3wHoQF4fSBF0zhj0ml8nV+Q==", updated:"June 2026"},
+{name:"United Arab Emirates", flag:"🇦🇪", provider:"No official tracking portal available", link:"", updated:"June 2026"},
+{name:"United Kingdom", flag:"🇬🇧", provider:"VFS Global UK — Passport Tracking", link:"https://atlantis-abs-uk.vfsglobal.com/track-status?missionCode=GBR&countryCode=are&lang=en", updated:"June 2026"},
+{name:"United States", flag:"🇺🇸", provider:"U.S. Department of State — CEAC", link:"https://ceac.state.gov/ceacstattracker/status.aspx", updated:"June 2026"},
+{name:"Uzbekistan", flag:"🇺🇿", provider:"Uzbekistan e-Visa — Check Status", link:"https://e-visa.gov.uz/status", updated:"June 2026"},
+{name:"Vietnam", flag:"🇻🇳", provider:"Vietnam Immigration — e-Visa", link:"https://evisa.xuatnhapcanh.gov.vn/tra-cuu-thi-thuc", updated:"June 2026"},
+{name:"Zambia", flag:"🇿🇲", provider:"Zambia Immigration — e-Services", link:"https://eservices.zambiaimmigration.gov.zm/#/sign-in", updated:"June 2026"},
+{name:"Zimbabwe", flag:"🇿🇼", provider:"Zimbabwe e-Visa Portal", link:"https://www.evisa.gov.zw/app/index.html#/sign-in", updated:"June 2026"},
+{name:"Morocco (e-Visa)", flag:"🇲🇦", provider:"Accès Maroc — e-Visa Portal", link:"https://www.acces-maroc.ma/#/e-visa/recherche", updated:"June 2026"},
+{name:"South Africa (e-Permit)", flag:"🇿🇦", provider:"Department of Home Affairs — e-Permit", link:"https://ehome.dha.gov.za/epermit/login", updated:"June 2026"}
+];
+
+// ===== POPULAR COUNTRIES (top 8) =====
+const popular = ["United Arab Emirates","United Kingdom","United States","Canada","Australia","Germany","Japan","Singapore"];
+
+// ===== DOM REFERENCES =====
+const searchInput = document.getElementById('searchInput');
+const countrySelect = document.getElementById('countrySelect');
+const autoList = document.getElementById('autocompleteList');
+const findBtn = document.getElementById('findBtn');
+const resultCard = document.getElementById('resultCard');
+const popularGrid = document.getElementById('popularGrid');
+
+let selectedCountry = null;
+
+// ===== POPULATE DROPDOWN =====
+countries.forEach(c => {
+const opt = document.createElement('option');
+opt.value = c.name;
+opt.textContent = `${c.flag} ${c.name}`;
+countrySelect.appendChild(opt);
+});
+
+// ===== POPULAR COUNTRIES GRID =====
+popular.forEach(name => {
+const c = countries.find(ct => ct.name === name);
+if (!c) return;
+const card = document.createElement('div');
+card.className = 'country-card';
+card.innerHTML = `<span class="flag">${c.flag}</span><span class="name">${c.name}</span>`;
+card.addEventListener('click', () => selectAndShow(name));
+popularGrid.appendChild(card);
+});
+
+// ===== AUTOCOMPLETE =====
+searchInput.addEventListener('input', function() {
+const val = this.value.toLowerCase().trim();
+if (!val) { autoList.classList.remove('open'); return; }
+const matches = countries.filter(c => c.name.toLowerCase().includes(val)).slice(0, 10);
+autoList.innerHTML = '';
+if (matches.length === 0) { autoList.classList.remove('open'); return; }
+matches.forEach(c => {
+const item = document.createElement('div');
+item.className = 'item';
+item.setAttribute('role', 'option');
+item.innerHTML = `<span class="flag">${c.flag}</span><span class="name">${c.name}</span>`;
+item.addEventListener('click', () => {
+searchInput.value = `${c.flag} ${c.name}`;
+selectedCountry = c;
+autoList.classList.remove('open');
+});
+autoList.appendChild(item);
+});
+autoList.classList.add('open');
+});
+
+document.addEventListener('click', function(e) {
+if (!e.target.closest('.autocomplete-wrap')) autoList.classList.remove('open');
+});
+
+// ===== SELECT FROM DROPDOWN =====
+countrySelect.addEventListener('change', function() {
+const name = this.value;
+if (!name) { selectedCountry = null; return; }
+selectedCountry = countries.find(c => c.name === name) || null;
+if (selectedCountry) searchInput.value = `${selectedCountry.flag} ${selectedCountry.name}`;
+});
+
+// ===== SHOW RESULT =====
+function selectAndShow(name) {
+const c = countries.find(ct => ct.name === name);
+if (!c) return;
+selectedCountry = c;
+searchInput.value = `${c.flag} ${c.name}`;
+countrySelect.value = c.name;
+showResult(c);
+}
+
+function showResult(c) {
+document.getElementById('resultFlag').textContent = c.flag;
+document.getElementById('resultCountryName').textContent = c.name;
+document.getElementById('resultProvider').textContent = c.provider;
+document.getElementById('resultUpdated').textContent = c.updated;
+if (c.link) {
+    document.getElementById('resultLink').textContent = c.link;
+    document.getElementById('resultLink').href = c.link;
+    document.getElementById('openPortalBtn').href = c.link;
+    document.getElementById('openPortalBtn').style.display = 'inline-flex';
+} else {
+    document.getElementById('resultLink').textContent = '—';
+    document.getElementById('resultLink').removeAttribute('href');
+    document.getElementById('openPortalBtn').style.display = 'none';
+}
+resultCard.classList.add('visible');
+resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ===== FIND BUTTON =====
+findBtn.addEventListener('click', function() {
+const val = searchInput.value.trim();
+if (selectedCountry) { showResult(selectedCountry); return; }
+const match = countries.find(c => c.name.toLowerCase() === val.toLowerCase());
+if (match) { selectAndShow(match.name); return; }
+// Try partial match
+const partial = countries.find(c => c.name.toLowerCase().includes(val.toLowerCase()));
+if (partial) { selectAndShow(partial.name); return; }
+alert('Please select a country from the list.');
+});
+
+searchInput.addEventListener('keydown', function(e) {
+if (e.key === 'Enter') findBtn.click();
+});
+
+// ===== HEADER SCROLL & MOBILE MENU =====
+document.addEventListener('scroll', function(){
+document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+document.querySelector('.menu-toggle').addEventListener('click', function(){
+this.classList.toggle('active');
+document.querySelector('.nav-list').classList.toggle('open');
+document.getElementById('navOverlay').classList.toggle('open');
+document.body.classList.toggle('menu-open');
+});
+
+document.getElementById('navOverlay').addEventListener('click', function(){
+document.querySelector('.menu-toggle').classList.remove('active');
+document.querySelector('.nav-list').classList.remove('open');
+this.classList.remove('open');
+document.body.classList.remove('menu-open');
+});
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>

@@ -1,0 +1,914 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Australia Visa for Indians 2026: Types, Fees, Process & Requirements - My Visa Assistance</title>
+ <meta name="description" content="Complete guide to Australia visas for Indians in 2026. Learn about ETA, Visitor, Student & Skilled Migration visa types, fees (AUD 20 to 4,770), processing times & step-by-step application process.">
+ <meta name="author" content="Yogesh Prajapati">
+ 
+ <meta name="robots" content="index, follow">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://btw-design.github.io/visa-asistance/visa-guide/australia-visa">
+ <meta property="og:title" content="Australia Visa for Indians 2026: Types, Fees, Process & Requirements">
+ <meta property="og:description" content="Complete guide to Australia visas for Indians. Learn about ETA, Visitor, Student & Skilled Migration visa types, fees, processing times & requirements.">
+ 
+ 
+ <link rel="icon" type="image/svg+xml" href="/visa-asistance/favicon/favicon.svg">
+ <link rel="canonical" href="https://btw-design.github.io/visa-asistance/visa-guide/australia-visa">
+
+ 
+ <link rel="preload" href="/visa-asistance/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/visa-asistance/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+</head>
+
+
+<body>
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/visa-asistance/" class="logo">
+ <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
+ My Visa <span>Assistance</span>
+ </a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu">
+ <span></span><span></span><span></span>
+ </button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/visa-asistance/">Home</a></li>
+ <li><a href="/visa-asistance/about">About</a></li>
+ <li><a href="/visa-asistance/visa-guide/" class="active">Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-asistance/blog/">Blog</a></li>
+ <li><a href="/visa-asistance/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <div class="country-hero">
+ <div class="container">
+ <nav class="breadcrumb">
+ <a href="/visa-asistance/">Home</a>
+ <span>/</span>
+ <a href="/visa-asistance/visa-guide/">Visa Guide</a>
+ <span>/</span>
+ <span>Australia Visa</span>
+ </nav>
+ <h1>Australia Visa for Indians 2026: Types, Fees, Process &amp; Requirements</h1>
+ <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;">Complete guide to Australian visas for Indian citizens "" covering ETA, Visitor, Student, Graduate, and Skilled Migration pathways with 2026 fees, processing times, and step-by-step application guidance.</p>
+ </div>
+ </div>
+
+
+ <style>
+ /* ===== Update Metadata Bar ===== */
+ .update-bar{background:#fff;border:1px solid #e8ecf0;border-radius:10px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+ .update-bar strong{color:#1a202c;font-weight:600}
+ .update-bar span{color:#718096}
+
+ /* ===== Quick Overview Table ===== */
+ .quick-overview{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:0.9rem;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
+ .quick-overview td,.quick-overview th{border:1px solid #eef0f2;padding:11px 16px;vertical-align:top}
+ .quick-overview th{background:#f7f8fa;font-weight:600;color:#1a202c;width:28%;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px}
+ .quick-overview td{background:#fff}
+
+ /* ===== Info Box ===== */
+ .info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+ .info-box h4{margin:0 0 8px;color:#1a202c;font-size:1.05rem}
+ .info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
+ .info-box p:last-child{margin:0}
+
+ /* ===== Section Headings ===== */
+ .main-content h2{margin-top:38px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#1a202c}
+ .main-content h2:first-of-type{margin-top:0}
+ .main-content h3{margin-top:26px;margin-bottom:10px;font-size:1.15rem;color:#2d3748}
+
+ /* ===== Visa Tables ===== */
+ .visa-table{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:0.9rem;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
+ .visa-table thead th{background:#f7f8fa;color:#1a202c;padding:12px 14px;text-align:left;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px;border-bottom:2px solid #e2e6ea}
+ .visa-table td,.visa-table th{border:1px solid #eef0f2;padding:11px 14px;vertical-align:top}
+ .visa-table tbody td{background:#fff;color:#4a5568}
+ .visa-table tbody tr:nth-child(even) td{background:#fafbfc}
+ .visa-table tbody tr:hover td{background:#f0f7ff}
+ .visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:10px}
+
+ /* ===== CTA Section ===== */
+ .cta-section{background:#fff;border:2px solid #eef0f2;padding:40px;border-radius:14px;margin:44px 0;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+ .cta-section h2{color:#1a202c;margin:0 0 12px;font-size:1.6rem;border:none;padding:0}
+ .cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6}
+ .cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:14px 38px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s ease;box-shadow:0 4px 14px rgba(23,18,153,0.2)}
+ .cta-section .btn:hover{background:#0a0a52;transform:translateY(-2px);box-shadow:0 6px 20px rgba(23,18,153,0.3)}
+
+ /* ===== Sidebar Cards ===== */
+ .sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:10px;padding:22px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+ .sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#1a202c;border-bottom:2px solid #f0f2f5;padding-bottom:8px}
+ .sidebar-card ul{margin:0;padding:0}
+ .sidebar-card ul li{padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568}
+ .sidebar-card ul li:last-child{border:none}
+ .sidebar-card ul li a{color:#2b6cb0;text-decoration:none}
+ .sidebar-card ul li a:hover{color:#1a202c;text-decoration:underline}
+
+ /* ===== FAQ Styles ===== */
+ .faq-list{margin:18px 0 28px}
+ .faq-item{border:1px solid #eef0f2;border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03)}
+ .faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:500;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
+ .faq-question:hover{background:#f7f8fa}
+ .faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s;flex-shrink:0;margin-left:12px}
+ .faq-item.active .faq-question{background:#f7f8fa;font-weight:600}
+ .faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
+ .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.35s ease, padding 0.35s ease;padding:0 20px;background:#fff}
+ .faq-item.active .faq-answer{max-height:600px;padding:4px 20px 16px}
+ .faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
+
+ /* ===== Content Layout ===== */
+ .country-content{padding:40px 0 60px;background:#fff}
+ .country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
+ .country-content .main-content{min-width:0}
+ .sidebar{position:sticky;top:90px}
+
+ /* ===== Paragraphs & Lists ===== */
+ .main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
+ .main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
+ .main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
+
+ /* ===== Responsive: Tablet (768px - 991px) ===== */
+ @media(max-width:991px){
+ .country-content .content-grid{grid-template-columns:1fr;gap:30px}
+ .sidebar{position:static}
+ .sidebar-card{padding:18px}
+ .main-content h2{font-size:1.35rem}
+ .country-content{padding:30px 0 50px}
+ }
+
+ /* ===== Responsive: Mobile (up to 767px) ===== */
+ @media(max-width:767px){
+ .country-content{padding:20px 0 40px}
+ .country-content .content-grid{gap:24px}
+ .update-bar{font-size:0.82rem;padding:12px 14px}
+ .quick-overview,.visa-table{font-size:0.8rem;font-weight:400}
+ .quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:8px 10px}
+ .quick-overview th{width:35%}
+ .visa-table thead th{font-size:0.78rem;padding:10px}
+ .info-box{padding:16px 18px}
+ .info-box h4{font-size:0.95rem}
+ .cta-section{padding:28px 18px}
+ .cta-section h2{font-size:1.25rem}
+ .cta-section .btn{padding:12px 28px;font-size:0.95rem}
+ .main-content h2{font-size:1.2rem;margin-top:28px}
+ .main-content h3{font-size:1.05rem}
+ .main-content p,.main-content ul li{font-size:0.9rem}
+ .faq-question{font-size:0.9rem;padding:14px 16px}
+ .faq-answer{padding:0 16px}
+ .faq-item.active .faq-answer{padding:4px 16px 14px}
+ .sidebar-card{padding:16px}
+ .country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ }
+
+ /* ===== Responsive: Small Mobile (up to 480px) ===== */
+ @media(max-width:480px){
+ .quick-overview th{width:40%}
+ .quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:6px 8px}
+ .update-bar{font-size:0.78rem;padding:10px 12px}
+ .cta-section{padding:22px 14px;margin:30px 0}
+ }
+ </style>
+
+
+ <section class="country-content">
+ <div class="container">
+ <div class="content-grid">
+ <div class="main-content">
+
+ <div class="update-bar">
+ <strong>Last Updated:</strong> 29 May 2026 | My Visa Assistance &nbsp;|&nbsp;
+ <strong>Author:</strong> My Visa Assistance Editorial Team &nbsp;|&nbsp;
+ <strong>Reviewed:</strong> June 2026 &nbsp;|&nbsp;
+ <strong>Sources Last Verified:</strong> 01 June 2026 &nbsp;|&nbsp;
+ <strong>Next Scheduled Review:</strong> December 2026
+ </div>
+
+ <div class="info-box">
+ <h4>What is an Australia Visa?</h4>
+ <p>An Australian visa is an official electronic authorization that allows Indian citizens to enter Australia for tourism, study, work, skilled migration, or family visits. Unlike Schengen countries, Australia operates its own independent visa system with no free-movement zone — each visa category has specific conditions, work rights, and stay durations determined by the Department of Home Affairs.</p>
+ <p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> See the <a href="#updates2026">Updates table</a> at the end of this guide for all 2026 changes to fees, visa durations, and policies.</p>
+ </div>
+
+ <p><strong>Application Mode:</strong> Online via ImmiAccount — no physical stamp or visa label in passport for most categories. <strong>Currency:</strong> Australian Dollar (AUD). <strong>Embassy:</strong> Australian High Commission, New Delhi + Consulates in Mumbai, Chennai, Bengaluru, Kolkata, Hyderabad.</p>
+
+ <h2>Quick Overview</h2>
+ <table class="quick-overview">
+ <tbody>
+ <tr><th>Visa Required?</th><td>Yes, Indian citizens need a visa for all travel to Australia</td></tr>
+ <tr><th>Main Visa Types</th><td>ETA (Subclass 601), Visitor (600), Student (500), Graduate (485), Skilled Migration (189/190), Employer Sponsored (482/494), Working Holiday (417), Transit (771)</td></tr>
+ <tr><th>Processing Time</th><td>ETA: Instant-3 days; Visitor: 20-45 days; Student: 4-8 weeks; Skilled: 8-12 months; Graduate: 4-6 months</td></tr>
+ <tr><th>Visa Fee Range</th><td>AUD 20 (ETA) to AUD 4,770 (Skilled Migration) — plus VFS biometric fee</td></tr>
+ <tr><th>Financial Requirement</th><td>Variable — Students: AUD 29,710/year; Visitors: AUD 1,000-5,000 per stay; Skilled: assessment-dependent</td></tr>
+ <tr><th>Maximum Stay</th><td>ETA/Visitor: 3, 6, or 12 months; Student: course duration + 2-3 months; Graduate: 2-4 years; PR: indefinite</td></tr>
+ <tr><th>Biometrics</th><td>Mandatory for all categories — collected at VFS Global centers across 34 Indian cities</td></tr>
+ <tr><th>Health Insurance</th><td>Mandatory for students (OSHC), recommended for all others</td></tr>
+ <tr><th>Application Centers</th><td>Biometrics via VFS Global in 34 Indian cities including Ahmedabad, Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai, Pune</td></tr>
+ <tr><th>English Requirement</th><td>IELTS 6.0 (minimum for student/graduate), 6.5-7.0 for skilled migration; functional English for some categories</td></tr>
+ <tr><th>Approval Rate</th><td>ETA/Visitor: ~92%; Student: ~85%; Skilled Migration: varies by occupation (60-90%)</td></tr>
+ </tbody>
+ </table>
+
+ <h2>What is an Australia Visa?</h2>
+ <p>An Australia visa is an electronic travel authorization from the Australian Department of Home Affairs that permits Indian citizens to enter, stay, or work in Australia. Almost all visas are digitally linked to your passport — no physical stamp or label is placed in your passport for most categories.</p>
+ <p>Australia welcomed over 400,000 Indian visitors in 2024-25, and the Indian diaspora now exceeds 1 million people — the second-largest migrant community after the UK-born. The Economic Cooperation and Trade Agreement (ECTA) has created easier pathways for Indian students, professionals, and business visitors.</p>
+
+ <h3>Do Indians Need a Visa for Australia?</h3>
+ <p>Yes. Indian passport holders must obtain a visa before traveling to Australia for any purpose. India is not among the visa-waiver countries for Australia. There is no visa-on-arrival. However, the ETA (Electronic Travel Authority) system makes short visits simple — you apply online via the ETA app, pay AUD 20, and receive approval within minutes in most cases.</p>
+
+ <h3>What Is Available and Not Available</h3>
+ <table class="visa-table">
+ <thead><tr><th>Can Indians...</th><th>Yes/No</th><th>Details</th></tr></thead>
+ <tbody>
+ <tr><td>Travel for tourism (up to 3 months)</td><td>Yes (ETA Subclass 601)</td><td>Online application, AUD 20, instant approval typical</td></tr>
+ <tr><td>Travel for business meetings</td><td>Yes (ETA or Visitor 600)</td><td>Must not include paid work for an Australian employer</td></tr>
+ <tr><td>Study at an Australian university</td><td>Yes (Student 500)</td><td>Requires Confirmation of Enrolment (CoE), GTE statement, OSHC</td></tr>
+ <tr><td>Work as a skilled professional</td><td>Yes (Skilled 189/190/482)</td><td>Points test or employer sponsorship required</td></tr>
+ <tr><td>Work after graduation</td><td>Yes (Graduate 485)</td><td>2-4 years depending on qualification</td></tr>
+ <tr><td>Transit through Australia</td><td>Yes (transit without visa if under 8 hrs)</td><td>Longer transit or immigration clearance needs Visitor 600 or Transit 771</td></tr>
+ <tr><td>Live permanently in Australia</td><td>Yes (PR via 189/190/186/491)</td><td>Points-based or employer-sponsored pathways</td></tr>
+ <tr><td>Travel to Norfolk Island, Cocos Islands</td><td>Included in Australian visa</td><td>These are Australian external territories</td></tr>
+ <tr><td>Travel to Papua New Guinea with Australian visa</td><td>No</td><td>PNG has independent visa requirements</td></tr>
+ </tbody>
+ </table>
+
+
+ <h2>Types of Australia Visas for Indians</h2>
+ <p>Australia offers multiple visa pathways for Indian citizens depending on your purpose: short visits, study, work, skilled migration, or family reunion. Each category has a subclass number and distinct requirements.</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee (AUD)</th></tr></thead>
+ <tbody>
+ <tr><td>Electronic Travel Authority</td><td>601</td><td>Tourism, business visits up to 3 months</td><td>3 months per visit</td><td>Instant-3 days</td><td>AUD 20</td></tr>
+ <tr><td>Visitor Visa</td><td>600</td><td>Tourism, family visits longer than 3 months</td><td>3, 6, or 12 months</td><td>20-45 days</td><td>AUD 195</td></tr>
+ <tr><td>Student Visa</td><td>500</td><td>Full-time study at Australian institution</td><td>Course duration + 2-3 months</td><td>4-8 weeks</td><td>AUD 1,600</td></tr>
+ <tr><td>Temporary Graduate Visa</td><td>485</td><td>Work after completing Australian degree</td><td>2-4 years</td><td>4-6 months</td><td>AUD 1,945</td></tr>
+ <tr><td>Skilled Independent Visa</td><td>189</td><td>Permanent residency (no state nomination)</td><td>Indefinite (PR)</td><td>8-12 months</td><td>AUD 4,770</td></tr>
+ <tr><td>Skilled Nominated Visa</td><td>190</td><td>Permanent residency (state-nominated)</td><td>Indefinite (PR)</td><td>6-9 months</td><td>AUD 4,770</td></tr>
+ <tr><td>Employer Sponsored Visa</td><td>482 (TSS)</td><td>Work for Australian employer</td><td>2-4 years</td><td>2-4 months</td><td>AUD 1,455-3,035</td></tr>
+ <tr><td>Working Holiday Visa</td><td>417</td><td>Work and travel for young Indians (18-30)</td><td>12 months</td><td>2-4 weeks</td><td>AUD 635</td></tr>
+ <tr><td>Transit Visa</td><td>771</td><td>Transit through Australia >8 hours</td><td>72 hours</td><td>2-4 weeks</td><td>AUD 145</td></tr>
+ </tbody>
+ </table>
+
+ <h3>Electronic Travel Authority (ETA) — Subclass 601</h3>
+ <p><strong>Best for:</strong> Indian tourists and business visitors staying up to 3 months. The ETA is the simplest and cheapest Australian visa for Indians. Apply through the Australian ETA smartphone app (available on iOS and Android). No documents are required for most applicants. Approval is typically instant or within a few hours during Australian business hours.</p>
+ <p><strong>Key points for Indian applicants:</strong></p>
+ <ul>
+ <li>You do NOT need a separate visa for family members — each traveler needs their own ETA</li>
+ <li>ETA is valid for 12 months from the date of grant, with multiple entries and up to 3 months per visit</li>
+ <li>If you have had a visa refusal (any country) or criminal conviction, you should apply for a Visitor Visa (Subclass 600) instead of ETA</li>
+ <li>ETA cannot be extended — if you need to stay longer, you must apply for a Visitor Visa</li>
+ </ul>
+ <p>For detailed tourism requirements and sample itineraries, see the <a href="/visa-asistance/visa-requirements/australia-visa-requirements">Australia visa requirements</a> page.</p>
+
+ <h3>Visitor Visa — Subclass 600</h3>
+ <p><strong>Best for:</strong> Indians who need to stay longer than 3 months, or who have prior visa refusals, or want tourist stream. The Visitor Visa requires a full application via ImmiAccount with documents including bank statements, itinerary, employment letter, and travel insurance. Business visitors can use the Business Visitor stream (subsequent entries up to 12 months).</p>
+
+ <h3>Student Visa — Subclass 500</h3>
+ <p><strong>Best for:</strong> Indians enrolled in full-time study at an Australian educational institution. The Subclass 500 student visa is Australia's primary student visa. You must have a Confirmation of Enrolment (CoE) from your institution, pass the GTE (Genuine Temporary Entrant) requirement, maintain OSHC (Overseas Student Health Cover), and show sufficient financial capacity.</p>
+ <p>Part-time work of 48 hours per fortnight is permitted during term, and unlimited hours during scheduled holidays. Your family members (partner + dependent children) can accompany you. Your partner can also work up to 48 hours per fortnight.</p>
+
+ <h3>Temporary Graduate Visa — Subclass 485</h3>
+ <p><strong>Best for:</strong> Indian graduates of Australian institutions who want to work after their degree. The Subclass 485 allows you to live and work in Australia after completing your Australian degree. Key changes in 2026: bachelor's degree holders in priority fields (nursing, engineering, IT, teaching) get up to 4 years; master's (research) in priority fields get up to 5 years; PhD graduates get 4 years.</p>
+ <p>You must apply within 12 months of course completion, have competent English (IELTS 6.0, minimum 5.0 in each band), and have completed at least 2 academic years of study in Australia.</p>
+
+ <h3>Skilled Independent Visa — Subclass 189</h3>
+ <p><strong>Best for:</strong> Indian skilled workers who want permanent residency without state nomination. The Subclass 189 is a points-based permanent residency visa that does not require employer or state nomination. You can live and work anywhere in Australia.</p>
+ <p>The points test awards points for: age (30 points max at 25-32 years), English ability (20 points for IELTS 8.0), work experience (15 points for 8+ years overseas), education (20 points for PhD), and other factors. Minimum pass mark is 65, but realistic 2026 cutoffs are 85-95 points.</p>
+
+ <h3>Skilled Nominated Visa — Subclass 190</h3>
+ <p><strong>Best for:</strong> Indian skilled workers who get state or territory nomination. State nomination gives you 5 extra points and priority processing (6-9 months vs 8-12 months for 189). You must live and work in the nominating state for at least 2 years.</p>
+
+ <h3>Employer Sponsored Visa — Subclass 482 (TSS)</h3>
+ <p><strong>Best for:</strong> Indian professionals with a job offer from an Australian employer. The Temporary Skill Shortage (TSS) visa allows you to work for an Australian employer for 2-4 years. You must have a sponsoring employer, a skill assessment (for some occupations), and at least 2 years of relevant work experience. Pathways to PR exist through the Subclass 186 Employer Nomination Scheme.</p>
+
+ <h3>Working Holiday Visa — Subclass 417</h3>
+ <p><strong>Best for:</strong> Indian citizens aged 18-30 wanting to work and travel in Australia for up to 12 months. This visa became available to Indians through the Australia-India ECTA. You can work up to 6 months with any single employer and study up to 4 months. After completing 3 months of specified work in regional Australia, you may qualify for a second year.</p>
+
+
+ <h2 id="fees">Australia Visa Fees for Indians 2026</h2>
+ <p>Visa fees vary significantly by category — from AUD 20 (ETA) to AUD 4,770 (Skilled Migration). All fees are non-refundable and payable online in AUD via credit/debit card through ImmiAccount.</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (AUD)</th><th>Fee (₹Approx)</th></tr></thead>
+ <tbody>
+ <tr><td>Electronic Travel Authority</td><td>601</td><td>AUD 20</td><td>₹1,100</td></tr>
+ <tr><td>Visitor Visa (Tourist Stream)</td><td>600</td><td>AUD 195</td><td>₹10,700</td></tr>
+ <tr><td>Student Visa</td><td>500</td><td>AUD 1,600</td><td>₹88,000</td></tr>
+ <tr><td>Temporary Graduate Visa</td><td>485</td><td>AUD 1,945</td><td>₹1,07,000</td></tr>
+ <tr><td>Skilled Independent (PR)</td><td>189</td><td>AUD 4,770</td><td>₹2,62,000</td></tr>
+ <tr><td>Skilled Nominated (PR)</td><td>190</td><td>AUD 4,770</td><td>₹2,62,000</td></tr>
+ <tr><td>Employer Sponsored (TSS)</td><td>482</td><td>AUD 1,455-3,035</td><td>₹80,000-1,67,000</td></tr>
+ <tr><td>Working Holiday</td><td>417</td><td>AUD 635</td><td>₹35,000</td></tr>
+ <tr><td>Transit Visa</td><td>771</td><td>AUD 145</td><td>₹8,000</td></tr>
+ </tbody>
+ </table>
+
+ <h3>Additional Costs</h3>
+ <table class="visa-table">
+ <thead><tr><th>Cost Type</th><th>Amount</th><th>Details</th></tr></thead>
+ <tbody>
+ <tr><td>Biometrics (VFS)</td><td>₹1,500-2,000</td><td>Per applicant, valid 5 years</td></tr>
+ <tr><td>Health Examination</td><td>₹3,000-10,000</td><td>Depends on panel doctor and type of exam</td></tr>
+ <tr><td>Skills Assessment</td><td>AUD 800-1,500</td><td>Varies by assessing authority (ACS, Engineers Australia, etc.)</td></tr>
+ <tr><td>English Test (IELTS)</td><td>₹17,000</td><td>IDP or British Council</td></tr>
+ <tr><td>OSHC (Student - 1 year)</td><td>AUD 630-1,200</td><td>Medibank, Bupa, Allianz Care, NIB, ahm</td></tr>
+ <tr><td>Translation/Certification</td><td>₹500-2,000</td><td>Per document if not in English</td></tr>
+ <tr><td>Education Loan Processing</td><td>Varies</td><td>SBI, HDFC Credila, Avanse, ICICI — 1-2% processing fee</td></tr>
+ </tbody>
+ </table>
+
+ <h2>Documents Required for Australia Visa</h2>
+ <p>Every Australian visa application requires proof of identity, purpose of visit, and financial capacity — but specific documents vary by visa category.</p>
+
+ <h3>Core Documents (All Visa Types)</h3>
+ <ul>
+ <li><strong>Valid Indian passport</strong> — Must have at least 6 months validity beyond intended stay. At least 2 blank pages</li>
+ <li><strong>Digital photograph</strong> — Passport-size, 45mm x 35mm, white background, taken within 6 months</li>
+ <li><strong>Completed online application</strong> — Via ImmiAccount. All details must match your passport exactly</li>
+ <li><strong>Previous visas and travel history</strong> — Include copies of previous Australian or other-country visas and travel stamps</li>
+ </ul>
+
+ <h3>Visa-Specific Documents</h3>
+ <p><strong>ETA (Subclass 601):</strong></p>
+ <ul>
+ <li>No documents required for standard applications</li>
+ <li>Some applicants may be asked for biometrics after submission</li>
+ </ul>
+
+ <p><strong>Visitor Visa (Subclass 600):</strong></p>
+ <ul>
+ <li>Cover letter explaining purpose and duration of visit</li>
+ <li>Return flight booking (not necessarily ticketed — itinerary showing travel dates is sufficient)</li>
+ <li>Hotel bookings or invitation letter from host in Australia</li>
+ <li>Bank statements (3-6 months) showing sufficient funds — typically AUD 1,000-5,000 per stay</li>
+ <li>Employment letter from Indian employer confirming role, salary, and approved leave</li>
+ <li>IT returns for the last 2-3 years</li>
+ </ul>
+
+ <p><strong>Student Visa (Subclass 500):</strong></p>
+ <ul>
+ <li>Confirmation of Enrolment (CoE) from your Australian institution</li>
+ <li>GTE (Genuine Temporary Entrant) statement — 300+ words addressing your academic background, career plans in India, ties to India, and why this course/college</li>
+ <li>Proof of financial capacity — AUD 29,710/year living costs + tuition fees + OSHC</li>
+ <li>Education loan sanction letter (if applicable)</li>
+ <li>IELTS/PTE/TOEFL score report — IELTS 6.0 minimum (5.5 in each band)</li>
+ <li>Academic documents (marksheets, degrees, transcripts)</li>
+ </ul>
+ <div class="info-box">
+ <h4>Why Financial Evidence Matters</h4>
+ <p>The Department of Home Affairs needs assurance that you can support yourself without working illegally or relying on public funds. For student visas, this is the most scrutinized requirement — incomplete or inconsistent financial documentation is a leading cause of refusal for Indian applicants.</p>
+ </div>
+
+ <p><strong>Skilled Migration (Subclass 189/190):</strong></p>
+ <ul>
+ <li>Skills assessment from the relevant assessing authority — ACS (IT), Engineers Australia, CPA Australia (Accounting), etc.</li>
+ <li>English test result — IELTS 6.0 (competent) to 8.0 (superior) depending on points needed</li>
+ <li>EOI (Expression of Interest) via SkillSelect</li>
+ <li>Birth certificate, marriage certificate (if claiming partner points), character documents</li>
+ </ul>
+
+ <h3>Indian Banking Nuances for Australia Visa</h3>
+ <table class="visa-table">
+ <thead><tr><th>Bank</th><th>Statement Features</th><th>Accepted?</th><th>Notes</th></tr></thead>
+ <tbody>
+ <tr><td>SBI</td><td>Passbook + online statement with branch seal</td><td>Yes</td><td>Most widely accepted. Ensure statements are stamped and signed by branch manager</td></tr>
+ <tr><td>HDFC Bank</td><td>Digital statements with QR code verification</td><td>Yes</td><td>Save as PDF with visible bank logo and account holder name</td></tr>
+ <tr><td>ICICI Bank</td><td>E-statements with digital signature</td><td>Yes</td><td>Some assessing officers prefer wet-stamped copies — get a physical copy from branch</td></tr>
+ <tr><td>Axis Bank</td><td>Online statements with transaction details</td><td>Yes</td><td>Acceptable for visa purposes. Add a salary credit highlight for clarity</td></tr>
+ <tr><td>Yes Bank / Kotak</td><td>App-generated statements with branch counterfoil</td><td>Yes</td><td>Get branch-stamped versions to avoid delays</td></tr>
+ <tr><td>PNB / Canara / BoB</td><td>Passbook-based + supplementary statement</td><td>Yes (may need branch visit)</td><td>Public sector banks — passbook entries with branch seal; request separate statement letter</td></tr>
+ <tr><td>Education Loan (SBI/HDFC Credila/Avanse/ICICI)</td><td>Loan sanction letter + disbursement schedule</td><td>Yes (strongest evidence)</td><td>Education loans are viewed favorably as they demonstrate organized financial planning and third-party verification</td></tr>
+ </tbody>
+ </table>
+
+
+ <h2>Australia Visa Application Process for Indians</h2>
+ <p>The Australian visa application process is entirely online through ImmiAccount. Here is a step-by-step breakdown:</p>
+
+ <p><strong>Step 1: Choose Your Visa Type and Check Eligibility</strong><br>Use the DHA Visa Finder or this guide to select the correct visa subclass. Check eligibility requirements including English language scores, skills assessment (for migration), and financial capacity.</p>
+
+ <p><strong>Step 2: Create an ImmiAccount and Complete the Online Form</strong><br>Create an account at <a href="https://immi.homeaffairs.gov.au" target="_blank" rel="noopener noreferrer">ImmiAccount</a>. Complete the online application form with accurate personal details, passport information, and travel history. Any discrepancy between your application and supporting documents can lead to refusal.</p>
+
+ <p><strong>Step 3: Upload Supporting Documents</strong><br>Upload all required documents in PDF or JPEG format. Each file must be under 5 MB. Documents not in English must be translated by a NAATI-certified translator in Australia or an equivalent authorized translator in India.</p>
+
+ <p><strong>Step 4: Pay the Visa Fee</strong><br>Pay the non-refundable visa fee online via credit/debit card. AUD is charged — your bank will apply the current exchange rate plus forex markup (typically 2-3% on international transactions).</p>
+
+ <p><strong>Step 5: Complete Biometrics</strong><br>After submission, you will receive a biometrics letter. Visit your nearest VFS Global center in India to provide your fingerprints and photograph. Book your appointment online — walk-ins are not accepted at most centers.</p>
+
+ <p><strong>Step 6: Complete Health Examination</strong><br>Most visa categories require a health examination. Book an appointment with a DHA-approved panel doctor in India. Common tests include chest X-ray, HIV test, and full medical examination. The doctor will upload results directly to DHA.</p>
+
+ <p><strong>Step 7: Wait for Processing and Track Online</strong><br>Processing times vary by visa category. You can track your application status in ImmiAccount. You may receive requests for additional documents — respond promptly to avoid delays or refusal.</p>
+
+ <p><strong>Step 8: Receive Decision and Visa Grant</strong><br>If approved, you will receive a visa grant notification via email and your ImmiAccount. The visa is electronically linked to your passport number. Check the visa conditions carefully — particularly work rights, stay duration, and any "No Further Stay" condition.</p>
+
+ <h3>How to Book an Australia Visa Appointment in India</h3>
+ <p>Biometrics appointments at VFS Global must be booked online. Health examinations are booked directly with panel doctors.</p>
+ <p><strong>VFS Biometrics Appointment:</strong> Visit the VFS Global Australia website, create an account, select your nearest center, choose a date/time, and pay the biometric fee (₹1,500-2,000). Carry your passport, biometrics letter, and appointment confirmation.</p>
+ <p><strong>Panel Doctor Appointment:</strong> Find a DHA-approved panel doctor on the DHA Panel Doctor List for India. Book directly with the clinic. Costs range from ₹3,000-10,000 depending on tests required.</p>
+ <p><strong>Documents to Carry:</strong> Original passport, copy of biometrics letter/health referral letter, appointment confirmation, passport-size photographs (2 copies), and previous medical records (if any).</p>
+ <p><strong>VFS Global Centers in India:</strong> Available in 34 cities including Ahmedabad, Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai, Pune, Chandigarh, Cochin, Coimbatore, Guwahati, Jaipur, Jalandhar, Lucknow, Nagpur, Surat, and more.</p>
+
+ <h2>Processing Time for Australia Visa from India</h2>
+ <p>Processing times vary significantly by visa category and can change seasonally (peak student intake: December-February tends to be slower):</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Processing Time</th><th>Notes</th></tr></thead>
+ <tbody>
+ <tr><td>ETA</td><td>601</td><td>Instant to 3 days</td><td>Most get approved within 2 hours during Australian business hours</td></tr>
+ <tr><td>Visitor Visa</td><td>600</td><td>20-45 days</td><td>Can extend to 60 days during peak periods</td></tr>
+ <tr><td>Student Visa</td><td>500</td><td>4-8 weeks</td><td>6-10 weeks for complex applications (GTE issues, incomplete docs)</td></tr>
+ <tr><td>Graduate Visa</td><td>485</td><td>4-6 months</td><td>Longer processing due to document verification</td></tr>
+ <tr><td>Skilled Independent</td><td>189</td><td>8-12 months</td><td>Depends on occupation ceiling and invitation round</td></tr>
+ <tr><td>Skilled Nominated</td><td>190</td><td>6-9 months</td><td>Faster than 189 due to state nomination prioritization</td></tr>
+ <tr><td>Employer Sponsored</td><td>482</td><td>2-4 months</td><td>Skilling Australia Fund (SAF) levy payment required</td></tr>
+ <tr><td>Working Holiday</td><td>417</td><td>2-4 weeks</td><td>Straightforward for eligible applicants</td></tr>
+ <tr><td>Transit</td><td>771</td><td>2-4 weeks</td><td>Low priority — basic document check</td></tr>
+ </tbody>
+ </table>
+
+ <div class="info-box">
+ <h4>Processing Time Note</h4>
+ <p>Processing times are global estimates and Indian applications may take longer if additional verification is needed. You can check current processing times on the <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-processing-times" target="_blank" rel="noopener noreferrer">DHA Processing Times Portal</a>.</p>
+ </div>
+
+ <h2>Travel Insurance Requirements for Australia</h2>
+ <p>Travel insurance is mandatory for student visa holders (OSHC) and strongly recommended for all other visitors:</p>
+ <ul>
+ <li><strong>Student Visa (Subclass 500):</strong> OSHC is mandatory for the entire visa duration. You cannot be granted a student visa without evidence of OSHC coverage. Annual cost: AUD 630-1,200 for single cover, AUD 1,500-2,400 for couples, AUD 3,000-4,500 for families</li>
+ <li><strong>Approved OSHC Providers:</strong> Medibank, Bupa, Allianz Care, NIB, ahm OSHC</li>
+ <li><strong>Visitor Visa:</strong> While not mandatory, comprehensive travel insurance covering medical emergencies (minimum AUD 500,000), trip cancellation, and baggage loss is strongly recommended. Australian healthcare is expensive — a hospital visit can cost AUD 1,000+ without insurance</li>
+ <li><strong>Working Holiday Visa:</strong> Not mandatory but recommended — many working holiday makers opt for OSHC-like coverage</li>
+ </ul>
+
+ <h2>How to Check Australia Visa Status Online</h2>
+ <p>Track your application status directly in ImmiAccount. If you applied through an agent, they can share access or provide updates:</p>
+ <ol style="list-style:decimal;padding-left:20px;margin-bottom:1.5rem;">
+ <li>Log in to your <a href="https://immi.homeaffairs.gov.au" target="_blank" rel="noopener noreferrer">ImmiAccount</a></li>
+ <li>Go to "My Applications" — all your current and past applications are listed</li>
+ <li>Check the status column: "Received" = initial processing, "Assessment in Progress" = case officer assigned, "Further Assessment" = additional checks, "Finalized" = decision made</li>
+ <li>You can also check via VFS Global's tracking portal if you used VFS for biometrics — but ImmiAccount is the primary source</li>
+ </ol>
+ <p>For ETA status: Check via the ETA app or the DHA ETA Portal.</p>
+
+
+ <h2>Australia Visa Approval Rates and Rejection Reasons</h2>
+ <p>Australia's visa approval rate for Indian applicants is high — approximately 88-92% for tourist/ETA visas and 85% for student visas. However, skilled migration and certain work visas have more variation depending on occupation and points score.</p>
+
+ <h3>Common Rejection Reasons for Indian Applicants</h3>
+ <table class="visa-table">
+ <thead><tr><th>Reason</th><th>Frequency</th><th>How to Avoid</th></tr></thead>
+ <tbody>
+ <tr><td>Insufficient financial evidence</td><td>~30% of refusals</td><td>Show 3-6 months of consistent bank balance, include salary credits, explain large deposits</td></tr>
+ <tr><td>Weak GTE statement (student)</td><td>~25% of student refusals</td><td>Write personally — include your specific career plan, family ties in India, and reasons for choosing your specific course and institution</td></tr>
+ <tr><td>Incorrect visa category</td><td>~15% of refusals</td><td>Use the DHA Visa Finder or consult this guide before applying</td></tr>
+ <tr><td>Incomplete documentation</td><td>~12% of refusals</td><td>Use the DHA Document Checklist and tick off each requirement before submitting</td></tr>
+ <tr><td>Health or character concerns</td><td>~10% of refusals</td><td>Disclose all medical conditions honestly; character issues include criminal records and prior immigration violations</td></tr>
+ <tr><td>Previous visa non-compliance</td><td>~8% of refusals</td><td>If you have overstayed or violated visa conditions in any country, address this honestly in your application</td></tr>
+ </tbody>
+ </table>
+
+ <h2>Post-Arrival Guide: What to Do After Landing in Australia</h2>
+ <p>Once your Australian visa is granted, here is what you need to do after arrival:</p>
+ <ul>
+ <li><strong>Check your visa conditions online</strong> — Log in to ImmiAccount and verify work rights, stay duration, and any conditions like "No Further Stay" (8503)</li>
+ <li><strong>Apply for a Tax File Number (TFN)</strong> — Required for legal employment. Apply online at the Australian Taxation Office. Your TFN is free and arrives by mail in 7-28 days</li>
+ <li><strong>Open an Australian bank account</strong> — Major banks: Commonwealth Bank, Westpac, NAB, ANZ. Many allow you to open an account from India before arrival. You will need your passport and visa grant letter</li>
+ <li><strong>Register for Medicare</strong> — If you hold a PR visa (Subclass 189/190/186), you are eligible for Medicare, Australia's universal healthcare system. Enroll at a Services Australia office</li>
+ <li><strong>Activate your OSHC</strong> — If you are on a student visa, contact your OSHC provider to activate your cover. Keep your membership card with you</li>
+ <li><strong>Get a local SIM card</strong> — Major providers: Telstra, Optus, Vodafone. Prepaid plans start at AUD 20-40/month with generous data allowances</li>
+ <li><strong>Register with your university (if student)</strong> — Complete your enrollment, attend orientation, obtain your student ID card, and register for classes</li>
+ <li><strong>Find accommodation</strong> — Options include on-campus housing, shared rentals, or private rental. Budget at least AUD 300-600/week depending on city</li>
+ </ul>
+
+ <h2 id="faq">Frequently Asked Questions</h2>
+ <div class="faq-list" style="max-width:100%;">
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the Australia visa fee for Indians in 2026?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Fees vary by category: ETA AUD 20 (₹1,100), Visitor AUD 195 (₹10,700), Student AUD 1,600 (₹88,000), Graduate AUD 1,945 (₹1,07,000), Skilled Migration AUD 4,770 (₹2,62,000). All fees are non-refundable.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">How long does it take to get an Australia visa from India?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>ETA: instant-3 days. Visitor: 20-45 days. Student: 4-8 weeks. Graduate: 4-6 months. Skilled: 8-12 months.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the minimum bank balance for an Australia student visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>AUD 29,710/year (living costs) + tuition + OSHC = approximately AUD 50,000-80,000/year total. Education loans from Indian banks (SBI, HDFC Credila, Avanse, ICICI) are accepted as primary financial evidence.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is an ETA and how is it different from a Visitor Visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>ETA (Subclass 601) is an instant online authorization for stays up to 3 months — costs AUD 20, no documents needed. Visitor Visa (Subclass 600) is for longer stays or applicants with prior refusals — costs AUD 195, requires full documentation.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the GTE requirement for an Australia student visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>The Genuine Temporary Entrant (GTE) is a mandatory 300+ word statement. You must prove your genuine intent to stay temporarily for study. Address: academic background, career plans in India, family/economic ties to India, and why this specific course and institution.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Can I work in Australia on a student visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes — up to 48 hours per fortnight during term, unlimited during holidays. Apply for a TFN before starting work. Dependents can also work up to 48 hours per fortnight.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the Subclass 485 Temporary Graduate visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>It allows Australian graduates to work post-study: 2 years (bachelor's), 3-5 years (master's research), 4 years (PhD). Select degrees in priority fields get extended durations. Apply within 12 months of course completion.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">How does the Australia skilled migration points test work?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Points for: age (max 30), English (max 20), work experience (max 15), education (max 20), plus bonus points. Minimum pass: 65. Realistic 2026 cutoff: 85-95 for most occupations.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Is OSHC mandatory for Australia student visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes — OSHC is mandatory for the entire visa duration. Annual cost: AUD 630-1,200 (single). Approved providers: Medibank, Bupa, Allianz Care, NIB, ahm.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What happens if my Australia visa is rejected?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>The refusal letter specifies the reasons. Options: apply for AAT review within 21 days, or submit a fresh application addressing the refusal grounds. Common reasons for Indians: insufficient funds, weak GTE, incorrect visa category, incomplete documents.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the Australia-India ECTA?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>The Economic Cooperation and Trade Agreement (effective Dec 2022) benefits Indians through: streamlined work visas for 70+ occupations, extended post-study work rights, Working Holiday visa access for Indians aged 18-30, and facilitated business visitor processing.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Do I need biometrics for an Australia visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes — 10 fingerprints + digital photograph, valid 5 years. Collected at VFS Global centers in 34 Indian cities. Cost: ₹1,500-2,000.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Can I bring my family on a student visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes — spouse/partner + dependent children (under 18) can accompany you. Partner can work up to 48 hours/fortnight. Children can study without a separate visa. Show additional funds: AUD 10,394/year for partner, AUD 4,490/year per child.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">How do I apply for PR after studying in Australia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Typical pathway: Student 500 — Graduate 485 — gain skilled work experience — submit EOI for 189 or 190 — receive invitation — apply for PR. Regional graduates get bonus points and priority processing.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Can I transit through Australia without a visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes — if you stay airside and transit is under 8 hours. Longer transit or clearing immigration requires a Visitor 600 or Transit 771 visa. Check requirements before booking connecting flights.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the difference between Subclass 189 and 190?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>189 (Skilled Independent) — no state nomination needed, live/work anywhere, 8-12 months processing. 190 (Skilled Nominated) — requires state nomination, 5 extra points, must live in nominating state for 2 years, 6-9 months processing.</p></div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What health conditions can lead to Australia visa refusal?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Conditions requiring healthcare costs above AUD 51,000 (temporary) or AUD 86,000 (PR) over 5 years. This includes active TB, HIV with high viral load, cancer with poor prognosis, and kidney disease requiring dialysis. Health waivers may be available.</p></div>
+ </div>
+ </div>
+
+ <h2 id="updates2026">Australia Visa Updates 2026 — What Has Changed</h2>
+ <table class="visa-table">
+ <thead><tr><th>Change</th><th>Previous</th><th>Current (2026)</th></tr></thead>
+ <tbody>
+ <tr><td>Subclass 485 Duration (Select Degrees)</td><td>2 years (bachelor's), 3 years (master's research)</td><td>4 years (priority fields), 5 years (master's research in priority fields)</td></tr>
+ <tr><td>Student Visa Fee (Subclass 500)</td><td>AUD 710</td><td>AUD 1,600 (more than doubled since 2023)</td></tr>
+ <tr><td>GTE Requirement Format</td><td>Open-ended written statement</td><td>Mandatory 300+ word statement answering specific prompts</td></tr>
+ <tr><td>Biometrics Expansion</td><td>Required for select categories</td><td>Mandatory for all visa categories including ETA (risk-profiled)</td></tr>
+ <tr><td>OSHC Rates</td><td>AUD 478-900/year (single)</td><td>AUD 630-1,200/year (single — adjusted for inflation)</td></tr>
+ <tr><td>Post-Study Work Application Window</td><td>6 months after course completion</td><td>12 months after course completion (COVID concession extended)</td></tr>
+ <tr><td>India ECTA Benefits</td><td>Initial implementation</td><td>Fully operational — 70+ occupations benefit from streamlined processing</td></tr>
+ </tbody>
+ </table>
+
+
+ <h2>Official Resources</h2>
+ <ul>
+ <li><strong>Department of Home Affairs:</strong> <a href="https://www.homeaffairs.gov.au" target="_blank" rel="noopener noreferrer">https://www.homeaffairs.gov.au</a></li>
+ <li><strong>ImmiAccount (Apply Online):</strong> <a href="https://immi.homeaffairs.gov.au" target="_blank" rel="noopener noreferrer">https://immi.homeaffairs.gov.au</a></li>
+ <li><strong>VFS Global Australia in India:</strong> <a href="https://visa.vfsglobal.com/ind/en/aus/" target="_blank" rel="noopener noreferrer">https://visa.vfsglobal.com/ind/en/aus/</a></li>
+ <li><strong>Australian High Commission New Delhi:</strong> <a href="https://india.highcommission.gov.au" target="_blank" rel="noopener noreferrer">https://india.highcommission.gov.au</a></li>
+ </ul>
+
+ <div class="cta-section">
+ <h2>Need Help With Your Australia Visa Application?</h2>
+ <p>Our India-focused visa consultants have helped over 500 Indian applicants navigate the Australian visa system — from student visas to skilled migration and family sponsorship.</p>
+ <a href="/visa-asistance/contact" class="btn" style="background:#A5D549;color:#0a0a52;font-weight:700;padding:14px 36px;font-size:1.1rem;border-radius:8px;display:inline-block;">Contact My Visa Assistance</a>
+ </div>
+
+ <p><em>Trusted by 500+ Indian applicants for Australian visas. 88% student visa approval rate. Expert guidance at every step. Browse our <a href="/visa-asistance/visa-guide/">complete visa guide directory</a> for guides covering 100+ destination countries for Indian passport holders.</em></p>
+
+ </div>
+
+ <aside class="sidebar">
+ <div class="sidebar-card">
+ <h3>Quick Facts</h3>
+ <ul>
+ <li><strong>Country:</strong> Australia</li>
+ <li><strong>Capital:</strong> Canberra</li>
+ <li><strong>Visa Required:</strong> Yes (for Indians)</li>
+ <li><strong>Currency:</strong> Australian Dollar (AUD)</li>
+ <li><strong>Processing Time:</strong> Instant to 12 months (varies by type)</li>
+ <li><strong>Biometrics:</strong> Required (VFS Global)</li>
+ <li><strong>English Test:</strong> IELTS/PTE/TOEFL</li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Popular Visa Types</h3>
+ <ul>
+ <li><a href="#fees">ETA (Subclass 601) - AUD 20</a></li>
+ <li><a href="#fees">Visitor Visa (600) - AUD 195</a></li>
+ <li><a href="#fees">Student Visa (500) - AUD 1,600</a></li>
+ <li><a href="#fees">Graduate Visa (485) - AUD 1,945</a></li>
+ <li><a href="#fees">Skilled Migration - AUD 4,770</a></li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card" style="background:linear-gradient(135deg,#0a0a52,#171299);color:white;border:none;">
+ <h3 style="color:#A5D549;margin:0 0 8px;">Download Checklist</h3>
+ <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;">Get a printable document checklist for your visa application.</p>
+ <button onclick="downloadChecklist()" class="btn btn-primary" style="width:100%;text-align:center;">
+ <i class="bi bi-download"></i> Download Full Checklist
+ </button>
+ </div>
+<div class="sidebar-card sidebar-cta">
+ <h3>Need Visa Help?</h3>
+ <p>Our experts can guide you through the Australia visa application process.</p>
+ <a href="/visa-asistance/contact" class="btn btn-primary" style="margin-bottom:8px;">Get Assistance</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);display:block;text-align:center;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Related Guides</h3>
+ <ul>
+ <li><a href="/visa-asistance/visa-requirements/australia-visa-requirements">Australia Visa Requirements</a></li>
+ <li><a href="/visa-asistance/visa-guide/new-zealand-visa">New Zealand Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-guide/canada-visa">Canada Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-guide/">View All Countries</a></li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Share This Guide</h3>
+ <p style="font-size:0.85rem;color:var(--color-text-light);">Help others find this information</p>
+ <div style="display:flex;gap:10px;margin-top:10px;">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://btw-design.github.io/visa-asistance/visa-guide/australia-visa" target="_blank" rel="noopener noreferrer" style="color:#1877F2;font-size:1.5rem;" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/intent/tweet?text=Australia%20Visa%20Guide%202026%20for%20Indians&url=https://btw-design.github.io/visa-asistance/visa-guide/australia-visa" target="_blank" rel="noopener noreferrer" style="color:#1DA1F2;font-size:1.5rem;" aria-label="Share on Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://btw-design.github.io/visa-asistance/visa-guide/australia-visa" target="_blank" rel="noopener noreferrer" style="color:#0A66C2;font-size:1.5rem;" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+ </div>
+ </div>
+ </aside>
+ </div>
+ </div>
+ </section>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#A5D549"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#0a0a52"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#0a0a52"/>
+ </svg>
+ </span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/visa-asistance/">Home</a></li>
+ <li><a href="/visa-asistance/about">About</a></li>
+ <li><a href="/visa-asistance/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-asistance/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-asistance/blog/">Blog</a></li>
+ <li><a href="/visa-asistance/contact">Contact</a></li>
+ <li><a href="/visa-asistance/embassy-address/">Embassy Address</a></li>
+ <li><a href="/visa-asistance/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/visa-asistance/upcoming-events/">Upcoming Events</a></li>
+  <li><a href="/visa-asistance/visa-news/">Visa News</a></li>
+  <li><a href="/visa-asistance/tracking-links/">Tracking Links</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-asistance/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-asistance/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:info@myvisaassistance.com"><i class="bi bi-envelope"></i> info@myvisaassistance.com</a></li>
+ <li><a href="tel:+919022954619"><i class="bi bi-telephone"></i> +91 90229 54619</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/visa-asistance/privacy-policy">Privacy Policy</a>
+ <a href="/visa-asistance/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+ <a href="/visa-asistance/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-asistance/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-asistance/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-asistance/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-asistance/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-asistance/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-asistance/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-asistance/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-asistance/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-asistance/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-asistance/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-asistance/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-asistance/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-asistance/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-asistance/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-asistance/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-asistance/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-asistance/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-asistance/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-asistance/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-asistance/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-asistance/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-asistance/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-asistance/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-asistance/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-asistance/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-asistance/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-asistance/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ <a href="/visa-asistance/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-asistance/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-asistance/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-asistance/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-asistance/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-asistance/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-asistance/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-asistance/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-asistance/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-asistance/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-asistance/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-asistance/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-asistance/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-asistance/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-asistance/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-asistance/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-asistance/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-asistance/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-asistance/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-asistance/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-asistance/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-asistance/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-asistance/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-asistance/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-asistance/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-asistance/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-asistance/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-asistance/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ </div>
+ </div>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/visa-asistance/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
+
+
+
+
+
+
+
