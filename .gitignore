@@ -1,0 +1,27 @@
+# ============================================================
+# My Visa Assistance - .gitignore
+# ============================================================
+
+# === Build & generation scripts (not part of the published site) ===
+/scripts/
+/generate-countries.ps1
+
+# === Server-specific config files (not used on GitHub Pages) ===
+.htaccess
+web.config
+
+# === Operating system files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Editor / IDE files ===
+.vscode/
+*.sublime-*
+*.swp
+*.swo
+*~
+
+# === Logs & temporary files ===
+*.log
+*.tmp

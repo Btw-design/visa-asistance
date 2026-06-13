@@ -1,0 +1,23 @@
+# ============================================================
+# Robots.txt - My Visa Assistance
+# ============================================================
+
+User-agent: *
+Allow: /
+Allow: /visa-guide/
+Allow: /visa-requirements/
+Allow: /blog/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /about/
+Allow: /contact/
+Disallow: /favicon/
+Disallow: /generate-countries.ps1
+Disallow: /scripts/
+
+# Sitemap
+Sitemap: https://myvisaassistance.com/sitemap.xml
+
+# Crawl delay (be respectful)
+Crawl-delay: 10

@@ -1,0 +1,55 @@
+# ============================================================
+# My Visa Assistance - Clean URL Rewrite Rules (Apache)
+# ============================================================
+# Place this file in the site root (/) to enable clean URLs
+# without .html extension. Requires mod_rewrite.
+# ============================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ----- Force HTTPS (enable when SSL certificate is installed) -----
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # ----- Redirect old /contact/blog/ to /blog/ -----
+  RewriteRule ^contact/blog/(.*)$ /blog/$1 [R=301,L,NE]
+
+  # ----- Remove trailing slash from non-directory paths -----
+  # Prevents /about/ from conflicting (serves /about instead)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} (.+)/$
+  RewriteRule ^ %1 [L,R=301]
+
+  # ----- Redirect .html URLs to clean URLs (301 permanent) -----
+  RewriteCond %{THE_REQUEST} \.html[\s?]
+  RewriteRule ^(.+)\.html$ /$1 [R=301,L,NE]
+
+  # ----- Internally rewrite clean URLs to .html files -----
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+
+  # ----- Custom 404 page -----
+  ErrorDocument 404 /404.html
+</IfModule>
+
+# ----- Security: prevent directory listing -----
+Options -Indexes
+
+# ----- Cache static assets (optional) -----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 3 months"
+  ExpiresByType image/png "access plus 3 months"
+  ExpiresByType image/svg+xml "access plus 3 months"
+  ExpiresByType image/x-icon "access plus 6 months"
+</IfModule>
+
+# ----- Gzip compression (optional) -----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>
