@@ -1126,5 +1126,235 @@ function getCountriesByRegion(region) {
 return countriesData.filter(c => c.region === region);
 }
 function getAllRegions() {
-return [...new Set(countriesData.map(c => c.region))];
+return [...new Set(countriesData.map(c => c.region))
+{
+id: "albania",
+name: "Albania",
+slug: "albania",
+flag: "🇦🇱",
+region: "Europe",
+visaRequired: true,
+processingTime: "5-10 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Visa", "Transit Visa"],
+visaGuideSummary: "Albania offers a streamlined visa process for Indian citizens, though it is not part of the Schengen Area despite being ",
+visaRequirementsSummary: "Albania visa requirements include a valid passport, completed application form, passport-sized photograph, proof of fund",
+requirements: [
+    "Passport valid for at least 6 months",
+    "Completed visa application form",
+    "Passport-sized photograph (35×45mm)",
+    "Proof of financial means (€100/day)",
+    "Confirmed flight booking",
+    "Hotel reservations",
+    "Bank statement (last 3 months)",
+    "Travel health insurance (€30,000 coverage)"
+],
+fees: { },
+faq: [
+{ q: "Do Indian citizens need a visa for Albania?", a: "Yes, Indian citizens need a visa for Albania. However, Albania offers an eVisa s" },
+{ q: "How much does an Albania tourist visa cost?", a: "A tourist visa costs €50 (approximately ₹4,500-5,000). Additional service fees m" },
+{ q: "What documents are needed for Albania visa?", a: "Valid passport (6 months validity), completed application form, 2 photos, travel" }
+]
+},
+
+{
+id: "algeria",
+name: "Algeria",
+slug: "algeria",
+flag: "🇩🇿",
+region: "Africa",
+visaRequired: true,
+processingTime: "7-15 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Visa", "Transit Visa"],
+visaGuideSummary: "Algeria is the largest country in Africa and offers diverse attractions from Sahara desert landscapes to Mediterranean c",
+visaRequirementsSummary: "Algeria visa requirements include a valid passport, completed application form, passport-sized photograph, proof of fund",
+requirements: [
+    "Passport valid for at least 6 months",
+    "Completed visa application form",
+    "Passport-sized photograph (35×45mm)",
+    "Proof of financial means",
+    "Confirmed flight booking",
+    "Hotel reservations",
+    "Bank statement (last 3 months)",
+    "Employment letter"
+],
+fees: { },
+faq: [
+{ q: "Do Indian citizens need a visa for Algeria?", a: "Yes, Indian citizens need a visa for Algeria for all travel purposes. There is n" },
+{ q: "How much does an Algeria tourist visa cost?", a: "A tourist visa costs approximately €50-80 (₹4,500-7,000) depending on embassy fe" },
+{ q: "What documents are needed for Algeria visa?", a: "Valid passport (6 months validity), completed application form, 2 passport photo" }
+]
+},
+
+{
+id: "andorra",
+name: "Andorra",
+slug: "andorra",
+flag: "🇦🇩",
+region: "Europe",
+visaRequired: false,
+processingTime: "N/A (Schengen rules apply)",
+visaTypes: ["Schengen Visa", "Tourist Visa", "Business Visa", "Transit Visa"],
+visaGuideSummary: "Andorra is a tiny principality between France and Spain in the Pyrenees mountains. While it is not a Schengen member, it",
+visaRequirementsSummary: "Andorra visa requirements follow Schengen rules. You need a valid multiple-entry Schengen visa from France or Spain with",
+requirements: [
+    "Passport valid for at least 3 months beyond departure",
+    "Completed Schengen visa application form",
+    "Passport-sized photograph (35×45mm)",
+    "Travel health insurance (€30,000 minimum)",
+    "Confirmed flight booking to France/Spain",
+    "Hotel reservations in France/Spain and Andorra",
+    "Bank statement (last 3 months)",
+    "Cover letter mentioning Andorra visit"
+],
+fees: { },
+faq: [
+{ q: "Do Indian citizens need a visa for Andorra?", a: "Andorra does not issue visas. Indian citizens need a valid multiple-entry Scheng" },
+{ q: "How do I apply for a visa to visit Andorra?", a: "Apply for a multiple-entry Schengen visa through France or Spain via VFS Global " },
+{ q: "What documents are needed for Schengen visa?", a: "Valid passport, completed application, 2 photos, travel insurance (€30,000), fli" }
+]
+},
+
+{
+id: "angola",
+name: "Angola",
+slug: "angola",
+flag: "🇦🇴",
+region: "Africa",
+visaRequired: true,
+processingTime: "3-5 business days (eVisa)",
+visaTypes: ["e-Visa", "Tourist Visa", "Business Visa", "Student Visa", "Work Visa"],
+visaGuideSummary: "Angola offers a convenient eVisa system for Indian citizens, making it easier to visit this southwestern African nation ",
+visaRequirementsSummary: "Angola visa requirements include a valid passport, completed application form, passport-sized photograph, proof of funds",
+requirements: [
+    "Passport valid for at least 6 months",
+    "Completed visa application form (online for eVisa)",
+    "Passport-sized photograph (35×45mm)",
+    "Proof of sufficient funds",
+    "Confirmed flight booking",
+    "Hotel reservations",
+    "Bank statement (last 3 months)",
+    "Yellow fever vaccination certificate"
+],
+fees: { },
+faq: [
+{ q: "Do Indian citizens need a visa for Angola?", a: "Yes, Indian citizens need a visa for Angola. An eVisa is available for tourism a" },
+{ q: "How do I apply for an Angola eVisa?", a: "Apply through the official Angolan eVisa portal. Complete the form, upload docum" },
+{ q: "How much does an Angola eVisa cost?", a: "The eVisa costs $120 (approximately ₹10,000) for both tourism and business purpo" }
+]
+},
+
+{
+id: "antigua-and-barbuda",
+name: "Antigua and Barbuda",
+slug: "antigua-and-barbuda",
+flag: "🇦🇬",
+region: "Caribbean",
+visaRequired: false,
+processingTime: "Visa-free / 3-5 days for visa",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Permit", "Citizenship by Investment"],
+visaGuideSummary: "Antigua and Barbuda offers visa-free travel for Indian citizens for up to 30 days. The twin-island nation in the Caribbe",
+visaRequirementsSummary: "Indian citizens can enter Antigua and Barbuda visa-free for 30 days. For longer stays or non-tourism purposes, visa requ",
+requirements: [
+    "Passport valid for at least 6 months",
+    "Return/onward flight ticket",
+    "Hotel reservations",
+    "Proof of sufficient funds",
+    "Travel insurance (recommended)",
+    "Completed immigration form (on arrival)"
+],
+fees: { },
+faq: [
+{ q: "Do Indian citizens need a visa for Antigua and Barbuda?", a: "No, Indian citizens can visit Antigua and Barbuda visa-free for up to 30 days fo" },
+{ q: "How long can I stay visa-free in Antigua and Barbuda?", a: "Indian citizens can stay up to 30 days without a visa. Extensions up to 6 months" },
+{ q: "What documents do I need for visa-free entry?", a: "Valid passport (6 months validity), return flight ticket, hotel booking, and pro" }
+]
+},
+
+{
+id: "armenia",
+name: "Armenia",
+slug: "armenia",
+flag: "🇦🇲",
+region: "Asia / Europe",
+visaRequired: true,
+processingTime: "3-5 business days (eVisa)",
+visaTypes: ["e-Visa", "Tourist Visa", "Business Visa", "Student Visa", "Work Visa"],
+visaGuideSummary: "Armenia offers a convenient eVisa system for Indian citizens, making it one of the easier Caucasus countries to visit. T",
+visaRequirementsSummary: "Armenia visa requirements include a valid passport, completed eVisa application, photograph, and proof of sufficient fun",
+requirements: [
+    "Passport valid for at least 6 months",
+    "Completed eVisa application form",
+    "Digital passport photograph (35×45mm)",
+    "Proof of accommodation",
+    "Return flight booking",
+    "Bank statement (last 3 months)",
+    "Travel insurance (recommended)"
+],
+fees: { },
+faq: [
+{ q: "Do Indian citizens need a visa for Armenia?", a: "Indian citizens need a visa for Armenia but can apply for an eVisa online. Holde" },
+{ q: "How do I apply for Armenia eVisa?", a: "Apply through the official Armenian eVisa portal (evisa.mfa.am). Complete the fo" },
+{ q: "How much does Armenia eVisa cost?", a: "The eVisa costs AMD 15,000 (approximately ₹3,000-3,500). The eVisa covers both t" }
+]
+},
+
+{
+id: "austria",
+name: "Austria",
+slug: "austria",
+flag: "🇦🇹",
+region: "Europe",
+visaRequired: false,
+processingTime: "N/A (Schengen rules apply)",
+visaTypes: ["Schengen Tourist Visa", "Business Visa", "Student Visa", "Red-White-Red Card", "Settlement Permit"],
+visaGuideSummary: "Austria is a Schengen Area member offering stunning Alpine landscapes, imperial history, and world-class cultural attrac",
+visaRequirementsSummary: "Austria visa requirements follow Schengen rules. You need a valid passport, completed application, travel insurance (€30",
+requirements: [
+    "Passport valid for at least 3 months beyond departure",
+    "Completed Schengen visa application form",
+    "Passport-sized photograph (35×45mm)",
+    "Travel health insurance (€30,000 minimum)",
+    "Confirmed flight booking (round-trip)",
+    "Hotel reservations for entire stay",
+    "Bank statement (last 3 months)",
+    "Employment letter with leave approval",
+    "Income tax returns (last 2 years)"
+],
+fees: { },
+faq: [
+{ q: "Do Indian citizens need a visa for Austria?", a: "Yes, Indian citizens need a Schengen visa for Austria. Visa-free travel is not a" },
+{ q: "How much does an Austria Schengen visa cost?", a: "The Schengen visa costs €80 for adults (approximately ₹7,200). Children aged 6-1" },
+{ q: "What documents are needed for Austria visa?", a: "Valid passport (3 months validity beyond departure), completed form, 2 photos, t" }
+]
+},
+
+{
+id: "azerbaijan",
+name: "Azerbaijan",
+slug: "azerbaijan",
+flag: "🇦🇿",
+region: "Asia / Europe",
+visaRequired: true,
+processingTime: "3-5 business days (eVisa)",
+visaTypes: ["e-Visa (ASAN Visa)", "Tourist Visa", "Business Visa", "Student Visa", "Work Visa"],
+visaGuideSummary: "Azerbaijan offers a convenient eVisa system (ASAN Visa) for Indian citizens, making it easy to visit the 'Land of Fire.'",
+visaRequirementsSummary: "Azerbaijan visa requirements include a valid passport, completed ASAN eVisa application, digital photograph, and confirm",
+requirements: [
+    "Passport valid for at least 3 months",
+    "Completed ASAN Visa online application",
+    "Digital passport photograph",
+    "Confirmed flight booking (round-trip)",
+    "Hotel reservations",
+    "Proof of sufficient funds",
+    "Travel insurance (recommended)"
+],
+fees: { },
+faq: [
+{ q: "Do Indian citizens need a visa for Azerbaijan?", a: "Yes, Indian citizens need a visa for Azerbaijan. The ASAN eVisa system provides " },
+{ q: "How do I apply for Azerbaijan eVisa?", a: "Apply through the official ASAN Visa portal (evisa.gov.az). Complete the form, u" },
+{ q: "How much does Azerbaijan eVisa cost?", a: "The standard eVisa costs $25 (approximately ₹2,200). Urgent processing (3 hours)" }
+]
+},
+
+];
 }
