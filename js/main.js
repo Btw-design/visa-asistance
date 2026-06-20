@@ -207,47 +207,6 @@
   });
 
   /* ===================================================================
-     8. Lead Forms (For demo / static sites)
-     =================================================================== */
-  ready(function() {
-    $$('.lead-form').forEach(function(form) {
-      on(form, 'submit', function(e) {
-        e.preventDefault();
-
-        const submitBtn = form.querySelector('.form-submit');
-        const formGroups = form.querySelectorAll('.form-group');
-        const successEl = form.querySelector('.form-success');
-
-        // Collect data
-        const data = {};
-        new FormData(form).forEach(function(value, key) {
-          data[key] = value;
-        });
-
-        // Visual feedback
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span> Submitting...';
-        }
-
-        console.log('Lead form submitted:', data);
-
-        // Simulate submission
-        setTimeout(function() {
-          if (successEl) {
-            successEl.classList.add('show');
-            formGroups.forEach(function(g) { g.style.display = 'none'; });
-            if (submitBtn) submitBtn.style.display = 'none';
-          } else {
-            // Fallback
-            form.innerHTML = '<div class="form-success show"><div class="form-success-icon">✓</div><h4>Thank You!</h4><p>Your inquiry has been submitted successfully. We\'ll contact you within 24 hours.</p></div>';
-          }
-        }, 1200);
-      });
-    });
-  });
-
-  /* ===================================================================
      9. Country Cards — Render & Filter
      =================================================================== */
   ready(function() {
