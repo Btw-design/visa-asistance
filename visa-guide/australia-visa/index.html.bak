@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>:root{--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#28a745;--color-text:#2d3436;--color-text-light:#636e72;--color-text-muted:#b2bec3;--color-bg:#ffffff;--color-bg-alt:#f8f9fa;--color-bg-dark:#0a0a52;--color-border:#e0e0e0;--color-white:#ffffff;--color-error:#dc3545;--font-primary:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;--font-heading:'Georgia','Times New Roman',serif;--max-width:1200px;--header-height:70px;--border-radius:8px;--border-radius-lg:12px;--shadow-sm:0 2px 4px rgba(0,0,0,0.05);--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-lg:0 8px 30px rgba(0,0,0,0.12);--transition:all 0.3s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-wrap:break-word;word-break:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.5rem,3.5vw,2.2rem)}
+p{margin-bottom:1rem}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--border-radius);cursor:pointer;transition:var(--transition);text-decoration:none;line-height:1.4}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--color-white);box-shadow:var(--shadow-sm);height:var(--header-height)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.4rem;font-weight:700;color:var(--color-primary);text-decoration:none}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:30px}
+.nav-list{display:flex;align-items:center;gap:25px}
+.nav-list a{font-size:0.95rem;font-weight:500;color:var(--color-text);padding:5px 0;position:relative}
+.nav-list a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--color-accent);transition:var(--transition)}
+.nav-list a:hover::after,.nav-list a.active::after{width:100%}
+.nav-list a.active{color:var(--color-primary);font-weight:600}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;z-index:1000}
+.menu-toggle span{display:block;width:25px;height:2px;background:var(--color-primary);transition:var(--transition)}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,var(--color-primary-dark),var(--color-primary),var(--color-primary-light));color:var(--color-white);position:relative;overflow:hidden}
+.hero-content h1{color:var(--color-white);font-size:clamp(2.2rem,5vw,3.5rem);margin-bottom:0.3em}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem}
+.hero-badges{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:2rem;justify-content:center}
+.hero-badge{display:flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:20px}
+.hero-buttons{display:flex;gap:15px;flex-wrap:wrap;justify-content:center}
+.hero-trust{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent)}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.breadcrumbs{padding:15px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,var(--color-primary-dark),var(--color-primary));color:var(--color-white);text-align:center}
+.page-header h1{color:var(--color-white);margin-bottom:0.3em}
+.page-header p{color:rgba(255,255,255,0.85);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.footer{background:var(--color-primary-dark);color:rgba(255,255,255,0.85);padding:60px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.whatsapp-float{position:fixed;bottom:90px;right:30px;z-index:999;width:56px;height:56px;background:#25D366;color:var(--color-white);border:none;border-radius:50%;font-size:1.6rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);text-decoration:none}
+.scroll-top{position:fixed;bottom:30px;right:calc(30px + env(safe-area-inset-right,0px));width:45px;height:45px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer}
+.country-hero{padding:130px 0 60px;background:linear-gradient(135deg,var(--color-primary-dark),var(--color-primary));color:var(--color-white)}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem)}
+@media(max-width:768px){.menu-toggle{display:flex}.nav-list{display:none;position:absolute;top:var(--header-height);left:0;right:0;background:var(--color-white);flex-direction:column;padding:20px;z-index:999}.nav-list.open{display:flex}.hero{padding:120px 0 60px}.section{padding:50px 0}.footer-grid{grid-template-columns:1fr}.page-header{padding:110px 0 40px}.hero-trust{gap:20px}.hero-trust-num{font-size:1.5rem}}</style>
+  <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Australia Visa Guide 2026 | Types, Requirements & Process | My Visa Assistance</title>
+  <meta name="description" content="Complete guide to Australia visas for 2026. Learn about visa types, processing times (2-5 weeks (ETA: instant)), fees, requirements, and how to apply. Expert visa guidance.">
+  <meta name="author" content="Yogesh Prajapati">
+  
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.myvisaassistance.com/visa-guide/australia-visa">
+  <meta property="og:title" content="Australia Visa Guide 2026">
+  <meta property="og:description" content="Complete guide to Australia visas. Learn about visa types, processing times, fees, and requirements.">
+  
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+  <link rel="canonical" href="https://www.myvisaassistance.com/visa-guide/australia-visa">
+
+  
+  <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </noscript>
+</head>
+<body>
+
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
+        My Visa <span>Assistance</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/visa-guide/" class="active">Visa Guide</a></li>
+          <li><a href="/visa-requirements/">Visa Requirements</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="country-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/visa-guide/">Visa Guide</a>
+        <span>/</span>
+        <span>Australia Visa</span>
+      </nav>
+      <h1>Australia Visa Guide 2026</h1>
+      <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;">Comprehensive information about Australia visa types, processing times, fees, and application procedures.</p>
+    </div>
+  </div>
+
+  <section class="country-content">
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-content">
+          <h2>Australia Visa Overview</h2>
+          <p>Australia offers various visa options. The ETA is available for passport holders from eligible countries. The Visitor Visa is for tourism and business visits.</p>
+
+          <h2>Visa Types Available</h2>
+          <p>Australia offers the following types of visas for foreign nationals:</p>
+          <ul>
+            <li>Visitor Visa (Subclass 600)</li>
+            <li>ETA (Subclass 601)</li>
+            <li>Student Visa (Subclass 500)</li>
+            <li>Work and Holiday Visa</li>
+            <li>Skilled Migration Visa</li>
+          </ul>
+
+          <h2>Processing Time</h2>
+          <div class="info-box">
+            <h4>Standard Processing Time</h4>
+            <p style="margin-bottom:0;">2-5 weeks (ETA: instant)</p>
+          </div>
+
+          <h2>Visa Fees</h2>
+          <p>Visa fees for Australia vary depending on the visa type, duration, and applicant nationality. Below are the approximate fees:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Visa Type / Nationality</th>
+                <th>Fee</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Tourist Visa (Standard)</td><td>â‚¹10,400 (AUD $190)</td></tr>
+              <tr><td>Business Visa</td><td>â‚¹10,400 (AUD $190)</td></tr>
+              <tr><td>Student Visa</td><td>â‚¹21,000 (AUD $380)</td></tr>
+              <tr><td>Express/Priority Processing</td><td>Additional fee may apply</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:0.9rem;color:var(--color-text-light);">Note: Fees are subject to change. Always verify with the official embassy website before applying.</p>
+          <p style="font-size:0.85rem;color:var(--color-text-light);">Official visa website: <a href="https://immi.homeaffairs.gov.au" target="_blank" rel="noopener noreferrer">Australian Department of Home Affairs</a> | Track application: <a href="https://immi.homeaffairs.gov.au/help-support/departmental-forms/online-forms/global-visa-online-enquiry-form" target="_blank" rel="noopener noreferrer">Track Australia Visa Status</a></p>
+          
+
+          <h2>How to Apply for a Australia Visa</h2>
+          <ol style="list-style:decimal;padding-left:20px;margin-bottom:1.5rem;">
+            <li style="margin-bottom:0.5rem;"><strong>Determine Visa Type</strong> - Choose the appropriate visa category for your purpose of travel.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Gather Documents</strong> - Collect all required documents as listed in the requirements section.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Complete Application</strong> - Fill out the visa application form accurately and completely.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Pay Fees</strong> - Pay the applicable visa processing fees.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Submit Application</strong> - Submit your application online or at the nearest embassy/consulate.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Attend Interview</strong> - If required, attend the visa interview at the embassy.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Wait for Processing</strong> - Wait for your visa to be processed. Track your application status online.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Receive Decision</strong> - Collect your passport with the visa decision.</li>
+          </ol>
+
+          <h2>Important Tips for Australia Visa Application</h2>
+          <div class="info-box">
+            <h4>Tips to Increase Your Approval Chances</h4>
+            <ul>
+              <li>Apply well in advance of your planned travel date</li>
+              <li>Ensure all documents are complete and accurate</li>
+              <li>Provide clear proof of your intent to return home</li>
+              <li>Demonstrate sufficient financial means for your stay</li>
+              <li>Be honest and consistent in all information provided</li>
+              <li>Consider using a visa assistance service for complex applications</li>
+            </ul>
+          </div>
+
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list" style="max-width:100%;">
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Can I work on an Australian visitor visa?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>No, a Visitor Visa (Subclass 600) or ETA does not allow work. You need a Work and Holiday Visa or sponsored work visa.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How long does Australian visa processing take?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>ETA applications are processed instantly. Visitor visas take 2-5 weeks. Student visas can take 4-8 weeks.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Do I need health insurance for Australia?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>For visitors under 6 months, insurance is recommended. For student visas, Overseas Student Health Cover (OSHC) is mandatory.</p>
+              </div>
+            </div>
+          
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is a cover letter for a visa application?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>A visa cover letter is a formal document submitted with your visa application that explains the purpose of your visit, travel itinerary, financial means, accommodation details, and your intent to return home. While not always mandatory, a well-written cover letter helps visa officers understand your case quickly and can strengthen your application.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How can I track my visa application status?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>You can track your visa application status online through the official embassy or consulate website using your application reference number. Most visa application centres (such as VFS Global, TLScontact, or BLS International) also provide online tracking portals where you can check your application status in real time.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What are the different types of visa categories?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Common visa categories include tourist/visitor visa, business visa, student visa, work visa, transit visa, medical visa, diplomatic visa, and family reunification visa. Each category serves a specific purpose of travel and has its own set of eligibility requirements, document checklists, and processing conditions.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Do I need to attend a visa interview?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Many countries require a visa interview, especially for first-time applicants or certain visa categories such as student or work visas. Some countries offer interview waivers for visa renewals, applicants below a certain age, or those from low-risk nationalities. Always check the specific embassy guidelines for your visa type.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is the difference between single-entry and multiple-entry visa?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>A single-entry visa allows you to enter the destination country only once during its validity period. A multiple-entry visa permits you to enter and exit the country multiple times. Multiple-entry visas are ideal for frequent travellers and are often valid for longer durations such as 1, 3, or 5 years.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What happens if my visa application is rejected?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>If your visa application is rejected, you will receive a refusal letter explaining the specific reason for the decision. You may be able to reapply by addressing the concerns mentioned, file an appeal if the country's regulations allow it, or request a reconsideration. It is advisable to seek professional advice before reapplying.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How early should I apply for a visa?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>It is generally recommended to apply for a visa at least 4 to 6 weeks before your planned travel date. Some countries accept applications up to 3 to 6 months in advance. Applying early helps avoid processing delays due to high application volumes, incomplete documentation, or peak travel seasons.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Do children need a separate visa?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, children typically require their own visa even if they are travelling with parents. In some cases, minors can be included on a parent's application. Additional documents such as birth certificates, parental consent letters from both parents, and school enrolment letters are usually required for minor applicants.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Is travel insurance required for a visa application?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Many countries, particularly Schengen Area states, require travel medical insurance as a mandatory part of the visa application. The insurance must typically cover medical emergencies, hospitalisation, and repatriation with a minimum coverage of €30,000. Check the specific requirements of your destination country.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Can I work on a tourist visa?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>No, tourist visas generally prohibit any form of paid or unpaid employment. You need a valid work visa or work permit to engage in employment in a foreign country. Violating visa conditions by working on a tourist visa can result in deportation, fines, and future entry bans.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What documents are commonly required for a visa application?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Commonly required documents include a valid passport with at least 6 months validity, completed visa application form, recent passport-sized photographs, round-trip flight itinerary, hotel bookings, bank statements for the last 3-6 months, employment letter, income tax returns, and travel insurance.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is the typical visa processing time?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Visa processing time varies depending on the visa type, destination country, application volume, and time of year. Standard processing can range from 3-5 working days for e-visas to several weeks or months for complex visa categories. Priority or express processing is available in some countries for an additional fee.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Can I apply for a visa online?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Many countries now offer online visa applications or e-visa systems, allowing you to submit your application, upload supporting documents, and pay fees electronically. However, some countries still require in-person submission at an embassy, consulate, or authorised visa application centre.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is the difference between a visa and a passport?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>A passport is a government-issued identification document that proves your identity and citizenship for international travel. A visa is an official authorisation endorsed on your passport (or issued electronically) that grants you permission to enter, stay, or transit through a foreign country for a specific purpose and duration.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is the 6-month passport validity rule for visas?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>The 6-month passport validity rule requires your passport to be valid for at least six months beyond your intended stay in the destination country. This is a common requirement for many countries worldwide. If your passport does not meet this requirement, your visa application may be denied even if all other documents are in order.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li><strong>Country:</strong> Australia</li>
+              <li><strong>Region:</strong> Oceania</li>
+              <li><strong>Visa Required:</strong> Yes</li>
+              <li><strong>Processing Time:</strong> 2-5 weeks (ETA: instant)</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Visa Types</h3>
+            <ul>
+              <li>Visitor Visa (Subclass 600)</li>
+               <li>ETA (Subclass 601)</li>
+               <li>Student Visa (Subclass 500)</li>
+               <li>Work and Holiday Visa</li>
+               <li>Skilled Migration Visa</li>
+
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-cta">
+            <h3>Need Visa Help?</h3>
+            <p>Our experts can guide you through the Australia visa application process.</p>
+            <a href="/contact" class="btn btn-primary" style="margin-bottom:8px;">Get Assistance</a>
+            <a href="https://wa.me/919022954619?text=Hi%20I%20need%20help%20with%20Australia%20visa" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:#25D366;color:white;display:block;text-align:center;"><i class="bi bi-whatsapp"></i> WhatsApp Us</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Related Guides</h3>
+            <ul>
+              <li><a href="/visa-requirements/australia-visa-requirements">Australia Visa Requirements</a></li>
+              <li><a href="/visa-guide/">View All Countries</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="/" class="logo">
+            <span class="logo-icon" aria-hidden="true">✈</span>
+            My Visa <span>Assistance</span>
+          </a>
+          <p>Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/visa-guide/">Visa Guide</a></li>
+            <li><a href="/visa-requirements/">Visa Requirements</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/embassy-address/">Embassy Address</a></li>
+            <li><a href="/passport-ranking/">Passport Ranking</a></li>
+            <li><a href="/upcoming-events/">Upcoming Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Top Countries</h4>
+          <ul>
+            <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+            <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+            <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+            <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+            <li><a href="/visa-guide/india-visa">India Visa</a></li>
+            <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Info</h4>
+          <ul>
+            <li><a href="mailto:info@myvisaassistance.com">info@myvisaassistance.com</a></li>
+            <li><a href="tel:+919022954619">+91 90229 54619</a></li>
+            <li><a href="https://wa.me/919022954619" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i> WhatsApp: +91 90229 54619</a></li>
+            <li>Mon - Sat: 9:00 AM - 7:00 PM</li>
+            <li><a href="/contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+            <div class="footer-disclaimer" style="padding:15px 0;border-top:1px solid rgba(255,255,255,0.08);margin-top:0;">
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);text-align:center;margin:0;max-width:900px;margin:0 auto;line-height:1.5;">
+          <strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.
+        </p>
+      </div>
+  <div class="footer-bottom">
+        <span>© <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919022954619?text=Hi%20I%20need%20help%20with%20visa%20application" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp" title="Chat with us on WhatsApp">
+    <span class="whatsapp-tooltip">Chat with us!</span>
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+  
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+

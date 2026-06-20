@@ -1,0 +1,568 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+
+<style>
+.blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+.blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+.blog-content h3 { margin-top: 1.5em; }
+.blog-content p, .blog-content li { line-height: 1.8; }
+.blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+.blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+.blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+.blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+.blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+.blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+.blog-content th { background: var(--color-primary); color: var(--color-white); }
+.blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+.blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+.blog-content .infographic { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 12px; padding: 30px; margin: 2rem 0; text-align: center; }
+.blog-content .infographic svg { max-width: 100%; height: auto; }
+.blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+.blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+.blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+.blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+.blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+.blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+.blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+</style>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Schengen vs European Union vs UK: Understanding the Geographical and Political Differences",
+ "description": "What's the difference between Schengen, the EU, and the UK? Clear explanation for Indian travellers on visa requirements, border policies, and which countries need which visa.",
+ "author": { "@type": "Organization", "name": "My Visa Assistance" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://www.myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-06-10",
+ "dateModified": "2026-06-10",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.myvisaassistance.com/blog/schengen-vs-eu-vs-uk" }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [{
+ "@type": "Question",
+ "name": "What is the difference between the Schengen Area and the European Union?",
+ "acceptedAnswer": { "@type": "Answer", "text": "The Schengen Area is a zone of 29 European countries that have abolished internal border controls, allowing free movement between them. The European Union is a political and economic union of 27 member states. While most Schengen countries are EU members, not all EU members are in Schengen (Ireland, Cyprus, Romania, Bulgaria) and not all Schengen countries are EU members (Norway, Iceland, Switzerland, Liechtenstein)." }
+ },{
+ "@type": "Question",
+ "name": "Is the UK part of the Schengen Area or the European Union?",
+ "acceptedAnswer": { "@type": "Answer", "text": "The United Kingdom is neither part of the Schengen Area nor the European Union. The UK left the EU in 2020 (Brexit) and was never part of the Schengen Area. It operates its own independent immigration and border control system with a separate UK visa required for Indian travellers." }
+ },{
+ "@type": "Question",
+ "name": "Do Indian travellers need a separate visa for the UK and Schengen countries?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Yes. A Schengen visa does not permit entry into the UK, and a UK visa does not permit entry into the Schengen Area. Indian travellers planning to visit both the UK and Schengen countries on the same trip must apply for both visas separately through their respective application processes." }
+ },{
+ "@type": "Question",
+ "name": "Which European countries are in Schengen but not in the EU?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Four countries are part of the Schengen Area but not members of the European Union: Norway, Iceland, Switzerland, and Liechtenstein. These countries participate in the Schengen border-free agreement and allow entry on a Schengen visa, despite not being EU members." }
+ },{
+ "@type": "Question",
+ "name": "Which EU countries are not part of the Schengen Area?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Four EU member states are not part of the Schengen Area: Ireland (which opts out of Schengen), and Cyprus, Romania, and Bulgaria (which are legally obligated to join but have not yet fully implemented Schengen rules). Travel to these countries requires checking their specific visa policies." }
+ }]
+}
+</script>
+
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Schengen vs European Union vs UK: Understanding the Geographical and Political Differences - My Visa Assistance</title>
+ <meta name="title" content="Schengen vs European Union vs UK: Understanding the Geographical and Political Differences - My Visa Assistance">
+ <meta name="description" content="What's the difference between Schengen, the EU, and the UK? Clear explanation for Indian travellers on visa requirements, border policies, and which countries need which visa.">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Onkar">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://www.myvisaassistance.com/blog/schengen-vs-eu-vs-uk">
+ <meta property="og:title" content="Schengen vs European Union vs UK: Understanding the Geographical and Political Differences - My Visa Assistance">
+ <meta property="og:description" content="What's the difference between Schengen, the EU, and the UK? Clear explanation for Indian travellers on visa requirements, border policies, and which countries need which visa.">
+ <meta property="article:published_time" content="2026-06-10">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="canonical" href="https://www.myvisaassistance.com/blog/schengen-vs-eu-vs-uk">
+
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>Schengen vs EU vs UK</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+ <h1>Schengen vs European Union vs UK: Understanding the Geographical and Political Differences</h1>
+
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: June 10, 2026</span>
+ <span><i class="bi bi-clock"></i> 8 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ <span><i class="bi bi-chat-dots"></i> Updated: June 10, 2026</span>
+ </div>
+
+ <div class="infographic">
+ <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+ <defs>
+ <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0a52"/><stop offset="100%" stop-color="#171299"/></linearGradient>
+ </defs>
+ <rect width="700" height="220" rx="12" fill="url(#g5)"/>
+ <text x="350" y="28" text-anchor="middle" fill="#A5D549" font-size="16" font-weight="bold" letter-spacing="0.5">Schengen vs EU vs UK â€” Quick Comparison</text>
+ <line x1="20" y1="42" x2="680" y2="42" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+ <rect x="15" y="52" width="215" height="150" rx="10" fill="rgba(165,213,73,0.08)" stroke="#A5D549" stroke-width="1.5"/>
+ <text x="122" y="80" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">&#9733; Schengen</text>
+ <text x="122" y="105" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10">Area</text>
+ <text x="122" y="130" text-anchor="middle" fill="white" font-size="20" font-weight="bold">29</text>
+ <text x="122" y="150" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Countries</text>
+ <text x="122" y="175" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">No internal borders</text>
+ <text x="122" y="190" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">Single visa zone</text>
+
+ <rect x="242" y="52" width="215" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+ <text x="350" y="80" text-anchor="middle" fill="white" font-size="18" font-weight="bold">&#9733; EU</text>
+ <text x="350" y="105" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10">European Union</text>
+ <text x="350" y="130" text-anchor="middle" fill="white" font-size="20" font-weight="bold">27</text>
+ <text x="350" y="150" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Member States</text>
+ <text x="350" y="175" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">Political &amp; economic</text>
+ <text x="350" y="190" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">Euro currency</text>
+
+ <rect x="470" y="52" width="215" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+ <text x="578" y="80" text-anchor="middle" fill="white" font-size="18" font-weight="bold">&#9733; UK</text>
+ <text x="578" y="105" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10">United Kingdom</text>
+ <text x="578" y="130" text-anchor="middle" fill="white" font-size="20" font-weight="bold">1</text>
+ <text x="578" y="150" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Country</text>
+ <text x="578" y="175" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">Left EU in 2020</text>
+ <text x="578" y="190" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">Own visa system</text>
+</svg>
+ </div>
+
+ <p>If you are an Indian traveller planning a trip to Europe, you have likely come across three terms that seem interchangeable but are actually quite different: <strong>Schengen Area</strong>, <strong>European Union (EU)</strong>, and the <strong>United Kingdom (UK)</strong>. Mixing them up can lead to serious visa mistakes, wasted application fees, and even denied boarding at the airport.</p>
+
+ <p>This guide explains the clear differences between these three entities, how they overlap, and most importantly, what they mean for your visa planning as an Indian traveller.</p>
+
+ <h2>What is the European Union (EU)?</h2>
+ <p>The European Union is a <strong>political and economic union</strong> of 27 European countries. It was established after World War II to foster economic cooperation, with the idea that countries that trade together are more likely to avoid conflict. Over time, it has evolved into a powerful single market with common policies on trade, agriculture, fisheries, and regional development.</p>
+
+ <p><strong>Key facts about the EU:</strong></p>
+ <ul>
+ <li><strong>27 member states</strong> (as of 2026)</li>
+ <li>Operates a <strong>single market</strong> allowing free movement of goods, services, capital, and people</li>
+ <li><strong>20 out of 27 members</strong> use the Euro (&euro;) as their currency (the Eurozone)</li>
+ <li>Has its own institutions: European Commission, European Parliament, European Council, Court of Justice</li>
+ <li>EU citizens have the right to live, work, study, and retire in any EU member state</li>
+ </ul>
+
+ <p>The EU is primarily about <strong>political integration and economic governance</strong>. It is not about border control &#8212; that is where the Schengen Area comes in.</p>
+
+ <h2>What is the Schengen Area?</h2>
+ <p>The Schengen Area is a <strong>border-free travel zone</strong> comprising 29 European countries that have abolished all internal border controls. Named after the 1985 Schengen Agreement signed in Luxembourg, it allows travellers to move between member countries without passport checks.</p>
+
+ <p><strong>Key facts about the Schengen Area:</strong></p>
+ <ul>
+ <li><strong>29 member countries</strong> (as of 2026, including Croatia and Bulgaria&#8217;s full integration)</li>
+ <li>No internal border checks between member countries</li>
+ <li>A single <strong>Schengen visa (Type C)</strong> allows travel to all 29 countries</li>
+ <li>Stronger external border controls at the outer perimeter</li>
+ <li>Police and judicial cooperation between member states</li>
+ </ul>
+
+ <p>For Indian travellers, this means one visa application grants access to 29 countries. Learn more in our comprehensive <a href="/blog/schengen-area-guide">Schengen Area Guide</a>.</p>
+
+ <h2>The United Kingdom: A Separate System</h2>
+ <p>The United Kingdom has charted its own course separate from both the EU and the Schengen Area:</p>
+ <ul>
+ <li><strong>Left the European Union</strong> on 31 January 2020 (commonly known as Brexit)</li>
+ <li><strong>Never joined the Schengen Area</strong> &#8212; the UK has always maintained its own border controls</li>
+ <li>Operates an <strong>independent visa system</strong> with its own visa categories, requirements, and fees</li>
+ <li>Uses the <strong>British pound (&pound;)</strong> instead of the Euro</li>
+ <li>Has its own immigration rules including the <strong>Electronic Travel Authorisation (ETA)</strong> system rolling out for various nationalities</li>
+ </ul>
+
+ <p>This means Indian travellers need a <strong>separate UK visa</strong> if they plan to visit Britain, even if they already hold a valid Schengen visa &#8212; and vice versa.</p>
+
+ <h2>Detailed Comparison: Schengen Area vs EU vs UK</h2>
+
+ <table>
+ <thead><tr><th>Feature</th><th>Schengen Area</th><th>European Union</th><th>United Kingdom</th></tr></thead>
+ <tbody>
+ <tr><td><strong>Type</strong></td><td>Border-free travel zone</td><td>Political &amp; economic union</td><td>Sovereign country</td></tr>
+ <tr><td><strong>Members</strong></td><td>29 countries</td><td>27 member states</td><td>1 country (4 nations)</td></tr>
+ <tr><td><strong>Founded</strong></td><td>1985 (Schengen Agreement)</td><td>1957 (Treaty of Rome)</td><td>1707 (Acts of Union)</td></tr>
+ <tr><td><strong>Internal borders</strong></td><td>Abolished</td><td>Not applicable</td><td>Maintained</td></tr>
+ <tr><td><strong>Single visa</strong></td><td>Yes &#8212; Schengen visa</td><td>No &#8212; no EU visa exists</td><td>No &#8212; UK has own visa</td></tr>
+ <tr><td><strong>Currency</strong></td><td>Various (Euro + national)</td><td>Euro (20 of 27 members)</td><td>British pound (&pound;)</td></tr>
+ <tr><td><strong>Free movement of people</strong></td><td>Yes, within zone</td><td>Yes, for EU citizens</td><td>Not applicable</td></tr>
+ <tr><td><strong>Indian visa required?</strong></td><td>Schengen visa (Type C)</td><td>Varies by country</td><td>UK visa or ETA</td></tr>
+ <tr><td><strong>Post-Brexit</strong></td><td>Not affected</td><td>UK left in 2020</td><td>Left EU, not in Schengen</td></tr>
+ </tbody>
+ </table>
+
+ <h2>Which Countries Are in the EU but Not in the Schengen Area?</h2>
+ <p>Four EU member states are <strong>not</strong> part of the Schengen Area:</p>
+ <ul>
+ <li><strong>Ireland</strong> &#8212; Opted out of Schengen to maintain its Common Travel Area with the UK</li>
+ <li><strong>Cyprus</strong> &#8212; Legally required to join but implementation delayed due to political considerations</li>
+ <li><strong>Romania</strong> &#8212; Full Schengen membership approved, implementation in progress</li>
+ <li><strong>Bulgaria</strong> &#8212; Full Schengen membership approved, implementation in progress</li>
+ </ul>
+ <p>Travelling to these countries requires checking their individual visa policies. A Schengen visa does not automatically grant entry to these EU member states.</p>
+
+ <h2>Which Countries Are in Schengen but Not in the EU?</h2>
+ <p>Four countries participate in the Schengen Area but are <strong>not</strong> members of the European Union:</p>
+ <ul>
+ <li><strong>Norway</strong> &#8212; Member of the European Economic Area (EEA) but not the EU</li>
+ <li><strong>Iceland</strong> &#8212; EEA member, not EU</li>
+ <li><strong>Switzerland</strong> &#8212; Has bilateral agreements with the EU but is not a member</li>
+ <li><strong>Liechtenstein</strong> &#8212; EEA member, not EU</li>
+ </ul>
+ <p>A valid Schengen visa grants entry to all four countries, even though they are outside the EU legal framework.</p>
+
+ <div class="info-box">
+ <h4>Quick Tip for Indian Travellers</h4>
+ <p>When planning a European trip, think of it this way: The <strong>Schengen stamp</strong> is your entry ticket to 29 countries. The <strong>EU membership</strong> tells you about the country's economic and political alignment. The <strong>UK</strong> is entirely separate. If your itinerary includes London + Paris + Rome, you need both a UK visa AND a Schengen visa &#8212; two separate applications, two separate fees, two separate appointments.</p>
+ </div>
+
+ <h2>How This Affects Indian Travellers</h2>
+ <p>Understanding these distinctions directly affects your travel planning and visa applications:</p>
+ <ul>
+ <li><strong>Schengen visa covers 29 countries</strong>: A single application lets you visit France, Germany, Italy, Spain, Switzerland, Norway, and many more &#8212; all on one visa.</li>
+ <li><strong>Separate UK visa required</strong>: If you are visiting London, Edinburgh, or any part of Britain, you must apply for a UK visa through UK Visas and Immigration (UKVI), even if you hold a valid Schengen visa.</li>
+ <li><strong>No combined visa</strong>: Despite the UK leaving the EU, there was never a combined UK-Schengen visa. They have always been separate.</li>
+ <li><strong>Border checks</strong>: When travelling between the UK and Schengen countries, you will go through full passport control and customs checks on both sides.</li>
+ <li><strong>Ireland exception</strong>: If you have a UK visa, you may be able to visit Ireland under the British-Irish Visa Scheme, but this does not extend to Schengen countries.</li>
+ </ul>
+
+ <p>For detailed UK visa guidance, see our <a href="/visa-guide/uk-visa">UK Visa Guide</a>. For Schengen visa requirements, visit our <a href="/visa-guide/schengen-visa">Schengen Visa Guide</a>.</p>
+
+ <h2>Practical Implications for Multi-Country European Trips</h2>
+ <p>If you are planning a trip that covers both the UK and mainland Europe, here is what you need to know:</p>
+
+ <h3>Example Itinerary: London + Paris + Amsterdam</h3>
+ <p><strong>Leg 1:</strong> Delhi to London (4 days) &#8594; <strong>Leg 2:</strong> London to Paris via Eurostar (5 days) &#8594; <strong>Leg 3:</strong> Paris to Amsterdam (3 days)</p>
+ <p><strong>Visa requirements:</strong> You need <strong>both</strong> a UK visa (for London) and a Schengen visa (for Paris and Amsterdam). Apply for the Schengen visa at the French embassy since you spend the most days in France. Read about the <a href="/blog/schengen-main-destination-rule">Schengen Main Destination Rule</a> for guidance on where to apply.</p>
+
+ <h3>Example Itinerary: Paris + Rome + Barcelona</h3>
+ <p><strong>Leg 1:</strong> Delhi to Paris (4 days) &#8594; <strong>Leg 2:</strong> Paris to Rome (5 days) &#8594; <strong>Leg 3:</strong> Rome to Barcelona (3 days)</p>
+ <p><strong>Visa requirements:</strong> Only a Schengen visa is needed since all three countries are in the Schengen Area. Apply at the Italian embassy (most days in Italy).</p>
+
+ <p>For multi-country itineraries, also read our guide on the <a href="/blog/schengen-first-entry-rule">Schengen First Entry Rule</a> and <a href="/blog/multi-country-euro-trip-schengen">Planning a Multi-Country European Trip with a Schengen Visa</a>.</p>
+
+ <h2>Frequently Asked Questions</h2>
+
+ <h3>Is the European Union the same as the Schengen Area?</h3>
+ <p>No. The European Union is a political and economic union of 27 countries. The Schengen Area is a border-free travel zone of 29 countries. They overlap significantly (23 countries are in both), but they are separate entities with different memberships and purposes.</p>
+
+ <h3>Does the UK accept Schengen visas?</h3>
+ <p>No. The UK does not accept Schengen visas for entry. Even if you hold a valid Schengen visa, you must obtain a separate UK visa before travelling to any part of the United Kingdom (England, Scotland, Wales, or Northern Ireland).</p>
+
+ <h3>Can I use one visa for both the UK and Schengen countries?</h3>
+ <p>No. There is no single visa that covers both the UK and the Schengen Area. You must apply for separate visas. However, you can apply for both at the same time to save overall processing time. Plan your applications at least 6-8 weeks before your travel date.</p>
+
+ <h3>Is Switzerland in the EU or Schengen?</h3>
+ <p>Switzerland is in the <strong>Schengen Area</strong> but is <strong>not</strong> a member of the European Union. It has bilateral treaties with the EU that allow it to participate in the Schengen free-movement framework. A Schengen visa is valid for travel to Switzerland.</p>
+
+ <h3>What changed after Brexit for Indian travellers?</h3>
+ <p>After Brexit (completed 31 January 2020), the UK is no longer an EU member. However, the UK was never part of the Schengen Area, so practically nothing changed regarding visa requirements. Indian travellers still need a separate UK visa as before. The main change is that UK citizens lost their EU free-movement rights, but this does not affect Indian nationals applying for visas.</p>
+
+ <p>For official information, visit the <a href="https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa_en" target="_blank" rel="noopener noreferrer">European Commission Schengen &amp; Visa page</a> and the <a href="https://www.gov.uk/government/organisations/uk-visas-and-immigration" target="_blank" rel="noopener noreferrer">UK Visas and Immigration website</a>.</p>
+
+ <div class="cta-section">
+ <h3>Planning a Trip Across Europe and the UK?</h3>
+ <p>Our visa experts can help you determine exactly which visas you need, prepare your documents, and guide you through the application process for both UK and Schengen visas.</p>
+ <p style="margin-top:20px;">
+ <a href="/contact" class="btn btn-primary">Get Free Assistance</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);margin-left:10px;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ </p>
+ </div>
+
+ <div class="share-buttons">
+ <span style="font-weight:600;align-self:center;">Share this guide:</span>
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.myvisaassistance.com/blog/schengen-vs-eu-vs-uk" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=Schengen%20vs%20European%20Union%20vs%20UK&url=https://www.myvisaassistance.com/blog/schengen-vs-eu-vs-uk" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Twitter</a>
+ </div>
+
+ <div class="author-box">
+ <div class="avatar">MV</div>
+ <div>
+ <strong>My Visa Assistance Team</strong>
+ <p style="margin:5px 0 0;font-size:0.9rem;color:var(--color-text-light);">Our team specialises in helping Indian travellers navigate the complexities of European visa requirements. From Schengen visa applications to UK visa guidance, we ensure you have the right visa for every destination on your itinerary.</p>
+ </div>
+ </div>
+
+ <p style="text-align:center;margin:2rem 0;">
+ <a href="/blog/" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Back to Blog</a>
+ <a href="/visa-guide/schengen-visa" class="btn btn-outline" style="margin-left:10px;">Schengen Visa Guide</a>
+ <a href="/visa-guide/uk-visa" class="btn btn-outline" style="margin-left:10px;">UK Visa Guide</a>
+ </p>
+ </article>
+
+ <footer class="footer" role="contentinfo">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about">
+<div class="footer-brand">
+<div class="logo-icon" aria-hidden="true">V</div>
+<span class="footer-brand-text">My Visa <span>Assistance</span></span>
+</div>
+<p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/visa-guide/">Visa Guide</a></li>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/contact">Contact</a></li>
+<li><a href="/embassy-address/">Embassy Address</a></li>
+<li><a href="/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-news/">Visa News</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Top Countries</h4>
+<ul>
+<li><a href="/visa-guide/usa-visa">US Visa</a></li>
+<li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+<li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+<li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+<li><a href="/visa-guide/india-visa">India Visa</a></li>
+<li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="/privacy-policy">Privacy Policy</a></li>
+<li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
+<li><a href="/contact">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-divider"></div>
+<div class="footer-bottom">
+<span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+<span class="footer-bottom-links">
+<a href="/privacy-policy">Privacy Policy</a> &middot;
+<a href="/terms-of-service">Terms of Service</a>
+</span>
+</div>
+</div>
+</footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+ <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ </div>
+ </div>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>

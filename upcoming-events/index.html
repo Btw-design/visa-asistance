@@ -1,0 +1,917 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Upcoming International Events 2026 & 2027 | My Visa Assistance</title>
+ <meta name="title" content="Upcoming International Events 2026 & 2027">
+ <meta name="description" content="Comprehensive guide to major international events in 2026 and 2027 including sports tournaments, cultural festivals, business conferences, and trade shows worldwide. Plan your travel with visa guidance.">
+ <meta name="keywords" content="upcoming events 2026, international events, FIFA World Cup 2026, Winter Olympics 2026, Cannes Film Festival, Oktoberfest, business conferences, trade shows, travel events">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Amruthraj Ahire">
+
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://www.myvisaassistance.com/upcoming-events/">
+ <meta property="og:title" content="Upcoming International Events 2026">
+ <meta property="og:description" content="Plan your international travel around major 2026 and 2027 events. Get visa guidance for sports, culture, business events worldwide.">
+
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Upcoming International Events 2026",
+ "description": "Comprehensive directory of major international events in 2026 with visa guidance for travelers.",
+ "url": "https://www.myvisaassistance.com/upcoming-events/",
+ "breadcrumb": {
+ "@type": "BreadcrumbList",
+ "itemListElement": [{
+ "@type": "ListItem",
+ "position": 1,
+ "name": "Home",
+ "item": "https://www.myvisaassistance.com"
+ }, {
+ "@type": "ListItem",
+ "position": 2,
+ "name": "Upcoming Events",
+ "item": "https://www.myvisaassistance.com/upcoming-events/"
+ }]
+ }
+ }
+ </script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="canonical" href="https://www.myvisaassistance.com/upcoming-events/">
+
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+ <style>
+ .event-card { background:white; border-radius:12px; padding:24px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border:1px solid #eee; transition:box-shadow 0.3s, transform 0.3s; }
+ .event-card:hover { box-shadow:0 4px 16px rgba(0,0,0,0.1); transform:translateY(-2px); }
+ .event-card h3 { margin:0 0 6px; color:var(--color-primary); font-size:1.15rem; }
+ .event-card .event-icon { font-size:1.5rem; margin-right:8px; vertical-align:middle; }
+ .event-detail { display:flex; gap:12px; margin:6px 0; font-size:0.95rem; }
+ .event-detail i { color:var(--color-primary); width:20px; font-size:1rem; margin-top:2px; }
+ .event-detail a { color:var(--color-primary); text-decoration:none; }
+ .event-detail a:hover { text-decoration:underline; }
+ .event-tags { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 0; }
+ .event-tag { display:inline-block; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; }
+ .tag-sports { background:#e8f5e9; color:#2e7d32; }
+ .tag-culture { background:#fce4ec; color:#c62828; }
+ .tag-business { background:#e3f2fd; color:#1565c0; }
+ .tag-conference { background:#fff3e0; color:#e65100; }
+ .tag-tech { background:#f3e5f5; color:#6a1b9a; }
+ .event-search { width:100%; max-width:500px; padding:14px 18px; border:2px solid #ddd; border-radius:10px; font-size:1rem; margin-bottom:30px; transition:border-color 0.3s; }
+ .event-search:focus { border-color:var(--color-primary); outline:none; }
+ .event-count { color:var(--color-text-light); margin-bottom:20px; font-size:0.95rem; }
+ .category-section h2 { padding-bottom:10px; border-bottom:2px solid var(--color-accent); margin:40px 0 20px; display:flex; align-items:center; gap:10px; }
+ .category-section h2 i { color:var(--color-accent); }
+ .visa-note { background:#fff8e1; border-left:3px solid var(--color-accent); padding:8px 12px; border-radius:4px; margin:8px 0 0; font-size:0.88rem; }
+ .visa-note i { color:var(--color-primary); margin-right:6px; }
+ .events-timeline { position:relative; padding-left:30px; }
+ .events-timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--color-accent); }
+ .timeline-marker { position:absolute; left:-1px; top:28px; width:18px; height:18px; border-radius:50%; background:var(--color-primary); border:3px solid var(--color-accent); }
+ .timeline-month { font-size:0.9rem; color:var(--color-text-light); margin-bottom:10px; font-weight:600; }
+ @media (max-width:768px) {
+ .event-card { padding:16px; }
+ .events-timeline { padding-left:24px; }
+ }
+ </style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo" aria-label="My Visa Assistance - Home">
+ <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
+ My Visa <span>Assistance</span>
+ </a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+ <span></span><span></span><span></span>
+ </button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a>
+ <span class="separator">/</span>
+ <span>Upcoming Events 2026</span>
+ </div>
+ </nav>
+
+ <section class="page-header">
+ <div class="container">
+ <h1><i class="bi bi-calendar-event" style="color:var(--color-accent);margin-right:10px;"></i> Upcoming International Events 2026 & 2027</h1>
+ <p>Plan your international travel around major events happening worldwide in 2026. From the FIFA World Cup and Winter Olympics to business conferences and cultural festivals — get visa guidance for every destination.</p>
+ </div>
+ </section>
+
+ <section class="section">
+ <div class="container">
+
+ <!-- Introduction -->
+ <div class="content-grid">
+ <div class="main-content">
+ <h2>Major Events Calendar for International Travelers</h2>
+ <p>2026 and 2027 are shaping up to be extraordinary years for international events. With the FIFA World Cup across North America, the Winter Olympics in Italy, the Cricket World Cup in Southern Africa, and countless business conferences and cultural festivals, travelers worldwide need careful visa planning. Use this guide to discover key events and their visa requirements.</p>
+ <p>Use the search filter below to find events by name, country, or category. Click any event to explore visa guides for that destination.</p>
+ </div>
+ </div>
+
+ <!-- Search -->
+ <input type="text" class="event-search" id="eventSearch" placeholder="Search events by name, country, or category..." onkeyup="filterEvents()">
+ <div class="event-count" id="eventCount">Showing 26 events</div>
+
+ <!-- Category Filter Pills -->
+ <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:25px;">
+ <button class="event-tag tag-sports" onclick="filterByCategory('sports')" style="cursor:pointer;border:none;">Sports</button>
+ <button class="event-tag tag-culture" onclick="filterByCategory('culture')" style="cursor:pointer;border:none;">Culture</button>
+ <button class="event-tag tag-business" onclick="filterByCategory('business')" style="cursor:pointer;border:none;">Business</button>
+ <button class="event-tag tag-conference" onclick="filterByCategory('conference')" style="cursor:pointer;border:none;">Conference</button>
+ <button class="event-tag tag-tech" onclick="filterByCategory('tech')" style="cursor:pointer;border:none;">Tech</button>
+ <button onclick="resetFilter()" style="cursor:pointer;border:none;background:#eee;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;">Show All</button>
+ </div>
+
+ <!-- January -->
+ <div class="category-section">
+ <h2><i class="bi bi-snow"></i> January 2026</h2>
+
+ <div class="event-card" data-category="tech business" data-country="usa" data-name="CES 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jan 6 - 9, 2026</div>
+ </div><h3><i class="bi bi-cpu event-icon" style="color:#6a1b9a;"></i> CES 2026 — Consumer Electronics Show</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Las Vegas, Nevada, USA</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-tech">Tech</span> <span class="event-tag tag-business">Business</span></div>
+ <p style="margin:10px 0 0;">The world's most influential tech event. CES 2026 will showcase breakthrough innovations in AI, robotics, electric vehicles, health tech, and consumer electronics with over 4,000 exhibitors and 150,000+ attendees from around the globe.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Visitors require a US visa or ESTA (Visa Waiver Program). Apply at least 3 months in advance. <a href="/visa-guide/usa-visa">View US Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- February -->
+ <div class="category-section">
+ <h2><i class="bi bi-snow2"></i> February 2026</h2>
+
+ <div class="event-card" data-category="sports" data-country="italy" data-name="Winter Olympics 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Feb 6 - 22, 2026</div>
+ </div><h3><i class="bi bi-trophy event-icon" style="color:#2e7d32;"></i> Winter Olympics Milano Cortina 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Milan, Cortina d'Ampezzo, and venues across Northern Italy</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-sports">Sports</span></div>
+ <p style="margin:10px 0 0;">The XXV Olympic Winter Games return to Italy after 20 years. Events will be held across multiple venues in Milan, Cortina, and the Valtellina region. Expect world-class alpine skiing, figure skating, ice hockey, and the debut of new winter sports disciplines.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Italy is a Schengen country. Most non-EU visitors need a Schengen visa. Apply 3-6 months before travel. <a href="/visa-guide/italy-visa">View Italy Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- March -->
+ <div class="category-section">
+ <h2><i class="bi bi-flower1"></i> March 2026</h2>
+
+ <div class="event-card" data-category="sports" data-country="italy" data-name="Winter Paralympics 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Mar 6 - 15, 2026</div>
+ </div><h3><i class="bi bi-award event-icon" style="color:#2e7d32;"></i> Winter Paralympics 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Milan and Cortina d'Ampezzo, Italy</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-sports">Sports</span></div>
+ <p style="margin:10px 0 0;">Following the Winter Olympics, the Paralympic Winter Games showcase elite adaptive athletes in para alpine skiing, para cross-country skiing, para ice hockey, and wheelchair curling across Olympic venues.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Same Schengen visa requirements as the Olympics. Ensure your visa covers the full Paralympic period. <a href="/visa-guide/italy-visa">View Italy Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- May -->
+ <div class="category-section">
+ <h2><i class="bi bi-flower2"></i> May 2026</h2>
+
+ <div class="event-card" data-category="culture" data-country="italy" data-name="Venice Biennale 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">May 9 - Nov 22, 2026</div>
+ </div>
+ <h3><i class="bi bi-palette event-icon" style="color:#c62828;"></i> Venice Biennale Arte 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Venice, Italy</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-culture">Culture</span></div>
+ <p style="margin:10px 0 0;">The world's most prestigious contemporary art exhibition, held every two years in Venice. The 2026 edition will feature national pavilions from 90+ countries, curated exhibitions at the Giardini and Arsenale, and collateral events across the city.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Schengen visa required for most non-EU visitors. Venice is easily accessible from Marco Polo Airport. <a href="/visa-guide/italy-visa">View Italy Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="culture" data-country="france" data-name="Cannes Film Festival 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">May 13 - 24, 2026</div>
+ </div><h3><i class="bi bi-film event-icon" style="color:#c62828;"></i> Cannes Film Festival 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Cannes, French Riviera, France</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-culture">Culture</span></div>
+ <p style="margin:10px 0 0;">The 79th edition of the iconic film festival on the French Riviera. The festival attracts filmmakers, celebrities, and cinema enthusiasts worldwide for red carpet premieres, industry networking, and the prestigious Palme d'Or competition.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> France is a Schengen country. Apply for a Schengen visa well in advance as appointment slots fill quickly during festival season. <a href="/visa-guide/france-visa">View France Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- June -->
+ <div class="category-section">
+ <h2><i class="bi bi-sun"></i> June 2026</h2>
+
+ <div class="event-card" data-category="sports" data-country="usa canada mexico" data-name="FIFA World Cup 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jun 11 - Jul 19, 2026</div>
+ </div><h3><i class="bi bi-trophy event-icon" style="color:#2e7d32;"></i> FIFA World Cup 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>16 host cities across USA, Canada, and Mexico</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-sports">Sports</span></div>
+ <p style="margin:10px 0 0;">The 23rd FIFA World Cup will be the first to feature 48 teams and the first hosted by three nations. Matches will take place across 16 cities including New York/New Jersey, Los Angeles, Mexico City, Toronto, Vancouver, and more. A historic tournament for soccer fans worldwide.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> US visitors need a US visa or ESTA; Canada visitors need a Canadian visa or eTA; Mexico visitors need a Mexican visa (many nationalities are exempt). Check the visa requirements for your specific host city. <a href="/visa-guide/usa-visa">US Visa</a> | <a href="/visa-guide/canada-visa">Canada Visa</a> | <a href="/visa-guide/mexico-visa">Mexico Visa</a></div>
+ </div>
+
+ <div class="event-card" data-category="business" data-country="france" data-name="Cannes Lions 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jun 22 - 26, 2026</div>
+ </div><h3><i class="bi bi-megaphone event-icon" style="color:#1565c0;"></i> Cannes Lions International Festival of Creativity 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Cannes, French Riviera, France</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-business">Business</span></div>
+ <p style="margin:10px 0 0;">The global benchmark for creative excellence in advertising, marketing, and communications. Over 9,000 delegates attend for workshops, awards ceremonies, and networking with the world's top creative professionals and brands.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Schengen visa for most non-European attendees. Business visa category recommended for delegates attending the festival. <a href="/visa-guide/france-visa">View France Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="culture" data-country="uk" data-name="Glastonbury 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jun 24 - 28, 2026</div>
+ </div><h3><i class="bi bi-music-note-beamed event-icon" style="color:#c62828;"></i> Glastonbury Festival 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Worthy Farm, Pilton, Somerset, England, UK</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-culture">Culture</span></div>
+ <p style="margin:10px 0 0;">The world's largest greenfield music and performing arts festival, featuring headline acts across dozens of stages. Glastonbury 2026 continues its legendary tradition with music, theatre, circus, and healing fields spread across 900 acres of Somerset countryside.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Most non-UK visitors need a UK visitor visa (or ETA for eligible nationalities). Apply early as festival season creates high demand. <a href="/visa-guide/uk-visa">View UK Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="sports" data-country="uk" data-name="Wimbledon 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jun 29 - Jul 12, 2026</div>
+ </div><h3><i class="bi bi-trophy event-icon" style="color:#2e7d32;"></i> Wimbledon Championships 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>All England Lawn Tennis & Croquet Club, London, UK</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-sports">Sports</span></div>
+ <p style="margin:10px 0 0;">The oldest and most prestigious tennis tournament in the world. The 140th edition of The Championships at Wimbledon will feature elite tennis on grass courts, with the famous strawberries and cream and royal patronage.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> UK visitor visa or ETA for eligible nationalities. The Championships are a ticketed event — plan your visa and accommodation well in advance. <a href="/visa-guide/uk-visa">View UK Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- July -->
+ <div class="category-section">
+ <h2><i class="bi bi-sun-fill"></i> July 2026</h2>
+
+ <div class="event-card" data-category="sports" data-country="france" data-name="Tour de France 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jul 4 - 26, 2026</div>
+ </div><h3><i class="bi bi-bicycle event-icon" style="color:#2e7d32;"></i> Tour de France 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Various stages across France (Grand Dpart TBC)</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-sports">Sports</span></div>
+ <p style="margin:10px 0 0;">The world's most famous cycling race covers approximately 3,500 km across France over three weeks. The 113th edition will include mountain stages in the Alps and Pyrenees, individual time trials, and the iconic finish on the Champs-lyses in Paris.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Schengen visa required to follow the race across France. A multiple-entry visa is recommended if you plan to move between stages in different Schengen countries. <a href="/visa-guide/france-visa">View France Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- September -->
+ <div class="category-section">
+ <h2><i class="bi bi-cloud-haze2"></i> September 2026</h2>
+
+ <div class="event-card" data-category="culture" data-country="germany" data-name="Oktoberfest 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Sep 19 - Oct 4, 2026</div>
+ </div><h3><i class="bi bi-cup-straw event-icon" style="color:#c62828;"></i> Oktoberfest 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Munich, Bavaria, Germany</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-culture">Culture</span></div>
+ <p style="margin:10px 0 0;">The world's largest Volksfest (folk festival) attracting over 6 million visitors annually. Oktoberfest features massive beer tents, traditional Bavarian music, parades, and amusement rides at the Theresienwiese in Munich.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Schengen visa required for most non-EU visitors. Book accommodation and tent reservations months in advance. <a href="/visa-guide/germany-visa">View Germany Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="tech business" data-country="singapore" data-name="Tech Week Singapore 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Sep 29 - 30, 2026</div>
+ </div><h3><i class="bi bi-robot event-icon" style="color:#6a1b9a;"></i> Tech Week Singapore 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Marina Bay Sands, Singapore</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-tech">Tech</span> <span class="event-tag tag-business">Business</span></div>
+ <p style="margin:10px 0 0;">Asia's premier technology event bringing together innovators, startups, and industry leaders. Features conferences on AI, cloud computing, cybersecurity, and digital transformation with 15,000+ attendees from across the Asia-Pacific region.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Many nationalities enjoy visa-free entry to Singapore for up to 30-90 days. Check your country's visa exemption status. <a href="/visa-guide/singapore-visa">View Singapore Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- November -->
+ <div class="category-section">
+ <h2><i class="bi bi-cloud-moon"></i> November 2026</h2>
+
+ <div class="event-card" data-category="conference" data-country="turkey" data-name="COP31 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Nov 9 - 20, 2026</div>
+ </div><h3><i class="bi bi-globe2 event-icon" style="color:#e65100;"></i> COP31 United Nations Climate Change Conference 2026</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Antalya, Turkey</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-conference">Conference</span></div>
+ <p style="margin:10px 0 0;">The 31st annual UN climate summit brings together world leaders, climate scientists, and policymakers to negotiate global climate action commitments. Turkey hosts its first COP, focusing on climate finance, emissions reductions, and adaptation strategies.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Turkey offers e-Visas for many nationalities (apply online). Some countries enjoy visa-free access. Apply at least 2 weeks before travel. <a href="/visa-guide/turkey-visa">View Turkey Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="conference business" data-country="usa" data-name="HLTH USA 2026">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Nov 15 - 18, 2026</div>
+ </div><h3><i class="bi bi-heart-pulse event-icon" style="color:#e65100;"></i> HLTH USA 2026 — Healthcare Innovation Summit</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Las Vegas, Nevada, USA</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-conference">Conference</span> <span class="event-tag tag-business">Business</span></div>
+ <p style="margin:10px 0 0;">The leading event for healthcare innovation, bringing together 12,000+ executives from health systems, insurance, pharma, and health tech. Features cutting-edge discussions on digital health, AI in healthcare, value-based care, and health equity.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> US visa or ESTA under the Visa Waiver Program for eligible nationals. Business visa category is appropriate for conference delegates. <a href="/visa-guide/usa-visa">View US Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- 2027 Events -->
+ <div style="margin-top:50px;padding-top:30px;border-top:3px solid var(--color-accent);">
+ <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);display:flex;align-items:center;gap:10px;"><i class="bi bi-calendar3" style="color:var(--color-accent);"></i> 2027 Events</h2>
+ <p>The following major events are scheduled for 2027. Plan your travel and visa applications well in advance.</p>
+
+ <!-- January 2027 -->
+ <div class="category-section">
+ <h2><i class="bi bi-snow"></i> January 2027</h2>
+
+ <div class="event-card" data-category="tech business" data-country="usa" data-name="CES 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jan 5 - 8, 2027</div>
+ </div>
+ <h3><i class="bi bi-cpu event-icon" style="color:#6a1b9a;"></i> CES 2027 — Consumer Electronics Show</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Las Vegas, Nevada, USA</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-tech">Tech</span> <span class="event-tag tag-business">Business</span></div>
+ <p style="margin:10px 0 0;">The world's most influential tech event returns for its 60th edition. CES 2027 will showcase breakthrough innovations in AI, robotics, autonomous vehicles, health tech, and sustainability with over 4,000 exhibitors.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> US visa or ESTA (Visa Waiver Program). <a href="/visa-guide/usa-visa">View US Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- March 2027 -->
+ <div class="category-section">
+ <h2><i class="bi bi-flower1"></i> March 2027</h2>
+
+ <div class="event-card" data-category="conference" data-country="spain" data-name="Mobile World Congress 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Mar 1 - 4, 2027</div>
+ </div><h3><i class="bi bi-phone event-icon" style="color:#e65100;"></i> Mobile World Congress 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Barcelona, Spain</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-conference">Conference</span> <span class="event-tag tag-tech">Tech</span></div>
+ <p style="margin:10px 0 0;">The world's largest mobile industry event, bringing together 100,000+ attendees from across the telecom, tech, and digital ecosystems. Features keynotes on 6G, AI connectivity, IoT, and digital transformation.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Spain is a Schengen country. Apply for a Schengen visa at least 3 months before. <a href="/visa-guide/spain-visa">View Spain Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="conference business" data-country="switzerland" data-name="World Economic Forum 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Mar 15 - 19, 2027</div>
+ </div><h3><i class="bi bi-building event-icon" style="color:#1565c0;"></i> World Economic Forum Annual Meeting 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Davos, Switzerland</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-conference">Conference</span> <span class="event-tag tag-business">Business</span></div>
+ <p style="margin:10px 0 0;">The prestigious annual gathering of global leaders, CEOs, and policymakers in Davos. Discussions will focus on climate action, geopolitical stability, technological governance, and inclusive economic growth.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Switzerland is a Schengen country. Business visa recommended for delegates. <a href="/visa-guide/switzerland-visa">View Switzerland Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- June 2027 -->
+ <div class="category-section">
+ <h2><i class="bi bi-sun"></i> June 2027</h2>
+
+ <div class="event-card" data-category="culture" data-country="france" data-name="Cannes Lions 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jun 21 - 25, 2027</div>
+ </div>
+ <h3><i class="bi bi-megaphone event-icon" style="color:#1565c0;"></i> Cannes Lions International Festival of Creativity 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Cannes, French Riviera, France</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-business">Business</span></div>
+ <p style="margin:10px 0 0;">The global benchmark for creative excellence in advertising, marketing, and communications returns to Cannes. Over 9,000 delegates attend for workshops, awards, and networking.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Schengen visa for most non-European attendees. <a href="/visa-guide/france-visa">View France Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="sports" data-country="uk" data-name="Wimbledon 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jun 28 - Jul 11, 2027</div>
+ </div>
+ <h3><i class="bi bi-trophy event-icon" style="color:#2e7d32;"></i> Wimbledon Championships 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>All England Club, London, UK</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-sports">Sports</span></div>
+ <p style="margin:10px 0 0;">The oldest and most prestigious tennis tournament in the world. The 141st edition of The Championships at Wimbledon returns with elite tennis on historic grass courts.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> UK visitor visa or ETA for eligible nationalities. <a href="/visa-guide/uk-visa">View UK Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- July 2027 -->
+ <div class="category-section">
+ <h2><i class="bi bi-sun-fill"></i> July 2027</h2>
+
+ <div class="event-card" data-category="culture" data-country="italy" data-name="Venice Architecture Biennale 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">May 22 - Nov 21, 2027</div>
+ </div>
+ <h3><i class="bi bi-building event-icon" style="color:#c62828;"></i> Venice Biennale Architettura 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Venice, Italy</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-culture">Culture</span></div>
+ <p style="margin:10px 0 0;">The world's most prestigious architecture exhibition, held every two years in Venice. The 2027 edition will feature national pavilions, curated exhibitions at the Giardini and Arsenale, and collateral events across the city.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Schengen visa for most non-EU visitors. <a href="/visa-guide/italy-visa">View Italy Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="sports" data-country="france" data-name="Tour de France 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Jul 3 - 25, 2027</div>
+ </div>
+ <h3><i class="bi bi-bicycle event-icon" style="color:#2e7d32;"></i> Tour de France 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Various stages across France (Grand Dpart TBC)</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-sports">Sports</span></div>
+ <p style="margin:10px 0 0;">The 114th edition of the world's most famous cycling race. Follow the peloton across approximately 3,500 km of French roads, including mountain stages in the Alps and Pyrenees.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Schengen visa required. Multiple-entry visa recommended. <a href="/visa-guide/france-visa">View France Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- September 2027 -->
+ <div class="category-section">
+ <h2><i class="bi bi-cloud-haze2"></i> September 2027</h2>
+
+ <div class="event-card" data-category="culture" data-country="germany" data-name="Oktoberfest 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Sep 18 - Oct 3, 2027</div>
+ </div>
+ <h3><i class="bi bi-cup-straw event-icon" style="color:#c62828;"></i> Oktoberfest 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Munich, Bavaria, Germany</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-culture">Culture</span></div>
+ <p style="margin:10px 0 0;">The world's largest Volksfest returns to Munich. Over 6 million visitors enjoy traditional Bavarian beer, music, parades, and amusement rides at the Theresienwiese.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Schengen visa required for most non-EU visitors. <a href="/visa-guide/germany-visa">View Germany Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- October 2027 -->
+ <div class="category-section">
+ <h2><i class="bi bi-cloud-sun"></i> October 2027</h2>
+
+ <div class="event-card" data-category="sports" data-country="south-africa" data-name="Cricket World Cup 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Oct 1 - Nov 14, 2027</div>
+ </div><h3><i class="bi bi-trophy event-icon" style="color:#2e7d32;"></i> ICC Cricket World Cup 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>South Africa, Zimbabwe, Namibia</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-sports">Sports</span></div>
+ <p style="margin:10px 0 0;">The 14th edition of the ICC Cricket World Cup, co-hosted by South Africa, Zimbabwe, and Namibia. 10 teams will compete across 45 matches in what promises to be a historic tournament for African cricket. Major venues include Johannesburg, Cape Town, Durban, Harare, and Windhoek.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> South Africa requires a visa for many nationalities. Separate visas needed if travelling to Zimbabwe or Namibia. <a href="/visa-guide/south-africa-visa">View South Africa Visa Guide</a></div>
+ </div>
+
+ <div class="event-card" data-category="conference" data-country="portugal" data-name="Web Summit 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Nov 1 - 4, 2027</div>
+ </div><h3><i class="bi bi-globe2 event-icon" style="color:#e65100;"></i> Web Summit 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Lisbon, Portugal</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-conference">Conference</span> <span class="event-tag tag-tech">Tech</span></div>
+ <p style="margin:10px 0 0;">One of the world's largest technology conferences, bringing together 70,000+ attendees from 160+ countries. Features cutting-edge talks on AI, climate tech, cybersecurity, fintech, and digital policy.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Portugal is a Schengen country. Apply for a Schengen visa well in advance. <a href="/visa-guide/schengen-visa">View Schengen Visa Guide</a></div>
+ </div>
+ </div>
+
+ <!-- November 2027 -->
+ <div class="category-section">
+ <h2><i class="bi bi-cloud-moon"></i> November 2027</h2>
+
+ <div class="event-card" data-category="conference" data-country="uae" data-name="COP32 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Nov 6 - 17, 2027</div>
+ </div><h3><i class="bi bi-globe2 event-icon" style="color:#e65100;"></i> COP32 United Nations Climate Change Conference 2027</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>TBC (Expected host to be announced)</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-conference">Conference</span></div>
+ <p style="margin:10px 0 0;">The 32nd annual UN climate summit continues the global effort to address climate change. World leaders, scientists, and policymakers will negotiate emissions reductions, climate finance, and adaptation commitments.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> Depends on host country. Check visa requirements once the host nation is confirmed.</div>
+ </div>
+
+ <div class="event-card" data-category="culture" data-country="uae" data-name="Dubai Expo City 2027">
+ <div class="events-timeline">
+ <div class="timeline-marker"></div>
+ <div class="timeline-month">Oct 2027 - Mar 2028</div>
+ </div>
+ <h3><i class="bi bi-building event-icon" style="color:#c62828;"></i> Expo 2027 — Sustainable Development</h3>
+ <div class="event-detail"><i class="bi bi-geo-alt"></i><span>Dubai, United Arab Emirates (expected host city)</span></div>
+ <div class="event-detail"><i class="bi bi-tag"></i><span class="event-tag tag-culture">Culture</span> <span class="event-tag tag-business">Business</span></div>
+ <p style="margin:10px 0 0;">The next World Expo, themed around sustainable development and innovation. Following the success of Expo 2020 Dubai, this international exposition will showcase pavilions from 190+ countries with cutting-edge sustainability solutions.</p>
+ <div class="visa-note"><i class="bi bi-patch-check"></i> <strong>Visa needed:</strong> UAE offers visa-free or visa-on-arrival for many nationalities. Others need a UAE tourist visa. <a href="/visa-guide/uae-visa">View UAE Visa Guide</a></div>
+ </div>
+ </div>
+ </div>
+ <!-- Monthly Calendar Overview -->
+ <div style="margin-top:50px;">
+ <h2>2026 Events Calendar Overview</h2>
+ <div style="overflow-x:auto;">
+ <table class="visa-table" style="margin-top:15px;">
+ <thead>
+ <tr>
+ <th>Month</th>
+ <th>Event</th>
+ <th>Location</th>
+ <th>Category</th>
+ <th>Visa Type</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr><td>Jan</td><td>CES 2026</td><td>Las Vegas, USA</td><td><span class="event-tag tag-tech">Tech</span></td><td>US Visa / ESTA</td></tr>
+ <tr><td>Feb</td><td>Winter Olympics Milano Cortina 2026</td><td>Italy</td><td><span class="event-tag tag-sports">Sports</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Mar</td><td>Winter Paralympics 2026</td><td>Italy</td><td><span class="event-tag tag-sports">Sports</span></td><td>Schengen Visa</td></tr>
+ <tr><td>May</td><td>Venice Biennale Arte 2026</td><td>Venice, Italy</td><td><span class="event-tag tag-culture">Culture</span></td><td>Schengen Visa</td></tr>
+ <tr><td>May</td><td>Cannes Film Festival 2026</td><td>Cannes, France</td><td><span class="event-tag tag-culture">Culture</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Jun</td><td>FIFA World Cup 2026</td><td>USA / Canada / Mexico</td><td><span class="event-tag tag-sports">Sports</span></td><td>US/Canada/Mexico Visa</td></tr>
+ <tr><td>Jun</td><td>Cannes Lions 2026</td><td>Cannes, France</td><td><span class="event-tag tag-business">Business</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Jun</td><td>Glastonbury Festival 2026</td><td>Somerset, UK</td><td><span class="event-tag tag-culture">Culture</span></td><td>UK Visa / ETA</td></tr>
+ <tr><td>Jun-Jul</td><td>Wimbledon 2026</td><td>London, UK</td><td><span class="event-tag tag-sports">Sports</span></td><td>UK Visa / ETA</td></tr>
+ <tr><td>Jul</td><td>Tour de France 2026</td><td>France</td><td><span class="event-tag tag-sports">Sports</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Sep-Oct</td><td>Oktoberfest 2026</td><td>Munich, Germany</td><td><span class="event-tag tag-culture">Culture</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Sep</td><td>Tech Week Singapore 2026</td><td>Singapore</td><td><span class="event-tag tag-tech">Tech</span></td><td>Visa-free / eVisa</td></tr>
+ <tr><td>Nov</td><td>COP31 Climate Conference</td><td>Antalya, Turkey</td><td><span class="event-tag tag-conference">Conference</span></td><td>e-Visa</td></tr>
+ <tr><td>Nov</td><td>HLTH USA 2026</td><td>Las Vegas, USA</td><td><span class="event-tag tag-conference">Conference</span></td><td>US Visa / ESTA</td></tr>
+ <tr><td>Jan</td><td>CES 2027</td><td>Las Vegas, USA</td><td><span class="event-tag tag-tech">Tech</span></td><td>US Visa / ESTA</td></tr>
+ <tr><td>Mar</td><td>Mobile World Congress 2027</td><td>Barcelona, Spain</td><td><span class="event-tag tag-conference">Conference</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Mar</td><td>World Economic Forum 2027</td><td>Davos, Switzerland</td><td><span class="event-tag tag-conference">Conference</span></td><td>Schengen Visa</td></tr>
+ <tr><td>May-Nov</td><td>Venice Architecture Biennale 2027</td><td>Venice, Italy</td><td><span class="event-tag tag-culture">Culture</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Jun</td><td>Cannes Lions 2027</td><td>Cannes, France</td><td><span class="event-tag tag-business">Business</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Jun-Jul</td><td>Wimbledon 2027</td><td>London, UK</td><td><span class="event-tag tag-sports">Sports</span></td><td>UK Visa / ETA</td></tr>
+ <tr><td>Jul</td><td>Tour de France 2027</td><td>France</td><td><span class="event-tag tag-sports">Sports</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Sep-Oct</td><td>Oktoberfest 2027</td><td>Munich, Germany</td><td><span class="event-tag tag-culture">Culture</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Oct-Nov</td><td>Cricket World Cup 2027</td><td>South Africa / Zimbabwe / Namibia</td><td><span class="event-tag tag-sports">Sports</span></td><td>South Africa Visa</td></tr>
+ <tr><td>Nov</td><td>Web Summit 2027</td><td>Lisbon, Portugal</td><td><span class="event-tag tag-conference">Conference</span></td><td>Schengen Visa</td></tr>
+ <tr><td>Nov</td><td>COP32 Climate Conference</td><td>TBC</td><td><span class="event-tag tag-conference">Conference</span></td><td>TBC</td></tr> </tbody>
+ </table>
+ </div>
+ </div>
+
+ <!-- Tips Section -->
+ <div class="methodology-box" style="margin-top:50px;">
+ <h3><i class="bi bi-lightbulb" style="color:var(--color-accent);"></i> Tips for Event Travel Planning</h3>
+ <ul style="margin-bottom:0;">
+ <li>Apply for your visa at least 3-6 months before the event — peak seasons cause appointment delays.</li>
+ <li>Check if the event requires a specific ticket or invitation letter for visa applications (especially business conferences).</li>
+ <li>Book accommodation early — prices surge significantly during major events like the Olympics and World Cup.</li>
+ <li>Consider travel insurance that covers event cancellation, medical emergencies, and trip interruptions.</li>
+ <li>For multi-country events like the FIFA World Cup and Cricket World Cup, ensure your visa covers all destination countries.</li>
+ <li>Keep digital and printed copies of your visa, passport, event tickets, and travel insurance.</li>
+ <li>Check entry requirements (vaccinations, COVID-19 rules) that may apply in addition to visa requirements.</li>
+ </ul>
+ </div>
+
+ <!-- FAQ Section -->
+ <div style="margin-top:40px;">
+ <h2>Frequently Asked Questions About Event Travel & Visas</h2>
+ <div class="faq-list">
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Do I need a special visa to attend a major event like the Olympics or World Cup?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>In most cases, a standard tourist visa or business visa is sufficient for attending major events. Some events may have dedicated visa facilitation programs (e.g., the Olympics often have special Olympic visa categories). Check the host country's embassy website for event-specific visa guidance. Always apply early as visa processing times can be longer during peak event periods.</p>
+ </div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Can I use a Schengen visa to attend events in multiple European countries?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Yes, a Schengen visa allows you to travel freely within the 27 Schengen member states for up to 90 days within any 180-day period. This is ideal if you plan to attend multiple European events like the Winter Olympics in Italy, Cannes Film Festival in France, and Oktoberfest in Germany on a single trip.</p>
+ </div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ How early should I apply for a visa for a major event in 2026 or 2027?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>We recommend applying 3-6 months before the event. During major events like the FIFA World Cup, Olympics, or Cricket World Cup, embassies and visa application centers experience significantly higher volumes, leading to longer processing times and limited appointment availability. Some countries open visa applications up to 6 months before travel — use this window.</p>
+ </div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What documents do I need for a visa to attend a business conference?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>For business conferences like CES or Cannes Lions, you typically need: a valid passport (6+ months validity), completed visa application, conference registration confirmation or invitation letter from organizers, proof of accommodation, travel itinerary, bank statements (last 3-6 months), employment letter, and travel insurance. Some countries may also require a letter of invitation from the host company or event organizer.</p>
+ </div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Do I need separate visas for the FIFA World Cup if I visit multiple host countries?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Yes, the FIFA World Cup 2026 is hosted by three countries (USA, Canada, Mexico), each with its own visa system. If you plan to attend matches in multiple host countries, you may need separate visas or entry authorizations for each. However, the US ESTA, Canadian eTA, and Mexican visa exemptions may simplify travel depending on your nationality. Always check the specific entry requirements for each country.</p>
+ </div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ Can I get a visa on arrival for attending events in Turkey or Singapore?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Turkey offers an easy e-Visa system that can be obtained online in minutes (eligible for many nationalities). Singapore grants visa-free entry to most nationalities for 30-90 days. However, always verify the latest entry requirements before travel, as visa policies can change. Apply for a Turkish e-Visa at least 2 weeks before travel to ensure processing time.</p>
+ </div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ What should I do if my visa application is rejected for an event trip?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>If your visa is rejected, review the rejection reason carefully. Common reasons include insufficient funds, incomplete documentation, or unclear travel purpose. You can typically reapply with additional supporting documents (such as event registration proof, stronger bank statements, or a detailed travel itinerary). Some countries offer an appeal process. Consider consulting a visa specialist if your application is complex.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- CTA -->
+ <div class="methodology-box" style="margin-top:40px;text-align:center;">
+ <h3><i class="bi bi-airplane" style="color:var(--color-accent);"></i> Ready to Plan Your Event Trip?</h3>
+ <p style="margin:10px 0;">Get personalized visa guidance for any event destination. Our team helps you navigate visa requirements so you can focus on enjoying the experience.</p>
+ <a href="/contact" class="cta-button" style="display:inline-block;margin-top:10px;">Get Visa Assistance</a>
+ <span style="display:inline-block;margin:0 10px;">or</span>
+ </div>
+
+ </div>
+ </section>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#A5D549"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#0a0a52"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#0a0a52"/>
+ </svg>
+ </span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+  <li><a href="/visa-news/">Visa News</a></li>
+  <li><a href="/tracking-links/">Tracking Links</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:info@myvisaassistance.com"><i class="bi bi-envelope"></i> info@myvisaassistance.com</a></li>
+ <li><a href="tel:+919022954619"><i class="bi bi-telephone"></i> +91 90229 54619</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a>
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+ <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ </div>
+ </div>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
+
