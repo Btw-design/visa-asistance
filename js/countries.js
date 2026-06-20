@@ -1126,7 +1126,8 @@ function getCountriesByRegion(region) {
 return countriesData.filter(c => c.region === region);
 }
 function getAllRegions() {
-return [...new Set(countriesData.map(c => c.region))
+return [...new Set(countriesData.map(c => c.region))];
+    }
 {
 id: "albania",
 name: "Albania",
