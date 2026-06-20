@@ -1118,7 +1118,6 @@ const countryRegions = [
 "Africa",
 "Middle East",
 "Oceania"
-];
 function getCountryBySlug(slug) {
 return countriesData.find(c => c.slug === slug);
 }
