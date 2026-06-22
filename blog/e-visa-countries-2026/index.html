@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>E-Visa Countries in 2026: Top Destinations for Hassle-Free Travel | My Visa Assistance</title>
+ <meta name="description" content="Discover top e-visa countries in 2026 for hassle-free travel. Complete guide covering India, Turkey, Thailand, UAE, Sri Lanka, Vietnam, Cambodia, Kenya, and more. Fees, processing times, and application tips.">
+ <meta name="keywords" content="e-visa countries 2026, e-visa destinations, electronic visa, visa on arrival, India e-visa, Turkey e-visa, Thailand e-visa, UAE e-visa, hassle-free travel 2026, online visa application">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="My Visa Assistance Team">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://www.myvisaassistance.com/blog/e-visa-countries-2026">
+ <meta property="og:title" content="E-Visa Countries in 2026: Top Destinations for Hassle-Free Travel">
+ <meta property="og:description" content="Discover top e-visa countries in 2026 for hassle-free travel. India, Turkey, Thailand, UAE, and more with fast online applications.">
+ <meta property="og:image" content="https://www.myvisaassistance.com/blog/images/e-visa-countries-2026.svg">
+ <meta property="article:published_time" content="2026-06-22">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <!-- Article Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "E-Visa Countries in 2026: Top Destinations for Hassle-Free Travel",
+ "description": "Discover top e-visa countries in 2026 for hassle-free travel. Complete guide covering India, Turkey, Thailand, UAE, Sri Lanka, Vietnam, Cambodia, Kenya, Singapore, Malaysia, and more.",
+ "author": { "@type": "Organization", "name": "My Visa Assistance" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://www.myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-06-22",
+ "dateModified": "2026-06-22",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.myvisaassistance.com/blog/e-visa-countries-2026" }
+ }
+ </script>
+
+ 
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="canonical" href="https://www.myvisaassistance.com/blog/e-visa-countries-2026">
+ <style>
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+ .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ .blog-content h3 { margin-top: 1.5em; }
+ .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+ .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+ .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+ .blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+ .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content th { background: var(--color-primary); color: var(--color-white); }
+ .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+ .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+ .blog-content .infographic { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 12px; padding: 30px; margin: 2rem 0; text-align: center; }
+ .blog-content .infographic svg { max-width: 100%; height: auto; }
+ .blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+ .blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+ .blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+ .blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+ .blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+ .blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+ .blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+ .blog-content .ref-list { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 25px; margin: 1.5rem 0; }
+ .blog-content .ref-list h4 { color: var(--color-primary); margin-bottom: 0.8em; }
+ .blog-content .ref-list ol { margin-bottom: 0; }
+ .blog-content .ref-list ol li { list-style: decimal; margin-bottom: 0.5rem; }
+ .blog-content .ref-list a { word-break: break-all; }
+ .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+ .blog-content .featured-image svg { display: block; width: 100%; height: auto; }
+ </style>
+
+ 
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>E-Visa Countries in 2026</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+ <h1>E-Visa Countries in 2026: Top Destinations for Hassle-Free Travel</h1>
+ 
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: June 22, 2026</span>
+ <span><i class="bi bi-clock"></i> 10 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ </div>
+
+ <!-- Featured Image -->
+ <div class="featured-image">
+ <img src="/blog/images/e-visa-countries-2026.svg" alt="E-Visa Countries in 2026 - Top Destinations for Hassle-Free Travel" width="1200" height="630" loading="eager">
+ </div>
+
+ <p>The world of travel has changed dramatically over the past decade. Gone are the days when every international trip meant scheduling an embassy appointment, submitting physical documents days in advance, and waiting anxiously for weeks. In 2026, <strong>e-visas have become the gold standard for hassle-free travel</strong>, allowing millions of travellers to obtain travel authorisation from the comfort of their homes.</p>
+
+ <p>An e-visa (electronic visa) is a digital travel permit that you apply for and receive entirely online. Once approved, it is electronically linked to your passport — no stamps, stickers, or embassy visits required. In this comprehensive guide, we cover the <strong>best e-visa countries in 2026</strong>, their fees, processing times, and insider tips for a smooth application. For a broader overview of visa types, visit our <a href="/visa-guide/">Visa Guide</a>.</p>
+
+ <h2>What Is an E-Visa and How Does It Work?</h2>
+ <p>An e-visa is an electronic travel authorisation that allows eligible foreign nationals to enter a country for tourism, business, transit, or medical purposes. The entire process — from filling out the application form to uploading documents and receiving the approval — is conducted online. The approved e-visa is linked to your passport number, so you simply present your passport at immigration upon arrival.</p>
+
+ <div class="info-box">
+ <h4>How E-Visas Differ from Traditional Visas</h4>
+ <p>Unlike traditional visas, e-visas require <strong>no physical paperwork, no embassy visit, and no passport submission</strong>. Processing is typically faster (1-5 business days), and you can apply from anywhere with an internet connection. However, e-visas may have shorter validity periods and fewer permitted purposes of travel compared to traditional visas.</p>
+ </div>
+
+ <h2>Top E-Visa Countries in 2026</h2>
+ <p>The number of countries offering e-visas has grown significantly. Here are the <strong>top e-visa destinations in 2026</strong> that offer the fastest, easiest, and most reliable online application processes for Indian travellers and global citizens alike.</p>
+
+ <!-- Infographic: Top E-Visa Destinations -->
+ <div class="infographic">
+ <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+ <rect width="700" height="280" rx="10" fill="#171299"/>
+ <text x="350" y="32" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Top E-Visa Destinations 2026 at a Glance</text>
+ <rect x="15" y="55" width="200" height="65" rx="8" fill="white" opacity="0.1"/>
+ <text x="115" y="82" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">India</text>
+ <text x="115" y="103" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">169+ Countries Eligible</text>
+ <rect x="245" y="55" width="200" height="65" rx="8" fill="white" opacity="0.1"/>
+ <text x="345" y="82" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Turkey</text>
+ <text x="345" y="103" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">Instant Approval</text>
+ <rect x="475" y="55" width="210" height="65" rx="8" fill="white" opacity="0.1"/>
+ <text x="580" y="82" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Thailand</text>
+ <text x="580" y="103" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">60-Day Tourist Stay</text>
+ <rect x="15" y="140" width="200" height="65" rx="8" fill="white" opacity="0.1"/>
+ <text x="115" y="167" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">UAE</text>
+ <text x="115" y="188" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">30-90 Day Options</text>
+ <rect x="245" y="140" width="200" height="65" rx="8" fill="white" opacity="0.1"/>
+ <text x="345" y="167" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Vietnam</text>
+ <text x="345" y="188" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">90 Days Single/Multiple</text>
+ <rect x="475" y="140" width="210" height="65" rx="8" fill="white" opacity="0.1"/>
+ <text x="580" y="167" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Sri Lanka</text>
+ <text x="580" y="188" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">30 Days / Free for Some</text>
+ <rect x="130" y="225" width="200" height="40" rx="20" fill="#A5D549"/>
+ <text x="230" y="250" text-anchor="middle" fill="#171299" font-size="13" font-weight="bold">Apply<br/>Online</text>
+ <rect x="370" y="225" width="200" height="40" rx="20" fill="#A5D549"/>
+ <text x="470" y="250" text-anchor="middle" fill="#171299" font-size="13" font-weight="bold">Get Approved<br/>in Days</text>
+ </svg>
+ </div>
+
+ <!-- Table: E-Visa Comparison -->
+ <h2>E-Visa Comparison for Indian Travellers</h2>
+ <table>
+ <thead><tr><th>Country</th><th>Fee (USD)</th><th>Processing Time</th><th>Validity</th><th>Max Stay</th></tr></thead>
+ <tbody>
+ <tr><td><strong>India</strong></td><td>$25–$80</td><td>3–5 days</td><td>30 days to 5 years</td><td>30–180 days</td></tr>
+ <tr><td><strong>Turkey</strong></td><td>$51.50</td><td>Instant – 24 hrs</td><td>180 days</td><td>90 days</td></tr>
+ <tr><td><strong>Thailand</strong></td><td>$35–$45</td><td>1–3 days</td><td>60–90 days</td><td>60 days</td></tr>
+ <tr><td><strong>UAE</strong></td><td>$48–$150</td><td>2–5 days</td><td>30–90 days</td><td>30–90 days</td></tr>
+ <tr><td><strong>Vietnam</strong></td><td>$25–$50</td><td>3–5 days</td><td>30–90 days</td><td>30–90 days</td></tr>
+ <tr><td><strong>Sri Lanka</strong></td><td>$20–$35</td><td>1–2 days</td><td>30 days</td><td>30 days</td></tr>
+ <tr><td><strong>Cambodia</strong></td><td>$36</td><td>3–5 days</td><td>90 days</td><td>30 days</td></tr>
+ <tr><td><strong>Kenya</strong></td><td>$34</td><td>2–5 days</td><td>90 days</td><td>90 days</td></tr>
+ <tr><td><strong>Singapore</strong></td><td>Free (SG Arrival Card)</td><td>Instant</td><td>90 days</td><td>14–90 days*</td></tr>
+ <tr><td><strong>Malaysia</strong></td><td>Free (MDAC)</td><td>Instant</td><td>90 days</td><td>14–90 days*</td></tr>
+ <tr><td><strong>Myanmar</strong></td><td>$50</td><td>3–5 days</td><td>90 days</td><td>28 days</td></tr>
+ <tr><td><strong>Egypt</strong></td><td>$30</td><td>2–5 days</td><td>90 days</td><td>30 days</td></tr>
+ </tbody>
+ </table>
+ <p><em>* Stay duration varies by nationality. Indian passport holders generally receive 14–30 days for Singapore and 30 days for Malaysia.</em></p>
+
+ <h2>1. India e-Visa</h2>
+ <p>India's e-Visa programme is one of the most comprehensive in the world, covering <strong>169+ eligible countries</strong>. Whether you are visiting the Taj Mahal, exploring Kerala's backwaters, or attending a business conference in Mumbai, the India e-Visa offers three variants: 30-day (double entry), 1-year (multiple entry), and 5-year (multiple entry). Processing takes just 3–5 business days.</p>
+ <p>For detailed instructions, read our <a href="/blog/india-e-visa-application-process">India e-Visa Application Process guide</a> or visit our <a href="/visa-guide/india-visa">India Visa Guide</a>. You can also check the <a href="/visa-requirements/india-visa-requirements">India Visa Requirements</a> page for specific document needs.</p>
+
+ <h2>2. Turkey e-Visa</h2>
+ <p>Turkey's e-Visa system is renowned for being one of the fastest in the world. Eligible travellers from over 90 countries can <strong>get their visa approved instantly or within 24 hours</strong>. The application form is simple and available in multiple languages. At just $51.50, it offers excellent value for a 180-day validity with stays up to 90 days.</p>
+ <p>For more details, see our <a href="/visa-guide/turkey-visa">Turkey Visa Guide</a> and <a href="/visa-requirements/turkey-visa-requirements">Turkey Visa Requirements</a>.</p>
+
+ <h2>3. Thailand e-Visa</h2>
+ <p>Thailand has expanded its e-Visa system significantly in 2026. The Thai e-Visa allows tourists to <strong>stay for up to 60 days</strong> with the option to extend for another 30 days at local immigration offices. Processing typically takes 1–3 business days. Thailand also offers the new <strong>Destination Thailand Visa (DTV)</strong> for digital nomads, valid for 5 years.</p>
+ <p>Learn more in our <a href="/blog/thailand-visa-options-2026">Thailand Visa Options 2026 guide</a> or the <a href="/visa-guide/thailand-visa">Thailand Visa Guide</a>.</p>
+
+ <h2>4. UAE e-Visa</h2>
+ <p>The United Arab Emirates offers a streamlined e-Visa process for tourists and business visitors. With <strong>30-day and 90-day visa options</strong>, the UAE is a major hub for stopovers, tourism, and business. The processing time is 2–5 days. Dubai and Abu Dhabi airports have dedicated e-Visa counters for fast-track entry.</p>
+ <p>Visit our <a href="/visa-guide/uae-visa">UAE Visa Guide</a> for full details.</p>
+
+ <h2>5. Vietnam e-Visa</h2>
+ <p>Vietnam's e-Visa has become increasingly popular, now allowing <strong>stays of up to 90 days</strong> with single or multiple entries. The fee ranges from $25 to $50 depending on the type. Processing takes 3–5 business days. The e-Visa is valid at all major international airports in Vietnam, including Hanoi, Ho Chi Minh City, and Da Nang.</p>
+ <p>Check our <a href="/visa-guide/vietnam-visa">Vietnam Visa Guide</a> for more information.</p>
+
+ <h2>6. Sri Lanka e-Visa</h2>
+ <p>Sri Lanka reintroduced its e-Visa system with attractive terms for travellers. Eligible visitors can get a <strong>30-day e-Visa</strong> with processing in just 1–2 days. Citizens of several countries benefit from free or reduced-fee e-Visas. Sri Lanka's e-Visa covers tourism, business, and transit purposes.</p>
+ <p>See the <a href="/visa-guide/sri-lanka-visa">Sri Lanka Visa Guide</a> for the latest details.</p>
+
+ <h2>7. Cambodia e-Visa</h2>
+ <p>The Kingdom of Cambodia offers an e-Visa that is valid for <strong>90 days with a 30-day stay</strong>. The fee is $36, and processing usually takes 3–5 business days. The e-Visa is accepted at all major points of entry, including Phnom Penh International Airport and Siem Reap International Airport (for Angkor Wat).</p>
+
+ <h2>8. Kenya e-Visa</h2>
+ <p>Kenya's e-Visa system allows travellers to apply online for tourism, business, and transit purposes. The e-Visa costs $34 and <strong>permits stays of up to 90 days</strong> within a 90-day validity period. Processing takes 2–5 business days. Kenya has become a leading e-Visa destination in Africa.</p>
+
+ <h2>Other Notable E-Visa Destinations</h2>
+ <p>Many more countries offer streamlined e-Visa processes in 2026:</p>
+ <ul>
+ <li><strong>Singapore</strong> — The SG Arrival Card is a free electronic registration for most nationalities, processed instantly.</li>
+ <li><strong>Malaysia</strong> — The Malaysia Digital Arrival Card (MDAC) is free and processed instantly for most travellers.</li>
+ <li><strong>Myanmar</strong> — E-Visa available for tourism and business, $50, processed in 3–5 days.</li>
+ <li><strong>Egypt</strong> — E-Visa for tourism, $30, valid for 90 days with a 30-day stay, processed in 2–5 days.</li>
+ <li><strong>Laos</strong> — E-Visa available for $35–$50, processed in 3 days, with 30-day stays.</li>
+ <li><strong>Russia</strong> — E-Visa available for citizens of 55+ countries, processed in 4 days for up to 16 days.</li>
+ <li><strong>South Korea</strong> — K-ETA (Korea Electronic Travel Authorisation) for visa-free countries, $10, approved instantly.</li>
+ </ul>
+
+ <!-- Infographic: Application Process -->
+ <h2>How to Apply for an E-Visa: Step-by-Step</h2>
+ <div class="infographic">
+ <svg viewBox="0 0 700 130" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+ <rect width="700" height="130" rx="10" fill="#171299"/>
+ <text x="350" y="25" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Standard E-Visa Application Process</text>
+ <rect x="10" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <text x="57" y="78" text-anchor="middle" fill="#171299" font-size="10" font-weight="bold">Check</text>
+ <text x="57" y="93" text-anchor="middle" fill="#171299" font-size="9">Eligibility</text>
+ <text x="118" y="80" fill="white" font-size="14">&gt;</text>
+ <rect x="135" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <text x="182" y="78" text-anchor="middle" fill="#171299" font-size="10" font-weight="bold">Fill</text>
+ <text x="182" y="93" text-anchor="middle" fill="#171299" font-size="9">Application</text>
+ <text x="243" y="80" fill="white" font-size="14">&gt;</text>
+ <rect x="260" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <text x="307" y="78" text-anchor="middle" fill="#171299" font-size="10" font-weight="bold">Upload</text>
+ <text x="307" y="93" text-anchor="middle" fill="#171299" font-size="9">Documents</text>
+ <text x="368" y="80" fill="white" font-size="14">&gt;</text>
+ <rect x="385" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <text x="432" y="78" text-anchor="middle" fill="#171299" font-size="10" font-weight="bold">Pay Fee</text>
+ <text x="432" y="93" text-anchor="middle" fill="#171299" font-size="9">Online</text>
+ <text x="493" y="80" fill="white" font-size="14">&gt;</text>
+ <rect x="510" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <text x="557" y="78" text-anchor="middle" fill="#171299" font-size="10" font-weight="bold">Receive</text>
+ <text x="557" y="93" text-anchor="middle" fill="#171299" font-size="9">E-Visa</text>
+ <text x="618" y="80" fill="white" font-size="14">&gt;</text>
+ <rect x="635" y="45" width="55" height="65" rx="20" fill="#A5D549"/>
+ <text x="662" y="80" text-anchor="middle" fill="#171299" font-size="11" font-weight="bold">Travel!</text>
+ </svg>
+ </div>
+
+ <h2>Tips for a Successful E-Visa Application</h2>
+ <ul>
+ <li><strong>Apply early</strong> — Even if processing takes only 3–5 days, apply at least a week before travel to account for any delays or corrections needed.</li>
+ <li><strong>Check passport validity</strong> — Most countries require your passport to be valid for at least 6 months from the date of arrival.</li>
+ <li><strong>Use the official government website</strong> — Many third-party sites charge inflated fees for e-visa applications. Always use the official immigration or foreign affairs portal.</li>
+ <li><strong>Upload correct photo and document formats</strong> — JPEG/PDF files within specified size limits (typically 100KB–300KB).</li>
+ <li><strong>Double-check all details</strong> — Even one typo in your name or passport number can lead to rejection. Review carefully before submitting.</li>
+ <li><strong>Keep a printed copy</strong> — While e-visas are linked to your passport electronically, always carry a printed copy as a backup.</li>
+ </ul>
+
+ <p>For a complete document checklist applicable across countries, read our <a href="/blog/visa-document-checklist-2026">Essential Visa Document Checklist</a>.</p>
+
+ <h2>E-Visa vs Visa on Arrival: What's the Difference?</h2>
+ <table>
+ <thead><tr><th>Feature</th><th>E-Visa</th><th>Visa on Arrival (VoA)</th></tr></thead>
+ <tbody>
+ <tr><td>Application timing</td><td>Before travel (online)</td><td>Upon arrival (at airport/border)</td></tr>
+ <tr><td>Convenience</td><td>High — apply from home</td><td>Medium — queue at arrival counter</td></tr>
+ <tr><td>Processing time</td><td>Hours to 5 days</td><td>15–60 minutes at counter</td></tr>
+ <tr><td>Risk of denial</td><td>Low — learn before you fly</td><td>Higher — could be sent back</td></tr>
+ <tr><td>Cost</td><td>Generally lower</td><td>Often higher (convenience fee)</td></tr>
+ <tr><td>Required documents</td><td>Digital uploads</td><td>Physical copies + cash</td></tr>
+ </tbody>
+ </table>
+ <p>In general, an <strong>e-visa is recommended over Visa on Arrival</strong> whenever available. It saves time, reduces uncertainty, and lets you plan your trip with confidence. For more information on destinations that offer VoA, check our <a href="/visa-guide/">Visa Guide</a> or browse by country under <a href="/visa-requirements/">Visa Requirements</a>.</p>
+
+ <h2>Benefits of Travelling with an E-Visa</h2>
+ <div class="info-box">
+ <h4>Why Choose E-Visa Destinations in 2026?</h4>
+ <ul>
+ <li><strong>Skip embassy queues</strong> — No need to take time off work for embassy appointments.</li>
+ <li><strong>24/7 application</strong> — Apply from anywhere at any time.</li>
+ <li><strong>Faster processing</strong> — Most e-visas are processed within 1–5 business days.</li>
+ <li><strong>Lower costs</strong> — No courier fees, photograph charges, or service fees.</li>
+ <li><strong>Real-time tracking</strong> — Most countries provide online status checking.</li>
+ <li><strong>Environmentally friendly</strong> — No paper applications, physical stickers, or courier shipments.</li>
+ </ul>
+ </div>
+
+ <h2>Frequently Asked Questions</h2>
+
+ <h3>What is the fastest e-visa to get?</h3>
+ <p>Turkey offers the fastest e-visa, with instant approvals for most eligible nationalities. Singapore's SG Arrival Card and Malaysia's MDAC are also processed instantly. Among paid e-visas, Sri Lanka (1–2 days) and Thailand (1–3 days) are among the quickest.</p>
+
+ <h3>Can I extend my e-visa?</h3>
+ <p>Most e-visas <strong>cannot be extended</strong> (e.g., India, Turkey, Vietnam). However, some countries like Thailand allow a one-time extension of 30 days at local immigration offices. Always check the specific country's policy before travel.</p>
+
+ <h3>Is it safe to apply for e-visas online?</h3>
+ <p>Yes, but only when using the <strong>official government website</strong> of the destination country. Be cautious of third-party agencies that may charge inflated fees or misuse your personal data. Look for ".gov" domains or official embassy links.</p>
+
+ <h3>Do children need e-visas?</h3>
+ <p>Yes, in most cases, each traveller — including infants and children — needs a separate e-visa application. Some countries offer family application options, but individual approvals are still issued per passport.</p>
+
+ <h3>What documents do I need for an e-visa?</h3>
+ <p>Typically: a valid passport (6+ months validity), a digital passport-style photograph, a scanned copy of your passport bio page, and proof of onward travel (return flight booking). Some countries also require hotel bookings and bank statements.</p>
+
+ <p>For a detailed checklist, read our <a href="/blog/visa-document-checklist-2026">Visa Document Checklist for 2026</a>.</p>
+
+ <div class="cta-section">
+ <h3>Ready to Plan Your E-Visa Trip?</h3>
+ <p>Let our visa experts guide you through the application process. We offer document review, application assistance, and personalised support for hassle-free travel.</p>
+ <p style="margin-top:20px;">
+ <a href="/contact" class="btn btn-primary">Get Free Assistance</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);margin-left:10px;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ </p>
+ </div>
+
+ <div class="share-buttons">
+ <span style="font-weight:600;align-self:center;">Share this guide:</span>
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.myvisaassistance.com/blog/e-visa-countries-2026" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=E-Visa%20Countries%20in%202026&url=https://www.myvisaassistance.com/blog/e-visa-countries-2026" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Twitter</a>
+ </div>
+
+ <div class="author-box">
+ <div class="avatar">MV</div>
+ <div>
+ <strong>My Visa Assistance Team</strong>
+ <p style="margin:5px 0 0;font-size:0.9rem;color:var(--color-text-light);">Our team of travel and visa specialists has helped thousands of travellers navigate e-visa applications worldwide. We research and verify all information against official government sources to ensure accuracy.</p>
+ </div>
+ </div>
+
+ <!-- References & Sources -->
+ <div class="ref-list">
+ <h4>Sources &amp; Additional Reading</h4>
+ <ol>
+ <li><a href="https://indianvisaonline.gov.in/" target="_blank" rel="noopener noreferrer">Official Indian e-Visa Portal</a> — Government of India</li>
+ <li><a href="https://www.evisa.gov.tr/" target="_blank" rel="noopener noreferrer">Republic of Turkey e-Visa Official Portal</a></li>
+ <li><a href="https://www.thaievisa.go.th/" target="_blank" rel="noopener noreferrer">Thailand e-Visa Official Portal</a></li>
+ <li><a href="https://smartservices.icp.gov.ae/" target="_blank" rel="noopener noreferrer">UAE Smart Services — Visa Portal</a></li>
+ <li><a href="https://evisa.xuatnhapcanh.gov.vn/" target="_blank" rel="noopener noreferrer">Vietnam e-Visa Official Portal</a></li>
+ <li><a href="https://evisa.esaralanka.lk/" target="_blank" rel="noopener noreferrer">Sri Lanka e-Visa Official Portal</a></li>
+ <li><a href="https://www.evisa.gov.kh/" target="_blank" rel="noopener noreferrer">Cambodia e-Visa Official Portal</a></li>
+ <li><a href="https://evisa.go.ke/" target="_blank" rel="noopener noreferrer">Kenya e-Visa Official Portal</a></li>
+ <li><a href="https://www.imi.gov.my/" target="_blank" rel="noopener noreferrer">Malaysia Immigration Department — MDAC</a></li>
+ <li><a href="https://www.ica.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Immigration &amp; Checkpoints Authority — SG Arrival Card</a></li>
+ </ol>
+ </div>
+
+ <p style="text-align:center;margin:2rem 0;">
+ <a href="/blog/" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Back to Blog</a>
+ <a href="/visa-guide/" class="btn btn-outline" style="margin-left:10px;">Visa Guide</a>
+ <a href="/visa-requirements/" class="btn btn-outline" style="margin-left:10px;">Visa Requirements</a>
+ </p>
+ </article>
+
+ <footer class="footer" role="contentinfo">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about">
+<div class="footer-brand">
+<div class="logo-icon" aria-hidden="true">V</div>
+<span class="footer-brand-text">My Visa <span>Assistance</span></span>
+</div>
+<p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/visa-guide/">Visa Guide</a></li>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/contact">Contact</a></li>
+<li><a href="/embassy-address/">Embassy Address</a></li>
+<li><a href="/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-news/">Visa News</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Top Countries</h4>
+<ul>
+<li><a href="/visa-guide/usa-visa">US Visa</a></li>
+<li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+<li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+<li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+<li><a href="/visa-guide/india-visa">India Visa</a></li>
+<li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="/privacy-policy">Privacy Policy</a></li>
+<li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
+<li><a href="/contact">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-divider"></div>
+<div class="footer-bottom">
+<span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+<span class="footer-bottom-links">
+<a href="/privacy-policy">Privacy Policy</a> &middot;
+<a href="/terms-of-service">Terms of Service</a>
+</span>
+</div>
+</div>
+</footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
