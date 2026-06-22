@@ -1376,6 +1376,507 @@ faq: [
 { q: "How do I apply for Azerbaijan eVisa?", a: "Apply through the official ASAN Visa portal (evisa.gov.az). Complete the form, upload documents and photo, pay the fee, and receive approval via email." },
 { q: "How much does Azerbaijan eVisa cost?", a: "The standard eVisa costs $25 (approximately ₹2,200). Urgent processing (3 hours) costs $55 (approximately ₹4,900)." }
 ]
+},
+{
+id: "bahamas",
+name: "Bahamas",
+slug: "bahamas",
+flag: "🇧🇸",
+region: "Caribbean",
+visaRequired: false,
+processingTime: "Visa-free / 3-5 days for visa",
+visaTypes: ["Tourist Visa", "Business Visa", "Work Permit", "Student Visa", "Citizenship by Investment"],
+visaGuideSummary: "The Bahamas offers visa-free entry to many nationalities, including Indian citizens for up to 3 months. This archipelago of 700+ islands is known for its stunning beaches, crystal-clear waters, and world-class diving spots.",
+visaRequirementsSummary: "The Bahamas visa requirements include a valid passport, completed application form, passport-sized photograph, proof of sufficient funds (minimum $500/day), and confirmed flight booking.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form",
+"Passport-sized photograph",
+"Proof of sufficient funds (minimum $500/day)",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Travel insurance (recommended)"
+],
+fees: {
+"Tourist Visa (if required)": "$40-80",
+"Business Visa": "$80-120",
+"Work Permit": "$500-1,000",
+"Visa Extension": "$50-100"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for the Bahamas?", a: "No, Indian citizens can visit the Bahamas visa-free for up to 3 months for tourism purposes." },
+{ q: "How long can I stay in the Bahamas visa-free?", a: "Indian citizens can stay up to 90 days without a visa. A return flight ticket and hotel booking are required at immigration." },
+{ q: "What is the best way to reach the Bahamas from India?", a: "Most Indian travellers fly via London, New York, or Toronto to Nassau or Grand Bahama International Airport." }
+]
+},
+{
+id: "bahrain",
+name: "Bahrain",
+slug: "bahrain",
+flag: "🇧🇭",
+region: "Middle East",
+visaRequired: true,
+processingTime: "24-48 hours (eVisa)",
+visaTypes: ["e-Visa", "Tourist Visa", "Business Visa", "Work Visa", "Visa on Arrival"],
+visaGuideSummary: "Bahrain offers eVisa and Visa on Arrival for many nationalities, including Indian citizens. The island kingdom in the Persian Gulf offers a blend of modern architecture, ancient history, and world-class shopping.",
+visaRequirementsSummary: "Bahrain visa requirements include a valid passport, completed eVisa application, passport-sized photograph, proof of sufficient funds, and confirmed flight booking.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed eVisa application form",
+"Passport-sized photograph",
+"Proof of sufficient funds",
+"Confirmed flight booking",
+"Hotel reservations",
+"Bank statement (last 3 months)"
+],
+fees: {
+"eVisa (2 weeks)": "BHD 9",
+"eVisa (3 months single entry)": "BHD 29",
+"eVisa (3 months multiple entry)": "BHD 49",
+"Work Visa": "BHD 100-200",
+"Visa on Arrival": "BHD 5-30"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Bahrain?", a: "Yes, Indian citizens need a visa for Bahrain. An eVisa can be obtained online before travel, or a Visa on Arrival is available for short stays." },
+{ q: "How do I apply for Bahrain eVisa?", a: "Apply through the official Bahrain eVisa portal (evisa.gov.bh). Complete the form, upload documents, pay the fee, and receive approval via email." },
+{ q: "What is the Bahrain Visa on Arrival policy for Indians?", a: "Indian citizens with a valid US, UK, Schengen, or GCC residence permit can get a Visa on Arrival at Bahrain International Airport." }
+]
+},
+{
+id: "barbados",
+name: "Barbados",
+slug: "barbados",
+flag: "🇧🇧",
+region: "Caribbean",
+visaRequired: false,
+processingTime: "Visa-free / 5-7 days for visa",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Permit", "Welcome Stamp (Digital Nomad)"],
+visaGuideSummary: "Barbados offers visa-free travel to Indian citizens for up to 90 days. This Caribbean island nation is known for its pristine beaches, vibrant culture, and the Barbados Welcome Stamp for remote workers.",
+visaRequirementsSummary: "Barbados visa-free entry requires a valid passport, confirmed return flight, proof of accommodation, sufficient funds for the stay, and completed immigration form.",
+requirements: [
+"Passport valid for at least 6 months",
+"Confirmed return/onward flight ticket",
+"Hotel reservations or proof of accommodation",
+"Proof of sufficient funds",
+"Completed immigration form (on arrival)",
+"Travel insurance (recommended)"
+],
+fees: {
+"Tourist Visa (if required)": "$25-50",
+"Business Visa": "$50-100",
+"Welcome Stamp (Digital Nomad)": "$2,000",
+"Work Permit": "$500-2,000"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Barbados?", a: "No, Indian citizens can visit Barbados visa-free for up to 90 days for tourism purposes." },
+{ q: "What is the Barbados Welcome Stamp?", a: "The Welcome Stamp allows remote workers and digital nomads to live in Barbados for up to 12 months at a cost of $2,000 per applicant." },
+{ q: "What documents are needed for visa-free entry?", a: "Valid passport (6 months validity), return flight ticket, hotel booking, and proof of sufficient funds." }
+]
+},
+{
+id: "belarus",
+name: "Belarus",
+slug: "belarus",
+flag: "🇧🇾",
+region: "Europe",
+visaRequired: true,
+processingTime: "5-10 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Visa", "Transit Visa"],
+visaGuideSummary: "Belarus offers visa-free entry for up to 30 days to citizens of many countries arriving at Minsk International Airport. Indian citizens need a visa for Belarus, with an eVisa system available for streamlined processing.",
+visaRequirementsSummary: "Belarus visa requirements include a valid passport, completed application form, passport-sized photograph, proof of funds (€25/day), and confirmed flight booking.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form",
+"Passport-sized photograph",
+"Proof of financial means (€25/day)",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Travel health insurance (€10,000 minimum)"
+],
+fees: {
+"Tourist Visa": "€60-100",
+"Business Visa": "€100-180",
+"Student Visa": "€60-100",
+"Work Visa": "€100-200",
+"Transit Visa": "€40-60"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Belarus?", a: "Yes, Indian citizens need a visa for Belarus. However, transit through Minsk Airport does not require a visa for same-day connections." },
+{ q: "How do I apply for a Belarus visa?", a: "Apply through the Belarus embassy in New Delhi or use the eVisa system if eligible. Required documents include passport, photos, and invitation letter." },
+{ q: "How long does a Belarus visa take?", a: "Standard processing takes 5-10 business days. Express processing (2-3 days) is available at double the fee." }
+]
+},
+{
+id: "belgium",
+name: "Belgium",
+slug: "belgium",
+flag: "🇧🇪",
+region: "Europe",
+visaRequired: false,
+processingTime: "N/A (Schengen rules apply)",
+visaTypes: ["Schengen Tourist Visa", "Business Visa", "Student Visa", "Work Visa", "Long Stay Visa"],
+visaGuideSummary: "Belgium is a Schengen Area member and hosts the EU headquarters. It offers a rich cultural heritage with medieval cities, chocolate, beer, and museums. Indian citizens need a Schengen visa for tourism.",
+visaRequirementsSummary: "Belgium visa requirements follow Schengen rules: valid passport, completed application, travel insurance (€30,000), flight and hotel bookings, and proof of sufficient funds.",
+requirements: [
+"Passport valid for at least 3 months beyond departure",
+"Completed Schengen visa application form",
+"Passport-sized photograph (35×45mm)",
+"Travel health insurance (€30,000 minimum)",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations for entire stay",
+"Bank statement (last 3 months)",
+"Employment letter with leave approval"
+],
+fees: {
+"Schengen Visa (Adult)": "€90",
+"Schengen Visa (Child 6-12)": "€45",
+"Schengen Visa (Under 6)": "Free",
+"Long Stay Visa": "€210",
+"Student Visa": "€80"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Belgium?", a: "Yes, Indian citizens need a Schengen visa for Belgium. Belgium is part of the Schengen Area and follows Schengen visa rules." },
+{ q: "How much does a Belgium Schengen visa cost?", a: "The Schengen visa costs €90 for adults (approximately ₹8,000). Children aged 6-12 pay €45, and children under 6 are free." },
+{ q: "Where do I apply for a Belgium visa in India?", a: "Applications are submitted through VFS Global centres in major Indian cities including Delhi, Mumbai, Kolkata, Chennai, and Bengaluru." }
+]
+},
+{
+id: "belize",
+name: "Belize",
+slug: "belize",
+flag: "🇧🇿",
+region: "Caribbean",
+visaRequired: true,
+processingTime: "5-10 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Permit", "Retirement Program"],
+visaGuideSummary: "Belize offers visa-free entry to many countries, but Indian citizens need a visa. This Central American nation is known for its Caribbean coastline, the Belize Barrier Reef, and ancient Mayan ruins.",
+visaRequirementsSummary: "Belize visa requirements include a valid passport, completed application form, passport-sized photograph, proof of sufficient funds, and confirmed flight booking.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form",
+"Passport-sized photograph",
+"Proof of sufficient funds",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Travel insurance (recommended)"
+],
+fees: {
+"Tourist Visa": "$50-100",
+"Business Visa": "$100-150",
+"Student Visa": "$75-150",
+"Work Permit": "$300-1,500",
+"Permanent Residence": "$1,000"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Belize?", a: "Yes, Indian citizens need a visa for Belize. Apply at the nearest Belize embassy or consulate." },
+{ q: "How long can I stay in Belize on a tourist visa?", a: "Tourist visas are typically issued for up to 30 days, extendable for additional 30-day periods." },
+{ q: "What is the Belize Qualified Retired Persons Program?", a: "A retirement incentive program offering permanent residence for retirees aged 45+ with a monthly income of at least $2,000." }
+]
+},
+{
+id: "benin",
+name: "Benin",
+slug: "benin",
+flag: "🇧🇯",
+region: "Africa",
+visaRequired: true,
+processingTime: "3-5 business days (eVisa)",
+visaTypes: ["e-Visa", "Tourist Visa", "Business Visa", "Student Visa", "Work Visa"],
+visaGuideSummary: "Benin offers an eVisa system for many nationalities, making it easier to visit this West African nation known for its rich history, Voodoo culture, Pendjari National Park, and vibrant markets.",
+visaRequirementsSummary: "Benin visa requirements include a valid passport, completed eVisa application, passport-sized photograph, travel itinerary, and confirmed flight booking.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed eVisa application form",
+"Passport-sized photograph",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations",
+"Proof of sufficient funds",
+"Travel health insurance (recommended)"
+],
+fees: {
+"eVisa (Single Entry - 30 days)": "$30-60",
+"eVisa (Multiple Entry)": "$50-100",
+"Business Visa": "$80-150",
+"Student Visa": "$50-100",
+"Work Visa": "$150-300"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Benin?", a: "Yes, Indian citizens need a visa for Benin. An eVisa is available online for tourism and business purposes." },
+{ q: "How do I apply for a Benin eVisa?", a: "Apply through the official Benin eVisa portal. Complete the form, upload required documents, pay the fee, and receive the eVisa via email." },
+{ q: "What is Benin known for?", a: "Benin is known for its Voodoo culture, Pendjari National Park (part of the W-Arly-Pendjari complex), ancient Dahomey Kingdom history, and Ganvié stilt village." }
+]
+},
+{
+id: "bhutan",
+name: "Bhutan",
+slug: "bhutan",
+flag: "🇧🇹",
+region: "Asia",
+visaRequired: true,
+processingTime: "4-7 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Permit", "Special Permit (SVP)"],
+visaGuideSummary: "Bhutan offers a unique tourism model with a mandatory Sustainable Development Fee (SDF). Indian citizens do not need a visa but require a permit for entry. Bhutan is known for its Gross National Happiness philosophy, monasteries, and pristine landscapes.",
+visaRequirementsSummary: "Indian citizens need a valid passport or Voter ID to enter Bhutan. A permit is obtained at the port of entry or online via the Bhutan government portal.",
+requirements: [
+"Valid passport (at least 6 months validity) or Voter ID",
+"Passport-sized photographs (2 copies)",
+"Hotel booking confirmation (pre-booked required)",
+"Proof of SDF payment (₹1,200/day for Indians)",
+"Travel itinerary",
+"Return/onward travel confirmation"
+],
+fees: {
+"Sustainable Development Fee (Indians)": "₹1,200 per person per night",
+"SDF (Other internationals)": "$100 per person per night",
+"Visa Fee (Other internationals)": "$40",
+"Bhutan Entry Permit (Indians)": "Free",
+"Special Permit for restricted areas": "Free"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Bhutan?", a: "No, Indian citizens do not need a visa for Bhutan. However, a valid passport or Voter ID is required, and entry permits are obtained at the border or airport." },
+{ q: "What is the Sustainable Development Fee (SDF) for Bhutan?", a: "Indian citizens pay ₹1,200 per person per night as SDF. Other international visitors pay $100 per person per night." },
+{ q: "How do Indians get a Bhutan entry permit?", a: "Indians can obtain an entry permit online through the Bhutan government portal or at designated entry points (Phuentsholing, Paro Airport, Gelephu, Samdrup Jongkhar)." }
+]
+},
+{
+id: "bolivia",
+name: "Bolivia",
+slug: "bolivia",
+flag: "🇧🇴",
+region: "South America",
+visaRequired: true,
+processingTime: "5-10 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Visa", "Digital Nomad Visa"],
+visaGuideSummary: "Bolivia offers visa on arrival for many nationalities and e-Visa for Indian citizens. Known for the Uyuni Salt Flats, Lake Titicaca, Amazon rainforest, and rich indigenous culture.",
+visaRequirementsSummary: "Bolivia visa requirements include a valid passport, completed application form, passport-sized photograph, proof of sufficient funds, yellow fever vaccination (recommended), and confirmed flight booking.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form",
+"Passport-sized photograph (4×4 cm)",
+"Proof of sufficient funds ($100/day recommended)",
+"Confirmed flight booking",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Yellow fever vaccination certificate (recommended)"
+],
+fees: {
+"Tourist Visa (eVisa)": "$30",
+"Tourist Visa (Visa on Arrival)": "$30-160 (varies by nationality)",
+"Business Visa": "$60-100",
+"Student Visa": "$50-100"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Bolivia?", a: "Yes, Indian citizens need a visa for Bolivia. An eVisa is available online, or a Visa on Arrival may be obtained at Bolivian airports." },
+{ q: "How do I apply for a Bolivia eVisa?", a: "Apply through the official Bolivia eVisa portal at least 2 weeks before travel. You need a passport, photo, travel itinerary, and hotel bookings." },
+{ q: "What is the famous Uyuni Salt Flat?", a: "The Uyuni Salt Flat (Salar de Uyuni) is the world's largest salt flat at 10,582 sq km, creating stunning mirror effects during the rainy season." }
+]
+},
+{
+id: "bosnia-and-herzegovina",
+name: "Bosnia and Herzegovina",
+slug: "bosnia-and-herzegovina",
+flag: "🇧🇦",
+region: "Europe",
+visaRequired: true,
+processingTime: "7-15 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Visa", "eVisa"],
+visaGuideSummary: "Bosnia and Herzegovina offers eVisa for many nationalities. Though not in the Schengen Area, holders of valid Schengen, US, or UK visas can enter visa-free. Known for its beautiful old town of Sarajevo, Mostar bridge, and natural landscapes.",
+visaRequirementsSummary: "Bosnia visa requirements include a valid passport, completed application form, passport-sized photograph, proof of sufficient funds, and confirmed flight and hotel bookings.",
+requirements: [
+"Passport valid for at least 3 months beyond departure",
+"Completed visa application form",
+"Passport-sized photograph (35×45mm)",
+"Proof of sufficient funds (€60/day recommended)",
+"Confirmed flight booking",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Travel health insurance"
+],
+fees: {
+"Tourist Visa": "€50-80",
+"eVisa": "€60",
+"Business Visa": "€80-120",
+"Student Visa": "€50-100",
+"Work Visa": "€100-200"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Bosnia and Herzegovina?", a: "Yes, Indian citizens need a visa. However, holders of valid Schengen, US, or UK visas can enter Bosnia visa-free for up to 15 days." },
+{ q: "How do I apply for Bosnia eVisa?", a: "Apply through the official Bosnia eVisa portal. Complete the application, upload documents, and pay the fee online." },
+{ q: "What is Mostar famous for?", a: "Mostar is famous for its iconic Stari Most (Old Bridge), a UNESCO World Heritage site spanning the Neretva River." }
+]
+},
+{
+id: "botswana",
+name: "Botswana",
+slug: "botswana",
+flag: "🇧🇼",
+region: "Africa",
+visaRequired: false,
+processingTime: "Visa-free / 5-10 days for visa",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Visa", "eVisa"],
+visaGuideSummary: "Botswana offers visa-free travel to many nationalities for up to 90 days. Indian citizens currently need a visa but the process is straightforward. Botswana is known for the Okavango Delta, Chobe National Park, and world-class safari experiences.",
+visaRequirementsSummary: "Botswana visa requirements include a valid passport, completed application form, passport-sized photograph, proof of sufficient funds, and confirmed flight and accommodation bookings.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form",
+"Passport-sized photograph",
+"Proof of sufficient funds",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Travel itinerary"
+],
+fees: {
+"Tourist Visa": "BWP 300-500",
+"Business Visa": "BWP 500-800",
+"eVisa Service Fee": "BWP 100-200",
+"Student Visa": "BWP 300-500",
+"Work Permit": "BWP 2,000-4,000"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Botswana?", a: "Yes, Indian citizens need a visa for Botswana. An eVisa system is expected to streamline the process." },
+{ q: "How long can I stay in Botswana on a tourist visa?", a: "Tourist visas are typically issued for up to 30 days and can be extended at immigration offices in Botswana." },
+{ q: "What is the Okavango Delta?", a: "The Okavango Delta is one of Africa's largest inland deltas, a UNESCO World Heritage site, and one of the best safari destinations in the world." }
+]
+},
+{
+id: "brunei",
+name: "Brunei",
+slug: "brunei",
+flag: "🇧🇳",
+region: "Asia",
+visaRequired: true,
+processingTime: "5-7 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "Student Visa", "Work Visa", "eVisa"],
+visaGuideSummary: "Brunei offers visa-free entry to many countries. Indian citizens can obtain a visa on arrival or apply for an eVisa. This small oil-rich sultanate on Borneo is known for its mosques, rainforests, and rich Malay culture.",
+visaRequirementsSummary: "Brunei visa requirements include a valid passport, completed application form, passport-sized photograph, proof of sufficient funds, and confirmed flight and hotel bookings.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form",
+"Passport-sized photograph",
+"Proof of sufficient funds",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Travel insurance (recommended)"
+],
+fees: {
+"Tourist Visa": "BND $20-50",
+"eVisa": "BND $30",
+"Business Visa": "BND $50-100",
+"Work Permit": "BND $200-500",
+"Visa Extension": "BND $20-50"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Brunei?", a: "Yes, Indian citizens generally need a visa for Brunei. However, Indian citizens with valid visas for certain countries may qualify for transit visa-free passage." },
+{ q: "How do I apply for a Brunei visa?", a: "Apply at the Brunei High Commission in New Delhi or through the eVisa portal. Required documents include passport, photos, and supporting documents." },
+{ q: "What is Brunei famous for?", a: "Brunei is known for the Sultan Omar Ali Saifuddien Mosque, Kampong Ayer (water village), Ulu Temburong National Park, and its oil wealth." }
+]
+},
+{
+id: "bulgaria",
+name: "Bulgaria",
+slug: "bulgaria",
+flag: "🇧🇬",
+region: "Europe",
+visaRequired: true,
+processingTime: "10-15 business days",
+visaTypes: ["Schengen Visa", "Tourist Visa", "Business Visa", "Student Visa", "Work Visa"],
+visaGuideSummary: "Bulgaria is a European Union member but not yet a full Schengen member (partial application from March 2024). It applies Schengen visa rules. Indian citizens need a Bulgarian visa or a valid Schengen visa for entry. Known for its Black Sea coast, Balkan mountains, and historic towns.",
+visaRequirementsSummary: "Bulgaria visa requirements closely follow Schengen rules: valid passport, completed application, travel insurance (€30,000), flight and hotel bookings, and proof of sufficient funds.",
+requirements: [
+"Passport valid for at least 3 months beyond departure",
+"Completed visa application form",
+"Passport-sized photograph (35×45mm)",
+"Travel health insurance (€30,000 minimum)",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations for entire stay",
+"Bank statement (last 3 months)",
+"Employment letter with leave approval"
+],
+fees: {
+"Bulgarian Visa (Adult)": "€80",
+"Bulgarian Visa (Child 6-12)": "€40",
+"Bulgarian Visa (Under 6)": "Free",
+"Student Visa": "€80",
+"Work Visa": "€100-200"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Bulgaria?", a: "Yes, Indian citizens need a visa for Bulgaria. However, holders of a valid Schengen visa can visit Bulgaria visa-free for up to 90 days." },
+{ q: "Is Bulgaria part of Schengen?", a: "Bulgaria is an EU member and partially applies Schengen rules (air and sea borders from March 2024). Full Schengen membership is pending." },
+{ q: "What is Bulgaria known for?", a: "Bulgaria is known for its Black Sea resorts, Rila Monastery, Rose Valley, ski resorts in Bansko, and the ancient city of Plovdiv." }
+]
+},
+{
+id: "burkina-faso",
+name: "Burkina Faso",
+slug: "burkina-faso",
+flag: "🇧🇫",
+region: "Africa",
+visaRequired: true,
+processingTime: "5-10 business days",
+visaTypes: ["eVisa", "Tourist Visa", "Business Visa", "Student Visa", "Work Visa"],
+visaGuideSummary: "Burkina Faso offers eVisa for many nationalities, making it easier to visit this West African nation known for its vibrant music scene, traditional crafts, and the Festival of Mask Culture in Dedougou.",
+visaRequirementsSummary: "Burkina Faso visa requirements include a valid passport, completed application form, passport-sized photograph, proof of sufficient funds, and confirmed flight booking.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form (online for eVisa)",
+"Passport-sized photograph",
+"Proof of sufficient funds",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Yellow fever vaccination certificate (mandatory)"
+],
+fees: {
+"eVisa (Single Entry)": "$50-75",
+"Tourist Visa (Embassy)": "$70-100",
+"Business Visa": "$100-150",
+"Student Visa": "$50-100",
+"Work Visa": "$150-300"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Burkina Faso?", a: "Yes, Indian citizens need a visa for Burkina Faso. An eVisa is available for online application." },
+{ q: "What is Burkina Faso known for?", a: "Burkina Faso is known for its vibrant traditional music, the FESPACO film festival, the Ruins of Loropéni (UNESCO), and colourful mask festivals." },
+{ q: "Is yellow fever vaccination required for Burkina Faso?", a: "Yes, a yellow fever vaccination certificate is mandatory for all travellers arriving in Burkina Faso." }
+]
+},
+{
+id: "burundi",
+name: "Burundi",
+slug: "burundi",
+flag: "🇧🇮",
+region: "Africa",
+visaRequired: true,
+processingTime: "3-7 business days",
+visaTypes: ["eVisa", "Tourist Visa", "Business Visa", "Student Visa", "Visa on Arrival"],
+visaGuideSummary: "Burundi offers eVisa and Visa on Arrival for many nationalities. This small East African nation is known for Lake Tanganyika, mountain gorilla trekking (in neighbouring countries), and its green hills landscape.",
+visaRequirementsSummary: "Burundi visa requirements include a valid passport, completed eVisa application or paper form, passport-sized photograph, proof of sufficient funds, and confirmed flight booking.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form (online for eVisa)",
+"Passport-sized photograph",
+"Proof of sufficient funds",
+"Confirmed flight booking (round-trip)",
+"Hotel reservations",
+"Bank statement (last 3 months)",
+"Yellow fever vaccination certificate (mandatory)"
+],
+fees: {
+"eVisa (Single Entry)": "$40-70",
+"Visa on Arrival": "$40-90 (varies by nationality)",
+"Business Visa": "$80-150",
+"Student Visa": "$50-100",
+"Work Visa": "$150-300"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Burundi?", a: "Yes, Indian citizens need a visa for Burundi. An eVisa can be obtained online, or a Visa on Arrival is available at Bujumbura International Airport." },
+{ q: "How do I apply for a Burundi eVisa?", a: "Apply through the official Burundi eVisa portal. Complete the application, upload documents, and pay the fee online before travel." },
+{ q: "What is Lake Tanganyika?", a: "Lake Tanganyika is one of the African Great Lakes, the second deepest lake in the world, and a popular spot for water sports and relaxation." }
+]
 }
 ];
 const countryRegions = [
