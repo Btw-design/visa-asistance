@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belgium Visa Guide</title>
+<meta name="description" content="Complete guide to Belgium visa for 2026. Find out about Schengen visa, requirements, fees, and application process for Belgium.">
+<meta name="author" content="My Visa Assistance Editorial Team">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.myvisaassistance.com/visa-guide/belgium-visa">
+<meta property="og:title" content="Belgium Visa Guide">
+<meta property="og:description" content="Complete guide to Belgium visa for 2026. Find out about Schengen visa, requirements, fees, and application process for Belgium.">
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="canonical" href="https://www.myvisaassistance.com/visa-guide/belgium-visa">
+<link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i> My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+<div class="country-hero">
+<div class="container">
+<nav class="breadcrumb">
+<a href="/">Home</a> <span>/</span>
+<a href="/visa-guide/">Visa Guide</a> <span>/</span>
+<span>Belgium Visa Guide</span>
+</nav>
+<h1 class="text-white display-4">Belgium Visa Guide</h1>
+<p>Complete guide to Belgium visa for 2026. Find out about Schengen visa, requirements, fees, and application process for Belgium.</p>
+</div></div>
+
+<style>
+.update-bar{background:#fff;border:1px solid #e8ecf0;border-radius:10px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.update-bar strong{color:#1a202c;font-weight:600}
+.update-bar span{color:#718096}
+.quick-overview{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:0.9rem;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
+.quick-overview td,.quick-overview th{border:1px solid #eef0f2;padding:11px 16px;vertical-align:top}
+.quick-overview th{background:#f7f8fa;font-weight:600;color:#1a202c;width:28%;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px}
+.quick-overview td{background:#fff}
+.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+.info-box h4{margin:0 0 8px;color:#1a202c;font-size:1.05rem}
+.info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
+.info-box p:last-child{margin:0}
+.main-content h2{margin-top:38px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#1a202c}
+.main-content h2:first-of-type{margin-top:0}
+.main-content h3{margin-top:26px;margin-bottom:10px;font-size:1.15rem;color:#2d3748}
+.visa-table{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:0.9rem;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
+.visa-table thead th{background:#f7f8fa;color:#1a202c;padding:12px 14px;text-align:left;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px;border-bottom:2px solid #e2e6ea}
+.visa-table td,.visa-table th{border:1px solid #eef0f2;padding:11px 14px;vertical-align:top}
+.visa-table tbody td{background:#fff;color:#4a5568}
+.visa-table tbody tr:nth-child(even) td{background:#fafbfc}
+.visa-table tbody tr:hover td{background:#f0f7ff}
+.visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:10px}
+.cta-section{background:#fff;border:2px solid #eef0f2;padding:40px;border-radius:14px;margin:44px 0;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.cta-section h2{color:#1a202c;margin:0 0 12px;font-size:1.6rem;border:none;padding:0}
+.cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6}
+.cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:14px 38px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s ease;box-shadow:0 4px 14px rgba(23,18,153,0.2)}
+.cta-section .btn:hover{background:#0a0a52;transform:translateY(-2px);box-shadow:0 6px 20px rgba(23,18,153,0.3)}
+.sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:10px;padding:22px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+.sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#1a202c;border-bottom:2px solid #f0f2f5;padding-bottom:8px}
+.sidebar-card ul{margin:0;padding:0}
+.sidebar-card ul li{padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568}
+.sidebar-card ul li:last-child{border:none}
+.sidebar-card ul li a{color:#2b6cb0;text-decoration:none}
+.sidebar-card ul li a:hover{color:#1a202c;text-decoration:underline}
+.faq-list{margin:18px 0 28px}
+.faq-item{border:1px solid #eef0f2;border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03)}
+.faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:500;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
+.faq-question:hover{background:#f7f8fa}
+.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s;flex-shrink:0;margin-left:12px}
+.faq-item.active .faq-question{background:#f7f8fa;font-weight:600}
+.faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.35s ease, padding 0.35s ease;padding:0 20px;background:#fff}
+.faq-item.active .faq-answer{max-height:600px;padding:4px 20px 16px}
+.faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
+.country-content{padding:40px 0 60px;background:#fff}
+.country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
+.country-content .main-content{min-width:0}
+.sidebar{position:sticky;top:90px}
+.main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
+.main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
+.main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
+@media(max-width:991px){
+.country-content .content-grid{grid-template-columns:1fr;gap:30px}
+.sidebar{position:static}
+.sidebar-card{padding:18px}
+.main-content h2{font-size:1.35rem}
+.country-content{padding:30px 0 50px}
+}
+@media(max-width:767px){
+.country-content{padding:20px 0 40px}
+.country-content .content-grid{gap:24px}
+.update-bar{font-size:0.82rem;padding:12px 14px}
+.quick-overview,.visa-table{font-size:0.8rem;font-weight:400}
+.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:8px 10px}
+.quick-overview th{width:35%}
+.visa-table thead th{font-size:0.78rem;padding:10px}
+.info-box{padding:16px 18px}
+.info-box h4{font-size:0.95rem}
+.cta-section{padding:28px 18px}
+.cta-section h2{font-size:1.25rem}
+.cta-section .btn{padding:12px 28px;font-size:0.95rem}
+.main-content h2{font-size:1.2rem;margin-top:28px}
+.main-content h3{font-size:1.05rem}
+.main-content p,.main-content ul li{font-size:0.9rem}
+.faq-question{font-size:0.9rem;padding:14px 16px}
+.faq-answer{padding:0 16px}
+.faq-item.active .faq-answer{padding:4px 16px 14px}
+.sidebar-card{padding:16px}
+.country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+@media(max-width:480px){
+.quick-overview th{width:40%}
+.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:6px 8px}
+.update-bar{font-size:0.78rem;padding:10px 12px}
+.cta-section{padding:22px 14px;margin:30px 0}
+}
+</style>
+
+<section class="country-content">
+<div class="container">
+<div class="content-grid">
+<div class="main-content">
+
+<div class="update-bar">
+<strong>Last Updated:</strong> June 2026 | My Visa Assistance &nbsp;|&nbsp;
+<strong>Author:</strong> My Visa Assistance Editorial Team &nbsp;|&nbsp;
+<strong>Reviewed:</strong> June 2026 &nbsp;|&nbsp;
+<strong>Sources Last Verified:</strong> 01 June 2026 &nbsp;|&nbsp;
+<strong>Next Scheduled Review:</strong> December 2026
+</div>
+
+<table class="quick-overview"><tbody><tr><th>Visa Required?</th><td>Check with the embassy</td></tr>
+<tr><th>Main Visa Types</th><td>Tourist Visa (Type C), Business Visa, Student Visa, Work Permit, Transit Visa</td></tr>
+<tr><th>Processing Time</th><td>5-10 working days for tourist visa; 15-30 days for work visa</td></tr>
+<tr><th>Visa Fee Range</th><td>₹4,000-8,000 (€40-80) depending on visa type</td></tr>
+<tr><th>Financial Requirement</th><td>Minimum €100 per day of stay for tourists</td></tr>
+<tr><th>Maximum Stay</th><td>90 days within 180-day period for tourist visa</td></tr>
+<tr><th>Biometrics</th><td>Biometrics required for all in-person visa applications</td></tr>
+<tr><th>Health Insurance</th><td>Travel insurance with minimum €30,000 coverage required</td></tr>
+<tr><th>Application Centers</th><td>Embassy or consulate in your country</td></tr>
+<tr><th>English Requirement</th><td>No English language test required for visa applications</td></tr>
+<tr><th>Approval Rate</th><td>Approval rate is approximately 90-95% for Indian applicants meeting requirements</td></tr>
+</tbody></table>
+
+<div class="info-box">
+<h4>What is a Belgium Visa?</h4>
+<p>As a Schengen member, Belgium participates in the Schengen visa system, allowing visa-free travel for many nationalities and a standardized visa application process for others.</p>
+<p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> See the <a href="#updates2026">Updates table</a> below for all 2026 changes.</p>
+</div>
+
+<p>As a Schengen member, Belgium participates in the Schengen visa system, allowing visa-free travel for many nationalities and a standardized visa application process for others.</p>
+<p></p>
+
+<h3>Do I Need a Visa for Belgium?</h3>
+<p>Citizens of EU/EEA countries, US, Canada, UK (post-Brexit visa-free), Australia, New Zealand, Japan, South Korea, Singapore, and many others can visit visa-free for up to 90 days in 180 days.</p>
+
+<h3>What Is Available and Not Available</h3>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Can Indians...</th><th>Yes/No</th><th>Details</th></tr></thead><tbody><tr><td>Travel for tourism</td><td>Yes</td><td>Tourist visa available for tourism and recreation</td></tr><tr><td>Travel for business</td><td>Yes</td><td>Business visa required for meetings and conferences</td></tr><tr><td>Study</td><td>Yes</td><td>Student visa for enrolled students at Belgium institutions</td></tr><tr><td>Work</td><td>Yes</td><td>Work permit required for all employment in Belgium</td></tr><tr><td>Transit without visa</td><td>Yes</td><td>Transit visa available for connecting flights</td></tr><tr><td>Live permanently</td><td>Yes</td><td>Temporary/permanent residence permits available</td></tr></tbody></table></div>
+
+<h2>Visa Types for Belgium</h2>
+<p>As a Schengen member, Belgium participates in the Schengen visa system, allowing visa-free travel for many nationalities and a standardized visa application process for others. depending on your purpose of travel.</p>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee</th></tr></thead><tbody><tr><td>Tourist Visa (Type C)</td><td>C</td><td>Tourism, family visits</td><td>90 days</td><td>5-10 working days</td><td>€50 (₹4,500)</td></tr><tr><td>Business Visa</td><td>D</td><td>Business meetings, conferences</td><td>90 days</td><td>7-14 working days</td><td>€80 (₹7,200)</td></tr><tr><td>Student Visa</td><td>D</td><td>Full-time studies</td><td>1 year renewable</td><td>4-6 weeks</td><td>€50 (₹4,500)</td></tr><tr><td>Work Permit</td><td>D</td><td>Employment in Belgium</td><td>1 year renewable</td><td>30-60 days</td><td>€80 (₹7,200)</td></tr><tr><td>Transit Visa</td><td>B</td><td>Airport transit</td><td>5 days</td><td>3-5 working days</td><td>€40 (₹3,600)</td></tr></tbody></table></div>
+
+<h2 id="fees">Visa Fees</h2>
+<p>Visa fees vary by category. All fees are non-refundable and subject to change.</p>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee</th><th>Approx (₹)</th></tr></thead><tbody><tr><td>Tourist Visa (Type C)</td><td>C</td><td>€50</td><td>₹4,450 to ₹4,950</td></tr><tr><td>Business Visa</td><td>D</td><td>€80</td><td>₹7,120 to ₹7,920</td></tr><tr><td>Student Visa</td><td>D</td><td>€50</td><td>₹4,450 to ₹4,950</td></tr><tr><td>Work Permit</td><td>D</td><td>€80</td><td>₹7,120 to ₹7,920</td></tr><tr><td>Transit Visa</td><td>B</td><td>€40</td><td>₹3,560 to ₹3,960</td></tr></tbody></table></div>
+
+<h3>Additional Costs</h3><div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead><tbody><tr><td>Service Fee</td><td>₹1,000 to 2,000</td><td>Application center handling fee</td></tr><tr><td>Photography</td><td>₹200 to 400</td><td>Counter photo if needed</td></tr><tr><td>Insurance</td><td>₹2,000 to 4,000</td><td>Travel insurance (mandatory)</td></tr><tr><td>Courier</td><td>₹500 to 1,000</td><td>Passport return delivery</td></tr><tr><td>Translation</td><td>₹1,000 to 2,000</td><td>Document notarization/translation</td></tr></tbody></table></div>
+
+<h2>Required Documents</h2>
+<p>Every visa application requires proof of identity, purpose of visit, and financial capacity.</p>
+
+<h3>Core Documents (All Visa Types)</h3>
+<ul><li><strong>Valid Indian passport — Must have at least 6 months validity beyond intended stay. At least 2 blank pages.</strong></li>
+<li><strong>Digital photograph — 35×45mm, white background, taken within 6 months.</strong></li>
+<li>Completed visa application form</li>
+<li><strong>Previous visas and travel history — Include copies of previous Schengen, US, UK visas and travel stamps.</strong></li>
+<li><strong>Cover letter — Explaining purpose of visit, duration, itinerary, and ties to India.</strong></li>
+</ul>
+
+<h2>Visa Application Process</h2>
+<p>The application process typically involves the following steps:</p>
+<p><strong>Step 1: Choose Your Visa Type and Check Eligibility</strong><br>Use this guide to select the correct visa category. Check eligibility requirements including financial capacity and supporting documents.</p>
+<p><strong>Step 2: Complete the Application Form</strong><br>Fill out the visa application form with accurate personal details, passport information, and travel history.</p>
+<p><strong>Step 3: Pay the Visa Fee</strong><br>Pay the non-refundable visa fee online or at the application center.</p>
+<p><strong>Step 4: Schedule and Attend the Visa Interview</strong><br>Book an appointment at the nearest embassy or consulate if required.</p>
+<p><strong>Step 5: Complete Biometrics</strong><br>Provide fingerprints and photograph at the designated application center if required.</p>
+<p><strong>Step 6: Wait for Processing and Track Online</strong><br>Track your application status online using the reference number provided.</p>
+<p><strong>Step 7: Receive Decision and Collect Passport</strong><br>If approved, your passport will be stamped with the visa or you will receive an electronic authorization.</p>
+
+<h2>Processing Time</h2>
+<p>Processing times vary significantly by visa category:</p>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Processing Time</th><th>Notes</th></tr></thead><tbody><tr><td>Tourist Visa (Type C)</td><td>C</td><td>5-10 working days</td><td>Varies by submission volume and completeness</td></tr><tr><td>Business Visa</td><td>D</td><td>7-14 working days</td><td>Varies by submission volume and completeness</td></tr><tr><td>Student Visa</td><td>D</td><td>4-6 weeks</td><td>Peak season (Aug-Oct) may take longer</td></tr><tr><td>Work Permit</td><td>D</td><td>30-60 days</td><td>Requires employer registration with Belgium authorities</td></tr><tr><td>Transit Visa</td><td>B</td><td>3-5 working days</td><td>Fastest processing category</td></tr></tbody></table></div>
+
+<div class="info-box">
+<h4>Processing Time Note</h4>
+<p>Processing times are estimates. Apply well in advance of your planned travel date.</p>
+</div>
+
+<h2>Travel Insurance Requirements</h2>
+<p>Travel insurance is recommended for all visitors to Belgium:</p>
+<ul>
+<li><strong>Tourist/Business Visitors:</strong> Comprehensive travel insurance covering medical emergencies, trip cancellation, and baggage loss is strongly recommended.</li>
+<li><strong>Students:</strong> Health insurance may be mandatory for student visa holders.</li>
+<li><strong>Work Visa Holders:</strong> Employer-provided health coverage is typically required.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq-list" style="max-width:100%;">
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Do Indian citizens need a visa for Belgium?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Yes, Indian citizens need a visa for Belgium. However, Belgium offers an eVisa system that simplifies the application process for tourism and business visits.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How much does an Belgium tourist visa cost?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>A tourist visa costs €50 (approximately ₹4,500-5,000). Additional service fees may apply at the application center.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What documents are needed for Belgium visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Valid passport (6 months validity), completed application form, 2 photos, travel insurance (€30,000), flight itinerary, hotel bookings, and bank statements for 3 months.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I extend my Belgium tourist visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Yes, tourist visas can be extended at the Belgium Department of Border and Migration for up to 90 additional days per calendar year.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How long can I stay in Belgium on a tourist visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>The tourist visa allows stays of up to 90 days within a 180-day period.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is travel insurance mandatory for Belgium visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Yes, travel health insurance with a minimum coverage of €30,000 is mandatory for all Belgium visa applications.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I work on a tourist visa in Belgium?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>No, working on a tourist visa is illegal. You must obtain a work permit and work visa before starting employment.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Where to apply for Belgium tourist visa in India?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Apply through the Embassy of Belgium in New Delhi, honorary consulates in Mumbai and Kolkata, or through the Belgium eVisa portal.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is the Belgium eVisa process?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Belgium offers eVisa for tourism and business purposes through the official eVisa portal. Apply online, submit documents, and receive digital approval.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I study in Belgium on a tourist visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>No, you need a Student Visa (Type D) for studying in Belgium. Tourist visa cannot be converted to a student visa.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Do I need a separate visa for the Belgium Riviera?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>No, a single visa covers all of Belgium including the Belgium Riviera, Tirana, Berat, Gjirokastër, and all other regions.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What are the financial requirements for Belgium visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>You must show proof of at least €100 per day of stay through bank statements, cash, or traveler&#x27;s cheques.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is Belgium part of the Schengen Area?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>No, Belgium is not in the Schengen Area. You need a separate Belgium visa even if you hold a Schengen visa.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How many Indian tourists visit Belgium annually?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p></p></div>
+</div>
+</div>
+
+<h2 id="updates2026">2026 Updates</h2>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Category</th><th>Previous</th><th>Current (2026)</th></tr></thead><tbody><tr><td>Fee</td><td>€40-60</td><td>€50 (standardised)</td></tr><tr><td>Processing</td><td>7-10 working days</td><td>5-10 working days (digital platform)</td></tr><tr><td>Policy</td><td>Paper-based applications</td><td>Full eVisa rollout for all Indian applicants</td></tr></tbody></table></div>
+
+<h2>Official Links</h2><ul><li><a href="https://www.punetebrendshme.al/" target="_blank" rel="noopener noreferrer">Official Site</a></li>
+<li><a href="https://e-visa.al/" target="_blank" rel="noopener noreferrer">eVisa Portal</a></li>
+</ul>
+
+<div class="cta-section">
+<h2>Need Help With Your Belgium Visa?</h2>
+<p>Contact My Visa Assistance for expert guidance on your visa application process.</p>
+<a href="/contact" class="btn">Get Free Consultation</a>
+</div>
+
+</div>
+
+<aside class="sidebar">
+<div class="sidebar-card">
+<h3>Official Links</h3>
+<ul>
+<ul><li><a href="https://www.punetebrendshme.al/" target="_blank" rel="noopener noreferrer">Official Site</a></li>
+<li><a href="https://e-visa.al/" target="_blank" rel="noopener noreferrer">eVisa Portal</a></li>
+</ul>
+</ul>
+</div>
+<div class="sidebar-card">
+<h3>Other Visa Guides</h3>
+<ul><li><a href="/visa-guide/algeria-visa">Algeria Visa</a></li>
+<li><a href="/visa-guide/andorra-visa">Andorra Visa</a></li>
+<li><a href="/visa-guide/angola-visa">Angola Visa</a></li>
+<li><a href="/visa-guide/antigua-and-barbuda-visa">Antigua and Barbuda Visa</a></li>
+<li><a href="/visa-guide/armenia-visa">Armenia Visa</a></li>
+<li><a href="/visa-guide/austria-visa">Austria Visa</a></li>
+<li><a href="/visa-guide/azerbaijan-visa">Azerbaijan Visa</a></li>
+</ul>
+</div>
+</aside>
+
+</div></div>
+</section>
+
+<footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#A5D549"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#0a0a52"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#0a0a52"/></svg></span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span></div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p></div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ </ul></div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul></div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:info@myvisaassistance.com"><i class="bi bi-envelope"></i> info@myvisaassistance.com</a></li>
+ <li><a href="tel:+919022954619"><i class="bi bi-telephone"></i> +91 90229 54619</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div></div></div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p></div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></span>
+ </div></div>
+ </footer>
+<div class="country-logos-strip" role="region" aria-label="Country flags">
+<div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/belgium-visa" class="country-logo-item">Belgium</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/belgium-visa" class="country-logo-item">Belgium</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+<button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+<script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
