@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Required Documents for a China Visa in 2026: Complete Checklist for Indians | My Visa Assistance</title>
+ <meta name="description" content="Complete guide to documents required for a China visa in 2026. Passport, bank statements, photos, cover letter, itinerary, and more. Essential checklist for Indian applicants.">
+ <meta name="keywords" content="China visa documents 2026, China visa requirements, China visa checklist, China visa for Indians, China visa documents list, China tourist visa documents, China visa application India">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="My Visa Assistance Team">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://www.myvisaassistance.com/blog/china-visa-documents-2026">
+ <meta property="og:title" content="Required Documents for a China Visa in 2026: Complete Checklist for Indians">
+ <meta property="og:description" content="Complete guide to documents required for a China visa in 2026. Passport, bank statements, photos, cover letter, itinerary, and more for Indian applicants.">
+ <meta property="og:image" content="https://www.myvisaassistance.com/blog/images/china-visa-documents-2026.svg">
+ <meta property="article:published_time" content="2026-06-24">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <!-- Article Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Required Documents for a China Visa in 2026: Complete Checklist for Indians",
+ "description": "Complete guide to documents required for a China visa in 2026. Covers passport, bank statements, photographs, cover letter, itinerary, and more for Indian passport holders.",
+ "author": { "@type": "Organization", "name": "My Visa Assistance" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://www.myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-06-24",
+ "dateModified": "2026-06-24",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.myvisaassistance.com/blog/china-visa-documents-2026" }
+ }
+ </script>
+
+ 
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="canonical" href="https://www.myvisaassistance.com/blog/china-visa-documents-2026">
+ <style>
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+ .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ .blog-content h3 { margin-top: 1.5em; }
+ .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+ .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+ .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+ .blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+ .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content th { background: var(--color-primary); color: var(--color-white); }
+ .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+ .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+ .blog-content .infographic { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 12px; padding: 30px; margin: 2rem 0; text-align: center; }
+ .blog-content .infographic svg { max-width: 100%; height: auto; }
+ .blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+ .blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+ .blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+ .blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+ .blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+ .blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+ .blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+ .blog-content .ref-list { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 25px; margin: 1.5rem 0; }
+ .blog-content .ref-list h4 { color: var(--color-primary); margin-bottom: 0.8em; }
+ .blog-content .ref-list ol { margin-bottom: 0; }
+ .blog-content .ref-list ol li { list-style: decimal; margin-bottom: 0.5rem; }
+ .blog-content .ref-list a { word-break: break-all; }
+ .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+ .blog-content .featured-image svg { display: block; width: 100%; height: auto; }
+ .blog-content .checklist-card { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 25px; margin: 1.2rem 0; }
+ .blog-content .checklist-card h4 { color: var(--color-primary); margin-bottom: 0.6em; display: flex; align-items: center; gap: 8px; }
+ .blog-content .checklist-card h4 i { color: var(--color-accent); font-size: 1.2em; }
+ .blog-content .checklist-card ul { margin-bottom: 0; }
+ .blog-content .checklist-card ul li { list-style: none; padding-left: 24px; position: relative; margin-bottom: 0.5rem; }
+ .blog-content .checklist-card ul li::before { content: '\2713'; position: absolute; left: 0; color: var(--color-accent); font-weight: bold; }
+ .blog-content .highlight { background: var(--color-accent); color: var(--color-primary-dark); padding: 0 4px; border-radius: 3px; font-weight: 600; }
+ .blog-content .warn-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .warn-box h4 { color: #92400e; margin-bottom: 0.3em; }
+ </style>
+
+ 
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#171299"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#171299"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>China Visa Documents 2026</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+ <h1>Required Documents for a China Visa in 2026: Complete Checklist for Indian Applicants</h1>
+ 
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: June 24, 2026</span>
+ <span><i class="bi bi-clock"></i> 8 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ </div>
+
+ <!-- Featured Image -->
+ <div class="featured-image">
+ <img src="/blog/images/china-visa-documents-2026.svg" alt="Required Documents for China Visa 2026 - Complete Checklist for Indian Applicants" width="1200" height="630" loading="eager">
+ </div>
+
+ <p>Applying for a China visa from India requires careful preparation of documents. Even a small mistake or missing document can lead to rejection â€” and with an <strong>approval rate of 65-75%</strong> for Indian applicants, getting it right the first time is crucial.</p>
+
+ <p>In this guide, we walk you through every document required for a China visa in 2026, with specific tips for Indian passport holders. Whether you are applying for a <strong>Tourist (L) visa</strong>, <strong>Business (M) visa</strong>, or <strong>Student (X1/X2) visa</strong>, this checklist covers it all. For the full visa overview, visit our <a href="/visa-guide/china-visa/">China Visa Guide for Indians</a>.</p>
+
+ <div class="info-box">
+ <h4>Quick Summary</h4>
+ <p>Indian citizens <strong>must obtain a visa before traveling to China</strong>. There is no visa-on-arrival or e-Visa facility. Applications are submitted at China Visa Application Service Centers (CVASC) in 7 Indian cities. Processing takes 4-7 working days for standard applications. For detailed visa types and fees, see our <a href="/visa-requirements/china-visa-requirements/">China Visa Requirements</a> page.</p>
+ </div>
+
+ <h2>General Documents Required for All China Visa Types</h2>
+ <p>These are the core documents that every China visa applicant must submit, regardless of visa category:</p>
+
+ <!-- Infographic -->
+ <div class="infographic">
+ <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+ <rect width="700" height="380" rx="10" fill="#171299"/>
+ <text x="350" y="32" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">China Visa Document Checklist 2026</text>
+
+ <!-- Row 1: 3 boxes -->
+ <rect x="15" y="55" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
+ <text x="120" y="80" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Valid Passport</text>
+ <text x="120" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">6+ months validity</text>
+ <text x="120" y="118" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">2 blank pages</text>
+ <text x="120" y="136" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Indian passport required</text>
+
+ <rect x="245" y="55" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
+ <text x="350" y="80" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Passport Photos</text>
+ <text x="350" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">51x51mm (2x2 inches)</text>
+ <text x="350" y="118" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">White background</text>
+ <text x="350" y="136" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Taken within 6 months</text>
+
+ <rect x="475" y="55" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
+ <text x="580" y="80" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Application Form</text>
+ <text x="580" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Online via CVASC portal</text>
+ <text x="580" y="118" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Print &amp; sign</text>
+ <text x="580" y="136" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Details must match passport</text>
+
+ <!-- Row 2: 3 boxes -->
+ <rect x="15" y="165" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
+ <text x="120" y="190" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Bank Statements</text>
+ <text x="120" y="210" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Last 6 months</text>
+ <text x="120" y="228" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Min. CNY 50,000 balance</text>
+ <text x="120" y="246" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Bank-stamped copies</text>
+
+ <rect x="245" y="165" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
+ <text x="350" y="190" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Flight Itinerary</text>
+ <text x="350" y="210" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Round-trip booking</text>
+ <text x="350" y="228" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">With travel dates</text>
+ <text x="350" y="246" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Not required to be paid</text>
+
+ <rect x="475" y="165" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
+ <text x="580" y="190" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Hotel Booking</text>
+ <text x="580" y="210" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Confirmed reservation</text>
+ <text x="580" y="228" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">All nights covered</text>
+ <text x="580" y="246" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Refundable booking OK</text>
+
+ <!-- Row 3: Additional -->
+ <rect x="15" y="275" width="670" height="45" rx="8" fill="white" opacity="0.08"/>
+ <text x="350" y="298" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Plus:</text>
+ <text x="350" y="315" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Cover letter | Employment NOC | ITR documents | Previous visa copies | Travel insurance (recommended)</text>
+
+ <!-- CTA bar -->
+ <rect x="100" y="335" width="500" height="35" rx="17" fill="#A5D549"/>
+ <text x="350" y="358" text-anchor="middle" fill="#0a0a52" font-size="13" font-weight="bold">Apply 4-6 weeks before travel to allow processing time</text>
+ </svg>
+ </div>
+
+ <h3>1. Valid Indian Passport</h3>
+ <p>Your passport is the single most important document. The Chinese embassy requires:</p>
+ <ul>
+ <li><strong>Minimum 6 months validity</strong> beyond your intended stay in China</li>
+ <li>At least <strong>2 blank visa pages</strong> (not including the endorsement page)</li>
+ <li>Good physical condition â€” torn, damaged, or water-damaged passports may be rejected</li>
+ <li>If you have a <strong>new passport</strong>, carry the old one if it contains previous visas or travel stamps</li>
+ </ul>
+ <p>Make sure to carry photocopies of the <strong>first and last pages</strong> of your passport along with the original.</p>
+
+ <h3>2. Passport-Size Photographs</h3>
+ <p>China visa photo requirements are strict. Your photo must meet these specifications:</p>
+ <ul>
+ <li><strong>Size:</strong> 51mm x 51mm (2x2 inches) â€” this is larger than standard Indian passport photos</li>
+ <li><strong>Background:</strong> Plain white, no shadows or patterns</li>
+ <li><strong>Age:</strong> Taken within the last 6 months</li>
+ <li><strong>Face:</strong> Full front view, neutral expression, both eyes open</li>
+ <li><strong>Attire:</strong> No uniforms; avoid white clothing (blends into background)</li>
+ <li><strong>Glasses:</strong> Not permitted unless medically required (with medical certificate)</li>
+ </ul>
+ <p>For complete photo specifications across multiple countries, visit our <a href="/visa-requirements/photo-requirements/">Visa Photo Requirements</a> page.</p>
+
+ <h3>3. Completed Online Visa Application Form</h3>
+ <p>All China visa applications begin online via the official <strong>China Visa Application Service Center (CVASC)</strong> portal. Key points:</p>
+ <ul>
+ <li>Fill out the form accurately â€” <strong>any discrepancy with your passport will result in rejection</strong></li>
+ <li>Print the completed form and sign it in blue or black ink</li>
+ <li>All details (name, date of birth, place of birth) must match your passport exactly</li>
+ <li>You will receive a <strong>reference number</strong> â€” keep it for tracking</li>
+ </ul>
+
+ <h3>4. Bank Statements (Financial Proof)</h3>
+ <p>Chinese authorities require evidence that you can financially support your stay. For Indian applicants:</p>
+ <ul>
+ <li><strong>Minimum balance:</strong> CNY 50,000 (approximately INR 5.5 lakhs) is recommended</li>
+ <li><strong>Statements:</strong> Last 6 months of bank statements, bank-stamped</li>
+ <li><strong>Salary slips:</strong> Last 3 months salary slips from your employer</li>
+ <li><strong>ITR:</strong> Income Tax Returns for the last 3 assessment years</li>
+ </ul>
+ <p>For detailed information on which Indian bank statements are accepted, check the <a href="/visa-guide/china-visa/#fees">China Visa Guide</a> section on banking nuances.</p>
+
+ <h3>5. Round-Trip Flight Itinerary</h3>
+ <p>A confirmed round-trip flight booking showing your entry and exit from China:</p>
+ <ul>
+ <li>Must show your name as it appears on the passport</li>
+ <li>Include flight numbers, dates, and cities of arrival and departure</li>
+ <li>A <strong>dummy/hold booking</strong> is usually acceptable â€” you do not need to purchase the ticket before visa approval</li>
+ <li>If visiting multiple cities in China, include all internal flights</li>
+ </ul>
+
+ <h3>6. Hotel Accommodation Proof</h3>
+ <p>You must show where you will stay for the entire duration of your trip:</p>
+ <ul>
+ <li>Hotel booking confirmation from a reputable booking platform</li>
+ <li>Must cover <strong>every night</strong> of your stay in China</li>
+ <li>If staying with friends/family, provide a <strong>letter of invitation</strong> from the host along with their Chinese ID copy and proof of residence</li>
+ <li><strong>Refundable bookings</strong> are acceptable for visa purposes</li>
+ </ul>
+
+ <h3>7. Cover Letter</h3>
+ <p>A well-written cover letter explains your travel purpose and helps the visa officer assess your application:</p>
+ <ul>
+ <li>State your <strong>purpose of visit</strong> (tourism, business, study etc.)</li>
+ <li>Include your <strong>travel dates</strong> and a brief day-by-day itinerary</li>
+ <li>Mention your <strong>employment status</strong> and ties to India</li>
+ <li>Confirm you will <strong>abide by Chinese visa laws</strong> and depart before visa expiry</li>
+ <li>Format: Printed on plain A4 paper, signed and dated</li>
+ </ul>
+
+ <h3>8. Previous Visa Copies</h3>
+ <p>Include photocopies of:</p>
+ <ul>
+ <li>All previous <strong>Chinese visas</strong> (if you have visited China before)</li>
+ <li><strong>Schengen, US, UK, or other major visas</strong> â€” these demonstrate travel history and credibility</li>
+ <li>Previous passport pages showing travel stamps</li>
+ </ul>
+
+ <h3>9. Travel Insurance (Recommended)</h3>
+ <p>While not mandatory for the L tourist visa, travel insurance is <strong>strongly recommended</strong>:</p>
+ <ul>
+ <li>Medical coverage of at least <strong>CNY 500,000</strong> (approx. INR 5.5 lakhs)</li>
+ <li>Covers COVID-19 treatment, trip cancellation, baggage loss</li>
+ <li>Valid for the entire duration of your stay in China</li>
+ </ul>
+
+ <h2>Additional Documents by Visa Type</h2>
+ <p>Depending on the visa category you are applying for, you may need additional documents:</p>
+
+ <h3>Tourist Visa (L) â€” Additional Documents</h3>
+ <div class="checklist-card">
+ <h4><i class="bi bi-check-circle-fill"></i> Tourist Visa Checklist</h4>
+ <ul>
+ <li>Round-trip flight itinerary</li>
+ <li>Hotel booking for all nights of stay</li>
+ <li>Detailed day-by-day travel itinerary</li>
+ <li>Employment verification letter / NOC from employer</li>
+ <li>If self-employed: Business registration + IT returns</li>
+ <li>If retired: Pension statements + proof of funds</li>
+ <li>If student: College ID + NOC from institution + parent sponsorship letter</li>
+ </ul>
+ </div>
+
+ <h3>Business Visa (M) â€” Additional Documents</h3>
+ <div class="checklist-card">
+ <h4><i class="bi bi-check-circle-fill"></i> Business Visa Checklist</h4>
+ <ul>
+ <li><strong>Invitation letter from Chinese business partner</strong> â€” must be on company letterhead, stamped by the Chinese company, and include the host's Chinese ID number</li>
+ <li>Letter from your Indian employer confirming purpose of business visit</li>
+ <li>Company registration certificate / GST registration</li>
+ <li>Business cards (optional but helpful)</li>
+ <li>Trade fair/conference registration (if applicable)</li>
+ </ul>
+ </div>
+
+ <h3>Student Visa (X1/X2) â€” Additional Documents</h3>
+ <div class="checklist-card">
+ <h4><i class="bi bi-check-circle-fill"></i> Student Visa Checklist</h4>
+ <ul>
+ <li><strong>Admission letter</strong> from a recognized Chinese educational institution</li>
+ <li><strong>JW201 or JW202 form</strong> (Visa Application for Study in China) â€” issued by the institution</li>
+ <li><strong>Physical Examination Record</strong> for foreign nationals (required for X1 visa, stay > 180 days)</li>
+ <li>Valid HSK certificate (if required by the institution)</li>
+ <li>Proof of financial sponsorship (bank statements of parent/sponsor)</li>
+ <li>Highest educational qualification certificates (attested)</li>
+ </ul>
+ </div>
+
+ <h3>Work Visa (Z) â€” Additional Documents</h3>
+ <div class="checklist-card">
+ <h4><i class="bi bi-check-circle-fill"></i> Work Visa Checklist</h4>
+ <ul>
+ <li><strong>Work permit</strong> issued by Chinese Ministry of Human Resources</li>
+ <li><strong>Invitation letter</strong> from Chinese employer (with official seal)</li>
+ <li>Employment contract signed by both parties</li>
+ <li>Educational and professional qualification certificates</li>
+ <li>Medical examination report</li>
+ <li>No criminal record certificate (recent, usually within 6 months)</li>
+ </ul>
+ </div>
+
+ <h2>Chinese Banking Nuances for Indian Applicants</h2>
+ <p>Indian banks issue statements in different formats. Chinese visa officers are familiar with these, but it helps to follow these tips:</p>
+ <table>
+ <thead><tr><th>Bank</th><th>Tips for China Visa</th></tr></thead>
+ <tbody>
+ <tr><td><strong>SBI</strong></td><td>Passbook + online statement with branch seal. Ensure stamped and signed by branch manager.</td></tr>
+ <tr><td><strong>HDFC Bank</strong></td><td>Digital statements with QR code. Save as PDF with visible bank logo and account holder name.</td></tr>
+ <tr><td><strong>ICICI Bank</strong></td><td>E-statements with digital signature. Some officers prefer wet-stamped copies.</td></tr>
+ <tr><td><strong>Axis Bank</strong></td><td>Online statements with transaction details. Add salary credit highlight for clarity.</td></tr>
+ <tr><td><strong>PNB / Canara / BoB</strong></td><td>Passbook-based + supplementary statement. Request separate statement letter from branch.</td></tr>
+ </tbody>
+ </table>
+
+ <h2>Common Reasons for China Visa Rejection</h2>
+ <p>Understanding why applications get rejected can help you avoid the same mistakes:</p>
+ <div class="warn-box">
+ <h4>Top Reasons for China Visa Refusal for Indian Applicants</h4>
+ <ul>
+ <li><strong>Incomplete or incorrect documentation</strong> â€” missing signatures, wrong photo size, blank fields in form</li>
+ <li><strong>Insufficient financial evidence</strong> â€” low bank balance, irregular income, unclear source of funds</li>
+ <li><strong>Weak ties to India</strong> â€” no steady employment, family, or property showing you will return</li>
+ <li><strong>Inconsistent travel history</strong> â€” discrepancies between stated and actual travel</li>
+ <li><strong>Previous overstay or visa violation</strong> â€” any history of overstaying a visa anywhere</li>
+ <li><strong>Incomplete application form</strong> â€” unanswered questions or mismatched information</li>
+ </ul>
+ </div>
+
+ <h2>Application Process Overview</h2>
+ <p>Once your documents are ready, the application process involves these steps:</p>
+ <ol>
+ <li><strong>Complete the online form</strong> at the CVASC website</li>
+ <li><strong>Pay the visa fee</strong> (CNY 800-1,500 depending on visa type)</li>
+ <li><strong>Schedule an appointment</strong> at your nearest CVASC center</li>
+ <li><strong>Visit the center</strong> with all original documents and photocopies</li>
+ <li><strong>Submit biometrics</strong> (10 fingerprints for ages 14-70)</li>
+ <li><strong>Track your application</strong> online using the reference number</li>
+ <li><strong>Collect passport</strong> with the visa stamp (or courier delivery)</li>
+ </ol>
+ <p>For a detailed step-by-step guide, see our <a href="/visa-guide/china-visa/">China Visa Guide for Indians</a>.</p>
+
+ <h2>Printable Document Checklist</h2>
+ <p>Use this printable checklist to ensure you have everything before your visa appointment:</p>
+ <div class="checklist-card">
+ <ul>
+ <li>Original passport (6+ months validity, 2 blank pages)</li>
+ <li>Photocopy of passport first page and last page</li>
+ <li>2 passport-size photos (51x51mm, white background)</li>
+ <li>Printed and signed visa application form</li>
+ <li>6 months bank statements (stamped)</li>
+ <li>3 months salary slips</li>
+ <li>ITR for last 3 years</li>
+ <li>Round-trip flight itinerary</li>
+ <li>Hotel booking confirmation</li>
+ <li>Cover letter explaining purpose of visit</li>
+ <li>Employer NOC / leave approval letter</li>
+ <li>Previous visa copies (if any)</li>
+ <li>Travel insurance policy (recommended)</li>
+ <li>CVASC service fee payment receipt</li>
+ </ul>
+ </div>
+
+ <h2>Official Resources and Links</h2>
+ <p>Always verify current requirements from official sources before applying:</p>
+ <ul>
+ <li><strong>CVASC Official Website:</strong> <a href="https://www.visaforchina.org" target="_blank" rel="noopener noreferrer">www.visaforchina.org</a> â€” Book appointments and track applications</li>
+ <li><strong>Chinese Embassy in India:</strong> <a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">in.china-embassy.gov.cn</a> â€” Official embassy information</li>
+ <li><strong>Ministry of Foreign Affairs, China:</strong> <a href="https://www.cs.mfa.gov.cn" target="_blank" rel="noopener noreferrer">www.cs.mfa.gov.cn</a> â€” Visa policy updates</li>
+ <li><strong>Photo Requirements Tool:</strong> <a href="/visa-requirements/photo-requirements/">My Visa Assistance Photo Requirements</a> â€” Check photo specs for 40+ countries</li>
+ </ul>
+
+ <div class="ref-list">
+ <h4>References and Further Reading</h4>
+ <ol>
+ <li><a href="/visa-guide/china-visa/">China Visa Guide for Indians â€” Complete Overview</a></li>
+ <li><a href="/visa-requirements/china-visa-requirements/">China Visa Requirements â€” Detailed Document Checklist</a></li>
+ <li><a href="/visa-guide/">Complete Visa Guide Directory â€” 100+ Countries</a></li>
+ <li><a href="https://www.visaforchina.org" target="_blank" rel="noopener noreferrer">China Visa Application Service Center â€” Official Portal</a></li>
+ <li><a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">Chinese Embassy in India â€” Official Site</a></li>
+ <li><a href="https://share.google/QKL25ADr0E5kJakPN" target="_blank" rel="noopener noreferrer">China Visa Document Checklist â€” Shared Resource</a></li>
+ </ol>
+ </div>
+
+ <div class="share-buttons">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.myvisaassistance.com/blog/china-visa-documents-2026" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Share on Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=Required%20Documents%20for%20China%20Visa%202026%20-%20Complete%20Checklist%20for%20Indians&url=https://www.myvisaassistance.com/blog/china-visa-documents-2026" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Share on Twitter</a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.myvisaassistance.com/blog/china-visa-documents-2026" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;"><i class="bi bi-linkedin"></i> Share on LinkedIn</a>
+ <a href="https://share.google/QKL25ADr0E5kJakPN" target="_blank" rel="noopener noreferrer" style="background:#A5D549;color:#0a0a52;"><i class="bi bi-google"></i> Google Share Link</a>
+ </div>
+
+ <div class="cta-section">
+ <h3>Need Help With Your China Visa Application?</h3>
+ <p>Our India-focused visa consultants can guide you through the entire China visa process â€” from document preparation to application submission.</p>
+ <a href="/contact" class="btn btn-white">Contact My Visa Assistance</a>
+ </div>
+
+ <p><em>Disclaimer: Visa requirements and fees are subject to change without notice. Always verify current requirements with the <a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">Chinese Embassy in India</a> or the <a href="https://www.visaforchina.org" target="_blank" rel="noopener noreferrer">CVASC</a> before applying.</em></p>
+
+ </article>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <i class="bi bi-airplane" aria-hidden="true" style="font-size:1.8rem;color:var(--color-accent);margin-right:10px;"></i>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope"></i> myvisaassistance@protonmail.com</a></li>
+ <li><a href="tel:+918551805523"><i class="bi bi-telephone"></i> +91 85518 05523</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-bottom">
+ <span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a> &middot;
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <script src="/js/main.js" defer></script>
+</body>
+</html>

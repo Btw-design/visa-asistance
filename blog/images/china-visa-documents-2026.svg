@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a52"/>
+      <stop offset="50%" stop-color="#171299"/>
+      <stop offset="100%" stop-color="#2a2a9e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A5D549"/>
+      <stop offset="100%" stop-color="#bae56a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="16" fill="url(#bg)"/>
+  
+  <!-- Title -->
+  <text x="600" y="55" text-anchor="middle" fill="#A5D549" font-size="28" font-weight="bold" font-family="system-ui">Required Documents for</text>
+  <text x="600" y="95" text-anchor="middle" fill="#ffffff" font-size="36" font-weight="bold" font-family="system-ui">China Visa Application in 2026</text>
+  <text x="600" y="125" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="16" font-family="system-ui">Complete checklist for Indian passport holders</text>
+  
+  <!-- Category 1: Identity -->
+  <rect x="40" y="160" width="260" height="190" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(165,213,73,0.3)" stroke-width="1.5"/>
+  <text x="170" y="192" text-anchor="middle" fill="#A5D549" font-size="16" font-weight="bold" font-family="system-ui">Identity Documents</text>
+  <text x="60" y="218" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Valid Indian passport</text>
+  <text x="60" y="240" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">6+ months validity, 2 blank pages</text>
+  <text x="60" y="262" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Passport-size photographs</text>
+  <text x="60" y="284" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">51×51mm, white background, 6 months</text>
+  <text x="60" y="306" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Completed online application form</text>
+  <text x="60" y="328" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">CVASC online portal</text>
+  <line x1="60" y1="340" x2="280" y2="340" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="60" y="356" fill="#A5D549" font-size="12" font-weight="bold" font-family="system-ui">Biometrics: 10 fingerprints (ages 14-70)</text>
+
+  <!-- Category 2: Financial -->
+  <rect x="320" y="160" width="260" height="190" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(165,213,73,0.3)" stroke-width="1.5"/>
+  <text x="450" y="192" text-anchor="middle" fill="#A5D549" font-size="16" font-weight="bold" font-family="system-ui">Financial Documents</text>
+  <text x="340" y="218" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Bank statements (last 6 months)</text>
+  <text x="340" y="240" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Min. CNY 50,000 (≈ ₹5.5 lakhs)</text>
+  <text x="340" y="262" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">ITR for last 3 years</text>
+  <text x="340" y="284" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Income Tax Returns</text>
+  <text x="340" y="306" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Salary slips (last 3 months)</text>
+  <text x="340" y="328" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Employer-stamped</text>
+  <line x1="340" y1="340" x2="560" y2="340" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="340" y="356" fill="#A5D549" font-size="12" font-weight="bold" font-family="system-ui">Other: Fixed deposits, property docs</text>
+
+  <!-- Category 3: Travel -->
+  <rect x="600" y="160" width="260" height="190" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(165,213,73,0.3)" stroke-width="1.5"/>
+  <text x="730" y="192" text-anchor="middle" fill="#A5D549" font-size="16" font-weight="bold" font-family="system-ui">Travel Documents</text>
+  <text x="620" y="218" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Round-trip flight itinerary</text>
+  <text x="620" y="240" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Confirmed booking with dates</text>
+  <text x="620" y="262" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Hotel booking confirmation</text>
+  <text x="620" y="284" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">All nights of stay covered</text>
+  <text x="620" y="306" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Travel insurance (recommended)</text>
+  <text x="620" y="328" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Medical &amp; trip cancellation coverage</text>
+  <line x1="620" y1="340" x2="840" y2="340" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="620" y="356" fill="#A5D549" font-size="12" font-weight="bold" font-family="system-ui">Cover letter with itinerary</text>
+
+  <!-- Category 4: Employment -->
+  <rect x="880" y="160" width="280" height="190" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(165,213,73,0.3)" stroke-width="1.5"/>
+  <text x="1020" y="192" text-anchor="middle" fill="#A5D549" font-size="16" font-weight="bold" font-family="system-ui">Employment Documents</text>
+  <text x="900" y="218" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Employer NOC / leave letter</text>
+  <text x="900" y="240" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Company letterhead, signed &amp; stamped</text>
+  <text x="900" y="262" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Company registration (business)</text>
+  <text x="900" y="284" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">For Business (M) visa applicants</text>
+  <text x="900" y="306" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Invitation letter from China</text>
+  <text x="900" y="328" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">From business partner / conference</text>
+  <line x1="900" y1="340" x2="1140" y2="340" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="900" y="356" fill="#A5D549" font-size="12" font-weight="bold" font-family="system-ui">Students: Admission letter + HSK</text>
+
+  <!-- Bottom CTA bar -->
+  <rect x="150" y="380" width="900" height="50" rx="25" fill="#A5D549"/>
+  <text x="600" y="410" text-anchor="middle" fill="#0a0a52" font-size="17" font-weight="bold" font-family="system-ui">China visa approval rate for Indians: 65-75%  |  Apply 4-6 weeks before travel</text>
+
+  <!-- Bottom info boxes -->
+  <rect x="40" y="460" width="360" height="65" rx="10" fill="rgba(255,255,255,0.06)"/>
+  <text x="220" y="487" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold" font-family="system-ui">Application Centers</text>
+  <text x="220" y="510" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11" font-family="system-ui">CVASC in 7 Indian cities</text>
+
+  <rect x="420" y="460" width="360" height="65" rx="10" fill="rgba(255,255,255,0.06)"/>
+  <text x="600" y="487" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold" font-family="system-ui">Processing Fee</text>
+  <text x="600" y="510" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11" font-family="system-ui">CNY 800 - 1,500 + CVASC service fee</text>
+
+  <rect x="800" y="460" width="360" height="65" rx="10" fill="rgba(255,255,255,0.06)"/>
+  <text x="980" y="487" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold" font-family="system-ui">Processing Time</text>
+  <text x="980" y="510" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11" font-family="system-ui">4-7 working days (standard)</text>
+
+  <!-- URL -->
+  <text x="600" y="570" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="12" font-family="system-ui">www.myvisaassistance.com / blog / china-visa-documents-2026</text>
+
+  <!-- Simple passport icon -->
+  <rect x="565" y="590" width="70" height="24" rx="4" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+  <text x="600" y="607" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="9" font-family="system-ui">PASSPORT</text>
+</svg>
