@@ -1396,8 +1396,6 @@ small, .text-sm {
    =================================================================== */
 .section {
   padding: 80px 0;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 380px;
 }
 
 .section-alt {
@@ -2154,8 +2152,6 @@ small, .text-sm {
   color: rgba(255, 255, 255, 0.85);
   padding: 64px 0 0;
   position: relative;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 450px;
 }
 
 .footer::before {
@@ -2774,10 +2770,6 @@ small, .text-sm {
 .animate-in-delay-2 { animation-delay: 0.2s; }
 .animate-in-delay-3 { animation-delay: 0.3s; }
 .animate-in-delay-4 { animation-delay: 0.4s; }
-
-.anim-hidden { opacity: 0; transform: translateY(20px); }
-.anim-transition { transition: opacity 0.5s ease, transform 0.5s ease; }
-.anim-visible { opacity: 1; transform: translateY(0); }
 
 /* ===================================================================
    24. Print Styles
