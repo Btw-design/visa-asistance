@@ -17,7 +17,7 @@ Disallow: /generate-countries.ps1
 Disallow: /scripts/
 
 # Sitemap
-Sitemap: https://www.myvisaassistance.com/sitemap.xml
+Sitemap: https://myvisaassistance.com/sitemap.xml
 
-# Crawl delay (be respectful)
-Crawl-delay: 10
+# Crawl delay (Google ignores this; respectful for Bing/Yandex)
+Crawl-delay: 2
