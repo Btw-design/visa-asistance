@@ -410,9 +410,7 @@ small, .text-sm {
   border-radius: var(--radius-lg);
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
-  min-height: 160px;
 }
 
 .hero-slides {
