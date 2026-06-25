@@ -10,7 +10,7 @@
      =================================================================== */
   const $ = (sel, ctx) => (ctx || document).querySelector(sel);
   const $$ = (sel, ctx) => [...(ctx || document).querySelectorAll(sel)];
-  const on = (el, ev, fn) => { el.addEventListener(ev, fn); return el; };
+  const on = (el, ev, fn, opts) => { el.addEventListener(ev, fn, opts); return el; };
   const ready = (fn) => { if (document.readyState !== 'loading') fn(); else on(document, 'DOMContentLoaded', fn); };
   const isMobile = () => window.innerWidth <= 767;
   const isTablet = () => window.innerWidth <= 991;
@@ -31,7 +31,7 @@
         });
         ticking = true;
       }
-    });
+    }, { passive: true });
     // Initial check
     if (window.scrollY > 40) header.classList.add('scrolled');
   });
@@ -145,7 +145,7 @@
         });
         ticking = true;
       }
-    });
+    }, { passive: true });
 
     on(btn, 'click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -331,35 +331,29 @@
      12. Page Load Animation
      =================================================================== */
   ready(function() {
-    $$('.feature-card, .country-card, .blog-card, .testimonial-card, .expertise-card, .stat-item').forEach(function(el, i) {
-      // Only animate if not already animated via CSS
+    var cards = $$('.feature-card, .country-card, .blog-card, .testimonial-card, .expertise-card, .stat-item');
+    // Batch-set initial hidden state via CSS classes to reduce style recalculations
+    cards.forEach(function(el) {
       if (!el.classList.contains('animate-in')) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        el.classList.add('anim-hidden', 'anim-transition');
       }
     });
 
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(function(entries) {
+      var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.remove('anim-hidden');
+            entry.target.classList.add('anim-visible');
             observer.unobserve(entry.target);
           }
         });
       }, { threshold: 0.05 });
 
-      $$('.feature-card, .country-card, .blog-card, .testimonial-card, .expertise-card, .stat-item').forEach(function(el) {
-        observer.observe(el);
-      });
+      cards.forEach(function(el) { observer.observe(el); });
     } else {
       // Fallback: show all
-      $$('.feature-card, .country-card, .blog-card, .testimonial-card, .expertise-card, .stat-item').forEach(function(el) {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      });
+      cards.forEach(function(el) { el.classList.remove('anim-hidden'); });
     }
   });
 
@@ -466,8 +460,12 @@
     on(slider, 'mouseenter', stopAutoPlay);
     on(slider, 'mouseleave', startAutoPlay);
 
-    // Start autoplay
-    startAutoPlay();
+    // Start autoplay after initial paint (deferred to reduce TBT on load)
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function() { startAutoPlay(); }, { timeout: 500 });
+    } else {
+      setTimeout(startAutoPlay, 200);
+    }
   });
 
   /* ===================================================================
