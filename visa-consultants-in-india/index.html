@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-hero{padding:130px 0 60px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-40%;right:-15%;width:60%;height:130%;background:radial-gradient(ellipse,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
+.page-hero h1{color:var(--color-white);font-size:clamp(1.8rem,4.5vw,3rem);letter-spacing:-0.02em;margin-bottom:12px}
+.page-hero p{color:rgba(255,255,255,0.85);font-size:1.1rem;max-width:650px;margin:0 auto 24px}
+.page-hero .hero-badges{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+.page-hero .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.page-hero .hero-badge i,.page-hero .hero-badge svg{color:var(--color-accent)}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-warm{background:var(--color-bg-warm)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.visa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.visa-type-card{background:var(--color-white);border:1.5px solid var(--color-border-light);border-radius:var(--radius-lg);padding:32px;transition:var(--transition-slow);position:relative;overflow:hidden}
+.visa-type-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--color-accent)}
+.visa-type-card:hover{border-color:var(--color-accent);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.visa-type-card .icon-wrap{width:52px;height:52px;background:rgba(165,213,73,0.12);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.5rem;color:var(--color-accent)}
+.visa-type-card h3{font-size:1.2rem;margin-bottom:10px}
+.visa-type-card p{font-size:0.92rem;color:var(--color-text-light);line-height:1.6}
+.country-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.country-links a{font-size:0.82rem;padding:4px 12px;background:var(--color-bg-alt);border:1px solid var(--color-border-light);border-radius:var(--radius-full);color:var(--color-primary);transition:var(--transition)}
+.country-links a:hover{background:var(--color-accent);color:var(--color-primary-dark);border-color:var(--color-accent)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;max-width:900px;margin:0 auto}
+.stat-card{text-align:center;padding:32px 20px;background:var(--color-white);border-radius:var(--radius-lg);border:1.5px solid var(--color-border-light);transition:var(--transition-slow)}
+.stat-card:hover{border-color:var(--color-accent);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.stat-card .stat-num{font-size:2.2rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em;margin-bottom:4px}
+.stat-card .stat-label{font-size:0.92rem;color:var(--color-text-light)}
+.cta-section{background:linear-gradient(135deg,#0a0a52,#171299);padding:60px 0;text-align:center;color:var(--color-white)}
+.cta-section h2{color:var(--color-white);font-size:1.6rem;margin-bottom:8px}
+.cta-section p{color:rgba(255,255,255,0.8);font-size:1rem;max-width:550px;margin:0 auto 24px}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.faq-item{border:1.5px solid var(--color-border-light);border-radius:var(--radius);overflow:hidden;transition:var(--transition)}
+.faq-item:hover{border-color:var(--color-accent)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;cursor:pointer;font-weight:600;font-size:0.98rem;color:var(--color-text);background:var(--color-white);border:none;width:100%;text-align:left;font-family:var(--font-primary);transition:var(--transition)}
+.faq-q:hover{color:var(--color-primary)}
+.faq-q .faq-icon{flex-shrink:0;width:20px;height:20px;display:flex;align-items:center;justify-content:center;color:var(--color-accent);transition:var(--transition-slow);font-size:1.1rem}
+.faq-item.active .faq-q .faq-icon{transform:rotate(45deg)}
+.faq-a{padding:0 22px 18px;font-size:0.92rem;color:var(--color-text-light);line-height:1.7;display:none}
+.faq-item.active .faq-a{display:block}
+.faq-a a{color:var(--color-primary);font-weight:500}
+.faq-a a:hover{text-decoration:underline}
+.timeline-tool{background:var(--color-white);border:1.5px solid var(--color-border-light);border-radius:var(--radius-lg);padding:36px;max-width:600px;margin:0 auto}
+.timeline-tool .field-group{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.timeline-tool label{font-size:0.9rem;font-weight:600;color:var(--color-text)}
+.timeline-tool select,.timeline-tool input{padding:10px 14px;border:2px solid var(--color-border);border-radius:var(--radius);font-size:0.95rem;font-family:var(--font-primary);outline:none;transition:var(--transition)}
+.timeline-tool select:focus,.timeline-tool input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(23,18,153,0.1)}
+.timeline-tool .result-box{padding:16px;background:var(--color-bg-alt);border-radius:var(--radius);margin-top:16px;font-size:0.92rem;color:var(--color-text-light);display:none}
+.timeline-tool .result-box.show{display:block}
+.timeline-tool .result-box strong{color:var(--color-primary);display:block;margin-bottom:4px;font-size:1rem}
+.photo-embed{background:var(--color-bg-alt);border:1.5px solid var(--color-border-light);border-radius:var(--radius-lg);padding:36px;text-align:center}
+.photo-embed h3{margin-bottom:8px}
+.photo-embed p{font-size:0.92rem;color:var(--color-text-light);margin-bottom:20px}
+.photo-embed .btn{margin-top:10px}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.mb-16{margin-bottom:16px}
+.mb-24{margin-bottom:24px}
+@media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-hero{padding:110px 0 45px}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.cta-section{padding:40px 0}.cta-section h2{font-size:1.3rem}.page-hero{padding:100px 0 35px}.page-hero h1{font-size:1.5rem}.page-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.stats-grid{grid-template-columns:1fr 1fr}.visa-grid{grid-template-columns:1fr}.timeline-tool{padding:24px}.faq-q{padding:14px 16px;font-size:0.92rem}.faq-a{padding:0 16px 14px}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.section{padding:36px 0}.page-hero{padding:90px 0 30px}.page-hero h1{font-size:1.3rem}.nav-list{width:100%}.stats-grid{grid-template-columns:1fr}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Visa Consultants in India | Tourist, Business & Work Visa Services | My Visa Assistance</title>
+ <meta name="description" content="Expert visa consultants in India offering Tourist, Business, Visit, and Work visa services. 33+ countries covered. 2,500+ inquiries processed. Get started today.">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="My Visa Assistance Team">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://myvisaassistance.com/visa-consultants-in-india/">
+ <meta property="og:title" content="Visa Consultants in India | Tourist, Business & Work Visa Services">
+ <meta property="og:description" content="Expert visa consultants in India. Tourist, Business, Visit & Work visa services for 33+ countries. Call +91 85518 05523.">
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="canonical" href="https://myvisaassistance.com/visa-consultants-in-india/">
+
+ <!-- Breadcrumb Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [{
+ "@type": "ListItem",
+ "position": 1,
+ "name": "Home",
+ "item": "https://myvisaassistance.com"
+ }, {
+ "@type": "ListItem",
+ "position": 2,
+ "name": "Visa Consultants in India",
+ "item": "https://myvisaassistance.com/visa-consultants-in-india/"
+ }]
+ }
+ </script>
+
+ <!-- FAQ Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [{
+ "@type": "Question",
+ "name": "What types of visas do you handle?",
+ "acceptedAnswer": { "@type": "Answer", "text": "We handle Tourist, Business, Visit, and Work visas for over 33 countries including the USA, UK, Canada, Australia, Schengen nations, and many more." }
+ },{
+ "@type": "Question",
+ "name": "Do you provide job search or job placement services?",
+ "acceptedAnswer": { "@type": "Answer", "text": "No. We do not provide job search or job placement services. We only process work visas when the applicant already has a valid job offer letter and all required documents from the employer." }
+ },{
+ "@type": "Question",
+ "name": "How can I contact your visa consultant team?",
+ "acceptedAnswer": { "@type": "Answer", "text": "You can reach us at Phone: +91 85518 05523 or Email: myvisaassistance@protonmail.com. We are available Monday to Saturday, 10 AM to 7 PM IST." }
+ }]
+ }
+ </script>
+</head>
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#171299"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#171299"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+
+<header class="header" role="banner">
+<div class="header-inner">
+<a href="/" class="logo">
+<i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
+My Visa <span>Assistance</span>
+</a>
+<button class="menu-toggle" aria-label="Toggle navigation menu">
+<span></span><span></span><span></span>
+</button>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+<ul class="nav-list">
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/visa-guide/">Visa Guide</a></li>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/visa-consultants-in-india/" class="active">Visa Consultants</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+<div class="container">
+<a href="/">Home</a>
+<span class="separator">/</span>
+<span>Visa Consultants in India</span>
+</div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+<div class="container">
+<div class="hero-badges">
+<span class="hero-badge"><i class="bi bi-check-circle-fill"></i> 33+ Countries</span>
+<span class="hero-badge"><i class="bi bi-people-fill"></i> 2,500+ Inquiries</span>
+<span class="hero-badge"><i class="bi bi-star-fill"></i> 98% Satisfaction</span>
+</div>
+<h1>Visa Consultants in India</h1>
+<p>Your trusted partner for Tourist, Business, Visit, and Work visa services. We guide you through the entire visa application process for 33+ countries with expert documentation support.</p>
+<a href="#contact-section" class="btn btn-primary btn-lg">Get Free Consultation</a>
+</div>
+</section>
+
+<!-- ===== CTA 1 ===== -->
+<section class="cta-section">
+<div class="container">
+<h2>Ready to Start Your Visa Journey?</h2>
+<p>Speak with our expert visa consultants today. We simplify the process from start to finish.</p>
+<a href="tel:+918551805523" class="btn btn-white btn-lg"><i class="bi bi-telephone-fill"></i> Call +91 85518 05523</a>
+<a href="mailto:myvisaassistance@protonmail.com" class="btn btn-outline-white btn-lg"><i class="bi bi-envelope-fill"></i> Email Us</a>
+</div>
+</section>
+
+<!-- ===== WHO NEEDS A VISA ===== -->
+<section class="section" id="who-needs">
+<div class="container">
+<div class="section-heading">
+<h2>Who Needs a Visa &amp; Who Is It Required For?</h2>
+<p>Understanding visa requirements is the first step to international travel. Here is a clear breakdown.</p>
+</div>
+<div class="visa-grid">
+<div class="visa-type-card">
+<div class="icon-wrap"><i class="bi bi-airplane-fill"></i></div>
+<h3>Tourists &amp; Leisure Travellers</h3>
+<p>Anyone travelling abroad for vacation, sightseeing, visiting family, or recreational purposes needs a Tourist visa unless their nationality is visa-exempt for the destination country. We assist with tourist visa applications for all major destinations.</p>
+</div>
+<div class="visa-type-card">
+<div class="icon-wrap"><i class="bi bi-briefcase-fill"></i></div>
+<h3>Business Travellers</h3>
+<p>Professionals attending meetings, conferences, trade shows, or exploring business opportunities abroad require a Business visa. This covers corporate visits, client meetings, and exploratory business trips.</p>
+</div>
+<div class="visa-type-card">
+<div class="icon-wrap"><i class="bi bi-people-fill"></i></div>
+<h3>Visit Visa Applicants</h3>
+<p>Individuals visiting friends or family members who are residents or citizens of another country need a Visit visa. This also includes those attending weddings, family events, or short-term stays with relatives.</p>
+</div>
+<div class="visa-type-card">
+<div class="icon-wrap"><i class="bi bi-building-fill"></i></div>
+<h3>Work Visa Seekers</h3>
+<p>Professionals who already have a confirmed job offer from an overseas employer need a Work visa. We process work visa applications only when you have a valid job offer letter and all required employer documents.</p>
+</div>
+<div class="visa-type-card">
+<div class="icon-wrap"><i class="bi bi-mortarboard-fill"></i></div>
+<h3>Students</h3>
+<p>Individuals accepted into educational institutions abroad need a Student visa. We provide documentation guidance to ensure your student visa application meets all requirements.</p>
+</div>
+<div class="visa-type-card">
+<div class="icon-wrap"><i class="bi bi-globe2"></i></div>
+<h3>Transit Passengers</h3>
+<p>If your international flight has a layover in a country that requires a transit visa, we help you apply. Some nationalities need transit visas even for short airport stopovers.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== VISA TYPES ===== -->
+<section class="section-alt" id="visa-types">
+<div class="container">
+<div class="section-heading">
+<h2>Our Visa Services</h2>
+<p>Comprehensive visa processing for Tourist, Business, Visit, and Work categories across 33+ countries.</p>
+</div>
+
+<!-- Tourist Visa -->
+<div class="visa-type-card mb-24">
+<div class="icon-wrap"><i class="bi bi-suitcase-fill"></i></div>
+<h3>Tourist Visa</h3>
+<p>A Tourist visa is for individuals travelling abroad for leisure, sightseeing, holidays, or visiting family. We assist with the entire application process including document checklist, form filling, appointment booking, and submission guidance.</p>
+<p><strong>Key requirements:</strong> Valid passport (6+ months validity), recent photographs, bank statements (last 3-6 months), travel itinerary, flight and hotel bookings, travel insurance, and cover letter explaining purpose of visit.</p>
+<div class="country-links">
+<strong style="font-size:0.85rem;color:var(--color-text-light);width:100%;margin-bottom:4px;">Countries we cover:</strong>
+<a href="/visa-guide/usa-visa">USA Tourist Visa</a>
+<a href="/visa-guide/uk-visa">UK Tourist Visa</a>
+<a href="/visa-guide/canada-visa">Canada Tourist Visa</a>
+<a href="/visa-guide/australia-visa">Australia Tourist Visa</a>
+<a href="/visa-guide/schengen-visa">Schengen Tourist Visa</a>
+<a href="/visa-guide/thailand-visa">Thailand Tourist Visa</a>
+<a href="/visa-guide/uae-visa">UAE Tourist Visa</a>
+<a href="/visa-guide/singapore-visa">Singapore Tourist Visa</a>
+<a href="/visa-guide/malaysia-visa">Malaysia Tourist Visa</a>
+<a href="/visa-guide/japan-visa">Japan Tourist Visa</a>
+<a href="/visa-guide/china-visa">China Tourist Visa</a>
+<a href="/visa-guide/south-korea-visa">South Korea Tourist Visa</a>
+<a href="/visa-guide/turkey-visa">Turkey Tourist Visa</a>
+<a href="/visa-guide/egypt-visa">Egypt Tourist Visa</a>
+<a href="/visa-guide/vietnam-visa">Vietnam Tourist Visa</a>
+<a href="/visa-guide/indonesia-visa">Indonesia Tourist Visa</a>
+<a href="/visa-guide/new-zealand-visa">New Zealand Tourist Visa</a>
+<a href="/visa-guide/brazil-visa">Brazil Tourist Visa</a>
+<a href="/visa-guide/russia-visa">Russia Tourist Visa</a>
+<a href="/visa-guide/south-africa-visa">South Africa Tourist Visa</a>
+<a href="/visa-guide/switzerland-visa">Switzerland Tourist Visa</a>
+<a href="/visa-guide/france-visa">France Tourist Visa</a>
+<a href="/visa-guide/germany-visa">Germany Tourist Visa</a>
+<a href="/visa-guide/italy-visa">Italy Tourist Visa</a>
+<a href="/visa-guide/spain-visa">Spain Tourist Visa</a>
+<a href="/visa-guide/netherlands-visa">Netherlands Tourist Visa</a>
+</div>
+</div>
+
+<!-- Business Visa -->
+<div class="visa-type-card mb-24">
+<div class="icon-wrap"><i class="bi bi-briefcase-fill"></i></div>
+<h3>Business Visa</h3>
+<p>A Business visa is for professionals travelling abroad for business meetings, conferences, trade exhibitions, client visits, or exploring investment opportunities. We help prepare the required documentation including company invitation letters and business proof.</p>
+<p><strong>Key requirements:</strong> Valid passport, business invitation letter from the overseas company, company registration documents, recent photographs, bank statements, IT returns, travel itinerary, and travel insurance.</p>
+<div class="country-links">
+<strong style="font-size:0.85rem;color:var(--color-text-light);width:100%;margin-bottom:4px;">Countries we cover:</strong>
+<a href="/visa-guide/usa-visa">USA Business Visa</a>
+<a href="/visa-guide/uk-visa">UK Business Visa</a>
+<a href="/visa-guide/canada-visa">Canada Business Visa</a>
+<a href="/visa-guide/australia-visa">Australia Business Visa</a>
+<a href="/visa-guide/schengen-visa">Schengen Business Visa</a>
+<a href="/visa-guide/china-visa">China Business Visa</a>
+<a href="/visa-guide/japan-visa">Japan Business Visa</a>
+<a href="/visa-guide/singapore-visa">Singapore Business Visa</a>
+<a href="/visa-guide/uae-visa">UAE Business Visa</a>
+<a href="/visa-guide/thailand-visa">Thailand Business Visa</a>
+<a href="/visa-guide/turkey-visa">Turkey Business Visa</a>
+<a href="/visa-guide/germany-visa">Germany Business Visa</a>
+<a href="/visa-guide/france-visa">France Business Visa</a>
+<a href="/visa-guide/italy-visa">Italy Business Visa</a>
+<a href="/visa-guide/netherlands-visa">Netherlands Business Visa</a>
+</div>
+</div>
+
+<!-- Visit Visa -->
+<div class="visa-type-card mb-24">
+<div class="icon-wrap"><i class="bi bi-people-fill"></i></div>
+<h3>Visit Visa</h3>
+<p>A Visit visa is meant for individuals travelling to meet family members, attend weddings, family events, or visit friends who are residents or citizens of another country. This category covers personal visits that are not strictly tourism or business.</p>
+<p><strong>Key requirements:</strong> Valid passport, invitation letter from the host, proof of host's residency/citizenship, relationship proof, recent photographs, bank statements, travel insurance, and return flight bookings.</p>
+<div class="country-links">
+<strong style="font-size:0.85rem;color:var(--color-text-light);width:100%;margin-bottom:4px;">Countries we cover:</strong>
+<a href="/visa-guide/usa-visa">USA Visit Visa</a>
+<a href="/visa-guide/uk-visa">UK Visit Visa</a>
+<a href="/visa-guide/canada-visa">Canada Visit Visa</a>
+<a href="/visa-guide/australia-visa">Australia Visit Visa</a>
+<a href="/visa-guide/schengen-visa">Schengen Visit Visa</a>
+<a href="/visa-guide/india-visa">India Visit Visa</a>
+<a href="/visa-guide/uae-visa">UAE Visit Visa</a>
+</div>
+</div>
+
+<!-- Work Visa -->
+<div class="visa-type-card mb-24">
+<div class="icon-wrap"><i class="bi bi-building-fill"></i></div>
+<h3>Work Visa</h3>
+<p>We process Work visa applications for professionals who already have a confirmed job offer from an overseas employer. <strong>Important:</strong> We do not provide job search, job placement, or recruitment services. We only handle the visa application process when you already possess a valid job offer letter and all required documents from your employer.</p>
+<p><strong>Required documents:</strong> Valid passport (6+ months validity), signed employment contract or job offer letter from the overseas employer, employer sponsorship documents, educational certificates and professional credentials, proof of relevant work experience, recent photographs, police clearance certificate, medical examination reports (as required by the destination country), and financial documents as specified.</p>
+<div class="country-links">
+<strong style="font-size:0.85rem;color:var(--color-text-light);width:100%;margin-bottom:4px;">Countries we cover:</strong>
+<a href="/visa-guide/usa-visa">USA Work Visa</a>
+<a href="/visa-guide/uk-visa">UK Work Visa</a>
+<a href="/visa-guide/canada-visa">Canada Work Visa</a>
+<a href="/visa-guide/australia-visa">Australia Work Visa</a>
+<a href="/visa-guide/germany-visa">Germany Work Visa</a>
+<a href="/visa-guide/france-visa">France Work Visa</a>
+<a href="/visa-guide/italy-visa">Italy Work Visa</a>
+<a href="/visa-guide/netherlands-visa">Netherlands Work Visa</a>
+<a href="/visa-guide/japan-visa">Japan Work Visa</a>
+<a href="/visa-guide/south-korea-visa">South Korea Work Visa</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== STATISTICS ===== -->
+<section class="section" id="stats">
+<div class="container">
+<div class="section-heading">
+<h2>Why Choose Us?</h2>
+<p>Trusted by thousands of travellers across India for reliable visa consulting services.</p>
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-num">33+</div>
+<div class="stat-label">Countries Covered</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">2,500+</div>
+<div class="stat-label">Visa Inquiries Processed</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">98%</div>
+<div class="stat-label">Satisfaction Rate</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">5+</div>
+<div class="stat-label">Years Experience</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== CTA 2 ===== -->
+<section class="cta-section">
+<div class="container">
+<h2>Get Expert Visa Assistance Today</h2>
+<p>Our experienced consultants are ready to help you with every step of the visa process.</p>
+<a href="#faq-section" class="btn btn-white btn-lg">View FAQs</a>
+<a href="tel:+918551805523" class="btn btn-outline-white btn-lg"><i class="bi bi-telephone-fill"></i> Call +91 85518 05523</a>
+</div>
+</section>
+
+<!-- ===== VISA PHOTO REQUIREMENTS ===== -->
+<section class="section-alt" id="photo-requirements">
+<div class="container">
+<div class="section-heading">
+<h2>Visa Photo Requirements</h2>
+<p>Check the exact photo specifications required for your visa application by country.</p>
+</div>
+<div class="photo-embed">
+<i class="bi bi-camera-fill" style="font-size:2.5rem;color:var(--color-accent);margin-bottom:12px;display:block;"></i>
+<h3>Need the Right Visa Photo?</h3>
+<p>Each country has specific photo size, background colour, and format requirements. Use our comprehensive guide to get it right the first time and avoid application delays.</p>
+<a href="/visa-photo-requirements/" class="btn btn-primary">Check Photo Requirements <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</section>
+
+<!-- ===== VISA TIMELINE CHECKER ===== -->
+<section class="section" id="timeline-checker">
+<div class="container">
+<div class="section-heading">
+<h2>Visa Timeline Checker</h2>
+<p>Estimate the processing time for your visa application based on country and visa type.</p>
+</div>
+<div class="timeline-tool" id="timelineTool">
+<div class="field-group">
+<label for="tl-country">Select Destination Country</label>
+<select id="tl-country">
+<option value="">-- Select Country --</option>
+<option value="usa">USA</option>
+<option value="uk">United Kingdom</option>
+<option value="canada">Canada</option>
+<option value="australia">Australia</option>
+<option value="schengen">Schengen Area</option>
+<option value="china">China</option>
+<option value="japan">Japan</option>
+<option value="thailand">Thailand</option>
+<option value="uae">UAE</option>
+<option value="singapore">Singapore</option>
+<option value="turkey">Turkey</option>
+<option value="vietnam">Vietnam</option>
+<option value="brazil">Brazil</option>
+<option value="south-africa">South Africa</option>
+</select>
+</div>
+<div class="field-group">
+<label for="tl-type">Select Visa Type</label>
+<select id="tl-type">
+<option value="">-- Select Visa Type --</option>
+<option value="tourist">Tourist Visa</option>
+<option value="business">Business Visa</option>
+<option value="visit">Visit Visa</option>
+<option value="work">Work Visa</option>
+</select>
+</div>
+<button class="btn btn-primary" onclick="checkTimeline()">Check Processing Time</button>
+<div class="result-box" id="tlResult"></div>
+</div>
+</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section-alt" id="faq-section">
+<div class="container">
+<div class="section-heading">
+<h2>Frequently Asked Questions</h2>
+<p>Find answers to common questions about our visa consulting services.</p>
+</div>
+<div class="faq-list">
+
+<div class="faq-item active">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>1. What types of visas do you handle?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">We handle Tourist, Business, Visit, and Work visas for over 33 countries including the USA, UK, Canada, Australia, Schengen nations, Japan, China, UAE, Thailand, Singapore, South Korea, Turkey, and many more. Each visa type has specific requirements which our consultants guide you through.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>2. Do you provide job search or job placement services?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">No. We do not provide job search assistance, job placement, or recruitment services. We only process work visa applications when the applicant already has a valid job offer letter and all required documents from the overseas employer. Our service begins after you have secured employment.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>3. How do I get started with my visa application?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Getting started is easy. Call us at <strong>+91 85518 05523</strong> or email <strong>myvisaassistance@protonmail.com</strong>. We will discuss your travel plans, recommend the appropriate visa type, and provide a complete list of documents required. Our consultants will then guide you through every step of the application process.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>4. What documents are typically required for a visa application?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">While requirements vary by country and visa type, common documents include: a valid passport with at least 6 months validity, recent passport-sized photographs meeting specific guidelines, bank statements for the last 3-6 months, travel itinerary, flight and hotel bookings, travel insurance, cover letter explaining the purpose of visit, and supporting documents specific to your visa category.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>5. How long does the visa processing take?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Processing times vary significantly by country and visa type. Tourist visas can take anywhere from 3-15 working days for countries like Singapore or Thailand, to 3-8 weeks for the USA, UK, or Canada. Work visas typically take 4-12 weeks. Use our <a href="#timeline-checker">Visa Timeline Checker</a> above for an estimate, or contact us for country-specific processing times.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>6. What is the difference between a Tourist visa and a Visit visa?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">A Tourist visa is for leisure travel, sightseeing, and holidays. A Visit visa is specifically for visiting friends or family who are residents or citizens of the destination country. Visit visas typically require an invitation letter from the host, while tourist visas generally require flight and hotel bookings. Some countries use these terms interchangeably.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>7. Can I apply for a visa if I have a previous rejection?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Yes, you can reapply after a visa rejection. However, it is important to understand the reason for the rejection first. Our consultants can help review your previous application, identify gaps, and strengthen your new application. Common reasons for rejection include insufficient funds, incomplete documents, or weak travel history.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>8. How much bank balance is required for a visa?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Bank balance requirements vary by country and visa type. For Schengen visas, you typically need to show a minimum of &euro;50-100 per day of stay. For the US, UK, and Canada, there is no fixed amount, but you must demonstrate sufficient funds to cover your trip. Our consultants provide country-specific guidance on financial documentation.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>9. Do I need travel insurance for my visa application?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Yes, travel insurance is mandatory for Schengen visa applications and strongly recommended for most other countries. The insurance must cover medical emergencies, repatriation, and accidental death with a minimum coverage of &euro;30,000 for Schengen countries. We can advise on the insurance requirements for your specific destination.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>10. How early should I apply for my visa?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">We recommend applying 4-8 weeks before your planned travel date for most countries. For the USA, UK, and Canada, apply 2-3 months in advance due to appointment availability. Schengen visas can be applied for up to 6 months before travel. Applying early ensures you have enough time to gather documents and handle any unexpected delays.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>11. Can I travel while my visa application is being processed?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">It is not advisable to make final travel arrangements or book non-refundable flights until your visa has been approved. During processing, your passport may be held by the embassy or visa application centre, which could affect any other travel plans. Wait for the final decision before confirming your itinerary.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>12. What is a visa interview and do I need to attend one?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">A visa interview is an in-person meeting at the embassy or consulate where an officer reviews your application and asks questions about your travel plans, background, and purpose of visit. Countries like the USA require a personal interview for most visa categories. Other countries may waive the interview for certain application types. We provide interview preparation guidance.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>13. How long is a visa valid for?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Visa validity varies widely. US B1/B2 visas are typically valid for 10 years. UK visit visas can be valid for 6 months, 2 years, 5 years, or 10 years. Schengen visas are usually valid for 90 days within a 180-day period. Work visas are tied to the employment contract duration. Our consultants explain the validity terms for your specific visa.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>14. Can I extend my visa while abroad?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Visa extension policies vary by country. Some countries allow extensions for valid reasons such as medical emergencies, while others do not permit any extension beyond the authorised stay. Tourist visas are generally not extendable. We recommend checking the immigration rules of your destination country and planning your stay accordingly.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>15. What happens if my visa application is rejected?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">If your visa is rejected, you will receive a refusal letter explaining the reason. Common reasons include insufficient funds, incomplete documentation, weak ties to India, or concerns about the purpose of visit. You can reapply after addressing the issues mentioned. Our consultants can review your refusal letter and help strengthen your reapplication.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>16. Do you provide services for Schengen visa applications?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Yes, we provide complete assistance for Schengen visa applications. This includes guidance on which Schengen country to apply to (based on your itinerary), document preparation, travel insurance requirements, and application submission. Schengen visas allow travel to 29 European countries with a single visa.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>17. What is a Work visa and who needs it?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">A Work visa allows you to work legally in a foreign country for a specific employer. You need a work visa if you have a job offer from an overseas company. The employer typically sponsors the visa. As mentioned, we only process work visas when you already have a valid job offer letter and required documents. We do not provide job search or placement services.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>18. How much do your visa consulting services cost?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Our consulting fees vary depending on the country, visa type, and the level of assistance required. We offer transparent pricing with no hidden charges. Contact us at <strong>+91 85518 05523</strong> or <strong>myvisaassistance@protonmail.com</strong> for a detailed quote based on your specific requirements.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>19. Can you help with visa applications for the entire family?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Yes, we assist with visa applications for individuals, families, and groups. Family applications typically require additional documents such as marriage certificates, birth certificates for children, and proof of family relationship. We guide you through the complete process to ensure all family members submit a strong application.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>20. What are the photo requirements for visa applications?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Photo requirements differ by country. Common specifications include 2x2 inches (US) or 35x45mm (Schengen, UK), white or off-white background, neutral expression, no glasses or headwear (except for religious reasons), and recent photo within 6 months. Visit our <a href="/visa-photo-requirements/">Visa Photo Requirements</a> page for country-specific details.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>21. Do I need to submit my original passport with the application?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Yes, most countries require you to submit your original passport as part of the visa application process. Your passport will be returned to you along with the visa decision. Processing times vary, so ensure you do not have any urgent travel planned during this period. Some countries offer premium services that allow you to keep your passport during processing.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>22. What is a cover letter for a visa application?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">A cover letter is a personal statement explaining the purpose of your visit, your travel itinerary, how you will fund your trip, and your intention to return to India after your stay. It is a crucial document that helps visa officers understand your application. Our consultants help you draft a strong, clear cover letter tailored to your visa type.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>23. Can I apply for a visa if I am unemployed or retired?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Yes, unemployed individuals, retired persons, students, and homemakers can apply for visas. You will need to show alternative sources of funding such as a sponsor's bank statements, pension documents, or a letter from your financial sponsor. The key is demonstrating sufficient funds and strong ties to India to ensure your return.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>24. What is the difference between single-entry and multiple-entry visas?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">A single-entry visa allows you to enter the destination country only once. Once you leave, the visa becomes invalid. A multiple-entry visa allows you to enter and exit the country multiple times within the visa validity period. Multiple-entry visas are more convenient for frequent travellers and are often issued for business visas or long-term visit visas.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>25. How do I book a visa appointment?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Visa appointments are booked through the official embassy or consulate website, or through authorised visa application centres like VFS Global, BLS International, or TLScontact. Our consultants guide you through the appointment booking process and help you prepare the required documents for your appointment. Contact us for assistance.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>26. Can you help with urgent or emergency visa applications?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Some countries offer expedited or premium visa processing for an additional fee. For example, the UK offers Priority and Super Priority services, and some Schengen countries offer fast-track options. We advise you on available expedited services for your destination and help you prepare documents quickly for urgent travel needs.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>27. What documents are needed for a child's visa application?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Child visa applications typically require: the child's passport, birth certificate, both parents' passports and visa copies (if applicable), a consent letter signed by both parents or legal guardians, proof of school enrolment (if applicable), and financial documents showing the parents' ability to fund the trip. Additional documents may be required for single-parent travel.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>28. Do I need to show return flight bookings for my visa application?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">Yes, most visa applications require proof of return or onward travel. This can be in the form of a booked return flight ticket or a travel itinerary showing your departure from the destination. We recommend using flexible or refundable tickets or verified travel itineraries rather than booking non-refundable flights before visa approval.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>29. How can I contact your visa consultant team?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">You can reach our visa consultant team through the following channels:<br>
+<strong>Phone:</strong> <a href="tel:+918551805523">+91 85518 05523</a> (Monday to Saturday, 10 AM to 7 PM IST)<br>
+<strong>Email:</strong> <a href="mailto:myvisaassistance@protonmail.com">myvisaassistance@protonmail.com</a><br>
+<strong>WhatsApp:</strong> <a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer">+91 85518 05523</a><br>
+We typically respond within 24 hours on weekdays. For urgent queries, we recommend calling us directly.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>30. Where are you located? Do you have an office I can visit?</span>
+<span class="faq-icon"><i class="bi bi-plus-circle-fill"></i></span>
+</button>
+<div class="faq-a">We are based in India and provide visa consulting services primarily through phone, email, and WhatsApp. Visit our <a href="/visa-services-pune/">Visa Services Pune</a> page for more details about our local services. For a consultation, please call <strong>+91 85518 05523</strong> or email <strong>myvisaassistance@protonmail.com</strong> to schedule an appointment.</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===== CTA 3 ===== -->
+<section class="cta-section" id="contact-section">
+<div class="container">
+<h2>Start Your Visa Application Today</h2>
+<p>Our expert consultants are just a phone call or email away. Reach out now and let us handle the paperwork while you focus on your journey.</p>
+<a href="tel:+918551805523" class="btn btn-white btn-lg"><i class="bi bi-telephone-fill"></i> Call +91 85518 05523</a>
+<a href="mailto:myvisaassistance@protonmail.com" class="btn btn-outline-white btn-lg"><i class="bi bi-envelope-fill"></i> Email myvisaassistance@protonmail.com</a>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about">
+<div class="footer-brand">
+<div class="logo-icon" aria-hidden="true">V</div>
+<span class="footer-brand-text">My Visa <span>Assistance</span></span>
+</div>
+<p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/visa-guide/">Visa Guide</a></li>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/contact">Contact</a></li>
+<li><a href="/embassy-address/">Embassy Address</a></li>
+<li><a href="/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+<li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-news/">Visa News</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Top Countries</h4>
+<ul>
+<li><a href="/visa-guide/usa-visa">US Visa</a></li>
+<li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+<li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+<li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+<li><a href="/visa-guide/india-visa">India Visa</a></li>
+<li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="/privacy-policy">Privacy Policy</a></li>
+<li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
+<li><a href="/contact">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-divider"></div>
+<div class="footer-bottom">
+<span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+<span class="footer-bottom-links">
+<a href="/privacy-policy">Privacy Policy</a> &middot;
+<a href="/terms-of-service">Terms of Service</a>
+</span>
+</div>
+</div>
+</footer>
+
+<!-- Country Logos Scrolling Strip -->
+<div class="country-logos-strip" role="region" aria-label="Country flags">
+<div class="country-logos-track">
+<a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+<a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+<a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+<a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+<a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+<a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+<a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+<a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+<a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+<a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+<a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+<a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+<a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+<a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+<a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+<a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+<a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+<a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+<a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+<a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+<a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+<a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+<a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+<a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+<a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+<a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+<a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+<a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+<a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+<a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+<a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+<a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+<a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+<a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+<a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+<a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+<a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+<a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+<a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+<a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+<a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+<a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+<a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+<a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+<a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+<a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+<a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+<a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+<a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+<a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+<a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+<a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+<a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+<a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+<a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+<a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+<a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+<a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+<a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+<a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+<a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+<a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+<a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+<a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+<a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+<a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+<a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+<a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+<a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+<a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+<a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+<a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+</div>
+
+<button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="/js/main.js" defer></script>
+<script>
+// FAQ toggle
+function toggleFaq(btn) {
+var item = btn.parentElement;
+item.classList.toggle('active');
+}
+
+// Timeline Checker
+var timelines = {
+'usa': { 'tourist': '3-15 working days (interview required)', 'business': '3-15 working days (interview required)', 'visit': '3-15 working days (interview required)', 'work': '2-6 months (employer sponsorship required)' },
+'uk': { 'tourist': '3-8 weeks', 'business': '3-8 weeks', 'visit': '3-8 weeks', 'work': '4-12 weeks' },
+'canada': { 'tourist': '4-8 weeks', 'business': '4-8 weeks', 'visit': '4-8 weeks', 'work': '3-6 months' },
+'australia': { 'tourist': '2-6 weeks', 'business': '2-6 weeks', 'visit': '2-6 weeks', 'work': '4-12 weeks' },
+'schengen': { 'tourist': '15-30 working days', 'business': '15-30 working days', 'visit': '15-30 working days', 'work': '4-12 weeks' },
+'china': { 'tourist': '4-7 working days', 'business': '4-7 working days', 'visit': '4-7 working days', 'work': '4-8 weeks' },
+'japan': { 'tourist': '5-7 working days', 'business': '5-7 working days', 'visit': '5-7 working days', 'work': '4-8 weeks' },
+'thailand': { 'tourist': '3-5 working days', 'business': '3-5 working days', 'visit': '5-7 working days', 'work': '4-6 weeks' },
+'uae': { 'tourist': '3-5 working days', 'business': '3-5 working days', 'visit': '3-5 working days', 'work': '2-4 weeks' },
+'singapore': { 'tourist': '3-5 working days', 'business': '3-5 working days', 'visit': '5-7 working days', 'work': '4-8 weeks' },
+'turkey': { 'tourist': '3-10 working days', 'business': '3-10 working days', 'visit': '5-10 working days', 'work': '4-8 weeks' },
+'vietnam': { 'tourist': '3-5 working days', 'business': '3-5 working days', 'visit': '5-7 working days', 'work': '4-6 weeks' },
+'brazil': { 'tourist': '10-15 working days', 'business': '10-15 working days', 'visit': '10-15 working days', 'work': '6-12 weeks' },
+'south-africa': { 'tourist': '5-10 working days', 'business': '5-10 working days', 'visit': '5-10 working days', 'work': '4-8 weeks' }
+};
+
+function checkTimeline() {
+var country = document.getElementById('tl-country').value;
+var type = document.getElementById('tl-type').value;
+var result = document.getElementById('tlResult');
+
+if (!country || !type) {
+result.innerHTML = '<strong>Please select both a country and visa type.</strong>';
+result.classList.add('show');
+return;
+}
+
+var time = timelines[country] && timelines[country][type];
+if (time) {
+var countryName = document.getElementById('tl-country').options[document.getElementById('tl-country').selectedIndex].text;
+var typeName = document.getElementById('tl-type').options[document.getElementById('tl-type').selectedIndex].text;
+result.innerHTML = '<strong>Estimated Processing Time</strong>Country: ' + countryName + '<br>Visa Type: ' + typeName + '<br>Estimated Time: ' + time + '<br><small style="color:#94a3b8;margin-top:8px;display:block;">* These are estimates. Actual processing times may vary based on embassy workload and application completeness.</small>';
+result.classList.add('show');
+} else {
+result.innerHTML = '<strong>No data available</strong>Please select a valid combination.';
+result.classList.add('show');
+}
+}
+
+// Header scroll
+document.addEventListener('scroll', function(){
+document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Mobile menu
+document.querySelector('.menu-toggle').addEventListener('click', function(){
+this.classList.toggle('active');
+document.querySelector('.nav-list').classList.toggle('open');
+document.querySelector('.nav-overlay').classList.toggle('open');
+document.body.classList.toggle('menu-open');
+});
+
+document.querySelector('.nav-overlay').addEventListener('click', function(){
+document.querySelector('.menu-toggle').classList.remove('active');
+document.querySelector('.nav-list').classList.remove('open');
+this.classList.remove('open');
+document.body.classList.remove('menu-open');
+});
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+<i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+</body>
+</html>
