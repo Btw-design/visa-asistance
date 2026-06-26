@@ -1,23 +1,41 @@
 ﻿# ============================================================
-# Robots.txt - My Visa Assistance
+# robots.txt — My Visa Assistance (myvisaassistance.com)
+# ============================================================
+# This file controls how search engine crawlers access the site.
+# Google ignores Crawl-delay; Bing, Yandex, and others respect it.
 # ============================================================
 
 User-agent: *
 Allow: /
+
+# ---- Priority crawl hints (important content areas) ----------
 Allow: /visa-guide/
 Allow: /visa-requirements/
+Allow: /visa-consultants-in-india/
+Allow: /visa-services-pune/
+Allow: /visa-photo-requirements/
+Allow: /visa-news/
 Allow: /blog/
+Allow: /about/
+Allow: /contact/
+Allow: /embassy-address/
+Allow: /passport-ranking/
+Allow: /upcoming-events/
+Allow: /tracking-links/
 Allow: /css/
 Allow: /js/
 Allow: /images/
-Allow: /about/
-Allow: /contact/
+
+# ---- Blocked: non-content / internal directories -------------
 Disallow: /favicon/
-Disallow: /generate-countries.ps1
 Disallow: /scripts/
+Disallow: /generate-countries.ps1
 
-# Sitemap
-Sitemap: https://myvisaassistance.com/sitemap.xml
-
-# Crawl delay (Google ignores this; respectful for Bing/Yandex)
+# ---- Crawl rate ---------------------------------------------
+# Google ignores Crawl-delay but respects the sitemap.
+# Other search engines use this to avoid overloading the server.
+# The sitemap already signals which pages are most important.
 Crawl-delay: 2
+
+# ---- Sitemap ------------------------------------------------
+Sitemap: https://myvisaassistance.com/sitemap.xml
