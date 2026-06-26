@@ -115,12 +115,57 @@ body.menu-open{overflow:hidden}
 @media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-hero{padding:110px 0 45px}}
 @media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.cta-section{padding:40px 0}.cta-section h2{font-size:1.3rem}.page-hero{padding:100px 0 35px}.page-hero h1{font-size:1.5rem}.page-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.stats-grid{grid-template-columns:1fr 1fr}.visa-grid{grid-template-columns:1fr}.timeline-tool{padding:24px}.faq-q{padding:14px 16px;font-size:0.92rem}.faq-a{padding:0 16px 14px}}
 @media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.section{padding:36px 0}.page-hero{padding:90px 0 30px}.page-hero h1{font-size:1.3rem}.nav-list{width:100%}.stats-grid{grid-template-columns:1fr}}
+
+/* Feature cards for Why Choose section */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.feature-card{background:var(--color-white);border:1.5px solid var(--color-border-light);border-radius:var(--radius-lg);padding:32px;transition:var(--transition-slow);position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--color-accent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease}
+.feature-card:hover{border-color:var(--color-accent);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-icon{width:52px;height:52px;background:rgba(165,213,73,0.12);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.5rem;color:var(--color-accent)}
+.feature-card:hover .feature-icon{background:var(--color-accent);color:var(--color-primary-dark);transition:var(--transition-slow)}
+.feature-card h3{font-size:1.15rem;margin-bottom:10px}
+.feature-card p{font-size:0.92rem;color:var(--color-text-light);line-height:1.6;margin-bottom:0}
+
+/* Footer component styles */
+.footer-about{min-width:0}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-logo-icon{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--color-accent);border-radius:var(--radius-sm);font-weight:700;font-size:1rem;color:var(--color-primary-dark)}
+.footer-brand-text{font-size:1.25rem;font-weight:700;color:var(--color-white);letter-spacing:-0.01em}
+.footer-brand-text span{color:var(--color-accent)}
+.footer-tagline{font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.55);max-width:320px;margin-bottom:20px}
+.footer-col h4{color:var(--color-white);font-family:var(--font-primary);font-size:0.8rem;font-weight:700;margin-bottom:1.2em;text-transform:uppercase;letter-spacing:1.2px;position:relative;padding-bottom:10px}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:24px;height:2px;background:var(--color-accent);border-radius:2px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:rgba(255,255,255,0.6);font-size:0.875rem;text-decoration:none;transition:color 0.2s;display:inline-flex;align-items:center;gap:6px}
+.footer-col ul li a:hover{color:var(--color-accent)}
+.footer-contact li{color:rgba(255,255,255,0.6);font-size:0.875rem;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.footer-contact li i{color:var(--color-accent);font-size:0.85rem;width:16px;text-align:center;flex-shrink:0}
+.footer-contact li a{color:rgba(255,255,255,0.6);text-decoration:none}
+.footer-contact li a:hover{color:var(--color-accent)}
+.footer-social{display:flex;gap:10px;margin-top:16px}
+.footer-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);font-size:0.95rem;text-decoration:none;transition:all 0.25s ease}
+.footer-social a:hover{background:var(--color-accent);color:var(--color-bg-dark);transform:translateY(-2px)}
+.footer-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);margin:0}
+.footer-disclaimer{padding:20px 0 18px}
+.footer-disclaimer p{font-size:0.78rem;color:rgba(255,255,255,0.35);line-height:1.6;max-width:1000px;margin:0}
+.footer-bottom{padding:20px 0;display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.06)}
+.footer-bottom-links{display:flex;gap:20px}
+.footer-bottom-links a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.82rem;transition:color 0.2s}
+.footer-bottom-links a:hover{color:var(--color-accent)}
+
+/* Responsive footer */
+@media(max-width:991px){.footer-col h4{margin-bottom:1em}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.footer-disclaimer p{font-size:0.75rem}}
+@media(max-width:767px){.footer-about{text-align:center}.footer-brand{justify-content:center}.footer-tagline{max-width:100%;text-align:center}.footer-col{text-align:center}.footer-col h4::after{left:50%;transform:translateX(-50%)}.footer-col ul li a{justify-content:center}.footer-contact li{justify-content:center}.footer-social{justify-content:center}.footer-bottom-links{justify-content:center;flex-wrap:wrap}}
 </style>
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
  <link rel="preconnect" href="https://cdn.jsdelivr.net">
- <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Visa Consultants in India | Tourist, Business & Work Visa Services | My Visa Assistance</title>
  <meta name="description" content="Expert visa consultants in India offering Tourist, Business, Visit, and Work visa services. 33+ countries covered. 2,500+ inquiries processed. Get started today.">
  <meta name="robots" content="index, follow">
@@ -403,11 +448,53 @@ My Visa <span>Assistance</span>
 </div>
 </section>
 
-<!-- ===== STATISTICS ===== -->
-<section class="section" id="stats">
+<!-- ===== WHY CHOOSE MY VISA ASSISTANCE ===== -->
+<section class="section" id="why-choose">
 <div class="container">
 <div class="section-heading">
-<h2>Why Choose Us?</h2>
+<h2>Why Choose My Visa Assistance</h2>
+<p>What sets our visa consulting service apart — personalised guidance, country-specific expertise, and a proven track record of helping travellers like you.</p>
+</div>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon"><i class="bi bi-person-check-fill"></i></div>
+<h3>Expert Visa Consultants</h3>
+<p>Get one-on-one guidance from experienced visa consultants who understand the nuances of each country's application process. No generic advice — every recommendation is tailored to your specific travel purpose and profile.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"><i class="bi bi-journal-text"></i></div>
+<h3>End-to-End Application Support</h3>
+<p>From the initial document checklist to final submission, we support you at every step. Our consultants review your forms, verify your documents, and ensure your application is complete before submission.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"><i class="bi bi-globe-asia-australia"></i></div>
+<h3>Multi-Country Expertise</h3>
+<p>With in-depth knowledge of visa processes for 33+ countries across Asia, Europe, North America, and beyond, we provide accurate, country-specific guidance that general portals cannot match.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+<h3>Thorough Document Verification</h3>
+<p>Our multi-step document verification process reduces the risk of application rejections. We check every detail — from photo specifications to bank statement formatting — before your application is submitted.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"><i class="bi bi-chat-dots-fill"></i></div>
+<h3>Direct &amp; Transparent Communication</h3>
+<p>No chatbots or automated responses. Speak directly with your assigned consultant via phone, email, or WhatsApp. We provide regular updates on your application status and answer your questions promptly.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+<h3>Proven Track Record</h3>
+<p>2,500+ visa inquiries processed with a 98% satisfaction rate. Our consultants have over 5 years of collective experience in the visa industry, helping travellers from India secure visas for destinations worldwide.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== STATISTICS ===== -->
+<section class="section-alt" id="stats">
+<div class="container">
+<div class="section-heading">
+<h2>Our Impact by the Numbers</h2>
 <p>Trusted by thousands of travellers across India for reliable visa consulting services.</p>
 </div>
 <div class="stats-grid">
@@ -774,7 +861,13 @@ We typically respond within 24 hours on weekdays. For urgent queries, we recomme
 <div class="footer-grid">
 <div class="footer-about">
 <div class="footer-brand">
-<div class="logo-icon" aria-hidden="true">V</div>
+<span class="footer-logo-icon" aria-hidden="true">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="32" rx="8" fill="#A5D549"/>
+<path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#0a0a52"/>
+<path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#0a0a52"/>
+</svg>
+</span>
 <span class="footer-brand-text">My Visa <span>Assistance</span></span>
 </div>
 <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
@@ -791,10 +884,8 @@ We typically respond within 24 hours on weekdays. For urgent queries, we recomme
 <li><a href="/embassy-address/">Embassy Address</a></li>
 <li><a href="/passport-ranking/">Passport Ranking</a></li>
 <li><a href="/upcoming-events/">Upcoming Events</a></li>
-<li><a href="/visa-services-pune/">Visa Services Pune</a></li>
-<li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
-<li><a href="/tracking-links/">Tracking Links</a></li>
 <li><a href="/visa-news/">Visa News</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
 </ul>
 </div>
 <div class="footer-col">
@@ -809,19 +900,28 @@ We typically respond within 24 hours on weekdays. For urgent queries, we recomme
 </ul>
 </div>
 <div class="footer-col">
-<h4>Legal</h4>
-<ul>
-<li><a href="/privacy-policy">Privacy Policy</a></li>
-<li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
-<li><a href="/contact">Contact Us</a></li>
+<h4>Contact</h4>
+<ul class="footer-contact">
+<li><a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope"></i> myvisaassistance@protonmail.com</a></li>
+<li><a href="tel:+918551805523"><i class="bi bi-telephone"></i> +91 85518 05523</a></li>
+<li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
 </ul>
+<div class="footer-social">
+<a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+<a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+<a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+<a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+</div>
 </div>
 </div>
 <div class="footer-divider"></div>
+<div class="footer-disclaimer">
+<p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+</div>
 <div class="footer-bottom">
-<span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+<span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
 <span class="footer-bottom-links">
-<a href="/privacy-policy">Privacy Policy</a> &middot;
+<a href="/privacy-policy">Privacy Policy</a>
 <a href="/terms-of-service">Terms of Service</a>
 </span>
 </div>
