@@ -27,6 +27,8 @@ Allow: /js/
 Allow: /images/
 
 # ---- Blocked: non-content / internal directories -------------
+Disallow: /.git/
+Disallow: /.github/
 Disallow: /favicon/
 Disallow: /scripts/
 Disallow: /generate-countries.ps1
