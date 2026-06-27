@@ -2,11 +2,11 @@
 
 A comprehensive static website providing visa information, requirements, guides, and application support for travelers worldwide. Built as a fully static site deployable to GitHub Pages.
 
-## 🚀 Live Site
+## Live Site
 
 **https://www.myvisaassistance.com**
 
-## 📋 Features
+## Features
 
 - **Visa Guides** — 35 country-specific visa guides with requirements, fees, and step-by-step instructions
 - **Visa Requirements** — Detailed eligibility criteria and documentation for each country
@@ -17,7 +17,7 @@ A comprehensive static website providing visa information, requirements, guides,
 - **Upcoming Events** — Visa-related workshops and events calendar
 - **Responsive Design** — Mobile-first layout with smooth navigation
 
-## 🏗 Architecture
+## Architecture
 
 - **Stack**: Pure HTML/CSS/JavaScript (static site, no backend)
 - **Styling**: Inline critical CSS with deferred external stylesheet
@@ -26,7 +26,7 @@ A comprehensive static website providing visa information, requirements, guides,
 - **Fonts**: System font stack for optimal performance
 - **Hosting**: GitHub Pages ready
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /
@@ -59,7 +59,7 @@ A comprehensive static website providing visa information, requirements, guides,
 └── .gitignore
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### GitHub Pages (recommended)
 
@@ -74,7 +74,7 @@ A comprehensive static website providing visa information, requirements, guides,
 - A GitHub account for GitHub Pages deployment
 - (Optional) Custom domain with DNS configured
 
-## 🔧 Local Development
+## Local Development
 
 No build step needed. Simply serve the root directory:
 
@@ -86,7 +86,7 @@ python -m http.server 8000
 npx serve .
 ```
 
-## 📄 License
+## License
 
 © 2026 My Visa Assistance. All rights reserved.
 
