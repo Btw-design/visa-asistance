@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.blog-content{max-width:800px;margin:0 auto;padding:40px 20px}
+.blog-content h2{margin-top:1.8em;border-bottom:2px solid var(--color-accent);padding-bottom:0.3em}
+.blog-content h3{margin-top:1.5em}
+.blog-content p,.blog-content li{line-height:1.8}
+.blog-content ul,.blog-content ol{margin-bottom:1.2rem;padding-left:20px}
+.blog-content ul li{list-style:disc;margin-bottom:0.4rem}
+.blog-content ol li{list-style:decimal;margin-bottom:0.4rem}
+.blog-content .info-box{background:var(--color-bg-alt);border-left:4px solid var(--color-accent);padding:20px 25px;border-radius:0 8px 8px 0;margin:1.5rem 0}
+.blog-content .info-box h4{color:var(--color-primary);margin-bottom:0.3em}
+.blog-content table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+.blog-content th,.blog-content td{padding:12px 15px;border:1px solid var(--color-border);text-align:left}
+.blog-content th{background:var(--color-primary);color:var(--color-white)}
+.blog-content tr:nth-child(even) td{background:var(--color-bg-alt)}
+.blog-content .blog-meta{display:flex;gap:20px;color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.blog-content .blog-meta span{display:flex;align-items:center;gap:5px}
+.blog-content .infographic{background:var(--color-bg-alt);border:1px solid var(--color-border);border-radius:12px;padding:30px;margin:2rem 0;text-align:center}
+.blog-content .infographic svg{max-width:100%;height:auto}
+.blog-content .author-box{display:flex;gap:20px;align-items:center;background:var(--color-bg-alt);padding:25px;border-radius:12px;margin:2rem 0}
+.blog-content .author-box .avatar{width:60px;height:60px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;flex-shrink:0}
+.blog-content .share-buttons{display:flex;gap:10px;margin:2rem 0;flex-wrap:wrap}
+.blog-content .share-buttons a{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:var(--radius-sm);color:white;font-size:0.9rem;font-weight:500}
+.blog-content .cta-section{background:linear-gradient(135deg,#0a0a52,#171299);color:white;padding:40px;border-radius:16px;margin:2rem 0;text-align:center}
+.blog-content .cta-section h3{color:var(--color-accent);margin:0 0 10px}
+.blog-content .cta-section p{color:rgba(255,255,255,0.85)}
+.blog-content .cta-section .btn{margin:5px}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.footer-brand-text{font-size:1.2rem;font-weight:800;color:var(--color-white)}
+.footer-brand-text span{color:var(--color-accent)}
+.footer-tagline{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6;margin:0}
+.footer-col h4{color:var(--color-white);font-size:1rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.04em;font-weight:700}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:rgba(255,255,255,0.6);font-size:0.9rem}
+.footer-col ul li a:hover{color:var(--color-accent)}
+.footer-contact li{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:10px}
+.footer-contact li a{color:rgba(255,255,255,0.6)}
+.footer-contact li a:hover{color:var(--color-accent)}
+.footer-social{display:flex;gap:12px;margin-top:16px}
+.footer-social a{color:rgba(255,255,255,0.5);font-size:1.2rem}
+.footer-social a:hover{color:var(--color-accent)}
+.footer-divider{border-top:1px solid rgba(255,255,255,0.08);margin:24px 0 0}
+.footer-disclaimer{padding:24px 0;font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.7;border-bottom:1px solid rgba(255,255,255,0.06)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:0.82rem;color:rgba(255,255,255,0.45);flex-wrap:wrap;gap:12px}
+.footer-bottom-links{display:flex;gap:18px}
+.footer-bottom-links a{color:rgba(255,255,255,0.45)}
+.footer-bottom-links a:hover{color:var(--color-accent)}
+*{box-sizing:border-box}
+.country-logos-strip{overflow:hidden;background:var(--color-bg-alt);padding:12px 0;border-top:1px solid var(--color-border-light)}
+.country-logos-track{display:flex;gap:24px;animation:scrollLogos 40s linear infinite;width:max-content}
+.country-logos-track a{color:var(--color-text-light);font-size:0.85rem;font-weight:500;white-space:nowrap;padding:4px 8px;border-radius:4px;transition:var(--transition)}
+.country-logos-track a:hover{color:var(--color-primary);background:var(--color-bg)}
+@keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.blog-content{padding:30px 18px}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.blog-content th,.blog-content td{padding:8px 10px;font-size:0.88rem}.blog-content table{display:block;overflow-x:auto;white-space:nowrap}.blog-content .cta-section{padding:30px 20px}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Visa Services in Mumbai: Complete Guide 2026 | Application Centers, Process & Fees</title>
+ <meta name="title" content="Visa Services in Mumbai: Complete Guide 2026 | Application Centers, Process & Fees">
+ <meta name="description" content="Complete guide to visa services in Mumbai. Find visa application centers (VFS Global, US Travel Docs), step-by-step process, fees, documents, FRRO registration, and expert assistance for all visa types.">
+ <meta name="robots" content="index, follow">
+
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/blog/visa-services-in-mumbai">
+ <meta property="og:title" content="Visa Services in Mumbai: Complete Guide 2026">
+ <meta property="og:description" content="Find visa application centers in Mumbai, step-by-step visa process, fees, documents required, and expert assistance for US, UK, Canada, Schengen, Australia, and more.">
+
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="Visa Services in Mumbai: Complete Guide 2026">
+ <meta name="twitter:description" content="Find visa application centers, process, fees, and expert assistance for all visa types in Mumbai.">
+
+ <!-- Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Visa Services in Mumbai: Complete Guide to Visa Application Centers, Process & Assistance (2026)",
+ "description": "Complete guide to visa services in Mumbai covering VFS Global centers, US Travel Docs, UK visa applications, Canada visas, Schengen visas, FRRO registration, document checklists, fees, and step-by-step application process.",
+ "author": {
+ "@type": "Organization",
+ "name": "My Visa Assistance"
+ },
+ "datePublished": "2026-06-29",
+ "dateModified": "2026-06-29",
+ "publisher": {
+ "@type": "Organization",
+ "name": "My Visa Assistance"
+ },
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://myvisaassistance.com/blog/visa-services-in-mumbai"
+ }
+ }
+ </script>
+
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Where is the VFS Global visa application center in Mumbai?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "The VFS Global centre in Mumbai is located at Unit 101, 1st Floor, A Wing, TCG Financial Centre, Adjacent to Upscale Hotel, BKC, Bandra East, Mumbai - 400051. It handles visa applications for the UK, Canada, Australia, New Zealand, and several other countries."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "How can I book a US visa appointment in Mumbai?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "You can book a US visa appointment in Mumbai through the official US Travel Docs website (www.ustraveldocs.com). The US Consulate General in Mumbai is located at C-49, G-Block, Bandra Kurla Complex, Bandra East, Mumbai - 400051. Appointments are scheduled online after completing the DS-160 form and paying the visa fee."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "What documents are needed for a visa application in Mumbai?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Standard documents include a valid passport (6+ months validity), completed visa application form, passport-sized photographs (as per specifications), proof of financial means (bank statements for 3-6 months), travel itinerary, flight and hotel bookings, employment or leave approval letter, and visa-specific documents such as invitation letters or admission confirmations."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "How do I register with FRRO in Mumbai?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Foreign nationals staying in India beyond 180 days must register with the FRRO in Mumbai within 14 days of arrival. The FRRO Mumbai office is located at Annexe-II, Commissariat of Police Building, Near Crawford Market, DN Road, Mumbai - 400001. Registration is done online through the e-FRRO portal (indianfrro.gov.in)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "What are the visa application center timings in Mumbai?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Most visa application centers in Mumbai operate Monday to Friday from 8:00 AM to 5:00 PM. The US Consulate and VFS Global centre in BKC generally operate from 8:00 AM to 4:00 PM for appointments. Specific timings vary by center and should be verified on the respective official website before visiting."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Do I need to visit the visa application center in person in Mumbai?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Yes, most visa types require biometric data (fingerprints and photograph) which must be collected in person at a visa application center. Exceptions include visa-free travel, e-Visas for eligible countries, and certain visa categories where biometrics may be waived for re-applications within a specified period."
+ }
+ }
+ ]
+ }
+ </script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/blog/visa-services-in-mumbai">
+
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#171299"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#171299"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true"></i> My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu">
+ <span></span><span></span><span></span>
+ </button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>Visa Services in Mumbai</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+ <h1>Visa Services in Mumbai: Complete Guide to Visa Application Centers, Process &amp; Assistance (2026)</h1>
+ 
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: June 29, 2026</span>
+ <span><i class="bi bi-clock"></i> 10 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ <span><i class="bi bi-chat-dots"></i> Updated: June 29, 2026</span>
+ </div>
+
+ <!-- Infographic -->
+ <div class="infographic">
+ <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+ <rect width="700" height="200" rx="10" fill="#171299"/>
+ <text x="350" y="35" text-anchor="middle" fill="#A5D549" font-size="20" font-weight="bold">Visa Services in Mumbai &mdash; At a Glance 2026</text>
+ <rect x="20" y="55" width="155" height="120" rx="8" fill="white" opacity="0.1"/>
+ <text x="97" y="80" text-anchor="middle" fill="#A5D549" font-size="24" font-weight="bold">VFS Global</text>
+ <text x="97" y="105" text-anchor="middle" fill="white" font-size="12">BKC, Bandra East</text>
+ <text x="97" y="125" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">UK &bull; Canada &bull; Australia</text>
+ <text x="97" y="145" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">NZ &bull; Schengen &amp; More</text>
+ <rect x="185" y="55" width="155" height="120" rx="8" fill="white" opacity="0.1"/>
+ <text x="262" y="80" text-anchor="middle" fill="#A5D549" font-size="26" font-weight="bold">US Travel</text>
+ <text x="262" y="105" text-anchor="middle" fill="white" font-size="12">US Consulate BKC</text>
+ <text x="262" y="125" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">DS-160 &amp; Biometrics</text>
+ <text x="262" y="145" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">B1/B2 &bull; F-1 &bull; H-1B</text>
+ <rect x="350" y="55" width="155" height="120" rx="8" fill="white" opacity="0.1"/>
+ <text x="427" y="80" text-anchor="middle" fill="#A5D549" font-size="22" font-weight="bold">FRRO Mumbai</text>
+ <text x="427" y="105" text-anchor="middle" fill="white" font-size="12">Registration &amp; Services</text>
+ <text x="427" y="125" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">e-FRRO Portal</text>
+ <text x="427" y="145" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">Visa Extension &bull; OCI</text>
+ <rect x="515" y="55" width="165" height="120" rx="8" fill="white" opacity="0.1"/>
+ <text x="597" y="80" text-anchor="middle" fill="#A5D549" font-size="22" font-weight="bold">Passport Seva</text>
+ <text x="597" y="105" text-anchor="middle" fill="white" font-size="12">Regional Passport Office</text>
+ <text x="597" y="125" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">Passport Applications</text>
+ <text x="597" y="145" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">Tatkaal &amp; Renewals</text>
+ </svg>
+ </div>
+
+ <p>Mumbai is India's busiest visa application hub, processing hundreds of thousands of visa applications every year. As the financial capital and home to one of India's busiest international airports, the city hosts visa application centers and consulates for major destination countries including the United States, United Kingdom, Canada, Australia, and Schengen Area nations. If you are looking for <strong>visa services in Mumbai</strong>, this comprehensive guide covers everything from application center locations and walk-in timings to step-by-step processes, fees, and document requirements.</p>
+
+ <p>Whether you are applying for a <a href="/visa-guide/usa-visa">US visa</a>, <a href="/visa-guide/uk-visa">UK visa</a>, <a href="/visa-guide/canada-visa">Canada visa</a>, <a href="/visa-guide/australia-visa">Australia visa</a>, or a <a href="/visa-guide/schengen-visa">Schengen visa</a>, Mumbai offers dedicated application centers staffed by trained professionals who manage the entire document submission and biometric collection process on behalf of foreign missions.</p>
+
+ <h2>Visa Application Centers in Mumbai</h2>
+ <p>Mumbai hosts several visa application centres (VACs) and consulates that handle visa processing for different countries. Below is a complete list of visa application centres in Mumbai with their locations and the visa types they handle.</p>
+
+ <h3>VFS Global Mumbai (BKC)</h3>
+ <p>VFS Global is the official outsourcing partner for multiple governments and manages visa applications at its Mumbai centre. The centre accepts applications for the UK, Canada, Australia, New Zealand, and several European countries.</p>
+ <p><strong>Address:</strong> Unit 101, 1st Floor, A Wing, TCG Financial Centre, Adjacent to Upscale Hotel, BKC, Bandra East, Mumbai &mdash; 400051</p>
+ <p><strong>Visa Types Processed:</strong> UK Visitor Visa, Canada Visitor Visa, Australia Visitor Visa, New Zealand Visitor Visa, and several European national visas.</p>
+
+ <h3>US Consulate General Mumbai &amp; US Travel Docs</h3>
+ <p>The US Consulate General in Mumbai processes nonimmigrant visa applications for residents of western and central India. All visa appointments are scheduled through the official US Travel Docs website.</p>
+ <p><strong>Consulate Address:</strong> C-49, G-Block, Bandra Kurla Complex, Bandra East, Mumbai &mdash; 400051</p>
+ <p><strong>Visa Types:</strong> B-1/B-2 Tourist/Business, F-1 Student, H-1B Work, L-1 Intracompany Transfer, J-1 Exchange Visitor, and other nonimmigrant categories.</p>
+
+ <h3>Passport Seva Kendra (PSK) Mumbai</h3>
+ <p>While primarily for Indian passport services, the Passport Seva Kendra in Mumbai is essential for anyone needing a passport before applying for a visa. The Regional Passport Office in Mumbai operates several PSKs across the city.</p>
+ <p><strong>Main RPO Address:</strong> Regional Passport Office, B-wing, 8th Floor, NSIL Shelton Cubix, Plot No. B-25 &amp; B-26, Sector 15, CBD Belapur, Navi Mumbai &mdash; 400614</p>
+ <p>Visit the official <a href="https://www.passportindia.gov.in/" target="_blank" rel="noopener noreferrer">Passport Seva portal</a> for appointments at PSK locations across Mumbai.</p>
+
+ <h3>FRRO Mumbai (Foreigners Registration)</h3>
+ <p>Foreign nationals arriving in India who need to stay beyond 180 days must register with the Foreigners Regional Registration Office (FRRO) in Mumbai. The FRRO handles visa extensions, conversions, exit permits, and OCI/PIO services.</p>
+ <p><strong>Address:</strong> Annexe-II, Commissariat of Police Building, Near Crawford Market, DN Road, Mumbai &mdash; 400001</p>
+ <p>All registrations and applications are processed through the official <a href="https://indianfrro.gov.in/" target="_blank" rel="noopener noreferrer">e-FRRO portal</a>.</p>
+
+ <h3>Other Consulates &amp; Visa Centres in Mumbai</h3>
+ <table>
+ <thead><tr><th>Consulate / Centre</th><th>Location Area</th><th>Visa Types</th></tr></thead>
+ <tbody>
+ <tr><td>British Deputy High Commission Mumbai</td><td>BKC, Bandra East</td><td>UK visas (all categories)</td></tr>
+ <tr><td>Consulate General of Canada Mumbai</td><td>BKC, Bandra East</td><td>Canada visitor, study, work visas</td></tr>
+ <tr><td>Consulate General of Australia Mumbai</td><td>BKC, Bandra East</td><td>Australia visas (all categories)</td></tr>
+ <tr><td>Consulate General of Japan Mumbai</td><td>Breach Candy, South Mumbai</td><td>Japan tourist &amp; business visas</td></tr>
+ <tr><td>Consulate General of France Mumbai</td><td>BKC, Bandra East</td><td>Schengen visas (France &amp; others)</td></tr>
+ <tr><td>Consulate General of Germany Mumbai</td><td>Churchgate, South Mumbai</td><td>Schengen &amp; national visas (D)</td></tr>
+ <tr><td>Consulate General of Switzerland Mumbai</td><td>BKC, Bandra East</td><td>Schengen visas (Switzerland)</td></tr>
+ <tr><td>Consulate General of UAE Mumbai</td><td>BKC, Bandra East</td><td>UAE visit &amp; employment visas</td></tr>
+ <tr><td>Consulate General of Singapore Mumbai</td><td>BKC, Bandra East</td><td>Singapore visas</td></tr>
+ <tr><td>Consulate General of Thailand Mumbai</td><td>Worli, South Mumbai</td><td>Thailand tourist &amp; business visas</td></tr>
+ </tbody>
+ </table>
+
+ <div class="info-box">
+ <h4>Pro Tip</h4>
+ <p>Most visa application centers in Mumbai are concentrated in the <strong>Bandra Kurla Complex (BKC)</strong> area, making it convenient to visit multiple centres in one trip. BKC is well-connected by the Bandra Western Express Highway and the Bandra–Worli Sea Link. The nearest railway station is Bandra (Western Line), and the Metro's Bandra-Kurla Complex station is under construction. Auto-rickshaws and app-based cabs are readily available.</p>
+ </div>
+
+ <h2>Types of Visas Processed in Mumbai</h2>
+ <p>Mumbai's visa application centers process a wide range of visa categories. Here is a quick reference for the most commonly applied visa types from Mumbai.</p>
+
+ <table>
+ <thead><tr><th>Destination</th><th>Common Visa Types</th><th>Processing Centre</th><th>Typical Processing Time</th></tr></thead>
+ <tbody>
+ <tr><td>United States</td><td>B-1/B-2, F-1, H-1B, L-1, J-1</td><td>US Consulate BKC</td><td>2 weeks &ndash; 3 months (appointment wait)</td></tr>
+ <tr><td>United Kingdom</td><td>Standard Visitor, Student, Skilled Worker, Health &amp; Care</td><td>VFS Global BKC</td><td>15 &ndash; 30 working days</td></tr>
+ <tr><td>Canada</td><td>Visitor (TRV), Study Permit, Work Permit, Super Visa</td><td>VFS Global BKC</td><td>2 &ndash; 8 weeks</td></tr>
+ <tr><td>Australia</td><td>Visitor (600), Student (500), ETA (601), Work &amp; Holiday</td><td>VFS Global BKC</td><td>2 &ndash; 5 weeks</td></tr>
+ <tr><td>Schengen Area</td><td>Schengen Tourist, Business, Long-Stay National</td><td>VFS Global / Consulates</td><td>15 calendar days</td></tr>
+ <tr><td>Japan</td><td>Tourist, Business, Transit</td><td>Consulate of Japan</td><td>5 &ndash; 7 working days</td></tr>
+ <tr><td>UAE</td><td>Tourist (30/60 day), Transit, Golden Visa</td><td>Consulate of UAE / Online</td><td>3 &ndash; 5 working days</td></tr>
+ <tr><td>Thailand</td><td>Tourist, Visa on Arrival, Non-Immigrant B</td><td>Consulate of Thailand</td><td>3 &ndash; 5 working days</td></tr>
+ <tr><td>Singapore</td><td>Tourist, Business</td><td>Consulate of Singapore</td><td>3 &ndash; 5 working days</td></tr>
+ </tbody>
+ </table>
+
+ <p>For a complete list of visa types by country, visit our <a href="/visa-guide/">comprehensive Visa Guide</a> covering destinations worldwide, or check the <a href="/visa-requirements/">Visa Requirements</a> page for detailed document checklists.</p>
+
+ <h2>Step-by-Step Visa Application Process in Mumbai</h2>
+ <p>The visa application process from Mumbai generally follows these steps regardless of your destination country. Specific requirements may vary by visa type.</p>
+
+ <p><strong>Step 1: Determine Your Visa Type</strong><br>Identify the correct visa category for your travel purpose. Use our <a href="/visa-guide/">Visa Guide</a> or check the official embassy website to confirm eligibility requirements. Each visa type has specific documentation and financial requirements.</p>
+
+ <p><strong>Step 2: Complete the Online Application Form</strong><br>Most visa applications today begin online. Fill out the application form for your destination country on the official visa portal. Common portals include the DS-160 (USA), GOV.UK (UK), IRCC Portal (Canada), and ImmiAccount (Australia). Errors in the application form are a leading cause of delays, so double-check every entry against your passport.</p>
+
+ <p><strong>Step 3: Pay the Visa Application Fee</strong><br>Pay the non-refundable visa fee online using a credit or debit card. Some centres also accept demand drafts. Keep the payment receipt &mdash; you will need it for your appointment and later for tracking your application. See the <a href="#fees">fees section</a> below for current visa costs.</p>
+
+ <p><strong>Step 4: Schedule an Appointment</strong><br>Book your appointment at the relevant visa application centre in Mumbai through the official scheduling portal (e.g., US Travel Docs for US visas, VFS Global for UK/Canada/Australia). Appointment availability varies by season &mdash; book well in advance during peak summer and December holiday periods.</p>
+
+ <p><strong>Step 5: Attend the Appointment &amp; Submit Biometrics</strong><br>Visit the visa application centre on your scheduled date and time. Bring all required documents in original and photocopy. Most visa types require biometric data collection (fingerprints and photograph). The appointment typically takes 15&ndash;30 minutes.</p>
+
+ <p><strong>Step 6: Track Your Application &amp; Receive Decision</strong><br>After submission, you can track your application status online using the reference number provided at the centre. Processing times vary by visa type and country (see table above). Once a decision is made, you will be notified to collect your passport or have it couriered to your address.</p>
+
+ <h2 id="fees">Visa Fees Overview 2026</h2>
+ <p>Visa fees are set by each destination country and are subject to change. Below are the standard visa fees for Indian passport holders applying from Mumbai in 2026.</p>
+
+ <table>
+ <thead><tr><th>Destination</th><th>Visa Type</th><th>Fee (2026)</th><th>Additional Costs</th></tr></thead>
+ <tbody>
+ <tr><td>United States</td><td>B-1/B-2 Visitor</td><td>$185</td><td>VFS courier: ₹500&ndash;800</td></tr>
+ <tr><td>United Kingdom</td><td>Standard Visitor (6 months)</td><td>GBP 115</td><td>IHS: GBP 776/yr (if applicable) + VFS services</td></tr>
+ <tr><td>United Kingdom</td><td>Student Visa</td><td>GBP 490</td><td>IHS: GBP 776/yr + VFS services</td></tr>
+ <tr><td>Canada</td><td>Visitor Visa (TRV)</td><td>CAD 100</td><td>Biometrics: CAD 85</td></tr>
+ <tr><td>Australia</td><td>Visitor Visa (Subclass 600)</td><td>AUD 190</td><td>Biometrics: AUD 85 (if required)</td></tr>
+ <tr><td>Schengen Area</td><td>Tourist Visa (Adult)</td><td>&euro;80</td><td>VFS service fee: &euro;20&ndash;40</td></tr>
+ <tr><td>Japan</td><td>Tourist Visa (Single)</td><td>¥3,000</td><td>Consulate service fee varies</td></tr>
+ </tbody>
+ </table>
+
+ <div class="info-box">
+ <h4>Important Note</h4>
+ <p>Visa fees are non-refundable, even if your application is rejected. Always verify the current fee on the official embassy or consulate website before paying. Additional service charges by VFS Global, visa application centres, or courier services are separate and vary by centre.</p>
+ </div>
+
+ <h2>Documents Required for Visa Applications in Mumbai</h2>
+ <p>While document requirements vary by visa type and destination country, the following are standard documents that most visa applications from Mumbai require:</p>
+
+ <ul>
+ <li><strong>Valid Passport</strong> &mdash; Must have at least 6 months validity beyond your intended stay, with at least 2 blank pages. If you need a new passport, apply at a Passport Seva Kendra through the <a href="https://www.passportindia.gov.in/" target="_blank" rel="noopener noreferrer">official Passport Seva portal</a>.</li>
+ <li><strong>Completed Visa Application Form</strong> &mdash; Printed confirmation page with barcode from the respective country's online portal.</li>
+ <li><strong>Passport-Sized Photographs</strong> &mdash; As per country-specific specifications (size, background colour, and recency). Most centres have photo booths on-site.</li>
+ <li><strong>Proof of Financial Means</strong> &mdash; Bank statements for the last 3&ndash;6 months, salary slips, IT returns (typically 2&ndash;3 years), and fixed deposit certificates showing sufficient funds to cover your travel and stay.</li>
+ <li><strong>Travel Itinerary</strong> &mdash; Round-trip flight bookings and hotel reservations for your entire stay. Do not purchase non-refundable tickets until the visa is approved.</li>
+ <li><strong>Employment Documents</strong> &mdash; Employment verification letter, leave approval, pay slips (last 3&ndash;6 months). Self-employed applicants should provide business registration, GST returns, and CA-certified financial statements.</li>
+ <li><strong>Cover Letter</strong> &mdash; A signed letter explaining the purpose of your visit, duration, itinerary, and how you will fund the trip.</li>
+ <li><strong>Visa-Specific Documents</strong> &mdash; Invitation letter (for business/family visits), admission letter (for student visas), marriage certificate (for spouse visas), or NOC from employer.</li>
+ </ul>
+
+ <p>For detailed document checklists, visit our <a href="/blog/visa-document-checklist-2026">Visa Document Checklist 2026</a> blog post or the <a href="/visa-requirements/">Visa Requirements</a> page for country-specific requirements. You can also refer to country-specific guides like our <a href="/blog/us-visa-interview-tips-2026">US visa Interview Tips</a>, <a href="/blog/uk-visa-processing-times-2026">UK visa processing times</a>, or <a href="/blog/schengen-visa-complete-guide-2026">Schengen visa guide</a>.</p>
+
+ <h2>Visa Application Centre Timings &amp; Best Times to Visit</h2>
+ <p>Most visa application centres in Mumbai operate on weekdays with specific hours for document submission and passport collection. Below are the typical operating hours:</p>
+
+ <table>
+ <thead><tr><th>Centre</th><th>Submission Timings</th><th>Passport Collection</th><th>Days Open</th></tr></thead>
+ <tbody>
+ <tr><td>VFS Global (BKC)</td><td>8:00 AM &ndash; 4:00 PM</td><td>10:00 AM &ndash; 4:00 PM</td><td>Mon &ndash; Fri</td></tr>
+ <tr><td>US Consulate (BKC)</td><td>8:00 AM &ndash; 3:00 PM (by appointment)</td><td>Varies by courier</td><td>Mon &ndash; Fri</td></tr>
+ <tr><td>Passport Seva Kendra (Various)</td><td>9:00 AM &ndash; 5:00 PM</td><td>Same day / courier</td><td>Mon &ndash; Sat</td></tr>
+ <tr><td>FRRO Mumbai (Crawford Market)</td><td>9:30 AM &ndash; 5:00 PM</td><td>Online processing</td><td>Mon &ndash; Fri</td></tr>
+ </tbody>
+ </table>
+
+ <p><strong>Best Time to Visit:</strong> Early mornings (8:00 AM &ndash; 10:00 AM) on weekdays are generally less crowded. Avoid Monday mornings (post-weekend rush) and the first few days after public holidays. Peak seasons for visa applications in Mumbai include May&ndash;July (summer travel) and November&ndash;January (winter holiday travel).</p>
+
+ <h2>FRRO Mumbai: Services for Foreign Nationals</h2>
+ <p>The Foreigners Regional Registration Office (FRRO) in Mumbai provides essential services for foreign nationals residing in or visiting Mumbai. Key services include:</p>
+
+ <ul>
+ <li><strong>Visa Registration</strong> &mdash; Foreign nationals staying in India beyond 180 days must register within 14 days of arrival.</li>
+ <li><strong>Visa Extension</strong> &mdash; Extend your tourist, business, or employment visa while in India.</li>
+ <li><strong>Visa Conversion</strong> &mdash; Convert one visa type to another (e.g., tourist to employment visa) subject to eligibility.</li>
+ <li><strong>Exit Permit</strong> &mdash; Permission to exit India for foreign nationals who have lost their passport or overstayed their visa.</li>
+ <li><strong>OCI/PIO Services</strong> &mdash; Overseas Citizen of India card applications, renewals, and related services.</li>
+ <li><strong>Student Visa Related Services</strong> &mdash; Registration, extension, and bonafide certificate issuance for foreign students studying in Mumbai.</li>
+ </ul>
+
+ <p>All FRRO services in Mumbai are now managed through the government's <a href="https://indianfrro.gov.in/" target="_blank" rel="noopener noreferrer">e-FRRO online portal</a>, which allows you to submit applications, upload documents, make payments, and track progress without visiting the office in person for most services.</p>
+
+ <div class="info-box">
+ <h4>FRRO Mumbai Contact</h4>
+ <p><strong>Email:</strong> frromumbai@nic.in<br>
+ <strong>Helpline:</strong> 1800-11-3090 (toll-free)<br>
+ <strong>Location:</strong> Annexe-II, Commissariat of Police Building, Near Crawford Market, DN Road, Mumbai &mdash; 400001</p>
+ </div>
+
+ <h2>Tips for a Smooth Visa Application Experience in Mumbai</h2>
+ <ul>
+ <li><strong>Book appointments well in advance</strong> &mdash; US visa interview wait times in Mumbai can reach 2&ndash;3 months during peak seasons. Check current wait times on the official <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html" target="_blank" rel="noopener noreferrer">US Embassy wait times page</a>.</li>
+ <li><strong>Organise documents in the order specified</strong> &mdash; Most centres provide a document checklist. Arrange your documents in the same order as the checklist for faster processing.</li>
+ <li><strong>Carry originals and photocopies</strong> &mdash; Take originals for verification and a separate set of photocopies for submission. The centre may not have photocopy services readily available.</li>
+ <li><strong>Arrive 15&ndash;20 minutes before your appointment</strong> &mdash; Late arrivals may be turned away and asked to reschedule. Security screening at consulates can take additional time.</li>
+ <li><strong>Dress appropriately</strong> &mdash; Business casual attire is recommended for consular interviews. Avoid wearing hats, sunglasses, or headphones.</li>
+ <li><strong>Do not bring electronic devices</strong> &mdash; Mobile phones, smartwatches, laptops, and bags are not allowed inside most consulate premises. Most centres have locker facilities nearby for a fee.</li>
+ <li><strong>Verify visa centre location beforehand</strong> &mdash; Multiple centres operate in BKC. Confirm the exact building and floor on your appointment confirmation letter.</li>
+ </ul>
+
+ <h2>Visa Services for Students from Mumbai</h2>
+ <p>Mumbai is a major hub for student visa applicants heading to the US, UK, Canada, Australia, and Europe. Student-specific services available in Mumbai include:</p>
+
+ <ul>
+ <li><strong>Student visa counselling</strong> &mdash; Guidance on choosing the right visa type and preparing application documents.</li>
+ <li><strong>Financial documentation assistance</strong> &mdash; Help with education loan letters, bank balance certificates, and sponsorship affidavits.</li>
+ <li><strong>SOP and essay review</strong> &mdash; Statement of Purpose (SOP) drafting guidance tailored to university and visa requirements.</li>
+ <li><strong>Mock interview preparation</strong> &mdash; Practice sessions for student visa interviews, especially for the US F-1 visa and UK Tier 4 (Student) visa.</li>
+ <li><strong>Pre-departure guidance</strong> &mdash; Information on accommodation, travel insurance, foreign exchange, and arrival formalities at the destination.</li>
+ </ul>
+
+ <p>For detailed country-specific student visa information, check our guides on <a href="/visa-guide/usa-visa">US student visa</a>, <a href="/visa-guide/uk-visa">UK student visa</a>, <a href="/visa-guide/canada-visa">Canada study permit</a>, and <a href="/visa-guide/australia-visa">Australia student visa</a>.</p>
+
+ <h2>Why Choose Professional Visa Assistance in Mumbai?</h2>
+ <p>While it is possible to apply for a visa independently, many applicants choose to work with visa consultants in Mumbai to improve their chances of approval. Professional visa services can help with:</p>
+
+ <ul>
+ <li><strong>Document verification</strong> &mdash; Ensuring all documents meet embassy specifications before submission.</li>
+ <li><strong>Application form review</strong> &mdash; Identifying errors or inconsistencies that could lead to rejection.</li>
+ <li><strong>Cover letter drafting</strong> &mdash; Crafting a strong, clear, and personalised cover letter.</li>
+ <li><strong>Appointment booking assistance</strong> &mdash; Securing early appointments at VFS Global or consulates.</li>
+ <li><strong>Interview preparation</strong> &mdash; Targeted preparation for US, UK, and Schengen visa interviews.</li>
+ </ul>
+
+ <p>For more information on how we can assist with your visa application from Mumbai, visit our <a href="/visa-consultants-in-india/">Visa Consultants in India</a> page or <a href="/contact">contact us directly</a>.</p>
+
+ <h2 id="faq">Frequently Asked Questions About Visa Services in Mumbai</h2>
+
+ <h3>Where is the VFS Global visa application centre in Mumbai?</h3>
+ <p>VFS Global Mumbai is located at Unit 101, 1st Floor, A Wing, TCG Financial Centre, BKC, Bandra East, Mumbai &mdash; 400051. The centre processes visa applications for the UK, Canada, Australia, New Zealand, and several European countries. Appointment booking is mandatory through the VFS Global website.</p>
+
+ <h3>How do I book a US visa appointment in Mumbai?</h3>
+ <p>US visa appointments in Mumbai are booked through the official <a href="https://www.ustraveldocs.com/" target="_blank" rel="noopener noreferrer">UStraveldocs website</a>. You must first complete the DS-160 form online, pay the visa fee, and then schedule your appointment at the US Consulate in BKC. Check current appointment wait times on the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html" target="_blank" rel="noopener noreferrer">official U.S. Embassy wait times page</a>.</p>
+
+ <h3>What is the processing time for UK visa from Mumbai?</h3>
+ <p>UK visa processing from Mumbai typically takes 15 to 30 working days for standard applications. Priority service (5 working days) and Super Priority service (next working day) are available at the VFS Global centre in BKC for an additional fee of GBP 500 and GBP 800 respectively. Processing starts after biometric submission and may take longer if additional verification is needed.</p>
+
+ <h3>Do I need to visit the visa application centre in person in Mumbai?</h3>
+ <p>Yes, most visa types require in-person attendance for biometric data collection (fingerprints and photograph). This applies to US, UK, Canada, Australia, Schengen, and many other visa categories. However, some countries offer e-Visa or visa-free entry where in-person visits are not required &mdash; check country-specific requirements on our <a href="/visa-guide/">Visa Guide</a>.</p>
+
+ <h3>How do I register with FRRO in Mumbai?</h3>
+ <p>Foreign nationals must register with FRRO Mumbai within 14 days of arrival if staying beyond 180 days. Registration is done online through the official <a href="https://indianfrro.gov.in/" target="_blank" rel="noopener noreferrer">e-FRRO portal</a>. You need a valid passport with Indian visa, photographs, proof of address in India, and the applicable fee. Once the online application is approved, you may need to visit the FRRO office at Crawford Market for biometric verification.</p>
+
+ <h3>What are the visa application centre timings in Mumbai?</h3>
+ <p>VFS Global (BKC): Mon&ndash;Fri, 8:00 AM to 4:00 PM. US Consulate (BKC): Mon&ndash;Fri, 8:00 AM to 3:00 PM (by appointment only). Passport Seva Kendras: Mon&ndash;Sat, 9:00 AM to 5:00 PM. FRRO Mumbai: Mon&ndash;Fri, 9:30 AM to 5:00 PM. All centres are closed on public holidays.</p>
+
+ <h3>Can I apply for a Schengen visa in Mumbai?</h3>
+ <p>Yes, Mumbai has consulates and visa application centres for several Schengen countries including France, Germany, Switzerland, Italy, Netherlands, and Spain. Most Schengen visa applications from Mumbai are processed through VFS Global or TLScontact depending on the destination country. See our <a href="/blog/schengen-visa-complete-guide-2026">complete Schengen visa guide</a> for detailed information.</p>
+
+ <h3>What is the cheapest visa option from Mumbai?</h3>
+ <p>Visa fees vary significantly by destination. e-Visa options (available for countries like Turkey, Singapore, Sri Lanka, and Kenya) are often the most affordable at $20&ndash;$60. Thailand Visa on Arrival costs THB 2,000 (~₹4,800). Among Western destinations, Schengen visa (&euro;80) and UK Standard Visitor visa (GBP 115) are relatively economical compared to US ($185) or Australia (AUD 190) visas.</p>
+
+ <h3>How long does Canada visa processing take from Mumbai?</h3>
+ <p>Canada visa processing from Mumbai typically takes 2 to 8 weeks depending on the visa category and application volume. Visitor Visa (TRV) applications are generally processed within 2&ndash;4 weeks for straightforward cases. Study Permit and Work Permit applications may take 4&ndash;8 weeks. Biometrics must be submitted at VFS Global BKC before processing begins. Track your application on the <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank" rel="noopener noreferrer">official IRCC website</a>.</p>
+
+ <h3>Do I need travel insurance for visa applications from Mumbai?</h3>
+ <p>Travel insurance is mandatory for Schengen visa applications (minimum &euro;30,000 coverage). It is strongly recommended for US, UK, Canada, and Australia visa applications as it demonstrates preparedness and addresses consular concerns about medical emergencies abroad. Most visa application centres in Mumbai offer travel insurance purchase as an add-on service.</p>
+
+ <h3>Can I track my visa application status online?</h3>
+ <p>Yes, most visa application centres and embassies provide online tracking. For VFS Global applications, use the tracking feature on <a href="https://www.vfsglobal.com/" target="_blank" rel="noopener noreferrer">VFS Global's website</a>. For US visas, check on the US Travel Docs portal. For IRCC applications (Canada), use the GCKey or online tracking tool. The reference number from your application receipt is required for tracking.</p>
+
+ <h2>Official Resources</h2>
+ <ul>
+ <li><strong>VFS Global India:</strong> <a href="https://www.vfsglobal.com/en/individuals/index.html" target="_blank" rel="noopener noreferrer">www.vfsglobal.com</a> &mdash; Official visa application centre for UK, Canada, Australia, New Zealand, and more</li>
+ <li><strong>US Travel Docs (India):</strong> <a href="https://www.ustraveldocs.com/in/" target="_blank" rel="noopener noreferrer">www.ustraveldocs.com/in</a> &mdash; US visa appointment scheduling and application status</li>
+ <li><strong>US Department of State &mdash; Visas:</strong> <a href="https://travel.state.gov/content/travel/en/us-visas.html" target="_blank" rel="noopener noreferrer">travel.state.gov</a> &mdash; Official US visa information and resources</li>
+ <li><strong>UK Visas and Immigration (GOV.UK):</strong> <a href="https://www.gov.uk/government/organisations/uk-visas-and-immigration" target="_blank" rel="noopener noreferrer">www.gov.uk/ukvi</a> &mdash; Official UK visa rules and applications</li>
+ <li><strong>Immigration, Refugees and Citizenship Canada (IRCC):</strong> <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank" rel="noopener noreferrer">www.canada.ca/immigration</a> &mdash; Official Canada visa and immigration information</li>
+ <li><strong>Australian Department of Home Affairs:</strong> <a href="https://immi.homeaffairs.gov.au/" target="_blank" rel="noopener noreferrer">immi.homeaffairs.gov.au</a> &mdash; Official Australia visa and citizenship portal</li>
+ <li><strong>Passport Seva (Government of India):</strong> <a href="https://www.passportindia.gov.in/" target="_blank" rel="noopener noreferrer">www.passportindia.gov.in</a> &mdash; Official Indian passport application portal</li>
+ <li><strong>e-FRRO India:</strong> <a href="https://indianfrro.gov.in/" target="_blank" rel="noopener noreferrer">indianfrro.gov.in</a> &mdash; Foreigners registration and visa services in India</li>
+ <li><strong>Bureau of Immigration (India):</strong> <a href="https://boi.gov.in/" target="_blank" rel="noopener noreferrer">boi.gov.in</a> &mdash; Official immigration bureau of India</li>
+ </ul>
+
+ <div class="cta-section">
+ <h3>Need Help With Your Visa Application in Mumbai?</h3>
+ <p>Our visa experts provide end-to-end assistance for all visa types from document preparation to interview coaching. We help applicants from across Mumbai navigate the visa process with confidence.</p>
+ <p style="margin-top:20px;">
+ <a href="/contact" class="btn btn-primary">Get Free Consultation</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);margin-left:10px;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ </p>
+ </div>
+
+ <div class="share-buttons">
+ <span style="font-weight:600;align-self:center;">Share this guide:</span>
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/blog/visa-services-in-mumbai" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=Visa%20Services%20in%20Mumbai%202026%3A%20Complete%20Guide&url=https://myvisaassistance.com/blog/visa-services-in-mumbai" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Twitter</a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/blog/visa-services-in-mumbai" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;"><i class="bi bi-linkedin"></i> LinkedIn</a>
+ </div>
+
+ <div class="author-box">
+ <div class="avatar">MV</div>
+ <div>
+ <strong>My Visa Assistance Team</strong>
+ <p style="margin:5px 0 0;font-size:0.9rem;color:var(--color-text-light);">Our visa experts have helped thousands of applicants across Mumbai and India navigate the visa application process since 2021. We track policy changes, centre updates, and processing trends to provide accurate, up-to-date guidance for every destination.</p>
+ </div>
+ </div>
+
+ <p style="text-align:center;margin:2rem 0;">
+ <a href="/blog/" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Back to Blog</a>
+ <a href="/visa-guide/" class="btn btn-outline" style="margin-left:10px;">Visa Guide</a>
+ <a href="/visa-requirements/" class="btn btn-outline" style="margin-left:10px;">Visa Requirements</a>
+ <a href="/visa-services-pune/" class="btn btn-outline" style="margin-left:10px;">Visa Services Pune</a>
+ </p>
+ </article>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#A5D549"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#0a0a52"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#0a0a52"/></svg></span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+ <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope"></i> myvisaassistance@protonmail.com</a></li>
+ <li><a href="tel:+918551805523"><i class="bi bi-telephone"></i> +91 85518 05523</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a>
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+ <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ <a href="/visa-guide/bhutan-visa" class="country-logo-item">Bhutan</a>
+ <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+ <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+ <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+ <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+ <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+ <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+ <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+ <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+ <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+ <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+ <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+ <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+ <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+ <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+ <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+ <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+ <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+ <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+ <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+ <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+ <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+ <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+ <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+ <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+ <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+ <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+ <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+ <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+ <a href="/visa-guide/bhutan-visa" class="country-logo-item">Bhutan</a>
+ </div>
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+ <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+</body>
+</html>
