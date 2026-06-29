@@ -140,6 +140,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
 
+<!-- Reading Progress Bar -->
+<div class="reading-progress" id="readingProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
 <svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#171299"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#171299"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
@@ -184,196 +187,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div></div>
 
-<style>
-/* ==============================
-   ENHANCED VISA GUIDE UI v2.0
-   Modern, premium design for all visa guide pages
-   Preserves all content while enhancing layout & aesthetics
-   ============================== */
+<link rel="stylesheet" href="/visa-guide/css-v3-redesign.css">
 
-/* ===== Update Metadata Bar ===== */
-.update-bar{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;border-radius:12px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(23,18,153,0.04)}
-.update-bar strong{color:#0a0a52;font-weight:700}
-.update-bar span{color:#718096}
-
-/* ===== Quick Overview Table ===== */
-.quick-overview{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
-.quick-overview th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);font-weight:700;color:#0a0a52;width:28%;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.5px;padding:13px 16px;border-bottom:1px solid #e2e6ea;vertical-align:top}
-.quick-overview td{padding:13px 16px;vertical-align:top;background:#fff;color:#4a5568;border-bottom:1px solid #f0f2f5}
-.quick-overview tbody tr:last-child td,.quick-overview tbody tr:last-child th{border-bottom:none}
-.quick-overview tbody tr:hover td{background:#f8f9fe}
-
-/* ===== Info Box ===== */
-.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
-.info-box:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
-.info-box h4{margin:0 0 8px;color:#0a0a52;font-size:1.05rem;font-weight:700}
-.info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
-.info-box p:last-child{margin:0}
-
-/* ===== Section Headings ===== */
-.main-content h2{margin-top:42px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#0a0a52;letter-spacing:-0.01em}
-.main-content h2:first-of-type{margin-top:0}
-.main-content h3{margin-top:28px;margin-bottom:12px;font-size:1.15rem;color:#2d3748}
-
-/* ===== Visa Tables ===== */
-.visa-table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
-.visa-table thead th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);color:#0a0a52;padding:13px 14px;text-align:left;font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.4px;border-bottom:2px solid #dde0e8}
-.visa-table td,.visa-table th{border:1px solid #eef0f2;padding:12px 14px;vertical-align:top}
-.visa-table tbody td{background:#fff;color:#4a5568}
-.visa-table tbody tr:nth-child(even) td{background:#fafbfc}
-.visa-table tbody tr:hover td{background:#f0f7ff}
-.visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:12px}
-
-/* ===== CTA Section ===== */
-.cta-section{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;padding:44px;border-radius:16px;margin:48px 0;text-align:center;box-shadow:0 4px 16px rgba(23,18,153,0.06);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
-.cta-section::after{content:'';position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(23,18,153,0.04),transparent 70%);pointer-events:none}
-.cta-section h2{color:#0a0a52;margin:0 0 12px;font-size:1.6rem;border:none;padding:0;position:relative}
-.cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6;position:relative}
-.cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:15px 40px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:0 4px 14px rgba(23,18,153,0.25);position:relative}
-.cta-section .btn:hover{background:linear-gradient(135deg,#0a0a52,#171299);transform:translateY(-3px);box-shadow:0 8px 25px rgba(23,18,153,0.35)}
-
-/* ===== Sidebar Cards ===== */
-.sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:box-shadow 0.3s ease}
-.sidebar-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
-.sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#0a0a52;border-bottom:2px solid #f0f2f5;padding-bottom:10px;font-weight:700}
-.sidebar-card ul{margin:0;padding:0}
-.sidebar-card ul li{padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568;transition:padding-left 0.2s ease}
-.sidebar-card ul li:last-child{border:none}
-.sidebar-card ul li a{color:#2b6cb0;text-decoration:none;transition:color 0.2s ease}
-.sidebar-card ul li a:hover{color:#0a0a52;text-decoration:underline}
-
-/* ===== FAQ Styles ===== */
-.faq-list{margin:18px 0 28px}
-.faq-item{border:1px solid #eef0f2;border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.3s ease}
-.faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05)}
-.faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:600;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s, color 0.2s}
-.faq-question:hover{background:#f7f8fa;color:#0a0a52}
-.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
-.faq-item.active .faq-question{background:#f7f8fa;font-weight:700;color:#0a0a52}
-.faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
-.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);padding:0 20px;background:#fff}
-.faq-item.active .faq-answer{max-height:600px;padding:4px 20px 18px}
-.faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
-
-/* ===== Content Layout ===== */
-.country-content{padding:40px 0 60px;background:#fff}
-.country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
-.country-content .main-content{min-width:0}
-.sidebar{position:sticky;top:90px;align-self:start}
-
-/* ===== Paragraphs & Lists ===== */
-.main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
-.main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
-.main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
-
-/* ===== DESIGN ENHANCEMENTS ===== */
-
-/* Hero badges - refined */
-.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
-.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(165,213,73,0.3);transform:translateY(-1px)}
-.hero-badge i{color:var(--color-accent);font-size:0.85rem}
-
-/* Section heading icons - with hover motion */
-.main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px;transition:transform 0.3s ease}
-.main-content h2:hover i.bi,.main-content h3:hover i.bi{transform:scale(1.15)}
-
-/* Process step cards - premium card design */
-.process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
-.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(165,213,73,0.3));opacity:0;transition:opacity 0.3s ease}
-.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(165,213,73,0.3)}
-.process-step:hover::before{opacity:1}
-.process-step-num{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-top:2px;box-shadow:0 3px 10px rgba(23,18,153,0.2);transition:all 0.3s ease}
-.process-step:hover .process-step-num{transform:scale(1.08);box-shadow:0 4px 14px rgba(23,18,153,0.3)}
-.process-step-body{flex:1}
-.process-step-body strong{display:block;color:#1a202c;font-size:1rem;margin-bottom:4px;transition:color 0.3s ease}
-.process-step:hover .process-step-body strong{color:#0a0a52}
-.process-step-body p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.65}
-
-/* Compact inline step for international process */
-.step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5;transition:background 0.2s ease}
-.step-pill:hover{background:#eef0f5}
-
-/* Icon bullet lists - refined */
-.main-content ul.icon-bullets{list-style:none;padding-left:0;margin:10px 0 18px}
-.main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px;transition:transform 0.2s ease}
-.main-content ul.icon-bullets li:hover{transform:translateX(3px)}
-.main-content ul.icon-bullets li::before{position:absolute;left:0;top:2px;font-family:'bootstrap-icons';font-size:1rem;color:var(--color-accent);line-height:1.4}
-.main-content ul.icon-bullets li.check::before{content:'\F26E'}
-.main-content ul.icon-bullets li.warn::before{content:'\F33A';color:#d97706}
-.main-content ul.icon-bullets li.info::before{content:'\F431';color:#2b6cb0}
-
-/* Info box variants - enhanced with subtle gradient overlay */
-.info-box.info-blue{border-left-color:#2b6cb0}
-.info-box.info-blue h4{color:#2b6cb0}
-.info-box.info-amber{border-left-color:#d97706}
-.info-box.info-amber h4{color:#d97706}
-
-/* Trust badges row - refined card */
-.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:18px 22px;background:linear-gradient(135deg,#fafbf5,#f5f7ef);border:1px solid #eef0f2;border-radius:12px;transition:box-shadow 0.3s ease}
-.trust-row:hover{box-shadow:0 3px 12px rgba(0,0,0,0.04)}
-.trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
-.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(165,213,73,0.2))}
-
-/* Highlight key items in tables */
-.visa-table tbody tr.highlight td{background:linear-gradient(90deg,#fafbf5,#f5f7ef)}
-.visa-table tbody tr.highlight td:first-child{font-weight:700;color:#0a0a52}
-
-/* ===== Responsive: Tablet (768px - 991px) ===== */
-@media(max-width:991px){
-.country-content .content-grid{grid-template-columns:1fr;gap:30px}
-.sidebar{position:static}
-.sidebar-card{padding:18px}
-.main-content h2{font-size:1.35rem}
-.country-content{padding:30px 0 50px}
-}
-
-/* ===== Responsive: Mobile (up to 767px) ===== */
-@media(max-width:767px){
-.country-content{padding:20px 0 40px}
-.country-content .content-grid{gap:24px}
-.update-bar{font-size:0.82rem;padding:12px 14px;border-radius:10px}
-.quick-overview,.visa-table{font-size:0.8rem;font-weight:400;border-radius:10px}
-.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:9px 11px}
-.quick-overview th{width:35%}
-.visa-table thead th{font-size:0.78rem;padding:10px}
-.info-box{padding:16px 18px;border-radius:10px}
-.info-box h4{font-size:0.95rem}
-.cta-section{padding:28px 20px;border-radius:12px}
-.cta-section h2{font-size:1.25rem}
-.cta-section .btn{padding:13px 30px;font-size:0.95rem}
-.main-content h2{font-size:1.2rem;margin-top:28px}
-.main-content h3{font-size:1.05rem}
-.main-content p,.main-content ul li{font-size:0.9rem}
-.faq-question{font-size:0.9rem;padding:14px 16px}
-.faq-answer{padding:0 16px}
-.faq-item.active .faq-answer{padding:4px 16px 14px}
-.sidebar-card{padding:16px}
-.trust-row{border-radius:10px}
-.country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-/* Process steps on mobile */
-.process-step{padding:15px 18px;gap:12px;border-radius:10px}
-.process-step-num{width:32px;height:32px;font-size:0.82rem;margin-top:2px}
-.trust-row{gap:12px;padding:14px 16px}
-.main-content h2 i.bi,.main-content h3 i.bi{font-size:1em}
-.step-pill{font-size:0.85rem}
-.hero-badge:hover{transform:none}
-.main-content ul.icon-bullets li:hover{transform:none}
-.process-step:hover{transform:none}
-.process-step:hover .process-step-num{transform:none}
-}
-
-/* ===== Responsive: Small Mobile (up to 480px) ===== */
-@media(max-width:480px){
-.quick-overview th{width:40%}
-.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:7px 9px}
-.update-bar{font-size:0.78rem;padding:10px 12px}
-.cta-section{padding:22px 16px;margin:30px 0;border-radius:10px}
-}
-
-</style>
+<!-- Sticky Table of Contents -->
+<nav class="sticky-toc" id="stickyToc" aria-label="Page navigation">
+<div class="toc-inner">
+<a href="#overview" class="toc-link active"><i class="bi bi-info-circle"></i> Overview</a>
+<a href="#visa-types" class="toc-link"><i class="bi bi-card-checklist"></i> Visa Types</a>
+<a href="#fees" class="toc-link"><i class="bi bi-currency-rupee"></i> Fees</a>
+<a href="#documents" class="toc-link"><i class="bi bi-file-earmark-text"></i> Documents</a>
+<a href="#process" class="toc-link"><i class="bi bi-signpost-2"></i> Process</a>
+<a href="#processing-time" class="toc-link"><i class="bi bi-clock"></i> Processing</a>
+<a href="#faq" class="toc-link"><i class="bi bi-question-circle"></i> FAQ</a>
+<a href="#updates2026" class="toc-link"><i class="bi bi-megaphone"></i> Updates</a>
+</div>
+</nav>
 
 <section class="country-content">
 <div class="container">
@@ -388,18 +216,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <strong>Next Scheduled Review:</strong> December 2026
 </div>
 
-<table class="quick-overview"><tbody><tr><th>Visa Required?</th><td>Not required  Entry permit needed for Indian nationals</td></tr>
-<tr><th>Entry Permit Types</th><td>Tourist Entry Permit, Business Visa, Student Visa, Work Permit</td></tr>
-<tr><th>Processing Time</th><td>Instant at Paro Airport / Phuentsholing border (Indians); 5-10 days for visa applicants through tour operators</td></tr>
-<tr><th>Sustainable Development Fee</th><td>₹1,200 per person per night for Indian nationals</td></tr>
-<tr><th>Minimum Daily Package</th><td>$250 USD/person/night (peak) for international tourists; N/A for Indians</td></tr>
-<tr><th>Maximum Stay</th><td>Entry permit valid for up to 7 days (extendable in Thimphu for Indians)</td></tr>
-<tr><th>Biometrics</th><td>Not required for entry permit or visa</td></tr>
-<tr><th>Travel Insurance</th><td>Recommended but not mandatory for Indians</td></tr>
-<tr><th>Permit Issuance</th><td>Paro Airport, Phuentsholing, Gelephu, Samdrup Jongkhar border crossings</td></tr>
-<tr><th>Indian Citizens</th><td>Voter ID or passport accepted for entry permit at borders</td></tr>
-<tr><th>Approval Rate</th><td>Over 98% for correctly submitted applications</td></tr>
-</tbody></table>
+<div class="quick-stats-grid">
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-passport"></i></div>
+<div class="stat-label">Visa Required?</div>
+<div class="stat-value">Entry Permit Only</div>
+<div class="stat-sub">Not required for Indians</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-clock"></i></div>
+<div class="stat-label">Processing Time</div>
+<div class="stat-value">Instant (Indians)</div>
+<div class="stat-sub">5-10 days (International)</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-currency-rupee"></i></div>
+<div class="stat-label">SDF / Night</div>
+<div class="stat-value">₹1,200/night</div>
+<div class="stat-sub">For Indian nationals</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
+<div class="stat-label">Max Stay</div>
+<div class="stat-value">7 Days</div>
+<div class="stat-sub">Extendable up to 6 months</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-shield-check"></i></div>
+<div class="stat-label">Approval Rate</div>
+<div class="stat-value">98%+</div>
+<div class="stat-sub">Correctly submitted apps</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-fingerprint"></i></div>
+<div class="stat-label">Biometrics</div>
+<div class="stat-value">Not Required</div>
+<div class="stat-sub">For entry permit or visa</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-geo-alt"></i></div>
+<div class="stat-label">Entry Points</div>
+<div class="stat-value">4 Locations</div>
+<div class="stat-sub">Paro Airport + 3 borders</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-people"></i></div>
+<div class="stat-label">Indian Citizens</div>
+<div class="stat-value">Voter ID OK</div>
+<div class="stat-sub">Passport or voter ID at borders</div>
+</div>
+</div>
 
 <div class="info-box">
 <h4>Understanding Bhutan's Unique Visa System</h4>
@@ -415,13 +281,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="trust-item"><i class="bi bi-star-fill"></i> Expert-reviewed content</span>
 </div>
 
-<h3>Do I Need a Visa for Bhutan?</h3>
+<h2 id="overview"><i class="bi bi-info-circle"></i> Visa Overview</h2>
 <p>Indian nationals can enter visa-free but need a permit. Citizens of all other countries require a tourist visa arranged through a Bhutanese tour operator.</p>
 
 <h3>What Is Available and Not Available</h3>
 <div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Can Indians...</th><th>Yes/No</th><th>Details</th></tr></thead><tbody><tr><td>Travel for tourism</td><td>Yes</td><td>Tourist visa available for tourism and recreation</td></tr><tr><td>Travel for business</td><td>Yes</td><td>Business visa required for meetings and conferences</td></tr><tr><td>Study</td><td>Yes</td><td>Student visa for enrolled students at Bhutan institutions</td></tr><tr><td>Work</td><td>Yes</td><td>Work permit required for all employment in Bhutan</td></tr><tr><td>Transit without visa</td><td>Yes</td><td>Transit visa available for connecting flights</td></tr><tr><td>Live permanently</td><td>Yes</td><td>Temporary/permanent residence permits available</td></tr></tbody></table></div>
 
-<h2><i class="bi bi-card-checklist"></i> Visa Types for Bhutan</h2>
+<h2 id="visa-types"><i class="bi bi-card-checklist"></i> Visa Types for Bhutan</h2>
 <p>Bhutan's visa system is category-specific. Below is a breakdown of available visa/entry types and their details:</p>
 <div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Entry Type</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee</th></tr></thead><tbody><tr><td>Tourist Entry Permit (Indians)</td><td>Tourism, cultural visits</td><td>7 days (extendable)</td><td>Instant at entry point</td><td>Free + SDF ₹1,200/night</td></tr><tr><td>Tourist Visa (International)</td><td>Tourism (via tour operator)</td><td>As per package</td><td>5-10 working days</td><td>$40 USD visa + SDF $100/night</td></tr><tr><td>Business Visa</td><td>Business meetings, conferences</td><td>30 days</td><td>7-14 working days</td><td>$40 USD (visa fee)</td></tr><tr><td>Student Visa</td><td>Full-time studies</td><td>1 year renewable</td><td>4-6 weeks</td><td>$25 USD (visa fee)</td></tr><tr><td>Work Permit</td><td>Employment in Bhutan</td><td>1 year renewable</td><td>30-60 days</td><td>$50-100 USD</td></tr><tr><td>Official Visa</td><td>Government/diplomatic visits</td><td>As per assignment</td><td>7-14 working days</td><td>Free</td></tr></tbody></table></div>
 
@@ -438,7 +304,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>SAARC Nationals (Non-Indian):</strong> Citizens of SAARC nations (Bangladesh, Maldives, Nepal, Pakistan, Sri Lanka) pay a reduced SDF of ₹1,200 per night (same as Indian rate).</li>
 </ul>
 
-<h2><i class="bi bi-file-earmark-text"></i> Required Documents</h2>
+<h2 id="documents"><i class="bi bi-file-earmark-text"></i> Required Documents</h2>
 <p>Document requirements vary significantly depending on whether you are an Indian national (entry permit) or an international tourist (visa through tour operator).</p>
 
 <h3>For Indian Citizens (Entry Permit at Border/Airport)</h3>
@@ -458,9 +324,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Completed visa application form (submitted by tour operator)</li>
 </ul>
 
-<h2><i class="bi bi-signpost-2"></i> Bhutan Entry Process for Indian Citizens</h2>
+<h2 id="process"><i class="bi bi-signpost-2"></i> Bhutan Entry Process for Indian Citizens</h2>
 <p>India and Bhutan share a special bilateral relationship. Indian citizens do not need a visa  they obtain an entry permit upon arrival. Here is the complete step-by-step process:</p>
 
+<div class="process-timeline">
 <div class="process-step">
 <div class="process-step-num">1</div>
 <div class="process-step-body"><strong>Prepare Required Documents</strong><p>Carry your valid Indian passport (or voter ID for land border crossings), 2 passport-size photos, hotel booking confirmation, and return travel tickets. Make photocopies of all documents.</p></div>
@@ -495,6 +362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="process-step-num">7</div>
 <div class="process-step-body"><strong>Depart Bhutan</strong><p>Surrender your entry permit at the departure immigration counter. Overstaying your permit without a valid extension results in a fine (₹100 per day for Indians).</p></div>
 </div>
+</div>
 
 <h2><i class="bi bi-airplane"></i> Visa Application Process for International Tourists</h2>
 <p>International tourists (non-Indian, non-SAARC) must obtain a visa through a licensed Bhutanese tour operator:</p>
@@ -506,7 +374,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="step-pill"><strong>Step 6:</strong> Print the visa clearance letter and carry it to the airport. You must show it at check-in for your flight to Paro.</span><br>
 <span class="step-pill"><strong>Step 7:</strong> Present the clearance letter at immigration upon arrival in Paro. Your passport is stamped with the visa.</span></p>
 
-<h2><i class="bi bi-clock"></i> Processing Time</h2>
+<h2 id="processing-time"><i class="bi bi-clock"></i> Processing Time</h2>
 <p>Processing times vary significantly depending on your nationality and entry type:</p>
 <div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Entry Type</th><th>Processing Time</th><th>Notes</th></tr></thead><tbody><tr><td>Indian Entry Permit (Airport)</td><td>10-30 minutes</td><td>Paro Airport immigration counter</td></tr><tr><td>Indian Entry Permit (Land Border)</td><td>20-30 minutes</td><td>Phuentsholing, Gelephu, Samdrup Jongkhar</td></tr><tr><td>International Tourist Visa</td><td>5-10 working days</td><td>Through licensed tour operator, after payment</td></tr><tr><td>Business Visa</td><td>7-14 working days</td><td>Requires invitation letter from Bhutanese organization</td></tr><tr><td>Student Visa</td><td>4-6 weeks</td><td>Requires enrollment confirmation from Bhutan institution</td></tr><tr><td>Work Permit</td><td>30-60 days</td><td>Requires employer registration with Ministry of Labour</td></tr></tbody></table></div>
 
@@ -558,31 +426,200 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-list" style="max-width:100%;">
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Do Indian citizens need a visa for Bhutan?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>No. Indian citizens do not need a visa to enter Bhutan. They receive an entry permit upon arrival at Paro International Airport or at designated land border crossings (Phuentsholing, Gelephu, Samdrup Jongkhar). The permit is issued immediately and allows stays of up to 7 days, extendable at the Immigration Department in Thimphu.</p></div>
+<div class="faq-answer">
+<p><strong>No, Indian citizens do not need a visa for Bhutan</strong> — they receive an entry permit upon arrival. Here's what you need to know:</p>
+<ul>
+<li>Indian nationals get a <strong>free entry permit</strong> at <a href="#process">Paro International Airport</a> or land border crossings (Phuentsholing, Gelephu, Samdrup Jongkhar).</li>
+<li>Permit is issued <strong>immediately</strong> — processing takes 10-30 minutes.</li>
+<li>Valid for <strong>7 days initially</strong>, extendable up to 6 months at the Immigration Department in Thimphu.</li>
+<li>Carry a valid <strong>passport or voter ID</strong> (voter ID accepted only at land borders, not at the airport).</li>
+<li>See the <a href="#documents">Required Documents section</a> for the full checklist.</li>
+</ul>
+</div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What is the Sustainable Development Fee (SDF) for Indians?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Indian nationals pay SDF of ₹1,200 per person per night. This fee supports Bhutan's free healthcare, free education, and infrastructure development. Children under 5 years are exempt, and children aged 6-12 receive a 50% discount. The SDF is payable at the entry point  carry sufficient Indian rupees in cash for land border crossings.</p></div>
+<div class="faq-answer">
+<p>The <strong>Sustainable Development Fee (SDF)</strong> is a daily charge for tourists visiting Bhutan. For Indian nationals:</p>
+<ul>
+<li><strong>Amount:</strong> ₹1,200 per person per night — <a href="#fees">see the full fee table</a>.</li>
+<li>Children <strong>under 5 years</strong> are exempt; children <strong>aged 6-12</strong> receive a <strong>50% discount</strong>.</li>
+<li>SDF supports Bhutan's <strong>free healthcare, free education, and infrastructure</strong> development.</li>
+<li>Payable at the entry point — carry <strong>sufficient Indian rupees in cash</strong> for land border crossings (card payment may not be available).</li>
+<li><strong>Exemptions:</strong> Students, work permit holders, licensed tour guides, and trek leaders are exempt from SDF.</li>
+</ul>
+</div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Can Indian citizens drive their own car to Bhutan?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Yes, Indian citizens can drive their own vehicle to Bhutan. You need your vehicle's registration certificate (RC), a valid driving license, pollution under control (PUC) certificate, and a vehicle entry permit obtained at Phuentsholing. Bhutan drives on the left side of the road (same as India). You must have third-party insurance valid in Bhutan  available at the border for around ₹500 for 15 days.</p></div>
+<div class="faq-answer">
+<p>Yes, Indian citizens can drive their own vehicle to Bhutan. Follow these requirements:</p>
+<ul>
+<li>Carry your <strong>vehicle's registration certificate (RC)</strong>, a <strong>valid driving license</strong>, and <strong>pollution under control (PUC)</strong> certificate.</li>
+<li>Obtain a <strong>vehicle entry permit</strong> at Phuentsholing immigration.</li>
+<li>Bhutan drives on the <strong>left side of the road</strong> (same as India).</li>
+<li>You need <strong>third-party insurance valid in Bhutan</strong> — available at the border for around ₹500 for 15 days.</li>
+<li>See our <a href="#process">Bhutan Entry Process section</a> for the full arrival procedure.</li>
+</ul>
+</div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">How long can Indian nationals stay in Bhutan?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>The initial entry permit for Indian nationals is valid for 7 days. You can extend your stay at the Department of Immigration in Thimphu for up to 6 months total. Extensions are typically granted in 7-day increments. The extension fee is approximately ₹500-1,000 per extension period. Overstaying without a valid extension results in a fine of ₹100 per day.</p></div>
+<div class="faq-answer">
+<p>Indian nationals can stay in Bhutan for up to <strong>6 months per calendar year</strong> with extensions:</p>
+<ul>
+<li>The <strong>initial entry permit</strong> is valid for <strong>7 days</strong> from the date of entry.</li>
+<li>Extensions are granted in <strong>7-day increments</strong> at the Department of Immigration in Thimphu.</li>
+<li>The <strong>maximum total stay</strong> including all extensions is <strong>6 months</strong>.</li>
+<li>Extension fee: Approximately <strong>₹500-1,000 per extension</strong> period.</li>
+<li><strong>Overstaying</strong> without a valid extension results in a fine of <strong>₹100 per day</strong>.</li>
+</ul>
+</div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What documents do Indians need for the Bhutan entry permit?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Indian citizens need: (1) Valid Indian passport (or voter ID card, accepted at land border crossings only), (2) 2 passport-size photographs (35₹45mm), (3) Hotel booking confirmation, (4) Return flight/travel ticket. At Paro Airport, passport is mandatory  voter ID is not accepted for air travel. It is recommended to carry photocopies of all documents.</p></div>
+<div class="faq-answer">
+<p>Indian citizens need the following documents for the Bhutan entry permit. <a href="#documents">See the full documents section</a> for details:</p>
+<ul>
+<li><strong>Valid Indian passport</strong> (mandatory for air travel to Paro) OR <strong>voter ID card</strong> (accepted at land border crossings only).</li>
+<li><strong>2 passport-size photographs</strong> (35×45mm, white background, taken within 6 months).</li>
+<li><strong>Hotel booking confirmation</strong> in Bhutan.</li>
+<li><strong>Return flight ticket</strong> or onward travel proof.</li>
+<li>It is <strong>strongly recommended</strong> to carry <strong>photocopies</strong> of all documents.</li>
+</ul>
+</div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Is Indian currency accepted in Bhutan?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Yes, Indian rupees (INR) are widely accepted throughout Bhutan as the Bhutanese Ngultrum (BTN) is pegged at par with the Indian rupee. However, Indian ₹500 and ₹2,000 notes are NOT accepted in Bhutan. Carry ₹100, ₹200, and ₹50 notes for most transactions. Credit cards are accepted at major hotels in Thimphu and Paro, but cash is essential for smaller shops, local restaurants, and SDF payment at land borders.</p></div>
+<div class="faq-answer">
+<p>Yes, Indian Rupees (INR) are widely accepted throughout Bhutan, but with important restrictions:</p>
+<ul>
+<li>The Bhutanese Ngultrum (BTN) is <strong>pegged 1:1</strong> to the Indian Rupee.</li>
+<li><strong>Indian ₹500 and ₹2,000 notes are NOT accepted</strong> in Bhutan — carry ₹100, ₹200, and ₹50 notes instead.</li>
+<li><strong>Credit cards</strong> are accepted at major hotels in Thimphu and Paro.</li>
+<li><strong>Cash is essential</strong> for smaller shops, local restaurants, and <a href="#fees">SDF payment</a> at land border crossings.</li>
+<li><strong>ATMs</strong> are available but limited outside major towns.</li>
+</ul>
+</div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Can I extend my Bhutan entry permit?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Yes. Indian citizens can extend their entry permit at the Department of Immigration and Census in Thimphu. Visit their office with your original entry permit, passport, and a written application explaining the reason for extension. Extensions are granted in 7-day increments. The maximum total stay including extensions is 6 months per calendar year.</p></div>
+<div class="faq-answer">
+<p>Yes, Indian citizens can extend their Bhutan entry permit. Here's how:</p>
+<ul>
+<li>Visit the <strong>Department of Immigration and Census</strong> in <strong>Thimphu</strong> with your original permit and passport.</li>
+<li>Submit a <strong>written application</strong> explaining the reason for extension.</li>
+<li>Extensions are granted in <strong>7-day increments</strong>.</li>
+<li>The <strong>maximum total stay</strong> including extensions is <strong>6 months per calendar year</strong>.</li>
+<li>Extension fee: <strong>₹500-1,000 per extension period</strong>.</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is the best time to visit Bhutan?<span class="faq-icon">+</span></button>
+<div class="faq-answer">
+<p>Bhutan's best visiting seasons depend on your preferences:</p>
+<ul>
+<li><strong>Spring (March-May):</strong> Blooming rhododendrons, clear mountain views, temperatures 10-25°C. The <strong>Paro Tsechu</strong> festival falls in March-April.</li>
+<li><strong>Autumn (September-November):</strong> Best for trekking with clear skies, 10-22°C. The <strong>Thimphu Tsechu</strong> and black-necked crane festivals take place.</li>
+<li><strong>Winter (December-February):</strong> Cold (-5°C in higher altitudes) but clear skies, fewer tourists, and lower hotel rates.</li>
+<li><strong>Summer (June-August):</strong> Monsoon season, lush green landscapes, fewer tourists. Northern valleys like Paro and Bumthang are less affected by rain.</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Do international tourists need a visa for Bhutan?<span class="faq-icon">+</span></button>
+<div class="faq-answer">
+<p>Yes, all international tourists (except Indian nationals) need a visa for Bhutan:</p>
+<ul>
+<li>You must book through a <strong>licensed Bhutanese tour operator</strong> — independent travel is not permitted.</li>
+<li>Visa processing takes <strong>5-10 working days</strong> after full payment of the tour package.</li>
+<li>Visa fee: <strong>$40 USD</strong> per person. SDF: <strong>$100 USD per night</strong>.</li>
+<li>The minimum daily package is <strong>$250 USD/person/night</strong> (peak season) or <strong>$200 USD</strong> (low season).</li>
+<li>See the <a href="#visa-types">Visa Types section</a> for a complete breakdown of visa categories and fees.</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I use my Indian mobile phone and SIM card in Bhutan?<span class="faq-icon">+</span></button>
+<div class="faq-answer">
+<p>Indian mobile connectivity in Bhutan:</p>
+<ul>
+<li>Indian <strong>Airtel and Jio SIM cards</strong> work in Bhutan on <strong>roaming</strong>, but data charges are high.</li>
+<li>It is more economical to buy a <strong>local Bhutanese SIM</strong> from <strong>B-Mobile</strong> or <strong>TashiCell</strong> at the border or airport.</li>
+<li>You need your <strong>passport</strong> to purchase a local SIM card.</li>
+<li><strong>Wi-Fi</strong> is available at most hotels in Thimphu, Paro, and major tourist towns, though speeds vary.</li>
+<li>Consider <strong>downloading offline maps</strong> before your trip as internet connectivity can be limited in remote areas.</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is Bhutan's dress code and cultural etiquette?<span class="faq-icon">+</span></button>
+<div class="faq-answer">
+<p>Bhutan has a rich cultural heritage with specific etiquette expectations:</p>
+<ul>
+<li><strong>Traditional dress</strong> (Gho for men, Kira for women) is <strong>mandatory</strong> for government offices, schools, and formal occasions.</li>
+<li>Visitors should dress <strong>modestly</strong>, covering shoulders and knees when visiting <strong>dzongs and monasteries</strong>.</li>
+<li>Always walk <strong>clockwise</strong> around chortens and prayer wheels.</li>
+<li><strong>Never point your feet</strong> at religious objects, people, or statues.</li>
+<li>Remove <strong>shoes</strong> before entering temples and monasteries.</li>
+<li>Photography is often <strong>restricted inside temples</strong> — always ask for permission.</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is travel insurance required for Bhutan?<span class="faq-icon">+</span></button>
+<div class="faq-answer">
+<p>Travel insurance requirements for Bhutan:</p>
+<ul>
+<li><strong>Not mandatory</strong> for Indian nationals, but <strong>highly recommended</strong>.</li>
+<li>Comprehensive travel insurance should cover <strong>medical emergencies</strong>, <strong>trip cancellation</strong>, and <strong>baggage loss</strong>.</li>
+<li><strong>Students</strong> may need health insurance for student visa holders.</li>
+<li><strong>Work visa holders</strong> typically require employer-provided health coverage.</li>
+<li>Bhutan's healthcare system is limited in remote areas — <strong>emergency evacuation insurance</strong> is advisable for trekkers.</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What are the common reasons for Bhutan visa rejection?<span class="faq-icon">+</span></button>
+<div class="faq-answer">
+<p>Bhutan has a strict "High Value, Low Impact" tourism policy. Common reasons for visa issues include:</p>
+<ul>
+<li><strong>Independent travel applications</strong> are automatically rejected — all tourists (except Indians) <strong>must book through a licensed tour operator</strong>.</li>
+<li><strong>Non-payment of SDF</strong> — Sustainable Development Fee must be paid before visa processing begins.</li>
+<li><strong>Incomplete travel itinerary</strong> — your tour operator must submit a detailed day-by-day plan.</li>
+<li><strong>Insufficient minimum daily package payment</strong> — the full package amount must be paid in advance.</li>
+<li>See the <a href="#processing-time">Processing Time section</a> for more details on timelines and requirements.</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What vaccinations do I need for Bhutan?<span class="faq-icon">+</span></button>
+<div class="faq-answer">
+<p>Recommended vaccinations for travel to Bhutan:</p>
+<ul>
+<li><strong>Routine vaccinations:</strong> Ensure MMR, DPT, and polio vaccines are up to date.</li>
+<li><strong>Hepatitis A and Typhoid:</strong> Recommended for most travellers due to food and water exposure.</li>
+<li><strong>Yellow fever:</strong> Required if travelling from a country with yellow fever risk.</li>
+<li><strong>Rabies:</strong> Consider for trekkers or those working with animals.</li>
+<li><strong>Altitude sickness:</strong> Bhutan's trekking routes go above 4,000m — consult your doctor about <strong>Diamox</strong> (acetazolamide).</li>
+<li>Carry a <strong>basic medical kit</strong> — pharmacies are limited outside Thimphu and Paro.</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How do I get from Phuentsholing to Thimphu?<span class="faq-icon">+</span></button>
+<div class="faq-answer">
+<p>The journey from the border town of Phuentsholing to the capital Thimphu:</p>
+<ul>
+<li><strong>Distance:</strong> Approximately 175 km.</li>
+<li><strong>Travel time:</strong> 5-6 hours by road via winding mountain roads.</li>
+<li><strong>Shared taxis and buses</strong> are available from Phuentsholing bus stand. Taxi fare is approximately <strong>₹3,000-4,000</strong> (or BTN equivalent).</li>
+<li>The road passes through <strong>Chukha and Gedu</strong> with scenic views of the Himalayan foothills.</li>
+<li><strong>Alternative:</strong> Fly directly to <strong>Paro International Airport</strong> from Delhi, Kolkata, Bagdogra, Gaya, or Mumbai — then drive 2 hours to Thimphu.</li>
+<li>See the <a href="#process">Bhutan Entry Process</a> for more travel information.</li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -803,6 +840,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
 <script src="/js/main.js" defer></script>
+<!-- Reading Progress & TOC Active State -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var progressBar = document.getElementById('readingProgress');
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var sections = [];
+  tocLinks.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      var section = document.querySelector(href);
+      if (section) sections.push({ el: section, link: link });
+    }
+  });
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
+        // TOC active state
+        var current = 0;
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i].el.offsetTop - 200 <= scrollTop) {
+            current = i;
+          }
+        }
+        tocLinks.forEach(function(l, idx) {
+          l.classList.toggle('active', idx === current);
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  // Sticky TOC shadow on scroll
+  var toc = document.getElementById('stickyToc');
+  if (toc) {
+    window.addEventListener('scroll', function() {
+      toc.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  }
+});
+</script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

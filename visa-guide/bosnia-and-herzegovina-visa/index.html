@@ -140,6 +140,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
 
+<!-- Reading Progress Bar -->
+<div class="reading-progress" id="readingProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
 <svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#171299"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#171299"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
@@ -185,196 +188,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div></div>
 
-<style>
-/* ==============================
-   ENHANCED VISA GUIDE UI v2.0
-   Modern, premium design for all visa guide pages
-   Preserves all content while enhancing layout & aesthetics
-   ============================== */
-
-/* ===== Update Metadata Bar ===== */
-.update-bar{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;border-radius:12px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(23,18,153,0.04)}
-.update-bar strong{color:#0a0a52;font-weight:700}
-.update-bar span{color:#718096}
-
-/* ===== Quick Overview Table ===== */
-.quick-overview{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
-.quick-overview th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);font-weight:700;color:#0a0a52;width:28%;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.5px;padding:13px 16px;border-bottom:1px solid #e2e6ea;vertical-align:top}
-.quick-overview td{padding:13px 16px;vertical-align:top;background:#fff;color:#4a5568;border-bottom:1px solid #f0f2f5}
-.quick-overview tbody tr:last-child td,.quick-overview tbody tr:last-child th{border-bottom:none}
-.quick-overview tbody tr:hover td{background:#f8f9fe}
-
-/* ===== Info Box ===== */
-.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
-.info-box:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
-.info-box h4{margin:0 0 8px;color:#0a0a52;font-size:1.05rem;font-weight:700}
-.info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
-.info-box p:last-child{margin:0}
-
-/* ===== Section Headings ===== */
-.main-content h2{margin-top:42px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#0a0a52;letter-spacing:-0.01em}
-.main-content h2:first-of-type{margin-top:0}
-.main-content h3{margin-top:28px;margin-bottom:12px;font-size:1.15rem;color:#2d3748}
-
-/* ===== Visa Tables ===== */
-.visa-table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
-.visa-table thead th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);color:#0a0a52;padding:13px 14px;text-align:left;font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.4px;border-bottom:2px solid #dde0e8}
-.visa-table td,.visa-table th{border:1px solid #eef0f2;padding:12px 14px;vertical-align:top}
-.visa-table tbody td{background:#fff;color:#4a5568}
-.visa-table tbody tr:nth-child(even) td{background:#fafbfc}
-.visa-table tbody tr:hover td{background:#f0f7ff}
-.visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:12px}
-
-/* ===== CTA Section ===== */
-.cta-section{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;padding:44px;border-radius:16px;margin:48px 0;text-align:center;box-shadow:0 4px 16px rgba(23,18,153,0.06);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
-.cta-section::after{content:'';position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(23,18,153,0.04),transparent 70%);pointer-events:none}
-.cta-section h2{color:#0a0a52;margin:0 0 12px;font-size:1.6rem;border:none;padding:0;position:relative}
-.cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6;position:relative}
-.cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:15px 40px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:0 4px 14px rgba(23,18,153,0.25);position:relative}
-.cta-section .btn:hover{background:linear-gradient(135deg,#0a0a52,#171299);transform:translateY(-3px);box-shadow:0 8px 25px rgba(23,18,153,0.35)}
-
-/* ===== Sidebar Cards ===== */
-.sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:box-shadow 0.3s ease}
-.sidebar-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
-.sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#0a0a52;border-bottom:2px solid #f0f2f5;padding-bottom:10px;font-weight:700}
-.sidebar-card ul{margin:0;padding:0}
-.sidebar-card ul li{padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568;transition:padding-left 0.2s ease}
-.sidebar-card ul li:last-child{border:none}
-.sidebar-card ul li a{color:#2b6cb0;text-decoration:none;transition:color 0.2s ease}
-.sidebar-card ul li a:hover{color:#0a0a52;text-decoration:underline}
-
-/* ===== FAQ Styles ===== */
-.faq-list{margin:18px 0 28px}
-.faq-item{border:1px solid #eef0f2;border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.3s ease}
-.faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05)}
-.faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:600;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s, color 0.2s}
-.faq-question:hover{background:#f7f8fa;color:#0a0a52}
-.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
-.faq-item.active .faq-question{background:#f7f8fa;font-weight:700;color:#0a0a52}
-.faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
-.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);padding:0 20px;background:#fff}
-.faq-item.active .faq-answer{max-height:600px;padding:4px 20px 18px}
-.faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
-
-/* ===== Content Layout ===== */
-.country-content{padding:40px 0 60px;background:#fff}
-.country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
-.country-content .main-content{min-width:0}
-.sidebar{position:sticky;top:90px;align-self:start}
-
-/* ===== Paragraphs & Lists ===== */
-.main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
-.main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
-.main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
-
-/* ===== DESIGN ENHANCEMENTS ===== */
-
-/* Hero badges - refined */
-.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
-.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(165,213,73,0.3);transform:translateY(-1px)}
-.hero-badge i{color:var(--color-accent);font-size:0.85rem}
-
-/* Section heading icons - with hover motion */
-.main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px;transition:transform 0.3s ease}
-.main-content h2:hover i.bi,.main-content h3:hover i.bi{transform:scale(1.15)}
-
-/* Process step cards - premium card design */
-.process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
-.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(165,213,73,0.3));opacity:0;transition:opacity 0.3s ease}
-.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(165,213,73,0.3)}
-.process-step:hover::before{opacity:1}
-.process-step-num{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-top:2px;box-shadow:0 3px 10px rgba(23,18,153,0.2);transition:all 0.3s ease}
-.process-step:hover .process-step-num{transform:scale(1.08);box-shadow:0 4px 14px rgba(23,18,153,0.3)}
-.process-step-body{flex:1}
-.process-step-body strong{display:block;color:#1a202c;font-size:1rem;margin-bottom:4px;transition:color 0.3s ease}
-.process-step:hover .process-step-body strong{color:#0a0a52}
-.process-step-body p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.65}
-
-/* Compact inline step for international process */
-.step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5;transition:background 0.2s ease}
-.step-pill:hover{background:#eef0f5}
-
-/* Icon bullet lists - refined */
-.main-content ul.icon-bullets{list-style:none;padding-left:0;margin:10px 0 18px}
-.main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px;transition:transform 0.2s ease}
-.main-content ul.icon-bullets li:hover{transform:translateX(3px)}
-.main-content ul.icon-bullets li::before{position:absolute;left:0;top:2px;font-family:'bootstrap-icons';font-size:1rem;color:var(--color-accent);line-height:1.4}
-.main-content ul.icon-bullets li.check::before{content:'\F26E'}
-.main-content ul.icon-bullets li.warn::before{content:'\F33A';color:#d97706}
-.main-content ul.icon-bullets li.info::before{content:'\F431';color:#2b6cb0}
-
-/* Info box variants - enhanced with subtle gradient overlay */
-.info-box.info-blue{border-left-color:#2b6cb0}
-.info-box.info-blue h4{color:#2b6cb0}
-.info-box.info-amber{border-left-color:#d97706}
-.info-box.info-amber h4{color:#d97706}
-
-/* Trust badges row - refined card */
-.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:18px 22px;background:linear-gradient(135deg,#fafbf5,#f5f7ef);border:1px solid #eef0f2;border-radius:12px;transition:box-shadow 0.3s ease}
-.trust-row:hover{box-shadow:0 3px 12px rgba(0,0,0,0.04)}
-.trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
-.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(165,213,73,0.2))}
-
-/* Highlight key items in tables */
-.visa-table tbody tr.highlight td{background:linear-gradient(90deg,#fafbf5,#f5f7ef)}
-.visa-table tbody tr.highlight td:first-child{font-weight:700;color:#0a0a52}
-
-/* ===== Responsive: Tablet (768px - 991px) ===== */
-@media(max-width:991px){
-.country-content .content-grid{grid-template-columns:1fr;gap:30px}
-.sidebar{position:static}
-.sidebar-card{padding:18px}
-.main-content h2{font-size:1.35rem}
-.country-content{padding:30px 0 50px}
-}
-
-/* ===== Responsive: Mobile (up to 767px) ===== */
-@media(max-width:767px){
-.country-content{padding:20px 0 40px}
-.country-content .content-grid{gap:24px}
-.update-bar{font-size:0.82rem;padding:12px 14px;border-radius:10px}
-.quick-overview,.visa-table{font-size:0.8rem;font-weight:400;border-radius:10px}
-.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:9px 11px}
-.quick-overview th{width:35%}
-.visa-table thead th{font-size:0.78rem;padding:10px}
-.info-box{padding:16px 18px;border-radius:10px}
-.info-box h4{font-size:0.95rem}
-.cta-section{padding:28px 20px;border-radius:12px}
-.cta-section h2{font-size:1.25rem}
-.cta-section .btn{padding:13px 30px;font-size:0.95rem}
-.main-content h2{font-size:1.2rem;margin-top:28px}
-.main-content h3{font-size:1.05rem}
-.main-content p,.main-content ul li{font-size:0.9rem}
-.faq-question{font-size:0.9rem;padding:14px 16px}
-.faq-answer{padding:0 16px}
-.faq-item.active .faq-answer{padding:4px 16px 14px}
-.sidebar-card{padding:16px}
-.trust-row{border-radius:10px}
-.country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-/* Process steps on mobile */
-.process-step{padding:15px 18px;gap:12px;border-radius:10px}
-.process-step-num{width:32px;height:32px;font-size:0.82rem;margin-top:2px}
-.trust-row{gap:12px;padding:14px 16px}
-.main-content h2 i.bi,.main-content h3 i.bi{font-size:1em}
-.step-pill{font-size:0.85rem}
-.hero-badge:hover{transform:none}
-.main-content ul.icon-bullets li:hover{transform:none}
-.process-step:hover{transform:none}
-.process-step:hover .process-step-num{transform:none}
-}
-
-/* ===== Responsive: Small Mobile (up to 480px) ===== */
-@media(max-width:480px){
-.quick-overview th{width:40%}
-.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:7px 9px}
-.update-bar{font-size:0.78rem;padding:10px 12px}
-.cta-section{padding:22px 16px;margin:30px 0;border-radius:10px}
-}
-
-</style>
+<link rel="stylesheet" href="/visa-guide/css-v3-redesign.css">
+<!-- Sticky Table of Contents -->
+<nav class="sticky-toc" id="stickyToc" aria-label="Page navigation">
+<div class="toc-inner">
+<a href="#overview" class="toc-link active"><i class="bi bi-info-circle"></i> Overview</a>
+<a href="#visa-types" class="toc-link"><i class="bi bi-card-checklist"></i> Visa Types</a>
+<a href="#fees" class="toc-link"><i class="bi bi-currency-rupee"></i> Fees</a>
+<a href="#documents" class="toc-link"><i class="bi bi-file-earmark-text"></i> Documents</a>
+<a href="#process" class="toc-link"><i class="bi bi-signpost-2"></i> Process</a>
+<a href="#processing-time" class="toc-link"><i class="bi bi-clock"></i> Processing</a>
+<a href="#faq" class="toc-link"><i class="bi bi-question-circle"></i> FAQ</a>
+<a href="#resources" class="toc-link"><i class="bi bi-link-45deg"></i> Resources</a>
+</div>
+</nav>
 
 <section class="country-content">
 <div class="container">
@@ -389,18 +216,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <strong>Next Scheduled Review:</strong> December 2026
 </div>
 
-<table class="quick-overview"><tbody><tr><th>Visa Required?</th><td>Check with the embassy</td></tr>
-<tr><th>Main Visa Types</th><td>Tourist Visa (Type C), Business Visa, Student Visa, Work Permit, Transit Visa</td></tr>
-<tr><th>Processing Time</th><td>5-10 working days for tourist visa; 15-30 days for work visa</td></tr>
-<tr><th>Visa Fee Range</th><td>₹4,000-8,000 (₹40-80) depending on visa type</td></tr>
-<tr><th>Financial Requirement</th><td>Minimum ₹100 per day of stay for tourists</td></tr>
-<tr><th>Maximum Stay</th><td>90 days within 180-day period for tourist visa</td></tr>
-<tr><th>Biometrics</th><td>Biometrics required for all in-person visa applications</td></tr>
-<tr><th>Health Insurance</th><td>Travel insurance with minimum ₹30,000 coverage required</td></tr>
-<tr><th>Application Centers</th><td>Embassy or consulate in your country</td></tr>
-<tr><th>English Requirement</th><td>No English language test required for visa applications</td></tr>
-<tr><th>Approval Rate</th><td>Approval rate is approximately 90-95% for Indian applicants meeting requirements</td></tr>
-</tbody></table>
+<div class="quick-stats-grid">
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-passport"></i></div>
+<div class="stat-label">Visa Required?</div>
+<div class="stat-value">Yes</div>
+<div class="stat-sub">For Indian citizens</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-clock"></i></div>
+<div class="stat-label">Processing</div>
+<div class="stat-value">10-15 days</div>
+<div class="stat-sub">Standard processing</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-currency-dollar"></i></div>
+<div class="stat-label">Visa Fee</div>
+<div class="stat-value">€35-80</div>
+<div class="stat-sub">Varies by type</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
+<div class="stat-label">Max Stay</div>
+<div class="stat-value">90 days</div>
+<div class="stat-sub">Within 180 days</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-shield-check"></i></div>
+<div class="stat-label">Approval Rate</div>
+<div class="stat-value">85%+</div>
+<div class="stat-sub">Complete apps</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-fingerprint"></i></div>
+<div class="stat-label">Biometrics</div>
+<div class="stat-value">Required</div>
+<div class="stat-sub">Visa application</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-geo-alt"></i></div>
+<div class="stat-label">Entry Mode</div>
+<div class="stat-value">Embassy</div>
+<div class="stat-sub">Appointment required</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-people"></i></div>
+<div class="stat-label">Financial Req</div>
+<div class="stat-value">€100/day</div>
+<div class="stat-sub">Sufficient funds</div>
+</div>
+</div>
 
 <div class="info-box">
 <h4>What is a Bosnia and Herzegovina Visa?</h4>
@@ -424,17 +289,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h3><i class="bi bi-info-circle"></i> What Is Available and Not Available</h3>
 <div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Can Indians...</th><th>Yes/No</th><th>Details</th></tr></thead><tbody><tr><td>Travel for tourism</td><td>Yes</td><td>Tourist visa available for tourism and recreation</td></tr><tr><td>Travel for business</td><td>Yes</td><td>Business visa required for meetings and conferences</td></tr><tr><td>Study</td><td>Yes</td><td>Student visa for enrolled students at Bosnia and Herzegovina institutions</td></tr><tr><td>Work</td><td>Yes</td><td>Work permit required for all employment in Bosnia and Herzegovina</td></tr><tr><td>Transit without visa</td><td>Yes</td><td>Transit visa available for connecting flights</td></tr><tr><td>Live permanently</td><td>Yes</td><td>Temporary/permanent residence permits available</td></tr></tbody></table></div>
 
-<h2><i class="bi bi-card-checklist"></i> Visa Types for Bosnia and Herzegovina</h2>
+<h2 id="visa-types"><i class="bi bi-card-checklist"></i> Visa Types for Bosnia and Herzegovina</h2>
 <p>Bosnia and Herzegovina has a liberal visa policy aligned with the EU. Citizens of most Western countries can enter visa-free, while others can apply through the embassy or eVisa system. depending on your purpose of travel.</p>
 <div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee</th></tr></thead><tbody><tr><td>Tourist Visa (Type C)</td><td>C</td><td>Tourism, family visits</td><td>90 days</td><td>5-10 working days</td><td>₹50 (₹4,500)</td></tr><tr><td>Business Visa</td><td>D</td><td>Business meetings, conferences</td><td>90 days</td><td>7-14 working days</td><td>₹80 (₹7,200)</td></tr><tr><td>Student Visa</td><td>D</td><td>Full-time studies</td><td>1 year renewable</td><td>4-6 weeks</td><td>₹50 (₹4,500)</td></tr><tr><td>Work Permit</td><td>D</td><td>Employment in Bosnia and Herzegovina</td><td>1 year renewable</td><td>30-60 days</td><td>₹80 (₹7,200)</td></tr><tr><td>Transit Visa</td><td>B</td><td>Airport transit</td><td>5 days</td><td>3-5 working days</td><td>₹40 (₹3,600)</td></tr></tbody></table></div>
 
-<h2><i class="bi bi-currency-rupee"></i> Visa Fees</h2>
+<h2 id="overview"><i class="bi bi-currency-rupee"></i> Visa Fees</h2>
 <p>Visa fees vary by category. All fees are non-refundable and subject to change.</p>
 <div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee</th><th>Approx (₹)</th></tr></thead><tbody><tr><td>Tourist Visa (Type C)</td><td>C</td><td>₹50</td><td>₹4,450 to ₹4,950</td></tr><tr><td>Business Visa</td><td>D</td><td>₹80</td><td>₹7,120 to ₹7,920</td></tr><tr><td>Student Visa</td><td>D</td><td>₹50</td><td>₹4,450 to ₹4,950</td></tr><tr><td>Work Permit</td><td>D</td><td>₹80</td><td>₹7,120 to ₹7,920</td></tr><tr><td>Transit Visa</td><td>B</td><td>₹40</td><td>₹3,560 to ₹3,960</td></tr></tbody></table></div>
 
 <h3><i class="bi bi-currency-rupee"></i> Additional Costs</h3><div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead><tbody><tr><td>Service Fee</td><td>₹1,000 to 2,000</td><td>Application center handling fee</td></tr><tr><td>Photography</td><td>₹200 to 400</td><td>Counter photo if needed</td></tr><tr><td>Insurance</td><td>₹2,000 to 4,000</td><td>Travel insurance (mandatory)</td></tr><tr><td>Courier</td><td>₹500 to 1,000</td><td>Passport return delivery</td></tr><tr><td>Translation</td><td>₹1,000 to 2,000</td><td>Document notarization/translation</td></tr></tbody></table></div>
 
-<h2><i class="bi bi-file-earmark-text"></i> Required Documents</h2>
+<h2 id="documents"><i class="bi bi-file-earmark-text"></i> Required Documents</h2>
 <p>Every visa application requires proof of identity, purpose of visit, and financial capacity.</p>
 
 <h3><i class="bi bi-card-checklist"></i> Core Documents (All Visa Types)</h3>
@@ -445,7 +310,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>Cover letter  Explaining purpose of visit, duration, itinerary, and ties to India.</strong></li>
 </ul>
 
-<h2><i class="bi bi-signpost-2"></i> Visa Application Process</h2>
+<h2 id="process"><i class="bi bi-signpost-2"></i> Visa Application Process</h2>
 <p>The application process typically involves the following steps:</p>
 <div class="process-step">
 <div class="process-step-num">1</div>
@@ -476,7 +341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="process-step-body"><strong>Receive Decision and Collect Passport</strong><p>If approved, your passport will be stamped with the visa or you will receive an electronic authorization.</p></div>
 </div>
 
-<h2><i class="bi bi-clock"></i> Processing Time</h2>
+<h2 id="processing-time"><i class="bi bi-clock"></i> Processing Time</h2>
 <p>Processing times vary significantly by visa category:</p>
 <div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Processing Time</th><th>Notes</th></tr></thead><tbody><tr><td>Tourist Visa (Type C)</td><td>C</td><td>5-10 working days</td><td>Varies by submission volume and completeness</td></tr><tr><td>Business Visa</td><td>D</td><td>7-14 working days</td><td>Varies by submission volume and completeness</td></tr><tr><td>Student Visa</td><td>D</td><td>4-6 weeks</td><td>Peak season (Aug-Oct) may take longer</td></tr><tr><td>Work Permit</td><td>D</td><td>30-60 days</td><td>Requires employer registration with Bosnia and Herzegovina authorities</td></tr><tr><td>Transit Visa</td><td>B</td><td>3-5 working days</td><td>Fastest processing category</td></tr></tbody></table></div>
 
@@ -523,12 +388,128 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>Attractions:</strong> Don't miss Stari Most (Old Bridge) in Mostar, Sarajevo's Bacarija (Old Bazaar), the Kravica Waterfalls, Pocitelj village, and the Sutjeska National Park (primeval forest).</li>
 </ul>
 
-<h2><i class="bi bi-question-circle"></i> Frequently Asked Questions</h2>
+<h2 id="faq"><i class="bi bi-question-circle"></i> Frequently Asked Questions</h2>
 <div class="faq-list" style="max-width:100%;">
 <div class="faq-item">
-<button class="faq-question" aria-expanded="false">How many Indian tourists visit Bosnia and Herzegovina annually?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p></p></div>
+<button class="faq-question" aria-expanded="false">Do Indian citizens need a visa for Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Yes, Indian citizens need a visa for Bosnia And Herzegovina. Key information:</p><ul><li>A visa is required for Indian passport holders traveling to Bosnia And Herzegovina.</li><li>See the <a href="#visa-types">Visa Types section</a> for all available visa categories and options.</li><li>Your passport must have <strong>at least 6 months validity</strong> beyond your intended stay.</li><li>Processing times vary by visa type — check the <a href="#processing-time">Processing Time section</a> for details.</li><li>See the <a href="#process">Application Process section</a> for step-by-step instructions.</li></ul></div>
 </div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What are the visa options for Indians visiting Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Available visa types for Indian citizens traveling to Bosnia And Herzegovina:</p><ul><li><strong>Tourist visa:</strong> For tourism and leisure travel. See the <a href="#visa-types">Visa Types section</a> for details.</li><li><strong>Business visa:</strong> For business meetings, conferences, and trade activities.</li><li><strong>Student visa:</strong> For enrolled students at Bosnia And Herzegovina educational institutions.</li><li><strong>Transit visa:</strong> For connecting flights through Bosnia And Herzegovina.</li><li>Each visa type has specific <strong>document requirements and fee structures</strong>.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What documents are required for a Bosnia And Herzegovina visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Standard document requirements for a Bosnia And Herzegovina visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> — minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> — 35×45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> — accurately filled with matching details.</li><li><strong>Travel itinerary</strong> — flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How long does it take to process a Bosnia And Herzegovina visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Processing times for Bosnia And Herzegovina visas vary by category:</p><ul><li><strong>Tourist visa:</strong> Processing takes approximately 5-15 working days depending on the application volume.</li><li><strong>Business visa:</strong> Typically 7-15 working days.</li><li><strong>Student visa:</strong> May take 4-8 weeks for complete processing.</li><li>See the <a href="#processing-time">Processing Time section</a> for detailed timelines.</li><li>Apply at least <strong>3-4 weeks before</strong> your intended travel date to allow for any delays.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is the Bosnia And Herzegovina visa fee for Indians?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Visa fees for Bosnia And Herzegovina depend on the visa category. <a href="#fees">See the complete fee table</a>:</p><ul><li>Fees vary by <strong>visa type</strong> (tourist, business, student, work).</li><li>Additional <strong>service charges</strong> may apply when applying through visa centers.</li><li>All fees are <strong>non-refundable</strong> once the application is submitted.</li><li>Payment methods vary — most accept online payment or demand drafts.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How long can I stay in Bosnia And Herzegovina on a tourist visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Stay duration on a tourist visa for Bosnia And Herzegovina:</p><ul><li>The tourist visa typically allows stays of <strong>30-90 days</strong> depending on the visa category.</li><li>Some visas allow <strong>single entry</strong>, others allow <strong>multiple entries</strong>.</li><li><strong>Extensions</strong> may be possible by applying to the immigration authorities.</li><li><strong>Overstaying</strong> can result in fines and future visa complications.</li><li>Check the <a href="#processing-time">Processing Time section</a> for detailed information.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is travel insurance required for Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Travel insurance information for Bosnia And Herzegovina:</p><ul><li><strong>Not mandatory</strong> for most tourist visas but <strong>strongly recommended</strong>.</li><li>Coverage should include <strong>medical emergencies</strong>, <strong>trip cancellation</strong>, and <strong>baggage loss</strong>.</li><li>Some visa categories may <strong>require proof of travel insurance</strong>.</li><li>Students and work visa holders may need health insurance as a condition of their visa.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is the best time to visit Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>The best time to visit Bosnia And Herzegovina depends on your preferences:</p><ul><li>Research the <strong>climate and seasons</strong> of Bosnia And Herzegovina before planning your trip.</li><li>Consider factors like <strong>temperature, rainfall, and tourist crowds</strong>.</li><li>Check for <strong>local festivals and events</strong> that may enhance your travel experience.</li><li>Book flights and accommodation <strong>in advance</strong> during peak tourist seasons.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I get a Bosnia And Herzegovina visa on arrival as an Indian?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Visa-on-arrival availability for Indian citizens in Bosnia And Herzegovina:</p><ul><li>Check the <strong>current visa policy</strong> for Indian nationals — most countries require a visa in advance.</li><li>If no visa on arrival is available, you must apply for a <strong>visa before travel</strong>.</li><li>See the <a href="#process">Application Process section</a> for the complete step-by-step guide.</li><li>Always verify current requirements with the <strong>official embassy website</strong>.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What are the common reasons for Bosnia And Herzegovina visa rejection?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Common reasons for visa rejection for Indian applicants:</p><ul><li><strong>Insufficient funds</strong> — bank statements must show adequate balance.</li><li><strong>Incomplete documentation</strong> — missing or incorrect documents.</li><li><strong>Poor travel history</strong> — limited international travel history may lead to stricter scrutiny.</li><li><strong>Discrepancies</strong> between application form and supporting documents.</li><li><strong>Criminal record</strong> or previous immigration violations.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What currency is used in Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Currency and payment information for Bosnia And Herzegovina:</p><ul><li>The official currency varies — check the <strong>local currency and exchange rates</strong> before traveling.</li><li><strong>Credit cards</strong> are accepted at most hotels and larger establishments in tourist areas.</li><li><strong>ATMs</strong> are available in cities and major towns.</li><li>Carry some <strong>local currency in cash</strong> for small purchases, tips, and local transport.</li><li>Inform your bank about your travel plans to avoid card blocks.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is Bosnia And Herzegovina safe for Indian tourists?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Safety tips for Indian travellers visiting Bosnia And Herzegovina:</p><ul><li>Research the <strong>safety situation</strong> in the areas you plan to visit.</li><li>Keep <strong>valuables secure</strong> and avoid displaying expensive items in public.</li><li>Follow <strong>local laws and customs</strong> to avoid any legal issues.</li><li>Save <strong>emergency contact numbers</strong> for local police and your country's embassy.</li><li>Register with your <strong>embassy or consulate</strong> upon arrival if recommended.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Do I need any vaccinations for Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Recommended vaccinations for travel to Bosnia And Herzegovina:</p><ul><li><strong>Routine vaccinations</strong> — MMR, DPT, and polio should be up to date.</li><li><strong>Yellow fever</strong> — required if travelling from a country with yellow fever risk.</li><li><strong>Hepatitis A and Typhoid</strong> — recommended for most international travel.</li><li>Consult your doctor <strong>4-6 weeks before travel</strong> for personalized advice.</li><li>Carry a <strong>basic medical kit</strong> with essential medications.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I extend my Bosnia And Herzegovina visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Visa extension information for Bosnia And Herzegovina:</p><ul><li>Extensions may be possible by applying to the <strong>immigration authorities</strong>.</li><li>Apply <strong>before your current visa expires</strong> to avoid overstaying.</li><li>Provide a <strong>valid reason</strong> for the extension along with supporting documents.</li><li>Extension fees and processes vary by country and visa type.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What language is spoken in Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Language information for Bosnia And Herzegovina:</p><ul><li>The <strong>official language</strong> and widely spoken languages in Bosnia And Herzegovina.</li><li><strong>English</strong> may be spoken in tourist areas and business settings.</li><li>Learning a few <strong>basic local phrases</strong> can enhance your travel experience.</li><li>Consider carrying a <strong>translation app</strong> on your smartphone for convenience.</li></ul></div>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What are the visa options for Indians visiting Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Available visa types for Indian citizens traveling to Bosnia And Herzegovina:</p><ul><li><strong>Tourist visa:</strong> For tourism and leisure travel. See the <a href="#visa-types">Visa Types section</a> for details.</li><li><strong>Business visa:</strong> For business meetings, conferences, and trade activities.</li><li><strong>Student visa:</strong> For enrolled students at Bosnia And Herzegovina educational institutions.</li><li><strong>Transit visa:</strong> For connecting flights through Bosnia And Herzegovina.</li><li>Each visa type has specific <strong>document requirements and fee structures</strong>.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What documents are required for a Bosnia And Herzegovina visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Standard document requirements for a Bosnia And Herzegovina visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> — minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> — 35×45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> — accurately filled with matching details.</li><li><strong>Travel itinerary</strong> — flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How long does it take to process a Bosnia And Herzegovina visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Processing times for Bosnia And Herzegovina visas vary by category:</p><ul><li><strong>Tourist visa:</strong> Processing takes approximately 5-15 working days depending on the application volume.</li><li><strong>Business visa:</strong> Typically 7-15 working days.</li><li><strong>Student visa:</strong> May take 4-8 weeks for complete processing.</li><li>See the <a href="#processing-time">Processing Time section</a> for detailed timelines.</li><li>Apply at least <strong>3-4 weeks before</strong> your intended travel date to allow for any delays.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is the Bosnia And Herzegovina visa fee for Indians?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Visa fees for Bosnia And Herzegovina depend on the visa category. <a href="#fees">See the complete fee table</a>:</p><ul><li>Fees vary by <strong>visa type</strong> (tourist, business, student, work).</li><li>Additional <strong>service charges</strong> may apply when applying through visa centers.</li><li>All fees are <strong>non-refundable</strong> once the application is submitted.</li><li>Payment methods vary — most accept online payment or demand drafts.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How long can I stay in Bosnia And Herzegovina on a tourist visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Stay duration on a tourist visa for Bosnia And Herzegovina:</p><ul><li>The tourist visa typically allows stays of <strong>30-90 days</strong> depending on the visa category.</li><li>Some visas allow <strong>single entry</strong>, others allow <strong>multiple entries</strong>.</li><li><strong>Extensions</strong> may be possible by applying to the immigration authorities.</li><li><strong>Overstaying</strong> can result in fines and future visa complications.</li><li>Check the <a href="#processing-time">Processing Time section</a> for detailed information.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is travel insurance required for Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Travel insurance information for Bosnia And Herzegovina:</p><ul><li><strong>Not mandatory</strong> for most tourist visas but <strong>strongly recommended</strong>.</li><li>Coverage should include <strong>medical emergencies</strong>, <strong>trip cancellation</strong>, and <strong>baggage loss</strong>.</li><li>Some visa categories may <strong>require proof of travel insurance</strong>.</li><li>Students and work visa holders may need health insurance as a condition of their visa.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is the best time to visit Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>The best time to visit Bosnia And Herzegovina depends on your preferences:</p><ul><li>Research the <strong>climate and seasons</strong> of Bosnia And Herzegovina before planning your trip.</li><li>Consider factors like <strong>temperature, rainfall, and tourist crowds</strong>.</li><li>Check for <strong>local festivals and events</strong> that may enhance your travel experience.</li><li>Book flights and accommodation <strong>in advance</strong> during peak tourist seasons.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I get a Bosnia And Herzegovina visa on arrival as an Indian?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Visa-on-arrival availability for Indian citizens in Bosnia And Herzegovina:</p><ul><li>Check the <strong>current visa policy</strong> for Indian nationals — most countries require a visa in advance.</li><li>If no visa on arrival is available, you must apply for a <strong>visa before travel</strong>.</li><li>See the <a href="#process">Application Process section</a> for the complete step-by-step guide.</li><li>Always verify current requirements with the <strong>official embassy website</strong>.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What are the common reasons for Bosnia And Herzegovina visa rejection?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Common reasons for visa rejection for Indian applicants:</p><ul><li><strong>Insufficient funds</strong> — bank statements must show adequate balance.</li><li><strong>Incomplete documentation</strong> — missing or incorrect documents.</li><li><strong>Poor travel history</strong> — limited international travel history may lead to stricter scrutiny.</li><li><strong>Discrepancies</strong> between application form and supporting documents.</li><li><strong>Criminal record</strong> or previous immigration violations.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What currency is used in Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Currency and payment information for Bosnia And Herzegovina:</p><ul><li>The official currency varies — check the <strong>local currency and exchange rates</strong> before traveling.</li><li><strong>Credit cards</strong> are accepted at most hotels and larger establishments in tourist areas.</li><li><strong>ATMs</strong> are available in cities and major towns.</li><li>Carry some <strong>local currency in cash</strong> for small purchases, tips, and local transport.</li><li>Inform your bank about your travel plans to avoid card blocks.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is Bosnia And Herzegovina safe for Indian tourists?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Safety tips for Indian travellers visiting Bosnia And Herzegovina:</p><ul><li>Research the <strong>safety situation</strong> in the areas you plan to visit.</li><li>Keep <strong>valuables secure</strong> and avoid displaying expensive items in public.</li><li>Follow <strong>local laws and customs</strong> to avoid any legal issues.</li><li>Save <strong>emergency contact numbers</strong> for local police and your country's embassy.</li><li>Register with your <strong>embassy or consulate</strong> upon arrival if recommended.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Do I need any vaccinations for Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Recommended vaccinations for travel to Bosnia And Herzegovina:</p><ul><li><strong>Routine vaccinations</strong> — MMR, DPT, and polio should be up to date.</li><li><strong>Yellow fever</strong> — required if travelling from a country with yellow fever risk.</li><li><strong>Hepatitis A and Typhoid</strong> — recommended for most international travel.</li><li>Consult your doctor <strong>4-6 weeks before travel</strong> for personalized advice.</li><li>Carry a <strong>basic medical kit</strong> with essential medications.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I extend my Bosnia And Herzegovina visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Visa extension information for Bosnia And Herzegovina:</p><ul><li>Extensions may be possible by applying to the <strong>immigration authorities</strong>.</li><li>Apply <strong>before your current visa expires</strong> to avoid overstaying.</li><li>Provide a <strong>valid reason</strong> for the extension along with supporting documents.</li><li>Extension fees and processes vary by country and visa type.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What language is spoken in Bosnia And Herzegovina?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Language information for Bosnia And Herzegovina:</p><ul><li>The <strong>official language</strong> and widely spoken languages in Bosnia And Herzegovina.</li><li><strong>English</strong> may be spoken in tourist areas and business settings.</li><li>Learning a few <strong>basic local phrases</strong> can enhance your travel experience.</li><li>Consider carrying a <strong>translation app</strong> on your smartphone for convenience.</li></ul></div>
+</div>
+</div>
+
 </div>
 
 <h2><i class="bi bi-megaphone"></i> 2026 Updates</h2>
@@ -743,6 +724,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
   </div>
 <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+<!-- Reading Progress & TOC Active State -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var progressBar = document.getElementById('readingProgress');
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var sections = [];
+  tocLinks.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      var section = document.querySelector(href);
+      if (section) sections.push({ el: section, link: link });
+    }
+  });
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
+        var current = 0;
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i].el.offsetTop - 200 <= scrollTop) {
+            current = i;
+          }
+        }
+        tocLinks.forEach(function(l, idx) {
+          l.classList.toggle('active', idx === current);
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  var toc = document.getElementById('stickyToc');
+  if (toc) {
+    window.addEventListener('scroll', function() {
+      toc.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  }
+});
+</script>
 <script src="/js/main.js" defer></script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
