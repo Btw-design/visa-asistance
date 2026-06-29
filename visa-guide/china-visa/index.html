@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
@@ -208,170 +208,195 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
  <style>
- /* ===== Update Metadata Bar ===== */
- .update-bar{background:#fff;border:1px solid #e8ecf0;border-radius:10px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
- .update-bar strong{color:#1a202c;font-weight:600}
- .update-bar span{color:#718096}
+/* ==============================
+   ENHANCED VISA GUIDE UI v2.0
+   Modern, premium design for all visa guide pages
+   Preserves all content while enhancing layout & aesthetics
+   ============================== */
 
- /* ===== Quick Overview Table ===== */
- .quick-overview{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:0.9rem;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
- .quick-overview td,.quick-overview th{border:1px solid #eef0f2;padding:11px 16px;vertical-align:top}
- .quick-overview th{background:#f7f8fa;font-weight:600;color:#1a202c;width:28%;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px}
- .quick-overview td{background:#fff}
+/* ===== Update Metadata Bar ===== */
+.update-bar{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;border-radius:12px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(23,18,153,0.04)}
+.update-bar strong{color:#0a0a52;font-weight:700}
+.update-bar span{color:#718096}
 
- /* ===== Info Box ===== */
- .info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
- .info-box h4{margin:0 0 8px;color:#1a202c;font-size:1.05rem}
- .info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
- .info-box p:last-child{margin:0}
+/* ===== Quick Overview Table ===== */
+.quick-overview{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
+.quick-overview th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);font-weight:700;color:#0a0a52;width:28%;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.5px;padding:13px 16px;border-bottom:1px solid #e2e6ea;vertical-align:top}
+.quick-overview td{padding:13px 16px;vertical-align:top;background:#fff;color:#4a5568;border-bottom:1px solid #f0f2f5}
+.quick-overview tbody tr:last-child td,.quick-overview tbody tr:last-child th{border-bottom:none}
+.quick-overview tbody tr:hover td{background:#f8f9fe}
 
- /* ===== Section Headings ===== */
- .main-content h2{margin-top:38px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#1a202c}
- .main-content h2:first-of-type{margin-top:0}
- .main-content h3{margin-top:26px;margin-bottom:10px;font-size:1.15rem;color:#2d3748}
+/* ===== Info Box ===== */
+.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
+.info-box:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.info-box h4{margin:0 0 8px;color:#0a0a52;font-size:1.05rem;font-weight:700}
+.info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
+.info-box p:last-child{margin:0}
 
- /* ===== Visa Tables ===== */
- .visa-table{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:0.9rem;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
- .visa-table thead th{background:#f7f8fa;color:#1a202c;padding:12px 14px;text-align:left;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px;border-bottom:2px solid #e2e6ea}
- .visa-table td,.visa-table th{border:1px solid #eef0f2;padding:11px 14px;vertical-align:top}
- .visa-table tbody td{background:#fff;color:#4a5568}
- .visa-table tbody tr:nth-child(even) td{background:#fafbfc}
- .visa-table tbody tr:hover td{background:#f0f7ff}
- .visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:10px}
+/* ===== Section Headings ===== */
+.main-content h2{margin-top:42px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#0a0a52;letter-spacing:-0.01em}
+.main-content h2:first-of-type{margin-top:0}
+.main-content h3{margin-top:28px;margin-bottom:12px;font-size:1.15rem;color:#2d3748}
 
- /* ===== CTA Section ===== */
- .cta-section{background:#fff;border:2px solid #eef0f2;padding:40px;border-radius:14px;margin:44px 0;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
- .cta-section h2{color:#1a202c;margin:0 0 12px;font-size:1.6rem;border:none;padding:0}
- .cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6}
- .cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:14px 38px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s ease;box-shadow:0 4px 14px rgba(23,18,153,0.2)}
- .cta-section .btn:hover{background:#0a0a52;transform:translateY(-2px);box-shadow:0 6px 20px rgba(23,18,153,0.3)}
+/* ===== Visa Tables ===== */
+.visa-table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
+.visa-table thead th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);color:#0a0a52;padding:13px 14px;text-align:left;font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.4px;border-bottom:2px solid #dde0e8}
+.visa-table td,.visa-table th{border:1px solid #eef0f2;padding:12px 14px;vertical-align:top}
+.visa-table tbody td{background:#fff;color:#4a5568}
+.visa-table tbody tr:nth-child(even) td{background:#fafbfc}
+.visa-table tbody tr:hover td{background:#f0f7ff}
+.visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:12px}
 
- /* ===== Sidebar Cards ===== */
- .sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:10px;padding:22px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
- .sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#1a202c;border-bottom:2px solid #f0f2f5;padding-bottom:8px}
- .sidebar-card ul{margin:0;padding:0}
- .sidebar-card ul li{padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568}
- .sidebar-card ul li:last-child{border:none}
- .sidebar-card ul li a{color:#2b6cb0;text-decoration:none}
- .sidebar-card ul li a:hover{color:#1a202c;text-decoration:underline}
+/* ===== CTA Section ===== */
+.cta-section{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;padding:44px;border-radius:16px;margin:48px 0;text-align:center;box-shadow:0 4px 16px rgba(23,18,153,0.06);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
+.cta-section::after{content:'';position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(23,18,153,0.04),transparent 70%);pointer-events:none}
+.cta-section h2{color:#0a0a52;margin:0 0 12px;font-size:1.6rem;border:none;padding:0;position:relative}
+.cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6;position:relative}
+.cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:15px 40px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:0 4px 14px rgba(23,18,153,0.25);position:relative}
+.cta-section .btn:hover{background:linear-gradient(135deg,#0a0a52,#171299);transform:translateY(-3px);box-shadow:0 8px 25px rgba(23,18,153,0.35)}
 
- /* ===== FAQ Styles ===== */
- .faq-list{margin:18px 0 28px}
- .faq-item{border:1px solid #eef0f2;border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03)}
- .faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:500;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
- .faq-question:hover{background:#f7f8fa}
- .faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s;flex-shrink:0;margin-left:12px}
- .faq-item.active .faq-question{background:#f7f8fa;font-weight:600}
- .faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
- .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.35s ease, padding 0.35s ease;padding:0 20px;background:#fff}
- .faq-item.active .faq-answer{max-height:600px;padding:4px 20px 16px}
- .faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
+/* ===== Sidebar Cards ===== */
+.sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:box-shadow 0.3s ease}
+.sidebar-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#0a0a52;border-bottom:2px solid #f0f2f5;padding-bottom:10px;font-weight:700}
+.sidebar-card ul{margin:0;padding:0}
+.sidebar-card ul li{padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568;transition:padding-left 0.2s ease}
+.sidebar-card ul li:last-child{border:none}
+.sidebar-card ul li a{color:#2b6cb0;text-decoration:none;transition:color 0.2s ease}
+.sidebar-card ul li a:hover{color:#0a0a52;text-decoration:underline}
 
- /* ===== Content Layout ===== */
- .country-content{padding:40px 0 60px;background:#fff}
- .country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
- .country-content .main-content{min-width:0}
- .sidebar{position:sticky;top:90px}
+/* ===== FAQ Styles ===== */
+.faq-list{margin:18px 0 28px}
+.faq-item{border:1px solid #eef0f2;border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.3s ease}
+.faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05)}
+.faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:600;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s, color 0.2s}
+.faq-question:hover{background:#f7f8fa;color:#0a0a52}
+.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
+.faq-item.active .faq-question{background:#f7f8fa;font-weight:700;color:#0a0a52}
+.faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);padding:0 20px;background:#fff}
+.faq-item.active .faq-answer{max-height:600px;padding:4px 20px 18px}
+.faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
 
- /* ===== Paragraphs & Lists ===== */
- .main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
- .main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
- .main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
+/* ===== Content Layout ===== */
+.country-content{padding:40px 0 60px;background:#fff}
+.country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
+.country-content .main-content{min-width:0}
+.sidebar{position:sticky;top:90px;align-self:start}
 
- /* ===== Responsive: Tablet (768px - 991px) ===== */
- @media(max-width:991px){
- .country-content .content-grid{grid-template-columns:1fr;gap:30px}
- .sidebar{position:static}
- .sidebar-card{padding:18px}
- .main-content h2{font-size:1.35rem}
- .country-content{padding:30px 0 50px}
- }
+/* ===== Paragraphs & Lists ===== */
+.main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
+.main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
+.main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
 
- /* ===== Responsive: Mobile (up to 767px) ===== */
- @media(max-width:767px){
- .country-content{padding:20px 0 40px}
- .country-content .content-grid{gap:24px}
- .update-bar{font-size:0.82rem;padding:12px 14px}
- .quick-overview,.visa-table{font-size:0.8rem;font-weight:400}
- .quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:8px 10px}
- .quick-overview th{width:35%}
- .visa-table thead th{font-size:0.78rem;padding:10px}
- .info-box{padding:16px 18px}
- .info-box h4{font-size:0.95rem}
- .cta-section{padding:28px 18px}
- .cta-section h2{font-size:1.25rem}
- .cta-section .btn{padding:12px 28px;font-size:0.95rem}
- .main-content h2{font-size:1.2rem;margin-top:28px}
- .main-content h3{font-size:1.05rem}
- .main-content p,.main-content ul li{font-size:0.9rem}
- .faq-question{font-size:0.9rem;padding:14px 16px}
- .faq-answer{padding:0 16px}
- .faq-item.active .faq-answer{padding:4px 16px 14px}
- .sidebar-card{padding:16px}
- .country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
- }
+/* ===== DESIGN ENHANCEMENTS ===== */
 
-  /* ===== Responsive: Small Mobile (up to 480px) ===== */
-  @media(max-width:480px){
-  .quick-overview th{width:40%}
-  .quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:6px 8px}
-  .update-bar{font-size:0.78rem;padding:10px 12px}
-  .cta-section{padding:22px 14px;margin:30px 0}
-  }
+/* Hero badges - refined */
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
+.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(165,213,73,0.3);transform:translateY(-1px)}
+.hero-badge i{color:var(--color-accent);font-size:0.85rem}
 
-  /* ===== DESIGN IMPROVEMENTS ===== */
+/* Section heading icons - with hover motion */
+.main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px;transition:transform 0.3s ease}
+.main-content h2:hover i.bi,.main-content h3:hover i.bi{transform:scale(1.15)}
 
-  /* Hero badges */
-  .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
-  .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12)}
-  .hero-badge i{color:var(--color-accent);font-size:0.85rem}
+/* Process step cards - premium card design */
+.process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
+.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(165,213,73,0.3));opacity:0;transition:opacity 0.3s ease}
+.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(165,213,73,0.3)}
+.process-step:hover::before{opacity:1}
+.process-step-num{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-top:2px;box-shadow:0 3px 10px rgba(23,18,153,0.2);transition:all 0.3s ease}
+.process-step:hover .process-step-num{transform:scale(1.08);box-shadow:0 4px 14px rgba(23,18,153,0.3)}
+.process-step-body{flex:1}
+.process-step-body strong{display:block;color:#1a202c;font-size:1rem;margin-bottom:4px;transition:color 0.3s ease}
+.process-step:hover .process-step-body strong{color:#0a0a52}
+.process-step-body p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.65}
 
-  /* Section heading icons */
-  .main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px}
+/* Compact inline step for international process */
+.step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5;transition:background 0.2s ease}
+.step-pill:hover{background:#eef0f5}
 
-  /* Process step cards */
-  .process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:10px;padding:16px 20px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.2s ease,transform 0.2s ease}
-  .process-step:hover{box-shadow:0 4px 14px rgba(0,0,0,0.07);transform:translateY(-1px)}
-  .process-step-num{flex-shrink:0;width:36px;height:36px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;margin-top:3px}
-  .process-step-body{flex:1}
-  .process-step-body strong{display:block;color:#1a202c;font-size:0.98rem;margin-bottom:3px}
-  .process-step-body p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.65}
+/* Icon bullet lists - refined */
+.main-content ul.icon-bullets{list-style:none;padding-left:0;margin:10px 0 18px}
+.main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px;transition:transform 0.2s ease}
+.main-content ul.icon-bullets li:hover{transform:translateX(3px)}
+.main-content ul.icon-bullets li::before{position:absolute;left:0;top:2px;font-family:'bootstrap-icons';font-size:1rem;color:var(--color-accent);line-height:1.4}
+.main-content ul.icon-bullets li.check::before{content:'\F26E'}
+.main-content ul.icon-bullets li.warn::before{content:'\F33A';color:#d97706}
+.main-content ul.icon-bullets li.info::before{content:'\F431';color:#2b6cb0}
 
-  /* Compact inline step for processes */
-  .step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5}
+/* Info box variants - enhanced with subtle gradient overlay */
+.info-box.info-blue{border-left-color:#2b6cb0}
+.info-box.info-blue h4{color:#2b6cb0}
+.info-box.info-amber{border-left-color:#d97706}
+.info-box.info-amber h4{color:#d97706}
 
-  /* Icon bullet lists */
-  .main-content ul.icon-bullets{list-style:none;padding-left:0;margin:10px 0 18px}
-  .main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px}
-  .main-content ul.icon-bullets li::before{position:absolute;left:0;top:2px;font-family:'bootstrap-icons';font-size:1rem;color:var(--color-accent);line-height:1.4}
-  .main-content ul.icon-bullets li.check::before{content:'\F26E'}
-  .main-content ul.icon-bullets li.warn::before{content:'\F33A';color:#d97706}
-  .main-content ul.icon-bullets li.info::before{content:'\F431';color:#2b6cb0}
+/* Trust badges row - refined card */
+.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:18px 22px;background:linear-gradient(135deg,#fafbf5,#f5f7ef);border:1px solid #eef0f2;border-radius:12px;transition:box-shadow 0.3s ease}
+.trust-row:hover{box-shadow:0 3px 12px rgba(0,0,0,0.04)}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
+.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(165,213,73,0.2))}
 
-  /* Info box variants */
-  .info-box.info-blue{border-left-color:#2b6cb0}
-  .info-box.info-blue h4{color:#2b6cb0}
-  .info-box.info-amber{border-left-color:#d97706}
-  .info-box.info-amber h4{color:#d97706}
+/* Highlight key items in tables */
+.visa-table tbody tr.highlight td{background:linear-gradient(90deg,#fafbf5,#f5f7ef)}
+.visa-table tbody tr.highlight td:first-child{font-weight:700;color:#0a0a52}
 
-  /* Trust badges row */
-  .trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:16px 20px;background:#fafbf5;border:1px solid #eef0f2;border-radius:10px}
-  .trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
-  .trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0}
+/* ===== Responsive: Tablet (768px - 991px) ===== */
+@media(max-width:991px){
+.country-content .content-grid{grid-template-columns:1fr;gap:30px}
+.sidebar{position:static}
+.sidebar-card{padding:18px}
+.main-content h2{font-size:1.35rem}
+.country-content{padding:30px 0 50px}
+}
 
-  /* Highlight key items in tables */
-  .visa-table tbody tr.highlight td{background:#fafbf5}
-  .visa-table tbody tr.highlight td:first-child{font-weight:600;color:#0a0a52}
+/* ===== Responsive: Mobile (up to 767px) ===== */
+@media(max-width:767px){
+.country-content{padding:20px 0 40px}
+.country-content .content-grid{gap:24px}
+.update-bar{font-size:0.82rem;padding:12px 14px;border-radius:10px}
+.quick-overview,.visa-table{font-size:0.8rem;font-weight:400;border-radius:10px}
+.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:9px 11px}
+.quick-overview th{width:35%}
+.visa-table thead th{font-size:0.78rem;padding:10px}
+.info-box{padding:16px 18px;border-radius:10px}
+.info-box h4{font-size:0.95rem}
+.cta-section{padding:28px 20px;border-radius:12px}
+.cta-section h2{font-size:1.25rem}
+.cta-section .btn{padding:13px 30px;font-size:0.95rem}
+.main-content h2{font-size:1.2rem;margin-top:28px}
+.main-content h3{font-size:1.05rem}
+.main-content p,.main-content ul li{font-size:0.9rem}
+.faq-question{font-size:0.9rem;padding:14px 16px}
+.faq-answer{padding:0 16px}
+.faq-item.active .faq-answer{padding:4px 16px 14px}
+.sidebar-card{padding:16px}
+.trust-row{border-radius:10px}
+.country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
 
-  /* Responsive adjustments for new elements */
-  @media(max-width:767px){
-  .process-step{padding:14px 16px;gap:12px}
-  .process-step-num{width:30px;height:30px;font-size:0.8rem;margin-top:2px}
-  .trust-row{gap:12px;padding:14px 16px}
-  .main-content h2 i.bi,.main-content h3 i.bi{font-size:1em}
-  .step-pill{font-size:0.85rem}
-  }
-  </style>
+/* Process steps on mobile */
+.process-step{padding:15px 18px;gap:12px;border-radius:10px}
+.process-step-num{width:32px;height:32px;font-size:0.82rem;margin-top:2px}
+.trust-row{gap:12px;padding:14px 16px}
+.main-content h2 i.bi,.main-content h3 i.bi{font-size:1em}
+.step-pill{font-size:0.85rem}
+.hero-badge:hover{transform:none}
+.main-content ul.icon-bullets li:hover{transform:none}
+.process-step:hover{transform:none}
+.process-step:hover .process-step-num{transform:none}
+}
+
+/* ===== Responsive: Small Mobile (up to 480px) ===== */
+@media(max-width:480px){
+.quick-overview th{width:40%}
+.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:7px 9px}
+.update-bar{font-size:0.78rem;padding:10px 12px}
+.cta-section{padding:22px 16px;margin:30px 0;border-radius:10px}
+}
+
+</style>
 
 
  </style>
@@ -460,25 +485,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Visa fees vary significantly by category. All fees are non-refundable and subject to change based on exchange rates.</p>
 
  <table class="visa-table">
- <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (CNY)</th><th>Fee (₹ Approx)</th></tr></thead>
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (CNY)</th><th>Fee (? Approx)</th></tr></thead>
  <tbody>
- <tr><td>Tourist Visa (L)</td><td>L</td><td>CNY 800</td><td>₹8,740 to ₹9,660</td></tr>
- <tr><td>Business Visa (M)</td><td>M</td><td>CNY 800</td><td>₹8,740 to ₹9,660</td></tr>
- <tr><td>Student Visa (X1)</td><td>X1</td><td>CNY 1,200</td><td>₹13,110 to ₹14,490</td></tr>
- <tr><td>Student Visa (X2)</td><td>X2</td><td>CNY 800</td><td>₹8,740 to ₹9,660</td></tr>
- <tr><td>Work Visa (Z)</td><td>Z</td><td>CNY 1,500</td><td>₹16,388 to ₹18,112</td></tr>
- <tr><td>Transit Visa (G)</td><td>G</td><td>CNY 400</td><td>₹4,370 to ₹4,830</td></tr>
+ <tr><td>Tourist Visa (L)</td><td>L</td><td>CNY 800</td><td>?8,740 to ?9,660</td></tr>
+ <tr><td>Business Visa (M)</td><td>M</td><td>CNY 800</td><td>?8,740 to ?9,660</td></tr>
+ <tr><td>Student Visa (X1)</td><td>X1</td><td>CNY 1,200</td><td>?13,110 to ?14,490</td></tr>
+ <tr><td>Student Visa (X2)</td><td>X2</td><td>CNY 800</td><td>?8,740 to ?9,660</td></tr>
+ <tr><td>Work Visa (Z)</td><td>Z</td><td>CNY 1,500</td><td>?16,388 to ?18,112</td></tr>
+ <tr><td>Transit Visa (G)</td><td>G</td><td>CNY 400</td><td>?4,370 to ?4,830</td></tr>
  </tbody>
  </table>
 
  <h3>Additional Costs</h3>
  <table class="visa-table">
- <thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead>
+ <thead><tr><th>Cost Type</th><th>Amount (?)</th><th>Details</th></tr></thead>
  <tbody>
- <tr><td>CVASC Service Fee</td><td>₹1,200 to 1,800</td><td>Application center processing fee</td></tr>
- <tr><td>Express Fee</td><td>₹2,000 to 3,000</td><td>Urgent processing (1-2 days)</td></tr>
- <tr><td>Biometrics</td><td>₹0</td><td>Included in service fee</td></tr>
- <tr><td>Courier</td><td>₹600 to 1,000</td><td>Return passport delivery</td></tr>
+ <tr><td>CVASC Service Fee</td><td>?1,200 to 1,800</td><td>Application center processing fee</td></tr>
+ <tr><td>Express Fee</td><td>?2,000 to 3,000</td><td>Urgent processing (1-2 days)</td></tr>
+ <tr><td>Biometrics</td><td>?0</td><td>Included in service fee</td></tr>
+ <tr><td>Courier</td><td>?600 to 1,000</td><td>Return passport delivery</td></tr>
  </tbody>
  </table>
 

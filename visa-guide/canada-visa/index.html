@@ -1,104 +1,26 @@
-hing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
-a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
-a:hover{color:var(--color-accent)}
-ul{list-style:none}
-h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
-h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
-h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
-h3{font-size:clamp(1.15rem,2vw,1.4rem)}
-p{margin-bottom:1rem;color:var(--color-text)}
-img{max-width:100%;height:auto;display:block}
-.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
-.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
-.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
-.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
-.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
-.btn-lg{padding:16px 36px;font-size:1.1rem}
-.btn-white{background:var(--color-white);color:var(--color-primary)}
-.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
-.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
-.logo span{color:var(--color-accent)}
-.nav{display:flex;align-items:center;gap:12px}
-.nav-list{display:flex;align-items:center;gap:4px}
-.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
-.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
-.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
-.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
-.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
-.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
-.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
-.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
-.nav-overlay.open{opacity:1}
-.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
-.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
-.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
-.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
-.hero-badge i,.hero-badge svg{color:var(--color-accent)}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
-.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
-.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
-.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
-.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
-.hero-form h3{color:var(--color-primary);font-size:1.25rem}
-.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
-.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
-.breadcrumbs a{color:var(--color-primary-light)}
-.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
-.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
-.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
-.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
-.section{padding:80px 0}
-.section-alt{background:var(--color-bg-alt)}
-.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
-.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
-.section-heading p{color:var(--color-text-light);font-size:1.1rem}
-.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
-.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
-
-
-.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
-.scroll-top.visible{opacity:1;visibility:visible}
-.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
-
-.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
-.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
-.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
-.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
-.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
-.country-hero .breadcrumb a:hover{color:var(--color-accent)}
-body.menu-open{overflow:hidden}
-.text-center{text-align:center}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
-@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
-@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}</style>
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  
  <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
  <link rel="preconnect" href="https://cdn.jsdelivr.net">
  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Canada Visa for Indians 2026: Types, Fees, Process & Requirements - My Visa Assistance</title>
- <meta name="description" content="Canada offers a range of visa options for Indian citizens including visitor visas, study permits, and work permits. The country is a popular destination for Indian students and skilled workers due to - Fees, processing times, and step-by-step guide.">
+ <title>Canada Visa for Indians 2026: Types, Fees, Process &amp; Requirements - My Visa Assistance</title>
+ <meta name="description" content="Complete guide to Canada visas for Indian citizens covering visitor, student, work and permanent residence visas with 2026 fees, processing times, and step-by-step application guidance.">
  <meta name="author" content="My Visa Assistance Editorial Team">
  
  <meta name="robots" content="index, follow">
  <meta property="og:type" content="article">
  <meta property="og:url" content="https://myvisaassistance.com/visa-guide/canada-visa">
  <meta property="og:title" content="Canada Visa for Indians 2026: Types, Fees, Process &amp; Requirements">
- <meta property="og:description" content="Canada offers a range of visa options for Indian citizens including visitor visas, study permits, and work permits. The country is a popular destination for.">
+ <meta property="og:description" content="Complete guide to Canada visas for Indian citizens covering visitor, student, work and permanent residence visas.">
  
  
  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
@@ -144,19 +66,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 
+
 <body>
-
-<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
-<div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#171299"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#171299"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
-</div>
-<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
- <header class="header" role="banner">
+<header class="header" role="banner">
  <div class="header-inner">
  <a href="/" class="logo">
  <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
@@ -202,169 +114,195 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
  <style>
- /* ===== Update Metadata Bar ===== */
- .update-bar{background:#fff;border:1px solid #e8ecf0;border-radius:10px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
- .update-bar strong{color:#1a202c;font-weight:600}
- .update-bar span{color:#718096}
+/* ==============================
+   ENHANCED VISA GUIDE UI v2.0
+   Modern, premium design for all visa guide pages
+   Preserves all content while enhancing layout & aesthetics
+   ============================== */
 
- /* ===== Quick Overview Table ===== */
- .quick-overview{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:0.9rem;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
- .quick-overview td,.quick-overview th{border:1px solid #eef0f2;padding:11px 16px;vertical-align:top}
- .quick-overview th{background:#f7f8fa;font-weight:600;color:#1a202c;width:28%;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px}
- .quick-overview td{background:#fff}
+/* ===== Update Metadata Bar ===== */
+.update-bar{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;border-radius:12px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(23,18,153,0.04)}
+.update-bar strong{color:#0a0a52;font-weight:700}
+.update-bar span{color:#718096}
 
- /* ===== Info Box ===== */
- .info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
- .info-box h4{margin:0 0 8px;color:#1a202c;font-size:1.05rem}
- .info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
- .info-box p:last-child{margin:0}
+/* ===== Quick Overview Table ===== */
+.quick-overview{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
+.quick-overview th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);font-weight:700;color:#0a0a52;width:28%;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.5px;padding:13px 16px;border-bottom:1px solid #e2e6ea;vertical-align:top}
+.quick-overview td{padding:13px 16px;vertical-align:top;background:#fff;color:#4a5568;border-bottom:1px solid #f0f2f5}
+.quick-overview tbody tr:last-child td,.quick-overview tbody tr:last-child th{border-bottom:none}
+.quick-overview tbody tr:hover td{background:#f8f9fe}
 
- /* ===== Section Headings ===== */
- .main-content h2{margin-top:38px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#1a202c}
- .main-content h2:first-of-type{margin-top:0}
- .main-content h3{margin-top:26px;margin-bottom:10px;font-size:1.15rem;color:#2d3748}
+/* ===== Info Box ===== */
+.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
+.info-box:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.info-box h4{margin:0 0 8px;color:#0a0a52;font-size:1.05rem;font-weight:700}
+.info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
+.info-box p:last-child{margin:0}
 
- /* ===== Visa Tables ===== */
- .visa-table{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:0.9rem;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
- .visa-table thead th{background:#f7f8fa;color:#1a202c;padding:12px 14px;text-align:left;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px;border-bottom:2px solid #e2e6ea}
- .visa-table td,.visa-table th{border:1px solid #eef0f2;padding:11px 14px;vertical-align:top}
- .visa-table tbody td{background:#fff;color:#4a5568}
- .visa-table tbody tr:nth-child(even) td{background:#fafbfc}
- .visa-table tbody tr:hover td{background:#f0f7ff}
- .visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:10px}
+/* ===== Section Headings ===== */
+.main-content h2{margin-top:42px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#0a0a52;letter-spacing:-0.01em}
+.main-content h2:first-of-type{margin-top:0}
+.main-content h3{margin-top:28px;margin-bottom:12px;font-size:1.15rem;color:#2d3748}
 
- /* ===== CTA Section ===== */
- .cta-section{background:#fff;border:2px solid #eef0f2;padding:40px;border-radius:14px;margin:44px 0;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
- .cta-section h2{color:#1a202c;margin:0 0 12px;font-size:1.6rem;border:none;padding:0}
- .cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6}
- .cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:14px 38px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s ease;box-shadow:0 4px 14px rgba(23,18,153,0.2)}
- .cta-section .btn:hover{background:#0a0a52;transform:translateY(-2px);box-shadow:0 6px 20px rgba(23,18,153,0.3)}
+/* ===== Visa Tables ===== */
+.visa-table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
+.visa-table thead th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);color:#0a0a52;padding:13px 14px;text-align:left;font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.4px;border-bottom:2px solid #dde0e8}
+.visa-table td,.visa-table th{border:1px solid #eef0f2;padding:12px 14px;vertical-align:top}
+.visa-table tbody td{background:#fff;color:#4a5568}
+.visa-table tbody tr:nth-child(even) td{background:#fafbfc}
+.visa-table tbody tr:hover td{background:#f0f7ff}
+.visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:12px}
 
- /* ===== Sidebar Cards ===== */
- .sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:10px;padding:22px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
- .sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#1a202c;border-bottom:2px solid #f0f2f5;padding-bottom:8px}
- .sidebar-card ul{margin:0;padding:0}
- .sidebar-card ul li{padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568}
- .sidebar-card ul li:last-child{border:none}
- .sidebar-card ul li a{color:#2b6cb0;text-decoration:none}
- .sidebar-card ul li a:hover{color:#1a202c;text-decoration:underline}
+/* ===== CTA Section ===== */
+.cta-section{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;padding:44px;border-radius:16px;margin:48px 0;text-align:center;box-shadow:0 4px 16px rgba(23,18,153,0.06);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
+.cta-section::after{content:'';position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(23,18,153,0.04),transparent 70%);pointer-events:none}
+.cta-section h2{color:#0a0a52;margin:0 0 12px;font-size:1.6rem;border:none;padding:0;position:relative}
+.cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6;position:relative}
+.cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:15px 40px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:0 4px 14px rgba(23,18,153,0.25);position:relative}
+.cta-section .btn:hover{background:linear-gradient(135deg,#0a0a52,#171299);transform:translateY(-3px);box-shadow:0 8px 25px rgba(23,18,153,0.35)}
 
- /* ===== FAQ Styles ===== */
- .faq-list{margin:18px 0 28px}
- .faq-item{border:1px solid #eef0f2;border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03)}
- .faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:500;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
- .faq-question:hover{background:#f7f8fa}
- .faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s;flex-shrink:0;margin-left:12px}
- .faq-item.active .faq-question{background:#f7f8fa;font-weight:600}
- .faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
- .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.35s ease, padding 0.35s ease;padding:0 20px;background:#fff}
- .faq-item.active .faq-answer{max-height:600px;padding:4px 20px 16px}
- .faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
+/* ===== Sidebar Cards ===== */
+.sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:box-shadow 0.3s ease}
+.sidebar-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#0a0a52;border-bottom:2px solid #f0f2f5;padding-bottom:10px;font-weight:700}
+.sidebar-card ul{margin:0;padding:0}
+.sidebar-card ul li{padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568;transition:padding-left 0.2s ease}
+.sidebar-card ul li:last-child{border:none}
+.sidebar-card ul li a{color:#2b6cb0;text-decoration:none;transition:color 0.2s ease}
+.sidebar-card ul li a:hover{color:#0a0a52;text-decoration:underline}
 
- /* ===== Content Layout ===== */
- .country-content{padding:40px 0 60px;background:#fff}
- .country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
- .country-content .main-content{min-width:0}
- .sidebar{position:sticky;top:90px}
+/* ===== FAQ Styles ===== */
+.faq-list{margin:18px 0 28px}
+.faq-item{border:1px solid #eef0f2;border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.3s ease}
+.faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05)}
+.faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:600;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s, color 0.2s}
+.faq-question:hover{background:#f7f8fa;color:#0a0a52}
+.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
+.faq-item.active .faq-question{background:#f7f8fa;font-weight:700;color:#0a0a52}
+.faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);padding:0 20px;background:#fff}
+.faq-item.active .faq-answer{max-height:600px;padding:4px 20px 18px}
+.faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
 
- /* ===== Paragraphs & Lists ===== */
- .main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
- .main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
- .main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
+/* ===== Content Layout ===== */
+.country-content{padding:40px 0 60px;background:#fff}
+.country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
+.country-content .main-content{min-width:0}
+.sidebar{position:sticky;top:90px;align-self:start}
 
- /* ===== Responsive: Tablet (768px - 991px) ===== */
- @media(max-width:991px){
- .country-content .content-grid{grid-template-columns:1fr;gap:30px}
- .sidebar{position:static}
- .sidebar-card{padding:18px}
- .main-content h2{font-size:1.35rem}
- .country-content{padding:30px 0 50px}
- }
+/* ===== Paragraphs & Lists ===== */
+.main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
+.main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
+.main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
 
- /* ===== Responsive: Mobile (up to 767px) ===== */
- @media(max-width:767px){
- .country-content{padding:20px 0 40px}
- .country-content .content-grid{gap:24px}
- .update-bar{font-size:0.82rem;padding:12px 14px}
- .quick-overview,.visa-table{font-size:0.8rem;font-weight:400}
- .quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:8px 10px}
- .quick-overview th{width:35%}
- .visa-table thead th{font-size:0.78rem;padding:10px}
- .info-box{padding:16px 18px}
- .info-box h4{font-size:0.95rem}
- .cta-section{padding:28px 18px}
- .cta-section h2{font-size:1.25rem}
- .cta-section .btn{padding:12px 28px;font-size:0.95rem}
- .main-content h2{font-size:1.2rem;margin-top:28px}
- .main-content h3{font-size:1.05rem}
- .main-content p,.main-content ul li{font-size:0.9rem}
- .faq-question{font-size:0.9rem;padding:14px 16px}
- .faq-answer{padding:0 16px}
- .faq-item.active .faq-answer{padding:4px 16px 14px}
- .sidebar-card{padding:16px}
- .country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
- }
+/* ===== DESIGN ENHANCEMENTS ===== */
 
- /* ===== Responsive: Small Mobile (up to 480px) ===== */
- @media(max-width:480px){
- .quick-overview th{width:40%}
- .quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:6px 8px}
- .update-bar{font-size:0.78rem;padding:10px 12px}
- .cta-section{padding:22px 14px;margin:30px 0}
- }
-/* ===== DESIGN IMPROVEMENTS ===== */
-
-/* Hero badges */
+/* Hero badges - refined */
 .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12)}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
+.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(165,213,73,0.3);transform:translateY(-1px)}
 .hero-badge i{color:var(--color-accent);font-size:0.85rem}
 
-/* Section heading icons */
-.main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px}
+/* Section heading icons - with hover motion */
+.main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px;transition:transform 0.3s ease}
+.main-content h2:hover i.bi,.main-content h3:hover i.bi{transform:scale(1.15)}
 
-/* Process step cards */
-.process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:10px;padding:16px 20px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.2s ease,transform 0.2s ease}
-.process-step:hover{box-shadow:0 4px 14px rgba(0,0,0,0.07);transform:translateY(-1px)}
-.process-step-num{flex-shrink:0;width:36px;height:36px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;margin-top:3px}
+/* Process step cards - premium card design */
+.process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
+.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(165,213,73,0.3));opacity:0;transition:opacity 0.3s ease}
+.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(165,213,73,0.3)}
+.process-step:hover::before{opacity:1}
+.process-step-num{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-top:2px;box-shadow:0 3px 10px rgba(23,18,153,0.2);transition:all 0.3s ease}
+.process-step:hover .process-step-num{transform:scale(1.08);box-shadow:0 4px 14px rgba(23,18,153,0.3)}
 .process-step-body{flex:1}
-.process-step-body strong{display:block;color:#1a202c;font-size:0.98rem;margin-bottom:3px}
+.process-step-body strong{display:block;color:#1a202c;font-size:1rem;margin-bottom:4px;transition:color 0.3s ease}
+.process-step:hover .process-step-body strong{color:#0a0a52}
 .process-step-body p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.65}
 
 /* Compact inline step for international process */
-.step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5}
+.step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5;transition:background 0.2s ease}
+.step-pill:hover{background:#eef0f5}
 
-/* Icon bullet lists */
+/* Icon bullet lists - refined */
 .main-content ul.icon-bullets{list-style:none;padding-left:0;margin:10px 0 18px}
-.main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px}
+.main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px;transition:transform 0.2s ease}
+.main-content ul.icon-bullets li:hover{transform:translateX(3px)}
 .main-content ul.icon-bullets li::before{position:absolute;left:0;top:2px;font-family:'bootstrap-icons';font-size:1rem;color:var(--color-accent);line-height:1.4}
 .main-content ul.icon-bullets li.check::before{content:'\F26E'}
 .main-content ul.icon-bullets li.warn::before{content:'\F33A';color:#d97706}
 .main-content ul.icon-bullets li.info::before{content:'\F431';color:#2b6cb0}
 
-/* Info box variants */
+/* Info box variants - enhanced with subtle gradient overlay */
 .info-box.info-blue{border-left-color:#2b6cb0}
 .info-box.info-blue h4{color:#2b6cb0}
 .info-box.info-amber{border-left-color:#d97706}
 .info-box.info-amber h4{color:#d97706}
 
-/* Trust badges row */
-.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:16px 20px;background:#fafbf5;border:1px solid #eef0f2;border-radius:10px}
+/* Trust badges row - refined card */
+.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:18px 22px;background:linear-gradient(135deg,#fafbf5,#f5f7ef);border:1px solid #eef0f2;border-radius:12px;transition:box-shadow 0.3s ease}
+.trust-row:hover{box-shadow:0 3px 12px rgba(0,0,0,0.04)}
 .trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
-.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0}
+.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(165,213,73,0.2))}
 
 /* Highlight key items in tables */
-.visa-table tbody tr.highlight td{background:#fafbf5}
-.visa-table tbody tr.highlight td:first-child{font-weight:600;color:#0a0a52}
+.visa-table tbody tr.highlight td{background:linear-gradient(90deg,#fafbf5,#f5f7ef)}
+.visa-table tbody tr.highlight td:first-child{font-weight:700;color:#0a0a52}
 
-/* Responsive adjustments */
+/* ===== Responsive: Tablet (768px - 991px) ===== */
+@media(max-width:991px){
+.country-content .content-grid{grid-template-columns:1fr;gap:30px}
+.sidebar{position:static}
+.sidebar-card{padding:18px}
+.main-content h2{font-size:1.35rem}
+.country-content{padding:30px 0 50px}
+}
+
+/* ===== Responsive: Mobile (up to 767px) ===== */
 @media(max-width:767px){
-.process-step{padding:14px 16px;gap:12px}
-.process-step-num{width:30px;height:30px;font-size:0.8rem;margin-top:2px}
+.country-content{padding:20px 0 40px}
+.country-content .content-grid{gap:24px}
+.update-bar{font-size:0.82rem;padding:12px 14px;border-radius:10px}
+.quick-overview,.visa-table{font-size:0.8rem;font-weight:400;border-radius:10px}
+.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:9px 11px}
+.quick-overview th{width:35%}
+.visa-table thead th{font-size:0.78rem;padding:10px}
+.info-box{padding:16px 18px;border-radius:10px}
+.info-box h4{font-size:0.95rem}
+.cta-section{padding:28px 20px;border-radius:12px}
+.cta-section h2{font-size:1.25rem}
+.cta-section .btn{padding:13px 30px;font-size:0.95rem}
+.main-content h2{font-size:1.2rem;margin-top:28px}
+.main-content h3{font-size:1.05rem}
+.main-content p,.main-content ul li{font-size:0.9rem}
+.faq-question{font-size:0.9rem;padding:14px 16px}
+.faq-answer{padding:0 16px}
+.faq-item.active .faq-answer{padding:4px 16px 14px}
+.sidebar-card{padding:16px}
+.trust-row{border-radius:10px}
+.country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* Process steps on mobile */
+.process-step{padding:15px 18px;gap:12px;border-radius:10px}
+.process-step-num{width:32px;height:32px;font-size:0.82rem;margin-top:2px}
 .trust-row{gap:12px;padding:14px 16px}
 .main-content h2 i.bi,.main-content h3 i.bi{font-size:1em}
 .step-pill{font-size:0.85rem}
+.hero-badge:hover{transform:none}
+.main-content ul.icon-bullets li:hover{transform:none}
+.process-step:hover{transform:none}
+.process-step:hover .process-step-num{transform:none}
 }
- </style>
+
+/* ===== Responsive: Small Mobile (up to 480px) ===== */
+@media(max-width:480px){
+.quick-overview th{width:40%}
+.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:7px 9px}
+.update-bar{font-size:0.78rem;padding:10px 12px}
+.cta-section{padding:22px 16px;margin:30px 0;border-radius:10px}
+}
+
+</style>
 
 
  
@@ -407,22 +345,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <p><strong>Application Mode:</strong> Online + embassy submission. <strong>Currency:</strong> Canadian Dollar (CAD). <strong>Embassy:</strong> 7/8 Shantipath, Chanakyapuri, New Delhi 110021. Consulates in Mumbai, Chandigarh, Bengaluru, and Kolkata</p>
 
- <h2><i class="bi bi-info-circle"></i> Quick Overview</h2>
- <table class="quick-overview">
- <tbody>
- <tr><th>Visa Required?</th><td>Yes, all Indian passport holders need a visa to enter Canada.</td></tr>
- <tr><th>Main Visa Types</th><td>Visitor Visa, Student Visa, Work Permit, Business Visa, Super Visa, Transit Visa</td></tr>
- <tr><th>Processing Time</th><td>15 to 60 days depending on visa type and application volume</td></tr>
- <tr><th>Visa Fee Range</th><td>CAD 100 to CAD 230 depending on visa type</td></tr>
- <tr><th>Financial Requirement</th><td>Proof of sufficient funds to cover stay, typically CAD 10,000 per year for students plus tuition</td></tr>
- <tr><th>Maximum Stay</th><td>Up to 6 months for visitors; up to 5 years for study/work permits</td></tr>
- <tr><th>Biometrics</th><td>Yes, biometrics (fingerprints and photo) mandatory for all Indian applicants aged 14-79</td></tr>
- <tr><th>Health Insurance</th><td>Not mandatory for visitors but strongly recommended; mandatory for Super Visa (min CAD 100,000 coverage)</td></tr>
- <tr><th>Application Centers</th><td>New Delhi, Mumbai, Chennai, Kolkata, Bengaluru, Chandigarh, Pune, Ahmedabad, Hyderabad, Kochi, Bhopal, Jaipur, Lucknow, Surat, Nagpur, Coimbatore, Jalandhar, Goa</td></tr>
- <tr><th>English Requirement</th><td>Proof of English proficiency (IELTS/TOEFL) required for study and work visas</td></tr>
- <tr><th>Approval Rate</th><td>Approximately 60-70% for visitor visas from India</td></tr>
- </tbody>
- </table>
+ <h2><i class="bi bi-info-circle"></i> 
 
  <h2><i class="bi bi-info-circle"></i> What is a Canada Visa?</h2>
  <p>Canada offers a range of visa options for Indian citizens including visitor visas, study permits, and work permits. The country is a popular destination for Indian students and skilled workers due to its immigration-friendly policies.</p>
@@ -607,14 +530,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What is the visa fee for Canada from India?<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>A visitor visa costs CAD 100 (approximately ?6,100). Study permits are CAD 150 (?9,100) and work permits are CAD 155 (?9,400). Biometrics fee of CAD 85 (?5,200) is additional.</p></div>
- </div>
-
-<span class="trust-item"><i class="bi bi-patch-check-fill"></i> Govt. verified information</span>
-<span class="trust-item"><i class="bi bi-calendar-check"></i> Updated June 2026</span>
-<span class="trust-item"><i class="bi bi-people-fill"></i> Trusted by 50K+ travelers</span>
-<span class="trust-item"><i class="bi bi-star-fill"></i> Expert-reviewed content</span>
-</div>
- <div class="faq-item">
+ 
+<div class="faq-item">
  <button class="faq-question" aria-expanded="false">How long does Canada visa processing take in India?<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>Processing times vary by visa type and application volume. Visitor visas typically take 15 to 45 days, study permits 30 to 60 days, and work permits 30 to 90 days. Check IRCC current processing times online.</p></div>
  </div> <div class="faq-item">
