@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
@@ -312,6 +312,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  .update-bar{font-size:0.78rem;padding:10px 12px}
  .cta-section{padding:22px 14px;margin:30px 0}
  }
+/* ===== DESIGN IMPROVEMENTS ===== */
+
+/* Hero badges */
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i{color:var(--color-accent);font-size:0.85rem}
+
+/* Section heading icons */
+.main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px}
+
+/* Process step cards */
+.process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:10px;padding:16px 20px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.2s ease,transform 0.2s ease}
+.process-step:hover{box-shadow:0 4px 14px rgba(0,0,0,0.07);transform:translateY(-1px)}
+.process-step-num{flex-shrink:0;width:36px;height:36px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;margin-top:3px}
+.process-step-body{flex:1}
+.process-step-body strong{display:block;color:#1a202c;font-size:0.98rem;margin-bottom:3px}
+.process-step-body p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.65}
+
+/* Compact inline step for international process */
+.step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5}
+
+/* Icon bullet lists */
+.main-content ul.icon-bullets{list-style:none;padding-left:0;margin:10px 0 18px}
+.main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px}
+.main-content ul.icon-bullets li::before{position:absolute;left:0;top:2px;font-family:'bootstrap-icons';font-size:1rem;color:var(--color-accent);line-height:1.4}
+.main-content ul.icon-bullets li.check::before{content:'\F26E'}
+.main-content ul.icon-bullets li.warn::before{content:'\F33A';color:#d97706}
+.main-content ul.icon-bullets li.info::before{content:'\F431';color:#2b6cb0}
+
+/* Info box variants */
+.info-box.info-blue{border-left-color:#2b6cb0}
+.info-box.info-blue h4{color:#2b6cb0}
+.info-box.info-amber{border-left-color:#d97706}
+.info-box.info-amber h4{color:#d97706}
+
+/* Trust badges row */
+.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:16px 20px;background:#fafbf5;border:1px solid #eef0f2;border-radius:10px}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
+.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0}
+
+/* Highlight key items in tables */
+.visa-table tbody tr.highlight td{background:#fafbf5}
+.visa-table tbody tr.highlight td:first-child{font-weight:600;color:#0a0a52}
+
+/* Responsive adjustments */
+@media(max-width:767px){
+.process-step{padding:14px 16px;gap:12px}
+.process-step-num{width:30px;height:30px;font-size:0.8rem;margin-top:2px}
+.trust-row{gap:12px;padding:14px 16px}
+.main-content h2 i.bi,.main-content h3 i.bi{font-size:1em}
+.step-pill{font-size:0.85rem}
+}
  </style>
 
 
@@ -393,24 +445,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Visa fees vary significantly by category. All fees are non-refundable and subject to change based on exchange rates.</p>
 
  <table class="visa-table">
- <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (JPY)</th><th>Fee (₹ Approx)</th></tr></thead>
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (JPY)</th><th>Fee (? Approx)</th></tr></thead>
  <tbody>
- <tr><td>Tourist Visa (Single)</td><td>T</td><td>JPY 3,000</td><td>₹1,624 to ₹1,795</td></tr>
- <tr><td>Tourist Visa (Multiple)</td><td>TM</td><td>JPY 6,000</td><td>₹3,249 to ₹3,591</td></tr>
- <tr><td>Business Visa</td><td>B</td><td>JPY 3,000</td><td>₹1,624 to ₹1,795</td></tr>
- <tr><td>Student Visa</td><td>S</td><td>JPY 3,000</td><td>₹1,624 to ₹1,795</td></tr>
- <tr><td>Work Visa</td><td>W</td><td>JPY 6,000</td><td>₹3,249 to ₹3,591</td></tr>
+ <tr><td>Tourist Visa (Single)</td><td>T</td><td>JPY 3,000</td><td>?1,624 to ?1,795</td></tr>
+ <tr><td>Tourist Visa (Multiple)</td><td>TM</td><td>JPY 6,000</td><td>?3,249 to ?3,591</td></tr>
+ <tr><td>Business Visa</td><td>B</td><td>JPY 3,000</td><td>?1,624 to ?1,795</td></tr>
+ <tr><td>Student Visa</td><td>S</td><td>JPY 3,000</td><td>?1,624 to ?1,795</td></tr>
+ <tr><td>Work Visa</td><td>W</td><td>JPY 6,000</td><td>?3,249 to ?3,591</td></tr>
  </tbody>
  </table>
 
  <h3>Additional Costs</h3>
  <table class="visa-table">
- <thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead>
+ <thead><tr><th>Cost Type</th><th>Amount (?)</th><th>Details</th></tr></thead>
  <tbody>
- <tr><td>VFS Service Fee</td><td>₹1,200 to 1,800</td><td>Application center processing</td></tr>
- <tr><td>Interview</td><td>₹0</td><td>Personal interview at embassy or VFS center</td></tr>
- <tr><td>Translation</td><td>₹500 to 2,000</td><td>For non-English/Japanese documents</td></tr>
- <tr><td>Courier</td><td>₹600 to 1,000</td><td>Return passport delivery</td></tr>
+ <tr><td>VFS Service Fee</td><td>?1,200 to 1,800</td><td>Application center processing</td></tr>
+ <tr><td>Interview</td><td>?0</td><td>Personal interview at embassy or VFS center</td></tr>
+ <tr><td>Translation</td><td>?500 to 2,000</td><td>For non-English/Japanese documents</td></tr>
+ <tr><td>Courier</td><td>?600 to 1,000</td><td>Return passport delivery</td></tr>
  </tbody>
  </table>
 

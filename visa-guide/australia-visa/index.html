@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
@@ -312,6 +312,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  .update-bar{font-size:0.78rem;padding:10px 12px}
  .cta-section{padding:22px 14px;margin:30px 0}
  }
+/* ===== DESIGN IMPROVEMENTS ===== */
+
+/* Hero badges */
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i{color:var(--color-accent);font-size:0.85rem}
+
+/* Section heading icons */
+.main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px}
+
+/* Process step cards */
+.process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:10px;padding:16px 20px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.2s ease,transform 0.2s ease}
+.process-step:hover{box-shadow:0 4px 14px rgba(0,0,0,0.07);transform:translateY(-1px)}
+.process-step-num{flex-shrink:0;width:36px;height:36px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;margin-top:3px}
+.process-step-body{flex:1}
+.process-step-body strong{display:block;color:#1a202c;font-size:0.98rem;margin-bottom:3px}
+.process-step-body p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.65}
+
+/* Compact inline step for international process */
+.step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5}
+
+/* Icon bullet lists */
+.main-content ul.icon-bullets{list-style:none;padding-left:0;margin:10px 0 18px}
+.main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px}
+.main-content ul.icon-bullets li::before{position:absolute;left:0;top:2px;font-family:'bootstrap-icons';font-size:1rem;color:var(--color-accent);line-height:1.4}
+.main-content ul.icon-bullets li.check::before{content:'\F26E'}
+.main-content ul.icon-bullets li.warn::before{content:'\F33A';color:#d97706}
+.main-content ul.icon-bullets li.info::before{content:'\F431';color:#2b6cb0}
+
+/* Info box variants */
+.info-box.info-blue{border-left-color:#2b6cb0}
+.info-box.info-blue h4{color:#2b6cb0}
+.info-box.info-amber{border-left-color:#d97706}
+.info-box.info-amber h4{color:#d97706}
+
+/* Trust badges row */
+.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:16px 20px;background:#fafbf5;border:1px solid #eef0f2;border-radius:10px}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
+.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0}
+
+/* Highlight key items in tables */
+.visa-table tbody tr.highlight td{background:#fafbf5}
+.visa-table tbody tr.highlight td:first-child{font-weight:600;color:#0a0a52}
+
+/* Responsive adjustments */
+@media(max-width:767px){
+.process-step{padding:14px 16px;gap:12px}
+.process-step-num{width:30px;height:30px;font-size:0.8rem;margin-top:2px}
+.trust-row{gap:12px;padding:14px 16px}
+.main-content h2 i.bi,.main-content h3 i.bi{font-size:1em}
+.step-pill{font-size:0.85rem}
+}
  </style>
 
 
@@ -330,11 +382,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <div class="info-box">
  <h4>What is an Australia Visa?</h4>
- <p>An Australian visa is an official electronic authorization that allows Indian citizens to enter Australia for tourism, study, work, skilled migration, or family visits. Unlike Schengen countries, Australia operates its own independent visa system with no free-movement zone â€” each visa category has specific conditions, work rights, and stay durations determined by the Department of Home Affairs.</p>
+ <p>An Australian visa is an official electronic authorization that allows Indian citizens to enter Australia for tourism, study, work, skilled migration, or family visits. Unlike Schengen countries, Australia operates its own independent visa system with no free-movement zone — each visa category has specific conditions, work rights, and stay durations determined by the Department of Home Affairs.</p>
  <p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> See the <a href="#updates2026">Updates table</a> at the end of this guide for all 2026 changes to fees, visa durations, and policies.</p>
  </div>
 
- <p><strong>Application Mode:</strong> Online via ImmiAccount â€” no physical stamp or visa label in passport for most categories. <strong>Currency:</strong> Australian Dollar (AUD). <strong>Embassy:</strong> Australian High Commission, New Delhi + Consulates in Mumbai, Chennai, Bengaluru, Kolkata, Hyderabad.</p>
+ <p><strong>Application Mode:</strong> Online via ImmiAccount — no physical stamp or visa label in passport for most categories. <strong>Currency:</strong> Australian Dollar (AUD). <strong>Embassy:</strong> Australian High Commission, New Delhi + Consulates in Mumbai, Chennai, Bengaluru, Kolkata, Hyderabad.</p>
 
  <h2>Quick Overview</h2>
  <table class="quick-overview">
@@ -342,10 +394,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <tr><th>Visa Required?</th><td>Yes, Indian citizens need a visa for all travel to Australia</td></tr>
  <tr><th>Main Visa Types</th><td>ETA (Subclass 601), Visitor (600), Student (500), Graduate (485), Skilled Migration (189/190), Employer Sponsored (482/494), Working Holiday (417), Transit (771)</td></tr>
  <tr><th>Processing Time</th><td>ETA: Instant-3 days; Visitor: 20-45 days; Student: 4-8 weeks; Skilled: 8-12 months; Graduate: 4-6 months</td></tr>
- <tr><th>Visa Fee Range</th><td>AUD 20 (ETA) to AUD 4,770 (Skilled Migration) â€” plus VFS biometric fee</td></tr>
- <tr><th>Financial Requirement</th><td>Variable â€” Students: AUD 29,710/year; Visitors: AUD 1,000-5,000 per stay; Skilled: assessment-dependent</td></tr>
+ <tr><th>Visa Fee Range</th><td>AUD 20 (ETA) to AUD 4,770 (Skilled Migration) — plus VFS biometric fee</td></tr>
+ <tr><th>Financial Requirement</th><td>Variable — Students: AUD 29,710/year; Visitors: AUD 1,000-5,000 per stay; Skilled: assessment-dependent</td></tr>
  <tr><th>Maximum Stay</th><td>ETA/Visitor: 3, 6, or 12 months; Student: course duration + 2-3 months; Graduate: 2-4 years; PR: indefinite</td></tr>
- <tr><th>Biometrics</th><td>Mandatory for all categories â€” collected at VFS Global centers across 34 Indian cities</td></tr>
+ <tr><th>Biometrics</th><td>Mandatory for all categories — collected at VFS Global centers across 34 Indian cities</td></tr>
  <tr><th>Health Insurance</th><td>Mandatory for students (OSHC), recommended for all others</td></tr>
  <tr><th>Application Centers</th><td>Biometrics via VFS Global in 34 Indian cities including Ahmedabad, Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai, Pune</td></tr>
  <tr><th>English Requirement</th><td>IELTS 6.0 (minimum for student/graduate), 6.5-7.0 for skilled migration; functional English for some categories</td></tr>
@@ -354,11 +406,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </table>
 
  <h2>What is an Australia Visa?</h2>
- <p>An Australia visa is an electronic travel authorization from the Australian Department of Home Affairs that permits Indian citizens to enter, stay, or work in Australia. Almost all visas are digitally linked to your passport â€” no physical stamp or label is placed in your passport for most categories.</p>
- <p>Australia welcomed over 400,000 Indian visitors in 2024-25, and the Indian diaspora now exceeds 1 million people â€” the second-largest migrant community after the UK-born. The Economic Cooperation and Trade Agreement (ECTA) has created easier pathways for Indian students, professionals, and business visitors.</p>
+ <p>An Australia visa is an electronic travel authorization from the Australian Department of Home Affairs that permits Indian citizens to enter, stay, or work in Australia. Almost all visas are digitally linked to your passport — no physical stamp or label is placed in your passport for most categories.</p>
+ <p>Australia welcomed over 400,000 Indian visitors in 2024-25, and the Indian diaspora now exceeds 1 million people — the second-largest migrant community after the UK-born. The Economic Cooperation and Trade Agreement (ECTA) has created easier pathways for Indian students, professionals, and business visitors.</p>
 
  <h3>Do Indians Need a Visa for Australia?</h3>
- <p>Yes. Indian passport holders must obtain a visa before traveling to Australia for any purpose. India is not among the visa-waiver countries for Australia. There is no visa-on-arrival. However, the ETA (Electronic Travel Authority) system makes short visits simple â€” you apply online via the ETA app, pay AUD 20, and receive approval within minutes in most cases.</p>
+ <p>Yes. Indian passport holders must obtain a visa before traveling to Australia for any purpose. India is not among the visa-waiver countries for Australia. There is no visa-on-arrival. However, the ETA (Electronic Travel Authority) system makes short visits simple — you apply online via the ETA app, pay AUD 20, and receive approval within minutes in most cases.</p>
 
  <h3>What Is Available and Not Available</h3>
  <table class="visa-table">
@@ -395,57 +447,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </tbody>
  </table>
 
- <h3>Electronic Travel Authority (ETA) â€” Subclass 601</h3>
+ <h3>Electronic Travel Authority (ETA) — Subclass 601</h3>
  <p><strong>Best for:</strong> Indian tourists and business visitors staying up to 3 months. The ETA is the simplest and cheapest Australian visa for Indians. Apply through the Australian ETA smartphone app (available on iOS and Android). No documents are required for most applicants. Approval is typically instant or within a few hours during Australian business hours.</p>
  <p><strong>Key points for Indian applicants:</strong></p>
  <ul>
- <li>You do NOT need a separate visa for family members â€” each traveler needs their own ETA</li>
+ <li>You do NOT need a separate visa for family members — each traveler needs their own ETA</li>
  <li>ETA is valid for 12 months from the date of grant, with multiple entries and up to 3 months per visit</li>
  <li>If you have had a visa refusal (any country) or criminal conviction, you should apply for a Visitor Visa (Subclass 600) instead of ETA</li>
- <li>ETA cannot be extended â€” if you need to stay longer, you must apply for a Visitor Visa</li>
+ <li>ETA cannot be extended — if you need to stay longer, you must apply for a Visitor Visa</li>
  </ul>
  <p>For detailed tourism requirements and sample itineraries, see the <a href="/visa-requirements/australia-visa-requirements">Australia visa requirements</a> page.</p>
 
- <h3>Visitor Visa â€” Subclass 600</h3>
+ <h3>Visitor Visa — Subclass 600</h3>
  <p><strong>Best for:</strong> Indians who need to stay longer than 3 months, or who have prior visa refusals, or want tourist stream. The Visitor Visa requires a full application via ImmiAccount with documents including bank statements, itinerary, employment letter, and travel insurance. Business visitors can use the Business Visitor stream (subsequent entries up to 12 months).</p>
 
- <h3>Student Visa â€” Subclass 500</h3>
+ <h3>Student Visa — Subclass 500</h3>
  <p><strong>Best for:</strong> Indians enrolled in full-time study at an Australian educational institution. The Subclass 500 student visa is Australia's primary student visa. You must have a Confirmation of Enrolment (CoE) from your institution, pass the GTE (Genuine Temporary Entrant) requirement, maintain OSHC (Overseas Student Health Cover), and show sufficient financial capacity.</p>
  <p>Part-time work of 48 hours per fortnight is permitted during term, and unlimited hours during scheduled holidays. Your family members (partner + dependent children) can accompany you. Your partner can also work up to 48 hours per fortnight.</p>
 
- <h3>Temporary Graduate Visa â€” Subclass 485</h3>
+ <h3>Temporary Graduate Visa — Subclass 485</h3>
  <p><strong>Best for:</strong> Indian graduates of Australian institutions who want to work after their degree. The Subclass 485 allows you to live and work in Australia after completing your Australian degree. Key changes in 2026: bachelor's degree holders in priority fields (nursing, engineering, IT, teaching) get up to 4 years; master's (research) in priority fields get up to 5 years; PhD graduates get 4 years.</p>
  <p>You must apply within 12 months of course completion, have competent English (IELTS 6.0, minimum 5.0 in each band), and have completed at least 2 academic years of study in Australia.</p>
 
- <h3>Skilled Independent Visa â€” Subclass 189</h3>
+ <h3>Skilled Independent Visa — Subclass 189</h3>
  <p><strong>Best for:</strong> Indian skilled workers who want permanent residency without state nomination. The Subclass 189 is a points-based permanent residency visa that does not require employer or state nomination. You can live and work anywhere in Australia.</p>
  <p>The points test awards points for: age (30 points max at 25-32 years), English ability (20 points for IELTS 8.0), work experience (15 points for 8+ years overseas), education (20 points for PhD), and other factors. Minimum pass mark is 65, but realistic 2026 cutoffs are 85-95 points.</p>
 
- <h3>Skilled Nominated Visa â€” Subclass 190</h3>
+ <h3>Skilled Nominated Visa — Subclass 190</h3>
  <p><strong>Best for:</strong> Indian skilled workers who get state or territory nomination. State nomination gives you 5 extra points and priority processing (6-9 months vs 8-12 months for 189). You must live and work in the nominating state for at least 2 years.</p>
 
- <h3>Employer Sponsored Visa â€” Subclass 482 (TSS)</h3>
+ <h3>Employer Sponsored Visa — Subclass 482 (TSS)</h3>
  <p><strong>Best for:</strong> Indian professionals with a job offer from an Australian employer. The Temporary Skill Shortage (TSS) visa allows you to work for an Australian employer for 2-4 years. You must have a sponsoring employer, a skill assessment (for some occupations), and at least 2 years of relevant work experience. Pathways to PR exist through the Subclass 186 Employer Nomination Scheme.</p>
 
- <h3>Working Holiday Visa â€” Subclass 417</h3>
+ <h3>Working Holiday Visa — Subclass 417</h3>
  <p><strong>Best for:</strong> Indian citizens aged 18-30 wanting to work and travel in Australia for up to 12 months. This visa became available to Indians through the Australia-India ECTA. You can work up to 6 months with any single employer and study up to 4 months. After completing 3 months of specified work in regional Australia, you may qualify for a second year.</p>
 
 
  <h2 id="fees">Australia Visa Fees for Indians 2026</h2>
- <p>Visa fees vary significantly by category â€” from AUD 20 (ETA) to AUD 4,770 (Skilled Migration). All fees are non-refundable and payable online in AUD via credit/debit card through ImmiAccount.</p>
+ <p>Visa fees vary significantly by category — from AUD 20 (ETA) to AUD 4,770 (Skilled Migration). All fees are non-refundable and payable online in AUD via credit/debit card through ImmiAccount.</p>
 
  <table class="visa-table">
- <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (AUD)</th><th>Fee (â‚¹ Approx)</th></tr></thead>
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (AUD)</th><th>Fee (? Approx)</th></tr></thead>
  <tbody>
- <tr><td>Electronic Travel Authority</td><td>601</td><td>AUD 20</td><td>â‚¹1,100</td></tr>
- <tr><td>Visitor Visa (Tourist Stream)</td><td>600</td><td>AUD 195</td><td>â‚¹10,700</td></tr>
- <tr><td>Student Visa</td><td>500</td><td>AUD 1,600</td><td>â‚¹88,000</td></tr>
- <tr><td>Temporary Graduate Visa</td><td>485</td><td>AUD 1,945</td><td>â‚¹1,07,000</td></tr>
- <tr><td>Skilled Independent (PR)</td><td>189</td><td>AUD 4,770</td><td>â‚¹2,62,000</td></tr>
- <tr><td>Skilled Nominated (PR)</td><td>190</td><td>AUD 4,770</td><td>â‚¹2,62,000</td></tr>
- <tr><td>Employer Sponsored (TSS)</td><td>482</td><td>AUD 1,455-3,035</td><td>â‚¹80,000-1,67,000</td></tr>
- <tr><td>Working Holiday</td><td>417</td><td>AUD 635</td><td>â‚¹35,000</td></tr>
- <tr><td>Transit Visa</td><td>771</td><td>AUD 145</td><td>â‚¹8,000</td></tr>
+ <tr><td>Electronic Travel Authority</td><td>601</td><td>AUD 20</td><td>?1,100</td></tr>
+ <tr><td>Visitor Visa (Tourist Stream)</td><td>600</td><td>AUD 195</td><td>?10,700</td></tr>
+ <tr><td>Student Visa</td><td>500</td><td>AUD 1,600</td><td>?88,000</td></tr>
+ <tr><td>Temporary Graduate Visa</td><td>485</td><td>AUD 1,945</td><td>?1,07,000</td></tr>
+ <tr><td>Skilled Independent (PR)</td><td>189</td><td>AUD 4,770</td><td>?2,62,000</td></tr>
+ <tr><td>Skilled Nominated (PR)</td><td>190</td><td>AUD 4,770</td><td>?2,62,000</td></tr>
+ <tr><td>Employer Sponsored (TSS)</td><td>482</td><td>AUD 1,455-3,035</td><td>?80,000-1,67,000</td></tr>
+ <tr><td>Working Holiday</td><td>417</td><td>AUD 635</td><td>?35,000</td></tr>
+ <tr><td>Transit Visa</td><td>771</td><td>AUD 145</td><td>?8,000</td></tr>
  </tbody>
  </table>
 
@@ -453,25 +505,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <table class="visa-table">
  <thead><tr><th>Cost Type</th><th>Amount</th><th>Details</th></tr></thead>
  <tbody>
- <tr><td>Biometrics (VFS)</td><td>â‚¹1,500-2,000</td><td>Per applicant, valid 5 years</td></tr>
- <tr><td>Health Examination</td><td>â‚¹3,000-10,000</td><td>Depends on panel doctor and type of exam</td></tr>
+ <tr><td>Biometrics (VFS)</td><td>?1,500-2,000</td><td>Per applicant, valid 5 years</td></tr>
+ <tr><td>Health Examination</td><td>?3,000-10,000</td><td>Depends on panel doctor and type of exam</td></tr>
  <tr><td>Skills Assessment</td><td>AUD 800-1,500</td><td>Varies by assessing authority (ACS, Engineers Australia, etc.)</td></tr>
- <tr><td>English Test (IELTS)</td><td>â‚¹17,000</td><td>IDP or British Council</td></tr>
+ <tr><td>English Test (IELTS)</td><td>?17,000</td><td>IDP or British Council</td></tr>
  <tr><td>OSHC (Student - 1 year)</td><td>AUD 630-1,200</td><td>Medibank, Bupa, Allianz Care, NIB, ahm</td></tr>
- <tr><td>Translation/Certification</td><td>â‚¹500-2,000</td><td>Per document if not in English</td></tr>
- <tr><td>Education Loan Processing</td><td>Varies</td><td>SBI, HDFC Credila, Avanse, ICICI â€” 1-2% processing fee</td></tr>
+ <tr><td>Translation/Certification</td><td>?500-2,000</td><td>Per document if not in English</td></tr>
+ <tr><td>Education Loan Processing</td><td>Varies</td><td>SBI, HDFC Credila, Avanse, ICICI — 1-2% processing fee</td></tr>
  </tbody>
  </table>
 
  <h2>Documents Required for Australia Visa</h2>
- <p>Every Australian visa application requires proof of identity, purpose of visit, and financial capacity â€” but specific documents vary by visa category.</p>
+ <p>Every Australian visa application requires proof of identity, purpose of visit, and financial capacity — but specific documents vary by visa category.</p>
 
  <h3>Core Documents (All Visa Types)</h3>
  <ul>
- <li><strong>Valid Indian passport</strong> â€” Must have at least 6 months validity beyond intended stay. At least 2 blank pages</li>
- <li><strong>Digital photograph</strong> â€” Passport-size, 45mm x 35mm, white background, taken within 6 months</li>
- <li><strong>Completed online application</strong> â€” Via ImmiAccount. All details must match your passport exactly</li>
- <li><strong>Previous visas and travel history</strong> â€” Include copies of previous Australian or other-country visas and travel stamps</li>
+ <li><strong>Valid Indian passport</strong> — Must have at least 6 months validity beyond intended stay. At least 2 blank pages</li>
+ <li><strong>Digital photograph</strong> — Passport-size, 45mm x 35mm, white background, taken within 6 months</li>
+ <li><strong>Completed online application</strong> — Via ImmiAccount. All details must match your passport exactly</li>
+ <li><strong>Previous visas and travel history</strong> — Include copies of previous Australian or other-country visas and travel stamps</li>
  </ul>
 
  <h3>Visa-Specific Documents</h3>
@@ -484,9 +536,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p><strong>Visitor Visa (Subclass 600):</strong></p>
  <ul>
  <li>Cover letter explaining purpose and duration of visit</li>
- <li>Return flight booking (not necessarily ticketed â€” itinerary showing travel dates is sufficient)</li>
+ <li>Return flight booking (not necessarily ticketed — itinerary showing travel dates is sufficient)</li>
  <li>Hotel bookings or invitation letter from host in Australia</li>
- <li>Bank statements (3-6 months) showing sufficient funds â€” typically AUD 1,000-5,000 per stay</li>
+ <li>Bank statements (3-6 months) showing sufficient funds — typically AUD 1,000-5,000 per stay</li>
  <li>Employment letter from Indian employer confirming role, salary, and approved leave</li>
  <li>IT returns for the last 2-3 years</li>
  </ul>
@@ -494,21 +546,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p><strong>Student Visa (Subclass 500):</strong></p>
  <ul>
  <li>Confirmation of Enrolment (CoE) from your Australian institution</li>
- <li>GTE (Genuine Temporary Entrant) statement â€” 300+ words addressing your academic background, career plans in India, ties to India, and why this course/college</li>
- <li>Proof of financial capacity â€” AUD 29,710/year living costs + tuition fees + OSHC</li>
+ <li>GTE (Genuine Temporary Entrant) statement — 300+ words addressing your academic background, career plans in India, ties to India, and why this course/college</li>
+ <li>Proof of financial capacity — AUD 29,710/year living costs + tuition fees + OSHC</li>
  <li>Education loan sanction letter (if applicable)</li>
- <li>IELTS/PTE/TOEFL score report â€” IELTS 6.0 minimum (5.5 in each band)</li>
+ <li>IELTS/PTE/TOEFL score report — IELTS 6.0 minimum (5.5 in each band)</li>
  <li>Academic documents (marksheets, degrees, transcripts)</li>
  </ul>
  <div class="info-box">
  <h4>Why Financial Evidence Matters</h4>
- <p>The Department of Home Affairs needs assurance that you can support yourself without working illegally or relying on public funds. For student visas, this is the most scrutinized requirement â€” incomplete or inconsistent financial documentation is a leading cause of refusal for Indian applicants.</p>
+ <p>The Department of Home Affairs needs assurance that you can support yourself without working illegally or relying on public funds. For student visas, this is the most scrutinized requirement — incomplete or inconsistent financial documentation is a leading cause of refusal for Indian applicants.</p>
  </div>
 
  <p><strong>Skilled Migration (Subclass 189/190):</strong></p>
  <ul>
- <li>Skills assessment from the relevant assessing authority â€” ACS (IT), Engineers Australia, CPA Australia (Accounting), etc.</li>
- <li>English test result â€” IELTS 6.0 (competent) to 8.0 (superior) depending on points needed</li>
+ <li>Skills assessment from the relevant assessing authority — ACS (IT), Engineers Australia, CPA Australia (Accounting), etc.</li>
+ <li>English test result — IELTS 6.0 (competent) to 8.0 (superior) depending on points needed</li>
  <li>EOI (Expression of Interest) via SkillSelect</li>
  <li>Birth certificate, marriage certificate (if claiming partner points), character documents</li>
  </ul>
@@ -519,10 +571,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <tbody>
  <tr><td>SBI</td><td>Passbook + online statement with branch seal</td><td>Yes</td><td>Most widely accepted. Ensure statements are stamped and signed by branch manager</td></tr>
  <tr><td>HDFC Bank</td><td>Digital statements with QR code verification</td><td>Yes</td><td>Save as PDF with visible bank logo and account holder name</td></tr>
- <tr><td>ICICI Bank</td><td>E-statements with digital signature</td><td>Yes</td><td>Some assessing officers prefer wet-stamped copies â€” get a physical copy from branch</td></tr>
+ <tr><td>ICICI Bank</td><td>E-statements with digital signature</td><td>Yes</td><td>Some assessing officers prefer wet-stamped copies — get a physical copy from branch</td></tr>
  <tr><td>Axis Bank</td><td>Online statements with transaction details</td><td>Yes</td><td>Acceptable for visa purposes. Add a salary credit highlight for clarity</td></tr>
  <tr><td>Yes Bank / Kotak</td><td>App-generated statements with branch counterfoil</td><td>Yes</td><td>Get branch-stamped versions to avoid delays</td></tr>
- <tr><td>PNB / Canara / BoB</td><td>Passbook-based + supplementary statement</td><td>Yes (may need branch visit)</td><td>Public sector banks â€” passbook entries with branch seal; request separate statement letter</td></tr>
+ <tr><td>PNB / Canara / BoB</td><td>Passbook-based + supplementary statement</td><td>Yes (may need branch visit)</td><td>Public sector banks — passbook entries with branch seal; request separate statement letter</td></tr>
  <tr><td>Education Loan (SBI/HDFC Credila/Avanse/ICICI)</td><td>Loan sanction letter + disbursement schedule</td><td>Yes (strongest evidence)</td><td>Education loans are viewed favorably as they demonstrate organized financial planning and third-party verification</td></tr>
  </tbody>
  </table>
@@ -537,20 +589,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <p><strong>Step 3: Upload Supporting Documents</strong><br>Upload all required documents in PDF or JPEG format. Each file must be under 5 MB. Documents not in English must be translated by a NAATI-certified translator in Australia or an equivalent authorized translator in India.</p>
 
- <p><strong>Step 4: Pay the Visa Fee</strong><br>Pay the non-refundable visa fee online via credit/debit card. AUD is charged â€” your bank will apply the current exchange rate plus forex markup (typically 2-3% on international transactions).</p>
+ <p><strong>Step 4: Pay the Visa Fee</strong><br>Pay the non-refundable visa fee online via credit/debit card. AUD is charged — your bank will apply the current exchange rate plus forex markup (typically 2-3% on international transactions).</p>
 
- <p><strong>Step 5: Complete Biometrics</strong><br>After submission, you will receive a biometrics letter. Visit your nearest VFS Global center in India to provide your fingerprints and photograph. Book your appointment online â€” walk-ins are not accepted at most centers.</p>
+ <p><strong>Step 5: Complete Biometrics</strong><br>After submission, you will receive a biometrics letter. Visit your nearest VFS Global center in India to provide your fingerprints and photograph. Book your appointment online — walk-ins are not accepted at most centers.</p>
 
  <p><strong>Step 6: Complete Health Examination</strong><br>Most visa categories require a health examination. Book an appointment with a DHA-approved panel doctor in India. Common tests include chest X-ray, HIV test, and full medical examination. The doctor will upload results directly to DHA.</p>
 
- <p><strong>Step 7: Wait for Processing and Track Online</strong><br>Processing times vary by visa category. You can track your application status in ImmiAccount. You may receive requests for additional documents â€” respond promptly to avoid delays or refusal.</p>
+ <p><strong>Step 7: Wait for Processing and Track Online</strong><br>Processing times vary by visa category. You can track your application status in ImmiAccount. You may receive requests for additional documents — respond promptly to avoid delays or refusal.</p>
 
- <p><strong>Step 8: Receive Decision and Visa Grant</strong><br>If approved, you will receive a visa grant notification via email and your ImmiAccount. The visa is electronically linked to your passport number. Check the visa conditions carefully â€” particularly work rights, stay duration, and any "No Further Stay" condition.</p>
+ <p><strong>Step 8: Receive Decision and Visa Grant</strong><br>If approved, you will receive a visa grant notification via email and your ImmiAccount. The visa is electronically linked to your passport number. Check the visa conditions carefully — particularly work rights, stay duration, and any "No Further Stay" condition.</p>
 
  <h3>How to Book an Australia Visa Appointment in India</h3>
  <p>Biometrics appointments at VFS Global must be booked online. Health examinations are booked directly with panel doctors.</p>
- <p><strong>VFS Biometrics Appointment:</strong> Visit the VFS Global Australia website, create an account, select your nearest center, choose a date/time, and pay the biometric fee (â‚¹1,500-2,000). Carry your passport, biometrics letter, and appointment confirmation.</p>
- <p><strong>Panel Doctor Appointment:</strong> Find a DHA-approved panel doctor on the DHA Panel Doctor List for India. Book directly with the clinic. Costs range from â‚¹3,000-10,000 depending on tests required.</p>
+ <p><strong>VFS Biometrics Appointment:</strong> Visit the VFS Global Australia website, create an account, select your nearest center, choose a date/time, and pay the biometric fee (?1,500-2,000). Carry your passport, biometrics letter, and appointment confirmation.</p>
+ <p><strong>Panel Doctor Appointment:</strong> Find a DHA-approved panel doctor on the DHA Panel Doctor List for India. Book directly with the clinic. Costs range from ?3,000-10,000 depending on tests required.</p>
  <p><strong>Documents to Carry:</strong> Original passport, copy of biometrics letter/health referral letter, appointment confirmation, passport-size photographs (2 copies), and previous medical records (if any).</p>
  <p><strong>VFS Global Centers in India:</strong> Available in 34 cities including Ahmedabad, Bengaluru, Chennai, Delhi, Hyderabad, Kolkata, Mumbai, Pune, Chandigarh, Cochin, Coimbatore, Guwahati, Jaipur, Jalandhar, Lucknow, Nagpur, Surat, and more.</p>
 
@@ -568,7 +620,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <tr><td>Skilled Nominated</td><td>190</td><td>6-9 months</td><td>Faster than 189 due to state nomination prioritization</td></tr>
  <tr><td>Employer Sponsored</td><td>482</td><td>2-4 months</td><td>Skilling Australia Fund (SAF) levy payment required</td></tr>
  <tr><td>Working Holiday</td><td>417</td><td>2-4 weeks</td><td>Straightforward for eligible applicants</td></tr>
- <tr><td>Transit</td><td>771</td><td>2-4 weeks</td><td>Low priority â€” basic document check</td></tr>
+ <tr><td>Transit</td><td>771</td><td>2-4 weeks</td><td>Low priority — basic document check</td></tr>
  </tbody>
  </table>
 
@@ -582,30 +634,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <ul>
  <li><strong>Student Visa (Subclass 500):</strong> OSHC is mandatory for the entire visa duration. You cannot be granted a student visa without evidence of OSHC coverage. Annual cost: AUD 630-1,200 for single cover, AUD 1,500-2,400 for couples, AUD 3,000-4,500 for families</li>
  <li><strong>Approved OSHC Providers:</strong> Medibank, Bupa, Allianz Care, NIB, ahm OSHC</li>
- <li><strong>Visitor Visa:</strong> While not mandatory, comprehensive travel insurance covering medical emergencies (minimum AUD 500,000), trip cancellation, and baggage loss is strongly recommended. Australian healthcare is expensive â€” a hospital visit can cost AUD 1,000+ without insurance</li>
- <li><strong>Working Holiday Visa:</strong> Not mandatory but recommended â€” many working holiday makers opt for OSHC-like coverage</li>
+ <li><strong>Visitor Visa:</strong> While not mandatory, comprehensive travel insurance covering medical emergencies (minimum AUD 500,000), trip cancellation, and baggage loss is strongly recommended. Australian healthcare is expensive — a hospital visit can cost AUD 1,000+ without insurance</li>
+ <li><strong>Working Holiday Visa:</strong> Not mandatory but recommended — many working holiday makers opt for OSHC-like coverage</li>
  </ul>
 
  <h2>How to Check Australia Visa Status Online</h2>
  <p>Track your application status directly in ImmiAccount. If you applied through an agent, they can share access or provide updates:</p>
  <ol style="list-style:decimal;padding-left:20px;margin-bottom:1.5rem;">
  <li>Log in to your <a href="https://immi.homeaffairs.gov.au" target="_blank" rel="noopener noreferrer">ImmiAccount</a></li>
- <li>Go to "My Applications" â€” all your current and past applications are listed</li>
+ <li>Go to "My Applications" — all your current and past applications are listed</li>
  <li>Check the status column: "Received" = initial processing, "Assessment in Progress" = case officer assigned, "Further Assessment" = additional checks, "Finalized" = decision made</li>
- <li>You can also check via VFS Global's tracking portal if you used VFS for biometrics â€” but ImmiAccount is the primary source</li>
+ <li>You can also check via VFS Global's tracking portal if you used VFS for biometrics — but ImmiAccount is the primary source</li>
  </ol>
  <p>For ETA status: Check via the ETA app or the DHA ETA Portal.</p>
 
 
  <h2>Australia Visa Approval Rates and Rejection Reasons</h2>
- <p>Australia's visa approval rate for Indian applicants is high â€” approximately 88-92% for tourist/ETA visas and 85% for student visas. However, skilled migration and certain work visas have more variation depending on occupation and points score.</p>
+ <p>Australia's visa approval rate for Indian applicants is high — approximately 88-92% for tourist/ETA visas and 85% for student visas. However, skilled migration and certain work visas have more variation depending on occupation and points score.</p>
 
  <h3>Common Rejection Reasons for Indian Applicants</h3>
  <table class="visa-table">
  <thead><tr><th>Reason</th><th>Frequency</th><th>How to Avoid</th></tr></thead>
  <tbody>
  <tr><td>Insufficient financial evidence</td><td>~30% of refusals</td><td>Show 3-6 months of consistent bank balance, include salary credits, explain large deposits</td></tr>
- <tr><td>Weak GTE statement (student)</td><td>~25% of student refusals</td><td>Write personally â€” include your specific career plan, family ties in India, and reasons for choosing your specific course and institution</td></tr>
+ <tr><td>Weak GTE statement (student)</td><td>~25% of student refusals</td><td>Write personally — include your specific career plan, family ties in India, and reasons for choosing your specific course and institution</td></tr>
  <tr><td>Incorrect visa category</td><td>~15% of refusals</td><td>Use the DHA Visa Finder or consult this guide before applying</td></tr>
  <tr><td>Incomplete documentation</td><td>~12% of refusals</td><td>Use the DHA Document Checklist and tick off each requirement before submitting</td></tr>
  <tr><td>Health or character concerns</td><td>~10% of refusals</td><td>Disclose all medical conditions honestly; character issues include criminal records and prior immigration violations</td></tr>
@@ -616,21 +668,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h2>Post-Arrival Guide: What to Do After Landing in Australia</h2>
  <p>Once your Australian visa is granted, here is what you need to do after arrival:</p>
  <ul>
- <li><strong>Check your visa conditions online</strong> â€” Log in to ImmiAccount and verify work rights, stay duration, and any conditions like "No Further Stay" (8503)</li>
- <li><strong>Apply for a Tax File Number (TFN)</strong> â€” Required for legal employment. Apply online at the Australian Taxation Office. Your TFN is free and arrives by mail in 7-28 days</li>
- <li><strong>Open an Australian bank account</strong> â€” Major banks: Commonwealth Bank, Westpac, NAB, ANZ. Many allow you to open an account from India before arrival. You will need your passport and visa grant letter</li>
- <li><strong>Register for Medicare</strong> â€” If you hold a PR visa (Subclass 189/190/186), you are eligible for Medicare, Australia's universal healthcare system. Enroll at a Services Australia office</li>
- <li><strong>Activate your OSHC</strong> â€” If you are on a student visa, contact your OSHC provider to activate your cover. Keep your membership card with you</li>
- <li><strong>Get a local SIM card</strong> â€” Major providers: Telstra, Optus, Vodafone. Prepaid plans start at AUD 20-40/month with generous data allowances</li>
- <li><strong>Register with your university (if student)</strong> â€” Complete your enrollment, attend orientation, obtain your student ID card, and register for classes</li>
- <li><strong>Find accommodation</strong> â€” Options include on-campus housing, shared rentals, or private rental. Budget at least AUD 300-600/week depending on city</li>
+ <li><strong>Check your visa conditions online</strong> — Log in to ImmiAccount and verify work rights, stay duration, and any conditions like "No Further Stay" (8503)</li>
+ <li><strong>Apply for a Tax File Number (TFN)</strong> — Required for legal employment. Apply online at the Australian Taxation Office. Your TFN is free and arrives by mail in 7-28 days</li>
+ <li><strong>Open an Australian bank account</strong> — Major banks: Commonwealth Bank, Westpac, NAB, ANZ. Many allow you to open an account from India before arrival. You will need your passport and visa grant letter</li>
+ <li><strong>Register for Medicare</strong> — If you hold a PR visa (Subclass 189/190/186), you are eligible for Medicare, Australia's universal healthcare system. Enroll at a Services Australia office</li>
+ <li><strong>Activate your OSHC</strong> — If you are on a student visa, contact your OSHC provider to activate your cover. Keep your membership card with you</li>
+ <li><strong>Get a local SIM card</strong> — Major providers: Telstra, Optus, Vodafone. Prepaid plans start at AUD 20-40/month with generous data allowances</li>
+ <li><strong>Register with your university (if student)</strong> — Complete your enrollment, attend orientation, obtain your student ID card, and register for classes</li>
+ <li><strong>Find accommodation</strong> — Options include on-campus housing, shared rentals, or private rental. Budget at least AUD 300-600/week depending on city</li>
  </ul>
 
  <h2 id="faq">Frequently Asked Questions</h2>
  <div class="faq-list" style="max-width:100%;">
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What is the Australia visa fee for Indians in 2026?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Fees vary by category: ETA AUD 20 (â‚¹1,100), Visitor AUD 195 (â‚¹10,700), Student AUD 1,600 (â‚¹88,000), Graduate AUD 1,945 (â‚¹1,07,000), Skilled Migration AUD 4,770 (â‚¹2,62,000). All fees are non-refundable.</p></div>
+ <div class="faq-answer"><p>Fees vary by category: ETA AUD 20 (?1,100), Visitor AUD 195 (?10,700), Student AUD 1,600 (?88,000), Graduate AUD 1,945 (?1,07,000), Skilled Migration AUD 4,770 (?2,62,000). All fees are non-refundable.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">How long does it take to get an Australia visa from India?<span class="faq-icon">+</span></button>
@@ -642,7 +694,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What is an ETA and how is it different from a Visitor Visa?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>ETA (Subclass 601) is an instant online authorization for stays up to 3 months â€” costs AUD 20, no documents needed. Visitor Visa (Subclass 600) is for longer stays or applicants with prior refusals â€” costs AUD 195, requires full documentation.</p></div>
+ <div class="faq-answer"><p>ETA (Subclass 601) is an instant online authorization for stays up to 3 months — costs AUD 20, no documents needed. Visitor Visa (Subclass 600) is for longer stays or applicants with prior refusals — costs AUD 195, requires full documentation.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What is the GTE requirement for an Australia student visa?<span class="faq-icon">+</span></button>
@@ -650,7 +702,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">Can I work in Australia on a student visa?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Yes â€” up to 48 hours per fortnight during term, unlimited during holidays. Apply for a TFN before starting work. Dependents can also work up to 48 hours per fortnight.</p></div>
+ <div class="faq-answer"><p>Yes — up to 48 hours per fortnight during term, unlimited during holidays. Apply for a TFN before starting work. Dependents can also work up to 48 hours per fortnight.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What is the Subclass 485 Temporary Graduate visa?<span class="faq-icon">+</span></button>
@@ -662,7 +714,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">Is OSHC mandatory for Australia student visa?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Yes â€” OSHC is mandatory for the entire visa duration. Annual cost: AUD 630-1,200 (single). Approved providers: Medibank, Bupa, Allianz Care, NIB, ahm.</p></div>
+ <div class="faq-answer"><p>Yes — OSHC is mandatory for the entire visa duration. Annual cost: AUD 630-1,200 (single). Approved providers: Medibank, Bupa, Allianz Care, NIB, ahm.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What happens if my Australia visa is rejected?<span class="faq-icon">+</span></button>
@@ -674,23 +726,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">Do I need biometrics for an Australia visa?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Yes â€” 10 fingerprints + digital photograph, valid 5 years. Collected at VFS Global centers in 34 Indian cities. Cost: â‚¹1,500-2,000.</p></div>
+ <div class="faq-answer"><p>Yes — 10 fingerprints + digital photograph, valid 5 years. Collected at VFS Global centers in 34 Indian cities. Cost: ?1,500-2,000.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">Can I bring my family on a student visa?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Yes â€” spouse/partner + dependent children (under 18) can accompany you. Partner can work up to 48 hours/fortnight. Children can study without a separate visa. Show additional funds: AUD 10,394/year for partner, AUD 4,490/year per child.</p></div>
+ <div class="faq-answer"><p>Yes — spouse/partner + dependent children (under 18) can accompany you. Partner can work up to 48 hours/fortnight. Children can study without a separate visa. Show additional funds: AUD 10,394/year for partner, AUD 4,490/year per child.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">How do I apply for PR after studying in Australia?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Typical pathway: Student 500 â€” Graduate 485 â€” gain skilled work experience â€” submit EOI for 189 or 190 â€” receive invitation â€” apply for PR. Regional graduates get bonus points and priority processing.</p></div>
+ <div class="faq-answer"><p>Typical pathway: Student 500 — Graduate 485 — gain skilled work experience — submit EOI for 189 or 190 — receive invitation — apply for PR. Regional graduates get bonus points and priority processing.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">Can I transit through Australia without a visa?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Yes â€” if you stay airside and transit is under 8 hours. Longer transit or clearing immigration requires a Visitor 600 or Transit 771 visa. Check requirements before booking connecting flights.</p></div>
+ <div class="faq-answer"><p>Yes — if you stay airside and transit is under 8 hours. Longer transit or clearing immigration requires a Visitor 600 or Transit 771 visa. Check requirements before booking connecting flights.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What is the difference between Subclass 189 and 190?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>189 (Skilled Independent) â€” no state nomination needed, live/work anywhere, 8-12 months processing. 190 (Skilled Nominated) â€” requires state nomination, 5 extra points, must live in nominating state for 2 years, 6-9 months processing.</p></div>
+ <div class="faq-answer"><p>189 (Skilled Independent) — no state nomination needed, live/work anywhere, 8-12 months processing. 190 (Skilled Nominated) — requires state nomination, 5 extra points, must live in nominating state for 2 years, 6-9 months processing.</p></div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What health conditions can lead to Australia visa refusal?<span class="faq-icon">+</span></button>
@@ -698,7 +750,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  </div>
 
- <h2 id="updates2026">Australia Visa Updates 2026 â€” What Has Changed</h2>
+ <h2 id="updates2026">Australia Visa Updates 2026 — What Has Changed</h2>
  <table class="visa-table">
  <thead><tr><th>Change</th><th>Previous</th><th>Current (2026)</th></tr></thead>
  <tbody>
@@ -706,9 +758,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <tr><td>Student Visa Fee (Subclass 500)</td><td>AUD 710</td><td>AUD 1,600 (more than doubled since 2023)</td></tr>
  <tr><td>GTE Requirement Format</td><td>Open-ended written statement</td><td>Mandatory 300+ word statement answering specific prompts</td></tr>
  <tr><td>Biometrics Expansion</td><td>Required for select categories</td><td>Mandatory for all visa categories including ETA (risk-profiled)</td></tr>
- <tr><td>OSHC Rates</td><td>AUD 478-900/year (single)</td><td>AUD 630-1,200/year (single â€” adjusted for inflation)</td></tr>
+ <tr><td>OSHC Rates</td><td>AUD 478-900/year (single)</td><td>AUD 630-1,200/year (single — adjusted for inflation)</td></tr>
  <tr><td>Post-Study Work Application Window</td><td>6 months after course completion</td><td>12 months after course completion (COVID concession extended)</td></tr>
- <tr><td>India ECTA Benefits</td><td>Initial implementation</td><td>Fully operational â€” 70+ occupations benefit from streamlined processing</td></tr>
+ <tr><td>India ECTA Benefits</td><td>Initial implementation</td><td>Fully operational — 70+ occupations benefit from streamlined processing</td></tr>
  </tbody>
  </table>
 
@@ -723,7 +775,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <div class="cta-section">
  <h2>Need Help With Your Australia Visa Application?</h2>
- <p>Our India-focused visa consultants have helped over 500 Indian applicants navigate the Australian visa system â€” from student visas to skilled migration and family sponsorship.</p>
+ <p>Our India-focused visa consultants have helped over 500 Indian applicants navigate the Australian visa system — from student visas to skilled migration and family sponsorship.</p>
  <a href="/contact" class="btn" style="background:#A5D549;color:#0a0a52;font-weight:700;padding:14px 36px;font-size:1.1rem;border-radius:8px;display:inline-block;">Contact My Visa Assistance</a>
  </div>
 
