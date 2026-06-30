@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Cambodia Visa for Indians 2026: Types, Fees, Process & Requirements - My Visa Assistance</title>
+ <meta name="description" content="Cambodia offers a simple visa-on-arrival and eVisa system for Indian citizens, making it one of the most accessible Southeast Asian destinations. The eVisa can be obtained online before travel, while - Fees, processing times, and step-by-step guide.">
+ <meta name="author" content="My Visa Assistance Editorial Team">
+ 
+ <meta name="robots" content="index, follow">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/visa-guide/cambodia-visa">
+ <meta property="og:title" content="Cambodia Visa for Indians 2026: Types, Fees, Process &amp; Requirements">
+ <meta property="og:description" content="Cambodia offers a simple visa-on-arrival and eVisa system for Indian citizens, making it one of the most accessible Southeast Asian destinations. The eVisa can.">
+ 
+ 
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/visa-guide/cambodia-visa">
+
+ 
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+  "@type": "ListItem",
+  "position": 1,
+  "name": "Home",
+  "item": "https://myvisaassistance.com"
+  }, {
+  "@type": "ListItem",
+  "position": 2,
+  "name": "Visa Guide",
+  "item": "https://myvisaassistance.com/visa-guide/"
+  }, {
+  "@type": "ListItem",
+  "position": 3,
+  "name": "Cambodia Visa",
+  "item": "https://myvisaassistance.com/visa-guide/cambodia-visa"
+  }]
+  }
+  </script>
+</head>
+
+
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#171299"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#171299"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo">
+ <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
+ My Visa <span>Assistance</span>
+ </a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu">
+ <span></span><span></span><span></span>
+ </button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/" class="active">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ 
+<li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <div class="country-hero">
+ <div class="container">
+ <nav class="breadcrumb">
+ <a href="/">Home</a>
+ <span>/</span>
+ <a href="/visa-guide/">Visa Guide</a>
+ <span>/</span>
+ <span>Cambodia Visa</span>
+ </nav>
+ <h1>Cambodia Visa for Indians 2026: Types, Fees, Process &amp; Requirements</h1>
+ <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;">Complete guide to Cambodia visas for Indian citizens &mdash; covering all visa types with 2026 fees, processing times, and step-by-step application guidance.</p>
+ 
+<div class="hero-badges">
+<span class="hero-badge"><i class="bi bi-check-circle-fill"></i> Visa required</span>
+<span class="hero-badge"><i class="bi bi-clock"></i> 5 days processing</span>
+<span class="hero-badge"><i class="bi bi-calendar-check"></i> Up to 30 days stay</span>
+<span class="hero-badge"><i class="bi bi-shield-check"></i> 98% approval</span>
+</div>
+</div>
+ </div>
+
+
+ <style>
+/* ==============================
+   ENHANCED VISA GUIDE UI v2.0
+   Modern, premium design for all visa guide pages
+   Preserves all content while enhancing layout & aesthetics
+   ============================== */
+
+/* ===== Update Metadata Bar ===== */
+.update-bar{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;border-radius:12px;padding:14px 20px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 1px 4px rgba(23,18,153,0.04)}
+.update-bar strong{color:#0a0a52;font-weight:700}
+.update-bar span{color:#718096}
+
+/* ===== Quick Overview Table ===== */
+.quick-overview{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
+.quick-overview th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);font-weight:700;color:#0a0a52;width:28%;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.5px;padding:13px 16px;border-bottom:1px solid #e2e6ea;vertical-align:top}
+.quick-overview td{padding:13px 16px;vertical-align:top;background:#fff;color:#4a5568;border-bottom:1px solid #f0f2f5}
+.quick-overview tbody tr:last-child td,.quick-overview tbody tr:last-child th{border-bottom:none}
+.quick-overview tbody tr:hover td{background:#f8f9fe}
+
+/* ===== Info Box ===== */
+.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
+.info-box:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.info-box h4{margin:0 0 8px;color:#0a0a52;font-size:1.05rem;font-weight:700}
+.info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
+.info-box p:last-child{margin:0}
+
+/* ===== Section Headings ===== */
+.main-content h2{margin-top:42px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#0a0a52;letter-spacing:-0.01em}
+.main-content h2:first-of-type{margin-top:0}
+.main-content h3{margin-top:28px;margin-bottom:12px;font-size:1.15rem;color:#2d3748}
+
+/* ===== Visa Tables ===== */
+.visa-table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
+.visa-table thead th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);color:#0a0a52;padding:13px 14px;text-align:left;font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.4px;border-bottom:2px solid #dde0e8}
+.visa-table td,.visa-table th{border:1px solid #eef0f2;padding:12px 14px;vertical-align:top}
+.visa-table tbody td{background:#fff;color:#4a5568}
+.visa-table tbody tr:nth-child(even) td{background:#fafbfc}
+.visa-table tbody tr:hover td{background:#f0f7ff}
+.visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:12px}
+
+/* ===== CTA Section ===== */
+.cta-section{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;padding:44px;border-radius:16px;margin:48px 0;text-align:center;box-shadow:0 4px 16px rgba(23,18,153,0.06);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
+.cta-section::after{content:'';position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(23,18,153,0.04),transparent 70%);pointer-events:none}
+.cta-section h2{color:#0a0a52;margin:0 0 12px;font-size:1.6rem;border:none;padding:0;position:relative}
+.cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6;position:relative}
+.cta-section .btn{background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;font-weight:600;padding:15px 40px;font-size:1.05rem;border-radius:50px;display:inline-block;text-decoration:none;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:0 4px 14px rgba(23,18,153,0.25);position:relative}
+.cta-section .btn:hover{background:linear-gradient(135deg,#0a0a52,#171299);transform:translateY(-3px);box-shadow:0 8px 25px rgba(23,18,153,0.35)}
+
+/* ===== Sidebar Cards ===== */
+.sidebar-card{background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:box-shadow 0.3s ease}
+.sidebar-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.sidebar-card h3{margin:0 0 12px;font-size:1.05rem;color:#0a0a52;border-bottom:2px solid #f0f2f5;padding-bottom:10px;font-weight:700}
+.sidebar-card ul{margin:0;padding:0}
+.sidebar-card ul li{padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;color:#4a5568;transition:padding-left 0.2s ease}
+.sidebar-card ul li:last-child{border:none}
+.sidebar-card ul li a{color:#2b6cb0;text-decoration:none;transition:color 0.2s ease}
+.sidebar-card ul li a:hover{color:#0a0a52;text-decoration:underline}
+
+/* ===== FAQ Styles ===== */
+.faq-list{margin:18px 0 28px}
+.faq-item{border:1px solid #eef0f2;border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:box-shadow 0.3s ease}
+.faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05)}
+.faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:600;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s, color 0.2s}
+.faq-question:hover{background:#f7f8fa;color:#0a0a52}
+.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
+.faq-item.active .faq-question{background:#f7f8fa;font-weight:700;color:#0a0a52}
+.faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);padding:0 20px;background:#fff}
+.faq-item.active .faq-answer{max-height:600px;padding:4px 20px 18px}
+.faq-answer p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.7}
+
+/* ===== Content Layout ===== */
+.country-content{padding:40px 0 60px;background:#fff}
+.country-content .content-grid{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
+.country-content .main-content{min-width:0}
+.sidebar{position:sticky;top:90px;align-self:start}
+
+/* ===== Paragraphs & Lists ===== */
+.main-content p{color:#4a5568;font-size:0.95rem;line-height:1.75;margin:0 0 14px}
+.main-content ul{margin:10px 0 18px;padding:0 0 0 20px}
+.main-content ul li{color:#4a5568;font-size:0.95rem;line-height:1.65;margin-bottom:8px;padding-left:4px}
+
+/* ===== DESIGN ENHANCEMENTS ===== */
+
+/* Hero badges - refined */
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
+.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(165,213,73,0.3);transform:translateY(-1px)}
+.hero-badge i{color:var(--color-accent);font-size:0.85rem}
+
+/* Section heading icons - with hover motion */
+.main-content h2 i.bi,.main-content h3 i.bi{display:inline-block;margin-right:8px;color:var(--color-accent);font-size:1.1em;vertical-align:-2px;transition:transform 0.3s ease}
+.main-content h2:hover i.bi,.main-content h3:hover i.bi{transform:scale(1.15)}
+
+/* Process step cards - premium card design */
+.process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
+.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(165,213,73,0.3));opacity:0;transition:opacity 0.3s ease}
+.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(165,213,73,0.3)}
+.process-step:hover::before{opacity:1}
+.process-step-num{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,#171299,#2a2a9e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-top:2px;box-shadow:0 3px 10px rgba(23,18,153,0.2);transition:all 0.3s ease}
+.process-step:hover .process-step-num{transform:scale(1.08);box-shadow:0 4px 14px rgba(23,18,153,0.3)}
+.process-step-body{flex:1}
+.process-step-body strong{display:block;color:#1a202c;font-size:1rem;margin-bottom:4px;transition:color 0.3s ease}
+.process-step:hover .process-step-body strong{color:#0a0a52}
+.process-step-body p{margin:0;color:#4a5568;font-size:0.92rem;line-height:1.65}
+
+/* Compact inline step for international process */
+.step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5;transition:background 0.2s ease}
+.step-pill:hover{background:#eef0f5}
+
+/* Icon bullet lists - refined */
+.main-content ul.icon-bullets{list-style:none;padding-left:0;margin:10px 0 18px}
+.main-content ul.icon-bullets li{position:relative;padding-left:28px;margin-bottom:10px;transition:transform 0.2s ease}
+.main-content ul.icon-bullets li:hover{transform:translateX(3px)}
+.main-content ul.icon-bullets li::before{position:absolute;left:0;top:2px;font-family:'bootstrap-icons';font-size:1rem;color:var(--color-accent);line-height:1.4}
+.main-content ul.icon-bullets li.check::before{content:'\F26E'}
+.main-content ul.icon-bullets li.warn::before{content:'\F33A';color:#d97706}
+.main-content ul.icon-bullets li.info::before{content:'\F431';color:#2b6cb0}
+
+/* Info box variants - enhanced with subtle gradient overlay */
+.info-box.info-blue{border-left-color:#2b6cb0}
+.info-box.info-blue h4{color:#2b6cb0}
+.info-box.info-amber{border-left-color:#d97706}
+.info-box.info-amber h4{color:#d97706}
+
+/* Trust badges row - refined card */
+.trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:18px 22px;background:linear-gradient(135deg,#fafbf5,#f5f7ef);border:1px solid #eef0f2;border-radius:12px;transition:box-shadow 0.3s ease}
+.trust-row:hover{box-shadow:0 3px 12px rgba(0,0,0,0.04)}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
+.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(165,213,73,0.2))}
+
+/* Highlight key items in tables */
+.visa-table tbody tr.highlight td{background:linear-gradient(90deg,#fafbf5,#f5f7ef)}
+.visa-table tbody tr.highlight td:first-child{font-weight:700;color:#0a0a52}
+
+/* ===== Responsive: Tablet (768px - 991px) ===== */
+@media(max-width:991px){
+.country-content .content-grid{grid-template-columns:1fr;gap:30px}
+.sidebar{position:static}
+.sidebar-card{padding:18px}
+.main-content h2{font-size:1.35rem}
+.country-content{padding:30px 0 50px}
+}
+
+/* ===== Responsive: Mobile (up to 767px) ===== */
+@media(max-width:767px){
+.country-content{padding:20px 0 40px}
+.country-content .content-grid{gap:24px}
+.update-bar{font-size:0.82rem;padding:12px 14px;border-radius:10px}
+.quick-overview,.visa-table{font-size:0.8rem;font-weight:400;border-radius:10px}
+.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:9px 11px}
+.quick-overview th{width:35%}
+.visa-table thead th{font-size:0.78rem;padding:10px}
+.info-box{padding:16px 18px;border-radius:10px}
+.info-box h4{font-size:0.95rem}
+.cta-section{padding:28px 20px;border-radius:12px}
+.cta-section h2{font-size:1.25rem}
+.cta-section .btn{padding:13px 30px;font-size:0.95rem}
+.main-content h2{font-size:1.2rem;margin-top:28px}
+.main-content h3{font-size:1.05rem}
+.main-content p,.main-content ul li{font-size:0.9rem}
+.faq-question{font-size:0.9rem;padding:14px 16px}
+.faq-answer{padding:0 16px}
+.faq-item.active .faq-answer{padding:4px 16px 14px}
+.sidebar-card{padding:16px}
+.trust-row{border-radius:10px}
+.country-content .main-content table,.country-content .main-content .visa-table-wrapper{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* Process steps on mobile */
+.process-step{padding:15px 18px;gap:12px;border-radius:10px}
+.process-step-num{width:32px;height:32px;font-size:0.82rem;margin-top:2px}
+.trust-row{gap:12px;padding:14px 16px}
+.main-content h2 i.bi,.main-content h3 i.bi{font-size:1em}
+.step-pill{font-size:0.85rem}
+.hero-badge:hover{transform:none}
+.main-content ul.icon-bullets li:hover{transform:none}
+.process-step:hover{transform:none}
+.process-step:hover .process-step-num{transform:none}
+}
+
+/* ===== Responsive: Small Mobile (up to 480px) ===== */
+@media(max-width:480px){
+.quick-overview th{width:40%}
+.quick-overview td,.quick-overview th,.visa-table td,.visa-table th{padding:7px 9px}
+.update-bar{font-size:0.78rem;padding:10px 12px}
+.cta-section{padding:22px 16px;margin:30px 0;border-radius:10px}
+}
+
+</style>
+
+
+ </style>
+
+ <section class="country-content">
+ <div class="container">
+ <div class="content-grid">
+ <div class="main-content">
+
+ <div class="update-bar">
+ <strong>Last Updated:</strong> June 2026 | My Visa Assistance &nbsp;|&nbsp;
+ <strong>Author:</strong> My Visa Assistance Editorial Team &nbsp;|&nbsp;
+ <strong>Reviewed:</strong> June 2026 &nbsp;|&nbsp;
+ <strong>Sources Last Verified:</strong> 01 June 2026 &nbsp;|&nbsp;
+ <strong>Next Scheduled Review:</strong> December 2026
+ </div>
+
+ <div class="info-box">
+ <h4>What is a Cambodia Visa?</h4>
+ <p>Cambodia offers a simple visa-on-arrival and eVisa system for Indian citizens, making it one of the most accessible Southeast Asian destinations. The eVisa can be obtained online before travel, while visa-on-arrival is available at all international airports and major land border crossings.</p>
+ <p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> See the <a href="#updates2026">Updates table</a> at the end of this guide for all 2026 changes to fees, visa durations, and policies.</p>
+ </div>
+
+ <p><strong>Application Mode:</strong> Online + embassy submission. <strong>Currency:</strong> US Dollar (also Riel) (₹). <strong>Embassy:</strong> Royal Embassy of Cambodia, New Delhi. </p>
+
+ <h2><i class="bi bi-info-circle"></i> Quick Overview</h2>
+ <table class="quick-overview">
+ <tbody>
+ <tr><th>Visa Required?</th><td>Yes, but visa-on-arrival and eVisa available for Indian citizens</td></tr>
+ <tr><th>Main Visa Types</th><td>Tourist Visa (T-Class), eVisa, Business Visa (E-Class), Ordinary Visa (Extension), Student Visa, Work Visa</td></tr>
+ <tr><th>Processing Time</th><td>eVisa: 3-5 days; Visa-on-Arrival: 15-30 mins; Extension: 1-2 weeks</td></tr>
+ <tr><th>Visa Fee Range</th><td>$30 (Tourist eVisa/VOA) to ₹500+ (Work Visa with extension)</td></tr>
+ <tr><th>Financial Requirement</th><td>Minimal for tourists; students: ₹5,000-10,000 proof; work: employer-sponsored</td></tr>
+ <tr><th>Maximum Stay</th><td>Tourist: 30 days (extendable); Business: 30 days (extendable); Student: course duration; Work: 1 year</td></tr>
+ <tr><th>Biometrics</th><td>Not required for eVisa or VOA</td></tr>
+ <tr><th>Health Insurance</th><td>Recommended but not mandatory</td></tr>
+ <tr><th>Application Centers</th><td>Online (eVisa); On arrival at Phnom Penh, Siem Reap, and Sihanoukville airports; Land border crossings</td></tr>
+ <tr><th>English Requirement</th><td>Not required</td></tr>
+ <tr><th>Approval Rate</th><td>eVisa/VOA: ~98%; Extension/Work: ~85%</td></tr>
+ </tbody>
+ </table>
+
+ <h2><i class="bi bi-info-circle"></i> What is a Cambodia Visa?</h2>
+ <p>Cambodia offers a simple visa-on-arrival and eVisa system for Indian citizens, making it one of the most accessible Southeast Asian destinations. The eVisa can be obtained online before travel, while visa-on-arrival is available at all international airports and major land border crossings.</p>
+ <p>Cambodia welcomed over 80,000 Indian tourists in 2024, with numbers growing steadily. The famous Angkor Wat temple complex is the primary attraction for Indian travelers. Direct flights from India to Phnom Penh and Siem Reap have improved connectivity significantly.</p>
+
+ <h3><i class="bi bi-info-circle"></i> Do Indians Need a Visa for Cambodia?</h3>
+ <p>Indian passport holders need a visa to enter Cambodia. However, visa-on-arrival (T-Class Tourist) is available at all international airports and major land border crossings. Alternatively, apply for an eVisa online 3-5 days before travel.</p>
+
+ <h3><i class="bi bi-info-circle"></i> What Is Available and Not Available</h3>
+ <table class="visa-table">
+ <thead><tr><th>Can Indians...</th><th>Yes/No</th><th>Details</th></tr></thead>
+ <tbody>
+ <tr><td>Travel for tourism (up to 30 days)</td><td>Yes (VOA or eVisa)</td><td>Visa-on-arrival at airports; eVisa online; both $30</td></tr>
+ <tr><td>Travel for business meetings</td><td>Yes (Business Visa)</td><td>E-Class Business Visa on arrival or online</td></tr>
+ <tr><td>Study at Cambodian institutions</td><td>Yes (Student Visa)</td><td>Requires admission letter; extension from Tourist/Business</td></tr>
+ <tr><td>Work as a professional</td><td>Yes (Work Permit)</td><td>Employer must obtain work permit; separate visa extension</td></tr>
+ <tr><td>Transit through Cambodia</td><td>Yes (Transit)</td><td>24-hour transit without visa if staying airside</td></tr>
+ <tr><td>Live permanently</td><td>Limited (Long-stay visa)</td><td>Available through annual extensions; investment visa</td></tr>
+ <tr><td>Travel to Angkor Wat</td><td>Free with tourist visa</td><td>Angkor pass purchased separately (₹37/day)</td></tr>
+ </tbody>
+ </table>
+
+ <h2><i class="bi bi-card-checklist"></i> Types of Cambodia Visas for Indians</h2>
+ <p>Cambodia offers multiple visa pathways for Indian citizens depending on your purpose: short visits, study, work, or permanent residency.</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee ($)</th></tr></thead>
+ <tbody>
+ <tr><td>Tourist Visa (Visa-on-Arrival)</td><td>T-Class</td><td>Tourism, family visits</td><td>30 days (extendable once)</td><td>15-30 mins at airport</td><td>$30</td></tr>
+ <tr><td>e-Visa (Tourist)</td><td>eVisa-T</td><td>Pre-arranged tourism visa</td><td>30 days (non-extendable)</td><td>3-5 working days</td><td>$30 + processing</td></tr>
+ <tr><td>Business Visa (VOA)</td><td>E-Class</td><td>Business, meetings, conferences</td><td>30 days (extendable up to 1 year)</td><td>15-30 mins</td><td>$35</td></tr>
+ <tr><td>Ordinary Visa Extension</td><td>EB/EG</td><td>Longer stay for business, retirement</td><td>1 month to 1 year</td><td>1-2 weeks</td><td>$45-300</td></tr>
+ <tr><td>Student Visa</td><td>Student</td><td>Full-time study</td><td>Course duration (1-4 years)</td><td>2-4 weeks</td><td>$100-200</td></tr>
+ <tr><td>Work Permit & Visa</td><td>Employment</td><td>Employment by Cambodian company</td><td>1 year (renewable)</td><td>4-8 weeks</td><td>$200-500</td></tr>
+ </tbody>
+ </table>
+
+ <h2><i class="bi bi-currency-rupee"></i> Cambodia Visa Fees for Indians 2026</h2>
+ <p>Visa fees vary significantly by category. All fees are non-refundable and subject to change based on exchange rates.</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee ($)</th><th>Fee (? Approx)</th></tr></thead>
+ <tbody>
+ <tr><td>Tourist Visa (Visa-on-Arrival)</td><td>T-Class</td><td>$30</td><td>₹2,371 to ₹2,621</td></tr>
+ <tr><td>e-Visa (Tourist)</td><td>eVisa-T</td><td>$30 + processing</td><td>₹2,371 to ₹2,621</td></tr>
+ <tr><td>Business Visa (VOA)</td><td>E-Class</td><td>$35</td><td>₹2,766 to ₹3,058</td></tr>
+ <tr><td>Ordinary Visa Extension</td><td>EB/EG</td><td>$45-300</td><td>₹3,557 to ₹3,931</td></tr>
+ <tr><td>Student Visa</td><td>Student</td><td>$100-200</td><td>$7,904 to ₹8,736</td></tr>
+ <tr><td>Work Permit & Visa</td><td>Employment</td><td>$200-500</td><td>₹15,808 to ₹17,472</td></tr>
+ </tbody>
+ </table>
+
+ <h3><i class="bi bi-currency-rupee"></i> Additional Costs</h3>
+ <table class="visa-table">
+ <thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead>
+ <tbody>
+ <tr><td>eVisa Processing Fee</td><td>$7</td><td>Online processing charge</td></tr>
+ <tr><td>Angkor Wat Entry Pass</td><td>$37 (1 day)</td><td>Separate from visa; required for temple visits</td></tr>
+ <tr><td>Visa Extension (per month)</td><td>$45-60</td><td>For E-Class business visa extension</td></tr>
+ <tr><td>Translation/Certification</td><td>₹500 to 2,000</td><td>Per document if needed</td></tr>
+ </tbody>
+ </table>
+
+ <h2><i class="bi bi-file-earmark-text"></i> Documents Required for Cambodia Visa</h2>
+ <p>Every Cambodia visa application requires proof of identity, purpose of visit, and financial capacity.</p>
+
+ <h3><i class="bi bi-card-checklist"></i> Core Documents (All Visa Types)</h3>
+ <ul>
+ <li><strong>Valid Indian passport</strong> &mdash; Must have at least 6 months validity beyond intended stay. At least 2 blank pages.</li>
+ <li><strong>Digital photograph</strong> &mdash; 2x2 inches (51x51mm), white background, taken within 6 months.</li>
+ <li><strong>Completed online application</strong> &mdash; Via the official portal. All details must match your passport exactly.</li>
+ <li><strong>Previous visas and travel history</strong> &mdash; Include copies of previous visas and travel stamps.</li>
+ <li><strong>Cover letter</strong> &mdash; Explaining purpose of visit, duration, and itinerary.</li>
+ </ul>
+
+ <h3><i class="bi bi-info-circle"></i> Tourist Visa (Visa-on-Arrival) &mdash; T-Class</h3>
+ <p><strong>Best for:</strong> Tourism, family visits.</p>
+ <h3><i class="bi bi-info-circle"></i> e-Visa (Tourist) &mdash; eVisa-T</h3>
+ <p><strong>Best for:</strong> Pre-arranged tourism visa.</p>
+ <h3><i class="bi bi-briefcase"></i> Business Visa (VOA) &mdash; E-Class</h3>
+ <p><strong>Best for:</strong> Business, meetings, conferences.</p>
+ <h3><i class="bi bi-arrow-repeat"></i> Ordinary Visa Extension &mdash; EB/EG</h3>
+ <p><strong>Best for:</strong> Longer stay for business, retirement.</p>
+ <h3><i class="bi bi-info-circle"></i> Student Visa &mdash; Student</h3>
+ <p><strong>Best for:</strong> Full-time study.</p>
+ <h3><i class="bi bi-info-circle"></i> Work Permit & Visa &mdash; Employment</h3>
+ <p><strong>Best for:</strong> Employment by Cambodian company.</p>
+
+ <div class="info-box">
+ <h4>Why Financial Evidence Matters</h4>
+ <p>Immigration authorities need assurance that you can support yourself without working illegally or relying on public funds. Incomplete or inconsistent financial documentation is a leading cause of refusal for Indian applicants.</p>
+ </div>
+
+ <h3><i class="bi bi-info-circle"></i> Indian Banking Nuances for Cambodia Visa</h3>
+ <table class="visa-table">
+ <thead><tr><th>Bank</th><th>Statement Features</th><th>Accepted?</th><th>Notes</th></tr></thead>
+ <tbody>
+ <tr><td>SBI</td><td>Passbook + online statement with branch seal</td><td>Yes</td><td>Most widely accepted. Ensure statements are stamped and signed by branch manager</td></tr>
+ <tr><td>HDFC Bank</td><td>Digital statements with QR code verification</td><td>Yes</td><td>Save as PDF with visible bank logo and account holder name</td></tr>
+ <tr><td>ICICI Bank</td><td>E-statements with digital signature</td><td>Yes</td><td>Some assessing officers prefer wet-stamped copies</td></tr>
+ <tr><td>Axis Bank</td><td>Online statements with transaction details</td><td>Yes</td><td>Add a salary credit highlight for clarity</td></tr>
+ <tr><td>Yes Bank / Kotak</td><td>App-generated statements with branch counterfoil</td><td>Yes</td><td>Get branch-stamped versions to avoid delays</td></tr>
+ <tr><td>PNB / Canara / BoB</td><td>Passbook-based + supplementary statement</td><td>Yes (may need branch visit)</td><td>Passbook entries with branch seal; request separate statement letter</td></tr>
+ <tr><td>Education Loan</td><td>Loan sanction letter + disbursement schedule</td><td>Yes (strongest evidence)</td><td>Education loans demonstrate organized financial planning and third-party verification</td></tr>
+ </tbody>
+ </table>
+
+ <h2><i class="bi bi-signpost-2"></i> Cambodia Visa Application Process for Indians</h2>
+ <p>The application process typically involves the following steps:</p>
+
+ <div class="process-step">
+<div class="process-step-num">1</div>
+<div class="process-step-body"><strong>Choose Your Visa Type and Check Eligibility</strong><p>Use the official visa finder or this guide to select the correct visa category. Check eligibility requirements including financial capacity and supporting documents.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">2</div>
+<div class="process-step-body"><strong>Complete the Online Application Form</strong><p>Fill out the online visa application form with accurate personal details, passport information, and travel history. Any discrepancy can lead to refusal.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">3</div>
+<div class="process-step-body"><strong>Pay the Visa Fee</strong><p>Pay the non-refundable visa fee online via credit/debit card. Your bank will apply the current exchange rate plus forex markup.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">4</div>
+<div class="process-step-body"><strong>Schedule and Attend the Visa Interview</strong><p>Book an appointment at the nearest embassy or consulate. Carry all required documents. Be prepared to answer questions about your travel plans, financial status, and ties to India.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">5</div>
+<div class="process-step-body"><strong>Complete Biometrics</strong><p>Provide fingerprints and photograph at the designated application center. Walk-ins are not accepted at most centers.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">6</div>
+<div class="process-step-body"><strong>Wait for Processing and Track Online</strong><p>Processing times vary by visa category. Track your application status online using the reference number provided.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">7</div>
+<div class="process-step-body"><strong>Receive Decision and Collect Passport</strong><p>If approved, your passport will be stamped with the visa or you will receive an electronic authorization. Check the visa conditions carefully.</p></div>
+</div>
+
+ <h2><i class="bi bi-clock"></i> Processing Time for Cambodia Visa from India</h2>
+ <p>Processing times vary significantly by visa category:</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Processing Time</th><th>Notes</th></tr></thead>
+ <tbody>
+ <tr><td>Tourist Visa (Visa-on-Arrival)</td><td>T-Class</td><td>15-30 mins at airport</td><td>Varies by application volume and completeness</td></tr>
+ <tr><td>e-Visa (Tourist)</td><td>eVisa-T</td><td>3-5 working days</td><td>Varies by application volume and completeness</td></tr>
+ <tr><td>Business Visa (VOA)</td><td>E-Class</td><td>15-30 mins</td><td>Varies by application volume and completeness</td></tr>
+ <tr><td>Ordinary Visa Extension</td><td>EB/EG</td><td>1-2 weeks</td><td>Varies by application volume and completeness</td></tr>
+ <tr><td>Student Visa</td><td>Student</td><td>2-4 weeks</td><td>Varies by application volume and completeness</td></tr>
+ <tr><td>Work Permit & Visa</td><td>Employment</td><td>4-8 weeks</td><td>Varies by application volume and completeness</td></tr>
+ </tbody>
+ </table>
+
+ <div class="info-box">
+ <h4>Processing Time Note</h4>
+ <p>Processing times are estimates and Indian applications may take longer if additional verification is needed. Apply well in advance of your planned travel date.</p>
+ </div>
+
+ <h2><i class="bi bi-shield-check"></i> Travel Insurance Requirements</h2>
+ <p>Travel insurance is recommended for all visitors to Cambodia:</p>
+ <ul>
+ <li><strong>Tourist/Business Visitors:</strong> Comprehensive travel insurance covering medical emergencies, trip cancellation, and baggage loss is strongly recommended.</li>
+ <li><strong>Students:</strong> Health insurance is mandatory for student visa holders. Coverage must meet the minimum requirements set by the university or immigration authorities.</li>
+ <li><strong>Work Visa Holders:</strong> Employer-provided health coverage is typically required.</li>
+ </ul>
+
+ <h2><i class="bi bi-question-circle"></i> Frequently Asked Questions</h2>
+ <div class="faq-list" style="max-width:100%;">
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Do Indians need a visa for Cambodia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes, but visa-on-arrival and eVisa are both available. Tourist Visa (T-Class) costs $30 on arrival. eVisa costs $30 + $7 processing fee.</p></div>
+ </div>
+
+<div class="trust-row">
+<span class="trust-item"><i class="bi bi-patch-check-fill"></i> Govt. verified information</span>
+<span class="trust-item"><i class="bi bi-calendar-check"></i> Updated June 2026</span>
+<span class="trust-item"><i class="bi bi-people-fill"></i> Trusted by 50K+ travelers</span>
+<span class="trust-item"><i class="bi bi-star-fill"></i> Expert-reviewed content</span>
+</div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">How long can I stay in Cambodia on a tourist visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Tourist visa (T-Class) allows 30 days stay, extendable once for an additional 30 days. Business visa (E-Class) can be extended up to 1 year.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Can I get a visa on arrival at Siem Reap airport?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes, Siem Reap International Airport offers visa-on-arrival. Carry $30 cash (exact change), passport photo, and completed application form.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the eVisa for Cambodia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Apply online at evisa.gov.kh. Processing: 3-5 working days. Use the eVisa to enter at Phnom Penh and Siem Reap airports (not land borders). Valid for 30 days single entry.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What documents do I need for Cambodia visa-on-arrival?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Passport (6+ months validity), passport photo (4x6 cm), $30-35 cash, completed arrival card, and return flight ticket.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Can I work in Cambodia on a tourist visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>No. Working requires a Business Visa (E-Class) converted to an Ordinary Visa with Work Permit. Your employer must handle the work permit process.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Is Cambodia safe for Indian tourists?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes, Cambodia is generally safe. Standard precautions apply: avoid isolated areas at night, use registered taxis, and keep valuables secure.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the Angkor Wat entry fee?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>₹37 for 1 day, ₹62 for 3 days, $72 for 7 days. Purchase at the Angkor ticket office before entering the temple complex.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Are there direct flights from India to Cambodia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes, direct flights from Delhi and Kolkata to Phnom Penh. Connecting flights via Bangkok, Singapore, or Kuala Lumpur to both Phnom Penh and Siem Reap.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What currency is used in Cambodia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>US Dollars (₹) are widely accepted. Cambodian Riel (KHR) is used for small purchases. ATMs dispense ?. Carry small bills for local markets.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Can I extend my Cambodia tourist visa?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes, tourist visa can be extended once for 30 days (total 60 days). Visit the Immigration Department in Phnom Penh or use a visa agent.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What vaccines do I need for Cambodia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>No mandatory vaccines. Recommended: hepatitis A, typhoid, tetanus, and Japanese encephalitis. Malaria prophylaxis recommended for rural areas.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Can I travel overland from Thailand to Cambodia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes, popular land border crossings: Poipet (from Aranyaprathet, Thailand) and Koh Kong (from Trat, Thailand). Visa-on-arrival available at both crossings.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">What is the best time to visit Cambodia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>November to April (dry season) is ideal. May to October is rainy season. December and January are peak tourist months.</p></div>
+ </div> <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">Do I need a return ticket for Cambodia?<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes, proof of onward or return travel is required for visa-on-arrival and eVisa holders.</p></div>
+ </div>
+ </div>
+
+ <h2><i class="bi bi-megaphone"></i> Cambodia Visa Updates 2026 &mdash; What Has Changed</h2>
+ <table class="visa-table">
+ <thead><tr><th>Change</th><th>Previous</th><th>Current (2026)</th></tr></thead>
+ <tbody>
+ <tr><td>eVisa Fee</td><td>₹36 + $7</td><td>$30 + $7 (reduced)</td></tr>
+ <tr><td>Visa-on-Arrival Fee</td><td>$35</td><td>$30 (tourist rate)</td></tr>
+ <tr><td>eVisa Entry Points</td><td>Only Phnom Penh and Siem Reap airports</td><td>Expanded to include Sihanoukville airport</td></tr>
+ <tr><td>Business Visa Extension</td><td>6 months max</td><td>Up to 1 year (extended)</td></tr>
+ <tr><td>Angkor Pass Price</td><td>₹37 (unchanged)</td><td>₹37 (no change for 2026)</td></tr>
+ </tbody>
+ </table>
+
+ <h2><i class="bi bi-link-45deg"></i> Official Resources</h2>
+ <ul>
+<li><strong>Cambodia eVisa Official:</strong> <a href="https://www.evisa.gov.kh/" target="_blank" rel="noopener noreferrer">https://www.evisa.gov.kh/</a></li>
+<li><strong>Ministry of Foreign Affairs, Cambodia:</strong> <a href="https://www.mfaic.gov.kh/" target="_blank" rel="noopener noreferrer">https://www.mfaic.gov.kh/</a></li>
+<li><strong>Royal Embassy of Cambodia New Delhi:</strong> <a href="https://www.embassyofcambodiadelhi.com/" target="_blank" rel="noopener noreferrer">https://www.embassyofcambodiadelhi.com/</a></li>
+ </ul>
+
+ <div class="cta-section">
+ <h2>Need Help With Your Cambodia Visa Application?</h2>
+ <p>Our India-focused visa consultants can guide you through the entire Cambodia visa application process.</p>
+ <a href="/contact" class="btn">Contact My Visa Assistance</a>
+ </div>
+
+ <p><em>Browse our <a href="/visa-guide/">complete visa guide directory</a> for guides covering 100+ destination countries for Indian passport holders. See also the <a href="https://myvisaassistance.com/visa-requirements/cambodia-visa-requirements">Cambodia visa requirements page</a> for a detailed checklist.</em></p>
+
+ </div>
+
+ <aside class="sidebar">
+ <div class="sidebar-card">
+ <h3>Quick Facts</h3>
+ <ul>
+ <li><strong>Country:</strong> Cambodia</li>
+ <li><strong>Capital:</strong> Phnom Penh</li>
+ <li><strong>Visa Required:</strong> Yes (for Indians)</li>
+ <li><strong>Currency:</strong> US Dollar (also Riel) (₹)</li>
+ <li><strong>Processing:</strong> eVisa: 3-5 days; Visa-on-Arrival: 15-30 mins; Extension: 1-2 weeks</li>
+ <li><strong>Biometrics:</strong> Not required for eVisa or VOA</li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Popular Visa Types</h3>
+ <ul>
+ <li><a href="#fees">Tourist Visa (Visa-on-Arrival) (T-Class) - $30</a></li>
+ <li><a href="#fees">e-Visa (Tourist) (eVisa-T) - $30 + processing</a></li>
+ <li><a href="#fees">Business Visa (VOA) (E-Class) - $35</a></li>
+ <li><a href="#fees">Ordinary Visa Extension (EB/EG) - $45-300</a></li>
+ <li><a href="#fees">Student Visa (Student) - $100-200</a></li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card" style="background:linear-gradient(135deg,#0a0a52,#171299);color:white;border:none;">
+ <h3 style="color:#A5D549;margin:0 0 8px;">Download Checklist</h3>
+ <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;">Get a printable document checklist for your visa application.</p>
+ <button onclick="downloadChecklist()" class="btn btn-primary" style="width:100%;text-align:center;">
+ <i class="bi bi-download"></i> Download Full Checklist
+ </button>
+ </div>
+<div class="sidebar-card sidebar-cta">
+ <h3>Need Visa Help?</h3>
+ <p>Our experts can guide you through the Cambodia visa process.</p>
+ <a href="/contact" class="btn btn-primary" style="margin-bottom:8px;">Get Assistance</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);display:block;text-align:center;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Related Guides</h3>
+ <ul>
+ <li><a href="https://myvisaassistance.com/visa-requirements/cambodia-visa-requirements">Cambodia Visa Requirements</a></li>
+ <li><a href="/visa-guide/">View All Countries</a></li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Share This Guide</h3>
+ <p style="font-size:0.85rem;color:var(--color-text-light);">Help others find this information</p>
+ <div style="display:flex;gap:10px;margin-top:10px;">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/visa-guide/cambodia-visa" target="_blank" rel="noopener noreferrer" style="color:#1877F2;font-size:1.5rem;" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/intent/tweet?text=Cambodia%20Visa%20for%20Indians%202026:%20Types,%20Fees,%20Process%20&%20Requirements%20-%20My%20Visa%20Assistance&url=https://myvisaassistance.com/visa-guide/cambodia-visa" target="_blank" rel="noopener noreferrer" style="color:#1DA1F2;font-size:1.5rem;" aria-label="Share on Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/visa-guide/cambodia-visa" target="_blank" rel="noopener noreferrer" style="color:#0A66C2;font-size:1.5rem;" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+ </div>
+ </div>
+ </aside>
+ </div>
+ </div>
+ </section>
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#A5D549"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#0a0a52"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#0a0a52"/>
+ </svg>
+ </span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+  <li><a href="/visa-news/">Visa News</a></li>
+  <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+  <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+  <li><a href="/tracking-links/">Tracking Links</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope"></i> myvisaassistance@protonmail.com</a></li>
+ <li><a href="tel:+918551805523"><i class="bi bi-telephone"></i> +91 85518 05523</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a>
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -104,7 +104,7 @@
      3. FAQ Accordion
      =================================================================== */
   ready(function() {
-    // Use event delegation on body for any FAQ
+    // Use event delegation — works even if FAQ items are outside a .faq-list wrapper
     on(document, 'click', function(e) {
       const question = e.target.closest('.faq-question');
       if (!question) return;
@@ -112,13 +112,14 @@
       const item = question.closest('.faq-item');
       if (!item) return;
 
-      const faqList = item.closest('.faq-list');
-      if (!faqList) return;
+      // Find the scope for closing siblings: prefer .faq-list, else use parentNode
+      const container = item.closest('.faq-list') || item.parentNode;
+      if (!container) return;
 
       const isActive = item.classList.contains('active');
 
-      // Close all others
-      faqList.querySelectorAll('.faq-item.active').forEach(function(i) {
+      // Close all other items in the same scope
+      container.querySelectorAll('.faq-item.active').forEach(function(i) {
         if (i !== item) i.classList.remove('active');
       });
 
