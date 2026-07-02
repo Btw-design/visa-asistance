@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary:#171299;--color-primary-light:#2a2a9e;--color-primary-dark:#0a0a52;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#0a0a52;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(23,18,153,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#0a0a52,#171299,#2a2a9e);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(23,18,153,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#0a0a52,#171299);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Scandinavian Countries Visa Guide 2026: Norway, Sweden, Denmark, Finland & Iceland | My Visa Assistance</title>
+ <meta name="description" content="Complete guide to Scandinavian countries visa requirements for Indian travellers 2026. Norway, Sweden, Denmark, Finland & Iceland Schengen visa process, fees, documents, application centres, country comparison, and travel tips.">
+ <meta name="keywords" content="Scandinavian countries, Norway visa, Sweden visa, Denmark visa, Finland visa, Iceland visa, Schengen visa for Indians, Scandinavia trip from India, Nordic countries visa, Scandinavia visa 2026">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="My Visa Assistance Team">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/blog/scandinavian-countries-visa-guide">
+ <meta property="og:title" content="Scandinavian Countries Visa Guide 2026: Norway, Sweden, Denmark, Finland & Iceland">
+ <meta property="og:description" content="Complete guide to Scandinavian countries visa requirements for Indian travellers 2026. Schengen visa process, fees, documents, application centres, and travel tips.">
+ <meta property="og:image" content="https://myvisaassistance.com/blog/images/scandinavian-countries-visa.svg">
+ <meta property="article:published_time" content="2026-07-02">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <!-- Article Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Scandinavian Countries Visa Guide 2026: Norway, Sweden, Denmark, Finland & Iceland",
+ "description": "Complete guide to Scandinavian countries visa requirements for Indian travellers 2026. Schengen visa process, fees, documents, application centres, country comparison, and travel tips.",
+ "author": { "@type": "Organization", "name": "My Visa Assistance" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-07-02",
+ "dateModified": "2026-07-02",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://myvisaassistance.com/blog/scandinavian-countries-visa-guide" }
+ }
+ </script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/blog/scandinavian-countries-visa-guide">
+ <style>
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+ .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ .blog-content h3 { margin-top: 1.5em; }
+ .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+ .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+ .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+ .blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+ .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content th { background: var(--color-primary); color: var(--color-white); }
+ .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+ .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+ .blog-content .infographic { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 12px; padding: 30px; margin: 2rem 0; text-align: center; }
+ .blog-content .infographic svg { max-width: 100%; height: auto; }
+ .blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+ .blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+ .blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+ .blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+ .blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+ .blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+ .blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+ .blog-content .ref-list { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 25px; margin: 1.5rem 0; }
+ .blog-content .ref-list h4 { color: var(--color-primary); margin-bottom: 0.8em; }
+ .blog-content .ref-list ol { margin-bottom: 0; }
+ .blog-content .ref-list ol li { list-style: decimal; margin-bottom: 0.5rem; }
+ .blog-content .ref-list a { word-break: break-all; }
+ .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+ .blog-content .featured-image svg { display: block; width: 100%; height: auto; }
+ .blog-content .step-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin: 1rem 0; display: flex; gap: 16px; align-items: flex-start; }
+ .blog-content .step-card .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--color-accent); color: var(--color-primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; }
+ .blog-content .step-card .step-content { flex: 1; }
+ .blog-content .step-card .step-content h4 { margin-bottom: 0.3em; font-size: 1.05rem; }
+ .blog-content .step-card .step-content p { margin-bottom: 0; font-size: 0.95rem; }
+ .blog-content .tip-box { background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .tip-box strong { color: #92400e; }
+ .blog-content .warning-box { background: #fef2f2; border: 1px solid #fecaca; border-left: 4px solid #ef4444; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .warning-box strong { color: #991b1b; }
+ .blog-content .country-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 10px; padding: 24px; margin: 1rem 0; }
+ .blog-content .country-card h4 { font-size: 1.1rem; margin-bottom: 0.5em; display: flex; align-items: center; gap: 10px; }
+ .blog-content .country-card .flag-dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+ .blog-content .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+ .blog-content .comparison-table th, .blog-content .comparison-table td { padding: 10px 12px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content .comparison-table th { background: var(--color-primary); color: var(--color-white); }
+ </style>
+
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+  "@type": "ListItem",
+  "position": 1,
+  "name": "Home",
+  "item": "https://myvisaassistance.com"
+  }, {
+  "@type": "ListItem",
+  "position": 2,
+  "name": "Blog",
+  "item": "https://myvisaassistance.com/blog/"
+  }, {
+  "@type": "ListItem",
+  "position": 3,
+  "name": "Scandinavian Countries Visa Guide 2026",
+  "item": "https://myvisaassistance.com/blog/scandinavian-countries-visa-guide"
+  }]
+  }
+  </script>
+</head>
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#171299"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#171299"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>Scandinavian Countries Visa Guide</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+ <h1>Scandinavian Countries Visa Guide 2026: Norway, Sweden, Denmark, Finland &amp; Iceland</h1>
+
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: July 2, 2026</span>
+ <span><i class="bi bi-clock"></i> 14 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ </div>
+
+ <!-- Featured Image -->
+ <div class="featured-image">
+ <img src="/blog/images/scandinavian-countries-visa.svg" alt="Scandinavian Countries Visa Guide 2026 - Norway, Sweden, Denmark, Finland and Iceland" width="1200" height="630" loading="eager">
+ </div>
+
+ <p>Norway's fjords, Sweden's design capital Stockholm, Denmark's fairy-tale Copenhagen, Finland's Arctic Lapland, and Iceland's volcanic landscapes &mdash; Scandinavia and the Nordics are among Europe's most sought-after destinations. For Indian travellers, all five countries are part of the Schengen Area, meaning a single visa unlocks them all. This comprehensive guide covers everything you need to know about visiting Scandinavian countries in 2026, including Schengen visa requirements, country-specific application procedures, fees, processing times, and practical travel tips.</p>
+
+ <h2>Executive Summary</h2>
+ <p>The five Scandinavian &amp; Nordic countries &mdash; <strong>Norway, Sweden, Denmark, Finland, and Iceland</strong> &mdash; are all full members of the Schengen Area. Indian passport holders require a <strong>Schengen visa (Type C)</strong> to visit any of these countries for tourism, business, or family visits, for up to <strong>90 days within any 180-day period</strong>. A visa issued by one Schengen country permits travel across all 29 Schengen member states, provided the issuing country is your main destination or first point of entry.</p>
+
+ <p>The standard visa fee is <strong>&euro;90 (approx. &#8377;8,500)</strong> for adults, plus VFS Global service charges (&#8377;2,000&ndash;2,500). Processing takes <strong>15&ndash;30 calendar days</strong>. Applications must be submitted at least <strong>4&ndash;6 weeks before travel</strong> through VFS Global centres across India. Required documents include a valid Indian passport (6+ months validity), completed application form, recent photographs, travel insurance (&euro;30,000 minimum coverage), flight itinerary, hotel bookings, bank statements (3&ndash;6 months), employment letter, and income tax returns.</p>
+
+ <p>Key 2026 updates: The Schengen Entry/Exit System (EES) completed rollout in April 2026, replacing manual passport stamping with digital biometric records. ETIAS (for visa-exempt travellers only) is expected in Q4 2026 but <strong>does not apply to Indian passport holders</strong>. The EU cascade visa regime (since April 2024) allows Indian travellers with a clean visa history to qualify for 1-year, 3-year, and eventually 5-year multi-entry Schengen visas. Visa fees increased from &euro;80 to &euro;90 in June 2024.</p>
+
+ <p>For a broad overview of visa types across destinations, visit our comprehensive <a href="/visa-guide/">Visa Guide</a>.</p>
+
+ <h2>Scandinavia vs Nordic: Understanding the Difference</h2>
+
+ <p>Before planning your trip, it helps to understand the distinction between "Scandinavian" and "Nordic" countries:</p>
+
+ <div class="info-box">
+ <h4>Scandinavian Countries (Strict Definition)</h4>
+ <p><strong>Norway, Sweden, Denmark</strong> &mdash; These three share linguistic (North Germanic languages), historical, and cultural ties. The term "Scandinavia" traditionally refers to the Scandinavian Peninsula (Norway and Sweden) plus Denmark.</p>
+ </div>
+
+ <div class="info-box">
+ <h4>Nordic Countries (Broader Definition)</h4>
+ <p><strong>Norway, Sweden, Denmark, Finland, Iceland</strong> &mdash; Plus the autonomous territories of Faroe Islands, Greenland, and &Aring;land. The Nordic region encompasses the Scandinavian countries plus Finland and Iceland, united by shared history, the Nordic Council, and the Nordic Passport Union.</p>
+ </div>
+
+ <p>For visa purposes, <strong>all five countries are Schengen members</strong>, so the distinction mainly matters for choosing the correct embassy for your application (your main destination country).</p>
+
+ <h2>Schengen Visa Basics for Scandinavian Countries</h2>
+
+ <h3>Common Visa Policy</h3>
+ <p>A Schengen visa (Type C) issued by any of the five countries allows you to travel freely within all 29 Schengen states. The key rule: <strong>you must apply at the embassy of the country where you will spend the most days</strong> (Main Destination Rule). If you spend equal days, apply at the country of first entry.</p>
+
+ <h3>Who Needs a Visa?</h3>
+ <p>Indian passport holders require a visa for all five countries. There is no visa-on-arrival or eVisa option for Indian nationals &mdash; a Schengen visa must be obtained <strong>before travel</strong> from the respective embassy or consulate in India through VFS Global or BLS International (for certain countries).</p>
+
+ <h3>Visa Fee (2026)</h3>
+ <table>
+ <thead>
+ <tr><th>Category</th><th>Fee</th><th>Notes</th></tr>
+ </thead>
+ <tbody>
+ <tr><td>Adult (12+ years)</td><td>&euro;90 (&#8377;8,500 approx.)</td><td>Standard Schengen visa fee since June 2024</td></tr>
+ <tr><td>Child (6&ndash;11 years)</td><td>&euro;45 (&#8377;4,250 approx.)</td><td>Half the adult fee</td></tr>
+ <tr><td>Child (under 6 years)</td><td>Free</td><td>No visa fee applicable</td></tr>
+ <tr><td>VFS Service Charge</td><td>&#8377;2,000&ndash;2,500</td><td>Additional, varies by country and centre</td></tr>
+ </tbody>
+ </table>
+
+ <div class="tip-box">
+ <p><strong>Tip:</strong> The visa fee is non-refundable even if your application is rejected. Travel insurance (&euro;30,000 minimum coverage, Schengen-wide) is mandatory and typically costs &#8377;1,000&ndash;2,000 for a short trip.</p>
+ </div>
+
+ <h3>Processing Time</h3>
+ <table>
+ <thead>
+ <tr><th>Service Type</th><th>Processing Time</th></tr>
+ </thead>
+ <tbody>
+ <tr><td>Standard processing</td><td>15 calendar days from application date</td></tr>
+ <tr><td>Extended processing (peak season)</td><td>Up to 30 calendar days</td></tr>
+ <tr><td>Complex cases / additional document requests</td><td>Up to 60 calendar days</td></tr>
+ </tbody>
+ </table>
+
+ <p>Applications can be submitted up to <strong>6 months before</strong> your planned travel date, but must be submitted at least <strong>15 calendar days before departure</strong>.</p>
+
+ <h2>Required Documents Checklist</h2>
+
+ <p>All five countries require substantially the same core documents for a standard tourist visa application:</p>
+
+ <ol>
+ <li><strong>Valid Indian passport</strong> &mdash; With at least 6 months' validity beyond your planned departure from Schengen, minimum 2 blank pages.</li>
+ <li><strong>Completed Schengen visa application form</strong> &mdash; Signed and dated. Available from the respective embassy/VFS website.</li>
+ <li><strong>Recent passport-size photographs</strong> &mdash; 2 copies meeting Schengen specifications (35mm x 45mm, white background, no smile, visible ears).</li>
+ <li><strong>Travel insurance</strong> &mdash; Minimum &euro;30,000 medical coverage, valid across the entire Schengen Area for the full duration of stay.</li>
+ <li><strong>Round-trip flight itinerary</strong> &mdash; Confirmed booking or reservation (not necessarily ticketed).</li>
+ <li><strong>Hotel bookings</strong> &mdash; Proof of accommodation for every night of your stay across all Schengen countries.</li>
+ <li><strong>Bank statements</strong> &mdash; Last 3&ndash;6 months with sufficient balance. Many Scandinavian countries expect &#8377;5&ndash;10 lakh minimum for a 10&ndash;14 day trip.</li>
+ <li><strong>Income Tax Returns (ITR)</strong> &mdash; Last 2&ndash;3 years.</li>
+ <li><strong>Employment documents</strong> &mdash; NOC letter from employer (or leave approval), salary slips for the last 3 months, company registration documents (if self-employed).</li>
+ <li><strong>Cover letter</strong> &mdash; Explaining the purpose of your visit, detailed day-by-day itinerary, and proof of ties to India.</li>
+ <li><strong>Visa fees payment receipt</strong> &mdash; Paid at the time of application.</li>
+ </ol>
+
+ <div class="warning-box">
+ <p><strong>Important:</strong> Scandinavian countries are known for strict financial scrutiny. Norway and Iceland, in particular, have higher financial expectations than many other Schengen states. Ensure your bank balance clearly covers at least &euro;100&ndash;150 per day of your stay.</p>
+ </div>
+
+ <h2>Country-by-Country Guide</h2>
+
+ <h3>1. Norway</h3>
+ <div class="country-card">
+ <h4><span class="flag-dot" style="background:#EF2B2D;"></span> Norway</h4>
+ <p><strong>Capital:</strong> Oslo &bull; <strong>Currency:</strong> Norwegian Krone (NOK) &bull; <strong>Not Schengen?:</strong> No, full Schengen member</p>
+ <p><strong>Visa Application:</strong> Norway visa applications from India are processed through <strong>VFS Global</strong>. The Embassy of Norway in New Delhi handles all Indian applications. Norway also handles visa applications on behalf of Sweden, Denmark, and Iceland in certain neighbouring countries (e.g., Sri Lanka, Nepal), though in India each country processes independently.</p>
+ <p><strong>Application Centres (VFS):</strong> New Delhi, Mumbai, Bengaluru, Chennai, Kolkata, Hyderabad, Ahmedabad, Pune, Kochi, Chandigarh.</p>
+ <p><strong>Processing Time:</strong> 15&ndash;30 calendar days. Up to 60 days in complex cases.</p>
+ <p><strong>Financial Expectation:</strong> High &mdash; approximately NOK 500&ndash;600 (&euro;45&ndash;55) per day. A 10-day trip typically requires showing &#8377;6&ndash;8 lakh in bank balance.</p>
+ <p><strong>Approval Rate (Indians):</strong> Approximately 78&ndash;84%.</p>
+ <p><strong>Popular Destinations:</strong> Oslo, Bergen, Fl&aring;m (Norway in a Nutshell), Geirangerfjord, Troms&oslash; (Northern Lights), Lofoten Islands.</p>
+ <p><strong>Best Time to Visit:</strong> May&ndash;September (midnight sun, fjord season) or November&ndash;February (Northern Lights).</p>
+ </div>
+
+ <h3>2. Sweden</h3>
+ <div class="country-card">
+ <h4><span class="flag-dot" style="background:#005B99;"></span> Sweden</h4>
+ <p><strong>Capital:</strong> Stockholm &bull; <strong>Currency:</strong> Swedish Krona (SEK) &bull; <strong>Schengen Member:</strong> Yes (since 2001)</p>
+ <p><strong>Visa Application:</strong> Sweden visa applications from India are processed through <strong>VFS Global</strong>. The Embassy of Sweden in New Delhi processes all applications. Note that Norway previously handled Swedish visa applications from certain neighbouring countries, but from June 1, 2026, this arrangement has been discontinued &mdash; all Swedish visa matters now go through the Embassy of Sweden in New Delhi (migration.new-delhi@gov.se).</p>
+ <p><strong>Application Centres (VFS):</strong> New Delhi, Mumbai, Bengaluru, Chennai, Kolkata, Hyderabad, Ahmedabad, Pune, Kochi, Chandigarh.</p>
+ <p><strong>Processing Time:</strong> 15 calendar days standard; up to 30 days during peak summer season (May&ndash;August).</p>
+ <p><strong>Financial Expectation:</strong> Moderate-High &mdash; approximately SEK 450 per day. Bank statement showing &#8377;4&ndash;6 lakh for a 7&ndash;10 day trip recommended.</p>
+ <p><strong>Approval Rate (Indians):</strong> Approximately 80&ndash;85%.</p>
+ <p><strong>Popular Destinations:</strong> Stockholm (Gamla Stan, Vasa Museum), Gothenburg, Malm&ouml;, Swedish Lapland (Icehotel, Abisko National Park).</p>
+ <p><strong>Best Time to Visit:</strong> June&ndash;August (warm weather, festivals) or December&ndash;March (winter sports, Northern Lights in Lapland).</p>
+ </div>
+
+ <h3>3. Denmark</h3>
+ <div class="country-card">
+ <h4><span class="flag-dot" style="background:#C8102E;"></span> Denmark</h4>
+ <p><strong>Capital:</strong> Copenhagen &bull; <strong>Currency:</strong> Danish Krone (DKK) &bull; <strong>Schengen Member:</strong> Yes (since 2001) &bull; <strong>Eurozone?</strong> No</p>
+ <p><strong>Visa Application:</strong> Denmark visa applications from India are processed through <strong>VFS Global</strong> (same centres as Denmark). Denmark also <strong>handles visa applications for Iceland</strong> on behalf of the Icelandic authorities, as Iceland does not maintain its own embassy in India.</p>
+ <p><strong>Application Centres (VFS):</strong> New Delhi, Mumbai, Bengaluru, Chennai, Kolkata, Hyderabad, Ahmedabad, Pune, Kochi, Chandigarh.</p>
+ <p><strong>Processing Time:</strong> 10&ndash;15 days for Denmark; approximately 15 days for Iceland (due to additional coordination).</p>
+ <p><strong>Financial Expectation:</strong> Moderate &mdash; approximately DKK 500 per day. Bank statement showing &#8377;3&ndash;5 lakh for a standard week-long trip.</p>
+ <p><strong>Approval Rate (Indians):</strong> Approximately 82&ndash;86%.</p>
+ <p><strong>Popular Destinations:</strong> Copenhagen (Tivoli Gardens, Nyhavn, Little Mermaid), Aarhus, Roskilde, Billund (LEGO House).</p>
+ <p><strong>Best Time to Visit:</strong> May&ndash;September (pleasant weather, outdoor cafes, Tivoli open).</p>
+ </div>
+
+ <h3>4. Finland</h3>
+ <div class="country-card">
+ <h4><span class="flag-dot" style="background:#003580;"></span> Finland</h4>
+ <p><strong>Capital:</strong> Helsinki &bull; <strong>Currency:</strong> Euro (&euro;) &bull; <strong>Schengen Member:</strong> Yes (since 2001)</p>
+ <p><strong>Visa Application:</strong> Finland visa applications from India are processed through <strong>VFS Global</strong>. The Embassy of Finland in New Delhi processes applications for the entire country. Finland also handles visa applications for Estonia and Slovenia in some regions.</p>
+ <p><strong>Application Centres (VFS):</strong> New Delhi, Mumbai, Bengaluru, Chennai, Kolkata, Hyderabad, Ahmedabad, Pune, Kochi, Chandigarh.</p>
+ <p><strong>Processing Time:</strong> 15 calendar days standard; up to 30 days during peak season.</p>
+ <p><strong>Financial Expectation:</strong> Moderate &mdash; approximately &euro;60&ndash;80 per day. Bank statement showing &#8377;3&ndash;5 lakh sufficient for a standard trip.</p>
+ <p><strong>Approval Rate (Indians):</strong> Approximately 80&ndash;85%.</p>
+ <p><strong>Popular Destinations:</strong> Helsinki (Suomenlinna, Design District), Rovaniemi (Santa Claus Village, Arctic Circle), Finnish Lapland (Northern Lights, husky safaris), Tampere, Turku.</p>
+ <p><strong>Best Time to Visit:</strong> June&ndash;August (midnight sun, lake season) or December&ndash;March (winter sports, Northern Lights, Santa Claus).</p>
+ </div>
+
+ <h3>5. Iceland</h3>
+ <div class="country-card">
+ <h4><span class="flag-dot" style="background:#DC1E35;"></span> Iceland</h4>
+ <p><strong>Capital:</strong> Reykjav&iacute;k &bull; <strong>Currency:</strong> Icelandic Kr&oacute;na (ISK) &bull; <strong>Schengen Member:</strong> Yes (since 2001) &bull; <strong>EU Member?</strong> No</p>
+ <p><strong>Visa Application:</strong> Iceland does <strong>not maintain its own embassy or consulate in India</strong>. Under a representation agreement, the <strong>Royal Danish Embassy in New Delhi</strong> handles Icelandic visa applications for Indian residents. Applications are submitted at <strong>VFS Global centres for Denmark</strong>, making it clear on the application form that the destination is Iceland.</p>
+ <p><strong>Application Centres (VFS):</strong> Same as Denmark &mdash; New Delhi, Mumbai, Bengaluru, Chennai, Kolkata, Hyderabad, Ahmedabad, Pune, Kochi, Chandigarh.</p>
+ <p><strong>Processing Time:</strong> 15 calendar days (longer than Denmark due to coordination with Icelandic authorities; Denmark handling adds ~3&ndash;5 days).</p>
+ <p><strong>Financial Expectation:</strong> Very High &mdash; Iceland has one of the highest financial expectations among Schengen countries. Expect to show &#8377;8&ndash;12 lakh minimum for a 7&ndash;10 day trip.</p>
+ <p><strong>Approval Rate (Indians):</strong> Approximately 75&ndash;80% (lower due to high financial bar and no direct embassy).</p>
+ <p><strong>Popular Destinations:</strong> Reykjav&iacute;k, Blue Lagoon, Golden Circle (Gullfoss, Geysir, &THORN;ingvellir), J&ouml;kuls&aacute;rl&oacute;n Glacier Lagoon, Northern Lights (September&ndash;April), Vatnaj&ouml;kull National Park.</p>
+ <p><strong>Best Time to Visit:</strong> June&ndash;August (midnight sun, mild weather) or September&ndash;March (Northern Lights).</p>
+ </div>
+
+ <h2>Country Comparison Table</h2>
+
+ <table class="comparison-table">
+ <thead>
+ <tr><th>Factor</th><th>Norway</th><th>Sweden</th><th>Denmark</th><th>Finland</th><th>Iceland</th></tr>
+ </thead>
+ <tbody>
+ <tr><td><strong>Currency</strong></td><td>NOK</td><td>SEK</td><td>DKK</td><td>Euro (&euro;)</td><td>ISK</td></tr>
+ <tr><td><strong>Avg. Daily Budget</strong></td><td>&euro;100&ndash;150</td><td>&euro;90&ndash;130</td><td>&euro;80&ndash;120</td><td>&euro;70&ndash;110</td><td>&euro;120&ndash;180</td></tr>
+ <tr><td><strong>Visa Fee 2026</strong></td><td>&euro;90</td><td>&euro;90</td><td>&euro;90</td><td>&euro;90</td><td>&euro;90</td></tr>
+ <tr><td><strong>Processing Time</strong></td><td>15&ndash;30 days</td><td>15&ndash;30 days</td><td>10&ndash;15 days</td><td>15&ndash;30 days</td><td>15 days</td></tr>
+ <tr><td><strong>Financial Bar</strong></td><td>High</td><td>Moderate-High</td><td>Moderate</td><td>Moderate</td><td>Very High</td></tr>
+ <tr><td><strong>Approx. Return Flight (India)</strong></td><td>&#8377;50&ndash;70K</td><td>&#8377;45&ndash;65K</td><td>&#8377;40&ndash;60K</td><td>&#8377;45&ndash;65K</td><td>&#8377;55&ndash;80K</td></tr>
+ <tr><td><strong>Embassy in India</strong></td><td>Yes (New Delhi)</td><td>Yes (New Delhi)</td><td>Yes (New Delhi)</td><td>Yes (New Delhi)</td><td>No (Denmark handles)</td></tr>
+ <tr><td><strong>VFS Application</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes (via Denmark)</td></tr>
+ </tbody>
+ </table>
+
+ <h2>2026 Updates &amp; What They Mean for Indian Travellers</h2>
+
+ <h3>Entry/Exit System (EES) &mdash; Rolled Out April 2026</h3>
+ <p>The Schengen Area completed the rollout of the <strong>Entry/Exit System (EES)</strong> in April 2026. This automated system replaces manual passport stamping with <strong>digital biometric records</strong> (facial image and fingerprints collected at the border). For Indian travellers, this means:</p>
+ <ul>
+ <li>Entry and exit dates are now logged digitally &mdash; no more manual stamp counting</li>
+ <li>Overstay calculations are automated and stricter</li>
+ <li>Biometric data collected once remains valid for <strong>3 years</strong> across the Schengen Area</li>
+ <li>Border checks may take slightly longer during peak travel periods</li>
+ </ul>
+ <p>These changes do <strong>not</strong> alter the visa application process. Indian travellers still apply for a Schengen visa exactly as before.</p>
+
+ <h3>ETIAS &mdash; Does Not Apply to Indian Passport Holders</h3>
+ <p>The European Travel Information and Authorisation System (ETIAS) is expected to launch in Q4 2026 with a transition/grace period through early 2027. However, <strong>ETIAS only applies to travellers from visa-exempt countries</strong> (USA, UK, Canada, Australia, Japan, etc.). Indian passport holders <strong>do not need ETIAS authorization</strong> &mdash; you must continue to apply for a full Schengen visa.</p>
+
+ <h3>EU Cascade Visa Regime &mdash; Unlock Longer Multi-Entry Visas</h3>
+ <p>Since April 18, 2024, the EU's cascade regime applies to Indian travellers. If you have used previous Schengen visas lawfully:</p>
+ <ul>
+ <li><strong>First Schengen visa:</strong> Typically valid for the specific travel dates</li>
+ <li><strong>Second Schengen visa:</strong> May qualify for a <strong>1-year multi-entry visa</strong></li>
+ <li><strong>Third Schengen visa (within 2 years):</strong> May qualify for a <strong>3-year multi-entry visa</strong></li>
+ <li><strong>Subsequent:</strong> May qualify for a <strong>5-year multi-entry visa</strong></li>
+ </ul>
+ <p>This rewards clean visa history. A multi-entry visa from any Schengen country (e.g., a 1-year visa issued by France) works for visiting Scandinavian countries too.</p>
+
+ <h3>Schengen Visa Fee Increase</h3>
+ <p>The Schengen visa fee increased from &euro;80 to <strong>&euro;90</strong> on June 11, 2024. This applies to all adult applicants across all Schengen countries, including Norway, Sweden, Denmark, Finland, and Iceland.</p>
+
+ <h2>Step-by-Step Application Process</h2>
+
+ <div class="step-card">
+ <div class="step-num">1</div>
+ <div class="step-content">
+ <h4>Determine Your Main Destination</h4>
+ <p>Identify which Scandinavian country will be your main destination (where you plan to spend the most days). If travelling to multiple countries with equal days, apply at the country of your first entry.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">2</div>
+ <div class="step-content">
+ <h4>Gather Your Documents</h4>
+ <p>Collect all required documents well in advance. Pay special attention to bank statements &mdash; ensure 3&ndash;6 months of statements with clear salary credits and sufficient balance.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">3</div>
+ <div class="step-content">
+ <h4>Book an Appointment at VFS Global</h4>
+ <p>All five countries use VFS Global in India. Visit the respective VFS website (e.g., vfsglobal.com/norway/india, vfsglobal.com/sweden/india) to book your appointment. Slots fill up fast during peak season (May&ndash;August) &mdash; book at least 3&ndash;4 weeks in advance.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">4</div>
+ <div class="step-content">
+ <h4>Attend Your Appointment</h4>
+ <p>Visit the VFS centre on your scheduled date with all documents, photographs, and fee payment. Provide biometrics (fingerprints and photograph) if not previously collected (biometrics are valid for 59 months).</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">5</div>
+ <div class="step-content">
+ <h4>Track Your Application</h4>
+ <p>Use the VFS tracking portal to monitor your application status. You will receive updates when your passport is dispatched. Processing typically takes 15&ndash;30 calendar days.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">6</div>
+ <div class="step-content">
+ <h4>Collect Your Passport</h4>
+ <p>Once processed, collect your passport from the VFS centre or opt for courier delivery. If approved, verify the visa's validity dates, number of entries, and duration of stay. If rejected, you will receive a formal refusal letter explaining the grounds for appeal.</p>
+ </div>
+ </div>
+
+ <h2>Best Time to Visit Scandinavian Countries</h2>
+
+ <table>
+ <thead>
+ <tr><th>Season</th><th>Months</th><th>Highlights</th><th>Considerations</th></tr>
+ </thead>
+ <tbody>
+ <tr><td><strong>Summer</strong></td><td>June&ndash;August</td><td>Midnight sun, fjord cruises, hiking, outdoor festivals, warm weather (15&ndash;25&deg;C)</td><td>Peak tourist season, higher prices, need to book 3&ndash;4 months ahead</td></tr>
+ <tr><td><strong>Spring</strong></td><td>April&ndash;May</td><td>Cherry blossoms (Copenhagen), fewer crowds, mild weather, lower prices</td><td>Some attractions limited hours, variable weather</td></tr>
+ <tr><td><strong>Autumn</strong></td><td>September&ndash;October</td><td>Northern Lights begin (from late September), autumn colours, fewer tourists</td><td>Days getting shorter, colder weather</td></tr>
+ <tr><td><strong>Winter</strong></td><td>November&ndash;March</td><td>Northern Lights season, winter sports, Christmas markets, Santa Claus Village (Finland), Icehotel (Sweden)</td><td>Very cold (&minus;10 to &minus;30&deg;C), short daylight hours (4&ndash;6 hours)</td></tr>
+ </tbody>
+ </table>
+
+ <div class="tip-box">
+ <p><strong>Budget Tip:</strong> A 10&ndash;12 day Scandinavia trip from India typically costs &#8377;1.8&ndash;2.8 lakh per person including flights, accommodation, food, transport, and activities. Budget travellers using hostels and self-catering can manage around &#8377;1.5&ndash;1.8 lakh. Using the <strong>Eurail Scandinavia Pass</strong> (4-day pass from &euro;225 / &#8377;20,000) can save significantly on train travel between countries.</p>
+ </div>
+
+ <h2>Common Rejection Reasons &amp; How to Avoid Them</h2>
+
+ <table>
+ <thead>
+ <tr><th>Reason</th><th>Why It Happens</th><th>How to Avoid</th></tr>
+ </thead>
+ <tbody>
+ <tr><td>Insufficient funds</td><td>Bank balance too low for the trip duration; irregular salary credits</td><td>Maintain adequate balance (&#8377;5&ndash;10 lakh for Scandinavian countries) for 3&ndash;6 months; show consistent salary credits</td></tr>
+ <tr><td>Weak travel history</td><td>No prior international travel; first-time Schengen applicant</td><td>Consider building travel history with easier destinations (Southeast Asia, Dubai, etc.) before applying for Schengen</td></tr>
+ <tr><td>Unclear itinerary</td><td>Vague or inconsistent day-by-day plan; missing hotel bookings</td><td>Submit a detailed, day-by-day itinerary with confirmed hotel bookings and inter-city transport</td></tr>
+ <tr><td>Incomplete documentation</td><td>Missing NOC letter, insurance below &euro;30,000, expired passport</td><td>Use the checklist above and verify every document before submission</td></tr>
+ <tr><td>Previous overstay or visa violation</td><td>Overstayed a previous Schengen or other country visa</td><td>Never overstay any visa; even a few days can harm future applications</td></tr>
+ <tr><td>Wrong embassy applied</td><td>Applied at the wrong country's embassy (not the main destination)</td><td>Verify the Main Destination Rule carefully before booking your appointment</td></tr>
+ </tbody>
+ </table>
+
+ <h2>Tips for a Successful Scandinavian Visa Application</h2>
+
+ <ul>
+ <li><strong>Apply early:</strong> Submit your application 4&ndash;6 weeks before travel, especially during peak summer season (May&ndash;August).</li>
+ <li><strong>Maintain &euro;100&ndash;150/day:</strong> Scandinavian countries have higher cost of living, so financial scrutiny is stricter. Show at least &euro;100&ndash;150 (&#8377;9,000&ndash;13,500) per day of your planned stay.</li>
+ <li><strong>Book flexible accommodation:</strong> Use refundable/free cancellation bookings until your visa is approved, then rebook better options.</li>
+ <li><strong>Write a strong cover letter:</strong> Explain your itinerary, purpose of visit, ties to India (employment, family, property), and assure the consulate of your return.</li>
+ <li><strong>Consider starting with an easier Schengen country:</strong> First-time applicants may find better approval rates with France, the Netherlands, or Iceland (despite high financial requirements, Iceland has lower application volumes and fast processing).</li>
+ <li><strong>Build travel history gradually:</strong> A clean visa record from easier destinations strengthens your Schengen application.</li>
+ <li><strong>Get comprehensive travel insurance:</strong> Ensure it covers medical expenses of at least &euro;30,000, is valid across the entire Schengen Area, and covers your full trip duration.</li>
+ </ul>
+
+ <h2>Frequently Asked Questions</h2>
+
+ <h3>Do Indian citizens need a visa for Scandinavian countries?</h3>
+ <p>Yes. Indian passport holders require a Schengen visa (Type C) to visit Norway, Sweden, Denmark, Finland, or Iceland for tourism, business, or family visits of up to 90 days in any 180-day period.</p>
+
+ <h3>Can I visit all Scandinavian countries with one visa?</h3>
+ <p>Yes. All five countries are Schengen members. A single Schengen visa issued by any of these countries (or any other Schengen state) allows you to travel freely across all 29 Schengen countries, provided the issuing country is your main destination or first point of entry.</p>
+
+ <h3>Which Scandinavian country is easiest to get a visa from India?</h3>
+ <p>Denmark and Finland are generally considered the most straightforward for Indian applicants due to moderate financial requirements and clear processing procedures. Iceland has fast processing but very high financial expectations. Norway and Sweden have moderate-to-high financial bars.</p>
+
+ <h3>How much bank balance is required for a Scandinavian visa?</h3>
+ <p>Expect to show &#8377;5&ndash;10 lakh in your bank account for a 10&ndash;14 day trip, depending on the country. Iceland and Norway have the highest financial expectations; Denmark and Finland are more moderate. The key metric is at least &euro;100&ndash;150 per day of stay.</p>
+
+ <h3>How long does it take to get a Schengen visa for Scandinavian countries?</h3>
+ <p>Standard processing is 15 calendar days. During peak season (May&ndash;August), processing can extend to 30 days. Complex cases or those requiring additional documentation may take up to 60 days. Denmark typically processes faster (10&ndash;15 days) than the others.</p>
+
+ <h3>Is there a visa-on-arrival for Indian citizens in Scandinavian countries?</h3>
+ <p>No. There is no visa-on-arrival or eVisa option for Indian passport holders. A Schengen visa must be obtained before travel through VFS Global or BLS International.</p>
+
+ <h3>What is the Schengen visa fee for 2026?</h3>
+ <p>The standard Schengen visa fee is &euro;90 (approx. &#8377;8,500) for adults. Children aged 6&ndash;11 pay &euro;45, and children under 6 are exempt. VFS Global service charges (&#8377;2,000&ndash;2,500) apply additionally.</p>
+
+ <h3>Can I work in Scandinavian countries with a Schengen visa?</h3>
+ <p>No. A Schengen visa is strictly for short stays (tourism, business meetings, family visits). For work, study, or long-term stays exceeding 90 days, you must apply for a national visa (D-Type) specific to the country you intend to stay in.</p>
+
+ <h3>Does Iceland have its own embassy in India for visa applications?</h3>
+ <p>No. Iceland does not maintain an embassy in India. The Royal Danish Embassy in New Delhi handles Icelandic visa applications on Iceland's behalf. You apply through VFS Global centres for Denmark, clearly indicating Iceland as your destination.</p>
+
+ <h3>How can I extend my Schengen visa while in Scandinavia?</h3>
+ <p>Extensions are only granted in exceptional circumstances (medical emergencies, force majeure, humanitarian reasons). Tourism is not a valid grounds for extension. You must leave the Schengen Area before your visa expires.</p>
+
+ <h2>Related Guides</h2>
+
+ <ul>
+ <li><a href="/blog/schengen-visa-complete-guide-2026">Schengen Visa Complete Guide 2026: Everything You Need to Know</a></li>
+ <li><a href="/blog/schengen-area-guide">What is the Schengen Area? A Complete Guide to the 29 European Countries Covered Under One Visa</a></li>
+ <li><a href="/blog/multi-country-euro-trip-schengen">How to Plan a Multi-Country Euro Trip: Mapping the 29 Schengen Nations Without Border Checks</a></li>
+ <li><a href="/blog/schengen-main-destination-rule">The Schengen Main Destination Rule: Which Embassy Should You Apply to for a Multi-Country Trip?</a></li>
+ <li><a href="/blog/schengen-first-entry-rule">Schengen First Entry Rule vs Main Destination Rule: Which Embassy to Choose?</a></li>
+ <li><a href="/blog/schengen-visa-bank-balance-guide">Schengen Visa Bank Balance Guide 2026: How Much Money Do You Need to Show by Country?</a></li>
+ <li><a href="/blog/budget-friendly-schengen-countries">5 Budget-Friendly Schengen Countries Beyond Paris and Rome for Indian Travellers</a></li>
+ </ul>
+
+ <!-- Share Buttons -->
+ <div class="share-buttons">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/blog/scandinavian-countries-visa-guide" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Share on Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=Scandinavian+Countries+Visa+Guide+2026&url=https://myvisaassistance.com/blog/scandinavian-countries-visa-guide" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Share on X</a>
+ <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://myvisaassistance.com/blog/scandinavian-countries-visa-guide" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;"><i class="bi bi-linkedin"></i> Share on LinkedIn</a>
+ <a href="https://wa.me/?text=https://myvisaassistance.com/blog/scandinavian-countries-visa-guide" target="_blank" rel="noopener noreferrer" style="background:#25D366;"><i class="bi bi-whatsapp"></i> Share on WhatsApp</a>
+ </div>
+
+ <!-- Author Box -->
+ <div class="author-box">
+ <div class="avatar">MV</div>
+ <div>
+ <h4 style="margin-bottom:0.2em;">My Visa Assistance Team</h4>
+ <p style="margin-bottom:0;color:var(--color-text-light);font-size:0.9rem;">We provide accurate, up-to-date visa information to help Indian travellers navigate the complex world of international travel. Our guides are based on official sources from embassies, consulates, and immigration authorities.</p>
+ </div>
+ </div>
+
+ <!-- CTA Section -->
+ <div class="cta-section">
+ <h3>Planning a Trip to Scandinavia?</h3>
+ <p>Check the latest visa requirements, application fees, and processing times for your destination.</p>
+ <a href="/visa-guide/" class="btn btn-primary btn-lg" style="margin-top:1rem;">Explore Our Visa Guide</a>
+ </div>
+
+ <div class="ref-list">
+ <h4>Sources &amp; References</h4>
+ <ol>
+ <li>European Commission &mdash; Schengen Visa Policy: <a href="https://home-affairs.ec.europa.eu/policies/schengen/visa-policy_en" target="_blank" rel="noopener noreferrer">home-affairs.ec.europa.eu</a></li>
+ <li>Norwegian Directorate of Immigration (UDI): <a href="https://www.udi.no/en/want-to-apply/visit-and-holiday/visitors-visa-to-norway/?c=ind" target="_blank" rel="noopener noreferrer">udi.no</a></li>
+ <li>Swedish Migration Agency: <a href="https://www.migrationsverket.se/en/you-want-to-apply/visiting-sweden/visiting-sweden-for-up-to-90-days-entry-visa.html" target="_blank" rel="noopener noreferrer">migrationsverket.se</a></li>
+ <li>Royal Danish Embassy, New Delhi: <a href="https://indien.um.dk" target="_blank" rel="noopener noreferrer">indien.um.dk</a></li>
+ <li>Embassy of Finland, New Delhi: <a href="https://finlandabroad.fi/web/ind" target="_blank" rel="noopener noreferrer">finlandabroad.fi</a></li>
+ <li>Iceland Directorate of Immigration: <a href="https://island.is/en/do-you-need-a-visa" target="_blank" rel="noopener noreferrer">island.is</a></li>
+ <li>VFS Global &mdash; Visa Application Centres: <a href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">vfsglobal.com</a></li>
+ <li>EU Entry/Exit System (EES): <a href="https://home-affairs.ec.europa.eu/policies/schengen/smart-borders_en" target="_blank" rel="noopener noreferrer">European Commission Smart Borders</a></li>
+ </ol>
+ </div>
+
+ </article>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <div class="logo-icon" aria-hidden="true">V</div>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+ <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Legal</h4>
+ <ul>
+ <li><a href="/privacy-policy">Privacy Policy</a></li>
+ <li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
+ <li><a href="/contact">Contact Us</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-bottom">
+ <span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a> &middot;
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+</body>
+</html>

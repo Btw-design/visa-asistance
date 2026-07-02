@@ -168,8 +168,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://myvisaassistance.com/blog/singapore-tourist-visa/</loc>
+   <url>
+     <loc>https://myvisaassistance.com/blog/scandinavian-countries-visa-guide/</loc>
+     <lastmod>2026-07-02</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.7</priority>
+   </url>
+   <url>
+     <loc>https://myvisaassistance.com/blog/singapore-tourist-visa/</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
