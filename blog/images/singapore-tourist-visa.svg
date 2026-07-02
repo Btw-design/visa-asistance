@@ -1,9 +1,9 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="sgBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#171299"/>
-      <stop offset="50%" stop-color="#2a2a9e"/>
-      <stop offset="100%" stop-color="#0a0a52"/>
+      <stop offset="0%" stop-color="#031B30"/>
+      <stop offset="50%" stop-color="#031B30"/>
+      <stop offset="100%" stop-color="#031B30"/>
     </linearGradient>
     <linearGradient id="sgAccent" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#A5D549"/>

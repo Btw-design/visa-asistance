@@ -8,9 +8,10 @@
    =================================================================== */
 :root {
   /* Brand Colors */
-  --color-primary: #171299;
-  --color-primary-light: #2a2a9e;
-  --color-primary-dark: #0a0a52;
+  --color-primary: #031B30;
+  --color-primary-light: #0a2a4a;
+  --color-primary-dark: #021221;
+  --color-secondary: #E86020;
   --color-accent: #A5D549;
   --color-accent-light: #bae56a;
   --color-accent-dark: #8cba30;
@@ -32,8 +33,8 @@
   --color-bg-alt: #f8fafc;
   --color-bg-warm: #fafbf5;
   --color-bg-card: #ffffff;
-  --color-bg-dark: #0a0a52;
-  --color-bg-gradient: linear-gradient(135deg, #0a0a52, #171299, #2a2a9e);
+  --color-bg-dark: #031B30;
+  --color-bg-gradient: linear-gradient(135deg, #031B30, #031B30, #0a2a4a);
   --color-bg-gradient-light: linear-gradient(135deg, #f8fafc, #f0f4ff, #e8f0fe);
 
   /* Borders */
@@ -297,7 +298,7 @@ small, .text-sm {
 .nav-list a.active {
   color: var(--color-primary);
   font-weight: 600;
-  background: rgba(23, 18, 153, 0.06);
+  background: rgba(3, 27, 48, 0.06);
 }
 
 .nav-cta {
@@ -384,7 +385,7 @@ small, .text-sm {
 
 /* Hero with Carousel */
 .hero-carousel {
-  background: linear-gradient(135deg, #0a0a52 0%, #171299 40%, #1a1a7a 70%, #0a0a52 100%);
+  background: linear-gradient(135deg, #031B30 0%, #031B30 40%, #0a2a4a 70%, #031B30 100%);
   position: relative;
 }
 
@@ -579,7 +580,7 @@ small, .text-sm {
    6c. Enhanced Statistics Section
    =================================================================== */
 .stats-enhanced {
-  background: linear-gradient(135deg, #0a0a52 0%, #171299 100%);
+  background: linear-gradient(135deg, #031B30 0%, #031B30 100%);
   padding: 70px 0;
   position: relative;
   overflow: hidden;
@@ -968,13 +969,13 @@ small, .text-sm {
 .btn-secondary {
   background: var(--color-primary);
   color: var(--color-white);
-  box-shadow: 0 4px 14px rgba(23, 18, 153, 0.3);
+  box-shadow: 0 4px 14px rgba(3, 27, 48, 0.3);
 }
 
 .btn-secondary:hover {
   background: var(--color-primary-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(23, 18, 153, 0.4);
+  box-shadow: 0 6px 20px rgba(3, 27, 48, 0.4);
 }
 
 .btn-outline {
@@ -1658,7 +1659,7 @@ small, .text-sm {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-primary-light);
-  box-shadow: 0 0 0 4px rgba(23, 18, 153, 0.08);
+  box-shadow: 0 0 0 4px rgba(3, 27, 48, 0.08);
 }
 
 .form-group textarea {
@@ -1733,7 +1734,7 @@ small, .text-sm {
 .search-input:focus {
   outline: none;
   border-color: var(--color-primary-light);
-  box-shadow: 0 0 0 4px rgba(23, 18, 153, 0.08);
+  box-shadow: 0 0 0 4px rgba(3, 27, 48, 0.08);
 }
 
 .search-input::placeholder {
@@ -2623,7 +2624,7 @@ small, .text-sm {
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-slow);
-  box-shadow: 0 4px 12px rgba(23, 18, 153, 0.3);
+  box-shadow: 0 4px 12px rgba(3, 27, 48, 0.3);
   z-index: 999;
 }
 

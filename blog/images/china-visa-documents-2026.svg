@@ -1,9 +1,9 @@
 <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0a52"/>
-      <stop offset="50%" stop-color="#171299"/>
-      <stop offset="100%" stop-color="#2a2a9e"/>
+      <stop offset="0%" stop-color="#031B30"/>
+      <stop offset="50%" stop-color="#031B30"/>
+      <stop offset="100%" stop-color="#031B30"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#A5D549"/>
@@ -67,7 +67,7 @@
 
   <!-- Bottom CTA bar -->
   <rect x="150" y="380" width="900" height="50" rx="25" fill="#A5D549"/>
-  <text x="600" y="410" text-anchor="middle" fill="#0a0a52" font-size="17" font-weight="bold" font-family="system-ui">China visa approval rate for Indians: 65-75%  |  Apply 4-6 weeks before travel</text>
+  <text x="600" y="410" text-anchor="middle" fill="#031B30" font-size="17" font-weight="bold" font-family="system-ui">China visa approval rate for Indians: 65-75%  |  Apply 4-6 weeks before travel</text>
 
   <!-- Bottom info boxes -->
   <rect x="40" y="460" width="360" height="65" rx="10" fill="rgba(255,255,255,0.06)"/>
