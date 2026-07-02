@@ -1,109 +1,137 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 450">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0a52"/>
-      <stop offset="50%" stop-color="#171299"/>
-      <stop offset="100%" stop-color="#2a2a9e"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5FAF1"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#A5D549"/>
-      <stop offset="100%" stop-color="#8cba30"/>
-    </linearGradient>
-    <linearGradient id="norway" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#EF2B2D"/>
-      <stop offset="100%" stop-color="#BA1C1E"/>
-    </linearGradient>
-    <linearGradient id="sweden" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#005B99"/>
-      <stop offset="100%" stop-color="#003F6B"/>
-    </linearGradient>
-    <linearGradient id="denmark" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C8102E"/>
-      <stop offset="100%" stop-color="#8C0B1F"/>
-    </linearGradient>
-    <linearGradient id="finland" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#003580"/>
-      <stop offset="100%" stop-color="#002255"/>
-    </linearGradient>
-    <linearGradient id="iceland" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#DC1E35"/>
-      <stop offset="100%" stop-color="#991324"/>
+
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7DB94D"/>
+      <stop offset="100%" stop-color="#A5D549"/>
     </linearGradient>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1400" height="450" fill="url(#bg)"/>
 
-  <!-- Subtle map outline shapes -->
-  <g opacity="0.08" fill="#A5D549">
-    <!-- Norway shape hint -->
-    <path d="M250 120 Q280 100 320 110 Q350 130 340 170 Q330 200 300 230 Q270 250 260 280 Q240 300 210 310 Q180 300 190 270 Q200 240 220 210 Q240 180 250 150 Z"/>
-    <!-- Sweden shape hint -->
-    <path d="M350 90 Q400 80 430 100 Q450 130 440 170 Q430 210 410 250 Q390 280 380 310 Q370 330 340 340 Q320 330 330 300 Q340 270 350 240 Q360 200 370 170 Q375 140 360 110 Z"/>
-    <!-- Denmark shape hint -->
-    <path d="M380 350 Q420 340 460 360 Q480 380 470 400 Q450 430 410 440 Q380 430 370 400 Q360 380 380 350 Z"/>
-    <!-- Finland shape hint -->
-    <path d="M480 90 Q520 80 550 100 Q570 130 560 180 Q550 230 540 280 Q530 320 510 350 Q490 340 500 300 Q510 260 515 220 Q520 180 510 140 Q500 110 480 90 Z"/>
-    <!-- Iceland shape hint -->
-    <path d="M100 250 Q140 230 180 240 Q210 260 200 290 Q180 320 140 330 Q100 320 90 290 Q80 270 100 250 Z"/>
+  <!-- Left Accent -->
+  <rect x="70" y="70" width="8" height="310" rx="4" fill="#7DB94D"/>
+
+  <!-- Small Label -->
+  <text x="110"
+        y="95"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="20"
+        font-weight="700"
+        letter-spacing="3"
+        fill="#7DB94D">
+    EUROPE • SCHENGEN VISA
+  </text>
+
+  <!-- Main Heading -->
+  <text x="110"
+        y="175"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="64"
+        font-weight="700"
+        fill="#000080">
+    Scandinavian
+  </text>
+
+  <text x="110"
+        y="245"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="64"
+        font-weight="700"
+        fill="#000080">
+    Countries
+  </text>
+
+  <!-- Green Line -->
+  <rect x="110"
+        y="270"
+        width="240"
+        height="6"
+        rx="3"
+        fill="url(#line)"/>
+
+  <!-- Subtitle -->
+  <text x="110"
+        y="325"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="30"
+        font-weight="600"
+        fill="#444444">
+    Visa Guide 2026
+  </text>
+
+  <!-- Countries -->
+  <text x="110"
+        y="370"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="22"
+        fill="#666666">
+    Norway • Sweden • Denmark • Finland • Iceland
+  </text>
+
+  <!-- Right Side Badge -->
+  <g transform="translate(980 105)">
+    <rect width="260" height="220" rx="20" fill="#FFFFFF" stroke="#7DB94D" stroke-width="3"/>
+
+    <text x="130"
+          y="70"
+          text-anchor="middle"
+          font-family="Poppins, Arial"
+          font-size="22"
+          font-weight="700"
+          fill="#000080">
+      SCHENGEN
+    </text>
+
+    <text x="130"
+          y="108"
+          text-anchor="middle"
+          font-family="Poppins, Arial"
+          font-size="36"
+          font-weight="700"
+          fill="#7DB94D">
+      VISA
+    </text>
+
+    <line x1="55" y1="130" x2="205" y2="130"
+          stroke="#A5D549"
+          stroke-width="3"/>
+
+    <text x="130"
+          y="170"
+          text-anchor="middle"
+          font-family="Poppins, Arial"
+          font-size="18"
+          fill="#555555">
+      Complete Travel Guide
+    </text>
+
+    <text x="130"
+          y="198"
+          text-anchor="middle"
+          font-family="Poppins, Arial"
+          font-size="18"
+          fill="#555555">
+      Requirements • Tips
+    </text>
   </g>
 
-  <!-- Decorative circles -->
-  <circle cx="200" cy="150" r="180" fill="rgba(165,213,73,0.04)"/>
-  <circle cx="900" cy="400" r="250" fill="rgba(165,213,73,0.03)"/>
+  <!-- Bottom Strip -->
+  <rect x="0" y="420" width="1400" height="30" fill="#7DB94D"/>
 
-  <!-- Main Title -->
-  <text x="600" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="#ffffff" letter-spacing="-1">Scandinavian Countries</text>
-  <text x="600" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="url(#accent)" letter-spacing="-0.5">Visa Guide 2026</text>
+  <text x="700"
+        y="440"
+        text-anchor="middle"
+        font-family="Poppins, Arial"
+        font-size="16"
+        font-weight="600"
+        fill="#FFFFFF">
+    MY VISA ASSISTANCE • Trusted Schengen Visa Support
+  </text>
 
-  <!-- Divider line -->
-  <rect x="400" y="295" width="400" height="3" rx="1.5" fill="url(#accent)"/>
-
-  <!-- Subtitle text -->
-  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">Norway • Sweden • Denmark • Finland • Iceland</text>
-  <text x="600" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="rgba(255,255,255,0.5)">Schengen Visas, Entry Requirements & Travel Tips for Indian Travellers</text>
-
-  <!-- Flag strips at bottom -->
-  <g transform="translate(0, 420)">
-    <!-- Norway Flag -->
-    <rect x="60" y="0" width="180" height="50" rx="4" fill="url(#norway)"/>
-    <rect x="100" y="0" width="16" height="50" fill="#ffffff"/>
-    <rect x="0" y="18" width="180" height="14" fill="#ffffff"/>
-    <rect x="100" y="0" width="10" height="50" fill="#003087"/>
-    <rect x="0" y="18" width="180" height="8" fill="#003087"/>
-
-    <!-- Sweden Flag -->
-    <rect x="260" y="0" width="180" height="50" rx="4" fill="url(#sweden)"/>
-    <rect x="300" y="0" width="16" height="50" fill="#FECC02"/>
-    <rect x="260" y="18" width="180" height="14" fill="#FECC02"/>
-
-    <!-- Denmark Flag -->
-    <rect x="460" y="0" width="180" height="50" rx="4" fill="url(#denmark)"/>
-    <rect x="500" y="0" width="16" height="50" fill="#ffffff"/>
-    <rect x="460" y="18" width="180" height="14" fill="#ffffff"/>
-
-    <!-- Finland Flag -->
-    <rect x="660" y="0" width="180" height="50" rx="4" fill="url(#finland)"/>
-    <rect x="700" y="0" width="16" height="50" fill="#ffffff"/>
-    <rect x="660" y="18" width="180" height="14" fill="#ffffff"/>
-
-    <!-- Iceland Flag -->
-    <rect x="860" y="0" width="180" height="50" rx="4" fill="url(#iceland)"/>
-    <rect x="900" y="0" width="16" height="50" fill="#ffffff"/>
-    <rect x="860" y="18" width="180" height="14" fill="#ffffff"/>
-    <rect x="900" y="0" width="10" height="50" fill="#003087"/>
-    <rect x="860" y="18" width="180" height="8" fill="#003087"/>
-  </g>
-
-  <!-- Country labels -->
-  <g font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)" text-anchor="middle">
-    <text x="150" y="498">Norway</text>
-    <text x="350" y="498">Sweden</text>
-    <text x="550" y="498">Denmark</text>
-    <text x="750" y="498">Finland</text>
-    <text x="950" y="498">Iceland</text>
-  </g>
-
-  <!-- Footer text -->
-  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)">myvisaassistance.com</text>
 </svg>
