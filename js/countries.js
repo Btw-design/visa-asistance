@@ -856,6 +856,40 @@ faq: [
 ]
 },
 {
+id: "kazakhstan",
+name: "Kazakhstan",
+slug: "kazakhstan",
+flag: "🇰🇿",
+region: "Asia",
+visaRequired: true,
+processingTime: "5-7 business days",
+visaTypes: ["Tourist Visa", "Business Visa", "e-Visa", "Transit Visa", "Student Visa"],
+visaGuideSummary: "Kazakhstan, the world's largest landlocked country, offers e-Visa for citizens of many countries and visa-free travel for select nationalities. The Tourist Visa allows stays of up to 30 days for tourism and business visits.",
+visaRequirementsSummary: "Kazakhstan visa applications require a valid passport, completed application form, photograph, invitation letter (for most types), and proof of sufficient funds for the stay.",
+requirements: [
+"Passport valid for at least 6 months",
+"Completed visa application form",
+"Passport-sized photograph (35mm x 45mm)",
+"Invitation letter from Kazakhstan host (for business/tourist visa)",
+"Flight itinerary and hotel booking",
+"Bank statement (last 3 months)",
+"Travel insurance (minimum 30,000 EUR coverage)",
+"Copy of visa support letter (if applicable)"
+],
+fees: {
+"Tourist Visa (Single Entry)": "$60-80",
+"Business Visa (Single Entry)": "$80-100",
+"e-Visa": "$60",
+"Transit Visa": "$20-30",
+"Multiple Entry Visa": "$120-150"
+},
+faq: [
+{ q: "Do I need a visa for Kazakhstan?", a: "Citizens of 80+ countries including USA, UK, EU, Japan, South Korea, and many others can visit Kazakhstan visa-free for up to 30 days. Other nationalities require a visa obtained through a Kazakhstan embassy or the e-Visa portal." },
+{ q: "How long does a Kazakhstan visa take?", a: "Embassy visa processing typically takes 5-7 business days. e-Visa processing takes 3-5 business days. Express service (2-3 days) may be available at higher fees." },
+{ q: "Can I extend my stay in Kazakhstan?", a: "Yes, visa extensions are possible at local Migration Police offices. Extensions are typically granted for up to 30 additional days. Apply at least 5 days before your visa expires." }
+]
+},
+{
 id: "pakistan",
 name: "Pakistan",
 slug: "pakistan",
