@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -18,8 +18,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -46,7 +46,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -200,7 +200,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
@@ -247,27 +247,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="infographic">
  <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
  <rect width="700" height="180" rx="10" fill="#031B30"/>
- <text x="350" y="35" text-anchor="middle" fill="#A5D549" font-size="20" font-weight="bold">US visa Interview Success Guide 2026</text>
+ <text x="350" y="35" text-anchor="middle" fill="#5057EA" font-size="20" font-weight="bold">US visa Interview Success Guide 2026</text>
  <rect x="20" y="55" width="155" height="100" rx="8" fill="white" opacity="0.1"/>
- <text x="97" y="85" text-anchor="middle" fill="#A5D549" font-size="26" font-weight="bold">DS-160</text>
+ <text x="97" y="85" text-anchor="middle" fill="#5057EA" font-size="26" font-weight="bold">DS-160</text>
  <text x="97" y="108" text-anchor="middle" fill="white" font-size="12">Form Complete</text>
  <text x="97" y="128" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">Confirmation Page</text>
  <rect x="185" y="55" width="155" height="100" rx="8" fill="white" opacity="0.1"/>
- <text x="262" y="85" text-anchor="middle" fill="#A5D549" font-size="26" font-weight="bold">$185</text>
+ <text x="262" y="85" text-anchor="middle" fill="#5057EA" font-size="26" font-weight="bold">$185</text>
  <text x="262" y="108" text-anchor="middle" fill="white" font-size="12">Visa Fee</text>
  <text x="262" y="128" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">Receipt Required</text>
  <rect x="350" y="55" width="155" height="100" rx="8" fill="white" opacity="0.1"/>
- <text x="427" y="85" text-anchor="middle" fill="#A5D549" font-size="22" font-weight="bold">10 Years</text>
+ <text x="427" y="85" text-anchor="middle" fill="#5057EA" font-size="22" font-weight="bold">10 Years</text>
  <text x="427" y="108" text-anchor="middle" fill="white" font-size="12">Visa Validity</text>
  <text x="427" y="128" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">For Most Applicants</text>
  <rect x="515" y="55" width="165" height="100" rx="8" fill="white" opacity="0.1"/>
- <text x="597" y="85" text-anchor="middle" fill="#A5D549" font-size="22" font-weight="bold">6 Months</text>
+ <text x="597" y="85" text-anchor="middle" fill="#5057EA" font-size="22" font-weight="bold">6 Months</text>
  <text x="597" y="108" text-anchor="middle" fill="white" font-size="12">Max Stay</text>
  <text x="597" y="128" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">Per Visit (B1/B2)</text>
  </svg>
  </div>
 
- <p>The <strong>US visa interview</strong> is often the most nerve-wracking step in the visa application process. But with the right preparation, you can walk into that interview with confidence. This guide covers everything you need to know–from document preparation to answering tough questions–to maximize your chances of visa approval. For an overview of different visa types, visit our <a href="/visa-guide/">Visa Guide</a>.</p>
+ <p>The <strong>US visa interview</strong> is often the most nerve-wracking step in the visa application process. But with the right preparation, you can walk into that interview with confidence. This guide covers everything you need to knowâ€“from document preparation to answering tough questionsâ€“to maximize your chances of visa approval. For an overview of different visa types, visit our <a href="/visa-guide/">Visa Guide</a>.</p>
 
  <h2>Understanding the US visa Interview</h2>
  <p>The US visa interview is a mandatory step for most <a href="/visa-guide/usa-visa">US visa applicants</a> (excluding renewals through the interview waiver program). It is conducted by a consular officer at the US Embassy or Consulate in your home country. The interview typically lasts 2-5 minutes, but those few minutes can determine the outcome of your visa application.</p>
@@ -283,41 +283,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <li>Double-check all personal information against your passport</li>
  <li>Be consistent with your travel history and employment details</li>
  <li>Upload a compliant photo (2x2 inches, white background, taken within 6 months)</li>
- <li>Save the confirmation barcode–you will need it for the interview</li>
+ <li>Save the confirmation barcodeâ€“you will need it for the interview</li>
  </ul>
  <p>For detailed document requirements, visit our <a href="/visa-requirements/usa-visa-requirements">US visa requirements page</a> or check the <a href="/visa-requirements/">Visa Requirements</a> overview.</p>
 
  <h2>Step 2: Pay the Visa Fee</h2>
- <p>The US visa application fee for B-1/B-2 visas is <strong>$185</strong> as of 2026. H, L, O, P, Q, R category visas are $205, E category is $315, and K category is $265. You must pay this before scheduling your interview. Keep the receipt–you will need it for your appointment. Check the official <a href="https://travel.state.gov/content/travel/en/us-visas.html" target="_blank" rel="noopener noreferrer">US visas website</a> for the latest fees.</p>
+ <p>The US visa application fee for B-1/B-2 visas is <strong>$185</strong> as of 2026. H, L, O, P, Q, R category visas are $205, E category is $315, and K category is $265. You must pay this before scheduling your interview. Keep the receiptâ€“you will need it for your appointment. Check the official <a href="https://travel.state.gov/content/travel/en/us-visas.html" target="_blank" rel="noopener noreferrer">US visas website</a> for the latest fees.</p>
 
  <!-- Infographic: Document Checklist -->
  <div class="infographic">
  <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
  <rect width="700" height="240" rx="10" fill="#f8f9fa"/>
  <rect x="0" y="0" width="700" height="42" rx="10" fill="#031B30"/>
- <text x="350" y="27" text-anchor="middle" fill="#A5D549" font-size="17" font-weight="bold">Documents to Bring to Your US visa Interview</text>
- <circle cx="45" cy="75" r="16" fill="#A5D549" opacity="0.2"/>
+ <text x="350" y="27" text-anchor="middle" fill="#5057EA" font-size="17" font-weight="bold">Documents to Bring to Your US visa Interview</text>
+ <circle cx="45" cy="75" r="16" fill="#5057EA" opacity="0.2"/>
  <text x="45" y="80" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">1</text>
  <text x="72" y="80" fill="#333" font-size="13">Valid Passport (6+ months beyond stay)</text>
- <circle cx="45" cy="110" r="16" fill="#A5D549" opacity="0.2"/>
+ <circle cx="45" cy="110" r="16" fill="#5057EA" opacity="0.2"/>
  <text x="45" y="115" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">2</text>
  <text x="72" y="115" fill="#333" font-size="13">DS-160 Confirmation Page with Barcode</text>
- <circle cx="45" cy="145" r="16" fill="#A5D549" opacity="0.2"/>
+ <circle cx="45" cy="145" r="16" fill="#5057EA" opacity="0.2"/>
  <text x="45" y="150" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">3</text>
  <text x="72" y="150" fill="#333" font-size="13">Visa Fee Payment Receipt</text>
- <circle cx="45" cy="180" r="16" fill="#A5D549" opacity="0.2"/>
+ <circle cx="45" cy="180" r="16" fill="#5057EA" opacity="0.2"/>
  <text x="45" y="185" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">4</text>
  <text x="72" y="185" fill="#333" font-size="13">Passport-Sized Photo (2x2 inches)</text>
- <circle cx="370" cy="75" r="16" fill="#A5D549" opacity="0.2"/>
+ <circle cx="370" cy="75" r="16" fill="#5057EA" opacity="0.2"/>
  <text x="370" y="80" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">5</text>
  <text x="397" y="80" fill="#333" font-size="13">Bank Statements (last 3-6 months)</text>
- <circle cx="370" cy="110" r="16" fill="#A5D549" opacity="0.2"/>
+ <circle cx="370" cy="110" r="16" fill="#5057EA" opacity="0.2"/>
  <text x="370" y="115" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">6</text>
  <text x="397" y="115" fill="#333" font-size="13">Employment Letter / Pay Stubs</text>
- <circle cx="370" cy="145" r="16" fill="#A5D549" opacity="0.2"/>
+ <circle cx="370" cy="145" r="16" fill="#5057EA" opacity="0.2"/>
  <text x="370" y="150" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">7</text>
  <text x="397" y="150" fill="#333" font-size="13">Travel Itinerary &amp; Hotel Bookings</text>
- <circle cx="370" cy="180" r="16" fill="#A5D549" opacity="0.2"/>
+ <circle cx="370" cy="180" r="16" fill="#5057EA" opacity="0.2"/>
  <text x="370" y="185" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">8</text>
  <text x="397" y="185" fill="#333" font-size="13">Property / Asset Documents (if applicable)</text>
  <text x="350" y="228" text-anchor="middle" fill="#999" font-size="11">Organize all documents in a clear folder for easy access during the interview.</text>
@@ -355,10 +355,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <h2>What NOT to Do at the US visa Interview</h2>
  <ul>
- <li>Don't submit fake documents or false information–this leads to permanent ineligibility</li>
- <li>Don't argue with the consular officer–remain respectful even if denied</li>
- <li>Don't volunteer unrelated information–answer only what is asked</li>
- <li>Don't bring electronic devices–phones, smartwatches, and bags are not allowed inside</li>
+ <li>Don't submit fake documents or false informationâ€“this leads to permanent ineligibility</li>
+ <li>Don't argue with the consular officerâ€“remain respectful even if denied</li>
+ <li>Don't volunteer unrelated informationâ€“answer only what is asked</li>
+ <li>Don't bring electronic devicesâ€“phones, smartwatches, and bags are not allowed inside</li>
  <li>Don't mention plans to work or immigrate on a tourist visa</li>
  </ul>
 

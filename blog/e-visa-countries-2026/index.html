@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -18,8 +18,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -46,7 +46,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -204,7 +204,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
@@ -253,10 +253,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <p>The world of travel has changed dramatically over the past decade. Gone are the days when every international trip meant scheduling an embassy appointment, submitting physical documents days in advance, and waiting anxiously for weeks. In 2026, <strong>e-visas have become the gold standard for hassle-free travel</strong>, allowing millions of travellers to obtain travel authorisation from the comfort of their homes.</p>
 
- <p>An e-visa (electronic visa) is a digital travel permit that you apply for and receive entirely online. Once approved, it is electronically linked to your passport–no stamps, stickers, or embassy visits required. In this comprehensive guide, we cover the <strong>best e-visa countries in 2026</strong>, their fees, processing times, and insider tips for a smooth application. For a broader overview of visa types, visit our <a href="/visa-guide/">Visa Guide</a>.</p>
+ <p>An e-visa (electronic visa) is a digital travel permit that you apply for and receive entirely online. Once approved, it is electronically linked to your passportâ€“no stamps, stickers, or embassy visits required. In this comprehensive guide, we cover the <strong>best e-visa countries in 2026</strong>, their fees, processing times, and insider tips for a smooth application. For a broader overview of visa types, visit our <a href="/visa-guide/">Visa Guide</a>.</p>
 
  <h2>What Is an E-Visa and How Does It Work?</h2>
- <p>An e-visa is an electronic travel authorisation that allows eligible foreign nationals to enter a country for tourism, business, transit, or medical purposes. The entire process–from filling out the application form to uploading documents and receiving the approval–is conducted online. The approved e-visa is linked to your passport number, so you simply present your passport at immigration upon arrival.</p>
+ <p>An e-visa is an electronic travel authorisation that allows eligible foreign nationals to enter a country for tourism, business, transit, or medical purposes. The entire processâ€“from filling out the application form to uploading documents and receiving the approvalâ€“is conducted online. The approved e-visa is linked to your passport number, so you simply present your passport at immigration upon arrival.</p>
 
  <div class="info-box">
  <h4>How E-Visas Differ from Traditional Visas</h4>
@@ -270,28 +270,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="infographic">
  <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
  <rect width="700" height="280" rx="10" fill="#031B30"/>
- <text x="350" y="32" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Top E-Visa Destinations 2026 at a Glance</text>
+ <text x="350" y="32" text-anchor="middle" fill="#5057EA" font-size="18" font-weight="bold">Top E-Visa Destinations 2026 at a Glance</text>
  <rect x="15" y="55" width="200" height="65" rx="8" fill="white" opacity="0.1"/>
- <text x="115" y="82" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">India</text>
+ <text x="115" y="82" text-anchor="middle" fill="#5057EA" font-size="18" font-weight="bold">India</text>
  <text x="115" y="103" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">169+ Countries Eligible</text>
  <rect x="245" y="55" width="200" height="65" rx="8" fill="white" opacity="0.1"/>
- <text x="345" y="82" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Turkey</text>
+ <text x="345" y="82" text-anchor="middle" fill="#5057EA" font-size="18" font-weight="bold">Turkey</text>
  <text x="345" y="103" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">Instant Approval</text>
  <rect x="475" y="55" width="210" height="65" rx="8" fill="white" opacity="0.1"/>
- <text x="580" y="82" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Thailand</text>
+ <text x="580" y="82" text-anchor="middle" fill="#5057EA" font-size="18" font-weight="bold">Thailand</text>
  <text x="580" y="103" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">60-Day Tourist Stay</text>
  <rect x="15" y="140" width="200" height="65" rx="8" fill="white" opacity="0.1"/>
- <text x="115" y="167" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">UAE</text>
+ <text x="115" y="167" text-anchor="middle" fill="#5057EA" font-size="18" font-weight="bold">UAE</text>
  <text x="115" y="188" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">30-90 Day Options</text>
  <rect x="245" y="140" width="200" height="65" rx="8" fill="white" opacity="0.1"/>
- <text x="345" y="167" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Vietnam</text>
+ <text x="345" y="167" text-anchor="middle" fill="#5057EA" font-size="18" font-weight="bold">Vietnam</text>
  <text x="345" y="188" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">90 Days Single/Multiple</text>
  <rect x="475" y="140" width="210" height="65" rx="8" fill="white" opacity="0.1"/>
- <text x="580" y="167" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">Sri Lanka</text>
+ <text x="580" y="167" text-anchor="middle" fill="#5057EA" font-size="18" font-weight="bold">Sri Lanka</text>
  <text x="580" y="188" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">30 Days / Free for Some</text>
- <rect x="130" y="225" width="200" height="40" rx="20" fill="#A5D549"/>
+ <rect x="130" y="225" width="200" height="40" rx="20" fill="#5057EA"/>
  <text x="230" y="250" text-anchor="middle" fill="#031B30" font-size="13" font-weight="bold">Apply<br/>Online</text>
- <rect x="370" y="225" width="200" height="40" rx="20" fill="#A5D549"/>
+ <rect x="370" y="225" width="200" height="40" rx="20" fill="#5057EA"/>
  <text x="470" y="250" text-anchor="middle" fill="#031B30" font-size="13" font-weight="bold">Get Approved<br/>in Days</text>
  </svg>
  </div>
@@ -301,24 +301,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <table>
  <thead><tr><th>Country</th><th>Fee (USD)</th><th>Processing Time</th><th>Validity</th><th>Max Stay</th></tr></thead>
  <tbody>
- <tr><td><strong>India</strong></td><td>$25–$80</td><td>3–5 days</td><td>30 days to 5 years</td><td>30–180 days</td></tr>
- <tr><td><strong>Turkey</strong></td><td>$51.50</td><td>Instant – 24 hrs</td><td>180 days</td><td>90 days</td></tr>
- <tr><td><strong>Thailand</strong></td><td>$35–$45</td><td>1–3 days</td><td>60–90 days</td><td>60 days</td></tr>
- <tr><td><strong>UAE</strong></td><td>$48–$150</td><td>2–5 days</td><td>30–90 days</td><td>30–90 days</td></tr>
- <tr><td><strong>Vietnam</strong></td><td>$25–$50</td><td>3–5 days</td><td>30–90 days</td><td>30–90 days</td></tr>
- <tr><td><strong>Sri Lanka</strong></td><td>$20–$35</td><td>1–2 days</td><td>30 days</td><td>30 days</td></tr>
- <tr><td><strong>Cambodia</strong></td><td>$36</td><td>3–5 days</td><td>90 days</td><td>30 days</td></tr>
- <tr><td><strong>Kenya</strong></td><td>$34</td><td>2–5 days</td><td>90 days</td><td>90 days</td></tr>
- <tr><td><strong>Singapore</strong></td><td>Free (SG Arrival Card)</td><td>Instant</td><td>90 days</td><td>14–90 days*</td></tr>
- <tr><td><strong>Malaysia</strong></td><td>Free (MDAC)</td><td>Instant</td><td>90 days</td><td>14–90 days*</td></tr>
- <tr><td><strong>Myanmar</strong></td><td>$50</td><td>3–5 days</td><td>90 days</td><td>28 days</td></tr>
- <tr><td><strong>Egypt</strong></td><td>$30</td><td>2–5 days</td><td>90 days</td><td>30 days</td></tr>
+ <tr><td><strong>India</strong></td><td>$25â€“$80</td><td>3â€“5 days</td><td>30 days to 5 years</td><td>30â€“180 days</td></tr>
+ <tr><td><strong>Turkey</strong></td><td>$51.50</td><td>Instant â€“ 24 hrs</td><td>180 days</td><td>90 days</td></tr>
+ <tr><td><strong>Thailand</strong></td><td>$35â€“$45</td><td>1â€“3 days</td><td>60â€“90 days</td><td>60 days</td></tr>
+ <tr><td><strong>UAE</strong></td><td>$48â€“$150</td><td>2â€“5 days</td><td>30â€“90 days</td><td>30â€“90 days</td></tr>
+ <tr><td><strong>Vietnam</strong></td><td>$25â€“$50</td><td>3â€“5 days</td><td>30â€“90 days</td><td>30â€“90 days</td></tr>
+ <tr><td><strong>Sri Lanka</strong></td><td>$20â€“$35</td><td>1â€“2 days</td><td>30 days</td><td>30 days</td></tr>
+ <tr><td><strong>Cambodia</strong></td><td>$36</td><td>3â€“5 days</td><td>90 days</td><td>30 days</td></tr>
+ <tr><td><strong>Kenya</strong></td><td>$34</td><td>2â€“5 days</td><td>90 days</td><td>90 days</td></tr>
+ <tr><td><strong>Singapore</strong></td><td>Free (SG Arrival Card)</td><td>Instant</td><td>90 days</td><td>14â€“90 days*</td></tr>
+ <tr><td><strong>Malaysia</strong></td><td>Free (MDAC)</td><td>Instant</td><td>90 days</td><td>14â€“90 days*</td></tr>
+ <tr><td><strong>Myanmar</strong></td><td>$50</td><td>3â€“5 days</td><td>90 days</td><td>28 days</td></tr>
+ <tr><td><strong>Egypt</strong></td><td>$30</td><td>2â€“5 days</td><td>90 days</td><td>30 days</td></tr>
  </tbody>
  </table>
- <p><em>* Stay duration varies by nationality. Indian passport holders generally receive 14–30 days for Singapore and 30 days for Malaysia.</em></p>
+ <p><em>* Stay duration varies by nationality. Indian passport holders generally receive 14â€“30 days for Singapore and 30 days for Malaysia.</em></p>
 
  <h2>1. India e-Visa</h2>
- <p>India's e-Visa programme is one of the most comprehensive in the world, covering <strong>169+ eligible countries</strong>. Whether you are visiting the Taj Mahal, exploring Kerala's backwaters, or attending a business conference in Mumbai, the India e-Visa offers three variants: 30-day (double entry), 1-year (multiple entry), and 5-year (multiple entry). Processing takes just 3–5 business days.</p>
+ <p>India's e-Visa programme is one of the most comprehensive in the world, covering <strong>169+ eligible countries</strong>. Whether you are visiting the Taj Mahal, exploring Kerala's backwaters, or attending a business conference in Mumbai, the India e-Visa offers three variants: 30-day (double entry), 1-year (multiple entry), and 5-year (multiple entry). Processing takes just 3â€“5 business days.</p>
  <p>For detailed instructions, read our <a href="/blog/india-e-visa-application-process">India e-Visa Application Process guide</a> or visit our <a href="/visa-guide/india-visa">India Visa Guide</a>. You can also check the <a href="/visa-requirements/india-visa-requirements">India Visa Requirements</a> page for specific document needs.</p>
 
  <h2>2. Turkey e-Visa</h2>
@@ -326,37 +326,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>For more details, see our <a href="/visa-guide/turkey-visa">Turkey Visa Guide</a> and <a href="/visa-requirements/turkey-visa-requirements">Turkey Visa Requirements</a>.</p>
 
  <h2>3. Thailand e-Visa</h2>
- <p>Thailand has expanded its e-Visa system significantly in 2026. The Thai e-Visa allows tourists to <strong>stay for up to 60 days</strong> with the option to extend for another 30 days at local immigration offices. Processing typically takes 1–3 business days. Thailand also offers the new <strong>Destination Thailand Visa (DTV)</strong> for digital nomads, valid for 5 years.</p>
+ <p>Thailand has expanded its e-Visa system significantly in 2026. The Thai e-Visa allows tourists to <strong>stay for up to 60 days</strong> with the option to extend for another 30 days at local immigration offices. Processing typically takes 1â€“3 business days. Thailand also offers the new <strong>Destination Thailand Visa (DTV)</strong> for digital nomads, valid for 5 years.</p>
  <p>Learn more in our <a href="/blog/thailand-visa-options-2026">Thailand Visa Options 2026 guide</a> or the <a href="/visa-guide/thailand-visa">Thailand Visa Guide</a>.</p>
 
  <h2>4. UAE e-Visa</h2>
- <p>The United Arab Emirates offers a streamlined e-Visa process for tourists and business visitors. With <strong>30-day and 90-day visa options</strong>, the UAE is a major hub for stopovers, tourism, and business. The processing time is 2–5 days. Dubai and Abu Dhabi airports have dedicated e-Visa counters for fast-track entry.</p>
+ <p>The United Arab Emirates offers a streamlined e-Visa process for tourists and business visitors. With <strong>30-day and 90-day visa options</strong>, the UAE is a major hub for stopovers, tourism, and business. The processing time is 2â€“5 days. Dubai and Abu Dhabi airports have dedicated e-Visa counters for fast-track entry.</p>
  <p>Visit our <a href="/visa-guide/uae-visa">UAE Visa Guide</a> for full details.</p>
 
  <h2>5. Vietnam e-Visa</h2>
- <p>Vietnam's e-Visa has become increasingly popular, now allowing <strong>stays of up to 90 days</strong> with single or multiple entries. The fee ranges from $25 to $50 depending on the type. Processing takes 3–5 business days. The e-Visa is valid at all major international airports in Vietnam, including Hanoi, Ho Chi Minh City, and Da Nang.</p>
+ <p>Vietnam's e-Visa has become increasingly popular, now allowing <strong>stays of up to 90 days</strong> with single or multiple entries. The fee ranges from $25 to $50 depending on the type. Processing takes 3â€“5 business days. The e-Visa is valid at all major international airports in Vietnam, including Hanoi, Ho Chi Minh City, and Da Nang.</p>
  <p>Check our <a href="/visa-guide/vietnam-visa">Vietnam Visa Guide</a> for more information.</p>
 
  <h2>6. Sri Lanka e-Visa</h2>
- <p>Sri Lanka reintroduced its e-Visa system with attractive terms for travellers. Eligible visitors can get a <strong>30-day e-Visa</strong> with processing in just 1–2 days. Citizens of several countries benefit from free or reduced-fee e-Visas. Sri Lanka's e-Visa covers tourism, business, and transit purposes.</p>
+ <p>Sri Lanka reintroduced its e-Visa system with attractive terms for travellers. Eligible visitors can get a <strong>30-day e-Visa</strong> with processing in just 1â€“2 days. Citizens of several countries benefit from free or reduced-fee e-Visas. Sri Lanka's e-Visa covers tourism, business, and transit purposes.</p>
  <p>See the <a href="/visa-guide/sri-lanka-visa">Sri Lanka Visa Guide</a> for the latest details.</p>
 
  <h2>7. Cambodia e-Visa</h2>
- <p>The Kingdom of Cambodia offers an e-Visa that is valid for <strong>90 days with a 30-day stay</strong>. The fee is $36, and processing usually takes 3–5 business days. The e-Visa is accepted at all major points of entry, including Phnom Penh International Airport and Siem Reap International Airport (for Angkor Wat).</p>
+ <p>The Kingdom of Cambodia offers an e-Visa that is valid for <strong>90 days with a 30-day stay</strong>. The fee is $36, and processing usually takes 3â€“5 business days. The e-Visa is accepted at all major points of entry, including Phnom Penh International Airport and Siem Reap International Airport (for Angkor Wat).</p>
 
  <h2>8. Kenya e-Visa</h2>
- <p>Kenya's e-Visa system allows travellers to apply online for tourism, business, and transit purposes. The e-Visa costs $34 and <strong>permits stays of up to 90 days</strong> within a 90-day validity period. Processing takes 2–5 business days. Kenya has become a leading e-Visa destination in Africa.</p>
+ <p>Kenya's e-Visa system allows travellers to apply online for tourism, business, and transit purposes. The e-Visa costs $34 and <strong>permits stays of up to 90 days</strong> within a 90-day validity period. Processing takes 2â€“5 business days. Kenya has become a leading e-Visa destination in Africa.</p>
 
  <h2>Other Notable E-Visa Destinations</h2>
  <p>Many more countries offer streamlined e-Visa processes in 2026:</p>
  <ul>
- <li><strong>Singapore</strong> – The SG Arrival Card is a free electronic registration for most nationalities, processed instantly.</li>
- <li><strong>Malaysia</strong> – The Malaysia Digital Arrival Card (MDAC) is free and processed instantly for most travellers.</li>
- <li><strong>Myanmar</strong> – E-Visa available for tourism and business, $50, processed in 3–5 days.</li>
- <li><strong>Egypt</strong> – E-Visa for tourism, $30, valid for 90 days with a 30-day stay, processed in 2–5 days.</li>
- <li><strong>Laos</strong> – E-Visa available for $35–$50, processed in 3 days, with 30-day stays.</li>
- <li><strong>Russia</strong> – E-Visa available for citizens of 55+ countries, processed in 4 days for up to 16 days.</li>
- <li><strong>South Korea</strong> – K-ETA (Korea Electronic Travel Authorisation) for visa-free countries, $10, approved instantly.</li>
+ <li><strong>Singapore</strong> â€“ The SG Arrival Card is a free electronic registration for most nationalities, processed instantly.</li>
+ <li><strong>Malaysia</strong> â€“ The Malaysia Digital Arrival Card (MDAC) is free and processed instantly for most travellers.</li>
+ <li><strong>Myanmar</strong> â€“ E-Visa available for tourism and business, $50, processed in 3â€“5 days.</li>
+ <li><strong>Egypt</strong> â€“ E-Visa for tourism, $30, valid for 90 days with a 30-day stay, processed in 2â€“5 days.</li>
+ <li><strong>Laos</strong> â€“ E-Visa available for $35â€“$50, processed in 3 days, with 30-day stays.</li>
+ <li><strong>Russia</strong> â€“ E-Visa available for citizens of 55+ countries, processed in 4 days for up to 16 days.</li>
+ <li><strong>South Korea</strong> â€“ K-ETA (Korea Electronic Travel Authorisation) for visa-free countries, $10, approved instantly.</li>
  </ul>
 
  <!-- Infographic: Application Process -->
@@ -364,40 +364,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="infographic">
  <svg viewBox="0 0 700 130" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
  <rect width="700" height="130" rx="10" fill="#031B30"/>
- <text x="350" y="25" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Standard E-Visa Application Process</text>
- <rect x="10" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <text x="350" y="25" text-anchor="middle" fill="#5057EA" font-size="14" font-weight="bold">Standard E-Visa Application Process</text>
+ <rect x="10" y="45" width="95" height="65" rx="20" fill="#5057EA"/>
  <text x="57" y="78" text-anchor="middle" fill="#031B30" font-size="10" font-weight="bold">Check</text>
  <text x="57" y="93" text-anchor="middle" fill="#031B30" font-size="9">Eligibility</text>
  <text x="118" y="80" fill="white" font-size="14">&gt;</text>
- <rect x="135" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <rect x="135" y="45" width="95" height="65" rx="20" fill="#5057EA"/>
  <text x="182" y="78" text-anchor="middle" fill="#031B30" font-size="10" font-weight="bold">Fill</text>
  <text x="182" y="93" text-anchor="middle" fill="#031B30" font-size="9">Application</text>
  <text x="243" y="80" fill="white" font-size="14">&gt;</text>
- <rect x="260" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <rect x="260" y="45" width="95" height="65" rx="20" fill="#5057EA"/>
  <text x="307" y="78" text-anchor="middle" fill="#031B30" font-size="10" font-weight="bold">Upload</text>
  <text x="307" y="93" text-anchor="middle" fill="#031B30" font-size="9">Documents</text>
  <text x="368" y="80" fill="white" font-size="14">&gt;</text>
- <rect x="385" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <rect x="385" y="45" width="95" height="65" rx="20" fill="#5057EA"/>
  <text x="432" y="78" text-anchor="middle" fill="#031B30" font-size="10" font-weight="bold">Pay Fee</text>
  <text x="432" y="93" text-anchor="middle" fill="#031B30" font-size="9">Online</text>
  <text x="493" y="80" fill="white" font-size="14">&gt;</text>
- <rect x="510" y="45" width="95" height="65" rx="20" fill="#A5D549"/>
+ <rect x="510" y="45" width="95" height="65" rx="20" fill="#5057EA"/>
  <text x="557" y="78" text-anchor="middle" fill="#031B30" font-size="10" font-weight="bold">Receive</text>
  <text x="557" y="93" text-anchor="middle" fill="#031B30" font-size="9">E-Visa</text>
  <text x="618" y="80" fill="white" font-size="14">&gt;</text>
- <rect x="635" y="45" width="55" height="65" rx="20" fill="#A5D549"/>
+ <rect x="635" y="45" width="55" height="65" rx="20" fill="#5057EA"/>
  <text x="662" y="80" text-anchor="middle" fill="#031B30" font-size="11" font-weight="bold">Travel!</text>
  </svg>
  </div>
 
  <h2>Tips for a Successful E-Visa Application</h2>
  <ul>
- <li><strong>Apply early</strong> – Even if processing takes only 3–5 days, apply at least a week before travel to account for any delays or corrections needed.</li>
- <li><strong>Check passport validity</strong> – Most countries require your passport to be valid for at least 6 months from the date of arrival.</li>
- <li><strong>Use the official government website</strong> – Many third-party sites charge inflated fees for e-visa applications. Always use the official immigration or foreign affairs portal.</li>
- <li><strong>Upload correct photo and document formats</strong> – JPEG/PDF files within specified size limits (typically 100KB€300KB).</li>
- <li><strong>Double-check all details</strong> – Even one typo in your name or passport number can lead to rejection. Review carefully before submitting.</li>
- <li><strong>Keep a printed copy</strong> – While e-visas are linked to your passport electronically, always carry a printed copy as a backup.</li>
+ <li><strong>Apply early</strong> â€“ Even if processing takes only 3â€“5 days, apply at least a week before travel to account for any delays or corrections needed.</li>
+ <li><strong>Check passport validity</strong> â€“ Most countries require your passport to be valid for at least 6 months from the date of arrival.</li>
+ <li><strong>Use the official government website</strong> â€“ Many third-party sites charge inflated fees for e-visa applications. Always use the official immigration or foreign affairs portal.</li>
+ <li><strong>Upload correct photo and document formats</strong> â€“ JPEG/PDF files within specified size limits (typically 100KBâ‚¬300KB).</li>
+ <li><strong>Double-check all details</strong> â€“ Even one typo in your name or passport number can lead to rejection. Review carefully before submitting.</li>
+ <li><strong>Keep a printed copy</strong> â€“ While e-visas are linked to your passport electronically, always carry a printed copy as a backup.</li>
  </ul>
 
  <p>For a complete document checklist applicable across countries, read our <a href="/blog/visa-document-checklist-2026">Essential Visa Document Checklist</a>.</p>
@@ -407,9 +407,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <thead><tr><th>Feature</th><th>E-Visa</th><th>Visa on Arrival (VoA)</th></tr></thead>
  <tbody>
  <tr><td>Application timing</td><td>Before travel (online)</td><td>Upon arrival (at airport/border)</td></tr>
- <tr><td>Convenience</td><td>High–apply from home</td><td>Medium–queue at arrival counter</td></tr>
- <tr><td>Processing time</td><td>Hours to 5 days</td><td>15–60 minutes at counter</td></tr>
- <tr><td>Risk of denial</td><td>Low–learn before you fly</td><td>Higher–could be sent back</td></tr>
+ <tr><td>Convenience</td><td>Highâ€“apply from home</td><td>Mediumâ€“queue at arrival counter</td></tr>
+ <tr><td>Processing time</td><td>Hours to 5 days</td><td>15â€“60 minutes at counter</td></tr>
+ <tr><td>Risk of denial</td><td>Lowâ€“learn before you fly</td><td>Higherâ€“could be sent back</td></tr>
  <tr><td>Cost</td><td>Generally lower</td><td>Often higher (convenience fee)</td></tr>
  <tr><td>Required documents</td><td>Digital uploads</td><td>Physical copies + cash</td></tr>
  </tbody>
@@ -420,19 +420,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="info-box">
  <h4>Why Choose E-Visa Destinations in 2026?</h4>
  <ul>
- <li><strong>Skip embassy queues</strong> – No need to take time off work for embassy appointments.</li>
- <li><strong>24/7 application</strong> – Apply from anywhere at any time.</li>
- <li><strong>Faster processing</strong> – Most e-visas are processed within 1–5 business days.</li>
- <li><strong>Lower costs</strong> – No courier fees, photograph charges, or service fees.</li>
- <li><strong>Real-time tracking</strong> – Most countries provide online status checking.</li>
- <li><strong>Environmentally friendly</strong> – No paper applications, physical stickers, or courier shipments.</li>
+ <li><strong>Skip embassy queues</strong> â€“ No need to take time off work for embassy appointments.</li>
+ <li><strong>24/7 application</strong> â€“ Apply from anywhere at any time.</li>
+ <li><strong>Faster processing</strong> â€“ Most e-visas are processed within 1â€“5 business days.</li>
+ <li><strong>Lower costs</strong> â€“ No courier fees, photograph charges, or service fees.</li>
+ <li><strong>Real-time tracking</strong> â€“ Most countries provide online status checking.</li>
+ <li><strong>Environmentally friendly</strong> â€“ No paper applications, physical stickers, or courier shipments.</li>
  </ul>
  </div>
 
  <h2>Frequently Asked Questions</h2>
 
  <h3>What is the fastest e-visa to get?</h3>
- <p>Turkey offers the fastest e-visa, with instant approvals for most eligible nationalities. Singapore's SG Arrival Card and Malaysia's MDAC are also processed instantly. Among paid e-visas, Sri Lanka (1–2 days) and Thailand (1–3 days) are among the quickest.</p>
+ <p>Turkey offers the fastest e-visa, with instant approvals for most eligible nationalities. Singapore's SG Arrival Card and Malaysia's MDAC are also processed instantly. Among paid e-visas, Sri Lanka (1â€“2 days) and Thailand (1â€“3 days) are among the quickest.</p>
 
  <h3>Can I extend my e-visa?</h3>
  <p>Most e-visas <strong>cannot be extended</strong> (e.g., India, Turkey, Vietnam). However, some countries like Thailand allow a one-time extension of 30 days at local immigration offices. Always check the specific country's policy before travel.</p>
@@ -441,7 +441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Yes, but only when using the <strong>official government website</strong> of the destination country. Be cautious of third-party agencies that may charge inflated fees or misuse your personal data. Look for ".gov" domains or official embassy links.</p>
 
  <h3>Do children need e-visas?</h3>
- <p>Yes, in most cases, each traveller–including infants and children–needs a separate e-visa application. Some countries offer family application options, but individual approvals are still issued per passport.</p>
+ <p>Yes, in most cases, each travellerâ€“including infants and childrenâ€“needs a separate e-visa application. Some countries offer family application options, but individual approvals are still issued per passport.</p>
 
  <h3>What documents do I need for an e-visa?</h3>
  <p>Typically: a valid passport (6+ months validity), a digital passport-style photograph, a scanned copy of your passport bio page, and proof of onward travel (return flight booking). Some countries also require hotel bookings and bank statements.</p>
@@ -475,16 +475,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="ref-list">
  <h4>Sources &amp; Additional Reading</h4>
  <ol>
- <li><a href="https://indianvisaonline.gov.in/" target="_blank" rel="noopener noreferrer">Official Indian e-Visa Portal</a> – Government of India</li>
+ <li><a href="https://indianvisaonline.gov.in/" target="_blank" rel="noopener noreferrer">Official Indian e-Visa Portal</a> â€“ Government of India</li>
  <li><a href="https://www.evisa.gov.tr/" target="_blank" rel="noopener noreferrer">Republic of Turkey e-Visa Official Portal</a></li>
  <li><a href="https://www.thaievisa.go.th/" target="_blank" rel="noopener noreferrer">Thailand e-Visa Official Portal</a></li>
- <li><a href="https://smartservices.icp.gov.ae/" target="_blank" rel="noopener noreferrer">UAE Smart Services–Visa Portal</a></li>
+ <li><a href="https://smartservices.icp.gov.ae/" target="_blank" rel="noopener noreferrer">UAE Smart Servicesâ€“Visa Portal</a></li>
  <li><a href="https://evisa.xuatnhapcanh.gov.vn/" target="_blank" rel="noopener noreferrer">Vietnam e-Visa Official Portal</a></li>
  <li><a href="https://evisa.esaralanka.lk/" target="_blank" rel="noopener noreferrer">Sri Lanka e-Visa Official Portal</a></li>
  <li><a href="https://www.evisa.gov.kh/" target="_blank" rel="noopener noreferrer">Cambodia e-Visa Official Portal</a></li>
  <li><a href="https://evisa.go.ke/" target="_blank" rel="noopener noreferrer">Kenya e-Visa Official Portal</a></li>
- <li><a href="https://www.imi.gov.my/" target="_blank" rel="noopener noreferrer">Malaysia Immigration Department–MDAC</a></li>
- <li><a href="https://www.ica.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Immigration &amp; Checkpoints Authority–SG Arrival Card</a></li>
+ <li><a href="https://www.imi.gov.my/" target="_blank" rel="noopener noreferrer">Malaysia Immigration Departmentâ€“MDAC</a></li>
+ <li><a href="https://www.ica.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Immigration &amp; Checkpoints Authorityâ€“SG Arrival Card</a></li>
  </ol>
  </div>
 

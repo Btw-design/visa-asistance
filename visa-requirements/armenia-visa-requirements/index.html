@@ -2,7 +2,7 @@
 <html lang="en">
 <head><meta charset="UTF-8">
 <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -17,8 +17,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -45,7 +45,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -143,7 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
@@ -187,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .quick-overview td,.quick-overview th{border:1px solid #eef0f2;padding:11px 16px;vertical-align:top}
 .quick-overview th{background:#f7f8fa;font-weight:600;color:#1a202c;width:28%;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.3px}
 .quick-overview td{background:#fff}
-.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #5057EA;padding:20px 24px;margin:22px 0;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
 .info-box h4{margin:0 0 8px;color:#1a202c;font-size:1.05rem}
 .info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
 .info-box p:last-child{margin:0}
@@ -217,7 +217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .faq-item{border:1px solid #eef0f2;border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03)}
 .faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:500;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
 .faq-question:hover{background:#f7f8fa}
-.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s;flex-shrink:0;margin-left:12px}
+.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#5057EA;transition:transform 0.3s;flex-shrink:0;margin-left:12px}
 .faq-item.active .faq-question{background:#f7f8fa;font-weight:600}
 .faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.35s ease, padding 0.35s ease;padding:0 20px;background:#fff}
@@ -286,7 +286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h4>Quick Facts</h4>
 <ul>
 <li><strong>Capital:</strong> Yerevan</li>
-<li><strong>Currency:</strong> Armenian Dram (₹)</li>
+<li><strong>Currency:</strong> Armenian Dram (â‚¹)</li>
 <li><strong>Visa Required:</strong> Yes</li>
 <li><strong>Processing Time:</strong> 3-5 business days (eVisa)</li>
 <li><strong>Visa Types:</strong> e-Visa, Tourist Visa, Business Visa, Student Visa, Work Visa</li>
@@ -297,7 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>The following documents are required for Armenia eVisa or embassy visa application:</p>
 <ul><li>Passport valid for at least 6 months</li>
 <li>Completed eVisa application form</li>
-<li>Digital passport photograph (35 × 45mm)</li>
+<li>Digital passport photograph (35 Ã— 45mm)</li>
 <li>Proof of accommodation</li>
 <li>Return flight booking</li>
 <li>Bank statement (last 3 months)</li>
@@ -358,7 +358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Armenia's visa rejection rate for Indian applicants is low (under 5%), but applications can still be refused for these reasons:</p>
 <ul>
 <li><strong>Incorrect Visa Type Selection:</strong> Armenia offers e-visa, visa on arrival, and embassy-issued visas. Selecting the wrong type or applying for an e-visa when eligible for visa-free entry results in application rejection and loss of fee.</li>
-<li><strong>Photo Specification Issues:</strong> Armenia's e-visa system has specific photo requirements – 35 × 45mm, white background, neutral expression, no glasses. Photos that do not meet these specifications are the most common cause of e-visa rejection.</li>
+<li><strong>Photo Specification Issues:</strong> Armenia's e-visa system has specific photo requirements â€“ 35 Ã— 45mm, white background, neutral expression, no glasses. Photos that do not meet these specifications are the most common cause of e-visa rejection.</li>
 <li><strong>Passport Validity:</strong> Passport must be valid for at least 6 months beyond the intended departure date from Armenia. Applications with passports expiring within 3-6 months are often rejected.</li>
 <li><strong>Incomplete Application Form:</strong> The Armenia e-visa application requires details of previous travel to Armenia and neighboring countries. Leaving these fields blank or providing incomplete information delays or stops processing.</li>
 <li><strong>Overstay History:</strong> Previous overstays in Armenia or any country in the Commonwealth of Independent States (CIS) region result in automatic rejection for 6-12 months.</li>
@@ -389,7 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">How much does Armenia eVisa cost?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>The eVisa costs AMD 15,000 (approximately ₹3,000-3,500). The eVisa covers both tourism and business purposes.</p></div>
+<div class="faq-answer"><p>The eVisa costs AMD 15,000 (approximately â‚¹3,000-3,500). The eVisa covers both tourism and business purposes.</p></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Can Indian citizens enter Armenia visa-free with a US visa?<span class="faq-icon">+</span></button>
@@ -417,7 +417,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-about">
  <div class="footer-brand">
  <span class="footer-logo-icon" aria-hidden="true">
- <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#A5D549"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/></svg></span>
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#5057EA"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/></svg></span>
  <span class="footer-brand-text">My Visa <span>Assistance</span></span></div>
  <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p></div>
  <div class="footer-col">

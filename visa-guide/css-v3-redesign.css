@@ -1,11 +1,11 @@
 /* ===================================================================================
-   VISA GUIDE UI v3.0 — Premium Redesign
+   VISA GUIDE UI v3.0 â€” Premium Redesign
    Complete layout transformation: modern, clean, user-friendly
    Preserves all content while enhancing visual structure and UX
    =================================================================================== */
 
 /* ===== Reading Progress Bar ===== */
-.reading-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--color-accent),#7ecf2e,#A5D549);z-index:10001;width:0%;transition:width 0.15s ease;border-radius:0 2px 2px 0}
+.reading-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--color-accent),#7ecf2e,#5057EA);z-index:10001;width:0%;transition:width 0.15s ease;border-radius:0 2px 2px 0}
 
 /* ===== Sticky Table of Contents Bar ===== */
 .sticky-toc{position:sticky;top:var(--header-height,72px);z-index:99;background:rgba(255,255,255,0.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid #eef0f2;padding:0;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;transition:box-shadow 0.3s ease}
@@ -18,7 +18,7 @@
 .toc-link.active{color:var(--color-primary-dark);border-bottom-color:var(--color-accent);font-weight:600}
 .toc-link.active i.bi{color:var(--color-primary-dark)}
 
-/* ===== Update Bar — Enhanced ===== */
+/* ===== Update Bar â€” Enhanced ===== */
 .update-bar{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;border-radius:14px;padding:16px 22px;margin-bottom:28px;font-size:0.88rem;color:#4a5568;line-height:1.7;box-shadow:0 2px 8px rgba(3, 27, 48,0.04);display:flex;flex-wrap:wrap;gap:6px 20px}
 .update-bar strong{color:#031B30;font-weight:700}
 
@@ -26,7 +26,7 @@
 .quick-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 28px}
 .stat-card{background:#fff;border:1px solid #eef0f2;border-radius:14px;padding:18px 16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
 .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--color-accent),#7ecf2e);opacity:0;transition:opacity 0.3s ease}
-.stat-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.07);border-color:rgba(165,213,73,0.3)}
+.stat-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.07);border-color:rgba(80, 87, 234,0.3)}
 .stat-card:hover::before{opacity:1}
 .stat-card .stat-icon{width:40px;height:40px;background:linear-gradient(135deg,#f0f1fa,#e8eaf5);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.2rem;color:var(--color-primary-dark);transition:all 0.3s ease}
 .stat-card:hover .stat-icon{background:linear-gradient(135deg,var(--color-accent),var(--color-accent-light));color:var(--color-primary-dark);transform:scale(1.05)}
@@ -34,14 +34,14 @@
 .stat-card .stat-value{font-size:0.92rem;font-weight:700;color:#1a202c;line-height:1.3}
 .stat-card .stat-sub{font-size:0.78rem;color:#6b7280;margin-top:2px}
 
-/* ===== Info Box — Enhanced ===== */
-.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:22px 26px;margin:24px 0;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:all 0.3s ease}
+/* ===== Info Box â€” Enhanced ===== */
+.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #5057EA;padding:22px 26px;margin:24px 0;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:all 0.3s ease}
 .info-box:hover{box-shadow:0 6px 20px rgba(0,0,0,0.06);transform:translateY(-1px)}
 .info-box h4{margin:0 0 8px;color:#031B30;font-size:1.05rem;font-weight:700}
 .info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
 .info-box p:last-child{margin:0}
 
-/* ===== Section Headings — Enhanced ===== */
+/* ===== Section Headings â€” Enhanced ===== */
 .main-content h2{margin-top:44px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f0f2f5;font-size:1.5rem;color:#031B30;letter-spacing:-0.01em;position:relative}
 .main-content h2:first-of-type{margin-top:0}
 .main-content h2::after{content:'';position:absolute;bottom:-2px;left:0;width:50px;height:2px;background:var(--color-accent);border-radius:1px}
@@ -53,7 +53,7 @@
 .section-card h2:first-child,.section-card h3:first-child{margin-top:0}
 .section-card.docs-section{border-left:3px solid var(--color-accent)}
 
-/* ===== Visa Tables — Premium ===== */
+/* ===== Visa Tables â€” Premium ===== */
 .visa-table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 28px;font-size:0.9rem;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #eef0f2}
 .visa-table thead th{background:linear-gradient(135deg,#f0f1fa,#e8eaf5);color:#031B30;padding:14px 16px;text-align:left;font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.4px;border-bottom:2px solid #dde0e8;position:sticky;top:0}
 .visa-table td,.visa-table th{border:1px solid #eef0f2;padding:13px 16px;vertical-align:top}
@@ -62,10 +62,10 @@
 .visa-table tbody tr:hover td{background:#f0f7ff}
 .visa-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:14px}
 
-/* ===== Process Timeline — Enhanced ===== */
+/* ===== Process Timeline â€” Enhanced ===== */
 .process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:14px;padding:20px 24px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
-.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(165,213,73,0.3));opacity:0;transition:opacity 0.3s ease}
-.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(165,213,73,0.3)}
+.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(80, 87, 234,0.3));opacity:0;transition:opacity 0.3s ease}
+.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(80, 87, 234,0.3)}
 .process-step:hover::before{opacity:1}
 .process-step-num{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,#031B30,#031B30);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-top:2px;box-shadow:0 3px 10px rgba(3, 27, 48,0.2);transition:all 0.3s ease;position:relative;z-index:1}
 .process-step:hover .process-step-num{transform:scale(1.08);box-shadow:0 4px 14px rgba(3, 27, 48,0.3)}
@@ -81,15 +81,15 @@
 .step-pill{display:inline-flex;align-items:center;gap:6px;background:#f7f8fa;border-left:3px solid var(--color-accent);padding:4px 12px 4px 10px;margin:2px 0;border-radius:0 8px 8px 0;font-size:0.9rem;line-height:1.5;transition:all 0.2s ease}
 .step-pill:hover{background:#eef0f5;padding-left:14px}
 
-/* ===== FAQ Section — Premium Accordion ===== */
+/* ===== FAQ Section â€” Premium Accordion ===== */
 .faq-list{margin:18px 0 28px}
 .faq-item{border:1px solid #eef0f2;border-radius:14px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s ease;background:#fff}
-.faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05);border-color:rgba(165,213,73,0.2)}
+.faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05);border-color:rgba(80, 87, 234,0.2)}
 .faq-question{width:100%;background:transparent;border:none;padding:18px 22px;text-align:left;font-size:0.95rem;font-weight:600;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all 0.2s;border-radius:14px}
 .faq-question:hover{background:#f7f8fa;color:#031B30}
-.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(165,213,73,0.1)}
+.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#5057EA;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(80, 87, 234,0.1)}
 .faq-item.active .faq-question{background:#f7f8fa;font-weight:700;color:#031B30;border-radius:14px 14px 0 0}
-.faq-item.active .faq-question .faq-icon{transform:rotate(45deg);background:rgba(165,213,73,0.2)}
+.faq-item.active .faq-question .faq-icon{transform:rotate(45deg);background:rgba(80, 87, 234,0.2)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);padding:0 22px;background:#fafbfc;border-radius:0 0 14px 14px}
 .faq-item.active .faq-answer{max-height:800px;padding:6px 22px 20px}
 .faq-answer p{margin:0 0 6px;color:#4a5568;font-size:0.92rem;line-height:1.7}
@@ -115,7 +115,7 @@
 /* ===== Design Enhancements ===== */
 .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
-.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(165,213,73,0.3);transform:translateY(-1px)}
+.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(80, 87, 234,0.3);transform:translateY(-1px)}
 .hero-badge i{color:var(--color-accent);font-size:0.85rem}
 
 /* Section heading icons */
@@ -141,7 +141,7 @@
 .trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:18px 22px;background:linear-gradient(135deg,#fafbf5,#f5f7ef);border:1px solid #eef0f2;border-radius:12px;transition:box-shadow 0.3s ease}
 .trust-row:hover{box-shadow:0 3px 12px rgba(0,0,0,0.04)}
 .trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
-.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(165,213,73,0.2))}
+.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(80, 87, 234,0.2))}
 
 /* Highlight rows */
 .visa-table tbody tr.highlight td{background:linear-gradient(90deg,#fafbf5,#f5f7ef)}
@@ -149,7 +149,7 @@
 
 /* ===== CTA Section ===== */
 .cta-section{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;padding:44px;border-radius:16px;margin:48px 0;text-align:center;box-shadow:0 4px 16px rgba(3, 27, 48,0.06);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
+.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(80, 87, 234,0.1),transparent 70%);pointer-events:none}
 .cta-section::after{content:'';position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(3, 27, 48,0.04),transparent 70%);pointer-events:none}
 .cta-section h2{color:#031B30;margin:0 0 12px;font-size:1.6rem;border:none;padding:0;position:relative}
 .cta-section h2::after{display:none}
@@ -169,7 +169,7 @@
 
 /* ===== Country Hero ===== */
 .country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden}
-.country-hero::after{content:'';position:absolute;top:-30%;right:-10%;width:60%;height:160%;background:radial-gradient(ellipse,rgba(165,213,73,0.08),transparent 70%);pointer-events:none}
+.country-hero::after{content:'';position:absolute;top:-30%;right:-10%;width:60%;height:160%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.08),transparent 70%);pointer-events:none}
 .country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em;position:relative;z-index:1}
 .country-hero p{color:rgba(255,255,255,0.82);font-size:1.05rem;max-width:650px;position:relative;z-index:1}
 .country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6);position:relative;z-index:1}

@@ -6,8 +6,8 @@
       <stop offset="100%" stop-color="#031B30"/>
     </linearGradient>
     <linearGradient id="sgAccent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#A5D549"/>
-      <stop offset="100%" stop-color="#8cba30"/>
+      <stop offset="0%" stop-color="#5057EA"/>
+      <stop offset="100%" stop-color="#3a41c8"/>
     </linearGradient>
   </defs>
 
@@ -15,8 +15,8 @@
   <rect width="1200" height="630" fill="url(#sgBg)"/>
 
   <!-- Decorative circle -->
-  <circle cx="950" cy="200" r="350" fill="rgba(165,213,73,0.06)"/>
-  <circle cx="200" cy="480" r="200" fill="rgba(165,213,73,0.05)"/>
+  <circle cx="950" cy="200" r="350" fill="rgba(80, 87, 234,0.06)"/>
+  <circle cx="200" cy="480" r="200" fill="rgba(80, 87, 234,0.05)"/>
 
   <!-- Singapore skyline silhouette -->
   <g transform="translate(0, 370)" opacity="0.15">
@@ -40,21 +40,21 @@
 
   <!-- Merlion icon -->
   <g transform="translate(90, 120)">
-    <path d="M0,0 Q40,-60 80,-20 Q100,0 80,40 Q60,80 20,70 Q-10,60 0,20 Z" fill="rgba(165,213,73,0.2)"/>
-    <path d="M30,10 Q55,-20 75,5 Q85,15 75,30 Q65,50 35,45 Q15,40 20,20 Z" fill="rgba(165,213,73,0.35)"/>
+    <path d="M0,0 Q40,-60 80,-20 Q100,0 80,40 Q60,80 20,70 Q-10,60 0,20 Z" fill="rgba(80, 87, 234,0.2)"/>
+    <path d="M30,10 Q55,-20 75,5 Q85,15 75,30 Q65,50 35,45 Q15,40 20,20 Z" fill="rgba(80, 87, 234,0.35)"/>
   </g>
 
   <!-- Main title -->
   <text x="600" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="white" letter-spacing="-1">
     How to Apply for a
   </text>
-  <text x="600" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="#A5D549" letter-spacing="-1">
+  <text x="600" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="#5057EA" letter-spacing="-1">
     Singapore Tourist Visa
   </text>
 
   <!-- Subtitle -->
   <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="rgba(255,255,255,0.8)" letter-spacing="0.5">
-    Complete Guide 2026 — Process, Documents, Fees &amp; Tips
+    Complete Guide 2026 â€” Process, Documents, Fees &amp; Tips
   </text>
 
   <!-- Divider -->
@@ -76,7 +76,7 @@
   <g transform="translate(0, 450)">
     <rect x="450" y="0" width="300" height="1" fill="rgba(255,255,255,0.2)"/>
     <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="rgba(255,255,255,0.7)">
-      My Visa <tspan fill="#A5D549">Assistance</tspan>
+      My Visa <tspan fill="#5057EA">Assistance</tspan>
     </text>
   </g>
 

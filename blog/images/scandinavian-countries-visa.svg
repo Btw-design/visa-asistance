@@ -7,7 +7,7 @@
 
     <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#7DB94D"/>
-      <stop offset="100%" stop-color="#A5D549"/>
+      <stop offset="100%" stop-color="#5057EA"/>
     </linearGradient>
   </defs>
 
@@ -25,7 +25,7 @@
         font-weight="700"
         letter-spacing="3"
         fill="#7DB94D">
-    EUROPE • SCHENGEN VISA
+    EUROPE â€¢ SCHENGEN VISA
   </text>
 
   <!-- Main Heading -->
@@ -71,7 +71,7 @@
         font-family="Poppins, Arial, sans-serif"
         font-size="22"
         fill="#666666">
-    Norway • Sweden • Denmark • Finland • Iceland
+    Norway â€¢ Sweden â€¢ Denmark â€¢ Finland â€¢ Iceland
   </text>
 
   <!-- Right Side Badge -->
@@ -99,7 +99,7 @@
     </text>
 
     <line x1="55" y1="130" x2="205" y2="130"
-          stroke="#A5D549"
+          stroke="#5057EA"
           stroke-width="3"/>
 
     <text x="130"
@@ -117,7 +117,7 @@
           font-family="Poppins, Arial"
           font-size="18"
           fill="#555555">
-      Requirements • Tips
+      Requirements â€¢ Tips
     </text>
   </g>
 
@@ -131,7 +131,7 @@
         font-size="16"
         font-weight="600"
         fill="#FFFFFF">
-    MY VISA ASSISTANCE • Trusted Schengen Visa Support
+    MY VISA ASSISTANCE â€¢ Trusted Schengen Visa Support
   </text>
 
 </svg>

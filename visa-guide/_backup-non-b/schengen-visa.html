@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <style>:root{--color-white:#ffffff;--color-primary:#031B30;--color-primary-light:#031B30;--color-primary-dark:#031B30;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+ <style>:root{--color-white:#ffffff;--color-primary:#031B30;--color-primary-light:#031B30;--color-primary-dark:#031B30;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -17,8 +17,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -45,7 +45,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -122,8 +122,8 @@ body.menu-open{overflow:hidden}
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'₹'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js₹id='+i+dl;f.parentNode.insertBefore(j,f);
+j=d.createElement(s),dl=l!='dataLayer'â‚¹'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.jsâ‚¹id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
 <!-- End Google Tag Manager -->
   <!-- Breadcrumb Schema -->
@@ -156,11 +156,11 @@ j=d.createElement(s),dl=l!='dataLayer'₹'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html₹id=GTM-MQQTWDVD"
+<noscript><iframe src="https://www.googletagmanager.com/ns.htmlâ‚¹id=GTM-MQQTWDVD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -229,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .quick-overview tbody tr:hover td{background:#f8f9fe}
 
 /* ===== Info Box ===== */
-.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
+.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #5057EA;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
 .info-box:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
 .info-box h4{margin:0 0 8px;color:#031B30;font-size:1.05rem;font-weight:700}
 .info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
@@ -251,7 +251,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 /* ===== CTA Section ===== */
 .cta-section{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;padding:44px;border-radius:16px;margin:48px 0;text-align:center;box-shadow:0 4px 16px rgba(3, 27, 48,0.06);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
+.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(80, 87, 234,0.1),transparent 70%);pointer-events:none}
 .cta-section::after{content:'';position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(3, 27, 48,0.04),transparent 70%);pointer-events:none}
 .cta-section h2{color:#031B30;margin:0 0 12px;font-size:1.6rem;border:none;padding:0;position:relative}
 .cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6;position:relative}
@@ -274,7 +274,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05)}
 .faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:600;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s, color 0.2s}
 .faq-question:hover{background:#f7f8fa;color:#031B30}
-.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
+.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#5057EA;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
 .faq-item.active .faq-question{background:#f7f8fa;font-weight:700;color:#031B30}
 .faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);padding:0 20px;background:#fff}
@@ -297,7 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 /* Hero badges - refined */
 .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
-.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(165,213,73,0.3);transform:translateY(-1px)}
+.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(80, 87, 234,0.3);transform:translateY(-1px)}
 .hero-badge i{color:var(--color-accent);font-size:0.85rem}
 
 /* Section heading icons - with hover motion */
@@ -306,8 +306,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 /* Process step cards - premium card design */
 .process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
-.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(165,213,73,0.3));opacity:0;transition:opacity 0.3s ease}
-.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(165,213,73,0.3)}
+.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(80, 87, 234,0.3));opacity:0;transition:opacity 0.3s ease}
+.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(80, 87, 234,0.3)}
 .process-step:hover::before{opacity:1}
 .process-step-num{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,#031B30,#031B30);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-top:2px;box-shadow:0 3px 10px rgba(3, 27, 48,0.2);transition:all 0.3s ease}
 .process-step:hover .process-step-num{transform:scale(1.08);box-shadow:0 4px 14px rgba(3, 27, 48,0.3)}
@@ -339,7 +339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:18px 22px;background:linear-gradient(135deg,#fafbf5,#f5f7ef);border:1px solid #eef0f2;border-radius:12px;transition:box-shadow 0.3s ease}
 .trust-row:hover{box-shadow:0 3px 12px rgba(0,0,0,0.04)}
 .trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
-.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(165,213,73,0.2))}
+.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(80, 87, 234,0.2))}
 
 /* Highlight key items in tables */
 .visa-table tbody tr.highlight td{background:linear-gradient(90deg,#fafbf5,#f5f7ef)}
@@ -417,35 +417,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
 
  <div class="info-box">
- <h4>What is a Schengen Visa₹</h4>
+ <h4>What is a Schengen Visaâ‚¹</h4>
  <p>The Schengen Area is a zone of 27 European countries that have abolished internal border controls. Indian citizens need a Schengen Visa (Type C) for short stays up to 90 days in any 180-day period for tourism, business, or family visits. A single visa allows travel across all Schengen countries.</p>
  <p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> See the <a href="#updates2026">Updates table</a> at the end of this guide for all 2026 changes to fees, visa durations, and policies.</p>
  </div>
 
- <p><strong>Application Mode:</strong> Online + embassy submission. <strong>Currency:</strong> Euro (₹). <strong>Embassy:</strong> Apply at the embassy of the country you are visiting first or spending most time in. Schengen Area: 27 European countries with unified visa policy</p>
+ <p><strong>Application Mode:</strong> Online + embassy submission. <strong>Currency:</strong> Euro (â‚¹). <strong>Embassy:</strong> Apply at the embassy of the country you are visiting first or spending most time in. Schengen Area: 27 European countries with unified visa policy</p>
 
  <h2><i class="bi bi-info-circle"></i> Quick Overview</h2>
  <table class="quick-overview">
  <tbody>
- <tr><th>Visa Required₹</th><td>Yes, Indian citizens need a Schengen visa for all travel to the Schengen Area</td></tr>
+ <tr><th>Visa Requiredâ‚¹</th><td>Yes, Indian citizens need a Schengen visa for all travel to the Schengen Area</td></tr>
  <tr><th>Main Visa Types</th><td>Schengen Short-Stay Visa (Type C), Long-Stay Visa (Type D), Airport Transit Visa (Type A), National Visa for Work/Study</td></tr>
  <tr><th>Processing Time</th><td>Schengen Type C: 15-30 days (up to 45 days in some cases); Long-stay: 4-12 weeks</td></tr>
- <tr><th>Visa Fee Range</th><td>€90 (Schengen Type C) to ₹350+ (Long-stay)</td></tr>
- <tr><th>Financial Requirement</th><td>Schengen: €50-100 per day of stay; Students: ₹10,000-15,000/year; Work: employer-sponsored</td></tr>
+ <tr><th>Visa Fee Range</th><td>â‚¬90 (Schengen Type C) to â‚¹350+ (Long-stay)</td></tr>
+ <tr><th>Financial Requirement</th><td>Schengen: â‚¬50-100 per day of stay; Students: â‚¹10,000-15,000/year; Work: employer-sponsored</td></tr>
  <tr><th>Maximum Stay</th><td>Schengen Type C: 90 days per 180-day period; Long-stay: 1+ years; PR: indefinite</td></tr>
  <tr><th>Biometrics</th><td>Required for all Schengen visa applicants aged 12+</td></tr>
- <tr><th>Health Insurance</th><td>Mandatory: Travel medical insurance covering ₹30,000+ for Schengen visa</td></tr>
+ <tr><th>Health Insurance</th><td>Mandatory: Travel medical insurance covering â‚¹30,000+ for Schengen visa</td></tr>
  <tr><th>Application Centers</th><td>VFS Global / TLScontact / BLS centers across all major Indian cities</td></tr>
  <tr><th>English Requirement</th><td>Not required for Schengen Type C; IELTS 6.0-7.0 for student visas in specific countries</td></tr>
  <tr><th>Approval Rate</th><td>Schengen Type C: ~75-85% (varies by embassy); Student: ~80-90%</td></tr>
  </tbody>
  </table>
 
- <h2><i class="bi bi-info-circle"></i> What is a Schengen Visa₹</h2>
+ <h2><i class="bi bi-info-circle"></i> What is a Schengen Visaâ‚¹</h2>
  <p>The Schengen Area is a zone of 27 European countries that have abolished internal border controls. Indian citizens need a Schengen Visa (Type C) for short stays up to 90 days in any 180-day period for tourism, business, or family visits. A single visa allows travel across all Schengen countries.</p>
  <p>Over 900,000 Indian tourists visited Schengen countries in 2024, making India one of the top visa application countries. France, Germany, Italy, Switzerland, and the Netherlands are the most popular destinations. Indians filed over 1.2 million Schengen visa applications in 2024.</p>
 
- <h3><i class="bi bi-info-circle"></i> Do Indians Need a Visa for Schengen₹</h3>
+ <h3><i class="bi bi-info-circle"></i> Do Indians Need a Visa for Schengenâ‚¹</h3>
  <p>Yes, Indian passport holders must obtain a Schengen Visa before traveling to any Schengen country for short stays. There is no visa-on-arrival or eVisa for Indian citizens. The visa is valid for all 27 Schengen countries once issued.</p>
 
  <h3><i class="bi bi-info-circle"></i> What Is Available and Not Available</h3>
@@ -467,13 +467,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Schengen offers multiple visa pathways for Indian citizens depending on your purpose: short visits, study, work, or permanent residency.</p>
 
  <table class="visa-table">
- <thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee (€)</th></tr></thead>
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee (â‚¬)</th></tr></thead>
  <tbody>
- <tr><td>Schengen Short-Stay Visa</td><td>Type C</td><td>Tourism, business, family visits up to 90 days</td><td>90 days per 180-day period</td><td>15-30 days</td><td>€90</td></tr>
- <tr><td>Airport Transit Visa</td><td>Type A</td><td>Transit through Schengen airport airside</td><td>24 hours (airside only)</td><td>5-15 days</td><td>€90</td></tr>
- <tr><td>Long-Stay National Visa</td><td>Type D</td><td>Study, work, family reunion (individual country)</td><td>3 months to 1+ years</td><td>4-12 weeks</td><td>€99-150</td></tr>
- <tr><td>Student Visa (e.g. France/Germany)</td><td>National Student</td><td>Full-time study at EU institution</td><td>Course duration</td><td>4-8 weeks</td><td>€50-100</td></tr>
- <tr><td>Work Visa (Blue Card EU)</td><td>EU Blue Card</td><td>Highly skilled employment in EU</td><td>1-4 years (renewable)</td><td>4-12 weeks</td><td>€140-200</td></tr>
+ <tr><td>Schengen Short-Stay Visa</td><td>Type C</td><td>Tourism, business, family visits up to 90 days</td><td>90 days per 180-day period</td><td>15-30 days</td><td>â‚¬90</td></tr>
+ <tr><td>Airport Transit Visa</td><td>Type A</td><td>Transit through Schengen airport airside</td><td>24 hours (airside only)</td><td>5-15 days</td><td>â‚¬90</td></tr>
+ <tr><td>Long-Stay National Visa</td><td>Type D</td><td>Study, work, family reunion (individual country)</td><td>3 months to 1+ years</td><td>4-12 weeks</td><td>â‚¬99-150</td></tr>
+ <tr><td>Student Visa (e.g. France/Germany)</td><td>National Student</td><td>Full-time study at EU institution</td><td>Course duration</td><td>4-8 weeks</td><td>â‚¬50-100</td></tr>
+ <tr><td>Work Visa (Blue Card EU)</td><td>EU Blue Card</td><td>Highly skilled employment in EU</td><td>1-4 years (renewable)</td><td>4-12 weeks</td><td>â‚¬140-200</td></tr>
  </tbody>
  </table>
 
@@ -481,26 +481,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Visa fees vary significantly by category. All fees are non-refundable and subject to change based on exchange rates.</p>
 
  <table class="visa-table">
- <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (€)</th><th>Fee (₹ Approx)</th></tr></thead>
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (â‚¬)</th><th>Fee (â‚¹ Approx)</th></tr></thead>
  <tbody>
- <tr><td>Schengen Short-Stay Visa</td><td>Type C</td><td>€90</td><td>₹7,738 to ₹8,552</td></tr>
- <tr><td>Airport Transit Visa</td><td>Type A</td><td>€90</td><td>₹7,738 to ₹8,552</td></tr>
- <tr><td>Long-Stay National Visa</td><td>Type D</td><td>€99-150</td><td>₹8,512 to ₹9,407</td></tr>
- <tr><td>Student Visa (e.g. France/Germany)</td><td>National Student</td><td>€50-100</td><td>₹4,299 to ₹4,751</td></tr>
- <tr><td>Work Visa (Blue Card EU)</td><td>EU Blue Card</td><td>€140-200</td><td>₹12,036 to ₹13,304</td></tr>
+ <tr><td>Schengen Short-Stay Visa</td><td>Type C</td><td>â‚¬90</td><td>â‚¹7,738 to â‚¹8,552</td></tr>
+ <tr><td>Airport Transit Visa</td><td>Type A</td><td>â‚¬90</td><td>â‚¹7,738 to â‚¹8,552</td></tr>
+ <tr><td>Long-Stay National Visa</td><td>Type D</td><td>â‚¬99-150</td><td>â‚¹8,512 to â‚¹9,407</td></tr>
+ <tr><td>Student Visa (e.g. France/Germany)</td><td>National Student</td><td>â‚¬50-100</td><td>â‚¹4,299 to â‚¹4,751</td></tr>
+ <tr><td>Work Visa (Blue Card EU)</td><td>EU Blue Card</td><td>â‚¬140-200</td><td>â‚¹12,036 to â‚¹13,304</td></tr>
  </tbody>
  </table>
 
  <h3><i class="bi bi-currency-rupee"></i> Additional Costs</h3>
  <table class="visa-table">
- <thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead>
+ <thead><tr><th>Cost Type</th><th>Amount (â‚¹)</th><th>Details</th></tr></thead>
  <tbody>
- <tr><td>VFS/TLS/BLS Service Fee</td><td>₹2,100 to 3,000</td><td>Application center service charge</td></tr>
- <tr><td>Biometrics</td><td>₹1,500 to 2,000</td><td>Included in service fee; valid 5 years</td></tr>
- <tr><td>Travel Medical Insurance</td><td>₹2,500 to 5,000</td><td>Mandatory: ₹30,000 minimum coverage</td></tr>
- <tr><td>Translation/Certification</td><td>₹500 to 2,000</td><td>Per document if not in English/French/German</td></tr>
- <tr><td>Courier/Passport Return</td><td>₹600 to 1,000</td><td>Optional: passport delivery to home</td></tr>
- <tr><td>Photographs (biometric)</td><td>₹300 to 600</td><td>2 copies; not all centers offer on-site photo</td></tr>
+ <tr><td>VFS/TLS/BLS Service Fee</td><td>â‚¹2,100 to 3,000</td><td>Application center service charge</td></tr>
+ <tr><td>Biometrics</td><td>â‚¹1,500 to 2,000</td><td>Included in service fee; valid 5 years</td></tr>
+ <tr><td>Travel Medical Insurance</td><td>â‚¹2,500 to 5,000</td><td>Mandatory: â‚¹30,000 minimum coverage</td></tr>
+ <tr><td>Translation/Certification</td><td>â‚¹500 to 2,000</td><td>Per document if not in English/French/German</td></tr>
+ <tr><td>Courier/Passport Return</td><td>â‚¹600 to 1,000</td><td>Optional: passport delivery to home</td></tr>
+ <tr><td>Photographs (biometric)</td><td>â‚¹300 to 600</td><td>2 copies; not all centers offer on-site photo</td></tr>
  </tbody>
  </table>
 
@@ -534,7 +534,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <h3><i class="bi bi-info-circle"></i> Indian Banking Nuances for Schengen Visa</h3>
  <table class="visa-table">
- <thead><tr><th>Bank</th><th>Statement Features</th><th>Accepted₹</th><th>Notes</th></tr></thead>
+ <thead><tr><th>Bank</th><th>Statement Features</th><th>Acceptedâ‚¹</th><th>Notes</th></tr></thead>
  <tbody>
  <tr><td>SBI</td><td>Passbook + online statement with branch seal</td><td>Yes</td><td>Most widely accepted. Ensure statements are stamped and signed by branch manager</td></tr>
  <tr><td>HDFC Bank</td><td>Digital statements with QR code verification</td><td>Yes</td><td>Save as PDF with visible bank logo and account holder name</td></tr>
@@ -614,8 +614,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h2><i class="bi bi-question-circle"></i> Frequently Asked Questions</h2>
  <div class="faq-list" style="max-width:100%;">
  <div class="faq-item">
- <button class="faq-question" aria-expanded="false">What is the Schengen visa fee for Indians₹<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>€90 (₹8,100-8,600) for adults. Children 6-12: ₹45. Children under 6: Free. Plus VFS/TLS service fee of ₹2,100-3,000.</p></div>
+ <button class="faq-question" aria-expanded="false">What is the Schengen visa fee for Indiansâ‚¹<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>â‚¬90 (â‚¹8,100-8,600) for adults. Children 6-12: â‚¹45. Children under 6: Free. Plus VFS/TLS service fee of â‚¹2,100-3,000.</p></div>
  </div>
 
 <div class="trust-row">
@@ -625,46 +625,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="trust-item"><i class="bi bi-star-fill"></i> Expert-reviewed content</span>
 </div>
  <div class="faq-item">
- <button class="faq-question" aria-expanded="false">Which Schengen country is easiest for Indians₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">Which Schengen country is easiest for Indiansâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>France, Italy, and Switzerland have higher approval rates for Indian applicants. Iceland and Switzerland process faster. Apply at the embassy of your main destination.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">How long does a Schengen visa take from India₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">How long does a Schengen visa take from Indiaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>Standard processing: 15-30 days. You can apply up to 6 months before travel. Peak season (April-June) may take longer.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">What is the minimum bank balance for Schengen visa₹<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>You need to show €50-100 per day of stay. For a 15-day trip, show at least INR 1,50,000-2,00,000 in your account for the last 3-6 months.</p></div>
+ <button class="faq-question" aria-expanded="false">What is the minimum bank balance for Schengen visaâ‚¹<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>You need to show â‚¬50-100 per day of stay. For a 15-day trip, show at least INR 1,50,000-2,00,000 in your account for the last 3-6 months.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">Do I need travel insurance for Schengen visa₹<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Yes, it is MANDATORY. Minimum coverage: ₹30,000 for medical emergencies, valid across all Schengen countries. Cost: ₹2,500-5,000 for the trip duration.</p></div>
+ <button class="faq-question" aria-expanded="false">Do I need travel insurance for Schengen visaâ‚¹<span class="faq-icon">+</span></button>
+ <div class="faq-answer"><p>Yes, it is MANDATORY. Minimum coverage: â‚¹30,000 for medical emergencies, valid across all Schengen countries. Cost: â‚¹2,500-5,000 for the trip duration.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">Can I work on a Schengen tourist visa₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">Can I work on a Schengen tourist visaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>No. Schengen Type C (short-stay) visa does not permit any form of employment. You need a specific work visa for the country you want to work in.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">What documents are needed for Schengen visa₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">What documents are needed for Schengen visaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>Passport (3+ months beyond return), application form, photos, travel insurance, flight booking, accommodation proof, bank statements (3-6 months), employment letter, IT returns (2-3 years), and cover letter.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">How early should I apply for Schengen visa₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">How early should I apply for Schengen visaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>Apply 4-6 weeks before your travel date. Earliest application: 6 months before. Latest: 15 working days before (not recommended).</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">Can I visit multiple Schengen countries on one visa₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">Can I visit multiple Schengen countries on one visaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>Yes, a single Schengen visa allows travel to all 27 Schengen countries. Apply at the embassy of the country where you will spend the most days.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">What happens if my Schengen visa is rejected₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">What happens if my Schengen visa is rejectedâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>You will receive a refusal letter with reasons. Common reasons: insufficient funds, weak travel history, incomplete documentation. You can appeal within 30 days or reapply.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">Do I need to submit my passport for Schengen visa₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">Do I need to submit my passport for Schengen visaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>Yes, original passport is required. It will be kept at the embassy during processing (15-30 days). Plan your travel accordingly.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">Is biometric data required for Schengen visa₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">Is biometric data required for Schengen visaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>Yes, fingerprints and photograph are required for all applicants aged 12+. Valid for 59 months (5 years) in the Schengen Information System (VIS).</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">Can I extend my Schengen visa₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">Can I extend my Schengen visaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>Extensions are only granted in exceptional circumstances (force majeure, humanitarian reasons). You cannot extend for tourism.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">What is the 90/180 day rule₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">What is the 90/180 day ruleâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>You can stay maximum 90 days within any 180-day period in the Schengen Area. Use the Schengen calculator to track your days.</p></div>
  </div> <div class="faq-item">
- <button class="faq-question" aria-expanded="false">Can I travel to UK with a Schengen visa₹<span class="faq-icon">+</span></button>
+ <button class="faq-question" aria-expanded="false">Can I travel to UK with a Schengen visaâ‚¹<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>No, the UK is not part of the Schengen Area. You need a separate UK visa.</p></div>
  </div>
  </div>
@@ -673,7 +673,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <table class="visa-table">
  <thead><tr><th>Change</th><th>Previous</th><th>Current (2026)</th></tr></thead>
  <tbody>
- <tr><td>Schengen Visa Fee</td><td>₹80</td><td>€90 (increased from June 2024)</td></tr>
+ <tr><td>Schengen Visa Fee</td><td>â‚¹80</td><td>â‚¬90 (increased from June 2024)</td></tr>
  <tr><td>ETIAS (Entry/Exit System)</td><td>Planned</td><td>Implementation further delayed - not yet in effect</td></tr>
  <tr><td>Application Window</td><td>6 months before travel</td><td>6 months before travel (extended from 3 months during COVID)</td></tr>
  <tr><td>Digital Visa Processing</td><td>Paper applications</td><td>Gradual shift to digital: online submission in select countries</td></tr>
@@ -690,7 +690,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </ul>
 
  <div class="cta-section">
- <h2>Need Help With Your Schengen Visa Application₹</h2>
+ <h2>Need Help With Your Schengen Visa Applicationâ‚¹</h2>
  <p>Our India-focused visa consultants can guide you through the entire Schengen visa application process.</p>
  <a href="/contact" class="btn">Contact My Visa Assistance</a>
  </div>
@@ -706,7 +706,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <li><strong>Country:</strong> Schengen</li>
  <li><strong>Capital:</strong> Brussels (EU headquarters)</li>
  <li><strong>Visa Required:</strong> Yes (for Indians)</li>
- <li><strong>Currency:</strong> Euro (₹)</li>
+ <li><strong>Currency:</strong> Euro (â‚¹)</li>
  <li><strong>Processing:</strong> Schengen Type C: 15-30 days (up to 45 days in some cases); Long-stay: 4-12 weeks</li>
  <li><strong>Biometrics:</strong> Required for all Schengen visa applicants aged 12+</li>
  </ul>
@@ -715,16 +715,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="sidebar-card">
  <h3>Popular Visa Types</h3>
  <ul>
- <li><a href="#fees">Schengen Short-Stay Visa (Type C) - €90</a></li>
- <li><a href="#fees">Airport Transit Visa (Type A) - €90</a></li>
- <li><a href="#fees">Long-Stay National Visa (Type D) - €99-150</a></li>
- <li><a href="#fees">Student Visa (e.g. France/Germany) (National Student) - €50-100</a></li>
- <li><a href="#fees">Work Visa (Blue Card EU) (EU Blue Card) - €140-200</a></li>
+ <li><a href="#fees">Schengen Short-Stay Visa (Type C) - â‚¬90</a></li>
+ <li><a href="#fees">Airport Transit Visa (Type A) - â‚¬90</a></li>
+ <li><a href="#fees">Long-Stay National Visa (Type D) - â‚¬99-150</a></li>
+ <li><a href="#fees">Student Visa (e.g. France/Germany) (National Student) - â‚¬50-100</a></li>
+ <li><a href="#fees">Work Visa (Blue Card EU) (EU Blue Card) - â‚¬140-200</a></li>
  </ul>
  </div>
 
  <div class="sidebar-card" style="background:linear-gradient(135deg,#031B30,#031B30);color:white;border:none;">
- <h3 style="color:#A5D549;margin:0 0 8px;">Download Checklist</h3>
+ <h3 style="color:#5057EA;margin:0 0 8px;">Download Checklist</h3>
  <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;">Get a printable document checklist for your visa application.</p>
  <button onclick="downloadChecklist()" class="btn btn-primary" style="width:100%;text-align:center;">
  <i class="bi bi-download"></i> Download Full Checklist
@@ -734,7 +734,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h3>Need Visa Help?</h3>
  <p>Our experts can guide you through the Schengen visa process.</p>
  <a href="/contact" class="btn btn-primary" style="margin-bottom:8px;">Get Assistance</a>
- <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform₹usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);display:block;text-align:center;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewformâ‚¹usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);display:block;text-align:center;"><i class="bi bi-file-text"></i> Fill the form for details</a>
  </div>
 
  <div class="sidebar-card">
@@ -749,9 +749,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h3>Share This Guide</h3>
  <p style="font-size:0.85rem;color:var(--color-text-light);">Help others find this information</p>
  <div style="display:flex;gap:10px;margin-top:10px;">
- <a href="https://www.facebook.com/sharer/sharer.php₹u=https://myvisaassistance.com/visa-guide/schengen-visa" target="_blank" rel="noopener noreferrer" style="color:#1877F2;font-size:1.5rem;" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a>
- <a href="https://twitter.com/intent/tweet₹text=Schengen%20Visa%20for%20Indians%202026:%20Types,%20Fees,%20Process%20&%20Requirements%20-%20My%20Visa%20Assistance&url=https://myvisaassistance.com/visa-guide/schengen-visa" target="_blank" rel="noopener noreferrer" style="color:#1DA1F2;font-size:1.5rem;" aria-label="Share on Twitter"><i class="bi bi-twitter-x"></i></a>
- <a href="https://www.linkedin.com/shareArticle₹mini=true&url=https://myvisaassistance.com/visa-guide/schengen-visa" target="_blank" rel="noopener noreferrer" style="color:#0A66C2;font-size:1.5rem;" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+ <a href="https://www.facebook.com/sharer/sharer.phpâ‚¹u=https://myvisaassistance.com/visa-guide/schengen-visa" target="_blank" rel="noopener noreferrer" style="color:#1877F2;font-size:1.5rem;" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/intent/tweetâ‚¹text=Schengen%20Visa%20for%20Indians%202026:%20Types,%20Fees,%20Process%20&%20Requirements%20-%20My%20Visa%20Assistance&url=https://myvisaassistance.com/visa-guide/schengen-visa" target="_blank" rel="noopener noreferrer" style="color:#1DA1F2;font-size:1.5rem;" aria-label="Share on Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://www.linkedin.com/shareArticleâ‚¹mini=true&url=https://myvisaassistance.com/visa-guide/schengen-visa" target="_blank" rel="noopener noreferrer" style="color:#0A66C2;font-size:1.5rem;" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
  </div>
  </div>
  </aside>
@@ -765,7 +765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-brand">
  <span class="footer-logo-icon" aria-hidden="true">
  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
- <rect width="32" height="32" rx="8" fill="#A5D549"/>
+ <rect width="32" height="32" rx="8" fill="#5057EA"/>
  <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/>
  <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/>
  </svg>

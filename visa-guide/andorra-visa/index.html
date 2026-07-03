@@ -2,7 +2,7 @@
 <html lang="en">
 <head><meta charset="UTF-8">
 <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -17,8 +17,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -45,7 +45,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -146,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
@@ -235,7 +235,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="stat-card">
 <div class="stat-icon"><i class="bi bi-currency-dollar"></i></div>
 <div class="stat-label">Visa Fee</div>
-<div class="stat-value">₹80 (Schengen visa fee)</div>
+<div class="stat-value">â‚¹80 (Schengen visa fee)</div>
 <div class="stat-sub">See details below</div>
 </div>
 <div class="stat-card">
@@ -265,7 +265,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="stat-card">
 <div class="stat-icon"><i class="bi bi-people"></i></div>
 <div class="stat-label">Financial Req</div>
-<div class="stat-value">Minimum ₹100 per day recomme...</div>
+<div class="stat-value">Minimum â‚¹100 per day recomme...</div>
 <div class="stat-sub"></div>
 </div>
 </div>
@@ -287,20 +287,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2 id="visa-types"><i class="bi bi-card-checklist"></i> Types of Andorra Visas for Indians</h2>
 <p>Andorra offers multiple visa pathways for Indian citizens depending on your purpose of travel.</p>
-<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee</th></tr></thead><tbody><tr><td>Schengen Tourist Visa (France)</td><td>C</td><td>Tourism via France</td><td>90 days</td><td>15 calendar days</td><td>₹80</td></tr><tr><td>Schengen Tourist Visa (Spain)</td><td>C</td><td>Tourism via Spain</td><td>90 days</td><td>15 calendar days</td><td>₹80</td></tr><tr><td>Schengen Business Visa</td><td>C</td><td>Business meetings</td><td>90 days</td><td>15 calendar days</td><td>₹80</td></tr><tr><td>Long-Stay Visa (France)</td><td>D</td><td>Study/Work via France</td><td>1 year+</td><td>2-12 weeks</td><td>₹99+</td></tr><tr><td>Long-Stay Visa (Spain)</td><td>D</td><td>Study/Work via Spain</td><td>1 year+</td><td>2-12 weeks</td><td>₹80+</td></tr></tbody></table></div>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee</th></tr></thead><tbody><tr><td>Schengen Tourist Visa (France)</td><td>C</td><td>Tourism via France</td><td>90 days</td><td>15 calendar days</td><td>â‚¹80</td></tr><tr><td>Schengen Tourist Visa (Spain)</td><td>C</td><td>Tourism via Spain</td><td>90 days</td><td>15 calendar days</td><td>â‚¹80</td></tr><tr><td>Schengen Business Visa</td><td>C</td><td>Business meetings</td><td>90 days</td><td>15 calendar days</td><td>â‚¹80</td></tr><tr><td>Long-Stay Visa (France)</td><td>D</td><td>Study/Work via France</td><td>1 year+</td><td>2-12 weeks</td><td>â‚¹99+</td></tr><tr><td>Long-Stay Visa (Spain)</td><td>D</td><td>Study/Work via Spain</td><td>1 year+</td><td>2-12 weeks</td><td>â‚¹80+</td></tr></tbody></table></div>
 
 <h2 id="fees"><i class="bi bi-currency-rupee"></i> Andorra Visa Fees for Indians 2026</h2>
 <p>Visa fees vary by category. All fees are non-refundable and subject to change.</p>
-<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee</th><th>Approx (₹)</th></tr></thead><tbody><tr><td>Schengen Visa (Adult)</td><td>C</td><td>₹80</td><td>₹7,120 to ₹7,920</td></tr><tr><td>Schengen Visa (Child 6-12)</td><td>C</td><td>₹40</td><td>₹3,560 to ₹3,960</td></tr><tr><td>Schengen Visa (Under 6)</td><td>C</td><td>Free</td><td>Free</td></tr><tr><td>Long-Stay Visa</td><td>D</td><td>₹99</td><td>₹8,810 to ₹9,800</td></tr></tbody></table></div>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee</th><th>Approx (â‚¹)</th></tr></thead><tbody><tr><td>Schengen Visa (Adult)</td><td>C</td><td>â‚¹80</td><td>â‚¹7,120 to â‚¹7,920</td></tr><tr><td>Schengen Visa (Child 6-12)</td><td>C</td><td>â‚¹40</td><td>â‚¹3,560 to â‚¹3,960</td></tr><tr><td>Schengen Visa (Under 6)</td><td>C</td><td>Free</td><td>Free</td></tr><tr><td>Long-Stay Visa</td><td>D</td><td>â‚¹99</td><td>â‚¹8,810 to â‚¹9,800</td></tr></tbody></table></div>
 
-<h3><i class="bi bi-currency-rupee"></i> Additional Costs</h3><div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead><tbody><tr><td>Service Fee</td><td>₹1,500 to 2,500</td><td>VFS/TLScontact service charge</td></tr><tr><td>Photography</td><td>₹200 to 400</td><td>Counter photo if needed</td></tr><tr><td>Insurance</td><td>₹2,000 to 4,000</td><td>Travel insurance (mandatory)</td></tr><tr><td>Courier</td><td>₹500 to 1,000</td><td>Passport return delivery</td></tr></tbody></table></div>
+<h3><i class="bi bi-currency-rupee"></i> Additional Costs</h3><div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Cost Type</th><th>Amount (â‚¹)</th><th>Details</th></tr></thead><tbody><tr><td>Service Fee</td><td>â‚¹1,500 to 2,500</td><td>VFS/TLScontact service charge</td></tr><tr><td>Photography</td><td>â‚¹200 to 400</td><td>Counter photo if needed</td></tr><tr><td>Insurance</td><td>â‚¹2,000 to 4,000</td><td>Travel insurance (mandatory)</td></tr><tr><td>Courier</td><td>â‚¹500 to 1,000</td><td>Passport return delivery</td></tr></tbody></table></div>
 
 <h2 id="documents"><i class="bi bi-file-earmark-text"></i> Documents Required for Andorra Visa</h2>
 <p>Every visa application requires proof of identity, purpose of visit, and financial capacity.</p>
 
 <h3><i class="bi bi-card-checklist"></i> Core Documents (All Visa Types)</h3>
 <ul><li><strong>Valid Indian passport  Must have at least 3 months validity beyond departure from Schengen area. At least 2 blank pages.</strong></li>
-<li><strong>Digital photograph  35₹45mm, white background, taken within 6 months.</strong></li>
+<li><strong>Digital photograph  35â‚¹45mm, white background, taken within 6 months.</strong></li>
 <li><strong>Completed Schengen visa application form  Via the French or Spanish visa portal. All details must match your passport exactly.</strong></li>
 <li><strong>Previous visas and travel history  Include copies of previous Schengen, US, UK visas and travel stamps.</strong></li>
 <li><strong>Cover letter  Explaining purpose of visit including Andorra travel plans, duration, and itinerary.</strong></li>
@@ -367,7 +367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Andorra does not have its own embassy network  visa applications are processed through Spanish or French consulates since Andorra is a microstate surrounded by both countries:</p>
 <ul>
 <li><strong>Applying at the Wrong Embassy:</strong> Since Andorra lacks diplomatic missions, you must apply for a Schengen visa through Spain or France, specifying Andorra as your destination.</li>
-<li><strong>Insufficient Funds for Mountain Resorts:</strong> Andorra is a premium destination. You must show higher financial capacity (approximately ₹150-200 per day) due to the cost of ski resorts and mountain activities.</li>
+<li><strong>Insufficient Funds for Mountain Resorts:</strong> Andorra is a premium destination. You must show higher financial capacity (approximately â‚¹150-200 per day) due to the cost of ski resorts and mountain activities.</li>
 <li><strong>No Confirmed Accommodation:</strong> Hotel bookings in Andorra for the entire stay must be confirmed. Ski chalet rentals require full payment proof.</li>
 <li><strong>Lack of Travel Insurance with Mountain Coverage:</strong> Standard travel insurance often excludes winter sports. Your policy must specifically cover skiing, snowboarding, and mountain rescue.</li>
 <li><strong>Unclear Travel Intent:</strong> Ambiguous purpose of visit  whether tourism, shopping, or skiing  can lead to rejection. Provide a detailed itinerary.</li>
@@ -379,7 +379,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>Currency:</strong> Euro (EUR) is the official currency despite Andorra not being an EU member. Credit cards are widely accepted. ATMs are available in major towns like Andorra la Vella.</li>
 <li><strong>Transportation:</strong> Andorra has no airport or railway station. The nearest airports are Barcelona-El Prat (BCN, 200 km) and Toulouse-Blagnac (TLS, 180 km). Buses connect both cities to Andorra la Vella. Within Andorra, buses are the main public transport.</li>
 <li><strong>Language:</strong> Catalan is the official language. Spanish, French, and Portuguese are widely spoken. English is understood in tourist areas and ski resorts.</li>
-<li><strong>Shopping:</strong> Andorra is famous for duty-free shopping. Electronics, perfumes, alcohol, and tobacco are significantly cheaper than in neighboring countries. The maximum duty-free allowance is ₹300 per person per day.</li>
+<li><strong>Shopping:</strong> Andorra is famous for duty-free shopping. Electronics, perfumes, alcohol, and tobacco are significantly cheaper than in neighboring countries. The maximum duty-free allowance is â‚¹300 per person per day.</li>
 <li><strong>Cuisine:</strong> Try Escudella (traditional stew), Trinxat (cabbage and potato cake), and local cheeses. Andorran restaurants serve a mix of Catalan and French cuisine.</li>
 <li><strong>Altitude Awareness:</strong> Andorra la Vella sits at 1,023 meters. If you're not accustomed to altitude, take it easy on the first day and stay hydrated.</li>
 </ul>
@@ -388,7 +388,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-list" style="max-width:100%;">
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Do Indian citizens need a visa for Andorra?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Yes, Indian citizens need a visa for Andorra. Key information:</p><ul><li>A visa is required for Indian passport holders traveling to Andorra.</li><li>See the <a href="#visa-types">Visa Types section</a> for all available visa categories and options.</li><li>Your passport must have <strong>at least 6 months validity</strong> beyond your intended stay.</li><li>Processing times vary by visa type — check the <a href="#processing-time">Processing Time section</a> for details.</li><li>See the <a href="#process">Application Process section</a> for step-by-step instructions.</li></ul></div>
+<div class="faq-answer"><p>Yes, Indian citizens need a visa for Andorra. Key information:</p><ul><li>A visa is required for Indian passport holders traveling to Andorra.</li><li>See the <a href="#visa-types">Visa Types section</a> for all available visa categories and options.</li><li>Your passport must have <strong>at least 6 months validity</strong> beyond your intended stay.</li><li>Processing times vary by visa type â€” check the <a href="#processing-time">Processing Time section</a> for details.</li><li>See the <a href="#process">Application Process section</a> for step-by-step instructions.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What are the visa options for Indians visiting Andorra?<span class="faq-icon">+</span></button>
@@ -396,7 +396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What documents are required for a Andorra visa?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Standard document requirements for a Andorra visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> — minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> — 35×45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> — accurately filled with matching details.</li><li><strong>Travel itinerary</strong> — flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li></ul></div>
+<div class="faq-answer"><p>Standard document requirements for a Andorra visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> â€” minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> â€” 35Ã—45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> â€” accurately filled with matching details.</li><li><strong>Travel itinerary</strong> â€” flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">How long does it take to process a Andorra visa?<span class="faq-icon">+</span></button>
@@ -404,7 +404,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What is the Andorra visa fee for Indians?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Visa fees for Andorra depend on the visa category. <a href="#fees">See the complete fee table</a>:</p><ul><li>Fees vary by <strong>visa type</strong> (tourist, business, student, work).</li><li>Additional <strong>service charges</strong> may apply when applying through visa centers.</li><li>All fees are <strong>non-refundable</strong> once the application is submitted.</li><li>Payment methods vary — most accept online payment or demand drafts.</li></ul></div>
+<div class="faq-answer"><p>Visa fees for Andorra depend on the visa category. <a href="#fees">See the complete fee table</a>:</p><ul><li>Fees vary by <strong>visa type</strong> (tourist, business, student, work).</li><li>Additional <strong>service charges</strong> may apply when applying through visa centers.</li><li>All fees are <strong>non-refundable</strong> once the application is submitted.</li><li>Payment methods vary â€” most accept online payment or demand drafts.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">How long can I stay in Andorra on a tourist visa?<span class="faq-icon">+</span></button>
@@ -420,15 +420,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Can I get a Andorra visa on arrival as an Indian?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Visa-on-arrival availability for Indian citizens in Andorra:</p><ul><li>Check the <strong>current visa policy</strong> for Indian nationals — most countries require a visa in advance.</li><li>If no visa on arrival is available, you must apply for a <strong>visa before travel</strong>.</li><li>See the <a href="#process">Application Process section</a> for the complete step-by-step guide.</li><li>Always verify current requirements with the <strong>official embassy website</strong>.</li></ul></div>
+<div class="faq-answer"><p>Visa-on-arrival availability for Indian citizens in Andorra:</p><ul><li>Check the <strong>current visa policy</strong> for Indian nationals â€” most countries require a visa in advance.</li><li>If no visa on arrival is available, you must apply for a <strong>visa before travel</strong>.</li><li>See the <a href="#process">Application Process section</a> for the complete step-by-step guide.</li><li>Always verify current requirements with the <strong>official embassy website</strong>.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What are the common reasons for Andorra visa rejection?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Common reasons for visa rejection for Indian applicants:</p><ul><li><strong>Insufficient funds</strong> — bank statements must show adequate balance.</li><li><strong>Incomplete documentation</strong> — missing or incorrect documents.</li><li><strong>Poor travel history</strong> — limited international travel history may lead to stricter scrutiny.</li><li><strong>Discrepancies</strong> between application form and supporting documents.</li><li><strong>Criminal record</strong> or previous immigration violations.</li></ul></div>
+<div class="faq-answer"><p>Common reasons for visa rejection for Indian applicants:</p><ul><li><strong>Insufficient funds</strong> â€” bank statements must show adequate balance.</li><li><strong>Incomplete documentation</strong> â€” missing or incorrect documents.</li><li><strong>Poor travel history</strong> â€” limited international travel history may lead to stricter scrutiny.</li><li><strong>Discrepancies</strong> between application form and supporting documents.</li><li><strong>Criminal record</strong> or previous immigration violations.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What currency is used in Andorra?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Currency and payment information for Andorra:</p><ul><li>The official currency varies — check the <strong>local currency and exchange rates</strong> before traveling.</li><li><strong>Credit cards</strong> are accepted at most hotels and larger establishments in tourist areas.</li><li><strong>ATMs</strong> are available in cities and major towns.</li><li>Carry some <strong>local currency in cash</strong> for small purchases, tips, and local transport.</li><li>Inform your bank about your travel plans to avoid card blocks.</li></ul></div>
+<div class="faq-answer"><p>Currency and payment information for Andorra:</p><ul><li>The official currency varies â€” check the <strong>local currency and exchange rates</strong> before traveling.</li><li><strong>Credit cards</strong> are accepted at most hotels and larger establishments in tourist areas.</li><li><strong>ATMs</strong> are available in cities and major towns.</li><li>Carry some <strong>local currency in cash</strong> for small purchases, tips, and local transport.</li><li>Inform your bank about your travel plans to avoid card blocks.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Is Andorra safe for Indian tourists?<span class="faq-icon">+</span></button>
@@ -436,7 +436,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Do I need any vaccinations for Andorra?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Recommended vaccinations for travel to Andorra:</p><ul><li><strong>Routine vaccinations</strong> — MMR, DPT, and polio should be up to date.</li><li><strong>Yellow fever</strong> — required if travelling from a country with yellow fever risk.</li><li><strong>Hepatitis A and Typhoid</strong> — recommended for most international travel.</li><li>Consult your doctor <strong>4-6 weeks before travel</strong> for personalized advice.</li><li>Carry a <strong>basic medical kit</strong> with essential medications.</li></ul></div>
+<div class="faq-answer"><p>Recommended vaccinations for travel to Andorra:</p><ul><li><strong>Routine vaccinations</strong> â€” MMR, DPT, and polio should be up to date.</li><li><strong>Yellow fever</strong> â€” required if travelling from a country with yellow fever risk.</li><li><strong>Hepatitis A and Typhoid</strong> â€” recommended for most international travel.</li><li>Consult your doctor <strong>4-6 weeks before travel</strong> for personalized advice.</li><li>Carry a <strong>basic medical kit</strong> with essential medications.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Can I extend my Andorra visa?<span class="faq-icon">+</span></button>
@@ -450,7 +450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <h2><i class="bi bi-megaphone"></i> 2026 Updates</h2>
-<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Category</th><th>Previous</th><th>Current (2026)</th></tr></thead><tbody><tr><td>Fee</td><td>₹80</td><td>₹80 (unchanged for 2026)</td></tr><tr><td>Processing</td><td>15 days</td><td>15 days (consistent)</td></tr><tr><td>Policy</td><td>Schengen visa required</td><td>Schengen visa required (no change)</td></tr></tbody></table></div>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Category</th><th>Previous</th><th>Current (2026)</th></tr></thead><tbody><tr><td>Fee</td><td>â‚¹80</td><td>â‚¹80 (unchanged for 2026)</td></tr><tr><td>Processing</td><td>15 days</td><td>15 days (consistent)</td></tr><tr><td>Policy</td><td>Schengen visa required</td><td>Schengen visa required (no change)</td></tr></tbody></table></div>
 
 <h2 id="resources"><i class="bi bi-link-45deg"></i> Official Links</h2><ul><li><a href="https://france-visas.gouv.fr/" target="_blank" rel="noopener noreferrer">France Visa</a></li>
 <li><a href="https://www.exteriores.gob.es/" target="_blank" rel="noopener noreferrer">Spain Visa</a></li>
@@ -490,7 +490,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <div class="sidebar-card" style="background:linear-gradient(135deg,#031B30,#031B30);color:white;border:none;">
-  <h3 style="color:#A5D549;margin:0 0 8px;">Download Checklist</h3>
+  <h3 style="color:#5057EA;margin:0 0 8px;">Download Checklist</h3>
   <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;">Get a printable document checklist for your visa application.</p>
   <button onclick="downloadChecklist()" class="btn btn-primary" style="width:100%;text-align:center;">
   <i class="bi bi-download"></i> Download Full Checklist
@@ -532,7 +532,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-about">
  <div class="footer-brand">
  <span class="footer-logo-icon" aria-hidden="true">
- <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#A5D549"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/></svg></span>
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#5057EA"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/></svg></span>
  <span class="footer-brand-text">My Visa <span>Assistance</span></span></div>
  <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p></div>
  <div class="footer-col">

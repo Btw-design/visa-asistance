@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <style>:root{--color-white:#ffffff;--color-primary:#031B30;--color-primary-light:#031B30;--color-primary-dark:#031B30;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+ <style>:root{--color-white:#ffffff;--color-primary:#031B30;--color-primary-light:#031B30;--color-primary-dark:#031B30;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark:#031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -17,8 +17,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -45,7 +45,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -156,7 +156,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
@@ -229,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .quick-overview tbody tr:hover td{background:#f8f9fe}
 
 /* ===== Info Box ===== */
-.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #A5D549;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
+.info-box{background:#fff;border:1px solid #eef0f2;border-left:4px solid #5057EA;padding:20px 24px;margin:22px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;transition:box-shadow 0.3s ease}
 .info-box:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
 .info-box h4{margin:0 0 8px;color:#031B30;font-size:1.05rem;font-weight:700}
 .info-box p{margin:0 0 8px;color:#4a5568;font-size:0.92rem;line-height:1.7}
@@ -251,7 +251,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 /* ===== CTA Section ===== */
 .cta-section{background:linear-gradient(135deg,#f8f9fe,#f0f1fa);border:1px solid #e8ecf5;padding:44px;border-radius:16px;margin:48px 0;text-align:center;box-shadow:0 4px 16px rgba(3, 27, 48,0.06);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(165,213,73,0.1),transparent 70%);pointer-events:none}
+.cta-section::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(80, 87, 234,0.1),transparent 70%);pointer-events:none}
 .cta-section::after{content:'';position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(3, 27, 48,0.04),transparent 70%);pointer-events:none}
 .cta-section h2{color:#031B30;margin:0 0 12px;font-size:1.6rem;border:none;padding:0;position:relative}
 .cta-section p{color:#4a5568;margin:0 auto 22px;font-size:1.05rem;max-width:550px;line-height:1.6;position:relative}
@@ -274,7 +274,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .faq-item:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05)}
 .faq-question{width:100%;background:#fff;border:none;padding:16px 20px;text-align:left;font-size:0.95rem;font-weight:600;color:#2d3748;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s, color 0.2s}
 .faq-question:hover{background:#f7f8fa;color:#031B30}
-.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#A5D549;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
+.faq-question .faq-icon{font-size:1.3rem;font-weight:300;color:#5057EA;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);flex-shrink:0;margin-left:12px;line-height:1}
 .faq-item.active .faq-question{background:#f7f8fa;font-weight:700;color:#031B30}
 .faq-item.active .faq-question .faq-icon{transform:rotate(45deg)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);padding:0 20px;background:#fff}
@@ -297,7 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 /* Hero badges - refined */
 .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;margin-bottom:6px}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:rgba(255,255,255,0.92);background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:5px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
-.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(165,213,73,0.3);transform:translateY(-1px)}
+.hero-badge:hover{background:rgba(255,255,255,0.18);border-color:rgba(80, 87, 234,0.3);transform:translateY(-1px)}
 .hero-badge i{color:var(--color-accent);font-size:0.85rem}
 
 /* Section heading icons - with hover motion */
@@ -306,8 +306,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 /* Process step cards - premium card design */
 .process-step{display:flex;gap:16px;background:#fff;border:1px solid #eef0f2;border-radius:12px;padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
-.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(165,213,73,0.3));opacity:0;transition:opacity 0.3s ease}
-.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(165,213,73,0.3)}
+.process-step::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--color-accent),rgba(80, 87, 234,0.3));opacity:0;transition:opacity 0.3s ease}
+.process-step:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:rgba(80, 87, 234,0.3)}
 .process-step:hover::before{opacity:1}
 .process-step-num{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,#031B30,#031B30);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-top:2px;box-shadow:0 3px 10px rgba(3, 27, 48,0.2);transition:all 0.3s ease}
 .process-step:hover .process-step-num{transform:scale(1.08);box-shadow:0 4px 14px rgba(3, 27, 48,0.3)}
@@ -339,7 +339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .trust-row{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding:18px 22px;background:linear-gradient(135deg,#fafbf5,#f5f7ef);border:1px solid #eef0f2;border-radius:12px;transition:box-shadow 0.3s ease}
 .trust-row:hover{box-shadow:0 3px 12px rgba(0,0,0,0.04)}
 .trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#4a5568;line-height:1.4}
-.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(165,213,73,0.2))}
+.trust-item i{font-size:1.2rem;color:var(--color-accent);flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(80, 87, 234,0.2))}
 
 /* Highlight key items in tables */
 .visa-table tbody tr.highlight td{background:linear-gradient(90deg,#fafbf5,#f5f7ef)}
@@ -422,7 +422,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> See the <a href="#updates2026">Updates table</a> at the end of this guide for all 2026 changes to fees, visa durations, and policies.</p>
  </div>
 
- <p><strong>Application Mode:</strong> Online + embassy submission. <strong>Currency:</strong> Thai Baht (₹). <strong>Embassy:</strong> Royal Thai Embassy, 56-N, Nyaya Marg, Chanakyapuri, New Delhi - 110021. Consulate General in Mumbai at 3rd Floor, Jeevan Tara Building, 5 Sansad Marg, New Delhi - 110001; Honorary Consulates in Chennai, Kolkata, Bengaluru, Hyderabad</p>
+ <p><strong>Application Mode:</strong> Online + embassy submission. <strong>Currency:</strong> Thai Baht (â‚¹). <strong>Embassy:</strong> Royal Thai Embassy, 56-N, Nyaya Marg, Chanakyapuri, New Delhi - 110021. Consulate General in Mumbai at 3rd Floor, Jeevan Tara Building, 5 Sansad Marg, New Delhi - 110001; Honorary Consulates in Chennai, Kolkata, Bengaluru, Hyderabad</p>
 
  <h2><i class="bi bi-info-circle"></i> Quick Overview</h2>
  <table class="quick-overview">
@@ -430,11 +430,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <tr><th>Visa Required?</th><td>Yes, Indian citizens need a visa for Thailand, but Visa on Arrival is available</td></tr>
  <tr><th>Main Visa Types</th><td>Visa on Arrival, Tourist Visa (Single/Multiple), Business Visa, Student Visa, Work Permit, Retirement Visa</td></tr>
  <tr><th>Processing Time</th><td>15-30 minutes for Visa on Arrival, 5-7 working days for tourist visa</td></tr>
- <tr><th>Visa Fee Range</th><td>₹2,000 for Visa on Arrival, ₹1,000-5,000 for other visa types</td></tr>
- <tr><th>Financial Requirement</th><td>Minimum ₹20,000 per person or ₹40,000 per family for VOA</td></tr>
+ <tr><th>Visa Fee Range</th><td>â‚¹2,000 for Visa on Arrival, â‚¹1,000-5,000 for other visa types</td></tr>
+ <tr><th>Financial Requirement</th><td>Minimum â‚¹20,000 per person or â‚¹40,000 per family for VOA</td></tr>
  <tr><th>Maximum Stay</th><td>15 days for Visa on Arrival, 60 days for tourist visa (extendable by 30 days)</td></tr>
  <tr><th>Biometrics</th><td>Biometrics required for Visa on Arrival and all in-person visa applications</td></tr>
- <tr><th>Health Insurance</th><td>Travel insurance with minimum ₹10,000 COVID-19 coverage recommended</td></tr>
+ <tr><th>Health Insurance</th><td>Travel insurance with minimum â‚¹10,000 COVID-19 coverage recommended</td></tr>
  <tr><th>Application Centers</th><td>Thai Visa Application Centers in New Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Ahmedabad, Chandigarh, Cochin</td></tr>
  <tr><th>English Requirement</th><td>No English language test required for visa applications</td></tr>
  <tr><th>Approval Rate</th><td>Approval rate is approximately 95-98% for Indian applicants meeting requirements</td></tr>
@@ -465,14 +465,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Thailand offers multiple visa pathways for Indian citizens depending on your purpose: short visits, study, work, or permanent residency.</p>
 
  <table class="visa-table">
- <thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee (₹)</th></tr></thead>
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee (â‚¹)</th></tr></thead>
  <tbody>
- <tr><td>Visa on Arrival</td><td>VOA</td><td>Short tourism trips</td><td>15 days</td><td>15-30 minutes</td><td>₹2,000</td></tr>
- <tr><td>Tourist Visa (Single)</td><td>TR</td><td>Tourism up to 60 days</td><td>60 days</td><td>5-7 working days</td><td>₹1,000</td></tr>
- <tr><td>Tourist Visa (Multiple)</td><td>METV</td><td>Multiple tourism visits</td><td>60 days per entry</td><td>7-10 working days</td><td>₹5,000</td></tr>
- <tr><td>Business Visa</td><td>B</td><td>Business and employment</td><td>90 days</td><td>7-14 working days</td><td>₹2,000</td></tr>
- <tr><td>Education Visa</td><td>ED</td><td>Full-time studies</td><td>1 year renewable</td><td>4-6 weeks</td><td>₹2,000</td></tr>
- <tr><td>Retirement Visa</td><td>O-A</td><td>Retirement in Thailand</td><td>1 year renewable</td><td>2-4 weeks</td><td>₹5,000</td></tr>
+ <tr><td>Visa on Arrival</td><td>VOA</td><td>Short tourism trips</td><td>15 days</td><td>15-30 minutes</td><td>â‚¹2,000</td></tr>
+ <tr><td>Tourist Visa (Single)</td><td>TR</td><td>Tourism up to 60 days</td><td>60 days</td><td>5-7 working days</td><td>â‚¹1,000</td></tr>
+ <tr><td>Tourist Visa (Multiple)</td><td>METV</td><td>Multiple tourism visits</td><td>60 days per entry</td><td>7-10 working days</td><td>â‚¹5,000</td></tr>
+ <tr><td>Business Visa</td><td>B</td><td>Business and employment</td><td>90 days</td><td>7-14 working days</td><td>â‚¹2,000</td></tr>
+ <tr><td>Education Visa</td><td>ED</td><td>Full-time studies</td><td>1 year renewable</td><td>4-6 weeks</td><td>â‚¹2,000</td></tr>
+ <tr><td>Retirement Visa</td><td>O-A</td><td>Retirement in Thailand</td><td>1 year renewable</td><td>2-4 weeks</td><td>â‚¹5,000</td></tr>
  </tbody>
  </table>
 
@@ -480,25 +480,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Visa fees vary significantly by category. All fees are non-refundable and subject to change based on exchange rates.</p>
 
  <table class="visa-table">
- <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (₹)</th><th>Fee (? Approx)</th></tr></thead>
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (â‚¹)</th><th>Fee (? Approx)</th></tr></thead>
  <tbody>
- <tr><td>Visa on Arrival</td><td>VOA</td><td>₹2,000</td><td>₹4,465 to ₹4,935</td></tr>
- <tr><td>Tourist Visa (Single)</td><td>TR</td><td>₹1,000</td><td>₹2,232 to ₹2,468</td></tr>
- <tr><td>Tourist Visa (Multiple)</td><td>METV</td><td>₹5,000</td><td>₹11,162 to ₹12,338</td></tr>
- <tr><td>Business Visa</td><td>B</td><td>₹2,000</td><td>₹4,465 to ₹4,935</td></tr>
- <tr><td>Education Visa</td><td>ED</td><td>₹2,000</td><td>₹4,465 to ₹4,935</td></tr>
- <tr><td>Retirement Visa</td><td>O-A</td><td>₹5,000</td><td>₹11,162 to ₹12,338</td></tr>
+ <tr><td>Visa on Arrival</td><td>VOA</td><td>â‚¹2,000</td><td>â‚¹4,465 to â‚¹4,935</td></tr>
+ <tr><td>Tourist Visa (Single)</td><td>TR</td><td>â‚¹1,000</td><td>â‚¹2,232 to â‚¹2,468</td></tr>
+ <tr><td>Tourist Visa (Multiple)</td><td>METV</td><td>â‚¹5,000</td><td>â‚¹11,162 to â‚¹12,338</td></tr>
+ <tr><td>Business Visa</td><td>B</td><td>â‚¹2,000</td><td>â‚¹4,465 to â‚¹4,935</td></tr>
+ <tr><td>Education Visa</td><td>ED</td><td>â‚¹2,000</td><td>â‚¹4,465 to â‚¹4,935</td></tr>
+ <tr><td>Retirement Visa</td><td>O-A</td><td>â‚¹5,000</td><td>â‚¹11,162 to â‚¹12,338</td></tr>
  </tbody>
  </table>
 
  <h3><i class="bi bi-currency-rupee"></i> Additional Costs</h3>
  <table class="visa-table">
- <thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead>
+ <thead><tr><th>Cost Type</th><th>Amount (â‚¹)</th><th>Details</th></tr></thead>
  <tbody>
- <tr><td>Service Fee</td><td>₹500 to 1,000</td><td>Application center handling fee</td></tr>
- <tr><td>VOA Photo</td><td>₹200 to 300</td><td>Counter photo if needed</td></tr>
- <tr><td>Insurance</td><td>₹1,000 to 2,500</td><td>Travel insurance (recommended)</td></tr>
- <tr><td>Courier</td><td>₹500 to 800</td><td>Passport return delivery</td></tr>
+ <tr><td>Service Fee</td><td>â‚¹500 to 1,000</td><td>Application center handling fee</td></tr>
+ <tr><td>VOA Photo</td><td>â‚¹200 to 300</td><td>Counter photo if needed</td></tr>
+ <tr><td>Insurance</td><td>â‚¹1,000 to 2,500</td><td>Travel insurance (recommended)</td></tr>
+ <tr><td>Courier</td><td>â‚¹500 to 800</td><td>Passport return delivery</td></tr>
  </tbody>
  </table>
 
@@ -627,13 +627,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">How much does Thailand Visa on Arrival cost?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>VOA costs ₹2,000 (approximately INR 4,500-5,000). Only cash payment in Thai Baht is accepted.</p></div>
+ <div class="faq-answer"><p>VOA costs â‚¹2,000 (approximately INR 4,500-5,000). Only cash payment in Thai Baht is accepted.</p></div>
  </div> <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What documents are needed for Thailand VOA?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Passport (6 months validity), return ticket, hotel booking, 2 photos, ₹20,000 financial proof, and VOA form.</p></div>
+ <div class="faq-answer"><p>Passport (6 months validity), return ticket, hotel booking, 2 photos, â‚¹20,000 financial proof, and VOA form.</p></div>
  </div> <div class="faq-item">
  <button class="faq-question" aria-expanded="false">Can I extend my Thailand tourist visa?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>Yes, tourist visa can be extended by 30 days at the Immigration Bureau in Bangkok for ₹1,900.</p></div>
+ <div class="faq-answer"><p>Yes, tourist visa can be extended by 30 days at the Immigration Bureau in Bangkok for â‚¹1,900.</p></div>
  </div> <div class="faq-item">
  <button class="faq-question" aria-expanded="false">How long can I stay in Thailand on a tourist visa?<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>VOA allows 15 days. E-visa or sticker visa allows 60 days, extendable by 30 more days.</p></div>
@@ -657,7 +657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="faq-answer"><p>No, a single visa covers all of Thailand including Phuket, Krabi, Koh Samui, and Chiang Mai.</p></div>
  </div> <div class="faq-item">
  <button class="faq-question" aria-expanded="false">What are the financial requirements for Thailand VOA?<span class="faq-icon">+</span></button>
- <div class="faq-answer"><p>You must show ₹20,000 per person or ₹40,000 per family in cash or bank statement.</p></div>
+ <div class="faq-answer"><p>You must show â‚¹20,000 per person or â‚¹40,000 per family in cash or bank statement.</p></div>
  </div> <div class="faq-item">
  <button class="faq-question" aria-expanded="false">Is Thailand visa free in 2026?<span class="faq-icon">+</span></button>
  <div class="faq-answer"><p>As of 2026, temporary visa-free schemes have ended. Indians still need VOA or tourist visa for Thailand.</p></div>
@@ -671,7 +671,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <table class="visa-table">
  <thead><tr><th>Change</th><th>Previous</th><th>Current (2026)</th></tr></thead>
  <tbody>
- <tr><td>Fee</td><td>₹2,000 VOA</td><td>₹2,000 (no change)</td></tr>
+ <tr><td>Fee</td><td>â‚¹2,000 VOA</td><td>â‚¹2,000 (no change)</td></tr>
  <tr><td>Processing</td><td>4-5 days tourist visa</td><td>5-7 working days (digital platform)</td></tr>
  <tr><td>Policy</td><td>Limited e-Visa availability</td><td>Full e-Visa rollout for all Indian applicants</td></tr>
  </tbody>
@@ -699,7 +699,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <li><strong>Country:</strong> Thailand</li>
  <li><strong>Capital:</strong> Bangkok</li>
  <li><strong>Visa Required:</strong> Yes (for Indians)</li>
- <li><strong>Currency:</strong> Thai Baht (₹)</li>
+ <li><strong>Currency:</strong> Thai Baht (â‚¹)</li>
  <li><strong>Processing:</strong> 15-30 minutes for Visa on Arrival, 5-7 working days for tourist visa</li>
  <li><strong>Biometrics:</strong> Biometrics required for Visa on Arrival and all in-person visa applications</li>
  </ul>
@@ -708,16 +708,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="sidebar-card">
  <h3>Popular Visa Types</h3>
  <ul>
- <li><a href="#fees">Visa on Arrival (VOA) - ₹2,000</a></li>
- <li><a href="#fees">Tourist Visa (Single) (TR) - ₹1,000</a></li>
- <li><a href="#fees">Tourist Visa (Multiple) (METV) - ₹5,000</a></li>
- <li><a href="#fees">Business Visa (B) - ₹2,000</a></li>
- <li><a href="#fees">Education Visa (ED) - ₹2,000</a></li>
+ <li><a href="#fees">Visa on Arrival (VOA) - â‚¹2,000</a></li>
+ <li><a href="#fees">Tourist Visa (Single) (TR) - â‚¹1,000</a></li>
+ <li><a href="#fees">Tourist Visa (Multiple) (METV) - â‚¹5,000</a></li>
+ <li><a href="#fees">Business Visa (B) - â‚¹2,000</a></li>
+ <li><a href="#fees">Education Visa (ED) - â‚¹2,000</a></li>
  </ul>
  </div>
 
  <div class="sidebar-card" style="background:linear-gradient(135deg,#031B30,#031B30);color:white;border:none;">
- <h3 style="color:#A5D549;margin:0 0 8px;">Download Checklist</h3>
+ <h3 style="color:#5057EA;margin:0 0 8px;">Download Checklist</h3>
  <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;">Get a printable document checklist for your visa application.</p>
  <button onclick="downloadChecklist()" class="btn btn-primary" style="width:100%;text-align:center;">
  <i class="bi bi-download"></i> Download Full Checklist
@@ -758,7 +758,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-brand">
  <span class="footer-logo-icon" aria-hidden="true">
  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
- <rect width="32" height="32" rx="8" fill="#A5D549"/>
+ <rect width="32" height="32" rx="8" fill="#5057EA"/>
  <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/>
  <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/>
  </svg>

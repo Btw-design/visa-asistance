@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -18,8 +18,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -46,7 +46,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -212,7 +212,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
@@ -259,7 +259,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <img src="/blog/images/china-visa-documents-2026.svg" alt="Required Documents for China Visa 2026 - Complete Checklist for Indian Applicants" width="1200" height="630" loading="eager">
  </div>
 
- <p>Applying for a China visa from India requires careful preparation of documents. Even a small mistake or missing document can lead to rejection–and with an <strong>approval rate of 65-75%</strong> for Indian applicants, getting it right the first time is crucial.</p>
+ <p>Applying for a China visa from India requires careful preparation of documents. Even a small mistake or missing document can lead to rejectionâ€“and with an <strong>approval rate of 65-75%</strong> for Indian applicants, getting it right the first time is crucial.</p>
 
  <p>In this guide, we walk you through every document required for a China visa in 2026, with specific tips for Indian passport holders. Whether you are applying for a <strong>Tourist (L) visa</strong>, <strong>Business (M) visa</strong>, or <strong>Student (X1/X2) visa</strong>, this checklist covers it all. For the full visa overview, visit our <a href="/visa-guide/china-visa/">China Visa Guide for Indians</a>.</p>
 
@@ -275,53 +275,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="infographic">
  <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
  <rect width="700" height="380" rx="10" fill="#031B30"/>
- <text x="350" y="32" text-anchor="middle" fill="#A5D549" font-size="18" font-weight="bold">China Visa Document Checklist 2026</text>
+ <text x="350" y="32" text-anchor="middle" fill="#5057EA" font-size="18" font-weight="bold">China Visa Document Checklist 2026</text>
 
  <!-- Row 1: 3 boxes -->
  <rect x="15" y="55" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
- <text x="120" y="80" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Valid Passport</text>
+ <text x="120" y="80" text-anchor="middle" fill="#5057EA" font-size="14" font-weight="bold">Valid Passport</text>
  <text x="120" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">6+ months validity</text>
  <text x="120" y="118" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">2 blank pages</text>
  <text x="120" y="136" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Indian passport required</text>
 
  <rect x="245" y="55" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
- <text x="350" y="80" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Passport Photos</text>
+ <text x="350" y="80" text-anchor="middle" fill="#5057EA" font-size="14" font-weight="bold">Passport Photos</text>
  <text x="350" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">51x51mm (2x2 inches)</text>
  <text x="350" y="118" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">White background</text>
  <text x="350" y="136" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Taken within 6 months</text>
 
  <rect x="475" y="55" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
- <text x="580" y="80" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Application Form</text>
+ <text x="580" y="80" text-anchor="middle" fill="#5057EA" font-size="14" font-weight="bold">Application Form</text>
  <text x="580" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Online via CVASC portal</text>
  <text x="580" y="118" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Print &amp; sign</text>
  <text x="580" y="136" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Details must match passport</text>
 
  <!-- Row 2: 3 boxes -->
  <rect x="15" y="165" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
- <text x="120" y="190" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Bank Statements</text>
+ <text x="120" y="190" text-anchor="middle" fill="#5057EA" font-size="14" font-weight="bold">Bank Statements</text>
  <text x="120" y="210" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Last 6 months</text>
  <text x="120" y="228" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Min. CNY 50,000 balance</text>
  <text x="120" y="246" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Bank-stamped copies</text>
 
  <rect x="245" y="165" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
- <text x="350" y="190" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Flight Itinerary</text>
+ <text x="350" y="190" text-anchor="middle" fill="#5057EA" font-size="14" font-weight="bold">Flight Itinerary</text>
  <text x="350" y="210" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Round-trip booking</text>
  <text x="350" y="228" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">With travel dates</text>
  <text x="350" y="246" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Not required to be paid</text>
 
  <rect x="475" y="165" width="210" height="90" rx="8" fill="white" opacity="0.08"/>
- <text x="580" y="190" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Hotel Booking</text>
+ <text x="580" y="190" text-anchor="middle" fill="#5057EA" font-size="14" font-weight="bold">Hotel Booking</text>
  <text x="580" y="210" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Confirmed reservation</text>
  <text x="580" y="228" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">All nights covered</text>
  <text x="580" y="246" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Refundable booking OK</text>
 
  <!-- Row 3: Additional -->
  <rect x="15" y="275" width="670" height="45" rx="8" fill="white" opacity="0.08"/>
- <text x="350" y="298" text-anchor="middle" fill="#A5D549" font-size="14" font-weight="bold">Plus:</text>
+ <text x="350" y="298" text-anchor="middle" fill="#5057EA" font-size="14" font-weight="bold">Plus:</text>
  <text x="350" y="315" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Cover letter | Employment NOC | ITR documents | Previous visa copies | Travel insurance (recommended)</text>
 
  <!-- CTA bar -->
- <rect x="100" y="335" width="500" height="35" rx="17" fill="#A5D549"/>
+ <rect x="100" y="335" width="500" height="35" rx="17" fill="#5057EA"/>
  <text x="350" y="358" text-anchor="middle" fill="#031B30" font-size="13" font-weight="bold">Apply 4-6 weeks before travel to allow processing time</text>
  </svg>
  </div>
@@ -331,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <ul>
  <li><strong>Minimum 6 months validity</strong> beyond your intended stay in China</li>
  <li>At least <strong>2 blank visa pages</strong> (not including the endorsement page)</li>
- <li>Good physical condition–torn, damaged, or water-damaged passports may be rejected</li>
+ <li>Good physical conditionâ€“torn, damaged, or water-damaged passports may be rejected</li>
  <li>If you have a <strong>new passport</strong>, carry the old one if it contains previous visas or travel stamps</li>
  </ul>
  <p>Make sure to carry photocopies of the <strong>first and last pages</strong> of your passport along with the original.</p>
@@ -339,7 +339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h3>2. Passport-Size Photographs</h3>
  <p>China visa photo requirements are strict. Your photo must meet these specifications:</p>
  <ul>
- <li><strong>Size:</strong> 51mm x 51mm (2x2 inches)–this is larger than standard Indian passport photos</li>
+ <li><strong>Size:</strong> 51mm x 51mm (2x2 inches)â€“this is larger than standard Indian passport photos</li>
  <li><strong>Background:</strong> Plain white, no shadows or patterns</li>
  <li><strong>Age:</strong> Taken within the last 6 months</li>
  <li><strong>Face:</strong> Full front view, neutral expression, both eyes open</li>
@@ -351,10 +351,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h3>3. Completed Online Visa Application Form</h3>
  <p>All China visa applications begin online via the official <strong>China Visa Application Service Center (CVASC)</strong> portal. Key points:</p>
  <ul>
- <li>Fill out the form accurately – <strong>any discrepancy with your passport will result in rejection</strong></li>
+ <li>Fill out the form accurately â€“ <strong>any discrepancy with your passport will result in rejection</strong></li>
  <li>Print the completed form and sign it in blue or black ink</li>
  <li>All details (name, date of birth, place of birth) must match your passport exactly</li>
- <li>You will receive a <strong>reference number</strong> – keep it for tracking</li>
+ <li>You will receive a <strong>reference number</strong> â€“ keep it for tracking</li>
  </ul>
 
  <h3>4. Bank Statements (Financial Proof)</h3>
@@ -372,7 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <ul>
  <li>Must show your name as it appears on the passport</li>
  <li>Include flight numbers, dates, and cities of arrival and departure</li>
- <li>A <strong>dummy/hold booking</strong> is usually acceptable–you do not need to purchase the ticket before visa approval</li>
+ <li>A <strong>dummy/hold booking</strong> is usually acceptableâ€“you do not need to purchase the ticket before visa approval</li>
  <li>If visiting multiple cities in China, include all internal flights</li>
  </ul>
 
@@ -399,7 +399,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Include photocopies of:</p>
  <ul>
  <li>All previous <strong>Chinese visas</strong> (if you have visited China before)</li>
- <li><strong>Schengen, US, UK, or other major visas</strong> – these demonstrate travel history and credibility</li>
+ <li><strong>Schengen, US, UK, or other major visas</strong> â€“ these demonstrate travel history and credibility</li>
  <li>Previous passport pages showing travel stamps</li>
  </ul>
 
@@ -414,7 +414,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h2>Additional Documents by Visa Type</h2>
  <p>Depending on the visa category you are applying for, you may need additional documents:</p>
 
- <h3>Tourist Visa (L)–Additional Documents</h3>
+ <h3>Tourist Visa (L)â€“Additional Documents</h3>
  <div class="checklist-card">
  <h4><i class="bi bi-check-circle-fill"></i> Tourist Visa Checklist</h4>
  <ul>
@@ -428,11 +428,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </ul>
  </div>
 
- <h3>Business Visa (M)–Additional Documents</h3>
+ <h3>Business Visa (M)â€“Additional Documents</h3>
  <div class="checklist-card">
  <h4><i class="bi bi-check-circle-fill"></i> Business Visa Checklist</h4>
  <ul>
- <li><strong>Invitation letter from Chinese business partner</strong> – must be on company letterhead, stamped by the Chinese company, and include the host's Chinese ID number</li>
+ <li><strong>Invitation letter from Chinese business partner</strong> â€“ must be on company letterhead, stamped by the Chinese company, and include the host's Chinese ID number</li>
  <li>Letter from your Indian employer confirming purpose of business visit</li>
  <li>Company registration certificate / GST registration</li>
  <li>Business cards (optional but helpful)</li>
@@ -440,12 +440,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </ul>
  </div>
 
- <h3>Student Visa (X1/X2)–Additional Documents</h3>
+ <h3>Student Visa (X1/X2)â€“Additional Documents</h3>
  <div class="checklist-card">
  <h4><i class="bi bi-check-circle-fill"></i> Student Visa Checklist</h4>
  <ul>
  <li><strong>Admission letter</strong> from a recognized Chinese educational institution</li>
- <li><strong>JW201 or JW202 form</strong> (Visa Application for Study in China)–issued by the institution</li>
+ <li><strong>JW201 or JW202 form</strong> (Visa Application for Study in China)â€“issued by the institution</li>
  <li><strong>Physical Examination Record</strong> for foreign nationals (required for X1 visa, stay > 180 days)</li>
  <li>Valid HSK certificate (if required by the institution)</li>
  <li>Proof of financial sponsorship (bank statements of parent/sponsor)</li>
@@ -453,7 +453,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </ul>
  </div>
 
- <h3>Work Visa (Z)–Additional Documents</h3>
+ <h3>Work Visa (Z)â€“Additional Documents</h3>
  <div class="checklist-card">
  <h4><i class="bi bi-check-circle-fill"></i> Work Visa Checklist</h4>
  <ul>
@@ -484,12 +484,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="warn-box">
  <h4>Top Reasons for China Visa Refusal for Indian Applicants</h4>
  <ul>
- <li><strong>Incomplete or incorrect documentation</strong> – missing signatures, wrong photo size, blank fields in form</li>
- <li><strong>Insufficient financial evidence</strong> – low bank balance, irregular income, unclear source of funds</li>
- <li><strong>Weak ties to India</strong> – no steady employment, family, or property showing you will return</li>
- <li><strong>Inconsistent travel history</strong> – discrepancies between stated and actual travel</li>
- <li><strong>Previous overstay or visa violation</strong> – any history of overstaying a visa anywhere</li>
- <li><strong>Incomplete application form</strong> – unanswered questions or mismatched information</li>
+ <li><strong>Incomplete or incorrect documentation</strong> â€“ missing signatures, wrong photo size, blank fields in form</li>
+ <li><strong>Insufficient financial evidence</strong> â€“ low bank balance, irregular income, unclear source of funds</li>
+ <li><strong>Weak ties to India</strong> â€“ no steady employment, family, or property showing you will return</li>
+ <li><strong>Inconsistent travel history</strong> â€“ discrepancies between stated and actual travel</li>
+ <li><strong>Previous overstay or visa violation</strong> â€“ any history of overstaying a visa anywhere</li>
+ <li><strong>Incomplete application form</strong> â€“ unanswered questions or mismatched information</li>
  </ul>
  </div>
 
@@ -530,21 +530,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h2>Official Resources and Links</h2>
  <p>Always verify current requirements from official sources before applying:</p>
  <ul>
- <li><strong>CVASC Official Website:</strong> <a href="https://www.visaforchina.org" target="_blank" rel="noopener noreferrer">www.visaforchina.org</a> – Book appointments and track applications</li>
- <li><strong>Chinese Embassy in India:</strong> <a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">in.china-embassy.gov.cn</a> – Official embassy information</li>
- <li><strong>Ministry of Foreign Affairs, China:</strong> <a href="https://www.cs.mfa.gov.cn" target="_blank" rel="noopener noreferrer">www.cs.mfa.gov.cn</a> – Visa policy updates</li>
- <li><strong>Photo Requirements Tool:</strong> <a href="/visa-requirements/photo-requirements/">My Visa Assistance Photo Requirements</a> – Check photo specs for 40+ countries</li>
+ <li><strong>CVASC Official Website:</strong> <a href="https://www.visaforchina.org" target="_blank" rel="noopener noreferrer">www.visaforchina.org</a> â€“ Book appointments and track applications</li>
+ <li><strong>Chinese Embassy in India:</strong> <a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">in.china-embassy.gov.cn</a> â€“ Official embassy information</li>
+ <li><strong>Ministry of Foreign Affairs, China:</strong> <a href="https://www.cs.mfa.gov.cn" target="_blank" rel="noopener noreferrer">www.cs.mfa.gov.cn</a> â€“ Visa policy updates</li>
+ <li><strong>Photo Requirements Tool:</strong> <a href="/visa-requirements/photo-requirements/">My Visa Assistance Photo Requirements</a> â€“ Check photo specs for 40+ countries</li>
  </ul>
 
  <div class="ref-list">
  <h4>References and Further Reading</h4>
  <ol>
- <li><a href="/visa-guide/china-visa/">China Visa Guide for Indians–Complete Overview</a></li>
- <li><a href="/visa-requirements/china-visa-requirements/">China Visa Requirements–Detailed Document Checklist</a></li>
- <li><a href="/visa-guide/">Complete Visa Guide Directory – 100+ Countries</a></li>
- <li><a href="https://www.visaforchina.org" target="_blank" rel="noopener noreferrer">China Visa Application Service Center–Official Portal</a></li>
- <li><a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">Chinese Embassy in India–Official Site</a></li>
- <li><a href="https://share.google/QKL25ADr0E5kJakPN" target="_blank" rel="noopener noreferrer">China Visa Document Checklist–Shared Resource</a></li>
+ <li><a href="/visa-guide/china-visa/">China Visa Guide for Indiansâ€“Complete Overview</a></li>
+ <li><a href="/visa-requirements/china-visa-requirements/">China Visa Requirementsâ€“Detailed Document Checklist</a></li>
+ <li><a href="/visa-guide/">Complete Visa Guide Directory â€“ 100+ Countries</a></li>
+ <li><a href="https://www.visaforchina.org" target="_blank" rel="noopener noreferrer">China Visa Application Service Centerâ€“Official Portal</a></li>
+ <li><a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">Chinese Embassy in Indiaâ€“Official Site</a></li>
+ <li><a href="https://share.google/QKL25ADr0E5kJakPN" target="_blank" rel="noopener noreferrer">China Visa Document Checklistâ€“Shared Resource</a></li>
  </ol>
  </div>
 
@@ -552,12 +552,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/blog/china-visa-documents-2026" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Share on Facebook</a>
  <a href="https://twitter.com/intent/tweet?text=Required%20Documents%20for%20China%20Visa%202026%20-%20Complete%20Checklist%20for%20Indians&url=https://myvisaassistance.com/blog/china-visa-documents-2026" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Share on Twitter</a>
  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/blog/china-visa-documents-2026" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;"><i class="bi bi-linkedin"></i> Share on LinkedIn</a>
- <a href="https://share.google/QKL25ADr0E5kJakPN" target="_blank" rel="noopener noreferrer" style="background:#A5D549;color:#031B30;"><i class="bi bi-google"></i> Google Share Link</a>
+ <a href="https://share.google/QKL25ADr0E5kJakPN" target="_blank" rel="noopener noreferrer" style="background:#5057EA;color:#031B30;"><i class="bi bi-google"></i> Google Share Link</a>
  </div>
 
  <div class="cta-section">
  <h3>Need Help With Your China Visa Application?</h3>
- <p>Our India-focused visa consultants can guide you through the entire China visa process–from document preparation to application submission.</p>
+ <p>Our India-focused visa consultants can guide you through the entire China visa processâ€“from document preparation to application submission.</p>
  <a href="/contact" class="btn btn-white">Contact My Visa Assistance</a>
  </div>
 

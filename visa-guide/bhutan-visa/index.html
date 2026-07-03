@@ -2,7 +2,7 @@
 <html lang="en">
 <head><meta charset="UTF-8">
 <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -17,8 +17,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -45,7 +45,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -94,7 +94,7 @@ body.menu-open{overflow:hidden}
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bhutan Visa for Indians 2026: Types, Fees, Process & Requirements - My Visa Assistance</title>
-<meta name="description" content="Complete guide to Bhutan visas for Indian citizens 2026  covering entry permit rules, SDF fees of ₹1,200/night, required documents, step-by-step application process, and essential travel tips.">
+<meta name="description" content="Complete guide to Bhutan visas for Indian citizens 2026  covering entry permit rules, SDF fees of â‚¹1,200/night, required documents, step-by-step application process, and essential travel tips.">
 <meta name="author" content="My Visa Assistance Editorial Team">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="article">
@@ -146,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
@@ -182,7 +182,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;">Complete guide to Bhutan visa for Indians in 2026. Find out about entry permit requirements, Sustainable Development Fee (SDF), fees, and the application process for Bhutan.</p>
 <div class="hero-badges">
 <span class="hero-badge"><i class="bi bi-check-circle-fill"></i> No visa needed for Indians</span>
-<span class="hero-badge"><i class="bi bi-currency-rupee"></i> ₹1,200/night SDF</span>
+<span class="hero-badge"><i class="bi bi-currency-rupee"></i> â‚¹1,200/night SDF</span>
 <span class="hero-badge"><i class="bi bi-clock"></i> Instant entry permit</span>
 <span class="hero-badge"><i class="bi bi-shield-check"></i> 98% approval rate</span>
 </div>
@@ -233,7 +233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="stat-card">
 <div class="stat-icon"><i class="bi bi-currency-rupee"></i></div>
 <div class="stat-label">SDF / Night</div>
-<div class="stat-value">₹1,200/night</div>
+<div class="stat-value">â‚¹1,200/night</div>
 <div class="stat-sub">For Indian nationals</div>
 </div>
 <div class="stat-card">
@@ -272,7 +272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h4>Understanding Bhutan's Unique Visa System</h4>
 <p>Bhutan operates a distinctive "High Value, Low Impact" tourism policy designed to preserve its culture and environment. Unlike most countries, <strong>Indian citizens do not require a visa</strong> to enter Bhutan  they receive an entry permit upon arrival at Paro Airport or designated land border crossings.</p>
 <p>International tourists must book through licensed Bhutanese tour operators and pay the Sustainable Development Fee (SDF) of $100 USD per person per night, along with the minimum daily package rate.</p>
-<p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> SDF for Indian nationals remains at ₹1,200 per night. See the <a href="#updates2026">Updates table</a> below for all 2026 changes.</p>
+<p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> SDF for Indian nationals remains at â‚¹1,200 per night. See the <a href="#updates2026">Updates table</a> below for all 2026 changes.</p>
 </div>
 
 <div class="trust-row">
@@ -290,11 +290,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2 id="visa-types"><i class="bi bi-card-checklist"></i> Visa Types for Bhutan</h2>
 <p>Bhutan's visa system is category-specific. Below is a breakdown of available visa/entry types and their details:</p>
-<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Entry Type</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee</th></tr></thead><tbody><tr><td>Tourist Entry Permit (Indians)</td><td>Tourism, cultural visits</td><td>7 days (extendable)</td><td>Instant at entry point</td><td>Free + SDF ₹1,200/night</td></tr><tr><td>Tourist Visa (International)</td><td>Tourism (via tour operator)</td><td>As per package</td><td>5-10 working days</td><td>$40 USD visa + SDF $100/night</td></tr><tr><td>Business Visa</td><td>Business meetings, conferences</td><td>30 days</td><td>7-14 working days</td><td>$40 USD (visa fee)</td></tr><tr><td>Student Visa</td><td>Full-time studies</td><td>1 year renewable</td><td>4-6 weeks</td><td>$25 USD (visa fee)</td></tr><tr><td>Work Permit</td><td>Employment in Bhutan</td><td>1 year renewable</td><td>30-60 days</td><td>$50-100 USD</td></tr><tr><td>Official Visa</td><td>Government/diplomatic visits</td><td>As per assignment</td><td>7-14 working days</td><td>Free</td></tr></tbody></table></div>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Entry Type</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee</th></tr></thead><tbody><tr><td>Tourist Entry Permit (Indians)</td><td>Tourism, cultural visits</td><td>7 days (extendable)</td><td>Instant at entry point</td><td>Free + SDF â‚¹1,200/night</td></tr><tr><td>Tourist Visa (International)</td><td>Tourism (via tour operator)</td><td>As per package</td><td>5-10 working days</td><td>$40 USD visa + SDF $100/night</td></tr><tr><td>Business Visa</td><td>Business meetings, conferences</td><td>30 days</td><td>7-14 working days</td><td>$40 USD (visa fee)</td></tr><tr><td>Student Visa</td><td>Full-time studies</td><td>1 year renewable</td><td>4-6 weeks</td><td>$25 USD (visa fee)</td></tr><tr><td>Work Permit</td><td>Employment in Bhutan</td><td>1 year renewable</td><td>30-60 days</td><td>$50-100 USD</td></tr><tr><td>Official Visa</td><td>Government/diplomatic visits</td><td>As per assignment</td><td>7-14 working days</td><td>Free</td></tr></tbody></table></div>
 
 <h2 id="fees"><i class="bi bi-currency-rupee"></i> Entry Fees and SDF for 2026</h2>
 <p>Bhutan's fee structure differs fundamentally from other countries. All fees are non-refundable and subject to change.</p>
-<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Entry Type</th><th>Visa/Permit Fee</th><th>Sustainable Development Fee</th><th>Total (Approx)</th></tr></thead><tbody><tr><td>Indian Citizens (Entry Permit)</td><td>Free</td><td>₹1,200 per person per night</td><td>₹1,200/night</td></tr><tr><td>International Tourist Visa</td><td>$40 USD</td><td>$100 USD per person per night</td><td>$140/night + package</td></tr><tr><td>Business Visa</td><td>$40 USD</td><td>$100 USD per night (SDF)</td><td>$140/night</td></tr><tr><td>Student Visa</td><td>$25 USD</td><td>Exempt</td><td>$25 USD</td></tr><tr><td>Work Permit</td><td>$50-100 USD</td><td>Exempt</td><td>$50-100 USD</td></tr><tr><td>Transit (Airport)</td><td>Free</td><td>N/A</td><td>Free</td></tr></tbody></table></div>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Entry Type</th><th>Visa/Permit Fee</th><th>Sustainable Development Fee</th><th>Total (Approx)</th></tr></thead><tbody><tr><td>Indian Citizens (Entry Permit)</td><td>Free</td><td>â‚¹1,200 per person per night</td><td>â‚¹1,200/night</td></tr><tr><td>International Tourist Visa</td><td>$40 USD</td><td>$100 USD per person per night</td><td>$140/night + package</td></tr><tr><td>Business Visa</td><td>$40 USD</td><td>$100 USD per night (SDF)</td><td>$140/night</td></tr><tr><td>Student Visa</td><td>$25 USD</td><td>Exempt</td><td>$25 USD</td></tr><tr><td>Work Permit</td><td>$50-100 USD</td><td>Exempt</td><td>$50-100 USD</td></tr><tr><td>Transit (Airport)</td><td>Free</td><td>N/A</td><td>Free</td></tr></tbody></table></div>
 
 <h3>SDF Exemptions</h3><p>The Sustainable Development Fee is waived for certain categories of visitors to Bhutan:</p>
 <ul>
@@ -302,7 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>Work Permit Holders:</strong> Foreign nationals employed in Bhutan with a valid work permit are exempt from SDF for the duration of their employment.</li>
 <li><strong>Tour Guides &amp; Trek Leaders:</strong> Licensed tour guides and trek leaders accompanying groups are exempt from SDF.</li>
 <li><strong>Children:</strong> Children under 5 years are exempt from SDF. Children aged 6-12 receive a 50% discount.</li>
-<li><strong>SAARC Nationals (Non-Indian):</strong> Citizens of SAARC nations (Bangladesh, Maldives, Nepal, Pakistan, Sri Lanka) pay a reduced SDF of ₹1,200 per night (same as Indian rate).</li>
+<li><strong>SAARC Nationals (Non-Indian):</strong> Citizens of SAARC nations (Bangladesh, Maldives, Nepal, Pakistan, Sri Lanka) pay a reduced SDF of â‚¹1,200 per night (same as Indian rate).</li>
 </ul>
 
 <h2 id="documents"><i class="bi bi-file-earmark-text"></i> Required Documents</h2>
@@ -310,7 +310,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h3>For Indian Citizens (Entry Permit at Border/Airport)</h3>
 <ul><li><strong>Valid Indian passport  Must have at least 6 months validity. Indian voter ID card is also accepted at land border crossings.</strong></li>
-<li><strong>2 passport-sized photographs  35₹45mm, white background, taken within 6 months.</strong></li>
+<li><strong>2 passport-sized photographs  35â‚¹45mm, white background, taken within 6 months.</strong></li>
 <li>Hotel booking confirmation in Bhutan</li>
 <li>Return flight ticket or onward travel proof</li>
 <li>Entry permit form (filled at immigration counter)</li>
@@ -318,7 +318,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h3>For International Tourists (Visa via Tour Operator)</h3>
 <ul><li><strong>Valid passport  Minimum 6 months validity beyond intended stay. At least 2 blank pages.</strong></li>
-<li><strong>Passport photograph  35₹45mm, white background.</strong></li>
+<li><strong>Passport photograph  35â‚¹45mm, white background.</strong></li>
 <li>Tour confirmation from licensed Bhutanese tour operator</li>
 <li>Full payment proof (minimum daily package + SDF)</li>
 <li>Detailed day-by-day travel itinerary</li>
@@ -346,7 +346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="process-step">
 <div class="process-step-num">4</div>
-<div class="process-step-body"><strong>Pay SDF and Obtain Permit</strong><p>Pay the Sustainable Development Fee of ₹1,200 per person per night. For land border crossings, carry cash (INR)  card payment may not be available. The entry permit is issued immediately  processing takes 10-30 minutes.</p></div>
+<div class="process-step-body"><strong>Pay SDF and Obtain Permit</strong><p>Pay the Sustainable Development Fee of â‚¹1,200 per person per night. For land border crossings, carry cash (INR)  card payment may not be available. The entry permit is issued immediately  processing takes 10-30 minutes.</p></div>
 </div>
 
 <div class="process-step">
@@ -356,12 +356,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="process-step">
 <div class="process-step-num">6</div>
-<div class="process-step-body"><strong>Extend Your Stay (If Needed)</strong><p>The initial entry permit is valid for 7 days. For longer stays, visit the Immigration Department in Thimphu. Extensions are granted in 7-day increments for up to 6 months. The extension fee is ₹500-1,000 per extension.</p></div>
+<div class="process-step-body"><strong>Extend Your Stay (If Needed)</strong><p>The initial entry permit is valid for 7 days. For longer stays, visit the Immigration Department in Thimphu. Extensions are granted in 7-day increments for up to 6 months. The extension fee is â‚¹500-1,000 per extension.</p></div>
 </div>
 
 <div class="process-step">
 <div class="process-step-num">7</div>
-<div class="process-step-body"><strong>Depart Bhutan</strong><p>Surrender your entry permit at the departure immigration counter. Overstaying your permit without a valid extension results in a fine (₹100 per day for Indians).</p></div>
+<div class="process-step-body"><strong>Depart Bhutan</strong><p>Surrender your entry permit at the departure immigration counter. Overstaying your permit without a valid extension results in a fine (â‚¹100 per day for Indians).</p></div>
 </div>
 </div>
 
@@ -408,14 +408,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <li class="warn"><strong>Non-Payment of SDF:</strong> The Sustainable Development Fee of $100 USD per person per night must be paid in full before visa processing begins. Non-payment results in application cancellation.</li>
   <li class="warn"><strong>Incomplete Travel Itinerary:</strong> Your tour operator must submit a detailed day-by-day itinerary. Generic or incomplete itineraries are rejected by the Department of Tourism.</li>
   <li class="warn"><strong>Minimum Daily Package:</strong> The minimum daily package ($250 USD/person/night in peak season) must be paid in advance. The visa fee ($40 USD) is additional.</li>
-  <li class="info"><strong>Indian Nationals:</strong> Indian citizens do not need a visa but require an entry permit available at Paro Airport or land border crossings. The SDF for Indians is ₹1,200 per night.</li>
+  <li class="info"><strong>Indian Nationals:</strong> Indian citizens do not need a visa but require an entry permit available at Paro Airport or land border crossings. The SDF for Indians is â‚¹1,200 per night.</li>
 </ul>
 <p>Bhutan visa processing takes 5-10 business days. Visas are approved electronically, and the approval letter must be presented at check-in.</p>
 
 <h2><i class="bi bi-lightbulb"></i> Travel Tips for Bhutan</h2>
 <p>Experience the Land of the Thunder Dragon with these tips:</p>
 <ul>
-<li><strong>Currency:</strong> Bhutanese Ngultrum (BTN) is pegged 1:1 to the Indian Rupee (INR). Indian currency notes of ₹500 and ₹2,000 are not accepted in Bhutan. Credit cards are accepted in major hotels in Thimphu and Paro. ATMs are available but limited outside major towns.</li>
+<li><strong>Currency:</strong> Bhutanese Ngultrum (BTN) is pegged 1:1 to the Indian Rupee (INR). Indian currency notes of â‚¹500 and â‚¹2,000 are not accepted in Bhutan. Credit cards are accepted in major hotels in Thimphu and Paro. ATMs are available but limited outside major towns.</li>
 <li><strong>Transportation:</strong> Paro International Airport (PBH) is one of the world's most challenging airport approaches  only specially trained pilots can land here. Road travel is via winding mountain roads. Distances are deceiving  Paro to Thimphu (65 km) takes 2 hours by car.</li>
 <li><strong>Language:</strong> Dzongkha is the national language. English is widely spoken in government and business, and all tour guides speak fluent English. Most signs are in English and Dzongkha.</li>
 <li><strong>Dress Code:</strong> Traditional dress (Gho for men, Kira for women) is mandatory for government offices, schools, and formal occasions. Visitors should dress modestly, covering shoulders and knees when visiting dzongs and monasteries.</li>
@@ -428,10 +428,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Do Indian citizens need a visa for Bhutan?<span class="faq-icon">+</span></button>
 <div class="faq-answer">
-<p><strong>No, Indian citizens do not need a visa for Bhutan</strong> — they receive an entry permit upon arrival. Here's what you need to know:</p>
+<p><strong>No, Indian citizens do not need a visa for Bhutan</strong> â€” they receive an entry permit upon arrival. Here's what you need to know:</p>
 <ul>
 <li>Indian nationals get a <strong>free entry permit</strong> at <a href="#process">Paro International Airport</a> or land border crossings (Phuentsholing, Gelephu, Samdrup Jongkhar).</li>
-<li>Permit is issued <strong>immediately</strong> — processing takes 10-30 minutes.</li>
+<li>Permit is issued <strong>immediately</strong> â€” processing takes 10-30 minutes.</li>
 <li>Valid for <strong>7 days initially</strong>, extendable up to 6 months at the Immigration Department in Thimphu.</li>
 <li>Carry a valid <strong>passport or voter ID</strong> (voter ID accepted only at land borders, not at the airport).</li>
 <li>See the <a href="#documents">Required Documents section</a> for the full checklist.</li>
@@ -443,10 +443,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-answer">
 <p>The <strong>Sustainable Development Fee (SDF)</strong> is a daily charge for tourists visiting Bhutan. For Indian nationals:</p>
 <ul>
-<li><strong>Amount:</strong> ₹1,200 per person per night — <a href="#fees">see the full fee table</a>.</li>
+<li><strong>Amount:</strong> â‚¹1,200 per person per night â€” <a href="#fees">see the full fee table</a>.</li>
 <li>Children <strong>under 5 years</strong> are exempt; children <strong>aged 6-12</strong> receive a <strong>50% discount</strong>.</li>
 <li>SDF supports Bhutan's <strong>free healthcare, free education, and infrastructure</strong> development.</li>
-<li>Payable at the entry point — carry <strong>sufficient Indian rupees in cash</strong> for land border crossings (card payment may not be available).</li>
+<li>Payable at the entry point â€” carry <strong>sufficient Indian rupees in cash</strong> for land border crossings (card payment may not be available).</li>
 <li><strong>Exemptions:</strong> Students, work permit holders, licensed tour guides, and trek leaders are exempt from SDF.</li>
 </ul>
 </div>
@@ -459,7 +459,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Carry your <strong>vehicle's registration certificate (RC)</strong>, a <strong>valid driving license</strong>, and <strong>pollution under control (PUC)</strong> certificate.</li>
 <li>Obtain a <strong>vehicle entry permit</strong> at Phuentsholing immigration.</li>
 <li>Bhutan drives on the <strong>left side of the road</strong> (same as India).</li>
-<li>You need <strong>third-party insurance valid in Bhutan</strong> — available at the border for around ₹500 for 15 days.</li>
+<li>You need <strong>third-party insurance valid in Bhutan</strong> â€” available at the border for around â‚¹500 for 15 days.</li>
 <li>See our <a href="#process">Bhutan Entry Process section</a> for the full arrival procedure.</li>
 </ul>
 </div>
@@ -472,8 +472,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>The <strong>initial entry permit</strong> is valid for <strong>7 days</strong> from the date of entry.</li>
 <li>Extensions are granted in <strong>7-day increments</strong> at the Department of Immigration in Thimphu.</li>
 <li>The <strong>maximum total stay</strong> including all extensions is <strong>6 months</strong>.</li>
-<li>Extension fee: Approximately <strong>₹500-1,000 per extension</strong> period.</li>
-<li><strong>Overstaying</strong> without a valid extension results in a fine of <strong>₹100 per day</strong>.</li>
+<li>Extension fee: Approximately <strong>â‚¹500-1,000 per extension</strong> period.</li>
+<li><strong>Overstaying</strong> without a valid extension results in a fine of <strong>â‚¹100 per day</strong>.</li>
 </ul>
 </div>
 </div>
@@ -483,7 +483,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Indian citizens need the following documents for the Bhutan entry permit. <a href="#documents">See the full documents section</a> for details:</p>
 <ul>
 <li><strong>Valid Indian passport</strong> (mandatory for air travel to Paro) OR <strong>voter ID card</strong> (accepted at land border crossings only).</li>
-<li><strong>2 passport-size photographs</strong> (35×45mm, white background, taken within 6 months).</li>
+<li><strong>2 passport-size photographs</strong> (35Ã—45mm, white background, taken within 6 months).</li>
 <li><strong>Hotel booking confirmation</strong> in Bhutan.</li>
 <li><strong>Return flight ticket</strong> or onward travel proof.</li>
 <li>It is <strong>strongly recommended</strong> to carry <strong>photocopies</strong> of all documents.</li>
@@ -496,7 +496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Yes, Indian Rupees (INR) are widely accepted throughout Bhutan, but with important restrictions:</p>
 <ul>
 <li>The Bhutanese Ngultrum (BTN) is <strong>pegged 1:1</strong> to the Indian Rupee.</li>
-<li><strong>Indian ₹500 and ₹2,000 notes are NOT accepted</strong> in Bhutan — carry ₹100, ₹200, and ₹50 notes instead.</li>
+<li><strong>Indian â‚¹500 and â‚¹2,000 notes are NOT accepted</strong> in Bhutan â€” carry â‚¹100, â‚¹200, and â‚¹50 notes instead.</li>
 <li><strong>Credit cards</strong> are accepted at major hotels in Thimphu and Paro.</li>
 <li><strong>Cash is essential</strong> for smaller shops, local restaurants, and <a href="#fees">SDF payment</a> at land border crossings.</li>
 <li><strong>ATMs</strong> are available but limited outside major towns.</li>
@@ -512,7 +512,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Submit a <strong>written application</strong> explaining the reason for extension.</li>
 <li>Extensions are granted in <strong>7-day increments</strong>.</li>
 <li>The <strong>maximum total stay</strong> including extensions is <strong>6 months per calendar year</strong>.</li>
-<li>Extension fee: <strong>₹500-1,000 per extension period</strong>.</li>
+<li>Extension fee: <strong>â‚¹500-1,000 per extension period</strong>.</li>
 </ul>
 </div>
 </div>
@@ -521,9 +521,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-answer">
 <p>Bhutan's best visiting seasons depend on your preferences:</p>
 <ul>
-<li><strong>Spring (March-May):</strong> Blooming rhododendrons, clear mountain views, temperatures 10-25°C. The <strong>Paro Tsechu</strong> festival falls in March-April.</li>
-<li><strong>Autumn (September-November):</strong> Best for trekking with clear skies, 10-22°C. The <strong>Thimphu Tsechu</strong> and black-necked crane festivals take place.</li>
-<li><strong>Winter (December-February):</strong> Cold (-5°C in higher altitudes) but clear skies, fewer tourists, and lower hotel rates.</li>
+<li><strong>Spring (March-May):</strong> Blooming rhododendrons, clear mountain views, temperatures 10-25Â°C. The <strong>Paro Tsechu</strong> festival falls in March-April.</li>
+<li><strong>Autumn (September-November):</strong> Best for trekking with clear skies, 10-22Â°C. The <strong>Thimphu Tsechu</strong> and black-necked crane festivals take place.</li>
+<li><strong>Winter (December-February):</strong> Cold (-5Â°C in higher altitudes) but clear skies, fewer tourists, and lower hotel rates.</li>
 <li><strong>Summer (June-August):</strong> Monsoon season, lush green landscapes, fewer tourists. Northern valleys like Paro and Bumthang are less affected by rain.</li>
 </ul>
 </div>
@@ -533,7 +533,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-answer">
 <p>Yes, all international tourists (except Indian nationals) need a visa for Bhutan:</p>
 <ul>
-<li>You must book through a <strong>licensed Bhutanese tour operator</strong> — independent travel is not permitted.</li>
+<li>You must book through a <strong>licensed Bhutanese tour operator</strong> â€” independent travel is not permitted.</li>
 <li>Visa processing takes <strong>5-10 working days</strong> after full payment of the tour package.</li>
 <li>Visa fee: <strong>$40 USD</strong> per person. SDF: <strong>$100 USD per night</strong>.</li>
 <li>The minimum daily package is <strong>$250 USD/person/night</strong> (peak season) or <strong>$200 USD</strong> (low season).</li>
@@ -564,7 +564,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Always walk <strong>clockwise</strong> around chortens and prayer wheels.</li>
 <li><strong>Never point your feet</strong> at religious objects, people, or statues.</li>
 <li>Remove <strong>shoes</strong> before entering temples and monasteries.</li>
-<li>Photography is often <strong>restricted inside temples</strong> — always ask for permission.</li>
+<li>Photography is often <strong>restricted inside temples</strong> â€” always ask for permission.</li>
 </ul>
 </div>
 </div>
@@ -577,7 +577,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Comprehensive travel insurance should cover <strong>medical emergencies</strong>, <strong>trip cancellation</strong>, and <strong>baggage loss</strong>.</li>
 <li><strong>Students</strong> may need health insurance for student visa holders.</li>
 <li><strong>Work visa holders</strong> typically require employer-provided health coverage.</li>
-<li>Bhutan's healthcare system is limited in remote areas — <strong>emergency evacuation insurance</strong> is advisable for trekkers.</li>
+<li>Bhutan's healthcare system is limited in remote areas â€” <strong>emergency evacuation insurance</strong> is advisable for trekkers.</li>
 </ul>
 </div>
 </div>
@@ -586,10 +586,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-answer">
 <p>Bhutan has a strict "High Value, Low Impact" tourism policy. Common reasons for visa issues include:</p>
 <ul>
-<li><strong>Independent travel applications</strong> are automatically rejected — all tourists (except Indians) <strong>must book through a licensed tour operator</strong>.</li>
-<li><strong>Non-payment of SDF</strong> — Sustainable Development Fee must be paid before visa processing begins.</li>
-<li><strong>Incomplete travel itinerary</strong> — your tour operator must submit a detailed day-by-day plan.</li>
-<li><strong>Insufficient minimum daily package payment</strong> — the full package amount must be paid in advance.</li>
+<li><strong>Independent travel applications</strong> are automatically rejected â€” all tourists (except Indians) <strong>must book through a licensed tour operator</strong>.</li>
+<li><strong>Non-payment of SDF</strong> â€” Sustainable Development Fee must be paid before visa processing begins.</li>
+<li><strong>Incomplete travel itinerary</strong> â€” your tour operator must submit a detailed day-by-day plan.</li>
+<li><strong>Insufficient minimum daily package payment</strong> â€” the full package amount must be paid in advance.</li>
 <li>See the <a href="#processing-time">Processing Time section</a> for more details on timelines and requirements.</li>
 </ul>
 </div>
@@ -603,8 +603,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>Hepatitis A and Typhoid:</strong> Recommended for most travellers due to food and water exposure.</li>
 <li><strong>Yellow fever:</strong> Required if travelling from a country with yellow fever risk.</li>
 <li><strong>Rabies:</strong> Consider for trekkers or those working with animals.</li>
-<li><strong>Altitude sickness:</strong> Bhutan's trekking routes go above 4,000m — consult your doctor about <strong>Diamox</strong> (acetazolamide).</li>
-<li>Carry a <strong>basic medical kit</strong> — pharmacies are limited outside Thimphu and Paro.</li>
+<li><strong>Altitude sickness:</strong> Bhutan's trekking routes go above 4,000m â€” consult your doctor about <strong>Diamox</strong> (acetazolamide).</li>
+<li>Carry a <strong>basic medical kit</strong> â€” pharmacies are limited outside Thimphu and Paro.</li>
 </ul>
 </div>
 </div>
@@ -615,9 +615,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li><strong>Distance:</strong> Approximately 175 km.</li>
 <li><strong>Travel time:</strong> 5-6 hours by road via winding mountain roads.</li>
-<li><strong>Shared taxis and buses</strong> are available from Phuentsholing bus stand. Taxi fare is approximately <strong>₹3,000-4,000</strong> (or BTN equivalent).</li>
+<li><strong>Shared taxis and buses</strong> are available from Phuentsholing bus stand. Taxi fare is approximately <strong>â‚¹3,000-4,000</strong> (or BTN equivalent).</li>
 <li>The road passes through <strong>Chukha and Gedu</strong> with scenic views of the Himalayan foothills.</li>
-<li><strong>Alternative:</strong> Fly directly to <strong>Paro International Airport</strong> from Delhi, Kolkata, Bagdogra, Gaya, or Mumbai — then drive 2 hours to Thimphu.</li>
+<li><strong>Alternative:</strong> Fly directly to <strong>Paro International Airport</strong> from Delhi, Kolkata, Bagdogra, Gaya, or Mumbai â€” then drive 2 hours to Thimphu.</li>
 <li>See the <a href="#process">Bhutan Entry Process</a> for more travel information.</li>
 </ul>
 </div>
@@ -625,7 +625,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <h2 id="updates2026"><i class="bi bi-megaphone"></i> 2026 Updates</h2>
-<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Category</th><th>Previous</th><th>Current (2026)</th></tr></thead><tbody><tr><td>SDF for Indians</td><td>₹1,200/night (introduced 2023)</td><td>₹1,200/night (unchanged)</td></tr><tr><td>SDF for International Tourists</td><td>$200 USD/night (2022-2024)</td><td>$100 USD/night (reduced, unchanged since 2024)</td></tr><tr><td>Indian Entry Permit</td><td>Permit at border/airport</td><td>Instant issuance continues; no changes</td></tr><tr><td>Minimum Daily Package</td><td>$250 USD/night (peak)</td><td>$250 USD/night (peak) / $200 USD/night (low)</td></tr><tr><td>Air Connectivity</td><td>Delhi, Kolkata, Bagdogra, Gaya</td><td>Mumbai flights added; increased frequency on all routes</td></tr></tbody></table></div>
+<div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Category</th><th>Previous</th><th>Current (2026)</th></tr></thead><tbody><tr><td>SDF for Indians</td><td>â‚¹1,200/night (introduced 2023)</td><td>â‚¹1,200/night (unchanged)</td></tr><tr><td>SDF for International Tourists</td><td>$200 USD/night (2022-2024)</td><td>$100 USD/night (reduced, unchanged since 2024)</td></tr><tr><td>Indian Entry Permit</td><td>Permit at border/airport</td><td>Instant issuance continues; no changes</td></tr><tr><td>Minimum Daily Package</td><td>$250 USD/night (peak)</td><td>$250 USD/night (peak) / $200 USD/night (low)</td></tr><tr><td>Air Connectivity</td><td>Delhi, Kolkata, Bagdogra, Gaya</td><td>Mumbai flights added; increased frequency on all routes</td></tr></tbody></table></div>
 
 <h2 id="resources"><i class="bi bi-link-45deg"></i> Official Resources</h2>
   <ul>
@@ -671,7 +671,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <div class="sidebar-card" style="background:linear-gradient(135deg,#031B30,#031B30);color:white;border:none;">
-  <h3 style="color:#A5D549;margin:0 0 8px;">Download Checklist</h3>
+  <h3 style="color:#5057EA;margin:0 0 8px;">Download Checklist</h3>
   <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;">Get a printable document checklist for your visa application.</p>
   <button onclick="downloadChecklist()" class="btn btn-primary" style="width:100%;text-align:center;">
   <i class="bi bi-download"></i> Download Full Checklist
@@ -713,7 +713,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-about">
  <div class="footer-brand">
  <span class="footer-logo-icon" aria-hidden="true">
- <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#A5D549"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/></svg></span>
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#5057EA"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/></svg></span>
  <span class="footer-brand-text">My Visa <span>Assistance</span></span></div>
  <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p></div>
  <div class="footer-col">

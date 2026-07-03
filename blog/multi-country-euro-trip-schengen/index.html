@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#A5D549;--color-accent-light:#bae56a;--color-accent-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -18,8 +18,8 @@ p{margin-bottom:1rem;color:var(--color-text)}
 img{max-width:100%;height:auto;display:block}
 .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(165,213,73,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,213,73,0.45)}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
 .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
 .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
 .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
@@ -46,7 +46,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
 .nav-overlay.open{opacity:1}
 .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(165,213,73,0.12),transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
 .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
 .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
 .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
@@ -221,7 +221,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
 <div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#A5D549"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#A5D549"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
 </div>
 <script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
@@ -270,29 +270,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#031B30"/><stop offset="100%" stop-color="#031B30"/></linearGradient>
  </defs>
  <rect width="700" height="150" rx="12" fill="url(#bg2)"/>
- <text x="350" y="28" text-anchor="middle" fill="#A5D549" font-size="16" font-weight="bold" letter-spacing="0.5">Multi-Country Euro Trip Quick Facts</text>
+ <text x="350" y="28" text-anchor="middle" fill="#5057EA" font-size="16" font-weight="bold" letter-spacing="0.5">Multi-Country Euro Trip Quick Facts</text>
  <rect x="25" y="45" width="152" height="85" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
- <text x="101" y="70" text-anchor="middle" fill="#A5D549" font-size="22" font-weight="bold">Zero</text>
+ <text x="101" y="70" text-anchor="middle" fill="#5057EA" font-size="22" font-weight="bold">Zero</text>
  <text x="101" y="93" text-anchor="middle" fill="white" font-size="13" font-weight="600">Border Checks</text>
  <text x="101" y="115" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10">Free movement zone</text>
  <rect x="193" y="45" width="152" height="85" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
- <text x="269" y="70" text-anchor="middle" fill="#A5D549" font-size="22" font-weight="bold">29</text>
+ <text x="269" y="70" text-anchor="middle" fill="#5057EA" font-size="22" font-weight="bold">29</text>
  <text x="269" y="93" text-anchor="middle" fill="white" font-size="13" font-weight="600">Countries</text>
  <text x="269" y="115" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10">Member states</text>
  <rect x="361" y="45" width="152" height="85" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
- <text x="437" y="70" text-anchor="middle" fill="#A5D549" font-size="20" font-weight="bold">90 Days</text>
+ <text x="437" y="70" text-anchor="middle" fill="#5057EA" font-size="20" font-weight="bold">90 Days</text>
  <text x="437" y="93" text-anchor="middle" fill="white" font-size="13" font-weight="600">Max Stay</text>
  <text x="437" y="115" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10">In 180-day period</text>
  <rect x="528" y="45" width="150" height="85" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-  <text x="603" y="70" text-anchor="middle" fill="#A5D549" font-size="20" font-weight="bold">€90</text>
+  <text x="603" y="70" text-anchor="middle" fill="#5057EA" font-size="20" font-weight="bold">â‚¬90</text>
   <text x="603" y="93" text-anchor="middle" fill="white" font-size="13" font-weight="600">Visa Fee</text>
   <text x="603" y="115" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10">Standard adult fee (2025)</text>
 </svg>
  </div>
 
- <p>Imagine boarding a train in Paris and stepping off in Brussels just 90 minutes later–without showing a passport, without filling out any forms, without any border checks whatsoever. This is the reality of the <strong>Schengen Area</strong>, a border-free zone spanning 29 European countries that makes multi-country trips remarkably seamless.</p>
+ <p>Imagine boarding a train in Paris and stepping off in Brussels just 90 minutes laterâ€“without showing a passport, without filling out any forms, without any border checks whatsoever. This is the reality of the <strong>Schengen Area</strong>, a border-free zone spanning 29 European countries that makes multi-country trips remarkably seamless.</p>
 
- <p>For Indian travellers planning a European holiday, the Schengen visa is your golden ticket. With a single visa, you can explore ancient Roman ruins in Italy, cruise the canals of Amsterdam, hike the Swiss Alps, and party in Prague–all without encountering a single immigration checkpoint. This guide shows you exactly how to plan that trip.</p>
+ <p>For Indian travellers planning a European holiday, the Schengen visa is your golden ticket. With a single visa, you can explore ancient Roman ruins in Italy, cruise the canals of Amsterdam, hike the Swiss Alps, and party in Pragueâ€“all without encountering a single immigration checkpoint. This guide shows you exactly how to plan that trip.</p>
 
  <h2>Understanding the Schengen Advantage</h2>
  <p>The Schengen Area operates as a single jurisdiction for international travel purposes. Once you clear immigration at your first port of entry (say, Charles de Gaulle Airport in Paris), you are free to move to any other Schengen country without further checks. This makes multi-country itineraries not just possible but incredibly convenient.</p>
@@ -304,7 +304,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h3>Route 1: The Classic European Grand Tour (14-21 days)</h3>
  <p><strong>Paris (France) &rarr; Brussels (Belgium) &rarr; Amsterdam (Netherlands) &rarr; Berlin (Germany) &rarr; Prague (Czech Republic) &rarr; Vienna (Austria) &rarr; Budapest (Hungary)</strong></p>
   <p>This classic route takes you through seven countries connected by excellent rail networks. The Eurostar and Thalys high-speed trains connect <a href="/visa-requirements/?country=france">Paris</a>, <a href="/visa-requirements/?country=belgium">Brussels</a>, and <a href="/visa-requirements/?country=netherlands">Amsterdam</a> in under 2 hours each. From Amsterdam, a direct ICE train reaches <a href="/visa-requirements/?country=germany">Berlin</a> in 6 hours. Continue east to <a href="/visa-requirements/?country=czech-republic">Prague</a> (4.5 hours by train), <a href="/visa-requirements/?country=austria">Vienna</a> (4 hours), and <a href="/visa-requirements/?country=hungary">Budapest</a> (2.5 hours).</p>
- <p><strong>Estimated budget (per person):</strong> ₹1,80,000 - ₹2,50,000 excluding flights to/from India</p>
+ <p><strong>Estimated budget (per person):</strong> â‚¹1,80,000 - â‚¹2,50,000 excluding flights to/from India</p>
 
  <h3>Route 2: Southern Sun & History (14-18 days)</h3>
   <p><strong><a href="/visa-requirements/?country=spain">Barcelona</a> (Spain) &rarr; Valencia (Spain) &rarr; Nice (France) &rarr; Cinque Terre (Italy) &rarr; Florence (Italy) &rarr; <a href="/visa-requirements/?country=italy">Rome</a> (Italy) &rarr; <a href="/visa-requirements/?country=greece">Athens</a> (Greece)</strong></p>
@@ -396,7 +396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Yes, but you'll need separate visas for non-Schengen countries like the UK, Ireland, Romania, and Bulgaria. Plan accordingly and account for additional visa processing times.</p>
 
  <h3>How much bank balance do I need to show for a multi-country trip?</h3>
- <p>Embassies typically require &euro;50-100 per day per person. For a 15-day trip, you should show at least ₹1,00,000 - ₹1,50,000 in your bank account.</p>
+ <p>Embassies typically require &euro;50-100 per day per person. For a 15-day trip, you should show at least â‚¹1,00,000 - â‚¹1,50,000 in your bank account.</p>
 
  <h3>What if I miss my flight to the first Schengen country?</h3>
  <p>You must enter the Schengen Area through the country whose visa you hold (First Entry Rule). If plans change, contact the embassy in advance. Unexpected changes may cause issues at immigration.</p>

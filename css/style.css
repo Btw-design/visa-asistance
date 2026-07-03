@@ -1,6 +1,6 @@
 /* ===================================================================
-   My Visa Assistance — Complete Design System
-   Version 2.0 — Modern, Clean, Professional
+   My Visa Assistance â€” Complete Design System
+   Version 2.0 â€” Modern, Clean, Professional
    =================================================================== */
 
 /* ===================================================================
@@ -15,9 +15,9 @@
   --color-secondary-light: #f07a3e;
   --color-secondary-dark: #c94d10;
   --color-secondary-rgb: 232, 96, 32;
-  --color-accent: #A5D549;
-  --color-accent-light: #bae56a;
-  --color-accent-dark: #8cba30;
+  --color-accent: #5057EA;
+  --color-accent-light: #6b72ee;
+  --color-accent-dark: #3a41c8;
 
   /* Semantic Colors */
   --color-success: #10b981;
@@ -400,7 +400,7 @@ small, .text-sm {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(165,213,73,0.08) 0%, transparent 60%),
+  background: radial-gradient(ellipse at 30% 50%, rgba(80, 87, 234,0.08) 0%, transparent 60%),
               radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
@@ -612,7 +612,7 @@ small, .text-sm {
   right: -20%;
   width: 60%;
   height: 200%;
-  background: radial-gradient(ellipse, rgba(165, 213, 73, 0.06), transparent 70%);
+  background: radial-gradient(ellipse, rgba(80, 87, 234, 0.06), transparent 70%);
   pointer-events: none;
 }
 
@@ -650,7 +650,7 @@ small, .text-sm {
 .stats-enhanced-item:hover {
   transform: translateY(-6px);
   background: rgba(255,255,255,0.08);
-  border-color: rgba(165,213,73,0.3);
+  border-color: rgba(80, 87, 234,0.3);
 }
 
 .stats-enhanced-item:hover::before {
@@ -661,7 +661,7 @@ small, .text-sm {
   width: 56px;
   height: 56px;
   margin: 0 auto 16px;
-  background: rgba(165,213,73,0.12);
+  background: rgba(80, 87, 234,0.12);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -672,7 +672,7 @@ small, .text-sm {
 }
 
 .stats-enhanced-item:hover .stats-enhanced-icon {
-  background: rgba(165,213,73,0.2);
+  background: rgba(80, 87, 234,0.2);
   transform: scale(1.05);
 }
 
@@ -700,7 +700,7 @@ small, .text-sm {
   right: -20%;
   width: 70%;
   height: 150%;
-  background: radial-gradient(ellipse, rgba(165, 213, 73, 0.12), transparent 70%);
+  background: radial-gradient(ellipse, rgba(80, 87, 234, 0.12), transparent 70%);
   pointer-events: none;
 }
 
@@ -862,7 +862,7 @@ small, .text-sm {
   right: 0;
   width: 40%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(165, 213, 73, 0.08), transparent);
+  background: radial-gradient(ellipse at center, rgba(80, 87, 234, 0.08), transparent);
   pointer-events: none;
 }
 
@@ -917,7 +917,7 @@ small, .text-sm {
   left: -20%;
   width: 60%;
   height: 150%;
-  background: radial-gradient(ellipse, rgba(165, 213, 73, 0.08), transparent 70%);
+  background: radial-gradient(ellipse, rgba(80, 87, 234, 0.08), transparent 70%);
   pointer-events: none;
 }
 
@@ -984,14 +984,14 @@ small, .text-sm {
 .btn-primary {
   background: var(--color-accent);
   color: var(--color-primary-dark);
-  box-shadow: 0 4px 14px rgba(165, 213, 73, 0.35);
+  box-shadow: 0 4px 14px rgba(80, 87, 234, 0.35);
 }
 
 .btn-primary:hover {
   background: var(--color-accent-dark);
   color: var(--color-white);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(165, 213, 73, 0.45);
+  box-shadow: 0 6px 20px rgba(80, 87, 234, 0.45);
 }
 
 .btn-secondary {
@@ -1149,7 +1149,7 @@ small, .text-sm {
   width: 64px;
   height: 64px;
   margin: 0 auto 20px;
-  background: linear-gradient(135deg, var(--color-bg-alt), rgba(165, 213, 73, 0.1));
+  background: linear-gradient(135deg, var(--color-bg-alt), rgba(80, 87, 234, 0.1));
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
@@ -1200,7 +1200,7 @@ small, .text-sm {
 
 .country-card:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 4px 12px rgba(165, 213, 73, 0.15);
+  box-shadow: 0 4px 12px rgba(80, 87, 234, 0.15);
   transform: translateY(-3px);
   color: var(--color-text);
 }
@@ -1264,7 +1264,7 @@ small, .text-sm {
 
 .blog-card-image {
   height: 200px;
-  background: linear-gradient(135deg, var(--color-bg-alt), rgba(165, 213, 73, 0.08));
+  background: linear-gradient(135deg, var(--color-bg-alt), rgba(80, 87, 234, 0.08));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1632,7 +1632,7 @@ small, .text-sm {
 
 /* Info/Callout Box */
 .country-content .main-content .info-box {
-  background: linear-gradient(135deg, var(--color-bg-alt), rgba(165, 213, 73, 0.05));
+  background: linear-gradient(135deg, var(--color-bg-alt), rgba(80, 87, 234, 0.05));
   border-left: 4px solid var(--color-accent);
   padding: 24px;
   border-radius: 0 var(--radius) var(--radius) 0;
@@ -1721,7 +1721,7 @@ small, .text-sm {
 }
 
 .country-content .main-content tr:hover td {
-  background: rgba(165, 213, 73, 0.04);
+  background: rgba(80, 87, 234, 0.04);
 }
 
 /* ===================================================================
@@ -1767,7 +1767,7 @@ small, .text-sm {
   box-shadow: 0 0 0 4px rgba(3, 27, 48, 0.08);
 }
 
-/* Secondary focus ring — add .focus-accent class to form-group for orange focus */
+/* Secondary focus ring â€” add .focus-accent class to form-group for orange focus */
 .form-group.focus-accent input:focus,
 .form-group.focus-accent select:focus,
 .form-group.focus-accent textarea:focus {
@@ -1876,7 +1876,7 @@ small, .text-sm {
 
 .faq-item.active {
   border-color: var(--color-accent);
-  box-shadow: 0 2px 12px rgba(165, 213, 73, 0.1);
+  box-shadow: 0 2px 12px rgba(80, 87, 234, 0.1);
 }
 
 .faq-item.has-secondary.active {
@@ -1917,7 +1917,7 @@ small, .text-sm {
 
 .faq-item.active .faq-question {
   color: var(--color-primary);
-  background: rgba(165, 213, 73, 0.05);
+  background: rgba(80, 87, 234, 0.05);
 }
 
 .faq-question .faq-icon {
@@ -2078,7 +2078,7 @@ small, .text-sm {
 .about-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: linear-gradient(135deg, var(--color-bg-alt), rgba(165, 213, 73, 0.08));
+  background: linear-gradient(135deg, var(--color-bg-alt), rgba(80, 87, 234, 0.08));
   aspect-ratio: 4/3;
   display: flex;
   align-items: center;
@@ -2099,7 +2099,7 @@ small, .text-sm {
 }
 
 .about-intro ul li::before {
-  content: '✓';
+  content: 'âœ“';
   position: absolute;
   left: 0;
   color: var(--color-accent);
@@ -2625,9 +2625,9 @@ small, .text-sm {
   display: none;
   margin-top: 12px;
   padding: 12px;
-  background: rgba(165,213,73,0.1);
+  background: rgba(80, 87, 234,0.1);
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(165,213,73,0.2);
+  border: 1px solid rgba(80, 87, 234,0.2);
   text-align: center;
 }
 
@@ -3013,7 +3013,7 @@ small, .text-sm {
 }
 
 /* ===================================================================
-   25. Responsive — Desktop (≤1199px)
+   25. Responsive â€” Desktop (â‰¤1199px)
    =================================================================== */
 @media (max-width: 1199px) {
   .country-content .content-grid {
@@ -3031,7 +3031,7 @@ small, .text-sm {
 }
 
 /* ===================================================================
-   26. Responsive — Tablet (≤991px)
+   26. Responsive â€” Tablet (â‰¤991px)
    =================================================================== */
 @media (max-width: 991px) {
   .hero {
@@ -3147,7 +3147,7 @@ small, .text-sm {
 }
 
 /* ===================================================================
-   27. Responsive — Mobile (≤767px)
+   27. Responsive â€” Mobile (â‰¤767px)
    =================================================================== */
 @media (max-width: 767px) {
   /* Nav */
@@ -3656,7 +3656,7 @@ small, .text-sm {
 }
 
 /* ===================================================================
-   28. Responsive — Small Mobile (≤420px)
+   28. Responsive â€” Small Mobile (â‰¤420px)
    =================================================================== */
 @media (max-width: 420px) {
   .container {
