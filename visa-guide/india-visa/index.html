@@ -3,7 +3,10 @@
 <head>
  <meta charset="UTF-8">
  <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
+  --color-accent-alt: #A5D549;
+  --color-accent-alt-light: #bae56a;
+  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
@@ -332,13 +335,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee (INR)</th></tr></thead>
  <tbody>
  <tr><td>Indian Citizenship</td><td>N/A</td><td>For Indian passport holders</td><td>Unlimited</td><td>N/A</td><td>Free</td></tr>
- <tr><td>e-Tourist Visa</td><td>eTV</td><td>Tourism, recreation, sightseeing</td><td>30 days/1 year/5 years</td><td>3-5 days</td><td>â‚¹10-100</td></tr>
- <tr><td>e-Business Visa</td><td>eBV</td><td>Business meetings, conferences</td><td>1 year (multiple entry)</td><td>3-5 days</td><td>â‚¹25-100</td></tr>
- <tr><td>e-Medical Visa</td><td>eMV</td><td>Medical treatment in India</td><td>60 days (triple entry)</td><td>3-5 days</td><td>â‚¹25-80</td></tr>
+ <tr><td>e-Tourist Visa</td><td>eTV</td><td>Tourism, recreation, sightseeing</td><td>30 days/1 year/5 years</td><td>3-5 days</td><td>₹10-100</td></tr>
+ <tr><td>e-Business Visa</td><td>eBV</td><td>Business meetings, conferences</td><td>1 year (multiple entry)</td><td>3-5 days</td><td>₹25-100</td></tr>
+ <tr><td>e-Medical Visa</td><td>eMV</td><td>Medical treatment in India</td><td>60 days (triple entry)</td><td>3-5 days</td><td>₹25-80</td></tr>
  <tr><td>Employment Visa</td><td>E-Visa</td><td>Employment by Indian company</td><td>1-5 years</td><td>2-4 weeks</td><td>INR 10,000-15,000</td></tr>
  <tr><td>Student Visa</td><td>S-Visa</td><td>Full-time study at Indian institution</td><td>Course duration</td><td>2-4 weeks</td><td>INR 5,000-10,000</td></tr>
- <tr><td>Conference Visa</td><td>C-Visa</td><td>Attending conferences in India</td><td>Event duration</td><td>1-2 weeks</td><td>â‚¹25-80</td></tr>
- <tr><td>OCI Card</td><td>OCI</td><td>Overseas Citizen of India for diaspora</td><td>Lifetime (multiple entry)</td><td>2-4 months</td><td>â‚¹25-275</td></tr>
+ <tr><td>Conference Visa</td><td>C-Visa</td><td>Attending conferences in India</td><td>Event duration</td><td>1-2 weeks</td><td>₹25-80</td></tr>
+ <tr><td>OCI Card</td><td>OCI</td><td>Overseas Citizen of India for diaspora</td><td>Lifetime (multiple entry)</td><td>2-4 months</td><td>₹25-275</td></tr>
  </tbody>
  </table>
 
@@ -349,24 +352,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (INR)</th><th>Fee (? Approx)</th></tr></thead>
  <tbody>
  <tr><td>Indian Citizenship</td><td>N/A</td><td>Free</td><td>Free</td></tr>
- <tr><td>e-Tourist Visa</td><td>eTV</td><td>â‚¹10-100</td><td>â‚¹760 to â‚¹840</td></tr>
- <tr><td>e-Business Visa</td><td>eBV</td><td>â‚¹25-100</td><td>â‚¹1,900 to â‚¹2,100</td></tr>
- <tr><td>e-Medical Visa</td><td>eMV</td><td>â‚¹25-80</td><td>â‚¹1,900 to â‚¹2,100</td></tr>
- <tr><td>Employment Visa</td><td>E-Visa</td><td>INR 10,000-15,000</td><td>â‚¹7,60,000 to â‚¹8,40,000</td></tr>
- <tr><td>Student Visa</td><td>S-Visa</td><td>INR 5,000-10,000</td><td>â‚¹3,80,000 to â‚¹4,20,000</td></tr>
- <tr><td>Conference Visa</td><td>C-Visa</td><td>â‚¹25-80</td><td>â‚¹1,900 to â‚¹2,100</td></tr>
- <tr><td>OCI Card</td><td>OCI</td><td>â‚¹25-275</td><td>â‚¹1,900 to â‚¹2,100</td></tr>
+ <tr><td>e-Tourist Visa</td><td>eTV</td><td>₹10-100</td><td>₹760 to ₹840</td></tr>
+ <tr><td>e-Business Visa</td><td>eBV</td><td>₹25-100</td><td>₹1,900 to ₹2,100</td></tr>
+ <tr><td>e-Medical Visa</td><td>eMV</td><td>₹25-80</td><td>₹1,900 to ₹2,100</td></tr>
+ <tr><td>Employment Visa</td><td>E-Visa</td><td>INR 10,000-15,000</td><td>₹7,60,000 to ₹8,40,000</td></tr>
+ <tr><td>Student Visa</td><td>S-Visa</td><td>INR 5,000-10,000</td><td>₹3,80,000 to ₹4,20,000</td></tr>
+ <tr><td>Conference Visa</td><td>C-Visa</td><td>₹25-80</td><td>₹1,900 to ₹2,100</td></tr>
+ <tr><td>OCI Card</td><td>OCI</td><td>₹25-275</td><td>₹1,900 to ₹2,100</td></tr>
  </tbody>
  </table>
 
  <h3><i class="bi bi-currency-rupee"></i> Additional Costs</h3>
  <table class="visa-table">
- <thead><tr><th>Cost Type</th><th>Amount (â‚¹)</th><th>Details</th></tr></thead>
+ <thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead>
  <tbody>
- <tr><td>e-Visa Processing Fee</td><td>â‚¹1-4</td><td>Online convenience fee for e-Visa</td></tr>
- <tr><td>Biometrics (for foreigners)</td><td>â‚¹15-20</td><td>Required at FRRO for long-stay visas</td></tr>
+ <tr><td>e-Visa Processing Fee</td><td>₹1-4</td><td>Online convenience fee for e-Visa</td></tr>
+ <tr><td>Biometrics (for foreigners)</td><td>₹15-20</td><td>Required at FRRO for long-stay visas</td></tr>
  <tr><td>FRRO Registration</td><td>INR 1,000-3,000</td><td>For foreigners staying over 180 days</td></tr>
- <tr><td>Translation/Certification</td><td>â‚¹500 to 2,000</td><td>Per document for foreign applicants</td></tr>
+ <tr><td>Translation/Certification</td><td>₹500 to 2,000</td><td>Per document for foreign applicants</td></tr>
  </tbody>
  </table>
 
@@ -491,7 +494,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-list" style="max-width:100%;">
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Do Indian citizens need a visa for India?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Yes, Indian citizens need a visa for India. Key information:</p><ul><li>A visa is required for Indian passport holders traveling to India.</li><li>See the <a href="#visa-types">Visa Types section</a> for all available visa categories and options.</li><li>Your passport must have <strong>at least 6 months validity</strong> beyond your intended stay.</li><li>Processing times vary by visa type â€” check the <a href="#processing-time">Processing Time section</a> for details.</li><li>See the <a href="#process">Application Process section</a> for step-by-step instructions.</li></ul></div>
+<div class="faq-answer"><p>Yes, Indian citizens need a visa for India. Key information:</p><ul><li>A visa is required for Indian passport holders traveling to India.</li><li>See the <a href="#visa-types">Visa Types section</a> for all available visa categories and options.</li><li>Your passport must have <strong>at least 6 months validity</strong> beyond your intended stay.</li><li>Processing times vary by visa type — check the <a href="#processing-time">Processing Time section</a> for details.</li><li>See the <a href="#process">Application Process section</a> for step-by-step instructions.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What are the visa options for Indians visiting India?<span class="faq-icon">+</span></button>
@@ -499,7 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What documents are required for a India visa?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Standard document requirements for a India visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> â€” minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> â€” 35Ã—45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> â€” accurately filled with matching details.</li><li><strong>Travel itinerary</strong> â€” flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li></ul></div>
+<div class="faq-answer"><p>Standard document requirements for a India visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> — minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> — 35×45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> — accurately filled with matching details.</li><li><strong>Travel itinerary</strong> — flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">How long does it take to process a India visa?<span class="faq-icon">+</span></button>
@@ -507,7 +510,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What is the India visa fee for Indians?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Visa fees for India depend on the visa category. <a href="#fees">See the complete fee table</a>:</p><ul><li>Fees vary by <strong>visa type</strong> (tourist, business, student, work).</li><li>Additional <strong>service charges</strong> may apply when applying through visa centers.</li><li>All fees are <strong>non-refundable</strong> once the application is submitted.</li><li>Payment methods vary â€” most accept online payment or demand drafts.</li></ul></div>
+<div class="faq-answer"><p>Visa fees for India depend on the visa category. <a href="#fees">See the complete fee table</a>:</p><ul><li>Fees vary by <strong>visa type</strong> (tourist, business, student, work).</li><li>Additional <strong>service charges</strong> may apply when applying through visa centers.</li><li>All fees are <strong>non-refundable</strong> once the application is submitted.</li><li>Payment methods vary — most accept online payment or demand drafts.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">How long can I stay in India on a tourist visa?<span class="faq-icon">+</span></button>
@@ -523,15 +526,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Can I get a India visa on arrival as an Indian?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Visa-on-arrival availability for Indian citizens in India:</p><ul><li>Check the <strong>current visa policy</strong> for Indian nationals â€” most countries require a visa in advance.</li><li>If no visa on arrival is available, you must apply for a <strong>visa before travel</strong>.</li><li>See the <a href="#process">Application Process section</a> for the complete step-by-step guide.</li><li>Always verify current requirements with the <strong>official embassy website</strong>.</li></ul></div>
+<div class="faq-answer"><p>Visa-on-arrival availability for Indian citizens in India:</p><ul><li>Check the <strong>current visa policy</strong> for Indian nationals — most countries require a visa in advance.</li><li>If no visa on arrival is available, you must apply for a <strong>visa before travel</strong>.</li><li>See the <a href="#process">Application Process section</a> for the complete step-by-step guide.</li><li>Always verify current requirements with the <strong>official embassy website</strong>.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What are the common reasons for India visa rejection?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Common reasons for visa rejection for Indian applicants:</p><ul><li><strong>Insufficient funds</strong> â€” bank statements must show adequate balance.</li><li><strong>Incomplete documentation</strong> â€” missing or incorrect documents.</li><li><strong>Poor travel history</strong> â€” limited international travel history may lead to stricter scrutiny.</li><li><strong>Discrepancies</strong> between application form and supporting documents.</li><li><strong>Criminal record</strong> or previous immigration violations.</li></ul></div>
+<div class="faq-answer"><p>Common reasons for visa rejection for Indian applicants:</p><ul><li><strong>Insufficient funds</strong> — bank statements must show adequate balance.</li><li><strong>Incomplete documentation</strong> — missing or incorrect documents.</li><li><strong>Poor travel history</strong> — limited international travel history may lead to stricter scrutiny.</li><li><strong>Discrepancies</strong> between application form and supporting documents.</li><li><strong>Criminal record</strong> or previous immigration violations.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">What currency is used in India?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Currency and payment information for India:</p><ul><li>The official currency varies â€” check the <strong>local currency and exchange rates</strong> before traveling.</li><li><strong>Credit cards</strong> are accepted at most hotels and larger establishments in tourist areas.</li><li><strong>ATMs</strong> are available in cities and major towns.</li><li>Carry some <strong>local currency in cash</strong> for small purchases, tips, and local transport.</li><li>Inform your bank about your travel plans to avoid card blocks.</li></ul></div>
+<div class="faq-answer"><p>Currency and payment information for India:</p><ul><li>The official currency varies — check the <strong>local currency and exchange rates</strong> before traveling.</li><li><strong>Credit cards</strong> are accepted at most hotels and larger establishments in tourist areas.</li><li><strong>ATMs</strong> are available in cities and major towns.</li><li>Carry some <strong>local currency in cash</strong> for small purchases, tips, and local transport.</li><li>Inform your bank about your travel plans to avoid card blocks.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Is India safe for Indian tourists?<span class="faq-icon">+</span></button>
@@ -539,7 +542,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Do I need any vaccinations for India?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Recommended vaccinations for travel to India:</p><ul><li><strong>Routine vaccinations</strong> â€” MMR, DPT, and polio should be up to date.</li><li><strong>Yellow fever</strong> â€” required if travelling from a country with yellow fever risk.</li><li><strong>Hepatitis A and Typhoid</strong> â€” recommended for most international travel.</li><li>Consult your doctor <strong>4-6 weeks before travel</strong> for personalized advice.</li><li>Carry a <strong>basic medical kit</strong> with essential medications.</li></ul></div>
+<div class="faq-answer"><p>Recommended vaccinations for travel to India:</p><ul><li><strong>Routine vaccinations</strong> — MMR, DPT, and polio should be up to date.</li><li><strong>Yellow fever</strong> — required if travelling from a country with yellow fever risk.</li><li><strong>Hepatitis A and Typhoid</strong> — recommended for most international travel.</li><li>Consult your doctor <strong>4-6 weeks before travel</strong> for personalized advice.</li><li>Carry a <strong>basic medical kit</strong> with essential medications.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">Can I extend my India visa?<span class="faq-icon">+</span></button>
@@ -598,9 +601,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h3>Popular Visa Types</h3>
  <ul>
  <li><a href="#fees">Indian Citizenship (N/A) - Free</a></li>
- <li><a href="#fees">e-Tourist Visa (eTV) - â‚¹10-100</a></li>
- <li><a href="#fees">e-Business Visa (eBV) - â‚¹25-100</a></li>
- <li><a href="#fees">e-Medical Visa (eMV) - â‚¹25-80</a></li>
+ <li><a href="#fees">e-Tourist Visa (eTV) - ₹10-100</a></li>
+ <li><a href="#fees">e-Business Visa (eBV) - ₹25-100</a></li>
+ <li><a href="#fees">e-Medical Visa (eMV) - ₹25-80</a></li>
  <li><a href="#fees">Employment Visa (E-Visa) - INR 10,000-15,000</a></li>
  </ul>
  </div>

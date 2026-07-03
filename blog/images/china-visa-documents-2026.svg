@@ -23,7 +23,7 @@
   <text x="60" y="218" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Valid Indian passport</text>
   <text x="60" y="240" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">6+ months validity, 2 blank pages</text>
   <text x="60" y="262" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Passport-size photographs</text>
-  <text x="60" y="284" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">51Ã—51mm, white background, 6 months</text>
+  <text x="60" y="284" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">51×51mm, white background, 6 months</text>
   <text x="60" y="306" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Completed online application form</text>
   <text x="60" y="328" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">CVASC online portal</text>
   <line x1="60" y1="340" x2="280" y2="340" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
@@ -33,7 +33,7 @@
   <rect x="320" y="160" width="260" height="190" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(80, 87, 234,0.3)" stroke-width="1.5"/>
   <text x="450" y="192" text-anchor="middle" fill="#5057EA" font-size="16" font-weight="bold" font-family="system-ui">Financial Documents</text>
   <text x="340" y="218" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Bank statements (last 6 months)</text>
-  <text x="340" y="240" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Min. CNY 50,000 (â‰ˆ â‚¹5.5 lakhs)</text>
+  <text x="340" y="240" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Min. CNY 50,000 (≈ ₹5.5 lakhs)</text>
   <text x="340" y="262" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">ITR for last 3 years</text>
   <text x="340" y="284" fill="rgba(255,255,255,0.55)" font-size="11" font-family="system-ui">Income Tax Returns</text>
   <text x="340" y="306" fill="rgba(255,255,255,0.85)" font-size="13" font-family="system-ui">Salary slips (last 3 months)</text>

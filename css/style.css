@@ -1,6 +1,6 @@
 /* ===================================================================
-   My Visa Assistance â€” Complete Design System
-   Version 2.0 â€” Modern, Clean, Professional
+   My Visa Assistance — Complete Design System
+   Version 2.0 — Modern, Clean, Professional
    =================================================================== */
 
 /* ===================================================================
@@ -18,6 +18,9 @@
   --color-accent: #5057EA;
   --color-accent-light: #6b72ee;
   --color-accent-dark: #3a41c8;
+  --color-accent-alt: #A5D549;
+  --color-accent-alt-light: #bae56a;
+  --color-accent-alt-dark: #8cba30;
 
   /* Semantic Colors */
   --color-success: #10b981;
@@ -189,6 +192,10 @@ small, .text-sm {
 
 .text-secondary {
   color: var(--color-secondary);
+}
+
+.text-accent-alt {
+  color: var(--color-accent-alt);
 }
 
 /* ===================================================================
@@ -787,6 +794,11 @@ small, .text-sm {
   color: var(--color-secondary);
 }
 
+.hero-badge.is-accent-alt i,
+.hero-badge.is-accent-alt svg {
+  color: var(--color-accent-alt);
+}
+
 .hero-buttons {
   display: flex;
   gap: 12px;
@@ -1071,6 +1083,24 @@ small, .text-sm {
   transform: translateY(0);
 }
 
+.btn-accent-alt {
+  background: var(--color-accent-alt);
+  color: var(--color-primary-dark);
+  box-shadow: 0 4px 14px rgba(165, 213, 73, 0.35);
+}
+
+.btn-accent-alt:hover {
+  background: var(--color-accent-alt-light);
+  color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(165, 213, 73, 0.45);
+}
+
+.btn-accent-alt:active {
+  background: var(--color-accent-alt-dark);
+  transform: translateY(0);
+}
+
 .btn-link {
   background: none;
   border: none;
@@ -1133,6 +1163,19 @@ small, .text-sm {
 .feature-card.has-secondary:hover .feature-icon {
   background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary));
   color: var(--color-white);
+}
+
+.feature-card.has-accent-alt::before {
+  background: linear-gradient(90deg, var(--color-accent-alt), var(--color-accent-alt-light));
+}
+
+.feature-card.has-accent-alt:hover {
+  border-color: rgba(165, 213, 73, 0.2);
+}
+
+.feature-card.has-accent-alt:hover .feature-icon {
+  background: linear-gradient(135deg, var(--color-accent-alt-light), var(--color-accent-alt));
+  color: var(--color-primary-dark);
 }
 
 .feature-card:hover {
@@ -1208,6 +1251,21 @@ small, .text-sm {
 .country-card.has-secondary:hover {
   border-color: var(--color-secondary);
   box-shadow: 0 4px 12px rgba(232, 96, 32, 0.15);
+}
+
+.country-card.has-secondary:hover .arrow {
+  color: var(--color-secondary);
+  transform: translateX(4px);
+}
+
+.country-card.has-accent-alt:hover {
+  border-color: var(--color-accent-alt);
+  box-shadow: 0 4px 12px rgba(165, 213, 73, 0.15);
+}
+
+.country-card.has-accent-alt:hover .arrow {
+  color: var(--color-accent-alt);
+  transform: translateX(4px);
 }
 
 .country-card.has-secondary:hover .arrow {
@@ -1523,6 +1581,10 @@ small, .text-sm {
   color: var(--color-primary);
 }
 
+.section-heading.has-accent-alt h2::after {
+  background: var(--color-accent-alt);
+}
+
 .section-heading p {
   color: var(--color-text-light);
   font-size: 1.1rem;
@@ -1767,7 +1829,7 @@ small, .text-sm {
   box-shadow: 0 0 0 4px rgba(3, 27, 48, 0.08);
 }
 
-/* Secondary focus ring â€” add .focus-accent class to form-group for orange focus */
+/* Secondary focus ring — add .focus-accent class to form-group for orange focus */
 .form-group.focus-accent input:focus,
 .form-group.focus-accent select:focus,
 .form-group.focus-accent textarea:focus {
@@ -2099,7 +2161,7 @@ small, .text-sm {
 }
 
 .about-intro ul li::before {
-  content: 'âœ“';
+  content: '✓';
   position: absolute;
   left: 0;
   color: var(--color-accent);
@@ -3013,7 +3075,7 @@ small, .text-sm {
 }
 
 /* ===================================================================
-   25. Responsive â€” Desktop (â‰¤1199px)
+   25. Responsive — Desktop (≤1199px)
    =================================================================== */
 @media (max-width: 1199px) {
   .country-content .content-grid {
@@ -3031,7 +3093,7 @@ small, .text-sm {
 }
 
 /* ===================================================================
-   26. Responsive â€” Tablet (â‰¤991px)
+   26. Responsive — Tablet (≤991px)
    =================================================================== */
 @media (max-width: 991px) {
   .hero {
@@ -3147,7 +3209,7 @@ small, .text-sm {
 }
 
 /* ===================================================================
-   27. Responsive â€” Mobile (â‰¤767px)
+   27. Responsive — Mobile (≤767px)
    =================================================================== */
 @media (max-width: 767px) {
   /* Nav */
@@ -3656,7 +3718,7 @@ small, .text-sm {
 }
 
 /* ===================================================================
-   28. Responsive â€” Small Mobile (â‰¤420px)
+   28. Responsive — Small Mobile (≤420px)
    =================================================================== */
 @media (max-width: 420px) {
   .container {
@@ -3788,4 +3850,146 @@ small, .text-sm {
   .header {
     border-bottom-width: 0.5px;
   }
+}
+
+/* ===================================================================
+   Accent Alt (Green) — Additional Accent Modifiers
+   =================================================================== */
+
+/* Section headings */
+.section-heading.has-accent-alt h2::after {
+  background: var(--color-accent-alt);
+}
+
+/* Feature cards */
+.feature-card.has-accent-alt::before {
+  background: linear-gradient(90deg, var(--color-accent-alt), var(--color-accent-alt-light));
+}
+.feature-card.has-accent-alt:hover {
+  border-color: rgba(165, 213, 73, 0.2);
+}
+.feature-card.has-accent-alt:hover .feature-icon {
+  background: linear-gradient(135deg, var(--color-accent-alt-light), var(--color-accent-alt));
+  color: var(--color-primary-dark);
+}
+
+/* Country cards */
+.country-card.has-accent-alt:hover {
+  border-color: var(--color-accent-alt);
+  box-shadow: 0 4px 12px rgba(165, 213, 73, 0.15);
+}
+.country-card.has-accent-alt:hover .arrow {
+  color: var(--color-accent-alt);
+  transform: translateX(4px);
+}
+
+/* Blog cards */
+.blog-card.has-accent-alt:hover .read-more {
+  color: var(--color-accent-alt);
+}
+.blog-card.has-accent-alt:hover .blog-card-image {
+  border-color: var(--color-accent-alt);
+}
+
+/* Expertise cards */
+.expertise-card.has-accent-alt .num {
+  color: var(--color-accent-alt);
+}
+
+/* Stat items */
+.stat-item.has-accent-alt h3 {
+  color: var(--color-accent-alt);
+}
+
+/* Hero trust items */
+.hero-trust-item.has-accent-alt .hero-trust-num {
+  color: var(--color-accent-alt);
+}
+
+/* Hero badges */
+.hero-badge.is-accent-alt i,
+.hero-badge.is-accent-alt svg {
+  color: var(--color-accent-alt);
+}
+
+/* FAQ items */
+.faq-item.has-accent-alt.active {
+  border-color: var(--color-accent-alt);
+}
+.faq-item.has-accent-alt.active .faq-question {
+  color: var(--color-accent-alt);
+}
+.faq-item.has-accent-alt.active .faq-question .faq-icon {
+  color: var(--color-accent-alt);
+}
+
+/* Info boxes */
+.country-content .main-content .info-box.has-accent-alt {
+  border-color: var(--color-accent-alt);
+}
+.country-content .main-content .info-box.has-accent-alt h4 {
+  color: var(--color-accent-alt);
+}
+
+/* Tables */
+.country-content .main-content table.has-accent-alt th {
+  border-bottom-color: var(--color-accent-alt);
+  color: var(--color-accent-alt);
+}
+
+/* Sidebar CTA */
+.sidebar-cta.has-accent-alt {
+  background: linear-gradient(135deg, rgba(165, 213, 73, 0.08), rgba(165, 213, 73, 0.15));
+  border-color: rgba(165, 213, 73, 0.2);
+}
+.sidebar-cta.has-accent-alt h3 {
+  color: var(--color-accent-alt-dark);
+}
+.sidebar-cta.has-accent-alt .btn {
+  background: var(--color-accent-alt);
+  color: var(--color-primary-dark);
+}
+.sidebar-cta.has-accent-alt .btn:hover {
+  background: var(--color-accent-alt-dark);
+  color: var(--color-white);
+}
+
+/* Blog content headings */
+.blog-content h2.has-accent-alt {
+  color: var(--color-accent-alt-dark);
+}
+
+/* Footer */
+.footer-col.has-accent-alt h4::after {
+  background: var(--color-accent-alt);
+}
+
+/* Hero slider */
+.hero-slider-dot.is-accent-alt.active {
+  background: var(--color-accent-alt);
+}
+.hero-slider-dot.is-accent-alt:hover {
+  background: var(--color-accent-alt-light);
+}
+.hero-slide-cta.is-accent-alt:hover {
+  background: var(--color-accent-alt);
+  color: var(--color-primary-dark);
+}
+
+/* Cookie banner */
+#cookie-consent-banner button.is-accent-alt {
+  background: var(--color-accent-alt);
+  color: var(--color-primary-dark);
+}
+#cookie-consent-banner button.is-accent-alt:hover {
+  background: var(--color-accent-alt-dark);
+  color: var(--color-white);
+}
+
+/* Focus ring (green) */
+.form-group.focus-accent-alt input:focus,
+.form-group.focus-accent-alt select:focus,
+.form-group.focus-accent-alt textarea:focus {
+  border-color: var(--color-accent-alt);
+  box-shadow: 0 0 0 3px rgba(165, 213, 73, 0.15);
 }
