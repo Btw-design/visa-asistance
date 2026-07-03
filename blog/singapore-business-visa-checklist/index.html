@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
+  --color-accent-alt: #A5D549;
+  --color-accent-alt-light: #bae56a;
+  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+.footer-about .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}.footer-brand-text{font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--color-white)}.footer-brand-text span{color:var(--color-accent)}.logo-icon{width:36px;height:36px;background:var(--color-accent);color:var(--color-primary-dark);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem}.footer-tagline{color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.6;max-width:320px}.footer-col h4{color:var(--color-white);font-size:0.95rem;font-weight:600;margin-bottom:18px;text-transform:uppercase;letter-spacing:0.04em}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}.footer-col ul li a{color:rgba(255,255,255,0.6);font-size:0.88rem}.footer-col ul li a:hover{color:var(--color-white)}.footer-divider{height:1px;background:rgba(255,255,255,0.1);margin:0 0 24px}.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-bottom:32px;font-size:0.82rem;color:rgba(255,255,255,0.5)}.footer-bottom-links{display:flex;gap:16px}.footer-bottom-links a{color:rgba(255,255,255,0.5)}.footer-bottom-links a:hover{color:var(--color-white)}
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Singapore Business Visa &amp; Tourist Visa Checklist 2026: Documents Required for Indians | My Visa Assistance</title>
+ <meta name="description" content="Complete Singapore Business Visa and Tourist Visa document checklist for Indian citizens in 2026. Passport, photos, cover letter, bank statement, V-39 form, invitation letter, and profession-wise document requirements for both visa types.">
+ <meta name="keywords" content="Singapore business visa checklist, Singapore tourist visa checklist, Singapore visa documents 2026, Singapore visa for Indians, Singapore business visit visa, Singapore tourist visa requirements, V-39 form Singapore, Singapore visa application">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="My Visa Assistance Team">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/blog/singapore-business-visa-checklist">
+ <meta property="og:title" content="Singapore Business Visa &amp; Tourist Visa Checklist 2026: Documents Required for Indians">
+ <meta property="og:description" content="Complete Singapore Business Visa and Tourist Visa document checklist for Indian citizens in 2026. Passport, photos, cover letter, bank statement, V-39 form, invitation letter, and profession-wise document requirements.">
+ <meta property="og:image" content="https://myvisaassistance.com/blog/images/singapore-business-visa-checklist.svg">
+ <meta property="article:published_time" content="2026-07-03">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <!-- Article Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Singapore Business Visa &amp; Tourist Visa Checklist 2026: Documents Required for Indians",
+ "description": "Complete Singapore Business Visa and Tourist Visa document checklist for Indian citizens in 2026. Includes passport, photos, cover letter, bank statement, V-39 form, invitation letter, and profession-wise document requirements.",
+ "author": { "@type": "Organization", "name": "My Visa Assistance" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-07-03",
+ "dateModified": "2026-07-03",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://myvisaassistance.com/blog/singapore-business-visa-checklist" }
+ }
+ </script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/blog/singapore-business-visa-checklist">
+ <style>
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+ .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ .blog-content h3 { margin-top: 1.5em; }
+ .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+ .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+ .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+ .blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+ .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content th { background: var(--color-primary); color: var(--color-white); }
+ .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+ .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+ .blog-content .infographic { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 12px; padding: 30px; margin: 2rem 0; text-align: center; }
+ .blog-content .infographic svg { max-width: 100%; height: auto; }
+ .blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+ .blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+ .blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+ .blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+ .blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+ .blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+ .blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+ .blog-content .ref-list { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 25px; margin: 1.5rem 0; }
+ .blog-content .ref-list h4 { color: var(--color-primary); margin-bottom: 0.8em; }
+ .blog-content .ref-list ol { margin-bottom: 0; }
+ .blog-content .ref-list ol li { list-style: decimal; margin-bottom: 0.5rem; }
+ .blog-content .ref-list a { word-break: break-all; }
+ .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+ .blog-content .featured-image svg { display: block; width: 100%; height: auto; }
+ .blog-content .checklist-box { background: #f0fdf4; border: 2px solid var(--color-accent-alt); border-radius: 12px; padding: 28px 30px; margin: 2rem 0; }
+ .blog-content .checklist-box h4 { color: var(--color-primary); font-size: 1.2rem; margin-bottom: 0.5em; display: flex; align-items: center; gap: 8px; }
+ .blog-content .checklist-box h4 i { color: var(--color-accent-alt); }
+ .blog-content .checklist-box ul { padding-left: 0; margin-bottom: 0; }
+ .blog-content .checklist-box ul li { list-style: none; padding: 8px 0; border-bottom: 1px solid rgba(165, 213, 73, 0.15); display: flex; align-items: flex-start; gap: 10px; }
+ .blog-content .checklist-box ul li:last-child { border-bottom: none; }
+ .blog-content .checklist-box ul li::before { content: "✓"; color: var(--color-accent-alt); font-weight: 700; flex-shrink: 0; }
+ .blog-content .step-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin: 1rem 0; display: flex; gap: 16px; align-items: flex-start; }
+ .blog-content .step-card .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--color-accent); color: var(--color-primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; }
+ .blog-content .step-card .step-content { flex: 1; }
+ .blog-content .step-card .step-content h4 { margin-bottom: 0.3em; font-size: 1.05rem; }
+ .blog-content .step-card .step-content p { margin-bottom: 0; font-size: 0.95rem; }
+ .blog-content .tip-box { background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .tip-box strong { color: #92400e; }
+ .blog-content .warning-box { background: #fef2f2; border: 1px solid #fecaca; border-left: 4px solid #ef4444; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .warning-box strong { color: #991b1b; }
+ .blog-content .comparison-table th:first-child { width: 35%; }
+ .blog-content .visa-type-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+ .blog-content .visa-type-header i { font-size: 1.8rem; color: var(--color-accent); }
+ </style>
+
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+  "@type": "ListItem",
+  "position": 1,
+  "name": "Home",
+  "item": "https://myvisaassistance.com"
+  }, {
+  "@type": "ListItem",
+  "position": 2,
+  "name": "Blog",
+  "item": "https://myvisaassistance.com/blog/"
+  }, {
+  "@type": "ListItem",
+  "position": 3,
+  "name": "Singapore Business Visa & Tourist Visa Checklist",
+  "item": "https://myvisaassistance.com/blog/singapore-business-visa-checklist"
+  }]
+  }
+  </script>
+</head>
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>Singapore Business Visa &amp; Tourist Visa Checklist</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+ <h1>Singapore Business Visa &amp; Tourist Visa Checklist 2026: Complete Document Requirements for Indian Citizens</h1>
+
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: July 3, 2026</span>
+ <span><i class="bi bi-clock"></i> 10 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ </div>
+
+ <!-- Featured Image -->
+ <div class="featured-image">
+ <img src="/blog/images/singapore-tourist-visa.svg" alt="Singapore Business Visa and Tourist Visa Checklist - Complete Document Requirements 2026" width="1200" height="630" loading="eager">
+ </div>
+
+ <p>Singapore is one of the most sought-after destinations for Indian travellers, whether for tourism or business. However, the visa application process requires careful preparation of documents. This comprehensive checklist covers everything you need to know about the <strong>Singapore Tourist Visa</strong> and <strong>Singapore Business Visit Visa</strong> document requirements for Indian citizens in 2026.</p>
+
+ <p>For a broader overview of Singapore entry requirements, visit our detailed <a href="/blog/singapore-tourist-visa">Singapore Tourist Visa Guide</a> or check the official <a href="/visa-guide/singapore-visa">Singapore Visa Guide</a>.</p>
+
+ <!-- ============ COMPARISON TABLE ============ -->
+ <h2>Quick Comparison: Tourist Visa vs Business Visit Visa</h2>
+
+ <div class="comparison-table">
+ <table>
+ <thead>
+ <tr>
+ <th>Requirement</th>
+ <th>Tourist Visa</th>
+ <th>Business Visit Visa</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Passport Validity</td>
+ <td>6+ months from departure</td>
+ <td>6+ months from departure</td>
+ </tr>
+ <tr>
+ <td>Cover Letter</td>
+ <td>Personal or company letterhead (if self-employed)</td>
+ <td>Company letterhead with stamp &amp; signature (mandatory)</td>
+ </tr>
+ <tr>
+ <td>Invitation Letter</td>
+ <td>Not required</td>
+ <td>From Singapore company (mandatory)</td>
+ </tr>
+ <tr>
+ <td>V-39 Form</td>
+ <td>Not required</td>
+ <td>Required (sponsored by Singapore entity)</td>
+ </tr>
+ <tr>
+ <td>Minimum Bank Balance</td>
+ <td>₹80,000 per person (liquid funds)</td>
+ <td>₹80,000 per person (liquid funds)</td>
+ </tr>
+ <tr>
+ <td>Block Air Ticket</td>
+ <td>Required</td>
+ <td>Required</td>
+ </tr>
+ <tr>
+ <td>Hotel Booking</td>
+ <td>Required (cancellable)</td>
+ <td>Not required (if company arranges accommodation)</td>
+ </tr>
+ <tr>
+ <td>Salary Slips</td>
+ <td>Last 3 months (for employees)</td>
+ <td>Last 3 months (for employees)</td>
+ </tr>
+ <tr>
+ <td>Visa Validity</td>
+ <td>2 months to 2 years (embassy discretion)</td>
+ <td>2 months to 2 years (embassy discretion)</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <!-- ============ TOURIST VISA CHECKLIST ============ -->
+ <h2>Singapore Tourist Visa — Complete Document Checklist</h2>
+
+ <div class="visa-type-header">
+ <i class="bi bi-airplane"></i>
+ <p style="margin-bottom:0;font-size:1.05rem;">For Indian citizens visiting Singapore for tourism, sightseeing, or visiting friends and family.</p>
+ </div>
+
+ <h3>Essential Documents</h3>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-passport"></i> Passport &amp; Identity Documents</h4>
+ <ul>
+ <li>Original valid passport — must be valid for more than 6 months from the date of departure</li>
+ <li>Old passport (if available)</li>
+ <li>Visa application form (Form 14A) — duly filled and signed</li>
+ </ul>
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-camera"></i> Photograph Requirements</h4>
+ <ul>
+ <li>2 photos — 35mm × 45mm, 80% face cover</li>
+ <li>Matt finish, white background</li>
+ <li>Without spectacles (glasses)</li>
+ <li>Not older than 6 months</li>
+ <li>Do not wear white clothes</li>
+ <li>Neutral expression</li>
+ <li>Ears should be visible</li>
+ <li>Teeth should not be visible</li>
+ </ul>
+ </div>
+
+ <div class="tip-box">
+ <strong>Pro Tip:</strong> Kindly share a digital soft copy of photos for verification before printing. This helps avoid rejection due to photo discrepancies at the visa application centre.
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-file-text"></i> Cover Letter</h4>
+ <ul>
+ <li><strong>If self-employed:</strong> Cover letter on company letterhead with sign and stamp of the company</li>
+ <li><strong>If employed:</strong> Cover letter from employer on company letterhead</li>
+ <li><strong>If retired/student:</strong> Personal cover letter explaining purpose of visit and travel itinerary</li>
+ </ul>
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-wallet2"></i> Financial Documents</h4>
+ <ul>
+ <li>E-bank statement of the last 6 months</li>
+ <li>Minimum balance of ₹80,000 per person (tentative liquid funds)</li>
+ </ul>
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-ticket"></i> Travel &amp; Accommodation</h4>
+ <ul>
+ <li>Block air ticket (confirmed itinerary)</li>
+ <li>Hotel block — which allows you cancellation</li>
+ </ul>
+ </div>
+
+ <h3>Profession-Wise Document Requirements</h3>
+
+ <h4>Employee</h4>
+ <div class="checklist-box">
+ <ul>
+ <li>Last 3 months' salary slips</li>
+ <li>Employment cover letter on company letterhead</li>
+ <li>Leave approval letter (if applicable)</li>
+ </ul>
+ </div>
+
+ <h4>Self-Employed / Business Owner</h4>
+ <div class="checklist-box">
+ <ul>
+ <li>GST Certificate / Incorporation Certificate / Shop Act (with English translation) / Udyam Aadhar</li>
+ <li>Company e-bank statement (last 6 months)</li>
+ <li>Company ITR Acknowledgement Page of the last 3 years</li>
+ <li>Cover letter on company letterhead with stamp and signature</li>
+ </ul>
+ </div>
+
+ <h4>Retired</h4>
+ <div class="checklist-box">
+ <ul>
+ <li>Retirement letter / Pension passbook or statement — in English language</li>
+ <li>Personal cover letter explaining purpose of visit</li>
+ <li>Sponsorship documents (if sponsored by family member)</li>
+ </ul>
+ </div>
+
+ <h4>Student</h4>
+ <div class="checklist-box">
+ <ul>
+ <li>Original NOC (No Objection Certificate) and Bonafide Certificate from school/college with sign and stamp</li>
+ <li>Sponsorship documents from parents/guardian</li>
+ <li>Parent's bank statement (last 6 months)</li>
+ </ul>
+ </div>
+
+ <!-- ============ BUSINESS VISA CHECKLIST ============ -->
+ <h2>Singapore Business Visit Visa — Complete Document Checklist</h2>
+
+ <div class="visa-type-header">
+ <i class="bi bi-briefcase"></i>
+ <p style="margin-bottom:0;font-size:1.05rem;">For Indian citizens travelling to Singapore for business meetings, conferences, trade fairs, or client visits.</p>
+ </div>
+
+ <h3>Essential Documents</h3>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-passport"></i> Passport &amp; Identity Documents</h4>
+ <ul>
+ <li>Original valid passport — must be valid for more than 6 months from the date of departure</li>
+ <li>Old passport (if available)</li>
+ <li>Visa application form — duly filled and signed</li>
+ </ul>
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-camera"></i> Photograph Requirements</h4>
+ <ul>
+ <li>2 photos — 35mm × 45mm, 80% face cover</li>
+ <li>Matt finish, white background</li>
+ <li>Without spectacles (glasses)</li>
+ <li>Not older than 6 months</li>
+ <li>Do not wear white clothes</li>
+ <li>Neutral expression</li>
+ <li>Ears should be visible</li>
+ <li>Teeth should not be visible</li>
+ </ul>
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-file-earmark-text"></i> Business Documents</h4>
+ <ul>
+ <li><strong>Cover Letter</strong> from Indian company on letterhead with stamp and signature</li>
+ <li><strong>Invitation Letter</strong> from Singapore company on company letterhead with stamp and sign</li>
+ <li><strong>V-39 Form</strong> — Local Contact / Sponsor Form (duly filled by the Singapore host company)</li>
+ </ul>
+ </div>
+
+ <div class="info-box">
+ <h4>What is the V-39 Form?</h4>
+ <p>The V-39 (formerly Form 14A Appendix) is the <strong>Local Contact/Sponsor Form</strong> required for business visa applicants. The Singapore host company must fill and submit this form as part of your visa application. It serves as an undertaking by the Singapore company for your visit and confirms the business purpose of your trip.</p>
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-wallet2"></i> Financial Documents</h4>
+ <ul>
+ <li>E-bank statement of the last 6 months</li>
+ <li>Minimum balance of ₹80,000 per person (tentative liquid funds)</li>
+ <li>Company e-bank statement (for self-employed)</li>
+ </ul>
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-ticket"></i> Travel Documents</h4>
+ <ul>
+ <li>Block air ticket (confirmed itinerary)</li>
+ </ul>
+ </div>
+
+ <h3>Profession-Wise Document Requirements</h3>
+
+ <h4>Employee</h4>
+ <div class="checklist-box">
+ <ul>
+ <li>Last 3 months' salary slips</li>
+ <li>Business cover letter from HR or manager on company letterhead</li>
+ </ul>
+ </div>
+
+ <h4>Self-Employed / Business Owner</h4>
+ <div class="checklist-box">
+ <ul>
+ <li>GST Certificate / Incorporation Certificate / Shop Act (with English translation) / Udyam Aadhar</li>
+ <li>Company e-bank statement (last 6 months)</li>
+ <li>Company ITR Acknowledgement Page of the last 3 years</li>
+ <li>Cover letter on company letterhead with stamp and signature</li>
+ </ul>
+ </div>
+
+ <!-- ============ IMPORTANT NOTES ============ -->
+ <h2>Important Notes for Both Visa Types</h2>
+
+ <div class="warning-box">
+ <strong>Photo Guidelines — Strict Compliance Required:</strong> Photos must be 35mm × 45mm with 80% face coverage, matt finish, white background, without spectacles, and not older than 6 months. Do not wear white clothes. Maintain a neutral expression with ears visible and teeth not visible.
+ </div>
+
+ <div class="checklist-box">
+ <h4><i class="bi bi-info-circle"></i> Key Points to Remember</h4>
+ <ul>
+ <li><strong>Visa Validity:</strong> 2 months, 6 months, 1 year, or 2 years — depends on embassy discretion and your travel history</li>
+ <li><strong>Language:</strong> All documents shall be provided in English language only. Non-English documents must be accompanied by certified translations</li>
+ <li><strong>Document Quality:</strong> To start the process, kindly provide clear colour scan copies of required documents. Do not share blurry, scattered, or half-visible photos. Do not cover any details by placing fingers or other objects</li>
+ <li><strong>Additional Documents:</strong> At the time of submission or after the submission, the embassy/consulate/visa application centre may ask for additional documents or information</li>
+ <li><strong>Standard Checklist:</strong> The above provided checklist is the standard one. Additional documents may be advised as per applicant's profile</li>
+ <li><strong>Passport Covers:</strong> Please remove passport covers before handing over your passport at the visa application centre</li>
+ <li><strong>Digital Photo Verification:</strong> Kindly share a digital soft copy of photos for verification before submitting physical copies</li>
+ </ul>
+ </div>
+
+ <!-- ============ PROCESS OVERVIEW ============ -->
+ <h2>Application Process Overview</h2>
+
+ <div class="step-card">
+ <div class="step-num">1</div>
+ <div class="step-content">
+ <h4>Prepare Documents</h4>
+ <p>Gather all required documents as per the checklist above. Ensure colour scan copies are clear and all details are visible.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">2</div>
+ <div class="step-content">
+ <h4>Submit Application</h4>
+ <p>Submit your visa application through the authorised visa centre (e.g., VFS Global Singapore Visa Application Centre) or the nearest Singapore High Commission / Embassy.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">3</div>
+ <div class="step-content">
+ <h4>Pay Visa Fee</h4>
+ <p>Pay the applicable visa fee and service charges at the visa application centre. Keep the receipt for reference.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">4</div>
+ <div class="step-content">
+ <h4>Biometrics &amp; Photo</h4>
+ <p>Visit the visa application centre in person to submit biometrics (fingerprints) and your photograph.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">5</div>
+ <div class="step-content">
+ <h4>Track Application</h4>
+ <p>Track your visa application status online using the reference number provided at submission. Processing typically takes 3-8 working days.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">6</div>
+ <div class="step-content">
+ <h4>Collect Passport</h4>
+ <p>Once a decision is made, collect your passport from the visa application centre or opt for courier delivery.</p>
+ </div>
+ </div>
+
+ <!-- ============ FAQ ============ -->
+ <h2>Frequently Asked Questions</h2>
+
+ <h3>How long does it take to process a Singapore visa?</h3>
+ <p>Standard processing takes <strong>3-8 working days</strong>. However, it can vary depending on the embassy workload and your application profile.</p>
+
+ <h3>Can I apply for a Singapore visa online?</h3>
+ <p>Visa applications for Indian citizens are typically submitted through authorised visa centres like VFS Global or directly at the Singapore High Commission. Some applications can be lodged through ICA's SAVE e-Service if you have a Singapore local contact with a SingPass ID.</p>
+
+ <h3>What is the visa fee for a Singapore visa?</h3>
+ <p>The visa fee is approximately <strong>SGD 30</strong> (around ₹1,800-2,000), plus applicable service charges at the visa application centre. Fees are subject to change.</p>
+
+ <h3>Can I extend my Singapore visa?</h3>
+ <p>Visa extension is not typically granted for tourist or business visit visas. You must depart before your authorised stay expires. Overstaying is a serious offence and can result in fines, deportation, or a ban from re-entering Singapore.</p>
+
+ <h3>Is a hotel booking necessary for a business visa?</h3>
+ <p>If the Singapore host company is arranging accommodation, hotel booking is not required. However, if you are arranging your own stay, hotel booking is recommended as proof of accommodation.</p>
+
+ <h3>Do I need travel insurance for a Singapore visa?</h3>
+ <p>While not mandatory for Indian passport holders, travel insurance is highly recommended to cover medical emergencies, trip cancellations, and baggage loss during your stay in Singapore.</p>
+
+ <!-- ============ CTA ============ -->
+ <div class="cta-section">
+ <h3>Need Help With Your Singapore Visa Application?</h3>
+ <p>Our team can guide you through the document preparation and application process. Get in touch for personalised assistance.</p>
+ <a href="/contact" class="btn btn-primary btn-lg">Contact Us Today</a>
+ </div>
+
+ <!-- ============ RELATED RESOURCES ============ -->
+ <h2>Related Resources</h2>
+ <ul>
+ <li><a href="/blog/singapore-tourist-visa">How to Apply for a Singapore Tourist Visa 2026: Process, Fees &amp; Requirements</a></li>
+ <li><a href="/visa-guide/singapore-visa">Singapore Visa Guide — Complete Information for Indian Citizens</a></li>
+ <li><a href="/visa-requirements/singapore-visa-requirements">Singapore Visa Requirements — Detailed Breakdown</a></li>
+ <li><a href="/blog/visa-document-checklist-2026">Essential Visa Document Checklist: What You Need for a Successful Application</a></li>
+ </ul>
+
+ <!-- ============ AUTHOR BOX ============ -->
+ <div class="author-box">
+ <div class="avatar">V</div>
+ <div>
+ <strong>My Visa Assistance Team</strong>
+ <p style="margin:4px 0 0;font-size:0.9rem;color:var(--color-text-light);">We are a team of visa and immigration specialists dedicated to providing accurate, up-to-date information to help travellers navigate visa processes worldwide. Our content is researched from official government sources and verified by immigration experts.</p>
+ </div>
+ </div>
+
+ </article>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <div class="logo-icon" aria-hidden="true">V</div>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+ <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Legal</h4>
+ <ul>
+ <li><a href="/privacy-policy">Privacy Policy</a></li>
+ <li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
+ <li><a href="/contact">Contact Us</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-bottom">
+ <span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a> &middot;
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+</body>
+</html>
