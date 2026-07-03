@@ -1,0 +1,108 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="jpBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#031B30"/>
+      <stop offset="50%" stop-color="#031B30"/>
+      <stop offset="100%" stop-color="#031B30"/>
+    </linearGradient>
+    <linearGradient id="jpAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E86020"/>
+      <stop offset="100%" stop-color="#d45514"/>
+    </linearGradient>
+    <linearGradient id="jpSun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E86020"/>
+      <stop offset="100%" stop-color="#f9a060"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#jpBg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="950" cy="200" r="350" fill="rgba(232, 96, 32, 0.07)"/>
+  <circle cx="200" cy="480" r="200" fill="rgba(232, 96, 32, 0.05)"/>
+
+  <!-- Japan Rising Sun motif -->
+  <g transform="translate(130, 140)">
+    <circle cx="60" cy="60" r="50" fill="url(#jpSun)" opacity="0.3"/>
+    <circle cx="60" cy="60" r="35" fill="url(#jpSun)" opacity="0.5"/>
+    <circle cx="60" cy="60" r="20" fill="url(#jpSun)" opacity="0.8"/>
+    <circle cx="60" cy="60" r="12" fill="#E86020"/>
+    <!-- Sun rays -->
+    <g stroke="#E86020" stroke-width="2" opacity="0.2">
+      <line x1="60" y1="0" x2="60" y2="120"/>
+      <line x1="0" y1="60" x2="120" y2="60"/>
+      <line x1="17" y1="17" x2="103" y2="103"/>
+      <line x1="103" y1="17" x2="17" y2="103"/>
+    </g>
+  </g>
+
+  <!-- Cherry blossom petals (sakura) -->
+  <g transform="translate(180, 260)" fill="#f5c6d0" opacity="0.25">
+    <circle cx="0" cy="0" r="15"/>
+    <circle cx="15" cy="-12" r="12"/>
+    <circle cx="-15" cy="-12" r="12"/>
+    <circle cx="12" cy="10" r="12"/>
+    <circle cx="-12" cy="10" r="12"/>
+  </g>
+  <g transform="translate(80, 340)" fill="#f5c6d0" opacity="0.18">
+    <circle cx="0" cy="0" r="10"/>
+    <circle cx="10" cy="-8" r="8"/>
+    <circle cx="-10" cy="-8" r="8"/>
+    <circle cx="8" cy="7" r="8"/>
+    <circle cx="-8" cy="7" r="8"/>
+  </g>
+
+  <!-- Torii gate silhouette -->
+  <g transform="translate(0, 350)" opacity="0.12">
+    <rect x="900" y="0" width="8" height="140" fill="white"/>
+    <rect x="980" y="0" width="8" height="140" fill="white"/>
+    <rect x="890" y="0" width="108" height="10" rx="3" fill="white"/>
+    <rect x="895" y="20" width="98" height="6" rx="2" fill="white"/>
+    <path d="M900,30 L940,70 L980,30" fill="none" stroke="white" stroke-width="4"/>
+  </g>
+
+  <!-- Mount Fuji silhouette -->
+  <g transform="translate(720, 340)" opacity="0.1">
+    <path d="M0,140 L100,0 L200,140 Z" fill="white"/>
+    <path d="M100,0 L120,20 L80,20 Z" fill="rgba(255,255,255,0.5)"/>
+  </g>
+
+  <!-- Badge -->
+  <rect x="420" y="110" width="360" height="50" rx="25" fill="url(#jpAccent)" opacity="0.9"/>
+  <text x="600" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="white" letter-spacing="2">
+    JAPAN TOURIST VISA GUIDE 2026
+  </text>
+
+  <!-- Main title -->
+  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1.5">
+    Japan Tourist Visa
+  </text>
+  <text x="600" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="600" fill="rgba(255,255,255,0.9)" letter-spacing="-0.5">
+    Complete Guide: Process, Fees
+  </text>
+  <text x="600" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="600" fill="rgba(255,255,255,0.9)" letter-spacing="-0.5">
+    Requirements &amp; Application Tips
+  </text>
+
+  <!-- Divider -->
+  <rect x="480" y="340" width="240" height="4" rx="2" fill="url(#jpAccent)"/>
+
+  <!-- Key info badges -->
+  <g transform="translate(600, 400)" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="rgba(255,255,255,0.85)">
+    <rect x="-240" y="-30" width="150" height="50" rx="10" fill="rgba(232, 96, 32, 0.2)" stroke="rgba(232, 96, 32, 0.4)" stroke-width="1"/>
+    <text x="-165" y="2" font-weight="700" fill="#E86020" font-size="18">&#8377; 1,100</text>
+    <text x="-165" y="18" font-size="12" fill="rgba(255,255,255,0.6)">Visa Fee</text>
+
+    <rect x="-70" y="-30" width="140" height="50" rx="10" fill="rgba(232, 96, 32, 0.2)" stroke="rgba(232, 96, 32, 0.4)" stroke-width="1"/>
+    <text x="0" y="2" font-weight="700" fill="#E86020" font-size="18">5-7 Days</text>
+    <text x="0" y="18" font-size="12" fill="rgba(255,255,255,0.6)">Processing</text>
+
+    <rect x="90" y="-30" width="150" height="50" rx="10" fill="rgba(232, 96, 32, 0.2)" stroke="rgba(232, 96, 32, 0.4)" stroke-width="1"/>
+    <text x="165" y="2" font-weight="700" fill="#E86020" font-size="18">90 Days</text>
+    <text x="165" y="18" font-size="12" fill="rgba(255,255,255,0.6)">Validity</text>
+  </g>
+
+  <!-- Bottom decorative line -->
+  <rect x="0" y="625" width="1200" height="5" fill="url(#jpAccent)"/>
+</svg>

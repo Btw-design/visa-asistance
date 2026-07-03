@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
+  --color-accent-alt: #A5D549;
+  --color-accent-alt-light: #bae56a;
+  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.section{padding:50px 0}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.nav-list{width:100%}}
+</style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Japan Tourist Visa 2026: Process, Fees, Requirements & Complete Guide | My Visa Assistance</title>
+ <meta name="description" content="Complete guide to Japan Tourist Visa for Indian citizens in 2026. Step-by-step application process, documents required, visa fees, processing time, eligibility, and essential travel tips for visiting Japan.">
+ <meta name="keywords" content="Japan tourist visa, Japan visa for Indians, Japan visa process 2026, Japan visa requirements, Japan visa fee, how to apply Japan visa, Japan tourist visa documents">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="My Visa Assistance Team">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/blog/japan-tourist-visa">
+ <meta property="og:title" content="Japan Tourist Visa 2026: Process, Fees, Requirements & Complete Guide">
+ <meta property="og:description" content="Complete guide to Japan Tourist Visa for Indian citizens. Step-by-step application process, documents required, visa fees, processing time, and travel tips.">
+ <meta property="og:image" content="https://myvisaassistance.com/blog/images/japan-tourist-visa.svg">
+ <meta property="article:published_time" content="2026-07-03">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <!-- Article Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Japan Tourist Visa 2026: Complete Guide to Process, Fees, Requirements & Application",
+ "description": "Complete guide to Japan Tourist Visa for Indian citizens. Step-by-step application process, documents required, visa fees, processing time, eligibility, and essential travel tips.",
+ "author": { "@type": "Organization", "name": "My Visa Assistance" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-07-03",
+ "dateModified": "2026-07-03",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://myvisaassistance.com/blog/japan-tourist-visa" }
+ }
+ </script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/blog/japan-tourist-visa">
+ <style>
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+ .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ .blog-content h3 { margin-top: 1.5em; }
+ .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+ .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+ .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+ .blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+ .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content th { background: var(--color-primary); color: var(--color-white); }
+ .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+ .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+ .blog-content .blog-meta .update-badge { background: var(--color-secondary); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+ .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+ .blog-content .featured-image img { display: block; width: 100%; height: auto; }
+ .blog-content .step-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin: 1rem 0; display: flex; gap: 16px; align-items: flex-start; }
+ .blog-content .step-card .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--color-accent); color: var(--color-primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; }
+ .blog-content .step-card .step-content { flex: 1; }
+ .blog-content .step-card .step-content h4 { margin-bottom: 0.3em; font-size: 1.05rem; }
+ .blog-content .step-card .step-content p { margin-bottom: 0; font-size: 0.95rem; }
+ .blog-content .tip-box { background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .tip-box strong { color: #92400e; }
+ .blog-content .warning-box { background: #fef2f2; border: 1px solid #fecaca; border-left: 4px solid #ef4444; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .warning-box strong { color: #991b1b; }
+ .blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+ .blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+ .blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+ .blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+ .blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+ .blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+ .blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+ .blog-content .ref-list { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 25px; margin: 1.5rem 0; }
+ .blog-content .ref-list h4 { color: var(--color-primary); margin-bottom: 0.8em; }
+ .blog-content .ref-list ol { margin-bottom: 0; }
+ .blog-content .ref-list ol li { list-style: decimal; margin-bottom: 0.5rem; }
+ .blog-content .ref-list a { word-break: break-all; }
+ .blog-content .table-wrap { overflow-x: auto; }
+ .blog-content .country-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+ @media(max-width:600px){ .blog-content .country-list { grid-template-columns: 1fr; } }
+ .blog-content .country-list li { background: var(--color-bg-alt); padding: 8px 14px; border-radius: 6px; font-size: 0.9rem; list-style: none; border-left: 3px solid var(--color-accent); }
+ .blog-content .download-box { background: linear-gradient(135deg, #f0fdf4, #ecfdf5); border: 2px solid var(--color-accent-alt); border-radius: 12px; padding: 28px 30px; margin: 2rem 0; text-align: center; }
+ .blog-content .download-box h4 { color: var(--color-primary); font-size: 1.2rem; margin-bottom: 0.5em; }
+ .blog-content .download-box p { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+ .blog-content .download-box .btn-download { display: inline-flex; align-items: center; gap: 8px; background: var(--color-primary); color: white; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: var(--transition); text-decoration: none; }
+ .blog-content .download-box .btn-download:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(3, 27, 48,0.3); }
+ .blog-content .faq-item { border: 1px solid var(--color-border); border-radius: 10px; margin: 1rem 0; overflow: hidden; }
+ .blog-content .faq-item h3 { margin: 0; padding: 18px 22px; font-size: 1.05rem; cursor: pointer; background: var(--color-bg-alt); display: flex; justify-content: space-between; align-items: center; }
+ .blog-content .faq-item h3::after { content: '+'; font-size: 1.3rem; color: var(--color-accent); font-weight: 700; transition: transform 0.3s; }
+ .blog-content .faq-item.open h3::after { content: '−'; }
+ .blog-content .faq-item .faq-answer { padding: 0 22px 18px; }
+ .blog-content .faq-item .faq-answer p { margin-bottom: 0.5rem; }
+ .blog-content .faq-item .faq-answer ul { margin-bottom: 0; }
+ </style>
+
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+  "@type": "ListItem",
+  "position": 1,
+  "name": "Home",
+  "item": "https://myvisaassistance.com"
+  }, {
+  "@type": "ListItem",
+  "position": 2,
+  "name": "Blog",
+  "item": "https://myvisaassistance.com/blog/"
+  }, {
+  "@type": "ListItem",
+  "position": 3,
+  "name": "Japan Tourist Visa Guide",
+  "item": "https://myvisaassistance.com/blog/japan-tourist-visa"
+  }]
+  }
+  </script>
+</head>
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>Japan Tourist Visa Guide</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+
+ <h1>Japan Tourist Visa 2026: Complete Guide to Process, Fees, Requirements &amp; Application Tips</h1>
+
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: July 3, 2026</span>
+ <span><i class="bi bi-clock"></i> 18 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ <span class="update-badge"><i class="bi bi-star-fill"></i> Updated 2026</span>
+ </div>
+
+ <!-- Featured Image -->
+ <div class="featured-image">
+ <img src="/blog/images/japan-tourist-visa.svg" alt="Japan Tourist Visa Complete Guide 2026 - Process, Fees & Requirements" width="1200" height="630" loading="eager">
+ </div>
+
+ <p>Japan &mdash; the Land of the Rising Sun &mdash; is one of the world's most captivating travel destinations. From the neon-lit streets of Tokyo's Shibuya district and the serene temples of Kyoto to the majestic Mount Fuji and the historic castles of Osaka, Japan offers an unparalleled blend of ancient traditions and cutting-edge modernity. For Indian travellers and citizens of many other nations, visiting Japan requires careful visa planning.</p>
+
+ <p>This comprehensive guide covers everything you need to know about the <strong>Japan Tourist Visa (Temporary Visitor Visa)</strong> in 2026 &mdash; who needs a visa, the step-by-step application process, required documents, fees, processing times, and expert tips to ensure a successful application for your dream Japan trip.</p>
+
+ <div class="info-box">
+ <h4>Quick Summary: Japan Tourist Visa at a Glance</h4>
+ <p><strong>Visa Type:</strong> Temporary Visitor Visa (Single/Double/Multiple Entry)<br>
+ <strong>Fee:</strong> &yen;3,000 (approx. &#8377;1,100) for single entry; &yen;6,000 (approx. &#8377;2,200) for double/multiple<br>
+ <strong>Processing Time:</strong> 5&ndash;7 working days (standard)<br>
+ <strong>Validity:</strong> Typically 90 days from issue; stay up to 15&ndash;90 days per visit<br>
+ <strong>Where to Apply:</strong> Japanese Embassy/Consulate or VFS Global Japan Visa Application Centre<br>
+ <strong>Application Window:</strong> Up to 3 months before your intended travel date</p>
+ </div>
+
+ <h2>Do You Need a Japan Tourist Visa?</h2>
+
+ <h3>Visa-Exempt Countries</h3>
+ <p>Citizens of the following countries and regions can visit Japan <strong>without a visa</strong> for short tourist stays (typically up to 90 days):</p>
+
+ <ul class="country-list">
+ <li>United States</li>
+ <li>Canada</li>
+ <li>United Kingdom</li>
+ <li>Australia</li>
+ <li>New Zealand</li>
+ <li>Singapore</li>
+ <li>Malaysia</li>
+ <li>Thailand</li>
+ <li>South Korea</li>
+ <li>Hong Kong (SAR)</li>
+ <li>Taiwan</li>
+ <li>Brunei</li>
+ <li>Indonesia</li>
+ <li>UAE</li>
+ <li>EU/Schengen Area countries (all 27)</li>
+ <li>Switzerland</li>
+ <li>Norway</li>
+ <li>Iceland</li>
+ <li>Liechtenstein</li>
+ <li>Andorra</li>
+ <li>Argentina</li>
+ <li>Bahamas</li>
+ <li>Chile</li>
+ <li>Costa Rica</li>
+ <li>El Salvador</li>
+ <li>Guatemala</li>
+ <li>Honduras</li>
+ <li>Israel</li>
+ <li>Lesotho</li>
+ <li>Mexico</li>
+ <li>Suriname</li>
+ <li>Turkey</li>
+ <li>Uruguay</li>
+ <li>San Marino</li>
+ <li>Monaco</li>
+ <li>Qatar</li>
+ <li>Oman</li>
+ <li>Saudi Arabia</li>
+ <li>Kuwait</li>
+ <li>Bahrain</li>
+ </ul>
+
+ <div class="tip-box">
+ <strong>Note:</strong> Visa-exempt travellers still need a valid passport (with sufficient validity), confirmed return/onward tickets, and may be asked to show proof of sufficient funds and accommodation at immigration. The immigration officer at the port of entry decides the permitted stay duration.
+ </div>
+
+ <h3>Visa-Required Countries</h3>
+ <p>Citizens of countries not listed above <strong>must obtain a visa</strong> before travelling to Japan. This includes major source markets such as:</p>
+ <ul>
+ <li><strong>India</strong></li>
+ <li>China</li>
+ <li>Philippines</li>
+ <li>Vietnam</li>
+ <li>Cambodia</li>
+ <li>Myanmar</li>
+ <li>Laos</li>
+ <li>Bangladesh</li>
+ <li>Pakistan</li>
+ <li>Sri Lanka</li>
+ <li>Nepal</li>
+ <li>Bhutan</li>
+ <li>Maldives</li>
+ <li>Nigeria</li>
+ <li>Ghana</li>
+ <li>South Africa</li>
+ <li>Russia</li>
+ <li>Ukraine</li>
+ <li>Belarus</li>
+ <li>Many Middle Eastern and African nations</li>
+ </ul>
+
+ <p>For the most up-to-date list, always check the official website of the <strong>Ministry of Foreign Affairs of Japan (MOFA)</strong> or consult your nearest Japanese Embassy/Consulate.</p>
+
+ <h2>Types of Japan Tourist Visas</h2>
+
+ <p>Japan issues the <strong>Temporary Visitor Visa</strong> for tourism purposes. This visa category covers sightseeing, visiting friends and family, attending conferences (without payment), and short-term recreational travel. The main types are:</p>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Visa Type</th>
+ <th>Entries</th>
+ <th>Stay Duration</th>
+ <th>Validity</th>
+ <th>Fee</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Single Entry Tourist Visa</td>
+ <td>1 entry</td>
+ <td>15 / 30 / 90 days</td>
+ <td>3 months from issue</td>
+ <td>&yen;3,000 (&#8377;1,100)</td>
+ </tr>
+ <tr>
+ <td>Double Entry Tourist Visa</td>
+ <td>2 entries</td>
+ <td>15 / 30 / 90 days per visit</td>
+ <td>6 months from issue</td>
+ <td>&yen;6,000 (&#8377;2,200)</td>
+ </tr>
+ <tr>
+ <td>Multiple Entry Tourist Visa</td>
+ <td>Multiple entries</td>
+ <td>15 / 30 / 90 days per visit</td>
+ <td>1&ndash;3 years (case-by-case)</td>
+ <td>&yen;6,000 (&#8377;2,200)</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="info-box">
+ <h4>Multiple Entry Visa for Indian Citizens</h4>
+ <p>Since 2023, Japan has relaxed its multiple-entry visa requirements for Indian nationals. If you have a sufficient travel history (e.g., previous visits to Japan or other developed countries like the US, UK, Schengen, Australia, or Canada) and strong financial standing, you may qualify for a 1&ndash;3 year multiple-entry visa. This is decided on a case-by-case basis by the Embassy.</p>
+ </div>
+
+ <h2>Japan Tourist Visa Requirements for Indian Citizens</h2>
+
+ <p>Indian citizens must apply for a Japan Tourist Visa through the <strong>Japanese Embassy/Consulate</strong> in their jurisdiction or through the authorised <strong>VFS Global Japan Visa Application Centre</strong>. Below is the complete list of required documents:</p>
+
+ <h3>Core Documents</h3>
+ <ul>
+ <li><strong>Valid Passport:</strong> Original passport with at least <strong>6 months' validity</strong> beyond your intended departure date from Japan. Must have at least <strong>2 blank pages</strong> for visa stamping. Include copies of all previous visas and the bio-data page.</li>
+ <li><strong>Japan Visa Application Form:</strong> Duly filled and signed. The form is available for download from the MOFA website or the Embassy/Consulate website. Fill it in <strong>capital letters (block letters)</strong> in black or blue ink.</li>
+ <li><strong>Passport-Size Photographs:</strong> Two recent colour photographs (4.5 cm &times; 4.5 cm or 2&rdquo; &times; 2&rdquo;), white background, taken within the last 6 months. The photo must show a front-facing view with a neutral expression.</li>
+ <li><strong>Cover Letter:</strong> A typed letter addressed to the Visa Officer explaining the purpose of your visit, travel itinerary, places you plan to visit, duration of stay, and your commitment to return to India. Include your name, passport number, travel dates, and contact details.</li>
+ <li><strong>Detailed Travel Itinerary:</strong> A day-wise schedule of your planned activities in Japan, including dates, cities, attractions, and accommodation details.</li>
+ <li><strong>Flight Reservation / Confirmed Tickets:</strong> Round-trip flight itinerary showing entry and exit from Japan. Many travel agents provide a block booking for visa purposes.</li>
+ <li><strong>Hotel Reservations:</strong> Confirmed accommodation bookings for the entire duration of your stay in Japan (e.g., hotels, hostels, Airbnbs). If staying with friends/family, a Letter of Invitation and their residence proof may be required.</li>
+ </ul>
+
+ <h3>Financial Documents</h3>
+ <ul>
+ <li><strong>Bank Statements:</strong> Original bank statements for the last <strong>6 months</strong> (on bank letterhead or with bank seal/stamp). A minimum balance of &#8377;2&ndash;3 lakh is generally recommended, though there is no officially published minimum.</li>
+ <li><strong>Income Tax Returns (ITR):</strong> ITR acknowledgements or Form 16 for the last <strong>3 assessment years</strong>. This demonstrates your financial stability and ties to India.</li>
+ <li><strong>Salary Slips:</strong> Last 3&ndash;6 months' salary slips (if employed).</li>
+ <li><strong>Fixed Deposit / Savings Certificates:</strong> Additional proof of financial assets to strengthen your application (FDs, PPF, mutual funds, property documents, etc.).</li>
+ </ul>
+
+ <h3>Employment / Student Documents</h3>
+ <ul>
+ <li><strong>For Salaried Employees:</strong> Employment letter stating your designation, salary, and duration of employment; Leave Approval Letter (NOC) from your employer granting leave for the travel dates.</li>
+ <li><strong>For Self-Employed / Business Owners:</strong> Business registration certificate, GST registration, Income Tax Returns for 3 years, and a letter explaining the business.</li>
+ <li><strong>For Students:</strong> Identity card from your educational institution, Bonafide Certificate / NOC from the college/university, and a copy of your parents' ITR and bank statements (if financially dependent).</li>
+ <li><strong>For Retired Persons:</strong> Pension statements, proof of retirement, and bank statements showing regular pension deposits.</li>
+ <li><strong>For Homemakers / Dependents:</strong> Affidavit of financial support from the sponsor, along with the sponsor's bank statements, ITR, and a letter of relationship.</li>
+ </ul>
+
+ <h3>Additional Documents</h3>
+ <ul>
+ <li><strong>Travel Insurance:</strong> While not mandatory for a single-entry visa, travel insurance covering medical expenses (minimum USD 50,000) is highly recommended and may be requested, especially during certain seasons.</li>
+ <li><strong>Previous Passport:</strong> If you have held a previous passport, submit a copy of its bio-data page and any previous visas.</li>
+ <li><strong>Proof of Accommodation:</strong> If invited by a host in Japan, submit a Letter of Invitation along with their residence certificate (住民票/Juminhyo) and passport copy.</li>
+ </ul>
+
+ <div class="warning-box">
+ <strong>Important:</strong> All documents not originally in English or Japanese must be accompanied by a certified translation. Incomplete documentation is the most common reason for visa delays and rejections. Submit original documents where specified, along with photocopies.
+ </div>
+
+ <h2>Step-by-Step Application Process</h2>
+
+ <p>Follow these steps to apply for your Japan Tourist Visa:</p>
+
+ <div class="step-card">
+ <div class="step-num">1</div>
+ <div class="step-content">
+ <h4>Determine Your Visa Requirement &amp; Type</h4>
+ <p>Check if your nationality requires a Japan visa. If yes, decide whether you need a Single, Double, or Multiple Entry visa based on your travel plans. Review the stay duration you need (15, 30, or 90 days).</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">2</div>
+ <div class="step-content">
+ <h4>Identify Your Jurisdiction</h4>
+ <p>Determine which Japanese Embassy or Consulate handles visa applications for your region. India has Japanese Embassies/Consulates in <strong>New Delhi, Mumbai, Chennai, Kolkata, Bengaluru, and Ahmedabad</strong>. You must apply at the mission covering your state of residence. VFS Global centres operate under these missions.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">3</div>
+ <div class="step-content">
+ <h4>Download and Complete the Visa Application Form</h4>
+ <p>Download the official Japan Visa Application Form from the Embassy website or VFS Global portal. Fill it in capital letters. Ensure all sections are completed accurately &mdash; personal details, passport information, travel history, employment, accommodation, and declarations.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">4</div>
+ <div class="step-content">
+ <h4>Gather All Required Documents</h4>
+ <p>Collect all documents as per the checklist above. Ensure your passport has sufficient validity, your photos meet the 4.5 cm &times; 4.5 cm specification (white background), and your bank statements clearly show sufficient funds and regular transactions.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">5</div>
+ <div class="step-content">
+ <h4>Book a Visa Appointment</h4>
+ <p>Visit the VFS Global Japan website or the Embassy's appointment portal to book a slot. Appointments are typically available 2&ndash;4 weeks in advance. During peak travel seasons (March&ndash;May for cherry blossoms, October&ndash;November for autumn colours), book well ahead.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">6</div>
+ <div class="step-content">
+ <h4>Attend the Appointment &amp; Submit Documents</h4>
+ <p>Visit the VFS Global Centre or Embassy on your scheduled date and time. Submit the original and photocopied documents, provide biometrics (photograph and fingerprints) if required, and pay the visa fee. For VFS Global, a service fee applies in addition to the visa fee.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">7</div>
+ <div class="step-content">
+ <h4>Track Your Application</h4>
+ <p>After submission, you will receive a tracking ID to monitor the status of your application online. You may also receive SMS updates if you opted for that service. Standard processing takes <strong>5&ndash;7 working days</strong>.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">8</div>
+ <div class="step-content">
+ <h4>Collect Your Passport</h4>
+ <p>Once processed, you can collect your passport from the centre or have it couriered to your address. If approved, verify the visa sticker details immediately &mdash; name spelling, passport number, validity dates, and number of entries. Report any discrepancies to the Embassy immediately.</p>
+ </div>
+ </div>
+
+ <div class="tip-box">
+ <strong>Pro Tip:</strong> Apply <strong>at least 4 weeks before</strong> your planned travel date to allow sufficient processing time. During peak seasons (Golden Week in Japan, Diwali, Christmas holidays), processing may take longer due to higher application volumes. Never book non-refundable flights or hotels until your visa is approved.
+ </div>
+
+ <h2>Japan Tourist Visa Fees 2026</h2>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Visa Type</th>
+ <th>Visa Fee (JPY)</th>
+ <th>Approx. Fee (INR)</th>
+ <th>VFS Service Fee (INR)</th>
+ <th>Total (Approx. INR)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Single Entry</td>
+ <td>&yen;3,000</td>
+ <td>&#8377;1,100</td>
+ <td>&#8377;1,200&ndash;1,500</td>
+ <td>&#8377;2,300&ndash;2,600</td>
+ </tr>
+ <tr>
+ <td>Double Entry</td>
+ <td>&yen;6,000</td>
+ <td>&#8377;2,200</td>
+ <td>&#8377;1,200&ndash;1,500</td>
+ <td>&#8377;3,400&ndash;3,700</td>
+ </tr>
+ <tr>
+ <td>Multiple Entry</td>
+ <td>&yen;6,000</td>
+ <td>&#8377;2,200</td>
+ <td>&#8377;1,200&ndash;1,500</td>
+ <td>&#8377;3,400&ndash;3,700</td>
+ </tr>
+ <tr>
+ <td>Transit Visa</td>
+ <td>&yen;700</td>
+ <td>&#8377;250</td>
+ <td>&#8377;1,200&ndash;1,500</td>
+ <td>&#8377;1,450&ndash;1,750</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="info-box">
+ <h4>Fee Notes</h4>
+ <p><i class="bi bi-info-circle"></i> Visa fees are non-refundable regardless of the application outcome.<br>
+ <i class="bi bi-info-circle"></i> Fees are payable in local currency (INR) at the prevailing exchange rate at the time of application.<br>
+ <i class="bi bi-info-circle"></i> VFS Global service fees are in addition to the visa fee and vary by location.<br>
+ <i class="bi bi-info-circle"></i> Some applicants may be exempt from visa fees (e.g., diplomats, certain official passport holders).</p>
+ </div>
+
+ <h2>Processing Time</h2>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Application Channel</th>
+ <th>Standard Processing</th>
+ <th>Expedited</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Direct Embassy/Consulate Application</td>
+ <td>5&ndash;7 working days</td>
+ <td>Not available</td>
+ </tr>
+ <tr>
+ <td>VFS Global Japan Visa Centre</td>
+ <td>5&ndash;10 working days (including transit to Embassy)</td>
+ <td>Not available</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <p>Processing times are <strong>estimates only</strong> and may vary based on application volume, completeness of documents, and the specific Consulate's workload. During peak periods (cherry blossom season in March&ndash;April, autumn in October&ndash;November, and major Indian holiday periods), processing can take up to 2 weeks.</p>
+
+ <h2>Where to Apply in India</h2>
+
+ <p>Indian citizens can apply for a Japan Tourist Visa through:</p>
+
+ <h3>VFS Global Japan Visa Application Centres</h3>
+ <p>VFS Global is the official outsourced service provider for Japan visa applications in India. They operate centres in major cities:</p>
+ <ul>
+ <li><strong>New Delhi:</strong> VFS Global Services Pvt. Ltd., Shivaji Stadium, Shaheed Bhagat Singh Marg, Connaught Place</li>
+ <li><strong>Mumbai:</strong> Trade Centre, Bandra Kurla Complex, Bandra East</li>
+ <li><strong>Chennai:</strong> Cathedral Road</li>
+ <li><strong>Kolkata:</strong> R.N. Mukherjee Road</li>
+ <li><strong>Bengaluru:</strong> M.G. Road</li>
+ <li><strong>Ahmedabad:</strong> Ashram Road</li>
+ <li><strong>Hyderabad:</strong> Banjara Hills</li>
+ <li><strong>Pune:</strong> Boat Club Road</li>
+ <li><strong>Goa:</strong> Panaji</li>
+ <li><strong>Chandigarh:</strong> Sector 17</li>
+ <li><strong>Cochin:</strong> Ernakulam</li>
+ </ul>
+
+ <h3>Direct Embassy Application</h3>
+ <p>Applicants can also apply directly at the Japanese Embassy or Consulate covering their jurisdiction. However, direct submission typically requires an appointment and may have limited slots. Most applicants find it more convenient to use VFS Global centres.</p>
+
+ <div class="tip-box">
+ <strong>Tip:</strong> Check the <strong>Embassy of Japan in India</strong> website (<a href="https://www.in.emb-japan.go.jp" target="_blank" rel="noopener noreferrer">www.in.emb-japan.go.jp</a>) for the exact jurisdiction map to determine which Embassy/Consulate covers your state of residence.
+ </div>
+
+ <h2>Sample Cover Letter for Japan Tourist Visa</h2>
+
+ <div class="info-box">
+ <h4>Cover Letter Template</h4>
+ <p>[Your Name]<br>
+ [Your Address]<br>
+ [City, State, PIN Code]<br>
+ [Email Address]<br>
+ [Phone Number]<br>
+ [Date]</p>
+
+ <p><strong>To,</strong><br>
+ The Visa Officer<br>
+ Embassy of Japan<br>
+ [City, India]</p>
+
+ <p><strong>Subject: Application for Japan Tourist Visa</strong></p>
+
+ <p>Dear Sir/Madam,</p>
+
+ <p>I am writing to submit my application for a Japan Tourist Visa (Single Entry) for a leisure trip to Japan from [Start Date] to [End Date].</p>
+
+ <p><strong>About Me:</strong> I am a [Designation] at [Company Name] and have been employed there for [X] years. My annual income is approximately &#8377;[Amount]. I am a resident of [City] and have strong family and professional ties to India.</p>
+
+ <p><strong>Travel Itinerary:</strong> I plan to visit Tokyo, Kyoto, and Osaka over [X] days. My detailed day-wise itinerary is attached. I have confirmed hotel bookings and round-trip flight reservations for the entire duration.</p>
+
+ <p><strong>Financial Capacity:</strong> I have sufficient funds to cover all expenses for this trip. My bank statements (last 6 months), IT returns (last 3 years), and salary slips (last 3 months) are attached for your reference.</p>
+
+ <p><strong>Ties to India:</strong> I have a stable job, own property, and have family commitments in India. I assure you that I will return to India upon completion of my trip and comply with all Japan visa regulations.</p>
+
+ <p>I request you to kindly issue me a Japan Tourist Visa for the above-mentioned dates. Please find all required documents enclosed. Thank you for your time and consideration.</p>
+
+ <p>Sincerely,<br>
+ [Your Signature]<br>
+ [Your Full Name as in Passport]</p>
+ </div>
+
+ <h2>Tips for a Successful Japan Visa Application</h2>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-check-circle"></i></div>
+ <div class="step-content">
+ <h4>Submit a Complete and Accurate Application</h4>
+ <p>Double-check every field in the application form. Ensure names match your passport exactly, dates are correct, and no fields are left blank (write "N/A" where not applicable). Inconsistencies are a top reason for rejections.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-wallet2"></i></div>
+ <div class="step-content">
+ <h4>Demonstrate Strong Financial Standing</h4>
+ <p>Show a healthy bank balance (&#8377;2&ndash;3 lakh minimum), regular income through salary slips, and long-term financial stability through ITR filings. Avoid large, unexplained deposits before applying.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-globe"></i></div>
+ <div class="step-content">
+ <h4>Show Strong Ties to Your Home Country</h4>
+ <p>Japan visa officers need assurance that you will return after your trip. Submit proof of stable employment, family relationships, property ownership, or business interests in India.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-card-checklist"></i></div>
+ <div class="step-content">
+ <h4>Provide a Realistic Itinerary</h4>
+ <p>Your day-wise itinerary should be plausible and well-researched. Don't over-schedule activities or claim to cover too many cities in a short period. Match your hotel bookings with the itinerary dates.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-passport"></i></div>
+ <div class="step-content">
+ <h4>Include Travel History</h4>
+ <p>If you have travelled to other countries (especially Japan, US, UK, Schengen, Australia, Canada), include copies of those visas and entry/exit stamps. A good travel history significantly strengthens your application.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-calendar-check"></i></div>
+ <div class="step-content">
+ <h4>Apply Well in Advance</h4>
+ <p>Submit your application at least 3&ndash;4 weeks before your planned departure. Avoid last-minute applications, as they can arouse suspicion and may not leave enough time if additional documents are requested.</p>
+ </div>
+ </div>
+
+ <h2>Common Reasons for Japan Visa Rejection</h2>
+
+ <p>Understanding why visas get rejected can help you avoid the same pitfalls:</p>
+ <ul>
+ <li><strong>Incomplete or Incorrect Documentation:</strong> Missing documents, unsigned forms, or incorrectly filled applications.</li>
+ <li><strong>Insufficient Funds:</strong> Bank balance too low to support the trip, irregular account activity, or unexplained large deposits.</li>
+ <li><strong>Weak Ties to Home Country:</strong> Single, young applicants with no stable employment, property, or family commitments may be seen as higher risk.</li>
+ <li><strong>Poor Travel History:</strong> First-time travellers or those with a history of overstaying visas in other countries.</li>
+ <li><strong>Unclear or Unrealistic Itinerary:</strong> Vague travel plans, conflicting bookings, or an itinerary that doesn't make geographical sense.</li>
+ <li><strong>False Information:</strong> Providing forged documents or false information leads to automatic rejection and potential future bans.</li>
+ <li><strong>Previous Immigration Violations:</strong> Overstays or visa violations in Japan or any other country.</li>
+ </ul>
+
+ <div class="warning-box">
+ <strong>What to do if rejected?</strong> If your Japan visa application is rejected, the Embassy does not provide a detailed reason. You can re-apply after addressing potential gaps &mdash; strengthen your financial documents, improve your itinerary, or apply after building a better travel history. A rejection does not permanently bar you, but multiple rejections without improvement may make future approvals harder.
+ </div>
+
+ <h2>After Your Visa is Approved</h2>
+
+ <h3>Pre-Departure Checklist</h3>
+ <ul>
+ <li><strong>Verify Visa Details:</strong> Check that your name, passport number, validity dates, and number of entries are correct on the visa sticker.</li>
+ <li><strong>Travel Insurance:</strong> Purchase comprehensive travel insurance covering medical emergencies, trip cancellation, lost baggage, and COVID-19-related issues.</li>
+ <li><strong>Carry All Documents:</strong> Keep a physical and digital copy of your visa, passport, flight tickets, hotel bookings, itinerary, and insurance certificate.</li>
+ <li><strong>Register Online:</strong> Japan has an online immigration pre-arrival system. Complete the Visit Japan Web registration (visit-japan-web.digital.go.jp) for faster immigration clearance.</li>
+ <li><strong>Currency &amp; Cards:</strong> Carry some Japanese Yen (&#165;) in cash for small purchases and taxis. Major credit/debit cards are widely accepted in cities. Suica or PASMO IC cards are essential for public transport.</li>
+ <li><strong>SIM Card / eSIM:</strong> Get a Japan-specific travel SIM or eSIM for mobile connectivity. Options include Mobal, Sakura Mobile, Ubigi, and Airalo.</li>
+ </ul>
+
+ <h3>Arrival Procedure</h3>
+ <p>Upon arrival at a Japanese airport, proceed to the immigration counter with your passport, visa (if applicable), and completed Visit Japan Web QR code. The immigration officer may ask about the purpose of your visit, length of stay, accommodation, and funds. Answer honestly and confidently. After immigration, collect your baggage and proceed through customs (declare any dutiable items).</p>
+
+ <h3>During Your Stay</h3>
+ <ul>
+ <li>Always carry your passport (or a copy) with you &mdash; it's a legal requirement in Japan.</li>
+ <li>Follow local laws and customs: remove shoes before entering homes, don't eat while walking, dispose of garbage correctly, and observe quietness on public transport.</li>
+ <li>Do not overstay your visa. If you need to extend, visit the nearest Regional Immigration Bureau before your current permission expires.</li>
+ <li>The temporary visitor status strictly prohibits paid employment or business activities in Japan.</li>
+ </ul>
+
+ <h2>Japan Travel Tips for First-Time Visitors</h2>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-train-front"></i></div>
+ <div class="step-content">
+ <h4>Get a Japan Rail Pass</h4>
+ <p>If you plan to travel between cities (e.g., Tokyo &rarr; Kyoto &rarr; Osaka), the <strong>Japan Rail Pass (JR Pass)</strong> offers excellent value. Purchase it <strong>before arriving in Japan</strong> (it's not sold domestically). A 7-day pass costs about &#165;50,000 and pays for itself if you do even one round trip between Tokyo and Kyoto.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-wifi"></i></div>
+ <div class="step-content">
+ <h4>Stay Connected with Pocket WiFi</h4>
+ <p>Rent a pocket WiFi device from companies like Japan Wireless, Ninja WiFi, or Global Advanced Communications. Pick it up at the airport and return before departure. Alternatively, purchase a Japanese SIM card or eSIM for your phone.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-cash-coin"></i></div>
+ <div class="step-content">
+ <h4>Japan is Still a Cash-Based Society</h4>
+ <p>While card usage is growing, many small shops, restaurants, temples, and local markets only accept cash. Carry sufficient yen, especially when visiting rural areas or smaller establishments. Convenience stores (7-Eleven, FamilyMart, Lawson) have ATMs that accept international cards.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-translate"></i></div>
+ <div class="step-content">
+ <h4>Use Translation Apps</h4>
+ <p>While English signage is available at major train stations and tourist attractions, having a translation app like Google Translate (with Japanese offline pack downloaded) will be immensely helpful in restaurants, local trains, and non-touristy areas.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-sun"></i></div>
+ <div class="step-content">
+ <h4>Best Times to Visit</h4>
+ <p><strong>Spring (March&ndash;May):</strong> Cherry blossom season &mdash; stunning but crowded and expensive.<br>
+ <strong>Autumn (October&ndash;November):</strong> Beautiful autumn foliage, mild weather.<br>
+ <strong>Summer (June&ndash;August):</strong> Hot and humid, with many festivals (matsuri) and fireworks shows.<br>
+ <strong>Winter (December&ndash;February):</strong> Cold but offers winter sports, hot springs (onsen), and fewer crowds.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-emoji-smile"></i></div>
+ <div class="step-content">
+ <h4>Follow Japanese Etiquette</h4>
+ <p>Bowing is the customary greeting, remove shoes when entering homes/ryokans, don't tip (it's not practiced), don't eat while walking, and be quiet on public transport. Japanese culture values politeness, punctuality, and respect for others.</p>
+ </div>
+ </div>
+
+ <h2>Frequently Asked Questions (FAQ)</h2>
+
+ <div class="faq-item">
+ <h3>How long does a Japan Tourist Visa take to process?</h3>
+ <div class="faq-answer">
+ <p>Standard processing takes <strong>5&ndash;7 working days</strong> for applications submitted directly to the Embassy/Consulate. Applications through VFS Global may take <strong>7&ndash;10 working days</strong> due to the additional transit time. Processing may take longer during peak travel seasons.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <h3>Can I apply for a Japan Tourist Visa online?</h3>
+ <div class="faq-answer">
+ <p>Japan does <strong>not</strong> currently offer a fully online visa application process for Indian citizens. You must submit your application <strong>in person</strong> at the VFS Global centre or Japanese Embassy/Consulate. However, you can download the application form online, fill it out, and then submit it physically during your appointment.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <h3>How much bank balance is required for a Japan Tourist Visa?</h3>
+ <div class="faq-answer">
+ <p>There is no officially published minimum bank balance requirement. However, based on successful applications, it is recommended to have at least <strong>&#8377;2&ndash;3 lakh</strong> in your account and show consistent salary credits over the last 6 months. The actual amount depends on your trip duration, planned expenses, and overall financial profile.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <h3>Is travel insurance mandatory for a Japan visa?</h3>
+ <div class="faq-answer">
+ <p>Travel insurance is <strong>not mandatory</strong> for a Japan Tourist Visa application, but it is <strong>strongly recommended</strong>. Medical costs in Japan are very high, and travel insurance covering medical expenses (minimum USD 50,000), trip cancellation, and lost baggage provides essential protection.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <h3>Can I work on a Japan Tourist Visa?</h3>
+ <div class="faq-answer">
+ <p><strong>No.</strong> The Temporary Visitor Visa strictly prohibits any form of paid employment, business activities, or professional work. If you need to work in Japan, you must obtain the appropriate Work Visa sponsored by a Japanese employer.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <h3>Can I extend my stay in Japan on a Tourist Visa?</h3>
+ <div class="faq-answer">
+ <p>Extensions are generally <strong>not granted</strong> for Temporary Visitor Visas, except in exceptional circumstances such as medical emergencies or natural disasters. You must depart Japan before your authorised stay expires. If you anticipate needing more time, apply for a longer-duration visa upfront (e.g., 90 days instead of 15 days).</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <h3>Do I need a visa if I am transiting through Japan?</h3>
+ <div class="faq-answer">
+ <p>If you are transiting through a Japanese airport <strong>without leaving the international transit area</strong>, you generally do not need a visa. However, clearing customs to switch airports (e.g., Narita to Haneda) or staying overnight at a hotel outside the transit zone requires a transit visa or tourist visa. Check with your airline and the Japanese Embassy for transit-specific requirements.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <h3>What is the difference between 15-day and 90-day Japan Tourist Visa?</h3>
+ <div class="faq-answer">
+ <p>The Japan Tourist Visa can be issued with a permitted stay of <strong>15 days, 30 days, or 90 days</strong>. The duration is at the discretion of the Embassy officer based on your travel itinerary, purpose of visit, and supporting documents. Most first-time applicants receive a 15-day visa. If you have a longer planned trip, clearly submit a 30&ndash;90 day itinerary and supporting documents.</p>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <h3>Can I visit Japan if I have a valid US or Schengen visa?</h3>
+ <div class="faq-answer">
+ <p><strong>No.</strong> Japan does not offer visa-free entry based on holding a valid US, UK, Schengen, or other country's visa. Indian citizens must obtain a separate Japan visa regardless of other visas they hold. However, holding valid visas from other developed countries may strengthen your Japan visa application as it demonstrates a good travel history.</p>
+ </div>
+ </div>
+
+ <h2>Conclusion</h2>
+
+ <p>Applying for a <strong>Japan Tourist Visa in 2026</strong> is a straightforward process if you prepare your documents carefully and understand the requirements. Japan is a breathtakingly beautiful country that offers something for every traveller &mdash; from ancient temples and traditional tea ceremonies to cutting-edge technology and world-class cuisine.</p>
+
+ <p>Remember these key steps: determine your visa type, gather all required documents, book your VFS Global appointment at least 3&ndash;4 weeks in advance, submit a complete application with a realistic itinerary, and demonstrate strong financial and professional ties to your home country.</p>
+
+ <p>Once your visa is approved, the Land of the Rising Sun awaits with its unique blend of tradition and innovation, warm hospitality, and unforgettable experiences. Plan your trip, pack your bags, and get ready for an incredible journey!</p>
+
+ <p>For more visa guides and travel resources, explore our <a href="/blog/">Blog</a> or visit our comprehensive <a href="/visa-guide/">Visa Guide</a>. Safe travels!</p>
+
+ <!-- CTA Section -->
+ <div class="cta-section">
+ <h3>Planning Your Japan Trip?</h3>
+ <p>Our team of visa experts can help you prepare your Japan tourist visa application, review your documents, and guide you through the process. Get in touch with us today!</p>
+ <a href="/contact" class="btn btn-white btn-lg">Contact Us</a>
+ </div>
+
+ <!-- Author Box -->
+ <div class="author-box">
+ <div class="avatar">MV</div>
+ <div>
+ <strong>My Visa Assistance Team</strong>
+ <p style="font-size:0.9rem;color:var(--color-text-light);margin-bottom:0;">Your trusted partner for comprehensive visa information, requirements, and application support worldwide. Our team of visa experts brings years of experience helping travellers navigate visa processes for destinations around the globe.</p>
+ </div>
+ </div>
+
+ <!-- Share Buttons -->
+ <div class="share-buttons">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/blog/japan-tourist-visa" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Share on Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=Japan+Tourist+Visa+2026+Complete+Guide&url=https://myvisaassistance.com/blog/japan-tourist-visa" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Share on Twitter</a>
+ <a href="https://wa.me/?text=Check+out+this+guide+on+Japan+Tourist+Visa+2026+https://myvisaassistance.com/blog/japan-tourist-visa" target="_blank" rel="noopener noreferrer" style="background:#25D366;"><i class="bi bi-whatsapp"></i> Share on WhatsApp</a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/blog/japan-tourist-visa" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;"><i class="bi bi-linkedin"></i> Share on LinkedIn</a>
+ </div>
+
+ <!-- References -->
+ <div class="ref-list">
+ <h4>References &amp; Official Sources</h4>
+ <ol>
+ <li><a href="https://www.mofa.go.jp" target="_blank" rel="noopener noreferrer">Ministry of Foreign Affairs of Japan (MOFA)</a></li>
+ <li><a href="https://www.in.emb-japan.go.jp" target="_blank" rel="noopener noreferrer">Embassy of Japan in India</a></li>
+ <li><a href="https://www.vfsglobal.com/japan/india/" target="_blank" rel="noopener noreferrer">VFS Global Japan Visa Application Centre &mdash; India</a></li>
+ <li><a href="https://www.mofa.go.jp/j_info/visit/visa/index.html" target="_blank" rel="noopener noreferrer">MOFA Visa Information Portal</a></li>
+ <li><a href="https://www.jnto.go.jp" target="_blank" rel="noopener noreferrer">Japan National Tourism Organization (JNTO)</a></li>
+ </ol>
+ </div>
+
+ </article>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <div class="logo-icon" aria-hidden="true">V</div>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+ <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Legal</h4>
+ <ul>
+ <li><a href="/privacy-policy">Privacy Policy</a></li>
+ <li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
+ <li><a href="/contact">Contact Us</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-bottom">
+ <span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a> &middot;
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+   <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+   <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
+   <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+   <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+   <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
+   <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+
+<script>
+// FAQ toggle
+document.querySelectorAll('.faq-item h3').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>
