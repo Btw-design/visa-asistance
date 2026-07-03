@@ -151,16 +151,10 @@ body.menu-open{overflow:hidden}
  .blog-content .download-box p { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 1rem; }
  .blog-content .download-box .btn-download { display: inline-flex; align-items: center; gap: 8px; background: var(--color-primary); color: white; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: var(--transition); text-decoration: none; }
  .blog-content .download-box .btn-download:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(3, 27, 48,0.3); }
- .blog-content .faq-item { border: 1px solid var(--color-border); border-radius: 10px; margin: 1rem 0; overflow: hidden; }
- .blog-content .faq-item h3 { margin: 0; padding: 18px 22px; font-size: 1.05rem; cursor: pointer; background: var(--color-bg-alt); display: flex; justify-content: space-between; align-items: center; }
- .blog-content .faq-item h3::after { content: '+'; font-size: 1.3rem; color: var(--color-accent); font-weight: 700; transition: transform 0.3s; }
- .blog-content .faq-item.open h3::after { content: '−'; }
- .blog-content .faq-item .faq-answer { padding: 0 22px 18px; display: none; }
- .blog-content .faq-item.open .faq-answer { display: block; }
- .blog-content .faq-item .faq-answer p:last-child { margin-bottom: 0; }
- .blog-content .faq-item .faq-answer p { margin-bottom: 0.5rem; }
- .blog-content .faq-item .faq-answer ul { margin-bottom: 0; }
- </style>
+  /* FAQ Smooth Accordion — override style.css max-height with JS-driven height animation */
+  .blog-content .faq-answer { max-height: none; height: 0; overflow: hidden; transition: height 0.35s ease, padding 0.3s ease; padding: 0 22px; }
+  .blog-content .faq-item.active .faq-answer { height: auto; padding: 0 22px 20px; }
+  </style>
 
  <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -798,70 +792,101 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  </div>
 
- <h2>Frequently Asked Questions (FAQ)</h2>
+  <h2>Frequently Asked Questions (FAQ)</h2>
 
- <div class="faq-item open">
- <h3>How long does a Japan Tourist Visa take to process?</h3>
- <div class="faq-answer">
- <p>Standard processing takes <strong>5&ndash;7 working days</strong> for applications submitted directly to the Embassy/Consulate. Applications through VFS Global may take <strong>7&ndash;10 working days</strong> due to the additional transit time. Processing may take longer during peak travel seasons.</p>
- </div>
- </div>
+  <div class="faq-list">
 
- <div class="faq-item">
- <h3>Can I apply for a Japan Tourist Visa online?</h3>
- <div class="faq-answer">
- <p>Japan does <strong>not</strong> currently offer a fully online visa application process for Indian citizens. You must submit your application <strong>in person</strong> at the VFS Global centre or Japanese Embassy/Consulate. However, you can download the application form online, fill it out, and then submit it physically during your appointment.</p>
- </div>
- </div>
+  <div class="faq-item active has-secondary">
+  <button class="faq-question">
+  <span>How long does a Japan Tourist Visa take to process?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p>Standard processing takes <strong>5&ndash;7 working days</strong> for applications submitted directly to the Embassy/Consulate. Applications through VFS Global may take <strong>7&ndash;10 working days</strong> due to the additional transit time. Processing may take longer during peak travel seasons.</p>
+  </div>
+  </div>
 
- <div class="faq-item">
- <h3>How much bank balance is required for a Japan Tourist Visa?</h3>
- <div class="faq-answer">
- <p>There is no officially published minimum bank balance requirement. However, based on successful applications, it is recommended to have at least <strong>&#8377;2&ndash;3 lakh</strong> in your account and show consistent salary credits over the last 6 months. The actual amount depends on your trip duration, planned expenses, and overall financial profile.</p>
- </div>
- </div>
+  <div class="faq-item has-secondary">
+  <button class="faq-question">
+  <span>Can I apply for a Japan Tourist Visa online?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p>Japan does <strong>not</strong> currently offer a fully online visa application process for Indian citizens. You must submit your application <strong>in person</strong> at the VFS Global centre or Japanese Embassy/Consulate. However, you can download the application form online, fill it out, and then submit it physically during your appointment.</p>
+  </div>
+  </div>
 
- <div class="faq-item">
- <h3>Is travel insurance mandatory for a Japan visa?</h3>
- <div class="faq-answer">
- <p>Travel insurance is <strong>not mandatory</strong> for a Japan Tourist Visa application, but it is <strong>strongly recommended</strong>. Medical costs in Japan are very high, and travel insurance covering medical expenses (minimum USD 50,000), trip cancellation, and lost baggage provides essential protection.</p>
- </div>
- </div>
+  <div class="faq-item has-secondary">
+  <button class="faq-question">
+  <span>How much bank balance is required for a Japan Tourist Visa?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p>There is no officially published minimum bank balance requirement. However, based on successful applications, it is recommended to have at least <strong>&#8377;2&ndash;3 lakh</strong> in your account and show consistent salary credits over the last 6 months. The actual amount depends on your trip duration, planned expenses, and overall financial profile.</p>
+  </div>
+  </div>
 
- <div class="faq-item">
- <h3>Can I work on a Japan Tourist Visa?</h3>
- <div class="faq-answer">
- <p><strong>No.</strong> The Temporary Visitor Visa strictly prohibits any form of paid employment, business activities, or professional work. If you need to work in Japan, you must obtain the appropriate Work Visa sponsored by a Japanese employer.</p>
- </div>
- </div>
+  <div class="faq-item has-secondary">
+  <button class="faq-question">
+  <span>Is travel insurance mandatory for a Japan visa?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p>Travel insurance is <strong>not mandatory</strong> for a Japan Tourist Visa application, but it is <strong>strongly recommended</strong>. Medical costs in Japan are very high, and travel insurance covering medical expenses (minimum USD 50,000), trip cancellation, and lost baggage provides essential protection.</p>
+  </div>
+  </div>
 
- <div class="faq-item">
- <h3>Can I extend my stay in Japan on a Tourist Visa?</h3>
- <div class="faq-answer">
- <p>Extensions are generally <strong>not granted</strong> for Temporary Visitor Visas, except in exceptional circumstances such as medical emergencies or natural disasters. You must depart Japan before your authorised stay expires. If you anticipate needing more time, apply for a longer-duration visa upfront (e.g., 90 days instead of 15 days).</p>
- </div>
- </div>
+  <div class="faq-item has-secondary">
+  <button class="faq-question">
+  <span>Can I work on a Japan Tourist Visa?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p><strong>No.</strong> The Temporary Visitor Visa strictly prohibits any form of paid employment, business activities, or professional work. If you need to work in Japan, you must obtain the appropriate Work Visa sponsored by a Japanese employer.</p>
+  </div>
+  </div>
 
- <div class="faq-item">
- <h3>Do I need a visa if I am transiting through Japan?</h3>
- <div class="faq-answer">
- <p>If you are transiting through a Japanese airport <strong>without leaving the international transit area</strong>, you generally do not need a visa. However, clearing customs to switch airports (e.g., Narita to Haneda) or staying overnight at a hotel outside the transit zone requires a transit visa or tourist visa. Check with your airline and the Japanese Embassy for transit-specific requirements.</p>
- </div>
- </div>
+  <div class="faq-item has-secondary">
+  <button class="faq-question">
+  <span>Can I extend my stay in Japan on a Tourist Visa?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p>Extensions are generally <strong>not granted</strong> for Temporary Visitor Visas, except in exceptional circumstances such as medical emergencies or natural disasters. You must depart Japan before your authorised stay expires. If you anticipate needing more time, apply for a longer-duration visa upfront (e.g., 90 days instead of 15 days).</p>
+  </div>
+  </div>
 
- <div class="faq-item">
- <h3>What is the difference between 15-day and 90-day Japan Tourist Visa?</h3>
- <div class="faq-answer">
- <p>The Japan Tourist Visa can be issued with a permitted stay of <strong>15 days, 30 days, or 90 days</strong>. The duration is at the discretion of the Embassy officer based on your travel itinerary, purpose of visit, and supporting documents. Most first-time applicants receive a 15-day visa. If you have a longer planned trip, clearly submit a 30&ndash;90 day itinerary and supporting documents.</p>
- </div>
- </div>
+  <div class="faq-item has-secondary">
+  <button class="faq-question">
+  <span>Do I need a visa if I am transiting through Japan?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p>If you are transiting through a Japanese airport <strong>without leaving the international transit area</strong>, you generally do not need a visa. However, clearing customs to switch airports (e.g., Narita to Haneda) or staying overnight at a hotel outside the transit zone requires a transit visa or tourist visa. Check with your airline and the Japanese Embassy for transit-specific requirements.</p>
+  </div>
+  </div>
 
- <div class="faq-item">
- <h3>Can I visit Japan if I have a valid US or Schengen visa?</h3>
- <div class="faq-answer">
- <p><strong>No.</strong> Japan does not offer visa-free entry based on holding a valid <a href="/visa-guide/usa-visa/">US</a>, <a href="/visa-guide/uk-visa/">UK</a>, <a href="/visa-guide/schengen-visa/">Schengen</a>, or other country's visa. Indian citizens must obtain a separate Japan visa regardless of other visas they hold. However, holding valid visas from other developed countries may strengthen your Japan visa application as it demonstrates a good travel history.</p>
- </div>
- </div>
+  <div class="faq-item has-secondary">
+  <button class="faq-question">
+  <span>What is the difference between 15-day and 90-day Japan Tourist Visa?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p>The Japan Tourist Visa can be issued with a permitted stay of <strong>15 days, 30 days, or 90 days</strong>. The duration is at the discretion of the Embassy officer based on your travel itinerary, purpose of visit, and supporting documents. Most first-time applicants receive a 15-day visa. If you have a longer planned trip, clearly submit a 30&ndash;90 day itinerary and supporting documents.</p>
+  </div>
+  </div>
+
+  <div class="faq-item has-secondary">
+  <button class="faq-question">
+  <span>Can I visit Japan if I have a valid US or Schengen visa?</span>
+  <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+  </button>
+  <div class="faq-answer">
+  <p><strong>No.</strong> Japan does not offer visa-free entry based on holding a valid <a href="/visa-guide/usa-visa/">US</a>, <a href="/visa-guide/uk-visa/">UK</a>, <a href="/visa-guide/schengen-visa/">Schengen</a>, or other country's visa. Indian citizens must obtain a separate Japan visa regardless of other visas they hold. However, holding valid visas from other developed countries may strengthen your Japan visa application as it demonstrates a good travel history.</p>
+  </div>
+  </div>
+
+  </div>
 
  <h2>Conclusion</h2>
 
@@ -1074,12 +1099,55 @@ s0.parentNode.insertBefore(s1,s0);
 </style>
 
 <script>
-// FAQ toggle
-document.querySelectorAll('.faq-item h3').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    this.parentElement.classList.toggle('open');
+// FAQ Smooth Accordion — JS-driven height animation for reliable cross-browser support
+(function() {
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var item = this.closest('.faq-item');
+      if (!item) return;
+      var answer = item.querySelector('.faq-answer');
+      if (!answer) return;
+      var container = item.closest('.faq-list') || item.parentNode;
+      var isOpen = item.classList.contains('active');
+
+      function closeFaq(el) {
+        var ans = el.querySelector('.faq-answer');
+        if (!ans) return;
+        var startH = ans.offsetHeight;
+        ans.style.height = startH + 'px';
+        ans.offsetHeight; // force reflow
+        ans.style.height = '0px';
+        ans.style.paddingBottom = '0px';
+        setTimeout(function() {
+          el.classList.remove('active');
+          ans.style.height = '';
+          ans.style.paddingBottom = '';
+        }, 350);
+      }
+
+      function openFaq(el) {
+        el.classList.add('active');
+        var ans = el.querySelector('.faq-answer');
+        var targetH = ans.scrollHeight;
+        ans.style.height = targetH + 'px';
+        setTimeout(function() {
+          ans.style.height = '';
+          ans.style.paddingBottom = '';
+        }, 350);
+      }
+
+      // Close all siblings first
+      container.querySelectorAll('.faq-item.active').forEach(function(other) {
+        if (other !== item) closeFaq(other);
+      });
+
+      // Toggle current
+      if (isOpen) closeFaq(item);
+      else openFaq(item);
+    });
   });
-});
+})();
 </script>
 
 </body>
