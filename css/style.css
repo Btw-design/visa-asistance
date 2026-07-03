@@ -12,6 +12,9 @@
   --color-primary-light: #0a2a4a;
   --color-primary-dark: #021221;
   --color-secondary: #E86020;
+  --color-secondary-light: #f07a3e;
+  --color-secondary-dark: #c94d10;
+  --color-secondary-rgb: 232, 96, 32;
   --color-accent: #A5D549;
   --color-accent-light: #bae56a;
   --color-accent-dark: #8cba30;
@@ -182,6 +185,10 @@ small, .text-sm {
 
 .text-accent {
   color: var(--color-accent);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
 }
 
 /* ===================================================================
@@ -478,6 +485,10 @@ small, .text-sm {
   color: var(--color-accent-light);
 }
 
+.hero-slide-cta.is-secondary:hover {
+  color: var(--color-secondary-light);
+}
+
 /* Carousel Navigation */
 .hero-slider-nav {
   display: flex;
@@ -502,6 +513,14 @@ small, .text-sm {
   background: var(--color-accent);
   width: 28px;
   border-radius: 5px;
+}
+
+.hero-slider-dot.is-secondary.active {
+  background: var(--color-secondary);
+}
+
+.hero-slider-dot.is-secondary:hover {
+  background: rgba(232, 96, 32, 0.5);
 }
 
 .hero-slider-dot:hover {
@@ -763,6 +782,11 @@ small, .text-sm {
   color: var(--color-accent);
 }
 
+.hero-badge.is-secondary i,
+.hero-badge.is-secondary svg {
+  color: var(--color-secondary);
+}
+
 .hero-buttons {
   display: flex;
   gap: 12px;
@@ -810,6 +834,10 @@ small, .text-sm {
   color: var(--color-accent);
   line-height: 1.2;
   letter-spacing: -0.02em;
+}
+
+.hero-trust-item.has-secondary .hero-trust-num {
+  color: var(--color-secondary);
 }
 
 .hero-trust-label {
@@ -1025,6 +1053,24 @@ small, .text-sm {
   font-size: 0.875rem;
 }
 
+.btn-accent {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(232, 96, 32, 0.35);
+}
+
+.btn-accent:hover {
+  background: var(--color-secondary-light);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 96, 32, 0.45);
+}
+
+.btn-accent:active {
+  background: var(--color-secondary-dark);
+  transform: translateY(0);
+}
+
 .btn-link {
   background: none;
   border: none;
@@ -1074,6 +1120,19 @@ small, .text-sm {
   background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
   opacity: 0;
   transition: var(--transition-slow);
+}
+
+.feature-card.has-secondary::before {
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-secondary-light));
+}
+
+.feature-card.has-secondary:hover {
+  border-color: rgba(232, 96, 32, 0.2);
+}
+
+.feature-card.has-secondary:hover .feature-icon {
+  background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary));
+  color: var(--color-white);
 }
 
 .feature-card:hover {
@@ -1144,6 +1203,15 @@ small, .text-sm {
   box-shadow: 0 4px 12px rgba(165, 213, 73, 0.15);
   transform: translateY(-3px);
   color: var(--color-text);
+}
+
+.country-card.has-secondary:hover {
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 12px rgba(232, 96, 32, 0.15);
+}
+
+.country-card.has-secondary:hover .arrow {
+  color: var(--color-secondary);
 }
 
 .country-flag {
@@ -1260,6 +1328,14 @@ small, .text-sm {
   gap: 10px;
 }
 
+.blog-card.has-secondary:hover .read-more {
+  color: var(--color-secondary);
+}
+
+.blog-card.has-secondary:hover .blog-card-image {
+  color: var(--color-secondary);
+}
+
 /* Testimonial Cards */
 .testimonials-grid {
   display: grid;
@@ -1357,6 +1433,10 @@ small, .text-sm {
   margin-bottom: 4px;
 }
 
+.expertise-card.has-secondary .num {
+  color: var(--color-secondary);
+}
+
 .expertise-card p {
   color: var(--color-text-light);
   font-size: 0.95rem;
@@ -1382,6 +1462,10 @@ small, .text-sm {
   color: var(--color-accent);
   margin-bottom: 0.15em;
   letter-spacing: -0.03em;
+}
+
+.stat-item.has-secondary h3 {
+  color: var(--color-secondary);
 }
 
 .stat-item p {
@@ -1429,6 +1513,14 @@ small, .text-sm {
   background: var(--color-accent);
   border-radius: 2px;
   margin: 12px auto 0;
+}
+
+.section-heading.has-secondary h2::after {
+  background: var(--color-secondary);
+}
+
+.section-heading.has-secondary h2 {
+  color: var(--color-primary);
 }
 
 .section-heading p {
@@ -1547,6 +1639,15 @@ small, .text-sm {
   margin-bottom: 1.5rem;
 }
 
+.country-content .main-content .info-box.has-secondary {
+  border-left-color: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-bg-alt), rgba(232, 96, 32, 0.05));
+}
+
+.country-content .main-content .info-box.has-secondary h4 {
+  color: var(--color-secondary-dark);
+}
+
 .country-content .main-content .info-box h4 {
   margin-bottom: 0.3em;
   color: var(--color-primary);
@@ -1601,6 +1702,10 @@ small, .text-sm {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   border-bottom: 2px solid var(--color-accent);
+}
+
+.country-content .main-content table.has-secondary th {
+  border-bottom-color: var(--color-secondary);
 }
 
 .country-content .main-content td {
@@ -1660,6 +1765,14 @@ small, .text-sm {
   outline: none;
   border-color: var(--color-primary-light);
   box-shadow: 0 0 0 4px rgba(3, 27, 48, 0.08);
+}
+
+/* Secondary focus ring — add .focus-accent class to form-group for orange focus */
+.form-group.focus-accent input:focus,
+.form-group.focus-accent select:focus,
+.form-group.focus-accent textarea:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 4px rgba(232, 96, 32, 0.12);
 }
 
 .form-group textarea {
@@ -1764,6 +1877,20 @@ small, .text-sm {
 .faq-item.active {
   border-color: var(--color-accent);
   box-shadow: 0 2px 12px rgba(165, 213, 73, 0.1);
+}
+
+.faq-item.has-secondary.active {
+  border-color: var(--color-secondary);
+  box-shadow: 0 2px 12px rgba(232, 96, 32, 0.12);
+}
+
+.faq-item.has-secondary.active .faq-question {
+  background: rgba(232, 96, 32, 0.05);
+}
+
+.faq-item.has-secondary.active .faq-question .faq-icon {
+  background: var(--color-secondary);
+  color: var(--color-white);
 }
 
 .faq-question {
@@ -1902,6 +2029,27 @@ small, .text-sm {
   border: 2px solid var(--color-accent);
 }
 
+.sidebar-cta.has-secondary {
+  border-color: var(--color-secondary);
+}
+
+.sidebar-cta.has-secondary h3 {
+  color: var(--color-secondary);
+  border-bottom-color: var(--color-secondary);
+}
+
+.sidebar-cta.has-secondary .btn {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(232, 96, 32, 0.35);
+}
+
+.sidebar-cta.has-secondary .btn:hover {
+  background: var(--color-secondary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 96, 32, 0.45);
+}
+
 .sidebar-cta h3 {
   color: var(--color-primary-dark);
   border-bottom-color: var(--color-accent);
@@ -2022,6 +2170,10 @@ small, .text-sm {
   margin-top: 2em;
   padding-bottom: 0.3em;
   border-bottom: 2px solid var(--color-accent);
+}
+
+.blog-content h2.has-secondary {
+  border-bottom-color: var(--color-secondary);
 }
 
 .blog-content h3 {
@@ -2284,6 +2436,10 @@ small, .text-sm {
   border-radius: 2px;
 }
 
+.footer-col.has-secondary h4::after {
+  background: var(--color-secondary);
+}
+
 .footer-col ul {
   list-style: none;
 }
@@ -2353,8 +2509,8 @@ small, .text-sm {
 }
 
 .footer-social a:hover {
-  background: var(--color-accent);
-  color: var(--color-bg-dark);
+  background: var(--color-secondary);
+  color: var(--color-white);
   transform: translateY(-2px);
 }
 
@@ -2451,6 +2607,12 @@ small, .text-sm {
   background: rgba(255,255,255,0.1);
 }
 
+.footer-timeline.has-secondary select:focus,
+.footer-timeline.has-secondary input:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(232, 96, 32, 0.15);
+}
+
 .footer-timeline .btn-sm {
   width: 100%;
   padding: 10px;
@@ -2471,6 +2633,15 @@ small, .text-sm {
 
 .footer-timeline .result.show {
   display: block;
+}
+
+.footer-timeline.has-secondary .result {
+  background: rgba(232,96,32,0.1);
+  border-color: rgba(232,96,32,0.2);
+}
+
+.footer-timeline.has-secondary .result .days {
+  color: var(--color-secondary);
 }
 
 .footer-timeline .result .days {
@@ -2634,10 +2805,10 @@ small, .text-sm {
 }
 
 .scroll-top:hover {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: var(--color-secondary);
+  color: var(--color-white);
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(165, 213, 73, 0.4);
+  box-shadow: 0 6px 20px rgba(232, 96, 32, 0.4);
 }
 
 /* If whatsapp-float is on the same page, push scroll-top up */
@@ -2691,6 +2862,17 @@ small, .text-sm {
 #cookie-consent-banner button:hover {
   background: var(--color-accent-dark);
   color: var(--color-white);
+}
+
+/* Secondary (orange) cookie consent button */
+#cookie-consent-banner button.is-secondary {
+  background: var(--color-secondary);
+  box-shadow: 0 2px 8px rgba(232, 96, 32, 0.3);
+}
+
+#cookie-consent-banner button.is-secondary:hover {
+  background: var(--color-secondary-light);
+  box-shadow: 0 4px 12px rgba(232, 96, 32, 0.4);
 }
 
 /* ===================================================================

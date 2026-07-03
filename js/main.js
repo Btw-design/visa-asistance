@@ -223,10 +223,10 @@
 
       grid.innerHTML = ''; // Clear any existing skeleton
 
-      countriesData.forEach(function(country) {
+      countriesData.forEach(function(country, idx) {
         const card = document.createElement('a');
         card.href = cfg.prefix + country.slug + cfg.suffix;
-        card.className = 'country-card';
+        card.className = (idx % 2 === 1) ? 'country-card has-secondary' : 'country-card';
         card.setAttribute('data-country', country.name);
         card.setAttribute('data-region', country.region);
         card.innerHTML =
@@ -368,8 +368,8 @@
      13. Console Greeting (dev only)
      =================================================================== */
   console.log('%c My Visa Assistance %c v2.0 %c Loaded successfully ',
-    'background:#171299;color:#fff;padding:4px 8px;border-radius:4px 0 0 4px;font-weight:700;',
-    'background:#A5D549;color:#0a0a52;padding:4px 8px;font-weight:700;',
+    'background:#031B30;color:#fff;padding:4px 8px;border-radius:4px 0 0 4px;font-weight:700;',
+    'background:#E86020;color:#fff;padding:4px 8px;font-weight:700;',
     'background:#f3f4f6;color:#ffffff;padding:4px 8px;border-radius:0 4px 4px 0;');
 
   /* ===================================================================
