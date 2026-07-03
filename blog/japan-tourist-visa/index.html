@@ -155,7 +155,9 @@ body.menu-open{overflow:hidden}
  .blog-content .faq-item h3 { margin: 0; padding: 18px 22px; font-size: 1.05rem; cursor: pointer; background: var(--color-bg-alt); display: flex; justify-content: space-between; align-items: center; }
  .blog-content .faq-item h3::after { content: '+'; font-size: 1.3rem; color: var(--color-accent); font-weight: 700; transition: transform 0.3s; }
  .blog-content .faq-item.open h3::after { content: '−'; }
- .blog-content .faq-item .faq-answer { padding: 0 22px 18px; }
+ .blog-content .faq-item .faq-answer { padding: 0 22px 18px; display: none; }
+ .blog-content .faq-item.open .faq-answer { display: block; }
+ .blog-content .faq-item .faq-answer p:last-child { margin-bottom: 0; }
  .blog-content .faq-item .faq-answer p { margin-bottom: 0.5rem; }
  .blog-content .faq-item .faq-answer ul { margin-bottom: 0; }
  </style>
@@ -798,7 +800,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <h2>Frequently Asked Questions (FAQ)</h2>
 
- <div class="faq-item">
+ <div class="faq-item open">
  <h3>How long does a Japan Tourist Visa take to process?</h3>
  <div class="faq-answer">
  <p>Standard processing takes <strong>5&ndash;7 working days</strong> for applications submitted directly to the Embassy/Consulate. Applications through VFS Global may take <strong>7&ndash;10 working days</strong> due to the additional transit time. Processing may take longer during peak travel seasons.</p>
