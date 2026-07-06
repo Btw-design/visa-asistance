@@ -1,0 +1,120 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#031B30"/>
+      <stop offset="50%" stop-color="#0a2a4a"/>
+      <stop offset="100%" stop-color="#031B30"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5057EA"/>
+      <stop offset="100%" stop-color="#6b72ee"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FFA500"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="550" r="300" fill="#5057EA" opacity="0.05"/>
+  <circle cx="1100" cy="80" r="250" fill="#5057EA" opacity="0.06"/>
+  <circle cx="600" cy="315" r="400" fill="#ffffff" opacity="0.02"/>
+
+  <!-- Subtle star dots -->
+  <g fill="#ffffff" opacity="0.15">
+    <circle cx="50" cy="50" r="2"/>
+    <circle cx="150" cy="120" r="1.5"/>
+    <circle cx="250" cy="40" r="1.8"/>
+    <circle cx="380" cy="80" r="1.2"/>
+    <circle cx="500" cy="30" r="2"/>
+    <circle cx="650" cy="60" r="1.5"/>
+    <circle cx="800" cy="45" r="1.8"/>
+    <circle cx="950" cy="90" r="1.3"/>
+    <circle cx="1050" cy="35" r="2"/>
+    <circle cx="1150" cy="110" r="1.5"/>
+    <circle cx="80" cy="200" r="1.2"/>
+    <circle cx="200" cy="180" r="1.6"/>
+    <circle cx="450" cy="150" r="1.4"/>
+    <circle cx="700" cy="130" r="1.8"/>
+    <circle cx="900" cy="170" r="1.2"/>
+    <circle cx="100" cy="400" r="1.5"/>
+    <circle cx="350" cy="450" r="1.3"/>
+    <circle cx="750" cy="500" r="1.6"/>
+    <circle cx="1000" cy="420" r="1.4"/>
+    <circle cx="1120" cy="480" r="1.2"/>
+  </g>
+
+  <!-- Passport icon -->
+  <g transform="translate(80, 140)">
+    <rect x="0" y="0" width="120" height="160" rx="8" fill="#1a3a5c" stroke="#5057EA" stroke-width="3"/>
+    <rect x="8" y="12" width="104" height="20" rx="3" fill="#0a2a4a"/>
+    <text x="60" y="27" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#FFD700">SCHENGEN</text>
+    <circle cx="60" cy="85" r="20" fill="#5057EA" opacity="0.3"/>
+    <circle cx="60" cy="85" r="12" fill="#5057EA" opacity="0.5"/>
+    <line x1="42" y1="130" x2="78" y2="130" stroke="#ffffff" stroke-width="2" opacity="0.4"/>
+    <line x1="42" y1="140" x2="70" y2="140" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+  </g>
+
+  <!-- Stars (EU flag style) -->
+  <g transform="translate(240, 150)">
+    <polygon points="15,0 19,10 30,10 21,16 25,26 15,20 5,26 9,16 0,10 11,10" fill="#FFD700" opacity="0.6"/>
+    <polygon points="55,-5 58,3 66,3 60,8 62,16 55,11 48,16 50,8 44,3 52,3" fill="#FFD700" opacity="0.4"/>
+    <polygon points="30,35 33,43 41,43 35,48 37,56 30,51 23,56 25,48 19,43 27,43" fill="#FFD700" opacity="0.5"/>
+  </g>
+
+  <!-- Main title -->
+  <text x="420" y="220" font-family="Arial,sans-serif" font-size="28" font-weight="800" fill="#ffffff">
+    SCHENGEN VISA
+  </text>
+  <text x="420" y="270" font-family="Arial,sans-serif" font-size="48" font-weight="900" fill="url(#accent)">
+    APPLICATION ASSISTANCE
+  </text>
+  <text x="420" y="320" font-family="Arial,sans-serif" font-size="20" fill="rgba(255,255,255,0.75)" font-weight="400">
+    Complete Step-by-Step Guide for Indian Travellers
+  </text>
+
+  <!-- Info pills -->
+  <g transform="translate(420, 365)">
+    <rect x="0" y="0" width="110" height="32" rx="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="55" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">&#9998; Form Help</text>
+    
+    <rect x="125" y="0" width="130" height="32" rx="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="190" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">&#128197; Appointment</text>
+    
+    <rect x="270" y="0" width="140" height="32" rx="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="340" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">&#128196; Documents</text>
+
+    <rect x="0" y="44" width="120" height="32" rx="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="60" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">&#128179; Fee Payment</text>
+
+    <rect x="135" y="44" width="130" height="32" rx="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="200" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">&#128274; Biometrics</text>
+
+    <rect x="280" y="44" width="140" height="32" rx="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="350" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.9)">&#128270; Track Status</text>
+  </g>
+
+  <!-- Decorative line -->
+  <line x1="420" y1="430" x2="800" y2="430" stroke="#5057EA" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Bottom text -->
+  <text x="420" y="480" font-family="Arial,sans-serif" font-size="16" fill="rgba(255,255,255,0.5)" font-weight="400">
+    2026 Guide &bull; Fees &bull; Requirements &bull; Tips
+  </text>
+
+  <!-- myvisaassistance.com watermark -->
+  <text x="600" y="590" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.2)" font-weight="600" letter-spacing="3">
+    MYVISAASSISTANCE.COM
+  </text>
+
+  <!-- Right side decorative elements -->
+  <g transform="translate(900, 300)">
+    <rect x="0" y="-80" width="100" height="160" rx="12" fill="none" stroke="#5057EA" stroke-width="2" opacity="0.3"/>
+    <rect x="15" y="-65" width="70" height="130" rx="8" fill="none" stroke="#5057EA" stroke-width="1.5" opacity="0.2"/>
+    <!-- Checkmarks -->
+    <polyline points="30,-20 45,-5 70,-35" fill="none" stroke="#A5D549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <polyline points="30,10 45,25 70,-5" fill="none" stroke="#A5D549" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  </g>
+</svg>
