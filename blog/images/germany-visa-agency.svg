@@ -1,158 +1,208 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1980" height="1080" viewBox="0 0 1980 1080">
-
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#DD0000"/>
-      <stop offset="100%" stop-color="#990000"/>
+      <stop offset="0%" stop-color="#5057EA"/>
+      <stop offset="100%" stop-color="#3841D8"/>
     </linearGradient>
 
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%">
-      <stop offset="0%" stop-color="#FFD700"/>
-      <stop offset="100%" stop-color="#FFA500"/>
+    <linearGradient id="cta" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E86020"/>
+      <stop offset="100%" stop-color="#FF8A45"/>
     </linearGradient>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-opacity=".18"/>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1980" height="1080" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- German Flag Accent Stripes (thin top) -->
-  <rect x="0" y="0" width="1980" height="12" fill="#000000"/>
-  <rect x="0" y="12" width="1980" height="12" fill="#DD0000"/>
-  <rect x="0" y="24" width="1980" height="12" fill="#FFD700"/>
+  <!-- Decorative -->
+  <circle cx="1120" cy="90" r="170" fill="#FFFFFF" opacity=".05"/>
+  <circle cx="1050" cy="565" r="120" fill="#A5D549" opacity=".08"/>
+  <circle cx="80" cy="60" r="60" fill="#FFFFFF" opacity=".05"/>
 
-  <!-- Large Typography -->
-  <text x="180"
-        y="340"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="140"
-        font-weight="700"
-        fill="#FFFFFF">
+  <!-- Left Accent -->
+  <rect width="8" height="630" fill="#A5D549"/>
+
+  <!-- Heading -->
+  <text x="80"
+        y="85"
+        fill="#A5D549"
+        font-family="DM Sans"
+        font-size="20"
+        font-weight="700">
+    GERMANY • SCHENGEN VISA
+  </text>
+
+  <text x="80"
+        y="205"
+        fill="#FFFFFF"
+        font-family="DM Sans"
+        font-size="82"
+        font-weight="800">
     Germany
   </text>
 
-  <text x="180"
-        y="490"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="140"
-        font-weight="700"
-        fill="#FFFFFF">
-    Visa
+  <text x="80"
+        y="290"
+        fill="#FFFFFF"
+        font-family="DM Sans"
+        font-size="82"
+        font-weight="800">
+    Visa Agency
   </text>
 
-  <text x="180"
-        y="610"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="76"
-        font-weight="600"
-        fill="#FFD700">
-    Agency
+  <text x="80"
+        y="355"
+        fill="#E8ECFF"
+        font-family="DM Sans"
+        font-size="24">
+    Tourist • Business • Student • Work Visa Assistance
   </text>
 
-  <!-- Accent Line -->
-  <rect x="180"
-        y="660"
-        width="460"
-        height="10"
-        rx="5"
+  <!-- CTA -->
+  <rect x="80"
+        y="430"
+        width="235"
+        height="60"
+        rx="30"
+        fill="url(#cta)"/>
+
+  <text x="197"
+        y="468"
+        text-anchor="middle"
+        fill="#FFFFFF"
+        font-family="DM Sans"
+        font-size="22"
+        font-weight="700">
+    Apply Now
+  </text>
+
+  <!-- Features -->
+  <g font-family="DM Sans" font-size="18" fill="#FFFFFF">
+
+    <circle cx="88" cy="545" r="5" fill="#A5D549"/>
+    <text x="104" y="551">Expert Documentation</text>
+
+    <circle cx="88" cy="580" r="5" fill="#A5D549"/>
+    <text x="104" y="586">Appointment Assistance</text>
+
+    <circle cx="360" cy="545" r="5" fill="#A5D549"/>
+    <text x="376" y="551">Fast Processing</text>
+
+    <circle cx="360" cy="580" r="5" fill="#A5D549"/>
+    <text x="376" y="586">End-to-End Support</text>
+
+  </g>
+
+  <!-- Right Card -->
+  <g filter="url(#shadow)">
+    <rect x="700"
+          y="45"
+          width="430"
+          height="540"
+          rx="32"
+          fill="#FFFFFF"/>
+  </g>
+
+  <!-- Germany Flag -->
+  <g transform="translate(745 80)">
+    <rect width="120" height="80" rx="10" fill="#FFFFFF"/>
+
+    <rect x="15" y="15" width="90" height="18" fill="#000000"/>
+    <rect x="15" y="33" width="90" height="18" fill="#DD0000"/>
+    <rect x="15" y="51" width="90" height="18" fill="#FFCE00"/>
+  </g>
+
+  <!-- Passport -->
+  <g transform="translate(795 180)">
+
+    <rect width="240"
+          height="300"
+          rx="22"
+          fill="#5057EA"/>
+
+    <!-- Globe -->
+    <circle cx="120"
+            cy="78"
+            r="38"
+            fill="none"
+            stroke="#A5D549"
+            stroke-width="4"/>
+
+    <ellipse cx="120"
+             cy="78"
+             rx="38"
+             ry="14"
+             fill="none"
+             stroke="#A5D549"
+             stroke-width="2"/>
+
+    <line x1="82"
+          y1="78"
+          x2="158"
+          y2="78"
+          stroke="#A5D549"
+          stroke-width="2"/>
+
+    <line x1="120"
+          y1="40"
+          x2="120"
+          y2="116"
+          stroke="#A5D549"
+          stroke-width="2"/>
+
+    <text x="120"
+          y="160"
+          text-anchor="middle"
+          fill="#FFFFFF"
+          font-family="DM Sans"
+          font-size="28"
+          font-weight="700">
+      PASSPORT
+    </text>
+
+    <!-- Visa Stamp -->
+    <circle cx="120"
+            cy="235"
+            r="34"
+            fill="none"
+            stroke="#E86020"
+            stroke-width="5"/>
+
+    <text x="120"
+          y="241"
+          text-anchor="middle"
+          fill="#E86020"
+          font-family="DM Sans"
+          font-size="15"
+          font-weight="700">
+      VISA
+    </text>
+
+  </g>
+
+  <!-- Flight Path -->
+  <path d="M585 170
+           C670 110 740 110 815 150"
+        stroke="#FFFFFF"
+        stroke-width="2"
+        stroke-dasharray="8 8"
+        fill="none"/>
+
+  <path d="M815 150
+           l16 6
+           l-16 8
+           l5-7z"
         fill="#FFFFFF"/>
 
-  <!-- Description -->
-  <text x="180"
-        y="775"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="42"
-        fill="#FFE0E0">
-    Expert guidance for German visas
-  </text>
-
-  <text x="180"
-        y="835"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="42"
-        fill="#FFE0E0">
-    &mdash; tourist, business, student &amp; more.
-  </text>
-
-  <!-- Right Side Typography -->
-  <text x="1420"
-        y="250"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="32"
-        font-weight="700"
-        letter-spacing="8"
-        fill="#FFD700">
-    SCHENGEN
-  </text>
-
-  <text x="1420"
-        y="420"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="320"
-        font-weight="800"
-        fill="#FFFFFF"
-        opacity="0.08">
-    DE
-  </text>
-
-  <text x="1420"
-        y="560"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="66"
-        font-weight="700"
-        fill="#FFFFFF">
-    EUROPE'S
-  </text>
-
-  <text x="1420"
-        y="630"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="66"
-        font-weight="700"
-        fill="#FFFFFF">
-    HEART
-  </text>
-
-  <text x="1420"
-        y="690"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="34"
-        fill="#FFE0E0">
-    VFS GLOBAL &bull; TLScontact
-  </text>
-
-  <!-- Bottom Feature Strip -->
-  <rect x="180"
-        y="930"
-        width="1620"
-        height="1.5"
-        fill="#FFFFFF"
-        opacity="0.18"/>
-
-  <text x="180"
-        y="995"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="30"
-        font-weight="600"
-        fill="#FFD700">
-    VISA APPLICATION ASSISTANCE
-  </text>
-
-  <text x="760"
-        y="995"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="30"
-        font-weight="600"
-        fill="#FFFFFF">
-    DOCUMENT REVIEW
-  </text>
-
-  <text x="1410"
-        y="995"
-        font-family="DM Sans, Arial, sans-serif"
-        font-size="30"
-        font-weight="600"
-        fill="#FFD700">
-    APPOINTMENT BOOKING
-  </text>
+  <!-- Bottom Accent -->
+  <rect x="700"
+        y="565"
+        width="430"
+        height="10"
+        fill="#A5D549"/>
 
 </svg>
