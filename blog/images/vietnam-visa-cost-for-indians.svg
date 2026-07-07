@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1980" height="1080" viewBox="0 0 1980 1080">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DA251D"/>
+      <stop offset="100%" stop-color="#C41E16"/>
+    </linearGradient>
+
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFF6F5"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1980" height="1080" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1600" cy="120" r="200" fill="#FFD700" opacity=".12"/>
+  <circle cx="1850" cy="900" r="280" fill="#FFD700" opacity=".08"/>
+  <circle cx="120" cy="950" r="220" fill="#FF6B6B" opacity=".1"/>
+
+  <!-- Star accent (Vietnam flag star) -->
+  <polygon points="1680,180 1710,270 1800,270 1725,320 1755,410 1680,360 1605,410 1635,320 1560,270 1650,270"
+           fill="#FFD700" opacity=".15"/>
+
+  <!-- Accent bar -->
+  <rect x="150" y="220" width="12" height="540" rx="6" fill="#FFD700"/>
+
+  <!-- Heading -->
+  <text x="220"
+        y="380"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="130"
+        font-weight="700"
+        fill="#FFFFFF">
+    Vietnam Visa
+  </text>
+
+  <text x="220"
+        y="530"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="130"
+        font-weight="700"
+        fill="#FFD700">
+    Cost & Fees
+  </text>
+
+  <text x="220"
+        y="650"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="52"
+        font-weight="600"
+        fill="#FFD700">
+    For Indians
+  </text>
+
+  <text x="220"
+        y="730"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="44"
+        font-weight="400"
+        fill="#FFFFFF">
+    2026 Complete Fee Guide with e-Visa, VOA &amp; Tourist Visa Costs
+  </text>
+
+  <!-- Info card -->
+  <rect x="220" y="810" width="460" height="180" rx="16" fill="url(#card)" filter="url(#shadow)"/>
+
+  <text x="250" y="865"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="22"
+        font-weight="500"
+        fill="#64748B">
+    🇻🇳 e-Visa from
+  </text>
+  <text x="250" y="920"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="38"
+        font-weight="700"
+        fill="#DA251D">
+    ₹1,615 (VND 500,000)
+  </text>
+  <text x="250" y="960"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="18"
+        font-weight="400"
+        fill="#64748B">
+    3–5 working days processing
+  </text>
+
+  <!-- Right side illustration - passport icon -->
+  <g transform="translate(1250, 250)">
+    <!-- Passport body -->
+    <rect x="0" y="0" width="380" height="520" rx="20" fill="#FFFFFF" opacity=".95" filter="url(#shadow)"/>
+    <!-- Gold emblem circle -->
+    <circle cx="190" cy="120" r="50" fill="#DA251D" opacity=".2"/>
+    <polygon points="190,85 198,110 225,110 203,127 210,155 190,138 170,155 177,127 155,110 182,110"
+             fill="#FFD700" opacity=".6"/>
+    <text x="190" y="200" text-anchor="middle"
+          font-family="DM Sans,Arial,sans-serif"
+          font-size="18"
+          font-weight="700"
+          fill="#DA251D"
+          opacity=".7">
+      VIETNAM
+    </text>
+    <!-- Fee badges on passport -->
+    <rect x="30" y="250" width="320" height="55" rx="8" fill="#10B981" opacity=".15"/>
+    <text x="50" y="284"
+          font-family="DM Sans,Arial,sans-serif"
+          font-size="20"
+          font-weight="600"
+          fill="#10B981">
+      ✓ e-Visa: VND 500,000
+    </text>
+    <rect x="30" y="320" width="320" height="55" rx="8" fill="#DA251D" opacity=".12"/>
+    <text x="50" y="354"
+          font-family="DM Sans,Arial,sans-serif"
+          font-size="20"
+          font-weight="600"
+          fill="#DA251D">
+      ✓ VOA: VND 600,000
+    </text>
+    <rect x="30" y="390" width="320" height="55" rx="8" fill="#5057EA" opacity=".1"/>
+    <text x="50" y="424"
+          font-family="DM Sans,Arial,sans-serif"
+          font-size="20"
+          font-weight="600"
+          fill="#5057EA">
+      ✓ Tourist: VND 1,000,000
+    </text>
+  </g>
+
+  <!-- Vietnam map outline (simplified) -->
+  <path d="M1750 720 Q1780 680 1790 640 Q1800 600 1790 560 Q1780 520 1760 500 Q1740 480 1710 490 Q1680 500 1660 530 Q1640 560 1650 600 Q1660 640 1680 670 Q1700 700 1710 730 Q1720 760 1720 790 Q1720 810 1700 830"
+        fill="none" stroke="#FFD700" stroke-width="3" opacity=".15"/>
+
+  <!-- Currency icons -->
+  <text x="1400" y="520" font-family="Arial,sans-serif" font-size="28" fill="#FFD700" opacity=".3">₹</text>
+  <text x="1440" y="580" font-family="Arial,sans-serif" font-size="24" fill="#FFD700" opacity=".25">$</text>
+  <text x="1380" y="640" font-family="Arial,sans-serif" font-size="20" fill="#FFD700" opacity=".2">₫</text>
+</svg>
