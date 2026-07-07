@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
+  --color-accent-alt: #A5D549;
+  --color-accent-alt-light: #bae56a;
+  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+ html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+ body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+ a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+ a:hover{color:var(--color-accent)}
+ ul{list-style:none}
+ h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+ h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+ h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+ p{margin-bottom:1rem;color:var(--color-text)}
+ img{max-width:100%;height:auto;display:block}
+ .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+ .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+ .btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+ .btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
+ .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+ .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+ .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+ .btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+ .btn-lg{padding:16px 36px;font-size:1.1rem}
+ .btn-white{background:var(--color-white);color:var(--color-primary)}
+ .btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+ .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+ .header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+ .header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+ .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+ .logo span{color:var(--color-accent)}
+ .nav{display:flex;align-items:center;gap:12px}
+ .nav-list{display:flex;align-items:center;gap:4px}
+ .nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+ .nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+ .nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
+ .nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+ .menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+ .menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+ .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+ .menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+ .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+ .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+ .nav-overlay.open{opacity:1}
+ .breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+ .breadcrumbs a{color:var(--color-primary-light)}
+ .breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+ .section{padding:80px 0}
+ .section-alt{background:var(--color-bg-alt)}
+ .footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+ .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+ .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+ .scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
+ .scroll-top.visible{opacity:1;visibility:visible}
+ .scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+ body.menu-open{overflow:hidden}
+ .text-center{text-align:center}
+ .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ @media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+ @media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.section{padding:50px 0}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}}
+ @media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.nav-list{width:100%}}
+ </style>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Singapore Visa on Arrival for Indians 2026: VFTF, eVisa & Complete Guide | My Visa Assistance</title>
+ <meta name="description" content="Complete guide to Singapore Visa on Arrival for Indians in 2026. Learn about the 96-hour Visa-Free Transit Facility (VFTF), eVisa application process, documents required, fees, eligibility, and step-by-step instructions for Indian passport holders.">
+ <meta name="keywords" content="Singapore visa on arrival for Indians, Singapore visa on arrival India, VFTF Singapore, Singapore visa-free transit, Singapore visa for Indians, Singapore tourist visa India, how to get Singapore visa on arrival, Singapore eVisa Indian passport">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="My Visa Assistance Team">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/blog/singapore-visa-on-arrival-for-indians">
+ <meta property="og:title" content="Singapore Visa on Arrival for Indians 2026: VFTF, eVisa & Complete Guide">
+ <meta property="og:description" content="Complete guide to Singapore Visa on Arrival for Indians in 2026. VFTF 96-hour transit, eVisa process, documents, fees, and step-by-step instructions.">
+ <meta property="og:image" content="https://myvisaassistance.com/blog/images/singapore-visa-on-arrival-for-indians.svg">
+ <meta property="article:published_time" content="2026-07-09">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <!-- Article Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Singapore Visa on Arrival for Indians 2026: VFTF, eVisa & Complete Guide",
+ "description": "Complete guide to Singapore Visa on Arrival for Indians in 2026. Learn about the 96-hour Visa-Free Transit Facility (VFTF), eVisa application process, documents required, fees, eligibility, and step-by-step instructions for Indian passport holders.",
+ "author": { "@type": "Organization", "name": "My Visa Assistance" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-07-09",
+ "dateModified": "2026-07-09",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://myvisaassistance.com/blog/singapore-visa-on-arrival-for-indians" }
+ }
+ </script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/blog/singapore-visa-on-arrival-for-indians">
+ <style>
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+ .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ .blog-content h3 { margin-top: 1.5em; }
+ .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+ .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+ .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+ .blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+ .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content th { background: var(--color-primary); color: var(--color-white); }
+ .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+ .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+ .blog-content .blog-meta .update-badge { background: var(--color-secondary); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+ .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+ .blog-content .featured-image img { display: block; width: 100%; height: auto; }
+ .blog-content .step-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin: 1rem 0; display: flex; gap: 16px; align-items: flex-start; }
+ .blog-content .step-card .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--color-accent); color: var(--color-primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; }
+ .blog-content .step-card .step-content { flex: 1; }
+ .blog-content .step-card .step-content h4 { margin-bottom: 0.3em; font-size: 1.05rem; }
+ .blog-content .step-card .step-content p { margin-bottom: 0; font-size: 0.95rem; }
+ .blog-content .tip-box { background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .tip-box strong { color: #92400e; }
+ .blog-content .warning-box { background: #fef2f2; border: 1px solid #fecaca; border-left: 4px solid #ef4444; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .warning-box strong { color: #991b1b; }
+ .blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+ .blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+ .blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+ .blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+ .blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+ .blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+ .blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+ .blog-content .ref-list { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 25px; margin: 1.5rem 0; }
+ .blog-content .ref-list h4 { color: var(--color-primary); margin-bottom: 0.8em; }
+ .blog-content .ref-list ol { margin-bottom: 0; }
+ .blog-content .ref-list ol li { list-style: decimal; margin-bottom: 0.5rem; }
+ .blog-content .ref-list a { word-break: break-all; }
+ .blog-content .table-wrap { overflow-x: auto; }
+ .blog-content .country-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+ @media(max-width:600px){ .blog-content .country-list { grid-template-columns: 1fr; } }
+ .blog-content .country-list li { background: var(--color-bg-alt); padding: 8px 14px; border-radius: 6px; font-size: 0.9rem; list-style: none; border-left: 3px solid var(--color-accent); }
+ /* FAQ Smooth Accordion */
+ .blog-content .faq-answer { max-height: none; height: 0; overflow: hidden; transition: height 0.35s ease, padding 0.3s ease; padding: 0 22px; }
+ .blog-content .faq-item.active .faq-answer { height: auto; padding: 0 22px 20px; }
+ </style>
+ <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ </noscript>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+  "@type": "ListItem",
+  "position": 1,
+  "name": "Home",
+  "item": "https://myvisaassistance.com"
+  }, {
+  "@type": "ListItem",
+  "position": 2,
+  "name": "Blog",
+  "item": "https://myvisaassistance.com/blog/"
+  }, {
+  "@type": "ListItem",
+  "position": 3,
+  "name": "Singapore Visa on Arrival for Indians",
+  "item": "https://myvisaassistance.com/blog/singapore-visa-on-arrival-for-indians"
+  }]
+  }
+  </script>
+</head>
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/><animateTransform attributeName="gradientTransform" type="translate" from="-200 0" to="200 0" dur="3s" repeatCount="indefinite"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState==='complete'){h()}else{window.addEventListener('load',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>Singapore Visa on Arrival Guide</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+
+ <h1>Singapore Visa on Arrival for Indians 2026: VFTF, eVisa &amp; Complete Guide</h1>
+
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: July 9, 2026</span>
+ <span><i class="bi bi-clock"></i> 14 min read</span>
+ <span><i class="bi bi-person"></i> By My Visa Assistance Team</span>
+ <span class="update-badge"><i class="bi bi-star-fill"></i> Updated 2026</span>
+ </div>
+
+ <!-- Featured Image -->
+ <div class="featured-image">
+ <img src="/blog/images/singapore-visa-on-arrival-for-indians.svg" alt="Singapore Visa on Arrival for Indians 2026 - Complete Guide" width="1200" height="630" loading="eager">
+ </div>
+
+ <p>Singapore remains one of the most popular travel destinations for Indian travellers, whether for tourism, business, or as a transit hub for onward journeys to Southeast Asia, Australia, or the Americas. One of the most frequently asked questions by Indian passport holders is whether Singapore offers a visa on arrival facility for Indians.</p>
+
+ <p>The short answer: <strong>Singapore does not offer a standard tourist visa on arrival for Indian passport holders</strong>. However, there is a valuable alternative — the <strong>Visa-Free Transit Facility (VFTF)</strong> — which allows eligible Indian travellers to stay in Singapore for up to 96 hours without a visa when transiting to a third country. For those who need a longer stay or do not qualify for VFTF, a regular visa application through an authorised agent or local sponsor is required.</p>
+
+ <p>This comprehensive guide covers everything you need to know about entering Singapore as an Indian national in 2026 — from the VFTF transit rules to the full eVisa application process, required documents, fees, processing times, and expert tips for a hassle-free experience.</p>
+
+ <div class="info-box">
+ <h4>What You Will Learn in This Guide</h4>
+ <p>&#10003; Does Singapore offer visa on arrival for Indians? The complete truth<br>
+ &#10003; Visa-Free Transit Facility (VFTF) — eligibility, conditions, and duration<br>
+ &#10003; How to apply for a Singapore visa through the SAVE system or authorised agent<br>
+ &#10003; Complete document checklist for Indian applicants<br>
+ &#10003; Fees, processing times, and visa validity details<br>
+ &#10003; Step-by-step application guide<br>
+ &#10003; Common rejection reasons and how to avoid them<br>
+ &#10003; Frequently asked questions answered</p>
+ </div>
+
+ <h2>Understanding Singapore's Visa Policy for Indians</h2>
+
+ <p>India is on Singapore's list of visa-required countries. This means Indian passport holders generally need to obtain a valid visa before travelling to Singapore for tourism, business, or social visits. However, there are specific scenarios where a visa may not be required — the most important being the Visa-Free Transit Facility.</p>
+
+ <h3>Key Facts at a Glance</h3>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Entry Route</th>
+ <th>Visa Required?</th>
+ <th>Maximum Stay</th>
+ <th>Best For</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Visa-Free Transit (VFTF)</td>
+ <td>No</td>
+ <td>96 hours (4 days)</td>
+ <td>Transit passengers with onward tickets</td>
+ </tr>
+ <tr>
+ <td>Regular eVisa (SAVE/Local Sponsor)</td>
+ <td>Yes</td>
+ <td>Up to 30 days (extendable)</td>
+ <td>Tourists with a local contact in Singapore</td>
+ </tr>
+ <tr>
+ <td>Authorised Visa Agent / Embassy</td>
+ <td>Yes</td>
+ <td>Up to 30 days</td>
+ <td>Tourists without a local sponsor</td>
+ </tr>
+ <tr>
+ <td>Visa-Free for Select Nationals</td>
+ <td>No</td>
+ <td>Up to 90 days</td>
+ <td>Not available for Indian passport holders</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2>Visa-Free Transit Facility (VFTF) — The Closest Thing to Visa on Arrival</h2>
+
+ <p>The Visa-Free Transit Facility (VFTF) is Singapore's transit programme that allows Indian passport holders to enter Singapore without a visa for a short stay of up to 96 hours (4 days), provided they are in transit to or from a third country. This is often referred to informally as a "visa on arrival" for Indian travellers, although technically it is a waiver rather than a visa issued at the airport.</p>
+
+ <h3>VFTF Eligibility Criteria for Indian Passport Holders</h3>
+
+ <p>To qualify for the VFTF, Indian travellers must meet all of the following conditions:</p>
+
+ <ul>
+ <li><strong>Valid passport</strong> with at least 6 months' remaining validity from the date of entry into Singapore.</li>
+ <li><strong>Confirmed onward air or sea ticket</strong> to a third country (not the country of origin). You must depart Singapore within 96 hours of arrival.</li>
+ <li><strong>Valid visa or entry facility</strong> for the next destination (if required). For example, if you are transiting to Australia, you must hold a valid Australian visa.</li>
+ <li><strong>Immigration clearance</strong> — VFTF is granted at the discretion of the Immigration & Checkpoints Authority (ICA) officer at the checkpoint. Approval is not guaranteed.</li>
+ <li><strong>Travel by air or sea</strong> — You must arrive and depart by air or sea. Land entries from Malaysia are not eligible for VFTF.</li>
+ </ul>
+
+ <div class="info-box">
+ <h4>VFTF Key Points</h4>
+ <p>&#10003; The 96-hour period starts from the time of immigration clearance, not flight arrival.<br>
+ &#10003; You cannot extend your stay beyond 96 hours under VFTF — no extensions are permitted.<br>
+ &#10003; You must leave Singapore within 96 hours; overstaying attracts strict penalties including fines, deportation, and possible bans.<br>
+ &#10003; VFTF is a single-entry facility. If you re-enter Singapore later, you will need a visa or a separate VFTF approval (subject to ICA discretion).<br>
+ &#10003; You may enter Singapore via Changi Airport, Seletar Airport, or the Singapore Cruise Centre / Marina Bay Cruise Centre.</p>
+ </div>
+
+ <h3>VFTF — Eligible Travel Scenarios</h3>
+
+ <div class="step-card">
+ <div class="step-num">1</div>
+ <div class="step-content">
+ <h4>India to Third Country via Singapore (Outward Transit)</h4>
+ <p>You fly from India (e.g., Mumbai) to Singapore, then connect to a flight to a third country (e.g., Australia, Japan, USA) within 96 hours. You may exit the transit area and stay in Singapore for up to 4 days.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">2</div>
+ <div class="step-content">
+ <h4>Third Country to India via Singapore (Return Transit)</h4>
+ <p>You fly from a third country (e.g., Thailand) to Singapore, then connect to a flight to India within 96 hours. VFTF applies on return transit as well.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">3</div>
+ <div class="step-content">
+ <h4>Third Country to Another Third Country via Singapore</h4>
+ <p>You are travelling from one country (e.g., UK) to another country (e.g., Australia) with a stopover in Singapore of up to 96 hours. This qualifies for VFTF as long as both your arrival and departure are by air or sea.</p>
+ </div>
+ </div>
+
+ <div class="warning-box">
+ <strong><i class="bi bi-exclamation-triangle"></i> Important:</strong> VFTF does NOT apply if your journey is from India to Singapore and back to India (round trip without a third country). In this case, you must apply for a regular visa before travelling. Also, VFTF is not available for travellers arriving from Malaysia by land (via the Johor-Singapore Causeway or Second Link).
+ </div>
+
+ <h3>VFTF Eligible Countries for Indian Passport Holders</h3>
+
+ <p>The VFTF is available to Indian nationals who hold a valid visa or residence permit from any of the following countries. If you have a valid visa from one of these nations, you can transit visa-free through Singapore for up to 96 hours:</p>
+
+ <div class="country-list">
+ <li>United States of America (USA) — any valid visa</li>
+ <li>United Kingdom — any valid visa</li>
+ <li>Australia — Permanent Resident or valid visa</li>
+ <li>Canada — Permanent Resident or valid visa</li>
+ <li>Japan — Permanent Resident or valid visa</li>
+ <li>Germany — Permanent Resident or valid visa</li>
+ <li>New Zealand — Permanent Resident or valid visa</li>
+ <li>Switzerland — Permanent Resident or valid visa</li>
+ <li>Republic of Korea (South Korea) — Permanent Resident or valid visa</li>
+ <li>European Union / Schengen Area — any valid visa or residence permit</li>
+ </div>
+
+ <div class="tip-box">
+ <strong><i class="bi bi-lightbulb"></i> Pro Tip:</strong> Even if you hold a valid visa from one of these countries, the final decision to grant VFTF rests with the ICA officer at the checkpoint. Always carry printed copies of your valid visa, onward tickets, hotel bookings, and sufficient funds proof to present if asked. Immigration officers have full discretion to deny entry even if you meet all VFTF criteria.
+ </div>
+
+ <h2>Regular Singapore Visa for Indians</h2>
+
+ <p>If you do not qualify for VFTF — for example, if you are visiting Singapore solely for tourism without an onward ticket to a third country, or if you plan to stay longer than 96 hours — you must obtain a visa before you travel.</p>
+
+ <h3>Application Routes</h3>
+
+ <p>There are three main ways to apply for a Singapore visa as an Indian national:</p>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Application Route</th>
+ <th>How It Works</th>
+ <th>Processing Time</th>
+ <th>Fee</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>SAVE System (Local Sponsor)</strong></td>
+ <td>A Singapore citizen or Permanent Resident (PR) aged 21+ with a SingPass ID submits the application online via the ICA e-Service portal.</td>
+ <td>3 to 5 working days</td>
+ <td>SGD 30 (paid by sponsor)</td>
+ </tr>
+ <tr>
+ <td><strong>Authorised Visa Agent</strong></td>
+ <td>You engage a registered visa agent in India or Singapore who submits the application on your behalf through the SAVE system.</td>
+ <td>5 to 8 working days</td>
+ <td>SGD 30 visa fee + agent service fee (varies)</td>
+ </tr>
+ <tr>
+ <td><strong>Singapore Embassy / High Commission</strong></td>
+ <td>You submit a paper application in person or by mail to the nearest Singapore diplomatic mission in India.</td>
+ <td>5 to 10 working days</td>
+ <td>Visa fee varies by mission (approx. INR 1,500 to 2,500)</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3>Step-by-Step Application Process</h3>
+
+ <div class="step-card">
+ <div class="step-num">1</div>
+ <div class="step-content">
+ <h4>Determine Your Eligibility and Route</h4>
+ <p>Decide whether you qualify for VFTF (96-hour transit) or need a full visa. If you need a visa, choose your application route: local sponsor, authorised agent, or embassy.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">2</div>
+ <div class="step-content">
+ <h4>Complete Form 14A</h4>
+ <p>Download the official Singapore visa application form (Form 14A) from the ICA website. Fill it out accurately with your personal details, passport information, travel itinerary, accommodation, employment details, and declarations. Sign and date the form.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">3</div>
+ <div class="step-content">
+ <h4>Gather Supporting Documents</h4>
+ <p>Collect all required documents as per the checklist below. Ensure your passport has at least 6 months validity, your photographs meet specifications (35mm x 45mm, white background), and your financial documents are up to date.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">4</div>
+ <div class="step-content">
+ <h4>Submit Your Application</h4>
+ <p>Submit your completed Form 14A and supporting documents through your chosen route. For SAVE, your sponsor uploads everything online. For agents or embassies, submit physical or scanned copies as required.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">5</div>
+ <div class="step-content">
+ <h4>Pay the Visa Fee</h4>
+ <p>The non-refundable visa processing fee is SGD 30 (approximately INR 1,850). This is paid at the time of submission. Authorised agents may charge an additional service fee ranging from INR 1,000 to 3,000.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">6</div>
+ <div class="step-content">
+ <h4>Wait for Processing</h4>
+ <p>Standard processing takes 3 to 8 working days depending on the application route. Check your application status through the ICA e-Service portal or your agent. Avoid making non-refundable travel bookings until your visa is approved.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num">7</div>
+ <div class="step-content">
+ <h4>Receive Your e-Visa</h4>
+ <p>Once approved, your visa is issued as a digital e-Visa sent by email. Carry a printed copy when travelling. Upon arrival in Singapore, you will receive an electronic Visit Pass (e-Pass) by email.</p>
+ </div>
+ </div>
+
+ <h2>Required Documents for Indian Applicants</h2>
+
+ <p>Whether applying through VFTF or a regular visa, Indian travellers should carry the following documents:</p>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Document</th>
+ <th>VFTF (Transit)</th>
+ <th>Regular Visa</th>
+ <th>Notes</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Valid Passport</td>
+ <td>Required (6+ months validity)</td>
+ <td>Required (6+ months validity)</td>
+ <td>At least 2 blank pages</td>
+ </tr>
+ <tr>
+ <td>Completed Form 14A</td>
+ <td>Not required</td>
+ <td>Required</td>
+ <td>Download from ICA website</td>
+ </tr>
+ <tr>
+ <td>Passport-size Photographs</td>
+ <td>Not required for transit</td>
+ <td>2 photos (35mm x 45mm, white bg)</td>
+ <td>Recent, within 3 months</td>
+ </tr>
+ <tr>
+ <td>Confirmed Onward Air/Sea Ticket</td>
+ <td>Required — must show departure within 96 hours</td>
+ <td>Required</td>
+ <td>Return or onward ticket</td>
+ </tr>
+ <tr>
+ <td>Valid Visa for Next Destination</td>
+ <td>Required if next country needs a visa</td>
+ <td>Recommended</td>
+ <td>If transiting further</td>
+ </tr>
+ <tr>
+ <td>Bank Statements (3-6 months)</td>
+ <td>Recommended as proof of funds</td>
+ <td>Required</td>
+ <td>Minimum INR 80,000 to 1,00,000 advised</td>
+ </tr>
+ <tr>
+ <td>Hotel Booking / Accommodation</td>
+ <td>Recommended</td>
+ <td>Required</td>
+ <td>Confirmed or refundable booking</td>
+ </tr>
+ <tr>
+ <td>Cover Letter</td>
+ <td>Recommended</td>
+ <td>Required</td>
+ <td>Explain trip purpose, itinerary, ties to India</td>
+ </tr>
+ <tr>
+ <td>Employment Letter / NOC</td>
+ <td>Recommended</td>
+ <td>Required</td>
+ <td>Leave approval, job confirmation</td>
+ </tr>
+ <tr>
+ <td>Travel Insurance</td>
+ <td>Recommended</td>
+ <td>Recommended</td>
+ <td>Coverage of at least SGD 30,000</td>
+ </tr>
+ <tr>
+ <td>SG Arrival Card</td>
+ <td>Required — submit online within 3 days of arrival</td>
+ <td>Required — submit online within 3 days of arrival</td>
+ <td>Free, via ICA e-service or MyICA app</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2>Fees and Processing Times</h2>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Service</th>
+ <th>Fee (Indian Rupees approx.)</th>
+ <th>Processing Time</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Singapore eVisa (SAVE — Local Sponsor)</td>
+ <td>SGD 30 (approx. INR 1,850)</td>
+ <td>3 to 5 working days</td>
+ </tr>
+ <tr>
+ <td>Authorised Visa Agent Service Fee</td>
+ <td>INR 1,000 to 3,000 (additional to visa fee)</td>
+ <td>5 to 8 working days</td>
+ </tr>
+ <tr>
+ <td>Embassy / Mission Application</td>
+ <td>INR 1,500 to 2,500</td>
+ <td>5 to 10 working days</td>
+ </tr>
+ <tr>
+ <td>VFTF (Transit) — No visa required</td>
+ <td>Free (no visa fee)</td>
+ <td>No processing required</td>
+ </tr>
+ <tr>
+ <td>SG Arrival Card Submission</td>
+ <td>Free</td>
+ <td>Instant (online form)</td>
+ </tr>
+ <tr>
+ <td>Visit Pass Extension (if applicable)</td>
+ <td>SGD 40 (approx. INR 2,500)</td>
+ <td>1 to 3 working days</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="tip-box">
+ <strong><i class="bi bi-lightbulb"></i> Pro Tip:</strong> Apply for your Singapore visa at least 30 days before your planned travel date. During peak travel seasons — such as December holidays, Chinese New Year, Diwali, and the June vacation period — processing times may be longer due to higher application volumes. There is no expedited or priority processing available for Singapore tourist visas.
+ </div>
+
+ <h2>Visa Validity and Stay Duration</h2>
+
+ <p>It is important to understand the difference between visa validity and permitted stay duration:</p>
+
+ <ul>
+ <li><strong>Visa Validity:</strong> The period during which you may use the visa to enter Singapore. Typically, tourist visas are issued with a validity of 5 weeks (63 days) from the date of issue, but this can vary at the discretion of ICA.</li>
+ <li><strong>Permitted Stay (Visit Pass):</strong> The number of days you are allowed to remain in Singapore upon each entry. This is determined by the immigration officer at the checkpoint and is usually up to 30 days for Indian nationals with a valid visa.</li>
+ <li><strong>Multiple Entries:</strong> Most tourist visas issued to Indian nationals are single-entry. However, you may request a double-entry or multiple-entry visa in your application, though approval is at ICA's discretion.</li>
+ </ul>
+
+ <div class="warning-box">
+ <strong><i class="bi bi-exclamation-triangle"></i> Important:</strong> Do not confuse visa validity with permitted stay. Even if your visa is valid for 9 weeks, you may only stay for 30 days per entry. Overstaying your Visit Pass is a serious offence under Singapore law and can result in fines, deportation, and a ban from re-entering Singapore.
+ </div>
+
+ <h2>Common Reasons for Visa Rejection</h2>
+
+ <p>Understanding why Singapore visa applications are rejected can help you prepare a stronger application. Here are the most common reasons:</p>
+
+ <ul>
+ <li><strong>Incomplete or incorrect documentation</strong> — Missing documents, incorrectly filled forms, or discrepancies in information are the leading causes of rejection.</li>
+ <li><strong>Insufficient financial proof</strong> — Bank statements that do not show adequate funds or regular income. Ensure your balance reflects at least INR 80,000 to 1,00,000 per person for a short trip.</li>
+ <li><strong>Weak travel history</strong> — First-time travellers or those with no prior international travel may face additional scrutiny. Include previous visa copies if available.</li>
+ <li><strong>Unclear travel itinerary</strong> — Vague or unrealistic travel plans, contradictory flight and hotel bookings, or missing accommodation details.</li>
+ <li><strong>Previous visa violations</strong> — Overstays, deportation, or visa rejections from Singapore or other countries can negatively impact your application.</li>
+ <li><strong>Insufficient ties to home country</strong> — The visa officer must be satisfied that you will return to India after your visit. Strong employment, family, and property ties help establish this.</li>
+ <li><strong>Invalid sponsor details</strong> — If applying through the SAVE system, your local sponsor must be a genuine Singapore citizen or PR aged 21 or above with a valid SingPass ID.</li>
+ </ul>
+
+ <div class="tip-box">
+ <strong><i class="bi bi-lightbulb"></i> Pro Tip:</strong> If your visa is rejected, carefully review the reason provided in the rejection letter. Address the specific gaps — whether it is insufficient funds, weak itinerary, or missing documents — before reapplying. Repeated applications without substantive changes are likely to be rejected again. You may also appeal through your authorised agent or sponsor with new supporting documents.
+ </div>
+
+ <h2>SG Arrival Card — Mandatory for All Travellers</h2>
+
+ <p>Every traveller entering Singapore, whether under VFTF or with a regular visa, must submit the SG Arrival Card (SGAC) online before arrival. This electronic card replaced the paper disembarkation card and includes a health declaration component.</p>
+
+ <h3>How to Submit the SG Arrival Card</h3>
+
+ <ul>
+ <li>Visit the official ICA e-Service portal or download the MyICA mobile app.</li>
+ <li>Submit the card within 3 days before your arrival in Singapore. Early submissions are not accepted.</li>
+ <li>You will need your passport details, flight information, accommodation address, and a valid email address.</li>
+ <li>The submission is free of charge. You will receive a confirmation email with a QR code — save it on your phone or carry a printout.</li>
+ <li>All family members, including children and infants, must have separate SG Arrival Card submissions.</li>
+ </ul>
+
+ <h2>Singapore Entry Requirements at a Glance</h2>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Requirement</th>
+ <th>VFTF (Transit)</th>
+ <th>eVisa (Tourist)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Visa Needed</td>
+ <td>No (transit waiver)</td>
+ <td>Yes</td>
+ </tr>
+ <tr>
+ <td>Passport Validity</td>
+ <td>6+ months</td>
+ <td>6+ months</td>
+ </tr>
+ <tr>
+ <td>SG Arrival Card</td>
+ <td>Mandatory (within 3 days)</td>
+ <td>Mandatory (within 3 days)</td>
+ </tr>
+ <tr>
+ <td>Onward/Return Ticket</td>
+ <td>Mandatory (to third country)</td>
+ <td>Mandatory (return to India or onward)</td>
+ </tr>
+ <tr>
+ <td>Sufficient Funds</td>
+ <td>Must demonstrate</td>
+ <td>Must demonstrate</td>
+ </tr>
+ <tr>
+ <td>Hotel Accommodation</td>
+ <td>Recommended</td>
+ <td>Required</td>
+ </tr>
+ <tr>
+ <td>Travel Insurance</td>
+ <td>Recommended</td>
+ <td>Recommended</td>
+ </tr>
+ <tr>
+ <td>Maximum Stay</td>
+ <td>96 hours (no extensions)</td>
+ <td>Up to 30 days (extendable once)</td>
+ </tr>
+ <tr>
+ <td>Visa Fee</td>
+ <td>Nil</td>
+ <td>SGD 30 (plus agent fee if applicable)</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2>Tips for a Smooth Singapore Entry Experience</h2>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-check-circle"></i></div>
+ <div class="step-content">
+ <h4>Carry Printed Copies of All Documents</h4>
+ <p>Even though Singapore uses digital systems, always carry printed copies of your e-Visa (if applicable), onward tickets, hotel bookings, bank statements, and SG Arrival Card confirmation. Immigration officers may ask to see physical copies.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-check-circle"></i></div>
+ <div class="step-content">
+ <h4>Submit SG Arrival Card Before Your Flight</h4>
+ <p>Complete the SG Arrival Card online within 3 days of arrival. Do not wait until you reach Singapore. Airlines may check for SGAC submission at check-in, and failure to submit can delay immigration clearance.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-check-circle"></i></div>
+ <div class="step-content">
+ <h4>Arrive During Immigration Officer Hours</h4>
+ <p>While Changi Airport operates 24 hours, having clear travel documents ready and travelling during standard hours can make immigration smoother. Early morning and late evening flights may have fewer officers on duty.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-check-circle"></i></div>
+ <div class="step-content">
+ <h4>Know Your Accommodation Details</h4>
+ <p>Have your hotel name, address, and booking confirmation number ready. If staying with friends or family, have their full name, address, and contact number. ICA officers commonly verify accommodation information.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-check-circle"></i></div>
+ <div class="step-content">
+ <h4>Be Honest and Clear with Immigration Officers</h4>
+ <p>Answer all questions truthfully and directly. State the purpose of your visit clearly (transit, tourism, business meetings). If you are unsure about your travel plans, do not guess — say you will confirm. Inconsistencies can lead to denial of entry.</p>
+ </div>
+ </div>
+
+ <div class="step-card">
+ <div class="step-num"><i class="bi bi-check-circle"></i></div>
+ <div class="step-content">
+ <h4>Respect Singapore's Laws</h4>
+ <p>Singapore has strict laws regarding drugs, chewing gum, smoking in public places, littering, and jaywalking. Penalties can include heavy fines or imprisonment. Always carry your passport as identification during your stay.</p>
+ </div>
+ </div>
+
+ <h2>Special Scenarios</h2>
+
+ <h3>Indians with US, UK, or Schengen Visas</h3>
+ <p>If you hold a valid visa from the United States, United Kingdom, or a Schengen Area country, you may be eligible for the VFTF even without a Singapore visa. This is one of the most common ways Indian travellers visit Singapore for short stopovers. Ensure your visa is valid at the time of transit and you have an onward ticket to a third country.</p>
+
+ <h3>Diplomatic and Official Passport Holders</h3>
+ <p>Holders of diplomatic, official, or service passports may be exempt from Singapore visa requirements. Check with the Singapore Ministry of Foreign Affairs or your nearest Singapore embassy for specific guidance.</p>
+
+ <h3>Indians Residing Abroad (NRIs)</h3>
+ <p>Indian nationals who are permanent residents or long-term residents of countries like the USA, UK, Canada, Australia, or EU nations may still need a visa to enter Singapore unless they qualify for VFTF. NRI status does not grant automatic visa-free entry to Singapore. You must follow the same visa rules as any other Indian passport holder.</p>
+
+ <h3>Families and Minors Travelling Together</h3>
+ <p>Each traveller, including children and infants, requires their own passport and (if applicable) visa application. Minors under 18 must submit additional documents including birth certificates, parental consent letters if travelling with only one parent, and school ID or NOC if applicable.</p>
+
+ <h2>Frequently Asked Questions</h2>
+
+ <div class="faq-list">
+ <div class="faq-item active has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ Do Indian citizens get visa on arrival in Singapore?
+ </button>
+ <div class="faq-answer">
+ <p><strong>No, Singapore does not offer a standard visa on arrival for Indian passport holders.</strong> Indian citizens must either qualify for the Visa-Free Transit Facility (VFTF, up to 96 hours) or obtain a visa before travelling through the SAVE system, an authorised agent, or a Singapore embassy. There is no facility to obtain a tourist visa at Changi Airport upon landing.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ Can I get a Singapore visa on arrival if I have a US visa?
+ </button>
+ <div class="faq-answer">
+ <p>Not exactly a visa on arrival, but if you hold a valid US visa, you may be eligible for the <strong>Visa-Free Transit Facility (VFTF)</strong> which allows you to stay in Singapore for up to 96 hours without a visa while transiting to a third country. This is as close as it gets to a visa on arrival for Indian passport holders with a US visa. You must have a confirmed onward ticket to a third country and your US visa must be valid at the time of travel.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ Can I extend my VFTF stay beyond 96 hours?
+ </button>
+ <div class="faq-answer">
+ <p><strong>No.</strong> The Visa-Free Transit Facility is strictly limited to 96 hours and extensions are not permitted under any circumstances. If you need to stay longer than 4 days, you must apply for a regular visa before travelling. Overstaying your VFTF is a serious offence and can result in fines, deportation, and a ban from re-entering Singapore.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ How much bank balance is required for a Singapore visa for Indians?
+ </button>
+ <div class="faq-answer">
+ <p>While there is no officially published minimum bank balance requirement, visa consultants and past applicant experiences suggest that showing a bank balance of at least <strong>INR 80,000 to 1,00,000 per person</strong> significantly strengthens your application for a short tourist visit. For family applications, multiply this amount accordingly. Bank statements should cover the last 3 to 6 months and show regular income deposits along with sufficient closing balances.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ What is the Singapore visa fee for Indian citizens?
+ </button>
+ <div class="faq-answer">
+ <p>The standard Singapore visa processing fee is <strong>SGD 30</strong> (approximately INR 1,850). This is non-refundable regardless of the application outcome. If you apply through an authorised visa agent, you will also pay a service fee ranging from INR 1,000 to 3,000. The VFTF transit facility is free of charge as no visa is required. The SG Arrival Card submission is also free.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ How long does it take to get a Singapore visa for Indians?
+ </button>
+ <div class="faq-answer">
+ <p>Standard processing time for a Singapore eVisa through the SAVE system is <strong>3 to 5 working days</strong>. Applications submitted through authorised agents or embassies take <strong>5 to 10 working days</strong>. It is recommended to apply at least 30 days before your intended travel date. There is no expedited or priority processing option available for Singapore tourist visas.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ Can I apply for a Singapore visa online by myself?
+ </button>
+ <div class="faq-answer">
+ <p>Singapore does not offer a direct e-Visa portal where individual applicants can submit their own tourist visa applications. Applications must be submitted through the <strong>SAVE system</strong> by a local sponsor (Singapore citizen or PR with SingPass ID) or through an authorised visa agent. Individual online submission is not available for most tourist visa applicants from India.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ Is there a visa-free entry for Indians to Singapore?
+ </button>
+ <div class="faq-answer">
+ <p>Indian passport holders do not have visa-free access to Singapore for tourism. The only visa-free option is the <strong>Visa-Free Transit Facility (VFTF)</strong>, which requires you to be in transit to or from a third country with a confirmed onward ticket within 96 hours. You must also hold a valid visa or residence permit from an eligible country (USA, UK, Canada, Australia, Japan, Schengen, etc.) to qualify for VFTF in most cases.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ What documents do I need to show at Singapore immigration?
+ </button>
+ <div class="faq-answer">
+ <p>At Singapore immigration, you should be prepared to present: your valid passport (6+ months validity), your approved e-Visa (if applicable) or VFTF documentation, your confirmed onward or return air ticket, your SG Arrival Card confirmation (digital or printed), proof of sufficient funds (bank statements or cash), hotel booking confirmation or host address, and travel insurance documents if you have them. Answer all immigration officer questions honestly and clearly.</p>
+ </div>
+ </div>
+
+ <div class="faq-item has-secondary">
+ <button class="faq-question">
+ <span class="faq-icon"><i class="bi bi-plus-lg"></i></span>
+ What happens if I overstay my Singapore visa or VFTF?
+ </button>
+ <div class="faq-answer">
+ <p>Overstaying in Singapore is a serious offence under the Immigration Act. Penalties include: a fine of up to SGD 1,000 for overstays of up to 90 days, prosecution in court for overstays beyond 90 days (which can result in fines of up to SGD 4,000 and/or imprisonment of up to 6 months), and possible caning for overstays exceeding 90 days. You may also be banned from re-entering Singapore for a period of 1 to 5 years or more. Always apply for a Visit Pass extension through the ICA e-Service before your current pass expires if you need more time.</p>
+ </div>
+ </div>
+ </div>
+
+ <!-- CTA Section -->
+ <div class="cta-section">
+ <h3>Need Help With Your Singapore Visa Application?</h3>
+ <p>Our team of visa experts can assist you with document preparation, application review, and step-by-step guidance for your Singapore visa or VFTF transit. Contact us today for a free consultation.</p>
+ <a href="/contact" class="btn btn-white btn-lg"><i class="bi bi-envelope"></i> Get Expert Help</a>
+ </div>
+
+ <!-- Author Box -->
+ <div class="author-box">
+ <div class="avatar">MV</div>
+ <div>
+ <h4 style="margin-bottom:0.2em;">My Visa Assistance Team</h4>
+ <p style="margin-bottom:0;font-size:0.9rem;color:var(--color-text-light);">We are a team of visa and travel experts dedicated to providing accurate, up-to-date information for travellers worldwide. Our guides are researched from official embassy sources, VAC portals, and first-hand applicant experiences.</p>
+ </div>
+ </div>
+
+ <!-- Share Buttons -->
+ <div class="share-buttons">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/blog/singapore-visa-on-arrival-for-indians" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=Singapore%20Visa%20on%20Arrival%20for%20Indians%202026%20Guide&url=https://myvisaassistance.com/blog/singapore-visa-on-arrival-for-indians" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Twitter</a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/blog/singapore-visa-on-arrival-for-indians" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;"><i class="bi bi-linkedin"></i> LinkedIn</a>
+ <a href="https://wa.me/?text=Check%20out%20this%20Guide%20to%20Singapore%20Visa%20on%20Arrival%20for%20Indians%20https://myvisaassistance.com/blog/singapore-visa-on-arrival-for-indians" target="_blank" rel="noopener noreferrer" style="background:#25D366;"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+ </div>
+
+ <!-- References -->
+ <div class="ref-list">
+ <h4>Sources &amp; References</h4>
+ <ol>
+ <li>Immigration &amp; Checkpoints Authority (ICA), Singapore — Visa Information Portal</li>
+ <li>Immigration &amp; Checkpoints Authority (ICA), Singapore — Visa-Free Transit Facility (VFTF) Guidelines</li>
+ <li>Ministry of Foreign Affairs, Singapore — Consular Services</li>
+ <li>Singapore Tourism Board — Travel Guidelines and Entry Requirements</li>
+ <li>ICA e-Service Portal — SG Arrival Card and SAVE System</li>
+ </ol>
+ </div>
+
+ <p style="margin-top:2rem;font-size:0.9rem;color:var(--color-text-light);"><i class="bi bi-info-circle"></i> <strong>Disclaimer:</strong> This guide is for informational purposes only. Visa regulations, fees, and processing times are subject to change at the discretion of the Immigration &amp; Checkpoints Authority of Singapore and other relevant government bodies. Always verify the latest requirements on the official ICA website before making travel arrangements. The VFTF is granted at the sole discretion of ICA officers at the checkpoint and cannot be guaranteed in advance.</p>
+
+ </article>
+
+ <!-- Footer -->
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <div class="logo-icon" aria-hidden="true">V</div>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+ <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Legal</h4>
+ <ul>
+ <li><a href="/privacy-policy">Privacy Policy</a></li>
+ <li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
+ <li><a href="/contact">Contact Us</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-bottom">
+ <span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a> &middot;
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+
+<script>
+// FAQ Smooth Accordion — JS-driven height animation
+(function() {
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var item = this.closest('.faq-item');
+      if (!item) return;
+      var answer = item.querySelector('.faq-answer');
+      if (!answer) return;
+      var container = item.closest('.faq-list') || item.parentNode;
+      var isOpen = item.classList.contains('active');
+
+      function closeFaq(el) {
+        var ans = el.querySelector('.faq-answer');
+        if (!ans) return;
+        var startH = ans.offsetHeight;
+        ans.style.height = startH + 'px';
+        ans.offsetHeight;
+        ans.style.height = '0px';
+        ans.style.paddingBottom = '0px';
+        setTimeout(function() {
+          el.classList.remove('active');
+          ans.style.height = '';
+          ans.style.paddingBottom = '';
+        }, 350);
+      }
+
+      function openFaq(el) {
+        el.classList.add('active');
+        var ans = el.querySelector('.faq-answer');
+        var targetH = ans.scrollHeight;
+        ans.style.height = targetH + 'px';
+        setTimeout(function() {
+          ans.style.height = '';
+          ans.style.paddingBottom = '';
+        }, 350);
+      }
+
+      container.querySelectorAll('.faq-item.active').forEach(function(other) {
+        if (other !== item) closeFaq(other);
+      });
+
+      if (isOpen) closeFaq(item);
+      else openFaq(item);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

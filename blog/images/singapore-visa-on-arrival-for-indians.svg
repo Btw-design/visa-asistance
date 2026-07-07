@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1980" height="1080" viewBox="0 0 1980 1080">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5057EA"/>
+      <stop offset="100%" stop-color="#3942D8"/>
+    </linearGradient>
+
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F6F8FF"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1980" height="1080" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1600" cy="120" r="200" fill="#FFFFFF" opacity=".05"/>
+  <circle cx="1850" cy="900" r="280" fill="#A5D549" opacity=".07"/>
+  <circle cx="120" cy="950" r="220" fill="#E86020" opacity=".06"/>
+
+  <!-- Accent bar -->
+  <rect x="150" y="220" width="12" height="540" rx="6" fill="#E86020"/>
+
+  <!-- Heading -->
+  <text x="220"
+        y="380"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="130"
+        font-weight="700"
+        fill="#FFFFFF">
+    Singapore Visa
+  </text>
+
+  <text x="220"
+        y="530"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="130"
+        font-weight="700"
+        fill="#A5D549">
+    on Arrival
+  </text>
+
+  <text x="220"
+        y="650"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="52"
+        font-weight="600"
+        fill="#E86020">
+    For Indians
+  </text>
+
+  <text x="220"
+        y="730"
+        font-family="DM Sans,Arial,sans-serif"
+        font-size="44"
+        fill="#EAF0FF">
+    VFTF • eVisa • Requirements • Complete Guide
+  </text>
+
+  <rect x="220" y="800" width="480" height="8" rx="4" fill="#A5D549"/>
+
+  <!-- Right Card -->
+  <g filter="url(#shadow)">
+    <rect x="1320" y="160" width="440" height="720" rx="40" fill="url(#card)"/>
+  </g>
+
+  <!-- Merlion silhouette -->
+  <g transform="translate(1430, 220)">
+    <path d="M0 320 L0 160 Q0 100 40 80 L60 80 L60 40 Q60 10 90 10 L100 10 Q130 10 130 40 L130 60 Q140 55 150 55 Q170 55 170 75 Q170 90 155 95 L140 100 L140 120 L150 140 Q180 140 180 170 L180 200 Q180 240 200 240 L210 240 L210 320 Z"
+          fill="#5057EA"/>
+    <circle cx="100" cy="35" r="8" fill="#FFFFFF"/>
+    <!-- Merlion mouth/fountain -->
+    <path d="M210 240 Q230 245 240 260 Q248 270 240 280 Q230 290 210 290"
+          fill="none" stroke="#5057EA" stroke-width="6" stroke-linecap="round"/>
+    <path d="M240 260 Q260 250 270 240 Q280 230 285 235"
+          fill="none" stroke="#6B72EE" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Marina Bay Sands silhouette -->
+  <g transform="translate(1530, 380)">
+    <rect x="0" y="60" width="30" height="100" rx="3" fill="#3942D8"/>
+    <rect x="40" y="40" width="30" height="120" rx="3" fill="#3942D8"/>
+    <rect x="80" y="20" width="30" height="140" rx="3" fill="#3942D8"/>
+    <rect x="120" y="50" width="30" height="110" rx="3" fill="#3942D8"/>
+    <rect x="160" y="70" width="30" height="90" rx="3" fill="#3942D8"/>
+    <!-- SkyPark -->
+    <path d="M-10 20 L220 20 L210 0 L0 0 Z" fill="#5057EA"/>
+  </g>
+
+  <!-- Passport icon with stamp -->
+  <g transform="translate(1420, 560)">
+    <rect x="0" y="0" width="160" height="120" rx="12" fill="#3942D8"/>
+    <rect x="15" y="15" width="130" height="90" rx="6" fill="#FFFFFF"/>
+    <text x="80" y="55"
+          text-anchor="middle"
+          font-family="DM Sans,Arial,sans-serif"
+          font-size="18"
+          font-weight="700"
+          fill="#5057EA">
+      VISA
+    </text>
+    <text x="80" y="78"
+          text-anchor="middle"
+          font-family="DM Sans,Arial,sans-serif"
+          font-size="12"
+          font-weight="600"
+          fill="#E86020">
+      ON ARRIVAL
+    </text>
+    <circle cx="140" cy="-10" r="25" fill="none" stroke="#A5D549" stroke-width="4"/>
+    <path d="M132 -10 L138 -4 L150 -16" fill="none" stroke="#A5D549" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Check badge -->
+  <circle cx="1680" cy="760" r="40" fill="#A5D549"/>
+  <path d="M1660 760 L1674 774 L1700 746"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
