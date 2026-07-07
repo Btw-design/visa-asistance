@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
+ --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
+ --color-accent-alt: #A5D549;
+ --color-accent-alt-light: #bae56a;
+ --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
+
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://embed.tawk.to">
+  <link rel="dns-prefetch" href="https://embed.tawk.to">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Luxembourg Visa for Indians 2026: Types, Fees, Process & Requirements - My Visa Assistance</title>
+ <meta name="description" content="Luxembourg is a Schengen Area member. Indian citizens need a Schengen visa to visit Luxembourg for tourism, business, or transit. Complete guide with fees, processing times, and step-by-step application process.">
+ <meta name="author" content="Ajit Mane">
+
+ <meta name="robots" content="index, follow">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/visa-guide/luxembourg-visa">
+ <meta property="og:title" content="Luxembourg Visa for Indians 2026: Types, Fees, Process &amp; Requirements">
+ <meta property="og:description" content="Luxembourg is a Schengen Area member. Indian citizens need a Schengen visa to visit Luxembourg for tourism, business, or transit. Complete guide with fees, processing times, and step-by-step application process.">
+
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/visa-guide/luxembourg-visa">
+
+
+ <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+ <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+  "@type": "ListItem",
+  "position": 1,
+  "name": "Home",
+  "item": "https://myvisaassistance.com"
+  }, {
+  "@type": "ListItem",
+  "position": 2,
+  "name": "Visa Guide",
+  "item": "https://myvisaassistance.com/visa-guide/"
+  }, {
+  "@type": "ListItem",
+  "position": 3,
+  "name": "Luxembourg Visa",
+  "item": "https://myvisaassistance.com/visa-guide/luxembourg-visa"
+  }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Luxembourg Visa for Indians 2026: Types, Fees, Process & Requirements",
+    "description": "Luxembourg is a Schengen Area member. Indian citizens need a Schengen visa to visit Luxembourg for tourism, business, or transit.",
+    "author": {
+      "@type": "Person",
+      "name": "Ajit Mane"
+    },
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07"
+  }
+  </script>
+</head>
+
+
+<body>
+<!-- Reading Progress Bar -->
+<div class="reading-progress" id="readingProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}@keyframes ldrSlide{0%{transform:translateX(-100%)}100%{transform:translateX(300%)}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA" style="animation:ldrSlide 1.5s infinite ease-in-out"/></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo">
+ <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
+ My Visa <span>Assistance</span>
+ </a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu">
+ <span></span><span></span><span></span>
+ </button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/" class="active">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+
+<li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <div class="country-hero">
+ <div class="container">
+ <nav class="breadcrumb">
+ <a href="/">Home</a>
+ <span>/</span>
+ <a href="/visa-guide/">Visa Guide</a>
+ <span>/</span>
+ <span>Luxembourg Visa</span>
+ </nav>
+ <h1>Luxembourg Visa for Indians 2026: Types, Fees, Process &amp; Requirements</h1>
+ <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;">Complete guide to Luxembourg visas for Indian citizens &mdash; covering all visa types with 2026 fees, processing times, and step-by-step application guidance.</p>
+
+<div class="hero-badges">
+<span class="hero-badge"><i class="bi bi-check-circle-fill"></i> Visa required</span>
+<span class="hero-badge"><i class="bi bi-clock"></i> 15 days processing</span>
+<span class="hero-badge"><i class="bi bi-calendar-check"></i> Up to 90 days stay</span>
+<span class="hero-badge"><i class="bi bi-shield-check"></i> ~85% approval</span>
+</div>
+</div>
+ </div>
+
+
+ <link rel="stylesheet" href="/visa-guide/css-v3-redesign.css">
+
+
+ </style>
+
+ 
+
+<!-- Sticky Table of Contents -->
+<nav class="sticky-toc" id="stickyToc" aria-label="Page navigation">
+<div class="toc-inner">
+<a href="#overview" class="toc-link active"><i class="bi bi-info-circle"></i> Overview</a>
+<a href="#visa-types" class="toc-link"><i class="bi bi-card-checklist"></i> Visa Types</a>
+<a href="#fees" class="toc-link"><i class="bi bi-currency-rupee"></i> Fees</a>
+<a href="#documents" class="toc-link"><i class="bi bi-file-earmark-text"></i> Documents</a>
+<a href="#process" class="toc-link"><i class="bi bi-signpost-2"></i> Process</a>
+<a href="#processing-time" class="toc-link"><i class="bi bi-clock"></i> Processing</a>
+<a href="#faq" class="toc-link"><i class="bi bi-question-circle"></i> FAQ</a>
+<a href="#resources" class="toc-link"><i class="bi bi-link-45deg"></i> Resources</a>
+</div>
+</nav>
+<section class="country-content">
+ <div class="container">
+ <div class="content-grid">
+ <div class="main-content">
+
+ <div class="update-bar">
+ <strong>Last Updated:</strong> July 2026 &nbsp;|&nbsp;
+ <strong>Author:</strong> Ajit Mane &nbsp;|&nbsp;
+ <strong>Reviewed:</strong> July 2026 &nbsp;|&nbsp;
+ <strong>Published:</strong> July 7, 2026
+ </div>
+
+ <div class="info-box">
+ <h4>What is a Luxembourg Visa?</h4>
+ <p>Luxembourg is a Schengen Area member. Indian citizens need a Schengen visa to visit Luxembourg for tourism, business, or transit. A Luxembourg-issued Schengen visa allows Indian travellers to visit all 27 Schengen countries for short stays of up to 90 days per 180-day period.</p>
+ <p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> See the <a href="#updates2026">Updates table</a> at the end of this guide for all 2026 changes to fees, visa durations, and policies.</p>
+ </div>
+
+ <p><strong>Application Mode:</strong> Online + VFS Global submission. <strong>Currency:</strong> Euro (€). <strong>Embassy:</strong> Luxembourg Embassy, 33-34, Panchsheel Enclave, New Delhi 110017</p>
+
+ <div class="quick-stats-grid" id="overview">
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-passport"></i></div>
+<div class="stat-label">Visa Required?</div>
+<div class="stat-value">Yes, Indian citizens need a Schengen visa</div>
+<div class="stat-sub"></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-clock"></i></div>
+<div class="stat-label">Processing</div>
+<div class="stat-value">15 calendar days (standard Schengen)</div>
+<div class="stat-sub"></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-currency-dollar"></i></div>
+<div class="stat-label">Visa Fee</div>
+<div class="stat-value">€80 (standard Schengen visa fee)</div>
+<div class="stat-sub"></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
+<div class="stat-label">Max Stay</div>
+<div class="stat-value">90 days per 180-day period for Schengen</div>
+<div class="stat-sub"></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-shield-check"></i></div>
+<div class="stat-label">Approval Rate</div>
+<div class="stat-value">Approximately 85% for Indian applicants</div>
+<div class="stat-sub"></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-fingerprint"></i></div>
+<div class="stat-label">Biometrics</div>
+<div class="stat-value">Yes, biometrics (fingerprints and photo) required for all Schengen visa applicants</div>
+<div class="stat-sub"></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-geo-alt"></i></div>
+<div class="stat-label">Entry Mode</div>
+<div class="stat-value">Schengen visa — single, double, or multiple entry</div>
+<div class="stat-sub">All applications via VFS Global</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i class="bi bi-people"></i></div>
+<div class="stat-label">Financial Req</div>
+<div class="stat-value">Minimum €50 per day of stay in Luxembourg</div>
+<div class="stat-sub"></div>
+</div>
+</div>
+
+ <h2><i class="bi bi-info-circle"></i> What is a Luxembourg Visa?</h2>
+ <p>Luxembourg is a Schengen Area member, allowing Indian travellers with a Luxembourg-issued Schengen visa to visit all 27 Schengen countries. Indian citizens need to apply at the Luxembourg Embassy through VFS Global if Luxembourg is the primary destination or the first point of entry.</p>
+ <p>Luxembourg is one of the smaller Schengen countries but an important financial and diplomatic hub. It hosts numerous EU institutions and is a popular destination for business travellers, conferences, and tourists exploring the Benelux region. Over 10,000 Indians visit Luxembourg annually for business and tourism purposes.</p>
+
+ <h3><i class="bi bi-info-circle"></i> Do Indians Need a Visa for Luxembourg?</h3>
+ <p>Yes, Indian passport holders need a Schengen visa to enter Luxembourg for any purpose including tourism, business, and transit.</p>
+
+ <h3><i class="bi bi-info-circle"></i> What Is Available and Not Available</h3>
+ <table class="visa-table">
+ <thead><tr><th>Can Indians...</th><th>Yes/No</th><th>Details</th></tr></thead>
+ <tbody>
+ <tr><td>Travel for tourism (up to 90 days)</td><td>Yes (Schengen Visa)</td><td>Schengen visa allows travel to Luxembourg and all 27 Schengen countries</td></tr>
+ <tr><td>Travel for business meetings</td><td>Yes (Schengen Business Visa)</td><td>Business Schengen visa for meetings, conferences, and EU-related work</td></tr>
+ <tr><td>Study at a university</td><td>Yes (Long Stay Student Visa)</td><td>Requires admission letter from a Luxembourg institution and proof of funds</td></tr>
+ <tr><td>Work as a skilled professional</td><td>Yes (Work Visa)</td><td>Requires a work permit and job offer from a Luxembourg employer</td></tr>
+ <tr><td>Transit without visa</td><td>No</td><td>Transit visa required for airport transit in Schengen area for Indians</td></tr>
+ <tr><td>Live permanently</td><td>Yes (Carte de Sejour)</td><td>Long-term residence permit available after 5 years of continuous residence</td></tr>
+ <tr><td>Visit for cultural events</td><td>Yes (Short Stay Visa)</td><td>Schengen visa covers tourism, cultural visits, and sports events</td></tr>
+ <tr><td>Travel for medical treatment</td><td>Yes (Schengen Visa)</td><td>Medical tourism allowed; may need additional documents about treatment</td></tr>
+ </tbody>
+ </table>
+
+ <h2 id="visa-types"><i class="bi bi-card-checklist"></i> Types of Luxembourg Visas for Indians</h2>
+ <p>Luxembourg offers multiple visa pathways for Indian citizens depending on your purpose: short visits, study, work, or permanent residency.</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Purpose</th><th>Max Stay</th><th>Processing</th><th>Fee (€)</th></tr></thead>
+ <tbody>
+ <tr><td>Short Stay Schengen Visa</td><td>Schengen Type C</td><td>Tourism, business, transit, family visit</td><td>90 days per 180-day period</td><td>15 calendar days</td><td>€80</td></tr>
+ <tr><td>Long Stay Visa</td><td>Type D (Visa de Long Sejour)</td><td>Study, work, family reunion, long stay</td><td>Up to 1 year renewable</td><td>30 to 60 days</td><td>€99</td></tr>
+ <tr><td>Student Visa</td><td>VLS-TS Etudiant</td><td>Pursue higher education in Luxembourg</td><td>Duration of studies (1-5 years)</td><td>15 to 45 days</td><td>€50</td></tr>
+ <tr><td>Work Visa</td><td>VLS-TS Salarie</td><td>Employment with a Luxembourg company</td><td>Up to 1 year renewable</td><td>30 to 60 days</td><td>€99</td></tr>
+ <tr><td>Business Schengen Visa</td><td>Schengen Type C</td><td>Business meetings, EU conferences, trade fairs</td><td>90 days per 180-day period</td><td>15 calendar days</td><td>€80</td></tr>
+ </tbody>
+ </table>
+
+ <h2 id="fees"><i class="bi bi-currency-rupee"></i> Luxembourg Visa Fees for Indians 2026</h2>
+ <p>Visa fees vary significantly by category. All fees are non-refundable and subject to change based on exchange rates.</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Fee (€)</th><th>Fee (₹ Approx)</th></tr></thead>
+ <tbody>
+ <tr><td>Short Stay Schengen Visa</td><td>Schengen Type C</td><td>€80</td><td>₹7,200 to ₹7,800</td></tr>
+ <tr><td>Long Stay Visa</td><td>Type D (Visa de Long Sejour)</td><td>€99</td><td>₹8,900 to ₹9,600</td></tr>
+ <tr><td>Student Visa</td><td>VLS-TS Etudiant</td><td>€50</td><td>₹4,500 to ₹4,900</td></tr>
+ <tr><td>Work Visa</td><td>VLS-TS Salarie</td><td>€99</td><td>₹8,900 to ₹9,600</td></tr>
+ <tr><td>Business Schengen Visa</td><td>Schengen Type C</td><td>€80</td><td>₹7,200 to ₹7,800</td></tr>
+ </tbody>
+ </table>
+
+ <h3><i class="bi bi-currency-rupee"></i> Additional Costs</h3>
+ <table class="visa-table">
+ <thead><tr><th>Cost Type</th><th>Amount (₹)</th><th>Details</th></tr></thead>
+ <tbody>
+ <tr><td>VFS Service Fee</td><td>₹2,200 to 2,700</td><td>Paid at VFS Global visa application centre</td></tr>
+ <tr><td>Travel Insurance</td><td>₹1,500 to 3,000</td><td>Mandatory with €30,000 minimum coverage for Schengen</td></tr>
+ <tr><td>Biometrics</td><td>Included in visa fee</td><td>Fingerprints and photo at VFS application centre</td></tr>
+ <tr><td>Translation</td><td>₹500 to 2,000</td><td>Per document if not in English or French</td></tr>
+ <tr><td>Courier Service</td><td>₹500 to 1,000</td><td>Optional passport return by courier</td></tr>
+ </tbody>
+ </table>
+
+ <h2 id="documents"><i class="bi bi-file-earmark-text"></i> Documents Required for Luxembourg Visa</h2>
+ <p>Every Luxembourg visa application requires proof of identity, purpose of visit, and financial capacity.</p>
+
+ <h3><i class="bi bi-card-checklist"></i> Core Documents (All Visa Types)</h3>
+ <ul>
+ <li><strong>Valid Indian passport</strong> &mdash; Must have at least 6 months validity beyond intended stay. At least 2 blank pages.</li>
+ <li><strong>Digital photograph</strong> &mdash; 35x45mm, white background, taken within 6 months.</li>
+ <li><strong>Completed online application</strong> &mdash; Via the official portal. All details must match your passport exactly.</li>
+ <li><strong>Previous visas and travel history</strong> &mdash; Include copies of previous visas and travel stamps.</li>
+ <li><strong>Cover letter</strong> &mdash; Explaining purpose of visit, duration, and itinerary.</li>
+ </ul>
+
+ <h3><i class="bi bi-info-circle"></i> Short Stay Schengen Visa &mdash; Schengen Type C</h3>
+ <p><strong>Best for:</strong> Tourism, business, transit, family visit.</p>
+ <p>Additional documents: Flight itinerary, accommodation bookings, travel insurance with €30,000 minimum coverage, bank statements for last 3 months, employment letter with salary details, leave approval from employer.</p>
+
+ <h3><i class="bi bi-info-circle"></i> Long Stay Visa &mdash; Type D (Visa de Long Sejour)</h3>
+ <p><strong>Best for:</strong> Study, work, family reunion, long stay.</p>
+ <p>Additional documents: Admission letter (for students) or work contract (for employees), proof of accommodation in Luxembourg, police clearance certificate, medical certificate, proof of sufficient funds for entire stay duration.</p>
+
+ <h3><i class="bi bi-info-circle"></i> Student Visa &mdash; VLS-TS Etudiant</h3>
+ <p><strong>Best for:</strong> Pursuing higher education in Luxembourg.</p>
+ <p>Additional documents: Admission letter from a recognised Luxembourg institution, proof of language proficiency (English/French/German), education loan sanction letter or sponsor documents, hostel or accommodation proof, no objection certificate from previous institution if applicable.</p>
+
+ <h3><i class="bi bi-info-circle"></i> Work Visa &mdash; VLS-TS Salarie</h3>
+ <p><strong>Best for:</strong> Employment with a Luxembourg company.</p>
+ <p>Additional documents: Valid employment contract authorised by Luxembourg's Ministry of Labour, employer sponsorship letter, qualification certificates, professional experience letters, proof of accommodation.</p>
+
+ <h3><i class="bi bi-briefcase"></i> Business Schengen Visa &mdash; Schengen Type C</h3>
+ <p><strong>Best for:</strong> Business meetings, EU conferences, trade fairs.</p>
+ <p>Additional documents: Invitation letter from Luxembourg company or organisation, company registration proof, ITR for last 2 years, business bank statements, previous business travel history, purpose of visit explanation.</p>
+
+ <div class="info-box">
+ <h4>Why Financial Evidence Matters</h4>
+ <p>Immigration authorities need assurance that you can support yourself without working illegally or relying on public funds. Incomplete or inconsistent financial documentation is a leading cause of refusal for Indian applicants.</p>
+ </div>
+
+ <h3><i class="bi bi-info-circle"></i> Indian Banking Nuances for Luxembourg Visa</h3>
+ <table class="visa-table">
+ <thead><tr><th>Bank</th><th>Statement Features</th><th>Accepted?</th><th>Notes</th></tr></thead>
+ <tbody>
+ <tr><td>SBI</td><td>Passbook + online statement with branch seal</td><td>Yes</td><td>Most widely accepted. Ensure statements are stamped and signed by branch manager</td></tr>
+ <tr><td>HDFC Bank</td><td>Digital statements with QR code verification</td><td>Yes</td><td>Save as PDF with visible bank logo and account holder name</td></tr>
+ <tr><td>ICICI Bank</td><td>E-statements with digital signature</td><td>Yes</td><td>Some assessing officers prefer wet-stamped copies</td></tr>
+ <tr><td>Axis Bank</td><td>Online statements with transaction details</td><td>Yes</td><td>Add a salary credit highlight for clarity</td></tr>
+ <tr><td>Yes Bank / Kotak</td><td>App-generated statements with branch counterfoil</td><td>Yes</td><td>Get branch-stamped versions to avoid delays</td></tr>
+ <tr><td>PNB / Canara / BoB</td><td>Passbook-based + supplementary statement</td><td>Yes (may need branch visit)</td><td>Passbook entries with branch seal; request separate statement letter</td></tr>
+ <tr><td>Education Loan</td><td>Loan sanction letter + disbursement schedule</td><td>Yes (strongest evidence)</td><td>Education loans demonstrate organised financial planning and third-party verification</td></tr>
+ </tbody>
+ </table>
+
+ <h2 id="process"><i class="bi bi-signpost-2"></i> Luxembourg Visa Application Process for Indians</h2>
+<div class="process-timeline">
+<p>The application process typically involves the following steps:</p>
+
+ <div class="process-step">
+<div class="process-step-num">1</div>
+<div class="process-step-body"><strong>Choose Your Visa Type and Check Eligibility</strong><p>Use the official visa finder or this guide to select the correct visa category. Check eligibility requirements including financial capacity and supporting documents.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">2</div>
+<div class="process-step-body"><strong>Complete the Online Application Form</strong><p>Fill out the online visa application form on the Luxembourg immigration portal with accurate personal details, passport information, and travel history. Any discrepancy can lead to refusal.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">3</div>
+<div class="process-step-body"><strong>Pay the Visa Fee</strong><p>Pay the non-refundable visa fee online via credit/debit card. Your bank will apply the current exchange rate plus forex markup.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">4</div>
+<div class="process-step-body"><strong>Schedule Appointment at VFS Global</strong><p>Book an appointment at your nearest VFS Global visa application centre. Luxembourg has no consulates in India — all applications are processed through VFS Global and sent to the Embassy in New Delhi. Centres available in Delhi, Mumbai, Kolkata, Chennai, Bangalore, Hyderabad, Cochin, and Chandigarh.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">5</div>
+<div class="process-step-body"><strong>Submit Documents and Biometrics</strong><p>Visit the VFS centre on your appointment date with all required documents. Provide fingerprints and photograph at the centre. Walk-ins are not accepted.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">6</div>
+<div class="process-step-body"><strong>Wait for Processing and Track Online</strong><p>Processing times vary by visa category. Track your application status online using the reference number provided by VFS Global.</p></div>
+</div>
+
+ <div class="process-step">
+<div class="process-step-num">7</div>
+<div class="process-step-body"><strong>Receive Decision and Collect Passport</strong><p>If approved, your passport will be stamped with the Schengen visa. Collect your passport from the VFS centre or have it couriered to your address.</p></div>
+</div>
+</div>
+
+ <h2 id="processing-time"><i class="bi bi-clock"></i> Processing Time for Luxembourg Visa from India</h2>
+ <p>Processing times are set by the Schengen Visa Code and apply to all Luxembourg visa applications:</p>
+
+ <table class="visa-table">
+ <thead><tr><th>Visa Type</th><th>Subclass</th><th>Processing Time</th><th>Notes</th></tr></thead>
+ <tbody>
+ <tr><td>Short Stay Schengen Visa</td><td>Schengen Type C</td><td>15 calendar days</td><td>Standard Schengen processing; may extend to 45 days in individual cases</td></tr>
+ <tr><td>Long Stay Visa</td><td>Type D (Visa de Long Sejour)</td><td>30 to 60 days</td><td>Varies by application volume and completeness</td></tr>
+ <tr><td>Student Visa</td><td>VLS-TS Etudiant</td><td>15 to 45 days</td><td>Varies by application volume and completeness</td></tr>
+ <tr><td>Work Visa</td><td>VLS-TS Salarie</td><td>30 to 60 days</td><td>Varies by application volume and completeness</td></tr>
+ <tr><td>Business Schengen Visa</td><td>Schengen Type C</td><td>15 calendar days</td><td>Standard Schengen processing; may extend to 45 days in individual cases</td></tr>
+ </tbody>
+ </table>
+
+ <div class="info-box">
+ <h4>Processing Time Note</h4>
+ <p>Processing times are estimates and Indian applications may take longer if additional verification is needed. Apply at least 3-4 weeks before your planned travel date.</p>
+ </div>
+
+ <h2><i class="bi bi-shield-check"></i> Travel Insurance Requirements</h2>
+ <p>Travel insurance is mandatory for all Schengen visa applications to Luxembourg:</p>
+ <ul>
+ <li><strong>Tourist/Business Visitors:</strong> Comprehensive travel insurance covering medical emergencies up to €30,000, trip cancellation, and baggage loss is mandatory for Schengen visa approval.</li>
+ <li><strong>Students:</strong> Health insurance is mandatory for student visa holders. Coverage must meet the minimum requirements set by the university or immigration authorities.</li>
+ <li><strong>Work Visa Holders:</strong> Employer-provided health coverage is typically required and must be registered with Luxembourg's social security system.</li>
+ <li><strong>Coverage Area:</strong> Insurance must be valid across the entire Schengen Area, not just Luxembourg.</li>
+ </ul>
+
+ <h2 id="faq"><i class="bi bi-question-circle"></i> Frequently Asked Questions</h2>
+<div class="faq-list" style="max-width:100%;">
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Do Indian citizens need a visa for Luxembourg?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Yes, Indian citizens need a Schengen visa for Luxembourg. Key information:</p><ul><li>A visa is required for Indian passport holders traveling to Luxembourg.</li><li>See the <a href="#visa-types">Visa Types section</a> for all available visa categories and options.</li><li>Your passport must have <strong>at least 6 months validity</strong> beyond your intended stay.</li><li>Standard Schengen processing is <strong>15 calendar days</strong> — check the <a href="#processing-time">Processing Time section</a> for details.</li><li>See the <a href="#process">Application Process section</a> for step-by-step instructions.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How do I apply for a Luxembourg visa from India?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Luxembourg visa applications are submitted through VFS Global centres in India. The process involves:</p><ul><li>Complete the online application form on the Luxembourg immigration portal.</li><li>Book an appointment at your nearest VFS Global centre (Delhi, Mumbai, Kolkata, Chennai, Bangalore, Hyderabad, Cochin, or Chandigarh).</li><li>Submit biometrics and documents at the VFS centre.</li><li>Documents are sent to the Luxembourg Embassy in New Delhi for processing.</li><li>Luxembourg has <strong>no consulates in India</strong> — all applications go through the Embassy in New Delhi via VFS Global.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What documents are required for a Luxembourg visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Standard document requirements for a Luxembourg visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> — minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> — 35×45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> — accurately filled with matching details.</li><li><strong>Travel itinerary</strong> — flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li><li><strong>Travel insurance</strong> with minimum €30,000 medical coverage valid across Schengen Area.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How long does it take to process a Luxembourg visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Processing times for Luxembourg visas follow standard Schengen rules:</p><ul><li><strong>Tourist/Business Schengen visa:</strong> 15 calendar days standard processing.</li><li><strong>Student visa:</strong> May take 4-8 weeks for complete processing.</li><li><strong>Long Stay/Work visa:</strong> 30 to 60 days depending on verification requirements.</li><li>In individual cases, processing can extend up to <strong>45 days</strong> when additional documentation is required.</li><li>See the <a href="#processing-time">Processing Time section</a> for detailed timelines.</li><li>Apply at least <strong>3-4 weeks before</strong> your intended travel date to allow for any delays.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is the Luxembourg visa fee for Indians?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Visa fees for Luxembourg depend on the visa category. <a href="#fees">See the complete fee table</a>:</p><ul><li><strong>Schengen visa (Tourist/Business):</strong> €80 standard Schengen fee.</li><li><strong>Student visa:</strong> €50 reduced fee.</li><li><strong>Long Stay/Work visa:</strong> €99 fee.</li><li>Additional <strong>VFS Global service charges</strong> of ₹2,200 to ₹2,700 apply.</li><li>All fees are <strong>non-refundable</strong> once the application is submitted.</li><li>Payment methods vary — most accept online payment or demand drafts at VFS centres.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Where is the Luxembourg Embassy located in India?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>The Embassy of Luxembourg in India is located at:</p><ul><li><strong>Address:</strong> 33-34, Panchsheel Enclave, New Delhi 110017.</li><li><strong>Luxembourg has no consulates</strong> in any other Indian city.</li><li>All visa applications are submitted through <strong>VFS Global centres</strong> across India and sent to the Embassy in New Delhi for processing.</li><li>VFS Global centres available in: Delhi, Mumbai, Kolkata, Chennai, Bangalore, Hyderabad, Cochin, and Chandigarh.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I visit other Schengen countries with a Luxembourg visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Yes, a Luxembourg-issued Schengen visa allows you to travel to all 27 Schengen countries:</p><ul><li>You can visit <strong>any Schengen country</strong> as long as Luxembourg is the main destination or first point of entry.</li><li>The visa allows stays of <strong>up to 90 days</strong> per 180-day period across the entire Schengen Area.</li><li><strong>Multiple entry</strong> visas allow you to exit and re-enter the Schengen Area multiple times.</li><li>Always carry your passport with the valid Luxembourg visa when travelling between Schengen countries.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is travel insurance mandatory for a Luxembourg visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Yes, travel insurance is mandatory for all Luxembourg Schengen visa applications:</p><ul><li>Insurance must provide <strong>minimum €30,000 coverage</strong> for medical emergencies.</li><li>Coverage must be valid <strong>across the entire Schengen Area</strong>.</li><li>The policy must cover the <strong>entire duration</strong> of your stay.</li><li>Accepted by most VFS centres — can be purchased online or through any insurance provider.</li><li>Policies from Indian insurers like Tata AIG, ICICI Lombard, and Bajaj Allianz are accepted.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What is the financial requirement for a Luxembourg visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>The financial requirement for a Luxembourg visa is €50 per day of stay:</p><ul><li>You need to show a minimum of <strong>€50 per day</strong> for the duration of your stay.</li><li>For a 10-day trip, you should show <strong>at least €500</strong> in available funds.</li><li>Bank statements for the <strong>last 3-6 months</strong> are required as proof.</li><li>Other financial documents like fixed deposits, property papers, or sponsor letters can supplement your application.</li><li>See the <a href="#documents">Documents section</a> for detailed banking nuances.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What are the common reasons for Luxembourg visa rejection?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Common reasons for Luxembourg visa rejection for Indian applicants:</p><ul><li><strong>Insufficient funds</strong> — bank statements must show adequate balance (€50/day minimum).</li><li><strong>Incomplete documentation</strong> — missing or incorrect documents.</li><li><strong>Weak travel history</strong> — limited international travel history may lead to stricter scrutiny.</li><li><strong>Discrepancies</strong> between application form and supporting documents.</li><li><strong>Unclear travel purpose</strong> — vague or unconvincing cover letter explaining the visit.</li><li><strong>Previous visa violations</strong> — overstays or immigration violations in Schengen or other countries.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Can I extend my Luxembourg Schengen visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Visa extension information for Luxembourg:</p><ul><li>Schengen short-stay visas can only be extended in <strong>exceptional circumstances</strong> (force majeure, humanitarian reasons, or serious personal reasons).</li><li>Apply <strong>before your current visa expires</strong> to avoid overstaying.</li><li>Applications must be made to the <strong>Luxembourg immigration authorities</strong>.</li><li>Extension fees and processes vary; supporting documents justifying the extension must be provided.</li><li><strong>Overstaying</strong> can result in fines and future visa complications.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What languages are spoken in Luxembourg?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Language information for Luxembourg:</p><ul><li>The official languages are <strong>Luxembourgish, French, and German</strong>.</li><li><strong>French</strong> is the primary language used for administrative and visa documentation.</li><li><strong>English</strong> is widely spoken in business settings and tourist areas, especially in Luxembourg City.</li><li>Visa application documents can be submitted in <strong>English, French, or German</strong>.</li><li>Learning a few basic phrases in French or German can enhance your travel experience.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Is Luxembourg expensive for Indian tourists?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Cost considerations for Indian tourists visiting Luxembourg:</p><ul><li>Luxembourg is one of the <strong>more expensive Schengen countries</strong> due to its high standard of living.</li><li><strong>Accommodation</strong> in Luxembourg City typically ranges from €100-200 per night for mid-range hotels.</li><li><strong>Meals</strong> at mid-range restaurants cost approximately €15-25 per person.</li><li><strong>Public transport</strong> is free throughout Luxembourg — a major saving for tourists.</li><li>You need to show a minimum of <strong>€50 per day</strong> in financial capacity for visa processing.</li><li>Budget for approximately <strong>€100-150 per day</strong> for a comfortable trip covering accommodation, meals, and activities.</li></ul></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">Do I need any vaccinations for Luxembourg?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Recommended vaccinations for travel to Luxembourg:</p><ul><li><strong>Routine vaccinations</strong> — MMR, DPT, and polio should be up to date.</li><li><strong>Yellow fever</strong> — required if travelling from a country with yellow fever risk.</li><li><strong>Hepatitis A and Typhoid</strong> — recommended for most international travel.</li><li>Consult your doctor <strong>4-6 weeks before travel</strong> for personalised advice.</li><li>No mandatory vaccinations are required for direct travel from India to Luxembourg.</li></ul></div>
+</div>
+</div>
+
+
+ <h2 id="updates2026"><i class="bi bi-megaphone"></i> Luxembourg Visa Updates 2026 &mdash; What Has Changed</h2>
+ <table class="visa-table">
+ <thead><tr><th>Change</th><th>Previous</th><th>Current (2026)</th></tr></thead>
+ <tbody>
+ <tr><td>Schengen Visa Fee</td><td>€80</td><td>€80 (unchanged, under review for 2027)</td></tr>
+ <tr><td>Application Window</td><td>3 months before travel</td><td>6 months before travel</td></tr>
+ <tr><td>Digitalisation of Process</td><td>Paper applications</td><td>Digital application system rollout</td></tr>
+ <tr><td>VFS Appointment Availability</td><td>Limited slots</td><td>Increased capacity at all 8 VFS centres across India</td></tr>
+ </tbody>
+ </table>
+
+ <h2 id="resources"><i class="bi bi-link-45deg"></i> Official Resources</h2>
+ <ul>
+<li><strong>Official Site:</strong> <a href='https://guichet.public.lu/en/citoyens/immigration/visas.html' target='_blank'>Luxembourg Immigration Portal</a></li><li><strong>VFS Global:</strong> <a href='https://www.vfsglobal.com/luxembourg/india' target='_blank'>VFS Luxembourg India</a></li><li><strong>Embassy in New Delhi:</strong> <a href='https://newdelhi.mae.lu/' target='_blank'>Luxembourg Embassy, New Delhi</a></li>
+ </ul>
+
+ <div class="cta-section">
+ <h2>Need Help With Your Luxembourg Visa Application?</h2>
+ <p>Our India-focused visa consultants can guide you through the entire Luxembourg visa application process.</p>
+ <a href="/contact" class="btn">Contact My Visa Assistance</a>
+ </div>
+
+ <p><em>Browse our <a href="/visa-guide/">complete visa guide directory</a> for guides covering 100+ destination countries for Indian passport holders. See also the <a href="https://myvisaassistance.com/visa-requirements/luxembourg-visa-requirements">Luxembourg visa requirements page</a> for a detailed checklist.</em></p>
+
+ </div>
+
+ <aside class="sidebar">
+ <div class="sidebar-card">
+ <h3>Quick Facts</h3>
+ <ul>
+ <li><strong>Country:</strong> Luxembourg</li>
+ <li><strong>Capital:</strong> Luxembourg City</li>
+ <li><strong>Visa Required:</strong> Yes (Schengen visa for Indians)</li>
+ <li><strong>Currency:</strong> Euro (€)</li>
+ <li><strong>Processing:</strong> 15 calendar days for Schengen visa; up to 60 days for long stay</li>
+ <li><strong>Biometrics:</strong> Yes, biometrics (fingerprints and photo) required for all Schengen visa applicants</li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Popular Visa Types</h3>
+ <ul>
+ <li><a href="#fees">Short Stay Schengen Visa (Schengen Type C) - €80</a></li>
+ <li><a href="#fees">Long Stay Visa (Type D) - €99</a></li>
+ <li><a href="#fees">Student Visa (VLS-TS Etudiant) - €50</a></li>
+ <li><a href="#fees">Work Visa (VLS-TS Salarie) - €99</a></li>
+ <li><a href="#fees">Business Schengen Visa (Schengen Type C) - €80</a></li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card" style="background:linear-gradient(135deg,#031B30,#031B30);color:white;border:none;">
+ <h3 style="color:#5057EA;margin:0 0 8px;">Download Checklist</h3>
+ <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;">Get a printable document checklist for your visa application.</p>
+ <button onclick="downloadChecklist()" class="btn btn-primary" style="width:100%;text-align:center;">
+ <i class="bi bi-download"></i> Download Full Checklist
+ </button>
+ </div>
+<div class="sidebar-card sidebar-cta">
+ <h3>Need Visa Help?</h3>
+ <p>Our experts can guide you through the Luxembourg visa process.</p>
+ <a href="/contact" class="btn btn-primary" style="margin-bottom:8px;">Get Assistance</a>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);display:block;text-align:center;"><i class="bi bi-file-text"></i> Fill the form for details</a>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Related Guides</h3>
+ <ul>
+ <li><a href="https://myvisaassistance.com/visa-requirements/luxembourg-visa-requirements">Luxembourg Visa Requirements</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa Guide</a></li>
+ <li><a href="/visa-guide/">View All Countries</a></li>
+ </ul>
+ </div>
+
+ <div class="sidebar-card">
+ <h3>Share This Guide</h3>
+ <p style="font-size:0.85rem;color:var(--color-text-light);">Help others find this information</p>
+ <div style="display:flex;gap:10px;margin-top:10px;">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/visa-guide/luxembourg-visa" target="_blank" rel="noopener noreferrer" style="color:#1877F2;font-size:1.5rem;" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/intent/tweet?text=Luxembourg%20Visa%20for%20Indians%202026:%20Types,%20Fees,%20Process%20&%20Requirements%20-%20My%20Visa%20Assistance&url=https://myvisaassistance.com/visa-guide/luxembourg-visa" target="_blank" rel="noopener noreferrer" style="color:#1DA1F2;font-size:1.5rem;" aria-label="Share on Twitter"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/visa-guide/luxembourg-visa" target="_blank" rel="noopener noreferrer" style="color:#0A66C2;font-size:1.5rem;" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+ </div>
+ </div>
+ </aside>
+ </div>
+ </div>
+ </section>
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#5057EA"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/>
+ </svg>
+ </span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+  <li><a href="/visa-news/">Visa News</a></li>
+  <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+  <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+  <li><a href="/tracking-links/">Tracking Links</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope"></i> myvisaassistance@protonmail.com</a></li>
+ <li><a href="tel:+918551805523"><i class="bi bi-telephone"></i> +91 85518 05523</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a>
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ 
+<!-- Reading Progress & TOC Active State -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var progressBar = document.getElementById('readingProgress');
+  var tocLinks = document.querySelectorAll('.toc-link');
+  var sections = [];
+  tocLinks.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      var section = document.querySelector(href);
+      if (section) sections.push({ el: section, link: link });
+    }
+  });
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
+        var current = 0;
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i].el.offsetTop - 200 <= scrollTop) current = i;
+        }
+        tocLinks.forEach(function(l, idx) {
+          l.classList.toggle('active', idx === current);
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  var toc = document.getElementById('stickyToc');
+  if (toc) {
+    window.addEventListener('scroll', function() {
+      toc.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  }
+});
+</script>
+<script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+</body>
+</html>

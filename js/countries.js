@@ -954,6 +954,43 @@ faq: [
 ]
 },
 {
+id: "luxembourg",
+name: "Luxembourg",
+slug: "luxembourg",
+flag: "🇱🇺",
+region: "Europe",
+visaRequired: true,
+processingTime: "15 calendar days (Schengen rules)",
+visaTypes: ["Schengen Tourist Visa", "Short Stay Visa", "Long Stay Visa", "Business Visa", "Student Visa", "Transit Visa"],
+visaGuideSummary: "Luxembourg is a Schengen Area member. Indian citizens and many non-EU nationals need a Schengen visa to visit Luxembourg for tourism, business, or transit. Luxembourg offers a high quality of life and is a key financial hub in Europe.",
+visaRequirementsSummary: "For a Luxembourg Schengen visa, you need a valid passport with at least 3 months validity beyond departure, travel insurance (€30,000 minimum), flight bookings, accommodation proof, and sufficient funds for your stay.",
+requirements: [
+"Passport valid for at least 3 months beyond departure with 2 blank pages",
+"Completed Schengen visa application form",
+"Two recent passport-sized photographs (35mm x 45mm)",
+"Travel health insurance covering €30,000 minimum",
+"Round-trip flight reservation",
+"Accommodation proof (hotel booking or invitation letter)",
+"Bank statements for last 3 months",
+"Cover letter explaining purpose of visit",
+"Employment letter or proof of business registration",
+"No-objection certificate from employer (if employed)"
+],
+fees: {
+"Schengen Visa (Adult)": "€80",
+"Schengen Visa (Child 6-12)": "€40",
+"Schengen Visa (Child under 6)": "Free",
+"Long Stay Visa": "€99"
+},
+faq: [
+{ q: "Do Indian citizens need a visa for Luxembourg?", a: "Yes, Indian citizens need a Schengen visa to enter Luxembourg. Applications are submitted through VFS Global or TLScontact in India." },
+{ q: "How long does a Luxembourg visa take?", a: "Schengen visa processing takes up to 15 calendar days. During peak season (March-September), processing may take longer. It's recommended to apply at least 3-4 weeks before travel." },
+{ q: "Can I visit other Schengen countries with a Luxembourg visa?", a: "Yes, a Luxembourg-issued Schengen visa allows you to travel freely within all 27 Schengen Area countries for up to 90 days within any 180-day period." },
+{ q: "What is the visa fee for Luxembourg from India?", a: "The standard Schengen visa fee is €80 for adults. Children aged 6-12 pay €40, and children under 6 are exempt. Service charges by VFS Global are additional." },
+{ q: "Where do I apply for a Luxembourg visa in India?", a: "Luxembourg visa applications from India are processed through VFS Global centers in New Delhi, Mumbai, Kolkata, Chennai, Bangalore, and other major cities." }
+]
+},
+{
 id: "germany",
 name: "Germany",
 slug: "germany",
