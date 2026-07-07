@@ -103,10 +103,13 @@
    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
  <link rel="canonical" href="https://myvisaassistance.com/blog/vietnam-visa-cost-for-indians">
  <style>
- .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
- .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ /* Blog content – must match external style.css so async load causes zero shift */
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 0; }
+ .blog-content h1 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 0.5rem; }
+ .blog-content h2 { margin-top: 2em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
  .blog-content h3 { margin-top: 1.5em; }
- .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content p { line-height: 1.8; margin-bottom: 1.2rem; }
+ .blog-content li { line-height: 1.8; }
  .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
  .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
  .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
@@ -116,11 +119,11 @@
  .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
  .blog-content th { background: var(--color-primary); color: var(--color-white); }
  .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
- .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta { display: flex; gap: 20px; align-items: center; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border-light); }
  .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
  .blog-content .blog-meta .update-badge { background: var(--color-secondary); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
  .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
- .blog-content .featured-image img { display: block; width: 100%; height: auto; }
+ .blog-content .featured-image img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 655; }
  .blog-content .step-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin: 1rem 0; display: flex; gap: 16px; align-items: flex-start; }
  .blog-content .step-card .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--color-accent); color: var(--color-primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; }
  .blog-content .step-card .step-content { flex: 1; }
@@ -146,9 +149,44 @@
  .blog-content .country-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
  @media(max-width:600px){ .blog-content .country-list { grid-template-columns: 1fr; } }
  .blog-content .country-list li { background: var(--color-bg-alt); padding: 8px 14px; border-radius: 6px; font-size: 0.9rem; list-style: none; border-left: 3px solid var(--color-accent); }
- /* FAQ Smooth Accordion */
- .blog-content .faq-answer { max-height: none; height: 0; overflow: hidden; transition: height 0.35s ease, padding 0.3s ease; padding: 0 22px; }
- .blog-content .faq-item.active .faq-answer { height: auto; padding: 0 22px 20px; }
+ /* FAQ Smooth Accordion – match external so no shift */
+ .faq-list { max-width: 800px; margin: 0 auto; }
+ .faq-item { border: 1px solid var(--color-border); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; transition: var(--transition); }
+ .faq-item:hover { border-color: var(--color-primary-light); }
+ .faq-item.active { border-color: var(--color-accent); box-shadow: 0 2px 12px rgba(80, 87, 234, 0.1); }
+ .faq-item.has-secondary.active { border-color: var(--color-secondary); box-shadow: 0 2px 12px rgba(232, 96, 32, 0.12); }
+ .faq-item.has-secondary.active .faq-question { background: rgba(232, 96, 32, 0.05); }
+ .faq-item.has-secondary.active .faq-question .faq-icon { background: var(--color-secondary); color: var(--color-white); }
+ .faq-question { width: 100%; padding: 18px 22px; background: var(--color-white); border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 1rem; font-weight: 600; color: var(--color-text); font-family: var(--font-primary); text-align: left; transition: var(--transition); }
+ .faq-question:hover { background: var(--color-bg-alt); }
+ .faq-item.active .faq-question { color: var(--color-primary); background: rgba(80, 87, 234, 0.05); }
+ .faq-question .faq-icon { font-size: 1.2rem; transition: var(--transition-slow); flex-shrink: 0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-bg-alt); color: var(--color-primary-light); }
+ .faq-item.active .faq-question .faq-icon { transform: rotate(45deg); background: var(--color-accent); color: var(--color-primary-dark); }
+  .faq-answer { max-height: 0; height: 0; overflow: hidden; transition: height 0.35s ease, max-height 0.4s ease, padding 0.3s ease; padding: 0 22px; }
+ .faq-item.active .faq-answer { max-height: 600px; height: auto; padding: 0 22px 20px; }
+ .faq-answer p { color: var(--color-text-light); margin-bottom: 0; font-size: 0.95rem; line-height: 1.7; }
+ /* Country logos strip – inline so no shift on async CSS */
+ .country-logos-strip { background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0; overflow: hidden; position: relative; }
+ .country-logos-track { display: flex; gap: 0; animation: scroll-logos 40s linear infinite; width: max-content; }
+ .country-logos-track:hover { animation-play-state: paused; }
+ .country-logo-item { display: flex; align-items: center; gap: 10px; padding: 14px 24px; white-space: nowrap; color: rgba(255,255,255,0.5); font-size: 0.85rem; font-weight: 500; text-decoration: none; border-right: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+ .country-logo-item:hover { color: var(--color-accent); }
+ @keyframes scroll-logos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+ /* Responsive overrides – must match external */
+ @media(max-width:767px){
+ .blog-content { padding: 32px 0; }
+ .blog-content h1 { font-size: 1.5rem; }
+ .blog-content h2 { font-size: 1.3rem; }
+ .blog-content .blog-meta { font-size: 0.85rem; gap: 12px; flex-wrap: wrap; }
+ .blog-content .author-box { flex-direction: column; text-align: center; padding: 20px; }
+ .blog-content .author-box .avatar { width: 50px; height: 50px; font-size: 1.2rem; }
+ .blog-content .share-buttons { justify-content: center; }
+ .blog-content .share-buttons a { padding: 8px 14px; font-size: 0.8rem; }
+  .blog-content .cta-section { padding: 24px; }
+  .faq-question { padding: 14px 16px; font-size: 0.9rem; }
+  .faq-item.active .faq-answer { padding: 0 16px 16px; }
+  .country-logo-item { padding: 10px 16px; font-size: 0.78rem; }
+ }
  </style>
  <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -237,7 +275,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <!-- Featured Image -->
  <div class="featured-image">
- <img src="/blog/images/vietnam-visa-cost-for-indians.svg" alt="Vietnam Visa Cost for Indians 2026 - Complete Fee Guide" width="1200" height="630" loading="eager">
+ <img src="/blog/images/vietnam-visa-cost-for-indians.svg" alt="Vietnam Visa Cost for Indians 2026 - Complete Fee Guide" width="1200" height="655" loading="eager">
  </div>
 
  <p>Vietnam continues to be one of the most popular and affordable travel destinations for Indian passport holders. With its stunning landscapes from Ha Long Bay to the rice terraces of Sapa, vibrant cities like Hanoi and Ho Chi Minh City, and world-class cuisine, it is no surprise that lakhs of Indian travellers visit Vietnam every year.</p>
