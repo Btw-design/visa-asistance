@@ -26,11 +26,12 @@ Allow: /css/
 Allow: /js/
 Allow: /images/
 
-# ---- Blocked: non-content / internal directories -------------
+# ---- Blocked: non-content / internal / backup directories ----
 Disallow: /.git/
 Disallow: /.github/
 Disallow: /favicon/
 Disallow: /scripts/
+Disallow: /visa-guide/_backup-non-b/
 Disallow: /generate-countries.ps1
 
 # ---- Crawl rate ---------------------------------------------
