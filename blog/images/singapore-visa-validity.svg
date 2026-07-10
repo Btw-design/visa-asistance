@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1980" height="1080" viewBox="0 0 1980 1080">
+
+  <defs>
+
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5057EA"/>
+      <stop offset="100%" stop-color="#3D46D8"/>
+    </linearGradient>
+
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%">
+      <stop offset="0%" stop-color="#A5D549"/>
+      <stop offset="100%" stop-color="#7BC63E"/>
+    </linearGradient>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-opacity=".12"/>
+    </filter>
+
+  </defs>
+
+  <!-- Background -->
+
+  <rect width="1980" height="1080" fill="#F8FAFD"/>
+
+  <!-- Decorative Shapes -->
+
+  <circle cx="1800" cy="170" r="180" fill="#5057EA" opacity=".05"/>
+  <circle cx="180" cy="900" r="180" fill="#A5D549" opacity=".08"/>
+
+  <!-- Small Label -->
+
+  <rect x="140" y="110"
+        width="250"
+        height="54"
+        rx="27"
+        fill="#E86020"/>
+
+  <text x="265"
+        y="145"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="22"
+        font-weight="700"
+        fill="#FFFFFF">
+        SINGAPORE VISA
+  </text>
+
+  <!-- Heading -->
+
+  <text x="140"
+        y="260"
+        font-family="Arial"
+        font-size="66"
+        font-weight="700"
+        fill="#5057EA">
+        WHY DO SOME
+  </text>
+
+  <text x="140"
+        y="345"
+        font-family="Arial"
+        font-size="66"
+        font-weight="700"
+        fill="#5057EA">
+        TRAVELERS RECEIVE A
+  </text>
+
+  <text x="140"
+        y="475"
+        font-family="Arial"
+        font-size="128"
+        font-weight="900"
+        fill="url(#g2)">
+        2-MONTH
+  </text>
+
+  <text x="140"
+        y="560"
+        font-family="Arial"
+        font-size="54"
+        font-weight="700"
+        fill="#5057EA">
+        VISA
+  </text>
+
+  <text x="140"
+        y="675"
+        font-family="Arial"
+        font-size="40"
+        font-weight="700"
+        fill="#8B8B8B">
+        while others receive a
+  </text>
+
+  <text x="140"
+        y="805"
+        font-family="Arial"
+        font-size="128"
+        font-weight="900"
+        fill="url(#g1)">
+        2-YEAR
+  </text>
+
+  <text x="140"
+        y="890"
+        font-family="Arial"
+        font-size="54"
+        font-weight="700"
+        fill="#5057EA">
+        VISA?
+  </text>
+
+  <!-- Right Abstract Design -->
+
+  <!-- Ring -->
+
+  <circle cx="1420"
+          cy="500"
+          r="210"
+          fill="none"
+          stroke="#E6EAF8"
+          stroke-width="30"/>
+
+  <path d="M1420 290
+           A210 210 0 0 1 1600 610"
+        fill="none"
+        stroke="#5057EA"
+        stroke-width="30"
+        stroke-linecap="round"/>
+
+  <path d="M1600 610
+           A210 210 0 0 1 1240 610"
+        fill="none"
+        stroke="#A5D549"
+        stroke-width="30"
+        stroke-linecap="round"/>
+
+  <!-- Center -->
+
+  <g filter="url(#shadow)">
+
+    <circle cx="1420"
+            cy="500"
+            r="110"
+            fill="#FFFFFF"/>
+
+  </g>
+
+  <text x="1420"
+        y="485"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="34"
+        font-weight="700"
+        fill="#5057EA">
+        VISA
+  </text>
+
+  <text x="1420"
+        y="530"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="30"
+        fill="#666">
+        REVIEW
+  </text>
+
+  <!-- Floating Chips -->
+
+  <g filter="url(#shadow)">
+
+    <rect x="1160"
+          y="790"
+          width="160"
+          height="70"
+          rx="35"
+          fill="#5057EA"/>
+
+    <rect x="1340"
+          y="740"
+          width="160"
+          height="70"
+          rx="35"
+          fill="#E86020"/>
+
+    <rect x="1520"
+          y="790"
+          width="160"
+          height="70"
+          rx="35"
+          fill="#A5D549"/>
+
+  </g>
+
+  <text x="1240"
+        y="835"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="30"
+        font-weight="700"
+        fill="#FFFFFF">
+        2M
+  </text>
+
+  <text x="1420"
+        y="785"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="34"
+        font-weight="700"
+        fill="#FFFFFF">
+        ?
+  </text>
+
+  <text x="1600"
+        y="835"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="30"
+        font-weight="700"
+        fill="#FFFFFF">
+        2Y
+  </text>
+
+  <!-- Footer -->
+
+  <text x="990"
+        y="1010"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="30"
+        font-weight="700"
+        fill="#5057EA">
+        Every Singapore visa application is reviewed individually, so visa validity may differ.
+  </text>
+
+</svg>
