@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1980" height="1080" viewBox="0 0 1980 1080">
+
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#031B30"/>
+      <stop offset="100%" stop-color="#0a2a4a"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0%" y1="0%" x2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-opacity=".15"/>
+    </filter>
+  </defs>
+
+  <!-- Dark Background -->
+  <rect width="1980" height="1080" fill="url(#bg)"/>
+
+  <!-- Top accent line -->
+  <rect width="1980" height="6" fill="#5057EA"/>
+
+  <!-- Question text -->
+  <text x="990" y="120" text-anchor="middle" font-family="Arial" font-weight="700" font-size="56" fill="#FFFFFF">
+    Why Do Two People With
+  </text>
+  <text x="990" y="190" text-anchor="middle" font-family="Arial" font-weight="700" font-size="56" fill="#A5D549">
+    Similar Profiles Get Different
+  </text>
+  <text x="990" y="260" text-anchor="middle" font-family="Arial" font-weight="700" font-size="56" fill="#FFFFFF">
+    Visa Decisions?
+  </text>
+
+  <!-- Two profile cards -->
+  
+  <!-- Applicant A - Approved (left) -->
+  <g filter="url(#shadow)">
+    <rect x="140" y="340" width="780" height="640" rx="24" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Green top bar -->
+  <rect x="140" y="340" width="780" height="8" rx="4" fill="url(#green)"/>
+
+  <!-- Avatar A -->
+  <circle cx="340" cy="410" r="40" fill="#E8F5E9"/>
+  <text x="340" y="420" text-anchor="middle" font-family="Arial" font-weight="700" font-size="32" fill="#10b981">A</text>
+
+  <text x="400" y="415" font-family="Arial" font-weight="700" font-size="26" fill="#031B30">Applicant A</text>
+  <text x="400" y="445" font-family="Arial" font-weight="500" font-size="18" fill="#10b981">✓ APPROVED</text>
+
+  <!-- Profile fields -->
+  <text x="220" y="510" font-family="Arial" font-weight="600" font-size="20" fill="#031B30">Profile</text>
+  
+  <rect x="220" y="525" width="640" height="40" rx="6" fill="#F8FAFC"/>
+  <text x="235" y="550" font-family="Arial" font-size="16" fill="#4B5563">Occupation: Software Engineer at MNC (5+ years)</text>
+
+  <rect x="220" y="573" width="640" height="40" rx="6" fill="#F8FAFC"/>
+  <text x="235" y="598" font-family="Arial" font-size="16" fill="#4B5563">Annual Income: ₹18 Lakhs</text>
+
+  <rect x="220" y="621" width="640" height="40" rx="6" fill="#F8FAFC"/>
+  <text x="235" y="646" font-family="Arial" font-size="16" fill="#4B5563">Bank Balance: ₹5.2 Lakhs (6-month statement)</text>
+
+  <rect x="220" y="669" width="640" height="40" rx="6" fill="#F8FAFC"/>
+  <text x="235" y="694" font-family="Arial" font-size="16" fill="#4B5563">Travel History: UAE, Thailand, Singapore</text>
+
+  <rect x="220" y="717" width="640" height="40" rx="6" fill="#F8FAFC"/>
+  <text x="235" y="742" font-family="Arial" font-size="16" fill="#4B5563">Purpose: 12-day Schengen tourism (France)</text>
+
+  <rect x="220" y="765" width="640" height="40" rx="6" fill="#F8FAFC"/>
+  <text x="235" y="790" font-family="Arial" font-size="16" fill="#4B5563">Documents: Clean, complete, well-organised</text>
+
+  <!-- Outcome -->
+  <rect x="220" y="835" width="640" height="50" rx="10" fill="url(#green)"/>
+  <text x="540" y="866" text-anchor="middle" font-family="Arial" font-weight="700" font-size="22" fill="#FFFFFF">✓ Visa Approved in 12 Days</text>
+
+  <!-- Applicant B - Rejected (right) -->
+  <g filter="url(#shadow)">
+    <rect x="1060" y="340" width="780" height="640" rx="24" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Red top bar -->
+  <rect x="1060" y="340" width="780" height="8" rx="4" fill="url(#red)"/>
+
+  <!-- Avatar B -->
+  <circle cx="1260" cy="410" r="40" fill="#FFEBEE"/>
+  <text x="1260" y="420" text-anchor="middle" font-family="Arial" font-weight="700" font-size="32" fill="#ef4444">B</text>
+
+  <text x="1320" y="415" font-family="Arial" font-weight="700" font-size="26" fill="#031B30">Applicant B</text>
+  <text x="1320" y="445" font-family="Arial" font-weight="500" font-size="18" fill="#ef4444">✗ REJECTED</text>
+
+  <text x="1140" y="510" font-family="Arial" font-weight="600" font-size="20" fill="#031B30">Profile</text>
+
+  <rect x="1140" y="525" width="640" height="40" rx="6" fill="#FEF2F2"/>
+  <text x="1155" y="550" font-family="Arial" font-size="16" fill="#4B5563">Occupation: Software Engineer at MNC (5+ years)</text>
+
+  <rect x="1140" y="573" width="640" height="40" rx="6" fill="#FEF2F2"/>
+  <text x="1155" y="598" font-family="Arial" font-size="16" fill="#4B5563">Annual Income: ₹18 Lakhs</text>
+
+  <rect x="1140" y="621" width="640" height="40" rx="6" fill="#FEF2F2"/>
+  <text x="1155" y="646" font-family="Arial" font-size="16" fill="#4B5563">Bank Balance: ₹4.8 Lakhs (lump-sum deposit)</text>
+
+  <rect x="1140" y="669" width="640" height="40" rx="6" fill="#FEF2F2"/>
+  <text x="1155" y="694" font-family="Arial" font-size="16" fill="#4B5563">Travel History: First-time international traveller</text>
+
+  <rect x="1140" y="717" width="640" height="40" rx="6" fill="#FEF2F2"/>
+  <text x="1155" y="742" font-family="Arial" font-size="16" fill="#4B5563">Purpose: 12-day Schengen tourism (France)</text>
+
+  <rect x="1140" y="765" width="640" height="40" rx="6" fill="#FEF2F2"/>
+  <text x="1155" y="790" font-family="Arial" font-size="16" fill="#4B5563">Documents: Missing NOC, vague cover letter</text>
+
+  <!-- Outcome -->
+  <rect x="1140" y="835" width="640" height="50" rx="10" fill="url(#red)"/>
+  <text x="1460" y="866" text-anchor="middle" font-family="Arial" font-weight="700" font-size="22" fill="#FFFFFF">✗ Visa Rejected under Article 32(1)(b)</text>
+
+  <!-- Bottom tagline -->
+  <rect x="0" y="1030" width="1980" height="50" fill="#5057EA"/>
+  <text x="990" y="1060" text-anchor="middle" font-family="Arial" font-size="22" font-weight="600" fill="#FFFFFF">
+    Learn the Hidden Factors That Make the Difference | My Visa Assistance
+  </text>
+
+</svg>
