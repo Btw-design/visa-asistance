@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1980" height="1080" viewBox="0 0 1980 1080">
+
+  <defs>
+
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5057EA"/>
+      <stop offset="100%" stop-color="#3C43D8"/>
+    </linearGradient>
+
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%">
+      <stop offset="0%" stop-color="#A5D549"/>
+      <stop offset="100%" stop-color="#78C33C"/>
+    </linearGradient>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-opacity=".12"/>
+    </filter>
+
+  </defs>
+
+  <!-- White Background -->
+  <rect width="1980" height="1080" fill="#FFFFFF"/>
+
+  <!-- Floating Card -->
+  <g filter="url(#shadow)">
+    <rect x="90"
+          y="90"
+          width="1800"
+          height="900"
+          rx="42"
+          fill="#FFFFFF"/>
+  </g>
+
+  <!-- Left Blue Panel -->
+  <path d="M90 90
+           H760
+           C980 90 980 990 760 990
+           H90 Z"
+        fill="url(#bg)"/>
+
+  <!-- World -->
+  <circle cx="430"
+          cy="320"
+          r="140"
+          fill="none"
+          stroke="#A5D549"
+          stroke-width="8"/>
+
+  <ellipse cx="430"
+           cy="320"
+           rx="55"
+           ry="140"
+           fill="none"
+           stroke="#A5D549"
+           stroke-width="5"/>
+
+  <ellipse cx="430"
+           cy="320"
+           rx="120"
+           ry="48"
+           fill="none"
+           stroke="#A5D549"
+           stroke-width="5"/>
+
+  <line x1="290" y1="320" x2="570" y2="320"
+        stroke="#A5D549"
+        stroke-width="5"/>
+
+  <!-- Heading -->
+  <text x="190"
+        y="610"
+        font-family="Arial"
+        font-size="82"
+        font-weight="700"
+        fill="#FFFFFF">
+      CHINA
+  </text>
+
+  <text x="190"
+        y="740"
+        font-family="Arial"
+        font-size="128"
+        font-weight="900"
+        fill="#A5D549">
+      VISA-FREE
+  </text>
+
+  <text x="190"
+        y="810"
+        font-family="Arial"
+        font-size="46"
+        font-weight="600"
+        fill="#FFFFFF">
+      240-Hour Transit Policy
+  </text>
+
+  <!-- Right Side -->
+
+  <text x="920"
+        y="220"
+        font-family="Arial"
+        font-size="34"
+        font-weight="700"
+        fill="#E86020">
+      NEW TRAVEL UPDATE
+  </text>
+
+  <text x="920"
+        y="310"
+        font-family="Arial"
+        font-size="72"
+        font-weight="700"
+        fill="#5057EA">
+      Transit Through China
+  </text>
+
+  <!-- Big Number -->
+
+  <text x="920"
+        y="570"
+        font-family="Arial"
+        font-size="260"
+        font-weight="900"
+        fill="#5057EA">
+      240
+  </text>
+
+  <rect x="1385"
+        y="455"
+        width="180"
+        height="62"
+        rx="31"
+        fill="#E86020"/>
+
+  <text x="1475"
+        y="495"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="28"
+        font-weight="700"
+        fill="#FFFFFF">
+      HOURS
+  </text>
+
+  <!-- Timeline -->
+
+  <line x1="940"
+        y1="700"
+        x2="1710"
+        y2="700"
+        stroke="#E6E8F4"
+        stroke-width="8"/>
+
+  <circle cx="980" cy="700" r="16" fill="#A5D549"/>
+  <circle cx="1220" cy="700" r="16" fill="#A5D549"/>
+  <circle cx="1460" cy="700" r="16" fill="#A5D549"/>
+  <circle cx="1700" cy="700" r="16" fill="#A5D549"/>
+
+  <text x="980"
+        y="755"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="24"
+        fill="#5057EA">
+      Arrival
+  </text>
+
+  <text x="1220"
+        y="755"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="24"
+        fill="#5057EA">
+      Immigration
+  </text>
+
+  <text x="1460"
+        y="755"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="24"
+        fill="#5057EA">
+      Transit
+  </text>
+
+  <text x="1700"
+        y="755"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="24"
+        fill="#5057EA">
+      Departure
+  </text>
+
+  <!-- CTA -->
+
+  <rect x="920"
+        y="840"
+        width="390"
+        height="72"
+        rx="36"
+        fill="#5057EA"/>
+
+  <text x="1115"
+        y="886"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="28"
+        font-weight="700"
+        fill="#FFFFFF">
+      CHECK ELIGIBILITY
+  </text>
+
+  <!-- Bottom Accent -->
+
+  <rect x="90"
+        y="965"
+        width="1800"
+        height="8"
+        fill="#A5D549"/>
+
+</svg>

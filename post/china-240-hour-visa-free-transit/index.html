@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
+ --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
+ --color-accent-alt: #A5D549;
+ --color-accent-alt-light: #bae56a;
+ --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+ html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+ body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+ a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+ a:hover{color:var(--color-accent)}
+ ul{list-style:none}
+ h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+ h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+ h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+ p{margin-bottom:1rem;color:var(--color-text)}
+ img{max-width:100%;height:auto;display:block}
+ .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+ .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+ .btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+ .btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
+ .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+ .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+ .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+ .btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+ .btn-lg{padding:16px 36px;font-size:1.1rem}
+ .btn-white{background:var(--color-white);color:var(--color-primary)}
+ .btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+ .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+ .header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+ .header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+ .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+ .logo span{color:var(--color-accent)}
+ .nav{display:flex;align-items:center;gap:12px}
+ .nav-list{display:flex;align-items:center;gap:4px}
+ .nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+ .nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+ .nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
+ .nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+ .menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+ .menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+ .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+ .menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+ .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+ .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+ .nav-overlay.open{opacity:1}
+ .hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+ .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
+ .hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+ .hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+ .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+ .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+ .hero-badge i,.hero-badge svg{color:var(--color-accent)}
+ .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+ .hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+ .hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+ .hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+ .hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+ .hero-form h3{color:var(--color-primary);font-size:1.25rem}
+ .hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+ .breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+ .breadcrumbs a{color:var(--color-primary-light)}
+ .breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+ .page-header{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+ .page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+ .page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+ .section{padding:80px 0}
+ .section-alt{background:var(--color-bg-alt)}
+ .section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+ .section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+ .section-heading p{color:var(--color-text-light);font-size:1.1rem}
+ .footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+ .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+ .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+ .footer-brand{display:flex;align-items:center;margin-bottom:16px}
+ .footer-brand-text{font-size:1.35rem;font-weight:800;color:var(--color-white)}
+ .footer-brand-text span{color:var(--color-accent)}
+ .footer-tagline{color:rgba(255,255,255,0.6);font-size:0.925rem;line-height:1.7;max-width:320px}
+ .footer-col h4{color:var(--color-white);font-size:1rem;margin-bottom:20px;letter-spacing:0.02em;text-transform:uppercase}
+ .footer-col ul{display:flex;flex-direction:column;gap:10px}
+ .footer-col a{color:rgba(255,255,255,0.65);font-size:0.9rem;transition:var(--transition)}
+ .footer-col a:hover{color:var(--color-accent);padding-left:3px}
+ .footer-contact li{display:flex;align-items:center;gap:10px;font-size:0.9rem;color:rgba(255,255,255,0.65)}
+ .footer-contact a{color:rgba(255,255,255,0.65)}
+ .footer-contact a:hover{color:var(--color-accent)}
+ .footer-contact i{color:var(--color-accent);width:18px}
+ .footer-social{display:flex;gap:12px;margin-top:20px}
+ .footer-social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--radius-full);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);font-size:1rem;transition:var(--transition)}
+ .footer-social a:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-2px)}
+ .footer-divider{height:1px;background:rgba(255,255,255,0.1);margin-bottom:20px}
+ .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:0 0 24px;font-size:0.85rem;color:rgba(255,255,255,0.5)}
+ .footer-bottom-links a{color:rgba(255,255,255,0.5);margin-left:12px}
+ .footer-bottom-links a:hover{color:var(--color-accent)}
+ .scroll-top{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:var(--color-primary);color:var(--color-accent);border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:999;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(10px);transition:var(--transition-slow)}
+ .scroll-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+ .scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+ .country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden}
+ .country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+ .country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+ .country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+ .country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+ .country-hero .breadcrumb a:hover{color:var(--color-accent)}
+ body.menu-open{overflow:hidden}
+ .text-center{text-align:center}
+ .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ @media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+ @media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+ @media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+ </style><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
+
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://embed.tawk.to">
+  <link rel="dns-prefetch" href="https://embed.tawk.to">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>China 240-Hour Visa-Free Transit 2026 – Complete Guide</title>
+  <meta name="description" content="China 240-hour visa-free transit 2026 guide: 55 eligible countries, 60 ports, 24 provinces. India not eligible – see what Indian travellers need instead.">
+  <meta name="keywords" content="China 240 hour visa free transit, 240 hour visa free transit China, China visa free transit 2026, 240 hour transit China, China 10 day visa free, China visa free transit policy, China transit without visa, China 240 hour visa free for Indians">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Ajit Mane">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/post/china-240-hour-visa-free-transit">
+  <meta property="og:title" content="China 240-Hour Visa-Free Transit 2026 – Complete Guide">
+  <meta property="og:description" content="China 240-hour visa-free transit 2026 guide: 55 eligible countries, 60 ports, 24 provinces. India not eligible – see what Indian travellers need instead.">
+ <meta property="og:image" content="https://myvisaassistance.com/post/images/china-240-hour-visa-free-transit.svg">
+ <meta property="article:published_time" content="2026-07-10">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <!-- Article Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "China 240-Hour Visa-Free Transit 2026 – Complete Guide for Travelers",
+  "description": "China 240-hour visa-free transit 2026 guide: 55 eligible countries, 60 ports, 24 provinces, rules, requirements, and what Indian passport holders need to know.",
+ "author": { "@type": "Person", "name": "Ajit Mane" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-07-10",
+ "dateModified": "2026-07-10",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://myvisaassistance.com/post/china-240-hour-visa-free-transit" }
+ }
+ </script>
+
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/post/china-240-hour-visa-free-transit">
+ <style>
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+ .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ .blog-content h3 { margin-top: 1.5em; }
+ .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+ .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+ .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+ .blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+ .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content th { background: var(--color-primary); color: var(--color-white); }
+ .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+ .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+ .blog-content .infographic { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 12px; padding: 30px; margin: 2rem 0; text-align: center; }
+ .blog-content .infographic svg { max-width: 100%; height: auto; }
+ .blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+ .blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+ .blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+ .blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+ .blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+ .blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+ .blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+ .blog-content .ref-list { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 25px; margin: 1.5rem 0; }
+ .blog-content .ref-list h4 { color: var(--color-primary); margin-bottom: 0.8em; }
+ .blog-content .ref-list ol { margin-bottom: 0; }
+ .blog-content .ref-list ol li { list-style: decimal; margin-bottom: 0.5rem; }
+ .blog-content .ref-list a { word-break: break-all; }
+ .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+ .blog-content .featured-image svg { display: block; width: 100%; height: auto; }
+ .blog-content .checklist-card { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 25px; margin: 1.2rem 0; }
+ .blog-content .checklist-card h4 { color: var(--color-primary); margin-bottom: 0.6em; display: flex; align-items: center; gap: 8px; }
+ .blog-content .checklist-card h4 i { color: var(--color-accent); font-size: 1.2em; }
+ .blog-content .checklist-card ul { margin-bottom: 0; }
+ .blog-content .checklist-card ul li { list-style: none; padding-left: 24px; position: relative; margin-bottom: 0.5rem; }
+ .blog-content .checklist-card ul li::before { content: '\2713'; position: absolute; left: 0; color: var(--color-accent); font-weight: bold; }
+ .blog-content .highlight { background: var(--color-accent); color: var(--color-primary-dark); padding: 0 4px; border-radius: 3px; font-weight: 600; }
+ .blog-content .warn-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .warn-box h4 { color: #92400e; margin-bottom: 0.3em; }
+ </style>
+
+
+ <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+  "@type": "ListItem",
+  "position": 1,
+  "name": "Home",
+  "item": "https://myvisaassistance.com"
+  }, {
+  "@type": "ListItem",
+  "position": 2,
+  "name": "Post",
+  "item": "https://myvisaassistance.com/post/"
+  }, {
+  "@type": "ListItem",
+  "position": 3,
+  "name": "China 240-Hour Visa-Free Transit 2026",
+  "item": "https://myvisaassistance.com/post/china-240-hour-visa-free-transit"
+  }]
+  }
+  </script>
+</head>
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/post/">Post</a><span class="separator">/</span>
+ <span>China 240-Hour Visa-Free Transit</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+ <h1>China 240-Hour Visa-Free Transit 2026 – Complete Guide</h1>
+
+ <div class="blog-meta">
+ <span><i class="bi bi-calendar3"></i> Published: July 10, 2026</span>
+ <span><i class="bi bi-clock"></i> 10 min read</span>
+ <span><i class="bi bi-person"></i> By Ajit Mane</span>
+ </div>
+
+ <!-- Featured Infographic -->
+ <div class="featured-image">
+ <img src="/post/images/china-240-hour-visa-free-transit.svg" alt="China 240 hour visa free transit policy banner showing globe, 240 hours, and transit timeline" width="1980" height="1080" loading="lazy">
+ </div>
+
+ <p>China has significantly expanded its <strong>visa-free transit policy</strong>, now allowing eligible travellers to stay for up to <strong>240 hours (10 days)</strong> without applying for a visa in advance. This <strong>China 10 day visa free</strong> transit scheme is the most generous visa-free offering China has ever implemented, enabling a <strong>China transit without visa</strong> for eligible nationals through 60 designated ports. This <strong>240-hour visa-free transit China</strong> policy, effective since December 2024, replaces the earlier 72-hour and 144-hour schemes and now covers <strong>55 eligible countries, 60 designated ports, and 24 provinces</strong>.</p>
+
+ <p>For non-eligible nationals, including Indian passport holders, a <strong>standard China visa</strong> remains mandatory. This guide covers everything you need to know about the <strong>China 240 hour visa free transit</strong> policy, including eligible countries for <strong>China visa free transit 2026</strong>, entry ports, permitted provinces, the "third country" rule, step-by-step application process, and most importantly, <strong>what Indian travellers need to do instead</strong>.</p>
+
+ <div class="info-box">
+ <h4>Key Takeaways</h4>
+ <ul>
+ <li><strong>240 hours</strong> (10 days) visa-free stay for eligible passport holders transiting through China</li>
+ <li><strong>55 countries</strong> eligible &mdash; <strong>India is NOT on the list</strong></li>
+ <li><strong>60 designated ports</strong> including airports, seaports, and land borders</li>
+ <li><strong>24 provinces</strong> open for travel; 7 provinces excluded</li>
+ <li>Must hold a <strong>confirmed onward ticket</strong> to a third country or region</li>
+ <li>Indian passport holders need a <strong>China Tourist (L) Visa</strong> &mdash; applied via COVA + CVASC</li>
+ </ul>
+ </div>
+
+ <h2>What Is the China 240-Hour Visa-Free Transit Policy?</h2>
+
+ <p>The <strong>China 240 hour visa free transit</strong> policy is a government scheme that allows citizens of 55 eligible countries to enter China without a visa for up to <strong>240 hours (10 days)</strong>, provided they are transiting to a third country or region. The policy was expanded from the earlier 144-hour (6-day) scheme in <strong>December 2024</strong> by the National Immigration Administration (NIA) of China.</p>
+
+ <p>Key changes under the expanded policy include:</p>
+
+ <ul>
+ <li>Stay period extended from 72/144 hours to <strong>240 hours (10 days)</strong></li>
+ <li>Designated ports increased from 39 to <strong>60</strong></li>
+ <li>Open provinces expanded from 19 to <strong>24</strong> (added: Shanxi, Anhui, Jiangxi, Hainan, Guizhou)</li>
+ <li>Cross-province travel now permitted within the 24 designated regions</li>
+ <li>New port types include the Hong Kong-Zhuhai-Macao Bridge and West Kowloon Express Rail Station</li>
+ </ul>
+
+ <p>During the visa-free transit period, travellers can engage in <strong>tourism, business visits, exchange visits, and family visits</strong>. However, the policy strictly <strong>does not cover employment, study, or journalistic activities</strong>, which require appropriate visas.</p>
+
+ <h2>55 Eligible Countries for 240-Hour Visa-Free Transit</h2>
+
+ <p>The Chinese NIA publishes a definitive list of <strong>55 nationalities</strong> eligible for the <strong>China 240 hour visa free transit</strong>. Here is the complete list grouped by region:</p>
+
+ <table>
+ <thead>
+ <tr>
+ <th>Region</th>
+ <th>Count</th>
+ <th>Countries</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Europe</strong></td>
+ <td>40</td>
+ <td>All 26 Schengen states (Austria, Belgium, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, Switzerland) + Albania, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Ireland, Monaco, Montenegro, North Macedonia, Romania, Russia, Serbia, Ukraine, United Kingdom</td>
+ </tr>
+ <tr>
+ <td><strong>Americas</strong></td>
+ <td>6</td>
+ <td>United States, Canada, Brazil, Mexico, Argentina, Chile</td>
+ </tr>
+ <tr>
+ <td><strong>Oceania</strong></td>
+ <td>2</td>
+ <td>Australia, New Zealand</td>
+ </tr>
+ <tr>
+ <td><strong>Asia &amp; Middle East</strong></td>
+ <td>7</td>
+ <td>Japan, South Korea, Singapore, Indonesia, Brunei, United Arab Emirates, Qatar</td>
+ </tr>
+ </tbody>
+ </table>
+
+ <div class="warn-box">
+ <h4>Important for Indian Readers</h4>
+ <p><strong>Indian passport holders are NOT eligible</strong> for the 240-hour visa-free transit policy. Citizens of India, Pakistan, Bangladesh, Vietnam, the Philippines, and most African countries cannot use this scheme and must apply for a standard China visa through the COVA online portal and CVASC centres.</p>
+ </div>
+
+ <p>If you hold a passport from any of the 55 countries listed above, you can enter China visa-free for up to 10 days when transiting to a third destination. The full list was most recently updated in <strong>June 2025</strong> when Indonesia was added as the 55th country.</p>
+
+ <h2>60 Designated Ports of Entry</h2>
+
+ <p>The <strong>China visa-free transit policy</strong> is valid only at 60 specific ports of entry. The most commonly used ports are:</p>
+
+ <table>
+ <thead>
+ <tr>
+ <th>Port Type</th>
+ <th>Notable Ports</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>International Airports</strong></td>
+ <td>Beijing Capital (PEK), Beijing Daxing (PKX), Shanghai Pudong (PVG), Shanghai Hongqiao (SHA), Guangzhou Baiyun (CAN), Shenzhen Bao'an (SZX), Chengdu Tianfu (TFU), Kunming Changshui (KMG), Xi'an Xianyang (XIY), Hangzhou Xiaoshan (HGH), Wuhan Tianhe (WUH), Nanjing Lukou (NKG), Chongqing Jiangbei (CKG) + 36 others</td>
+ </tr>
+ <tr>
+ <td><strong>Seaports</strong></td>
+ <td>Shanghai Cruise Terminal, Tianjin Port, Guangzhou Nansha Port, Shenzhen Shekou Port, Haikou Port, Sanya Port</td>
+ </tr>
+ <tr>
+ <td><strong>Land Borders</strong></td>
+ <td>Hong Kong-Zhuhai-Macao Bridge, West Kowloon Express Rail Station (Guangzhou-Shenzhen-Hong Kong Express Rail Link)</td>
+ </tr>
+ </tbody>
+ </table>
+
+ <p>The 21 newly added ports under the 2024 expansion include: Taiyuan Wusu International Airport (Shanxi), Su'nan Shuofang International Airport (Jiangsu), Yangzhou Taizhou International Airport (Jiangsu), Wenzhou Longwan International Airport (Zhejiang), Yiwu Airport (Zhejiang), Hefei Xinqiao International Airport (Anhui), Huangshan Tunxi International Airport (Anhui), Fuzhou Changle International Airport (Fujian), Quanzhou Jinjiang International Airport (Fujian), Wuyishan Airport (Fujian), Nanchang Changbei International Airport (Jiangxi), Jinan Yaoqiang International Airport (Shandong), Yantai Penglai International Airport (Shandong), Weihai Dashuipo International Airport (Shandong), Zhangjiajie Hehua International Airport (Hunan), Nanning Wuxu International Airport (Guangxi), Beihai Fucheng Airport (Guangxi), Haikou Meilan International Airport (Hainan), Sanya Phoenix International Airport (Hainan), Chengdu Tianfu International Airport (Sichuan), and Guiyang Longdongbao International Airport (Guizhou).</p>
+
+ <h2>24 Open Provinces and Excluded Regions</h2>
+
+ <p>The <strong>240 hour transit China</strong> scheme allows travel within <strong>24 designated provincial-level regions</strong>. Seven regions are excluded and require a separate visa or permit:</p>
+
+ <table>
+ <thead>
+ <tr>
+ <th>Open Provinces (24)</th>
+ <th>Excluded Regions (7)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Beijing, Tianjin, Hebei, Shanxi, Liaoning, Heilongjiang, Shanghai, Jiangsu, Zhejiang, Anhui, Fujian, Jiangxi, Shandong, Henan, Hubei, Hunan, Guangdong, Guangxi, Hainan, Chongqing, Sichuan, Guizhou, Yunnan, Shaanxi</td>
+ <td>Tibet (requires Tibet Travel Permit), Xinjiang (security-sensitive), Gansu, Qinghai, Ningxia, Inner Mongolia, Jilin (border with North Korea)</td>
+ </tr>
+ </tbody>
+ </table>
+
+ <p>Travellers under the <strong>China 240 hour visa free transit</strong> can freely move between different provinces within the 24 open regions. For example, you could fly into Beijing, take the high-speed train to Shanghai, visit Hangzhou, and depart from Shanghai, all within the 240-hour window. However, you cannot enter any of the 7 excluded regions without additional permits.</p>
+
+ <div class="info-box">
+ <h4>Newly Added Provinces</h4>
+ <p>The 2024 expansion added 5 new provinces: <strong>Shanxi</strong> (home to the "Black Myth: Wukong" filming locations), <strong>Anhui</strong> (entire province open), <strong>Jiangxi</strong> (Nanchang and Jingdezhen), <strong>Hainan</strong> (entire province open, including the tropical island), and <strong>Guizhou</strong> (entire province open, famous for world natural heritage sites).</p>
+ </div>
+
+ <h2>Third Country Rule – Critical Requirement</h2>
+
+ <p>The single most important rule of the <strong>China visa-free transit policy</strong> is the <strong>"third country" requirement</strong>. Your itinerary must be: <strong>Country A &rarr; China &rarr; Country B</strong>, where Country A and Country B are different.</p>
+
+ <p>This means:</p>
+ <ul>
+ <li><strong>A round-trip ticket</strong> from your home country to China and back does NOT qualify (Hong Kong, Macau, and Taiwan count as separate regions)</li>
+ <li><strong>Example of valid itinerary:</strong> London (UK) &rarr; Beijing (China) &rarr; Bangkok (Thailand)</li>
+ <li><strong>Example of invalid itinerary:</strong> London (UK) &rarr; Beijing (China) &rarr; London (UK)</li>
+ <li>Your onward flight must depart within <strong>240 hours</strong> of your arrival in China</li>
+ </ul>
+
+ <h2>Requirements and Documents</h2>
+
+ <p>To use the <strong>240 hour visa free transit China</strong> scheme, you must present the following at the port of entry:</p>
+
+ <div class="checklist-card">
+ <h4><i class="bi bi-check-circle"></i> Required Documents</h4>
+ <ul>
+ <li>Valid ordinary passport from one of the 55 eligible countries (minimum <strong>3 months validity</strong> beyond entry date, with at least 2 blank visa pages)</li>
+ <li><strong>Confirmed onward ticket</strong> to a third country or region (must have a confirmed seat and PNR, departing within 240 hours)</li>
+ <li>Completed <strong>China Digital Arrival Card</strong> (free online form, QR code received on registration)</li>
+ <li>Hotel booking confirmation for your stay (recommended, not mandatory)</li>
+ <li>Travel insurance certificate (recommended)</li>
+ </ul>
+ </div>
+
+ <h2>Step-by-Step: How to Use the 240-Hour Visa-Free Transit</h2>
+
+ <h3>Step 1: Confirm Eligibility</h3>
+ <p>Check if your passport is from one of the 55 eligible countries. Verify your passport has <strong>3+ months validity</strong> and 2 blank pages. If your passport does not qualify, apply for a <strong>China Tourist Visa</strong> instead.</p>
+
+ <h3>Step 2: Book Your Flights</h3>
+ <p>Book an inbound flight to China and an onward flight to a <strong>third country or region</strong> within 240 hours. Ensure you arrive at and depart from one of the 60 designated ports.</p>
+
+ <h3>Step 3: Complete the China Digital Arrival Card</h3>
+ <p>Fill out the free online form on the NIA website or via the China Customs app. You will receive a <strong>QR code</strong> that must be shown at immigration.</p>
+
+ <h3>Step 4: Proceed to Immigration on Arrival</h3>
+ <p>At the designated port, proceed to the <strong>transit visa-free counter</strong> (not the regular visa arrival counter). Present your passport, onward ticket, and Digital Arrival Card. The immigration officer will issue a <strong>temporary entry permit</strong> stamped for up to 240 hours.</p>
+
+ <h3>Step 5: Enjoy Your Stay</h3>
+ <p>You can travel within the 24 open provinces. The <strong>240-hour clock starts at midnight</strong> after the day of arrival. For example, if you arrive at 3:00 PM on July 10, the 240-hour countdown begins at 12:00 AM on July 11.</p>
+
+ <h3>Step 6: Depart on Time</h3>
+ <p>Ensure you depart China before the 240-hour limit expires. Overstaying can result in <strong>fines, detention, and future entry bans</strong>.</p>
+
+ <div class="warn-box">
+ <h4>Common Reasons for Refusal at Immigration</h4>
+ <ul>
+ <li>Wrong onward destination (not a third country)</li>
+ <li>Arrival at a non-designated port</li>
+ <li>Passport validity less than 3 months at entry</li>
+ <li>No confirmed onward ticket (transit letters without confirmed seats are rejected)</li>
+ <li>Airline staff refusing boarding due to incomplete documentation</li>
+ </ul>
+ </div>
+
+ <h2>What About Hong Kong, Macau, and Taiwan?</h2>
+
+ <p>The <strong>240-hour visa-free transit</strong> applies to Mainland China only. Hong Kong and Macau have their own visa-free regimes (most eligible travellers get 90&ndash;180 days without a visa). Taiwan has a separate immigration policy.</p>
+
+ <p>For the purposes of the "third country" rule, <strong>Hong Kong, Macau, and Taiwan count as separate regions</strong>. This means a flight from Mainland China to Hong Kong, Macau, or Taiwan qualifies as a valid onward leg.</p>
+
+ <h2>Visa-Free Transit vs. Standard China Visa: Key Differences</h2>
+
+ <table>
+ <thead>
+ <tr>
+ <th>Feature</th>
+ <th>240-Hour Visa-Free Transit</th>
+ <th>China Tourist (L) Visa</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Cost</strong></td>
+ <td>Free</td>
+ <td>USD 30&ndash;185 (varies by nationality and entry type)</td>
+ </tr>
+ <tr>
+ <td><strong>Stay Duration</strong></td>
+ <td>Up to 240 hours (10 days)</td>
+ <td>30&ndash;90 days per entry</td>
+ </tr>
+ <tr>
+ <td><strong>Validity</strong></td>
+ <td>Single transit pass</td>
+ <td>Up to 10 years (multi-entry)</td>
+ </tr>
+ <tr>
+ <td><strong>Application</strong></td>
+ <td>None (on arrival)</td>
+ <td>COVA online + CVASC submission</td>
+ </tr>
+ <tr>
+ <td><strong>Third Country Rule</strong></td>
+ <td>Required</td>
+ <td>Not required</td>
+ </tr>
+ <tr>
+ <td><strong>Eligible Nationalities</strong></td>
+ <td>55 countries</td>
+ <td>All countries</td>
+ </tr>
+ <tr>
+ <td><strong>Permitted Activities</strong></td>
+ <td>Tourism, business, family visits</td>
+ <td>Tourism, business, family visits</td>
+ </tr>
+ </tbody>
+ </table>
+
+ <h2>China 240-Hour Visa-Free Transit for Indian Passport Holders</h2>
+
+ <p>As of July 2026, <strong>Indian passport holders are not eligible</strong> for the <strong>China 240 hour visa free transit</strong> policy. This <strong>China 240 hour visa free for Indians</strong> question is the single most common query we receive, and the answer remains clear: there is no <strong>China 240 hour visa free for Indians</strong> option available under the current rules. Despite China expanding its visa-free transit programme to 55 countries, India is not included in the list.</p>
+
+ <p>If you hold an Indian passport, you must apply for a <strong>standard China visa</strong> before travelling. Here is what you need to do:</p>
+
+ <h3>China Visa Options for Indian Citizens</h3>
+
+ <table>
+ <thead>
+ <tr>
+ <th>Visa Type</th>
+ <th>Purpose</th>
+ <th>Stay Duration</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>L Visa (Tourist)</strong></td>
+ <td>Tourism, sightseeing</td>
+ <td>Up to 90 days</td>
+ </tr>
+ <tr>
+ <td><strong>M Visa (Business)</strong></td>
+ <td>Commercial and trade activities</td>
+ <td>Up to 90 days</td>
+ </tr>
+ <tr>
+ <td><strong>Z Visa (Work)</strong></td>
+ <td>Employment in China</td>
+ <td>Based on employment contract</td>
+ </tr>
+ <tr>
+ <td><strong>X1/X2 Visa (Student)</strong></td>
+ <td>Study in China</td>
+ <td>X1: &gt;180 days, X2: &le;180 days</td>
+ </tr>
+ </tbody>
+ </table>
+
+ <p>For detailed information on visa types, requirements, and the application process, refer to our <a href="/visa-guide/china-visa/">complete China visa guide for Indians</a>.</p>
+
+ <h3>How to Apply for a China Visa from India</h3>
+
+ <ol>
+ <li><strong>Complete the COVA online form</strong> at the China Online Visa Application (COVA) portal</li>
+ <li><strong>Gather required documents</strong>: Valid passport (6+ months validity, 2+ blank pages), completed visa application form, recent passport-sized photo (33mm x 48mm), travel itinerary, hotel bookings, flight reservations, and supporting documents based on visa type</li>
+ <li><strong>Submit at CVASC centre</strong>: Visit the China Visa Application Service Centre in your jurisdiction (available in Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, and Kochi)</li>
+ <li><strong>Pay the visa fee</strong> and biometric fee (if applicable)</li>
+ <li><strong>Track your application</strong> using the <a href="/post/china-visa-application-tracking-official-portal-how-it-works/">China visa tracking portal</a></li>
+ <li><strong>Collect your passport</strong> with the visa sticker</li>
+ </ol>
+
+ <p>For a complete document checklist, see our <a href="/blog/china-visa-documents-2026/">China visa documents guide</a>. For photo specifications, visit our <a href="/visa-photo-requirements/">China visa photo requirements page</a>.</p>
+
+ <h2>Frequently Asked Questions</h2>
+
+ <h3>What is the China 240-hour visa-free transit policy?</h3>
+ <p>The <strong>China 240 hour visa free transit</strong> policy allows citizens of 55 eligible countries to enter China and stay for up to 240 hours (10 days) without a visa, provided they hold a confirmed onward ticket to a third country and arrive through a designated port. It replaced the earlier 144-hour scheme in December 2024.</p>
+
+ <h3>Can Indian passport holders use the 240-hour visa-free transit?</h3>
+ <p><strong>No.</strong> Indian passport holders are not eligible for the <strong>China visa-free transit policy</strong>. Indian citizens must apply for a standard China visa (Tourist L, Business M, etc.) before travelling. Check the <a href="/visa-guide/china-visa/">China visa guide for Indians</a> for detailed information.</p>
+
+ <h3>Which countries are eligible for the 240-hour visa-free transit?</h3>
+ <p>55 countries are eligible, including the United States, Canada, United Kingdom, Australia, New Zealand, Japan, South Korea, Singapore, all EU/Schengen countries, Russia, Brazil, UAE, Qatar, and Indonesia. India is not on the list.</p>
+
+ <h3>How many ports accept the 240-hour visa-free transit?</h3>
+ <p>There are <strong>60 designated ports</strong> across China, including major international airports (Beijing, Shanghai, Guangzhou, Shenzhen, Chengdu, Kunming, Xi'an, etc.), selected seaports, and land borders such as the Hong Kong-Zhuhai-Macao Bridge.</p>
+
+ <h3>Can I travel to multiple cities under the 240-hour transit?</h3>
+ <p><strong>Yes.</strong> You can travel freely within the 24 open provinces. For example, you can enter through Beijing, travel to Shanghai, visit Xi'an, and depart from Guangzhou, all within 240 hours. You cannot enter the 7 excluded regions (Tibet, Xinjiang, Gansu, Qinghai, Ningxia, Inner Mongolia, Jilin).</p>
+
+ <h3>Is a return ticket to my home country allowed?</h3>
+ <p><strong>No.</strong> The policy requires an onward ticket to a <strong>third country or region</strong> different from your starting point. A round-trip flight from your home country to China and back does NOT qualify. Hong Kong, Macau, and Taiwan count as separate regions.</p>
+
+ <h3>Can I work or study under the 240-hour visa-free transit?</h3>
+ <p><strong>No.</strong> The <strong>China 240 hour visa free transit</strong> strictly prohibits employment, study, and journalistic activities. You may engage in tourism, business meetings, exchange visits, and family visits. For work or study, apply for the appropriate visa (Z visa for work, X visa for study).</p>
+
+ <h3>When does the 240-hour countdown start?</h3>
+ <p>The <strong>240-hour clock starts at midnight (00:00)</strong> after the day of your arrival. If you arrive at 2:00 PM on July 10, your 240-hour period begins at 12:00 AM on July 11 and ends at 12:00 AM on July 21.</p>
+
+ <h3>Can I extend my stay beyond 240 hours?</h3>
+ <p><strong>Extensions are generally not granted</strong> for the visa-free transit policy. If you need to stay longer, you must leave China and re-enter through a designated port (if you still meet the eligibility criteria), or apply for a standard China visa before your trip.</p>
+
+ <h3>What happens if I overstay the 240-hour limit?</h3>
+ <p>Overstaying can result in <strong>fines, detention, and future entry bans</strong>. The Chinese immigration authorities strictly enforce the 240-hour limit. If you anticipate needing more time, apply for a standard China visa before travelling.</p>
+
+ <h3>Does the policy include Hong Kong and Macau?</h3>
+ <p>No, the <strong>240-hour transit China</strong> policy applies to Mainland China only. Hong Kong and Macau have their own visa-free arrangements. However, for the transit policy, travelling from Mainland China to Hong Kong, Macau, or Taiwan counts as a valid third-country onward leg.</p>
+
+ <h2>Conclusion</h2>
+
+ <p>China's <strong>240-hour visa-free transit</strong> policy represents a significant expansion of the country's visa liberalisation efforts, opening up 10-day visa-free stays for citizens of <strong>55 countries</strong> across <strong>60 ports</strong> and <strong>24 provinces</strong>. The policy is free, requires no advance application, and permits travel across multiple provinces, making it one of the most generous transit schemes in Asia.</p>
+
+ <p><strong>For Indian passport holders</strong>, the key takeaway is clear: you cannot use this policy and must apply for a standard China visa. However, the China visa process is straightforward through the <strong>COVA + CVASC system</strong>, with application centres in 7 Indian cities.</p>
+
+ <p>For comprehensive China visa information tailored for Indian applicants, explore our complete resources:</p>
+
+ <ul>
+ <li><a href="/visa-guide/china-visa/">China Visa Guide for Indians</a> &ndash; Complete visa types, fees, and process</li>
+ <li><a href="/visa-requirements/china-visa-requirements/">China Visa Requirements</a> &ndash; Detailed document checklist</li>
+ <li><a href="/blog/china-visa-documents-2026/">China Visa Documents 2026</a> &ndash; Required documentation guide</li>
+ <li><a href="/visa-photo-requirements/">China Visa Photo Requirements</a> &ndash; Photo specifications for Indian applicants</li>
+ <li><a href="/post/china-visa-application-tracking-official-portal-how-it-works/">China Visa Tracking Portal</a> &ndash; Track your application status</li>
+ </ul>
+
+  <div class="ref-list">
+  <h4>References and Official Resources</h4>
+  <ol>
+  <li><a href="https://en.nia.gov.cn" target="_blank" rel="noopener noreferrer">National Immigration Administration (NIA) of China &ndash; Official Website</a></li>
+  <li><a href="https://en.nia.gov.cn/n147418/n147463/c183412/content.html" target="_blank" rel="noopener noreferrer">NIA &ndash; 240-Hour Visa-Free Transit Policy Interpretation</a></li>
+  <li><a href="https://ca.china-embassy.gov.cn/eng/lsyw/VisaFree/VisaFreeTransit/202506/t20250609_11643307.htm" target="_blank" rel="noopener noreferrer">Chinese Embassy in Canada &ndash; 240-Hour Visa-Free Transit Details</a></li>
+  <li><a href="https://english.www.gov.cn/news/202506/12/content_WS684a4460c6d0868f4e8f348f.html" target="_blank" rel="noopener noreferrer">State Council of China &ndash; Indonesia Added to Transit Program</a></li>
+  <li><a href="https://www.visaforchina.org" target="_blank" rel="noopener noreferrer">CVASC Official Portal &ndash; China Visa Application Service Center</a></li>
+  <li><a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">Chinese Embassy in India &ndash; Official Website</a></li>
+  <li><a href="/visa-guide/china-visa/">China Visa Guide for Indians &ndash; Types, Fees, Process &amp; Requirements</a></li>
+  <li><a href="/visa-requirements/china-visa-requirements/">China Visa Requirements &ndash; Detailed Document Checklist</a></li>
+  <li><a href="/blog/china-visa-documents-2026/">Required Documents for China Visa 2026 &ndash; Complete Checklist</a></li>
+  </ol>
+  </div>
+
+ <div class="share-buttons">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/post/china-240-hour-visa-free-transit" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Share on Facebook</a>
+ <a href="https://twitter.com/intent/tweet?text=China%20240-Hour%20Visa-Free%20Transit%20-%20Complete%20Guide&url=https://myvisaassistance.com/post/china-240-hour-visa-free-transit" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Share on Twitter</a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/post/china-240-hour-visa-free-transit" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;"><i class="bi bi-linkedin"></i> Share on LinkedIn</a>
+ <a href="https://api.whatsapp.com/send?text=China%20240-Hour%20Visa-Free%20Transit%20-%20Complete%20Guide%20https://myvisaassistance.com/post/china-240-hour-visa-free-transit" target="_blank" rel="noopener noreferrer" style="background:#25D366;"><i class="bi bi-whatsapp"></i> Share on WhatsApp</a>
+ </div>
+
+ <div class="cta-section">
+ <h3>Planning a Trip to China?</h3>
+ <p>Our India-based visa consultants can help you with the complete China visa application process&mdash;from document preparation to application review. Whether you need a tourist, business, or student visa, we provide expert guidance tailored for Indian applicants.</p>
+ <a href="/contact" class="btn btn-white">Contact My Visa Assistance</a>
+ </div>
+
+ <p><em>Disclaimer: Visa-free transit policies, eligibility lists, port availability, and permitted areas are subject to change without notice. Always verify current information with the <a href="https://en.nia.gov.cn" target="_blank" rel="noopener noreferrer">National Immigration Administration of China</a> or the <a href="http://in.china-embassy.gov.cn" target="_blank" rel="noopener noreferrer">Chinese Embassy in India</a> before making travel arrangements. Information in this article is accurate as of July 2026.</em></p>
+
+ </article>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <i class="bi bi-airplane" aria-hidden="true" style="font-size:1.8rem;color:var(--color-accent);margin-right:10px;"></i>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+ <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope"></i> myvisaassistance@protonmail.com</a></li>
+ <li><a href="tel:+918551805523"><i class="bi bi-telephone"></i> +91 85518 05523</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+ <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-bottom">
+ <span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a> &middot;
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+</body>
+</html>
