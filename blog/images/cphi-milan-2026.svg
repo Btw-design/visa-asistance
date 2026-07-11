@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+
+  <defs>
+
+    <!-- Brand -->
+    <linearGradient id="gBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5057EA"/>
+      <stop offset="100%" stop-color="#6E74FF"/>
+    </linearGradient>
+
+    <linearGradient id="gOrange" x1="0%" y1="0%" x2="100%">
+      <stop offset="0%" stop-color="#E86020"/>
+      <stop offset="100%" stop-color="#FF9553"/>
+    </linearGradient>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-opacity=".12"/>
+    </filter>
+
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+
+  <!-- Decorative -->
+  <circle cx="1080" cy="-20" r="180" fill="#5057EA" opacity=".05"/>
+  <circle cx="1140" cy="610" r="140" fill="#A5D549" opacity=".08"/>
+
+  <!-- ======================================= -->
+  <!-- RIGHT SIDE VISUAL -->
+  <!-- ======================================= -->
+
+  <g transform="translate(720 65)" filter="url(#shadow)">
+
+    <!-- Main Circle -->
+    <circle cx="180"
+            cy="180"
+            r="155"
+            fill="url(#gBlue)"/>
+
+    <!-- Orbit -->
+    <circle cx="180"
+            cy="180"
+            r="178"
+            fill="none"
+            stroke="#A5D549"
+            stroke-width="3"
+            stroke-dasharray="10 10"/>
+
+    <!-- Globe -->
+    <circle cx="180"
+            cy="180"
+            r="78"
+            fill="none"
+            stroke="#FFFFFF"
+            stroke-width="3"/>
+
+    <ellipse cx="180"
+             cy="180"
+             rx="42"
+             ry="78"
+             fill="none"
+             stroke="#FFFFFF"
+             stroke-width="2"/>
+
+    <ellipse cx="180"
+             cy="180"
+             rx="78"
+             ry="28"
+             fill="none"
+             stroke="#FFFFFF"
+             stroke-width="2"/>
+
+    <!-- Capsule -->
+    <g transform="rotate(-28 180 180)">
+      <rect x="118"
+            y="165"
+            width="124"
+            height="34"
+            rx="17"
+            fill="#FFFFFF"/>
+
+      <rect x="118"
+            y="165"
+            width="62"
+            height="34"
+            rx="17"
+            fill="#E86020"/>
+
+      <line x1="180"
+            y1="165"
+            x2="180"
+            y2="199"
+            stroke="#5057EA"
+            stroke-width="2"/>
+    </g>
+
+    <!-- Nodes -->
+    <circle cx="180" cy="18" r="8" fill="#A5D549"/>
+    <circle cx="25" cy="180" r="8" fill="#A5D549"/>
+    <circle cx="335" cy="180" r="8" fill="#A5D549"/>
+    <circle cx="180" cy="342" r="8" fill="#A5D549"/>
+
+  </g>
+
+  <!-- ======================================= -->
+  <!-- LEFT CONTENT -->
+  <!-- ======================================= -->
+
+  <text x="90"
+        y="95"
+        font-family="Arial"
+        font-size="18"
+        font-weight="700"
+        letter-spacing="5"
+        fill="#5057EA">
+        GLOBAL PHARMACEUTICAL EXHIBITION
+  </text>
+
+  <text x="90"
+        y="210"
+        font-family="Arial"
+        font-size="94"
+        font-weight="800"
+        fill="#031B30">
+        CPHI
+  </text>
+
+  <text x="90"
+        y="285"
+        font-family="Arial"
+        font-size="58"
+        font-weight="700"
+        fill="#5057EA">
+        MILAN
+  </text>
+
+  <!-- 2026 -->
+  <rect x="90"
+        y="315"
+        width="245"
+        height="90"
+        rx="18"
+        fill="url(#gOrange)"/>
+
+  <text x="212"
+        y="377"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="62"
+        font-weight="900"
+        fill="#FFFFFF">
+        2026
+  </text>
+
+  <!-- Divider -->
+  <rect x="90"
+        y="438"
+        width="90"
+        height="5"
+        rx="3"
+        fill="#A5D549"/>
+
+  <!-- Info -->
+  <text x="90"
+        y="485"
+        font-family="Arial"
+        font-size="26"
+        fill="#031B30">
+        06–08 October 2026
+  </text>
+
+  <text x="90"
+        y="525"
+        font-family="Arial"
+        font-size="26"
+        fill="#031B30">
+        Fiera Milano • Italy
+  </text>
+
+  <!-- Footer Card -->
+
+  <rect x="90"
+        y="548"
+        width="430"
+        height="42"
+        rx="21"
+        fill="#031B30"/>
+
+  <text x="305"
+        y="575"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="17"
+        font-weight="700"
+        fill="#FFFFFF">
+        CONNECTING THE GLOBAL PHARMA INDUSTRY
+  </text>
+
+</svg>
