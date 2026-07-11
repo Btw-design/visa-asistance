@@ -1,0 +1,275 @@
+<svg width="1980" height="1080" viewBox="0 0 1980 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1980" y2="1080">
+      <stop stop-color="#031B30"/>
+      <stop offset="1" stop-color="#092D47"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="25"
+                    flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="1980" height="1080" fill="url(#bg)"/>
+
+  <!-- ABSTRACT DECORATION -->
+  <circle cx="1810" cy="100" r="330" fill="#A5D549" opacity="0.08"/>
+  <circle cx="1700" cy="1000" r="420" fill="#E86020" opacity="0.08"/>
+  <circle cx="80" cy="1020" r="250" fill="#A5D549" opacity="0.05"/>
+
+  <!-- TOP BAR -->
+  <rect x="120" y="90" width="1740" height="4" rx="2" fill="#A5D549"/>
+
+  <!-- EVENT TAG -->
+  <rect x="120" y="135" width="370" height="62" rx="12" fill="#E86020"/>
+  <text x="305" y="176"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="25"
+        font-weight="800"
+        letter-spacing="2"
+        fill="#FFFFFF">
+    PHARMA EVENT 2026
+  </text>
+
+  <!-- LEFT CONTENT -->
+  <text x="120" y="330"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="58"
+        font-weight="500"
+        fill="#FFFFFF">
+    Are You Attending
+  </text>
+
+  <text x="120" y="485"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="145"
+        font-weight="900"
+        fill="#A5D549">
+    CPHI
+  </text>
+
+  <text x="530" y="485"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="145"
+        font-weight="900"
+        fill="#FFFFFF">
+    Milan?
+  </text>
+
+  <text x="120" y="585"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="45"
+        font-weight="700"
+        fill="#E86020">
+    Don't Leave Your Visa Until the Last Minute
+  </text>
+
+  <text x="120" y="655"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="29"
+        fill="#C9D5DE">
+    Prepare your Italy business visa documents early
+  </text>
+
+  <text x="120" y="700"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="29"
+        fill="#C9D5DE">
+    and focus on making the most of the event.
+  </text>
+
+  <!-- DATE + LOCATION -->
+  <g transform="translate(120 790)">
+    <rect width="390" height="125" rx="22"
+          fill="#FFFFFF" fill-opacity="0.08"
+          stroke="#FFFFFF" stroke-opacity="0.15"/>
+
+    <!-- Calendar Icon -->
+    <rect x="30" y="34" width="58" height="58" rx="10"
+          fill="#A5D549"/>
+    <rect x="30" y="45" width="58" height="8" fill="#031B30"/>
+    <text x="59" y="79"
+          text-anchor="middle"
+          font-family="Arial"
+          font-size="21"
+          font-weight="900"
+          fill="#031B30">
+      06
+    </text>
+
+    <text x="115" y="51"
+          font-family="Arial"
+          font-size="19"
+          font-weight="700"
+          fill="#A5D549">
+      EVENT DATES
+    </text>
+
+    <text x="115" y="87"
+          font-family="Arial"
+          font-size="29"
+          font-weight="800"
+          fill="#FFFFFF">
+      6–8 OCT 2026
+    </text>
+  </g>
+
+  <g transform="translate(540 790)">
+    <rect width="390" height="125" rx="22"
+          fill="#FFFFFF" fill-opacity="0.08"
+          stroke="#FFFFFF" stroke-opacity="0.15"/>
+
+    <!-- Location Icon -->
+    <circle cx="60" cy="62" r="30" fill="#E86020"/>
+    <path d="M60 42C49 42 41 50 41 61C41 76 60 89 60 89C60 89 79 76 79 61C79 50 71 42 60 42ZM60 68C56 68 53 65 53 61C53 57 56 54 60 54C64 54 67 57 67 61C67 65 64 68 60 68Z"
+          fill="#FFFFFF"/>
+
+    <text x="115" y="51"
+          font-family="Arial"
+          font-size="19"
+          font-weight="700"
+          fill="#E86020">
+      DESTINATION
+    </text>
+
+    <text x="115" y="87"
+          font-family="Arial"
+          font-size="29"
+          font-weight="800"
+          fill="#FFFFFF">
+      MILAN, ITALY
+    </text>
+  </g>
+
+  <!-- RIGHT VISA CARD -->
+  <g transform="translate(1170 180)" filter="url(#shadow)">
+    <rect width="650" height="720" rx="45" fill="#FFFFFF"/>
+
+    <!-- Card Header -->
+    <rect width="650" height="135" rx="45" fill="#A5D549"/>
+    <rect y="90" width="650" height="45" fill="#A5D549"/>
+
+    <text x="55" y="62"
+          font-family="Arial"
+          font-size="22"
+          font-weight="700"
+          fill="#031B30"
+          letter-spacing="2">
+      BUSINESS TRAVEL
+    </text>
+
+    <text x="55" y="105"
+          font-family="Arial"
+          font-size="34"
+          font-weight="900"
+          fill="#031B30">
+      ITALY VISA PREPARATION
+    </text>
+
+    <!-- Passport Icon -->
+    <g transform="translate(60 195)">
+      <rect width="220" height="300" rx="25" fill="#5057EA"/>
+      <rect x="18" y="18" width="184" height="264" rx="16"
+            fill="none" stroke="#FFFFFF"
+            stroke-opacity="0.3" stroke-width="3"/>
+
+      <circle cx="110" cy="115" r="48"
+              fill="none" stroke="#FFFFFF" stroke-width="6"/>
+
+      <path d="M62 115H158
+               M110 67C130 88 130 142 110 163
+               M110 67C90 88 90 142 110 163"
+            fill="none" stroke="#FFFFFF" stroke-width="5"/>
+
+      <text x="110" y="225"
+            text-anchor="middle"
+            font-family="Arial"
+            font-size="25"
+            font-weight="800"
+            fill="#FFFFFF">
+        PASSPORT
+      </text>
+    </g>
+
+    <!-- Checklist -->
+    <g transform="translate(330 210)">
+      <text x="0" y="0"
+            font-family="Arial"
+            font-size="25"
+            font-weight="900"
+            fill="#031B30">
+        PLAN AHEAD
+      </text>
+
+      <g transform="translate(0 55)">
+        <circle cx="15" cy="15" r="15" fill="#A5D549"/>
+        <path d="M8 15L13 20L23 9"
+              fill="none" stroke="#031B30"
+              stroke-width="4"
+              stroke-linecap="round"/>
+        <text x="48" y="23"
+              font-family="Arial"
+              font-size="22"
+              fill="#475569">
+          Check documents
+        </text>
+      </g>
+
+      <g transform="translate(0 115)">
+        <circle cx="15" cy="15" r="15" fill="#A5D549"/>
+        <path d="M8 15L13 20L23 9"
+              fill="none" stroke="#031B30"
+              stroke-width="4"
+              stroke-linecap="round"/>
+        <text x="48" y="23"
+              font-family="Arial"
+              font-size="22"
+              fill="#475569">
+          Apply in advance
+        </text>
+      </g>
+
+      <g transform="translate(0 175)">
+        <circle cx="15" cy="15" r="15" fill="#A5D549"/>
+        <path d="M8 15L13 20L23 9"
+              fill="none" stroke="#031B30"
+              stroke-width="4"
+              stroke-linecap="round"/>
+        <text x="48" y="23"
+              font-family="Arial"
+              font-size="22"
+              fill="#475569">
+          Avoid delays
+        </text>
+      </g>
+    </g>
+
+    <!-- CTA -->
+    <rect x="60" y="565" width="530" height="92" rx="18" fill="#031B30"/>
+
+    <text x="325" y="603"
+          text-anchor="middle"
+          font-family="Arial"
+          font-size="19"
+          font-weight="700"
+          fill="#A5D549"
+          letter-spacing="1">
+      ATTENDING CPHI MILAN?
+    </text>
+
+    <text x="325" y="637"
+          text-anchor="middle"
+          font-family="Arial"
+          font-size="27"
+          font-weight="900"
+          fill="#FFFFFF">
+      START YOUR VISA PREPARATION
+    </text>
+  </g>
+
+  <!-- BOTTOM LINE -->
+  <rect x="120" y="1000" width="1740" height="4" rx="2" fill="#E86020"/>
+</svg>
