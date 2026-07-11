@@ -1,0 +1,185 @@
+<svg width="1980" height="1080" viewBox="0 0 1980 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F9FF"/>
+      <stop offset="100%" stop-color="#F0F2FF"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22"
+        flood-color="#5057EA" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="1980" height="1080" fill="url(#bg)"/>
+  <circle cx="1830" cy="80" r="350" fill="#5057EA" opacity="0.07"/>
+  <circle cx="80" cy="1080" r="320" fill="#E86020" opacity="0.06"/>
+  <circle cx="1040" cy="60" r="100" fill="#A5D549" opacity="0.12"/>
+
+  <!-- LEFT CONTENT -->
+  <g transform="translate(130,0)">
+
+    <!-- LABEL -->
+    <rect x="0" y="105" width="340" height="62" rx="31" fill="#5057EA"/>
+    <circle cx="34" cy="136" r="10" fill="#A5D549"/>
+    <text x="190" y="146"
+      text-anchor="middle"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="27"
+      font-weight="700"
+      fill="#FFFFFF">
+      US VISA AWARENESS
+    </text>
+
+    <!-- HEADING -->
+    <text x="0" y="300"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="82"
+      font-weight="700"
+      fill="#20243F">
+
+      <tspan x="0">Can One</tspan>
+
+      <tspan x="0" dy="100" fill="#E86020">
+        Wrong Answer
+      </tspan>
+
+      <tspan x="0" dy="100">
+        Affect Your US
+      </tspan>
+
+      <tspan x="0" dy="100" fill="#5057EA">
+        Visa Decision?
+      </tspan>
+    </text>
+
+    <!-- THREE COLOR ACCENT -->
+    <rect x="0" y="660" width="65" height="9" rx="4" fill="#5057EA"/>
+    <rect x="75" y="660" width="65" height="9" rx="4" fill="#E86020"/>
+    <rect x="150" y="660" width="65" height="9" rx="4" fill="#A5D549"/>
+
+    <!-- DESCRIPTION -->
+    <text x="0" y="735"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="31"
+      fill="#555A72">
+
+      <tspan x="0">
+        A single inconsistent or incorrect response can
+      </tspan>
+
+      <tspan x="0" dy="48">
+        raise questions during your visa interview.
+      </tspan>
+    </text>
+
+    <!-- KEY MESSAGE -->
+    <g transform="translate(0,885)">
+
+      <rect width="820" height="90" rx="22" fill="#5057EA"/>
+
+      <circle cx="55" cy="45" r="27" fill="#A5D549"/>
+
+      <path d="M42 45 L52 55 L70 34"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+      <text x="105" y="56"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="29"
+        font-weight="600"
+        fill="#FFFFFF">
+        Accuracy • Consistency • Honesty Matter
+      </text>
+
+    </g>
+  </g>
+
+  <!-- RIGHT INTERVIEW CARD -->
+  <g transform="translate(1190,145)" filter="url(#shadow)">
+
+    <!-- CARD -->
+    <rect width="620" height="790" rx="45" fill="#FFFFFF"/>
+
+    <!-- HEADER -->
+    <path d="M45 0 H575 Q620 0 620 45 V120 H0 V45 Q0 0 45 0Z"
+      fill="#5057EA"/>
+
+    <circle cx="65" cy="60" r="13" fill="#A5D549"/>
+
+    <text x="330" y="75"
+      text-anchor="middle"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="32"
+      font-weight="700"
+      fill="#FFFFFF">
+      US VISA INTERVIEW
+    </text>
+
+    <!-- COUNTER -->
+    <rect x="65" y="205" width="490" height="18" rx="9" fill="#EEF0FF"/>
+
+    <rect x="65" y="205" width="165" height="18" rx="9" fill="#A5D549"/>
+
+    <!-- VISA OFFICER -->
+    <circle cx="185" cy="345" r="72" fill="#5057EA"/>
+
+    <path d="M75 555 C85 430 285 430 295 555"
+      fill="#5057EA"/>
+
+    <rect x="100" y="520" width="170" height="35" rx="10" fill="#A5D549"/>
+
+    <!-- QUESTION BUBBLE -->
+    <g transform="translate(330,270)">
+
+      <rect width="210" height="160" rx="28" fill="#F2F3FF"/>
+
+      <path d="M30 145 L5 195 L75 155" fill="#F2F3FF"/>
+
+      <text x="105" y="108"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="88"
+        font-weight="700"
+        fill="#E86020">
+        ?
+      </text>
+
+    </g>
+
+    <!-- APPLICANT -->
+    <circle cx="435" cy="555" r="58" fill="#E86020"/>
+
+    <path d="M350 720 C360 620 510 620 520 720"
+      fill="#E86020"/>
+
+    <!-- WARNING BADGE -->
+    <circle cx="310" cy="650" r="62" fill="#A5D549"/>
+
+    <circle cx="310" cy="650" r="47" fill="#FFFFFF"/>
+
+    <text x="310" y="672"
+      text-anchor="middle"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="65"
+      font-weight="700"
+      fill="#E86020">
+      !
+    </text>
+
+    <!-- FOOTER -->
+    <text x="310" y="755"
+      text-anchor="middle"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="26"
+      font-weight="700"
+      fill="#5057EA">
+      EVERY ANSWER MATTERS
+    </text>
+
+  </g>
+</svg>
