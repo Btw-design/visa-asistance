@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
+ --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
+ --color-accent-alt: #A5D549;
+ --color-accent-alt-light: #bae56a;
+ --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+ html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+ body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+ a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+ a:hover{color:var(--color-accent)}
+ ul{list-style:none}
+ h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+ h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+ h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+ p{margin-bottom:1rem;color:var(--color-text)}
+ img{max-width:100%;height:auto;display:block}
+ .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+ .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+ .btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+ .btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
+ .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+ .btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+ .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+ .btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+ .btn-lg{padding:16px 36px;font-size:1.1rem}
+ .btn-white{background:var(--color-white);color:var(--color-primary)}
+ .btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+ .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+ .header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+ .header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+ .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+ .logo span{color:var(--color-accent)}
+ .nav{display:flex;align-items:center;gap:12px}
+ .nav-list{display:flex;align-items:center;gap:4px}
+ .nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+ .nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+ .nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
+ .nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+ .menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+ .menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+ .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+ .menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+ .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+ .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+ .nav-overlay.open{opacity:1}
+ .breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+ .breadcrumbs a{color:var(--color-primary-light)}
+ .breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+ .section{padding:80px 0}
+ .section-alt{background:var(--color-bg-alt)}
+ .footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+ .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+ .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+ .scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
+ .scroll-top.visible{opacity:1;visibility:visible}
+ .scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+ body.menu-open{overflow:hidden}
+ .text-center{text-align:center}
+ .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ @media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+ @media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.section{padding:50px 0}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}}
+ @media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.nav-list{width:100%}}
+ </style><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
+
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://embed.tawk.to">
+  <link rel="dns-prefetch" href="https://embed.tawk.to">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>K-ETA for Indians 2026: Complete Guide</title>
+ <meta name="description" content="Complete guide to K-ETA for Indians 2026. Learn how to apply for South Korea's Electronic Travel Auth, eligibility, fees, processing time, and requirements.">
+ <meta name="keywords" content="K-ETA India, South Korea K-ETA, K-ETA application India, South Korea electronic travel auth, K-ETA requirements Indians">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Ajit Mane">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://myvisaassistance.com/blog/keta-guide-south-korea">
+ <meta property="og:title" content="K-ETA for Indians 2026: Complete Guide">
+ <meta property="og:description" content="Complete guide to K-ETA for Indians 2026. Learn how to apply for South Korea's Electronic Travel Auth, eligibility, fees, processing time, and requirements.">
+ <meta property="og:image" content="https://myvisaassistance.com/blog/images/keta-guide-south-korea.svg">
+ <meta property="article:published_time" content="2026-08-01">
+ <meta name="twitter:card" content="summary_large_image">
+
+ <!-- Article Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "K-ETA for Indians 2026: Complete Guide to South Korea's Electronic Travel Auth",
+ "description": "Complete guide to K-ETA for Indians 2026. Learn how to apply for South Korea's Electronic Travel Auth, eligibility, fees, processing time, and requirements.",
+ "author": { "@type": "Person", "name": "Ajit Mane" },
+ "publisher": { "@type": "Organization", "name": "My Visa Assistance", "logo": { "@type": "ImageObject", "url": "https://myvisaassistance.com/favicon/favicon.svg" } },
+ "datePublished": "2026-08-01",
+ "dateModified": "2026-08-01",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://myvisaassistance.com/blog/keta-guide-south-korea" }
+ }
+ </script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/blog/keta-guide-south-korea">
+ <style>
+ .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+ .blog-content h2 { margin-top: 1.8em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+ .blog-content h3 { margin-top: 1.5em; }
+ .blog-content p, .blog-content li { line-height: 1.8; }
+ .blog-content ul, .blog-content ol { margin-bottom: 1.2rem; padding-left: 20px; }
+ .blog-content ul li { list-style: disc; margin-bottom: 0.4rem; }
+ .blog-content ol li { list-style: decimal; margin-bottom: 0.4rem; }
+ .blog-content .info-box { background: var(--color-bg-alt); border-left: 4px solid var(--color-accent); padding: 20px 25px; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+ .blog-content .info-box h4 { color: var(--color-primary); margin-bottom: 0.3em; }
+ .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .blog-content th, .blog-content td { padding: 12px 15px; border: 1px solid var(--color-border); text-align: left; }
+ .blog-content th { background: var(--color-primary); color: var(--color-white); }
+ .blog-content tr:nth-child(even) td { background: var(--color-bg-alt); }
+ .blog-content .blog-meta { display: flex; gap: 20px; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+ .blog-content .blog-meta span { display: flex; align-items: center; gap: 5px; }
+ .blog-content .blog-meta .update-badge { background: var(--color-secondary); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+ .blog-content .featured-image { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); }
+ .blog-content .featured-image img { display: block; width: 100%; height: auto; }
+ .blog-content .step-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin: 1rem 0; display: flex; gap: 16px; align-items: flex-start; }
+ .blog-content .step-card .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--color-accent); color: var(--color-primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; }
+ .blog-content .step-card .step-content { flex: 1; }
+ .blog-content .step-card .step-content h4 { margin-bottom: 0.3em; font-size: 1.05rem; }
+ .blog-content .step-card .step-content p { margin-bottom: 0; font-size: 0.95rem; }
+ .blog-content .tip-box { background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .tip-box strong { color: #92400e; }
+ .blog-content .warning-box { background: #fef2f2; border: 1px solid #fecaca; border-left: 4px solid #ef4444; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .warning-box strong { color: #991b1b; }
+ .blog-content .checklist-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #10b981; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 1rem 0; }
+ .blog-content .checklist-card strong { color: #065f46; }
+ .blog-content .checklist-card ul li { list-style: none; margin-bottom: 0.5rem; }
+ .blog-content .checklist-card ul li::before { content: '\2713 '; color: #10b981; font-weight: 700; }
+ .blog-content .cta-section { background: var(--color-primary); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 2rem 0; }
+ .blog-content .cta-section h3 { color: white; margin-bottom: 0.5em; }
+ .blog-content .cta-section p { color: rgba(255,255,255,0.85); }
+ .blog-content .author-box { display: flex; gap: 20px; align-items: center; background: var(--color-bg-alt); padding: 25px; border-radius: 12px; margin: 2rem 0; }
+ .blog-content .author-box .avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+ .blog-content .share-buttons { display: flex; gap: 10px; margin: 2rem 0; flex-wrap: wrap; }
+ .blog-content .share-buttons a { padding: 10px 20px; border-radius: 6px; color: white; text-decoration: none; font-size: 0.9rem; }
+ .blog-content .ref-list { background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 25px; margin: 1.5rem 0; }
+ .blog-content .ref-list h4 { color: var(--color-primary); margin-bottom: 0.8em; }
+ .blog-content .ref-list ol { margin-bottom: 0; }
+ .blog-content .ref-list ol li { list-style: decimal; margin-bottom: 0.5rem; }
+ .blog-content .ref-list a { word-break: break-all; }
+ .blog-content .table-wrap { overflow-x: auto; }
+ </style>
+
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+  "@type": "ListItem",
+  "position": 1,
+  "name": "Home",
+  "item": "https://myvisaassistance.com"
+  }, {
+  "@type": "ListItem",
+  "position": 2,
+  "name": "Blog",
+  "item": "https://myvisaassistance.com/blog/"
+  }, {
+  "@type": "ListItem",
+  "position": 3,
+  "name": "K-ETA Guide for Indians",
+  "item": "https://myvisaassistance.com/blog/keta-guide-south-korea"
+  }]
+  }
+  </script>
+</head>
+<body>
+
+<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
+<div id="page-loader" aria-hidden="true">
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
+</div>
+<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="header" role="banner">
+ <div class="header-inner">
+ <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
+ <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <nav class="nav" role="navigation" aria-label="Main navigation">
+ <ul class="nav-list">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/" class="active">Blog</a></li>
+ <li><a href="/contact">Contact</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <main role="main">
+
+ <nav class="breadcrumbs" aria-label="Breadcrumb">
+ <div class="container">
+ <a href="/">Home</a><span class="separator">/</span>
+ <a href="/blog/">Blog</a><span class="separator">/</span>
+ <span>K-ETA Guide for Indians</span>
+ </div>
+ </nav>
+
+ <article class="blog-content">
+
+<h1>K-ETA for Indians 2026: Complete Guide to South Korea's Electronic Travel Auth</h1>
+
+<div class="blog-meta">
+<span><i class="bi bi-calendar3"></i> Published: August 1, 2026</span>
+<span><i class="bi bi-clock"></i> 9 min read</span>
+<span><i class="bi bi-person"></i> By Ajit Mane</span>
+<span class="update-badge"><i class="bi bi-star-fill"></i> Updated 2026</span>
+</div>
+
+<!-- Featured Image -->
+<div class="featured-image">
+<img src="/blog/images/keta-guide-south-korea.svg" alt="K-ETA for Indians 2026 - Complete Guide to South Korea's Electronic Travel Auth" width="1980" height="1080" loading="eager">
+</div>
+
+<p>South Korea has fast become one of the most popular travel destinations for Indian tourists, fuelled by the global wave of K-pop and K-dramas, world-class shopping, and a rich blend of ancient culture and cutting-edge technology. In 2026, Indian travellers benefit from one of the easiest routes into the country through the Korea Electronic Travel Authorization, or K-ETA, which lets you enter South Korea for short visits without a traditional paper visa.</p>
+
+<p>If you are an Indian passport holder planning to visit Seoul, Busan, or Jeju Island, understanding exactly how K-ETA works can save you from last-minute stress and entry refusals at immigration. This complete guide explains what K-ETA is, who is eligible, how to apply step by step, what it costs, and the key mistakes Indian applicants should avoid in 2026.</p>
+
+<div class="info-box">
+<h4><i class="bi bi-info-circle"></i> Key Fact</h4>
+<p>Indian citizens travelling to South Korea for tourism, visiting friends or family, or short business trips must obtain an approved K-ETA <strong>before</strong> they board their flight. The authorization is valid for multiple entries over up to three years, and each visit can last up to 90 days.</p>
+</div>
+
+<h2>What is K-ETA?</h2>
+
+<p>K-ETA (Korea Electronic Travel Authorization) is a mandatory pre-screening system operated by the South Korean government. It is designed for passport holders of visa-exempt countries &mdash; including India &mdash; who wish to enter South Korea for short stays. Instead of applying for a paper visa at an embassy, eligible travellers submit a simple online application, pay a small fee, and receive approval electronically within a matter of hours.</p>
+
+<p>K-ETA is not a visa. It is an electronically-linked travel authorization, similar in concept to the US ESTA or Canada's eTA. Once approved, it is connected to your passport number, so there is no stamping, visa label, or embassy visit involved. At immigration, the officer scans your passport, verifies the authorization, and, in most cases, you are through in under a minute.</p>
+
+<p>Here are the key details every Indian applicant should know:</p>
+
+<ul>
+<li><strong>Validity:</strong> Up to three years from the date of approval, covering multiple entries.</li>
+<li><strong>Maximum stay:</strong> Up to 90 days per visit, subject to the immigration officer's discretion.</li>
+<li><strong>Application mode:</strong> 100% online &mdash; no embassy appointment required.</li>
+<li><strong>Fee:</strong> Approximately USD 10 (around KRW 13,300) per person, non-refundable.</li>
+<li><strong>Processing time:</strong> Typically 24 to 72 hours; most applications are cleared within a day.</li>
+<li><strong>Applies to:</strong> Indian citizens holding a normal (blue) passport travelling for short visits.</li>
+</ul>
+
+<h2>K-ETA Eligibility for Indian Citizens</h2>
+
+<p>India is on South Korea's K-ETA eligible country list, which means most Indian citizens can apply for K-ETA instead of a traditional visa. However, eligibility depends on your travel purpose and personal profile. Here is who can apply:</p>
+
+<ul>
+<li>You must hold a valid Indian passport with at least 6 months of validity remaining.</li>
+<li>Your trip must be for tourism, visiting friends or family, or short-term business such as meetings and conferences.</li>
+<li>You must have no criminal record, deportation history, or previous visa violations in South Korea or other countries.</li>
+<li>You must not be returning to South Korea after overstaying a previous K-ETA or visa period.</li>
+<li>Your passport must not be reported lost or stolen, and you must travel using the same passport you applied with.</li>
+<li>Children and senior citizens can apply individually &mdash; each traveller needs their own application, and minors under 14 cannot authorise their own approval.</li>
+</ul>
+
+<div class="warning-box">
+<strong><i class="bi bi-exclamation-triangle"></i> Important:</strong> If your travel purpose is study, long-term employment, or permanent residence, K-ETA does not apply. You will need to apply for a proper visa category through the Embassy of the Republic of Korea in India instead.
+</div>
+
+<h2>How to Apply for K-ETA</h2>
+
+<p>Applying for K-ETA is a straightforward online process that takes about 10 to 15 minutes. Follow these five steps carefully:</p>
+
+<div class="step-card">
+<div class="step-num">1</div>
+<div class="step-content">
+<h4>Visit the Official K-ETA Website</h4>
+<p>Go to the official Korea Electronic Travel Authorization portal and select your preferred language. Beware of third-party websites that charge inflated fees &mdash; always use the official government portal for your application.</p>
+</div>
+</div>
+
+<div class="step-card">
+<div class="step-num">2</div>
+<div class="step-content">
+<h4>Fill in the Application Form</h4>
+<p>Enter your personal details, passport information, and travel plans carefully. Make sure your name and passport number exactly match your passport &mdash; even a single typo can cause delays or rejection.</p>
+</div>
+</div>
+
+<div class="step-card">
+<div class="step-num">3</div>
+<div class="step-content">
+<h4>Upload Photo and Passport</h4>
+<p>Upload a recent passport-style photograph and a clear copy of your passport bio page. The photo must meet the official specifications &mdash; white background, no glasses, and taken within the last six months.</p>
+</div>
+</div>
+
+<div class="step-card">
+<div class="step-num">4</div>
+<div class="step-content">
+<h4>Pay the Application Fee</h4>
+<p>Pay the non-refundable fee of around USD 10 using an international credit or debit card. Keep the payment receipt and your application reference number handy for tracking.</p>
+</div>
+</div>
+
+<div class="step-card">
+<div class="step-num">5</div>
+<div class="step-content">
+<h4>Submit and Track Your Application</h4>
+<p>Submit the application and wait for the result. You will receive an email confirmation, and you can check the status on the official portal using your application number. Once approved, download the PDF confirmation and keep a soft or hard copy with your travel documents.</p>
+</div>
+</div>
+
+<h2>K-ETA Fees and Processing Time</h2>
+
+<p>K-ETA is one of the most affordable travel authorizations available to Indian passport holders. Here is a clear breakdown of costs and timelines:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Item</th><th>Details</th></tr>
+</thead>
+<tbody>
+<tr><td>Application fee</td><td>Approximately USD 10 per person (KRW 13,300), non-refundable</td></tr>
+<tr><td>Processing time</td><td>Usually 24 to 72 hours; most approvals arrive within one working day</td></tr>
+<tr><td>Validity</td><td>Up to 3 years from the approval date, multiple entries</td></tr>
+<tr><td>Maximum stay per visit</td><td>Up to 90 days</td></tr>
+<tr><td>Application method</td><td>Fully online &mdash; no embassy or VFS appointment</td></tr>
+<tr><td>Refund policy</td><td>Fee is not refunded if the application is rejected</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tip-box">
+<strong><i class="bi bi-lightbulb"></i> Pro Tip:</strong> Apply for your K-ETA at least two weeks before your departure date. While most applications are approved within 24 hours, borderline cases can take longer, and airlines may refuse boarding without a valid approval.
+</div>
+
+<h2>K-ETA vs Visa on Arrival</h2>
+
+<p>A common question from Indian travellers is whether South Korea offers a visa on arrival. Unlike some other Asian destinations, South Korea does not provide a general visa-on-arrival facility for Indian tourists. Visa-exempt travellers must hold a pre-approved K-ETA; everyone else must apply for a visa before travel. Here is how the options compare:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Feature</th><th>K-ETA</th><th>Visa on Arrival</th></tr>
+</thead>
+<tbody>
+<tr><td>Who can use it</td><td>Indian citizens visiting for short stays</td><td>Not available for Indian citizens (general tourism)</td></tr>
+<tr><td>Where to apply</td><td>Online, before departure</td><td>At the airport upon arrival</td></tr>
+<tr><td>Processing time</td><td>24 to 72 hours online</td><td>Not applicable &mdash; not offered</td></tr>
+<tr><td>Cost</td><td>Around USD 10</td><td>Not applicable</td></tr>
+<tr><td>Validity</td><td>Up to 3 years, multiple entries</td><td>Not applicable</td></tr>
+<tr><td>Documents required</td><td>Passport, photo, online form</td><td>Not applicable</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Important Tips for Indian Applicants</h2>
+
+<p>To ensure a smooth K-ETA experience in 2026, keep this checklist handy before you apply or travel:</p>
+
+<div class="checklist-card">
+<strong>K-ETA Application Checklist:</strong>
+<ul>
+<li>Apply at least 2&ndash;3 weeks before your flight to allow time for processing.</li>
+<li>Double-check that your name, passport number, and date of birth match your passport exactly.</li>
+<li>Use a photo with a white background, no glasses, and no filters or editing.</li>
+<li>Apply only through the official K-ETA portal &mdash; avoid agents charging hundreds of dollars.</li>
+<li>Keep a printed or offline copy of your approval PDF with your travel documents.</li>
+<li>Carry return flight tickets and proof of accommodation to show at immigration if asked.</li>
+<li>Verify your passport has at least 6 months validity before your travel date.</li>
+<li>If your application is rejected, do not fly &mdash; instead apply for a regular C-3-9 visa.</li>
+</ul>
+</div>
+
+<div class="tip-box">
+<strong><i class="bi bi-lightbulb"></i> Pro Tip:</strong> One approved K-ETA is enough for multiple visits within its validity period. If you plan to visit South Korea more than once, you do not need to reapply until it expires.
+</div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+<h3>Planning a Trip to South Korea?</h3>
+<p>Our visa experts can help you understand South Korea's entry rules, K-ETA requirements, and visa categories with clear, up-to-date guidance. Whether you are a first-time visitor or a frequent traveller, we make the process simple and stress-free.</p>
+<a href="/visa-guide/south-korea-visa" class="btn btn-white btn-lg"><i class="bi bi-arrow-right-circle"></i> Read Our Complete South Korea Visa Guide</a>
+</div>
+
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>Q: Is K-ETA mandatory for Indian citizens travelling to South Korea?</strong><br>
+A: Yes. Indian citizens travelling to South Korea for tourism, family visits, or short business trips are required to obtain an approved K-ETA before departure. Without a valid approval, airlines may refuse boarding and entry can be denied at immigration.</p>
+
+<p><strong>Q: How many days before travel should I apply for K-ETA?</strong><br>
+A: It is best to apply at least 2&ndash;3 weeks before your departure. Although most applications are approved within 24&ndash;72 hours, applying early gives you time to correct errors or, if needed, switch to a regular visa application.</p>
+
+<p><strong>Q: What happens if my K-ETA application is rejected?</strong><br>
+A: If your K-ETA is rejected, you cannot travel visa-free. Your best option is to apply for a regular South Korea tourist visa (C-3-9) through the Embassy of the Republic of Korea in India. The application fee is non-refundable, and you can usually reapply with corrected information.</p>
+
+<p><strong>Q: Can I extend my stay in South Korea beyond 90 days?</strong><br>
+A: No. K-ETA permits a maximum stay of up to 90 days per visit. If you need to stay longer, you must leave the country or apply for a different visa category through the immigration office before your authorised stay expires.</p>
+
+<p><strong>Q: Does an approved K-ETA guarantee entry into South Korea?</strong><br>
+A: No. K-ETA approval allows you to board a flight and present yourself at immigration, but the final decision to grant entry rests with the immigration officer, who may ask for additional documents such as return tickets, hotel bookings, or proof of funds.</p>
+
+<!-- Author Box -->
+<div class="author-box">
+<div class="avatar">AM</div>
+<div>
+<h4 style="margin-bottom:0.2em;">Ajit Mane</h4>
+<p style="margin-bottom:0;font-size:0.9rem;color:var(--color-text-light);">Visa and immigration expert with over a decade of experience helping Indian travellers navigate visa applications for business and leisure travel worldwide. Ajit specialises in Asian, Schengen, UK, and US visa processes and has helped hundreds of Indian travellers secure approved K-ETA authorizations and South Korea visas.</p>
+</div>
+</div>
+
+<!-- Share Buttons -->
+<div class="share-buttons">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/blog/keta-guide-south-korea" target="_blank" rel="noopener noreferrer" style="background:#1877F2;"><i class="bi bi-facebook"></i> Facebook</a>
+<a href="https://twitter.com/intent/tweet?text=K-ETA%20for%20Indians%202026%3A%20Complete%20Guide&url=https://myvisaassistance.com/blog/keta-guide-south-korea" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;"><i class="bi bi-twitter-x"></i> Twitter</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/blog/keta-guide-south-korea" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;"><i class="bi bi-linkedin"></i> LinkedIn</a>
+<a href="https://wa.me/?text=Check%20out%20this%20guide%20on%20K-ETA%20for%20Indians%20https://myvisaassistance.com/blog/keta-guide-south-korea" target="_blank" rel="noopener noreferrer" style="background:#25D366;"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+</div>
+
+<!-- References -->
+<div class="ref-list">
+<h4>Official Resources</h4>
+<ol>
+<li><a href="https://www.k-eta.go.kr/portal/apply/index.do" target="_blank" rel="noopener noreferrer">K-ETA Official Website &mdash; Korea Electronic Travel Authorization</a></li>
+<li><a href="https://overseas.mofa.go.kr/in-en/index.do" target="_blank" rel="noopener noreferrer">Embassy of the Republic of Korea in India</a></li>
+<li><a href="https://www.visa.go.kr/" target="_blank" rel="noopener noreferrer">Korea Visa Portal &mdash; Visa Application Information</a></li>
+<li><a href="https://www.hikorea.go.kr/" target="_blank" rel="noopener noreferrer">HiKorea &mdash; Korea Immigration Services Portal</a></li>
+<li><a href="https://english.visitkorea.or.kr/" target="_blank" rel="noopener noreferrer">Visit Korea &mdash; Korea Tourism Organization</a></li>
+</ol>
+</div>
+
+<p style="margin-top:2rem;font-size:0.9rem;color:var(--color-text-light);"><i class="bi bi-info-circle"></i> <strong>Disclaimer:</strong> This article is for informational purposes only and does not constitute legal advice. K-ETA requirements, fees, validity, and processing times are subject to change by the Korean government. Always verify the latest information on the official K-ETA website, the Embassy of the Republic of Korea in India, and official Korea Immigration Service channels before making travel arrangements.</p>
+
+</article>
+
+ <!-- Footer -->
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <div class="logo-icon" aria-hidden="true">V</div>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact">Contact</a></li>
+ <li><a href="/embassy-address/">Embassy Address</a></li>
+ <li><a href="/passport-ranking/">Passport Ranking</a></li>
+ <li><a href="/upcoming-events/">Upcoming Events</a></li>
+ <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+ <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+ <li><a href="/tracking-links/">Tracking Links</a></li>
+ <li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Legal</h4>
+ <ul>
+ <li><a href="/privacy-policy">Privacy Policy</a></li>
+ <li><a href="/terms-of-service">Terms &amp; Conditions</a></li>
+ <li><a href="/contact">Contact Us</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-bottom">
+ <span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy">Privacy Policy</a> &middot;
+ <a href="/terms-of-service">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Country Logos Scrolling Strip -->
+ <div class="country-logos-strip" role="region" aria-label="Country flags">
+ <div class="country-logos-track">
+  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
+  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
+  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
+  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
+  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
+  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
+  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
+  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
+  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
+  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
+  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
+  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
+  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
+  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
+  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
+  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
+  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
+  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
+  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
+  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
+  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
+  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
+  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
+  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
+  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
+  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
+  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
+  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
+  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
+  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
+  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
+  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
+  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
+  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
+  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
+  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
+  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
+  </div>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+
+</body>
+</html>

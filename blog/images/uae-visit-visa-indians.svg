@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".10"/>
+    </filter>
+    <filter id="shadowSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity=".08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F8FAFD"/>
+
+  <!-- Decorative circles -->
+  <circle cx="0" cy="630" r="320" fill="#D97706" opacity="0.05"/>
+  <circle cx="1200" cy="0" r="300" fill="#5057EA" opacity="0.04"/>
+  <circle cx="1100" cy="48" r="13" fill="#D97706" opacity="0.7"/>
+  <circle cx="80" cy="600" r="9" fill="#A5D549" opacity="0.6"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="14" height="630" fill="#D97706"/>
+
+  <!-- Brand tag -->
+  <rect x="70" y="64" width="168" height="40" rx="20" fill="#E86020"/>
+  <text x="154" y="89" text-anchor="middle" font-family="Arial" font-size="19" font-weight="700" fill="#FFFFFF">TRAVEL GUIDE</text>
+
+  <text x="70" y="90" text-anchor="end" font-family="Arial" font-size="16" font-weight="700" fill="#9AA6B2">BLOG &bull;</text>
+
+  <!-- Title -->
+  <text x="70" y="196" font-family="Arial" font-size="52" font-weight="800" fill="#031B30">UAE Visit Visa</text>
+  <text x="70" y="282" font-family="Arial" font-size="52" font-weight="800" fill="#D97706">for Indians</text>
+
+  <!-- Subtitle -->
+  <text x="70" y="352" font-family="Arial" font-size="27" font-weight="600" fill="#5A6B7B">Free 30-Day Visa,</text>
+  <text x="70" y="390" font-family="Arial" font-size="27" font-weight="600" fill="#5A6B7B">New Rules &amp; How to Apply</text>
+
+  <!-- Date badge -->
+  <rect x="70" y="508" width="308" height="54" rx="27" fill="#FFFFFF" stroke="#E0E6F2" stroke-width="2" filter="url(#shadowSoft)"/>
+  <circle cx="92" cy="535" r="7" fill="#A5D549"/>
+  <text x="112" y="541" font-family="Arial" font-size="20" font-weight="700" fill="#5057EA">UPDATED SEP 2026</text>
+  <text x="1070" y="588" text-anchor="end" font-family="Arial" font-size="18" font-weight="700" fill="#C3CCD9">MY VISA ASSISTANCE</text>
+
+  <!-- Visual: visa card -->
+  <g filter="url(#shadow)">
+    <rect x="700" y="112" width="430" height="406" rx="36" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Passport behind -->
+  <rect x="735" y="158" width="360" height="262" rx="18" fill="#1C2534" opacity="0.15"/>
+
+  <!-- Visa card -->
+  <rect x="745" y="165" width="348" height="248" rx="16" fill="#FFFFFF" stroke="#D97706" stroke-width="4"/>
+  <rect x="745" y="165" width="348" height="56" rx="16" fill="#D97706"/>
+  <rect x="745" y="195" width="348" height="26" fill="#D97706"/>
+
+  <text x="770" y="203" font-family="Arial" font-size="28" font-weight="900" fill="#FFFFFF" letter-spacing="3">VISA</text>
+  <text x="1040" y="203" text-anchor="end" font-family="Arial" font-size="18" font-weight="700" fill="#FFFFFF">UAE</text>
+
+  <text x="770" y="265" font-family="Arial" font-size="16" font-weight="700" fill="#5A6B7B">SUBJECT:</text>
+  <text x="770" y="285" font-family="Arial" font-size="14" fill="#5A6B7B">VISIT VISA — 30 DAYS</text>
+
+  <rect x="770" y="310" width="140" height="44" rx="22" fill="#031B30"/>
+  <text x="840" y="338" text-anchor="middle" font-family="Arial" font-size="20" font-weight="800" fill="#FFFFFF">30-DAY</text>
+
+  <text x="770" y="396" font-family="Arial" font-size="32" font-weight="900" fill="#D97706">FREE</text>
+  <text x="1040" y="396" text-anchor="end" font-family="Arial" font-size="32" font-weight="900" fill="#031B30">2026</text>
+
+  <!-- Badge -->
+  <rect x="805" y="448" width="220" height="48" rx="24" fill="#D97706"/>
+  <text x="915" y="478" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="#FFFFFF">NEW RULES APPLY</text>
+
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".10"/>
+    </filter>
+    <filter id="shadowSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity=".08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F8FAFD"/>
+
+  <!-- Decorative circles -->
+  <circle cx="0" cy="0" r="320" fill="#1E40AF" opacity="0.05"/>
+  <circle cx="1200" cy="630" r="300" fill="#5057EA" opacity="0.04"/>
+  <circle cx="1120" cy="52" r="13" fill="#1E40AF" opacity="0.7"/>
+  <circle cx="65" cy="568" r="9" fill="#A5D549" opacity="0.6"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="14" height="630" fill="#1E40AF"/>
+
+  <!-- Brand tag -->
+  <rect x="70" y="64" width="168" height="40" rx="20" fill="#E86020"/>
+  <text x="154" y="89" text-anchor="middle" font-family="Arial" font-size="19" font-weight="700" fill="#FFFFFF">TRAVEL GUIDE</text>
+
+  <text x="70" y="90" text-anchor="end" font-family="Arial" font-size="16" font-weight="700" fill="#9AA6B2">BLOG &bull;</text>
+
+  <!-- Title -->
+  <text x="70" y="196" font-family="Arial" font-size="52" font-weight="800" fill="#031B30">Malaysia</text>
+  <text x="70" y="282" font-family="Arial" font-size="52" font-weight="800" fill="#1E40AF">Visa-Free</text>
+
+  <!-- Subtitle -->
+  <text x="70" y="352" font-family="Arial" font-size="27" font-weight="600" fill="#5A6B7B">What You Need to Know</text>
+  <text x="70" y="390" font-family="Arial" font-size="27" font-weight="600" fill="#5A6B7B">Before You Go</text>
+
+  <!-- Date badge -->
+  <rect x="70" y="508" width="308" height="54" rx="27" fill="#FFFFFF" stroke="#E0E6F2" stroke-width="2" filter="url(#shadowSoft)"/>
+  <circle cx="92" cy="535" r="7" fill="#A5D549"/>
+  <text x="112" y="541" font-family="Arial" font-size="20" font-weight="700" fill="#5057EA">UPDATED SEP 2026</text>
+  <text x="1070" y="588" text-anchor="end" font-family="Arial" font-size="18" font-weight="700" fill="#C3CCD9">MY VISA ASSISTANCE</text>
+
+  <!-- Visual: approved checkmark card -->
+  <g filter="url(#shadow)">
+    <rect x="700" y="112" width="430" height="406" rx="36" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Outer ring -->
+  <circle cx="915" cy="280" r="142" fill="#F0FDFA" stroke="#A5D549" stroke-width="10"/>
+
+  <!-- Checkmark circle -->
+  <circle cx="915" cy="280" r="108" fill="#A5D549"/>
+  <path d="M870 280 L898 308 L960 252" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Label -->
+  <text x="915" y="438" text-anchor="middle" font-family="Arial" font-size="28" font-weight="900" fill="#031B30">NO VISA REQUIRED</text>
+
+  <!-- Pill badges -->
+  <rect x="790" y="462" width="250" height="48" rx="24" fill="#1E40AF"/>
+  <text x="915" y="492" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="#FFFFFF">FREE 30-DAY STAY</text>
+
+  <!-- Small label inside ring -->
+  <text x="915" y="302" text-anchor="middle" font-family="Arial" font-size="30" font-weight="900" fill="#FFFFFF">OK</text>
+
+</svg>
