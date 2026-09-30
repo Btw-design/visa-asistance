@@ -1,6 +1,6 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded by index.html, about/ and tracking-links/. Other pages use style.css.
+   Loaded by index.html, about/, tracking-links/ and embassy-address/. Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -508,6 +508,53 @@
 .nx .n-dir-none{background:var(--mist)}
 @media(max-width:1024px){.nx .n-steps-3{grid-template-columns:1fr}}
 @media(max-width:767px){.nx .n-trk-row{grid-template-columns:1fr;gap:2px}.nx .n-dir-list{grid-template-columns:1fr}}
+
+/* ---------- Embassy directory ---------- */
+.nx .n-tips{list-style:none;margin:0;padding:6px 22px 10px}
+.nx .n-tips li{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line)}
+.nx .n-tips li:last-child{border-bottom:none}
+.nx .n-tips i{color:var(--indigo);font-size:1.05rem;margin-top:2px}
+.nx .n-tips b{display:block;font-size:.9rem;color:var(--ink);margin-bottom:2px}
+.nx .n-tips span{display:block;font-size:.84rem;line-height:1.55;color:var(--muted)}
+.nx .n-emb-tabs{margin:0;flex:0 1 auto}
+.nx .n-emb-tabs button{padding:9px 16px;white-space:nowrap}
+.nx .n-emb-n{display:inline-block;min-width:22px;margin-left:6px;padding:1px 7px;border-radius:10px;background:var(--line);color:var(--ink-2);font-size:.72rem;font-weight:700}
+.nx .n-emb-tabs button[aria-selected="true"] .n-emb-n{background:var(--accent-tint);color:var(--indigo)}
+.nx .n-emb-panel>.n-dir-l,.nx .n-emb-grp{margin-bottom:28px}
+.nx .n-emb-grp:last-child{margin-bottom:0}
+.nx .n-emb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;margin-bottom:34px}
+.nx .n-emb-grp .n-emb-grid{margin-bottom:0}
+.nx .n-emb{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 20px 16px;display:flex;flex-direction:column}
+.nx .n-emb:hover{border-color:#C5CEDD;box-shadow:var(--sh)}
+.nx .n-emb-hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.nx .n-emb-hd h3{font-size:1.02rem;font-weight:700;margin:0;color:var(--ink);line-height:1.3}
+.nx .n-emb-hd div>span{display:block;font-size:.8rem;color:var(--muted)}
+.nx .n-emb-ic{width:38px;height:38px;border-radius:9px;background:var(--accent-tint);color:var(--indigo);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nx .n-emb-desc{font-size:.86rem;line-height:1.6;color:var(--ink-2);margin:0 0 12px}
+.nx .n-emb-rows{list-style:none;margin:auto 0 0;padding:0;border-top:1px solid var(--line)}
+.nx .n-emb-rows li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.86rem;line-height:1.5;color:var(--ink-2)}
+.nx .n-emb-rows li:last-child{border-bottom:none}
+.nx .n-emb-rows i{color:var(--muted);margin-top:2px;flex-shrink:0}
+.nx .n-emb-rows a{color:var(--indigo);font-weight:600;word-break:break-word}
+.nx .n-emb-rows a:hover{text-decoration:underline}
+.nx .n-emb-rows .n-emb-map{display:inline-block;margin-left:4px;padding:0 7px;border:1px solid var(--line);border-radius:5px;font-size:.72rem;font-weight:700;line-height:1.6;text-decoration:none}
+.nx .n-emb-rows .n-emb-map:hover{border-color:var(--indigo);text-decoration:none}
+.nx .n-prov-note{font-size:.9rem;color:var(--muted);line-height:1.6;margin:0 0 14px;max-width:760px}
+.nx .n-prov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.nx .n-prov{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--mist);color:var(--ink-2)}
+.nx .n-prov:hover{border-color:var(--indigo);background:#fff}
+.nx .n-prov b{display:flex;align-items:center;gap:7px;font-size:.95rem;color:var(--ink);margin-bottom:5px}
+.nx .n-prov b i{font-size:.75rem;color:var(--muted)}
+.nx .n-prov span{font-size:.84rem;line-height:1.55}
+.nx .n-emb-note{display:flex;gap:12px;align-items:flex-start;padding:14px 18px;margin-bottom:28px;border:1px solid #F1D8A8;background:#FFF8EB;border-radius:10px}
+.nx .n-emb-note i{color:#B7791F;margin-top:2px}
+.nx .n-emb-note p{margin:0;font-size:.9rem;line-height:1.6;color:var(--ink-2)}
+.nx .n-emb-switch{border:none;background:none;padding:0;font:inherit;font-weight:700;color:var(--indigo);cursor:pointer;text-decoration:underline}
+@media(max-width:767px){
+ .nx .n-emb-grid{grid-template-columns:1fr}
+ .nx .n-emb-tabs{width:100%}
+ .nx .n-emb-tabs button{white-space:normal;padding:9px 8px;font-size:.8rem}
+}
 
 /* ---------- Markup helpers ---------- */
 /* Country codes instead of flag emoji: Windows renders flag emoji as bare letters */

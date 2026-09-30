@@ -2,99 +2,8 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
-  --color-accent-alt: #A5D549;
-  --color-accent-alt-light: #bae56a;
-  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
-body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
-a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
-a:hover{color:var(--color-accent)}
-ul{list-style:none}
-h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
-h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
-h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
-h3{font-size:clamp(1.15rem,2vw,1.4rem)}
-p{margin-bottom:1rem;color:var(--color-text)}
-img{max-width:100%;height:auto;display:block}
-.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
-.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
-.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
-.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
-.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
-.btn-lg{padding:16px 36px;font-size:1.1rem}
-.btn-white{background:var(--color-white);color:var(--color-primary)}
-.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
-.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
-.logo span{color:var(--color-accent)}
-.nav{display:flex;align-items:center;gap:12px}
-.nav-list{display:flex;align-items:center;gap:4px}
-.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
-.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
-.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
-.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
-.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
-.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
-.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
-.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
-.nav-overlay.open{opacity:1}
-.hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
-.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
-.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
-.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
-.hero-badge i,.hero-badge svg{color:var(--color-accent)}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
-.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
-.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
-.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
-.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
-.hero-form h3{color:var(--color-primary);font-size:1.25rem}
-.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
-.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
-.breadcrumbs a{color:var(--color-primary-light)}
-.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
-.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
-.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
-.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
-.section{padding:80px 0}
-.section-alt{background:var(--color-bg-alt)}
-.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
-.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
-.section-heading p{color:var(--color-text-light);font-size:1.1rem}
-.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
-.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
-
-
-.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
-.scroll-top.visible{opacity:1;visibility:visible}
-.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
-
-.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden}
-.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
-.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
-.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
-.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
-.country-hero .breadcrumb a:hover{color:var(--color-accent)}
-body.menu-open{overflow:hidden}
-.text-center{text-align:center}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
-@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
-@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
-</style><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
+ <script>document.documentElement.className+=" js"</script>
+<style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
 
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -108,7 +17,7 @@ body.menu-open{overflow:hidden}
 
  <title>Embassy Address & Contact Information | My Visa Assistance</title>
  <meta name="title" content="Embassy Address & Contact Information">
- <meta name="description" content="Find embassy addresses, phone numbers, and contact information for 34+ countries. Complete directory of diplomatic missions for visa inquiries and applications.">
+ <meta name="description" content="Visa, passport and FRRO offices across 13 Indian cities, authorised visa centres, and embassy contacts for 33 countries in Washington, D.C.">
  <meta name="keywords" content="embassy address, embassy contact, consulate address, diplomatic mission, visa office, embassy directory">
  <meta name="robots" content="index, follow">
  <meta name="author" content="Onkar">
@@ -116,7 +25,7 @@ body.menu-open{overflow:hidden}
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://myvisaassistance.com/embassy-address/">
  <meta property="og:title" content="Embassy Address & Contact Information">
- <meta property="og:description" content="Complete directory of embassy addresses and contact information for visa inquiries across 34+ countries.">
+ <meta property="og:description" content="Visa, passport and FRRO offices across 13 Indian cities, authorised visa centres, and embassy contacts for 33 countries in Washington, D.C.">
 
  <script type="application/ld+json">
  {
@@ -146,28 +55,15 @@ body.menu-open{overflow:hidden}
    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
  <link rel="canonical" href="https://myvisaassistance.com/embassy-address/">
 
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+ <link rel="stylesheet" href="/css/home.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
  
- <style>
- .embassy-card { background:white; border-radius:12px; padding:24px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border:1px solid #eee; transition:box-shadow 0.3s; }
- .embassy-card:hover { box-shadow:0 4px 16px rgba(0,0,0,0.1); }
- .embassy-card h3 { margin:0 0 8px; color:var(--color-primary); font-size:1.15rem; }
- .embassy-card .flag-icon { font-size:1.5rem; margin-right:8px; vertical-align:middle; color:var(--color-accent); }
- .embassy-detail { display:flex; gap:12px; margin:8px 0; }
- .embassy-detail i { color:var(--color-primary); width:20px; font-size:1rem; margin-top:2px; }
- .embassy-detail a { color:var(--color-primary); text-decoration:none; }
- .embassy-detail a:hover { text-decoration:underline; }
- .embassy-search { width:100%; max-width:500px; padding:14px 18px; border:2px solid #ddd; border-radius:10px; font-size:1rem; margin-bottom:30px; transition:border-color 0.3s; }
- .embassy-search:focus { border-color:var(--color-primary); outline:none; }
- .embassy-count { color:var(--color-text-light); margin-bottom:20px; font-size:0.95rem; }
- .country-section h2 { padding-bottom:10px; border-bottom:2px solid var(--color-accent); margin:40px 0 20px; }
- @media (max-width:768px) {
- .embassy-card { padding:16px; }
- }
- </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -175,557 +71,631 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
 <!-- End Google Tag Manager -->
+ <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is the difference between an embassy and a consulate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "An embassy is the main diplomatic mission located in a country's capital city, headed by an ambassador. A consulate is a smaller diplomatic office usually located in major cities outside the capital, providing limited services like visa processing and citizen assistance. Embassies handle broader diplomatic relations, while consulates focus on specific services."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need an appointment to visit an embassy?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, most embassies require you to schedule an appointment for visa services, notarial services, or consular assistance. Walk-in services are generally not available for visa applications. Always check the embassy's website for appointment booking procedures before visiting."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I apply for a visa at any embassy?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Generally, you should apply at the embassy or consulate of the country you plan to visit in your country of residence. Some countries allow you to apply at any embassy worldwide, but most require you to apply in your home country or the country where you have legal residence status."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How long does it take to get a visa from an embassy?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Processing times vary significantly by country and visa type. Tourist visas can take anywhere from 3-15 business days, while student or work visas may take several weeks or months. Check our country-specific visa guides for detailed processing time information."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What documents should I bring to my embassy appointment?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Required documents typically include a valid passport (with at least 6 months validity), completed visa application form, passport-sized photographs, travel itinerary, proof of accommodation, bank statements, employment letter, and travel insurance. Check the specific visa requirements page for your destination country on our website."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can an embassy reject my visa application?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, embassies have the authority to reject visa applications for various reasons, including incomplete documentation, insufficient funds, previous immigration violations, unclear travel purpose, or security concerns. If your visa is rejected, you may reapply with additional supporting documents or appeal the decision depending on the country's policies."
+   }
+  }
+ ]
+}
+ </script>
 </head>
-<body>
-
-<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
-<div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
-</div>
-<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
+<body class="nx">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
- <header class="header" role="banner">
- <div class="header-inner">
- <a href="/" class="logo" aria-label="My Visa Assistance - Home">
- <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
- My Visa <span>Assistance</span>
+ <header class="n-head-bar" id="nxHeader" role="banner">
+ <div class="n-topbar">
+ <div class="container n-topbar-in">
+ <span><i class="bi bi-stars"></i> Free expert consultation with every visa application</span>
+ <a href="tel:+918551805523"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
+ <div class="container n-nav">
+ <a href="/" class="n-logo" aria-label="My Visa Assistance - Home">
+ <span class="n-logo-mk"><i class="bi bi-airplane-fill"></i></span>
+ <span>My Visa <em>Assistance</em></span>
  </a>
- <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+ <button class="n-burger" id="nxBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nxMenu">
  <span></span><span></span><span></span>
  </button>
- <nav class="nav" role="navigation" aria-label="Main navigation">
- <ul class="nav-list">
+ <nav aria-label="Main navigation">
+ <ul class="n-menu" id="nxMenu">
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-requirements/">Requirements</a></li>
  <li><a href="/blog/">Blog</a></li>
- 
-<li><a href="/contact">Contact</a></li>
+ <li><a href="/contact/">Contact</a></li>
+ <li class="n-drawer-cta"><a href="/contact/" class="n-btn n-btn-p n-btn-block"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a></li>
  </ul>
  </nav>
+ <div class="n-nav-cta">
+ <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-sm"><i class="bi bi-telephone"></i> Call</a>
+ <a href="/contact/" class="n-btn n-btn-p n-btn-sm"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a>
  </div>
+ </div>
+ <div class="n-veil" id="nxVeil"></div>
  </header>
 
- <nav class="breadcrumbs" aria-label="Breadcrumb">
- <div class="container">
- <a href="/">Home</a>
- <span class="separator">/</span>
- <span>Embassy Address Directory</span>
- </div>
- </nav>
-
- <section class="page-header">
- <div class="container">
- <h1><i class="bi bi-building" style="color:var(--color-accent);margin-right:10px;"></i> Embassy Address Directory</h1>
- <p>Find embassy addresses, phone numbers, and contact details for visa inquiries. Browse our directory of diplomatic missions worldwide.</p>
- </div>
- </section>
-
- <section class="section">
- <div class="container">
-
- <!-- Introduction -->
- <div class="content-grid">
- <div class="main-content">
- <h2>Complete Embassy & Consulate Directory</h2>
- <p>This directory provides contact information for embassies, consulates, and high commissions across 34+ countries. Whether you need to submit a visa application, inquire about processing times, or get consular assistance, this guide helps you find the right diplomatic mission.</p>
- <p>Use the search filter below to quickly find a specific country's embassy information.</p>
+ <main>
+ <!-- ============ HERO ============ -->
+ <section class="n-phero" aria-labelledby="embTitle">
+ <div class="container n-phero-grid">
+ <div>
+ <nav class="n-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="bi bi-chevron-right" aria-hidden="true"></i><span aria-current="page">Embassy directory</span></nav>
+ <span class="n-eyebrow">Embassy &amp; visa office directory</span>
+ <h1 id="embTitle">Find the right <em>visa office</em> &mdash; with addresses, phone numbers and maps</h1>
+ <p class="n-phero-sub">Passport, FRRO and visa application offices across 13 Indian cities, the authorised visa centres, and embassy contacts for 33 countries.</p>
+ <div class="n-hero-cta">
+ <a href="#directory" class="n-btn n-btn-p n-btn-lg"><i class="bi bi-search"></i> Search the directory</a>
+ <a href="/tracking-links/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-geo-alt"></i> Track an application</a>
  </div>
  </div>
-
- <!-- Search -->
- <input type="text" class="embassy-search" id="embassySearch" placeholder="Search by country name..." onkeyup="filterEmbassies()">
- <div class="embassy-count" id="embassyCount">Showing 34 countries</div>
-
- <!-- Asia Pacific -->
- <div class="country-section">
- <h2><i class="bi bi-geo-alt" style="color:var(--color-accent);"></i> Asia Pacific</h2>
-
- <div class="embassy-card" data-country="australia">
- <h3><i class="bi bi-flag flag-icon"></i> Australia</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Australia, 1601 Massachusetts Ave NW, Washington, DC 20036, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12027973434">+1 (202) 797-3434</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://usa.embassy.gov.au" target="_blank" rel="noopener noreferrer">usa.embassy.gov.au</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:consular.washington@dfat.gov.au">consular.washington@dfat.gov.au</a></div>
- </div>
-
- <div class="embassy-card" data-country="cambodia">
- <h3><i class="bi bi-flag flag-icon"></i> Cambodia</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Royal Embassy of Cambodia, 4530 16th St NW, Washington, DC 20011, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12027268639">+1 (202) 726-8639</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.embassyofcambodia.org" target="_blank" rel="noopener noreferrer">www.embassyofcambodia.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:info@embassyofcambodia.org">info@embassyofcambodia.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="china">
- <h3><i class="bi bi-flag flag-icon"></i> China</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of the People's Republic of China, 3505 International Pl NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12024952500">+1 (202) 495-2500</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="http://www.china-embassy.org" target="_blank" rel="noopener noreferrer">www.china-embassy.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:chinavisausa@gmail.com">chinavisausa@gmail.com</a></div>
- </div>
-
- <div class="embassy-card" data-country="india">
- <h3><i class="bi bi-flag flag-icon"></i> India</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of India, 2107 Massachusetts Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12029392262">+1 (202) 939-2262</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.indianembassyusa.gov.in" target="_blank" rel="noopener noreferrer">www.indianembassyusa.gov.in</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:cons.washington@mea.gov.in">cons.washington@mea.gov.in</a></div>
- </div>
-
- <div class="embassy-card" data-country="indonesia">
- <h3><i class="bi bi-flag flag-icon"></i> Indonesia</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Indonesia, 2020 Massachusetts Ave NW, Washington, DC 20036, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12027755200">+1 (202) 775-5200</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.embassyofindonesia.org" target="_blank" rel="noopener noreferrer">www.embassyofindonesia.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:info@embassyofindonesia.org">info@embassyofindonesia.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="japan">
- <h3><i class="bi bi-flag flag-icon"></i> Japan</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Japan, 2520 Massachusetts Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022387100">+1 (202) 238-7100</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.us.emb-japan.go.jp" target="_blank" rel="noopener noreferrer">www.us.emb-japan.go.jp</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:info@ws.mofa.go.jp">info@ws.mofa.go.jp</a></div>
- </div>
-
- <div class="embassy-card" data-country="malaysia">
- <h3><i class="bi bi-flag flag-icon"></i> Malaysia</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Malaysia, 3516 International Ct NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12025729700">+1 (202) 572-9700</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.kln.gov.my/web/usa_washington" target="_blank" rel="noopener noreferrer">www.kln.gov.my</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:malwashingtondc@kln.gov.my">malwashingtondc@kln.gov.my</a></div>
- </div>
-
- <div class="embassy-card" data-country="nepal">
- <h3><i class="bi bi-flag flag-icon"></i> Nepal</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Nepal, 2131 Leroy Pl NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12026674550">+1 (202) 667-4550</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.nepalembassyusa.gov" target="_blank" rel="noopener noreferrer">www.nepalembassyusa.gov</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:info@nepalembassyusa.gov">info@nepalembassyusa.gov</a></div>
- </div>
-
- <div class="embassy-card" data-country="new-zealand">
- <h3><i class="bi bi-flag flag-icon"></i> New Zealand</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of New Zealand, 37 Observatory Cir NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12023284800">+1 (202) 328-4800</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.mfat.govt.nz/en/countries-and-regions/americas/united-states-of-america/new-zealand-embassy/" target="_blank" rel="noopener noreferrer">www.mfat.govt.nz</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:embassy@nzembassy.com">embassy@nzembassy.com</a></div>
- </div>
-
- <div class="embassy-card" data-country="philippines">
- <h3><i class="bi bi-flag flag-icon"></i> Philippines</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of the Philippines, 1600 Massachusetts Ave NW, Washington, DC 20036, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12024676600">+1 (202) 467-6600</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.philippineembassyusa.org" target="_blank" rel="noopener noreferrer">www.philippineembassyusa.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:info@philippineembassyusa.org">info@philippineembassyusa.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="singapore">
- <h3><i class="bi bi-flag flag-icon"></i> Singapore</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Singapore, 3501 International Pl NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12025378253">+1 (202) 537-8253</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.mfa.gov.sg/washington" target="_blank" rel="noopener noreferrer">www.mfa.gov.sg/washington</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:singemb_was@mfa.sg">singemb_was@mfa.sg</a></div>
- </div>
-
- <div class="embassy-card" data-country="south-korea">
- <h3><i class="bi bi-flag flag-icon"></i> South Korea</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of South Korea, 2450 Massachusetts Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12029391451">+1 (202) 939-1451</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://overseas.mofa.go.kr/us-en/index.do" target="_blank" rel="noopener noreferrer">overseas.mofa.go.kr</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:correspondence@mofa.go.kr">correspondence@mofa.go.kr</a></div>
- </div>
-
- <div class="embassy-card" data-country="sri-lanka">
- <h3><i class="bi bi-flag flag-icon"></i> Sri Lanka</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Sri Lanka, 2148 Wyoming Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12024830725">+1 (202) 483-0725</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://slembassyusa.org" target="_blank" rel="noopener noreferrer">slembassyusa.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:admin@slembassyusa.org">admin@slembassyusa.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="thailand">
- <h3><i class="bi bi-flag flag-icon"></i> Thailand</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Royal Thai Embassy, 2300 Kalorama Rd NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022344451">+1 (202) 234-4451</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://thaiembdc.org" target="_blank" rel="noopener noreferrer">thaiembdc.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:visa@thaiembdc.org">visa@thaiembdc.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="vietnam">
- <h3><i class="bi bi-flag flag-icon"></i> Vietnam</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Vietnam, 1233 20th St NW, Suite 400, Washington, DC 20036, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12028612536">+1 (202) 861-2536</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://vietnamembassy-usa.org" target="_blank" rel="noopener noreferrer">vietnamembassy-usa.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:consular@vietnamembassy-usa.org">consular@vietnamembassy-usa.org</a></div>
- </div>
- </div>
-
- <!-- Europe -->
- <div class="country-section">
- <h2><i class="bi bi-geo-alt" style="color:var(--color-accent);"></i> Europe</h2>
-
- <div class="embassy-card" data-country="france">
- <h3><i class="bi bi-flag flag-icon"></i> France</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of France, 4101 Reservoir Rd NW, Washington, DC 20007, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12029445000">+1 (202) 944-5000</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://franceintheus.org" target="_blank" rel="noopener noreferrer">franceintheus.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:info@ambafrance-us.org">info@ambafrance-us.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="germany">
- <h3><i class="bi bi-flag flag-icon"></i> Germany</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Germany, 4645 Reservoir Rd NW, Washington, DC 20007, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022988141">+1 (202) 298-8141</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.germany.info" target="_blank" rel="noopener noreferrer">www.germany.info</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:info@washington.diplo.de">info@washington.diplo.de</a></div>
- </div>
-
- <div class="embassy-card" data-country="italy">
- <h3><i class="bi bi-flag flag-icon"></i> Italy</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Italy, 3000 Whitehaven St NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12026122210">+1 (202) 612-2210</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://ambwashingtondc.esteri.it" target="_blank" rel="noopener noreferrer">ambwashingtondc.esteri.it</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:ambasciata.washington@esteri.it">ambasciata.washington@esteri.it</a></div>
- </div>
-
- <div class="embassy-card" data-country="netherlands">
- <h3><i class="bi bi-flag flag-icon"></i> Netherlands</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of the Netherlands, 4200 Linnean Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022445300">+1 (202) 244-5300</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.netherlandsandyou.nl" target="_blank" rel="noopener noreferrer">www.netherlandsandyou.nl</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:was@minbuza.nl">was@minbuza.nl</a></div>
- </div>
-
- <div class="embassy-card" data-country="russia">
- <h3><i class="bi bi-flag flag-icon"></i> Russia</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Russia, 2650 Wisconsin Ave NW, Washington, DC 20007, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022982800">+1 (202) 298-2800</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://washington.mid.ru" target="_blank" rel="noopener noreferrer">washington.mid.ru</a></div>
- </div>
-
- <div class="embassy-card" data-country="schengen">
- <h3><i class="bi bi-flag flag-icon"></i> Schengen Area</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>The Schengen Area comprises 27 European countries. Visa applications are handled by the embassy of the primary destination country. See individual country listings above for France, Germany, Italy, Netherlands, Spain, Switzerland, and others.</span></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="/visa-guide/schengen-visa">View Schengen Visa Guide</a></div>
- </div>
-
- <div class="embassy-card" data-country="spain">
- <h3><i class="bi bi-flag flag-icon"></i> Spain</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Spain, 2375 Pennsylvania Ave NW, Washington, DC 20037, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12024520100">+1 (202) 452-0100</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.exteriores.gob.es/Embajadas/washington" target="_blank" rel="noopener noreferrer">www.exteriores.gob.es</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:emb.washington@maec.es">emb.washington@maec.es</a></div>
- </div>
-
- <div class="embassy-card" data-country="switzerland">
- <h3><i class="bi bi-flag flag-icon"></i> Switzerland</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Switzerland, 2900 Cathedral Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12027456000">+1 (202) 745-6000</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.eda.admin.ch/washington" target="_blank" rel="noopener noreferrer">www.eda.admin.ch/washington</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:was.vertretung@eda.admin.ch">was.vertretung@eda.admin.ch</a></div>
- </div>
-
- <div class="embassy-card" data-country="turkey">
- <h3><i class="bi bi-flag flag-icon"></i> Turkey</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Turkey, 2525 Massachusetts Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12026128700">+1 (202) 612-8700</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://washington.emb.mfa.gov.tr" target="_blank" rel="noopener noreferrer">washington.emb.mfa.gov.tr</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:embassy.washington@mfa.gov.tr">embassy.washington@mfa.gov.tr</a></div>
- </div>
-
- <div class="embassy-card" data-country="uk">
- <h3><i class="bi bi-flag flag-icon"></i> United Kingdom</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>British Embassy, 3100 Massachusetts Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12025886500">+1 (202) 588-6500</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.gov.uk/world/organisations/british-embassy-washington" target="_blank" rel="noopener noreferrer">www.gov.uk</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:ukinusa@fco.gov.uk">ukinusa@fco.gov.uk</a></div>
- </div>
- </div>
-
- <!-- Americas -->
- <div class="country-section">
- <h2><i class="bi bi-geo-alt" style="color:var(--color-accent);"></i> Americas</h2>
-
- <div class="embassy-card" data-country="argentina">
- <h3><i class="bi bi-flag flag-icon"></i> Argentina</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Argentina, 1600 New Hampshire Ave NW, Washington, DC 20009, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022386400">+1 (202) 238-6400</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://eeeuu.cancilleria.gob.ar" target="_blank" rel="noopener noreferrer">eeeuu.cancilleria.gob.ar</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:eeuu@cancilleria.gob.ar">eeuu@cancilleria.gob.ar</a></div>
- </div>
-
- <div class="embassy-card" data-country="brazil">
- <h3><i class="bi bi-flag flag-icon"></i> Brazil</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Brazil, 3006 Massachusetts Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022387328">+1 (202) 238-7328</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.gov.br/mre/en/subjects/embassy-of-brazil-in-washington" target="_blank" rel="noopener noreferrer">www.gov.br/mre</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:consular@brazilemb.org">consular@brazilemb.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="canada">
- <h3><i class="bi bi-flag flag-icon"></i> Canada</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Canada, 501 Pennsylvania Ave NW, Washington, DC 20001, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12026827740">+1 (202) 682-7740</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.canadainternational.gc.ca/united_states-etats_unis/" target="_blank" rel="noopener noreferrer">www.canadainternational.gc.ca</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:consular@international.gc.ca">consular@international.gc.ca</a></div>
- </div>
-
- <div class="embassy-card" data-country="mexico">
- <h3><i class="bi bi-flag flag-icon"></i> Mexico</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Mexico, 1911 Pennsylvania Ave NW, Washington, DC 20006, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12027281600">+1 (202) 728-1600</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://embamex.sre.gob.mx/eua" target="_blank" rel="noopener noreferrer">embamex.sre.gob.mx</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:consular@embassyofmexico.org">consular@embassyofmexico.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="usa">
- <h3><i class="bi bi-flag flag-icon"></i> United States</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>U.S. Department of State, 2201 C St NW, Washington, DC 20520, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12026474000">+1 (202) 647-4000</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://travel.state.gov" target="_blank" rel="noopener noreferrer">travel.state.gov</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:visas@state.gov">visas@state.gov</a></div>
- </div>
- </div>
-
- <!-- Africa & Middle East -->
- <div class="country-section">
- <h2><i class="bi bi-geo-alt" style="color:var(--color-accent);"></i> Africa & Middle East</h2>
-
- <div class="embassy-card" data-country="egypt">
- <h3><i class="bi bi-flag flag-icon"></i> Egypt</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of Egypt, 3521 International Ct NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12028955400">+1 (202) 895-5400</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.egyptembassy.net" target="_blank" rel="noopener noreferrer">www.egyptembassy.net</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:visa@egyptembassy.net">visa@egyptembassy.net</a></div>
- </div>
-
- <div class="embassy-card" data-country="south-africa">
- <h3><i class="bi bi-flag flag-icon"></i> South Africa</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of South Africa, 3051 Massachusetts Ave NW, Washington, DC 20008, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022321300">+1 (202) 232-1300</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.saembassy.org" target="_blank" rel="noopener noreferrer">www.saembassy.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:info@saembassy.org">info@saembassy.org</a></div>
- </div>
-
- <div class="embassy-card" data-country="uae">
- <h3><i class="bi bi-flag flag-icon"></i> United Arab Emirates</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Embassy of UAE, 1 Georgetown Mews SE, Washington, DC 20003, USA</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+12022438700">+1 (202) 243-8700</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.uae-embassy.org" target="_blank" rel="noopener noreferrer">www.uae-embassy.org</a></div>
- <div class="embassy-detail"><i class="bi bi-envelope"></i><a href="mailto:consular@uae-embassy.org">consular@uae-embassy.org</a></div>
- </div>
- </div>
-
- <!-- India Offices -->
- <div class="country-section">
- <h2><i class="bi bi-geo-alt" style="color:var(--color-accent);"></i> Visa Offices in India</h2>
- <p style="margin-bottom:20px;">India has a network of embassies, consulates, and visa application centers across major cities. Below is a comprehensive directory of visa-related offices in India for travelers and residents.</p>
-
- <div class="embassy-card" data-country="india-new-delhi">
- <h3><i class="bi bi-building flag-icon"></i> New Delhi–Ministry of External Affairs & Embassies</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Ministry of External Affairs, South Block, Raisina Hill, New Delhi 110011</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Foreigners Regional Registration Office (FRRO), East Block VIII, Level 2, Sector 1, R.K. Puram, New Delhi 110066</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+911123302215">+91 11 2330 2215 (FRRO Delhi)</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.mea.gov.in" target="_blank" rel="noopener noreferrer">www.mea.gov.in</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>New Delhi hosts the Ministry of External Affairs and most foreign embassies. The FRRO handles visa extensions, registrations, and exit permits for foreign nationals.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-mumbai">
- <h3><i class="bi bi-building flag-icon"></i> Mumbai–Consulates & Visa Application Centers</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Foreigners Regional Registration Office (FRRO), Annexe II, CIDCO Bhavan, M.G. Road, Chhatrapati Shivaji Maharaj Terminus Area, Mumbai 400001</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>VFS Global India – 2nd Floor, Trade Centre, Bandra Kurla Complex, Bandra East, Mumbai 400051</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+912261992500">+91 22 6199 2500 (FRRO Mumbai)</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">www.vfsglobal.com</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Mumbai is home to numerous consulates and major visa application centers including VFS Global, BLS International, and TLScontact serving travelers to the US, UK, Schengen countries, Canada, and more.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-chennai">
- <h3><i class="bi bi-building flag-icon"></i> Chennai–Consulates & Regional Passport Office</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, Royala Towers, IV Floor, No.1 & 2, Old # 763, New # 294, Anna Salai, Chennai 600002</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>FRRO Chennai–Shastri Bhavan, 26, Haddows Road, Nungambakkam, Chennai 600006</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+914443046700">+91 44 4304 6700 (Passport Office)</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://portal2.passportindia.gov.in" target="_blank" rel="noopener noreferrer">Passport Seva Portal</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Chennai hosts consulates for the US, UK, Germany, France, Japan, South Korea, Singapore, and many other nations. It is a major hub for South Indian visa processing.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-kolkata">
- <h3><i class="bi bi-building flag-icon"></i> Kolkata–Consulates & FRRO</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>FRRO Kolkata – 237, A.J.C. Bose Road, 3rd Floor, Kolkata 700020</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, 1, Acharya Jagadish Chandra Bose Rd, Beniapukur, Kolkata 700017</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+913323476420">+91 33 2347 6420 (FRRO Kolkata)</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.kolkataairport.com" target="_blank" rel="noopener noreferrer">Netaji Subhas Chandra Bose International Airport Visa Desk</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Kolkata has consulates for the US, UK, Australia, Bangladesh, Bhutan, and neighboring countries. Visa-on-arrival is available at Kolkata airport for eligible nationalities.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-bengaluru">
- <h3><i class="bi bi-building flag-icon"></i> Bengaluru–Consulates & Tech Hub</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>FRRO Bengaluru – 1st Floor, ''A'' Block, Cauvery Bhavan, K.G. Road, Bengaluru 560009</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>VFS Global Bengaluru–No. 28, 3rd Floor, Crescent Road, Opposite St. Joseph's College, Bengaluru 560001</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+918022296365">+91 80 2229 6365 (FRRO Bengaluru)</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.blsindia.com" target="_blank" rel="noopener noreferrer">BLS International Services</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Bengaluru has consulates for the US, UK, Germany, France, Israel, Singapore, and more. The city's visa application centers serve the large IT professional community traveling globally.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-hyderabad">
- <h3><i class="bi bi-building flag-icon"></i> Hyderabad–Consulates & Visa Centers</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>FRRO Hyderabad – 3rd Floor, New ACMA Bhavan, Himayat Nagar, Hyderabad 500029</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, 8th Floor, MPM Building, 5-9-14, Saifabad, Hyderabad 500063</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+914068333333">+91 40 6833 3333 (Passport Office)</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">VFS Global Hyderabad</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Hyderabad has consulates for the US, UK (Visa Application Centre), and several other nations. The city serves as a key processing hub for South and Central India.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-ahmedabad">
- <h3><i class="bi bi-building flag-icon"></i> Ahmedabad–Visa Application Hub</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, Ahmedabad, Opp. Octroi Naka, S.G. Highway, Ahmedabad 380054</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>VFS Global Ahmedabad – 2nd Floor, Neelkanth Business Park, Nathalal Colony, Vastrapur, Ahmedabad 380054</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+917972000000">+91 79 7200 0000 (Passport Office)</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">www.vfsglobal.com</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Ahmedabad has a Regional Passport Office and multiple visa application centers serving Gujarat, handling visitor, business, and student visa applications.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-kochi">
- <h3><i class="bi bi-building flag-icon"></i> Kochi–Consulates & Port City</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, Kochi, Panampilly Nagar, Kochi 682036</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>VFS Global Kochi – 4th Floor, SBT Avenue, Panampilly Nagar, Kochi 682036</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+914844132000">+91 484 4132 000 (Passport Office)</a></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://portal2.passportindia.gov.in" target="_blank" rel="noopener noreferrer">Passport Seva Kochi</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Kochi serves as Kerala's primary visa processing hub, with consular access for the UAE, Saudi Arabia, and other Gulf countries prominent due to the large expatriate community.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-chandigarh">
- <h3><i class="bi bi-building flag-icon"></i> Chandigarh–Northern Hub</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, Chandigarh, S.C.O. 26-27, Sector 34-A, Chandigarh 160022</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>VFS Global Chandigarh–SCO 111-112, 2nd Floor, Sector 34-A, Chandigarh 160022</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+911722705821">+91 172 2705 821 (Passport Office)</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Chandigarh serves Punjab, Haryana, and Himachal Pradesh with passport and visa application services. It has a US Consulate and several visa application centers.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-goa">
- <h3><i class="bi bi-building flag-icon"></i> Goa–FRRO & Tourist Visa Services</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>FRRO Goa – 3rd Floor, Block D, Alcon Nature's Edge, Opposite GMC, Panaji, Goa 403001</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Goa International Airport Visa Desk–Dabolim, Goa 403801</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+918322499500">+91 832 2499 500 (FRRO Goa)</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Goa is a popular tourist destination with visa-on-arrival facilities at its international airport. The FRRO in Panaji handles visa extensions for tourists who wish to extend their stay.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-pune">
- <h3><i class="bi bi-building flag-icon"></i> Pune–Education & Business Hub</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, Pune, 1st Floor, Trade Center, 3-A, Moledina Road, Pune 411001</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>VFS Global Pune – 2nd Floor, Ganga Prime, Bhandarkar Road, Pune 411004</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+912026327215">+91 20 2632 7215 (Passport Office)</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Pune has a growing visa application infrastructure serving students, IT professionals, and business travelers. Multiple visa application centers serve the city.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-jaipur">
- <h3><i class="bi bi-building flag-icon"></i> Jaipur–Regional Office</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, Jaipur, Agra Road, Near Jawahar Circle, Jaipur 302017</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>VFS Global Jaipur – 1st Floor, Shivam Tower, 13, Lal Kot, Tonk Road, Jaipur 302015</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+911412810091">+91 141 281 0091 (Passport Office)</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Jaipur serves Rajasthan with a full Regional Passport Office and visa application centers for major destinations including the US, UK, and Schengen countries.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-lucknow">
- <h3><i class="bi bi-building flag-icon"></i> Lucknow–Central India Hub</h3>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>Regional Passport Office, Lucknow, 24, Vidhan Sabha Marg, Lucknow 226001</span></div>
- <div class="embassy-detail"><i class="bi bi-geo"></i><span>VFS Global Lucknow – 1st Floor, Vipul Plaza, 9/7, Park Road, Hazratganj, Lucknow 226001</span></div>
- <div class="embassy-detail"><i class="bi bi-telephone"></i><a href="tel:+915222207002">+91 522 2207 002 (Passport Office)</a></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>Lucknow serves Uttar Pradesh and surrounding states with comprehensive passport and visa application services, including centers for US, UK, Canada, and Schengen visa applications.</span></div>
- </div>
-
- <div class="embassy-card" data-country="india-visa-centers">
- <h3><i class="bi bi-building flag-icon"></i> Visa Application Centers Across India</h3>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">VFS Global</a><span> – Operates visa application centers for UK, Australia, New Zealand, Canada, and many Schengen countries in 15+ Indian cities.</span></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.blsindia.com" target="_blank" rel="noopener noreferrer">BLS International</a><span> – Processes visa applications for Spain, Portugal, Malta, Czech Republic, and other countries across 30+ cities in India.</span></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.tlscontact.com" target="_blank" rel="noopener noreferrer">TLScontact</a><span> – Handles visa applications for France, Netherlands, Belgium, and other Schengen states from centers in New Delhi, Mumbai, Chennai, Bengaluru, and Hyderabad.</span></div>
- <div class="embassy-detail"><i class="bi bi-globe"></i><a href="https://www.ustraveldocs.com" target="_blank" rel="noopener noreferrer">US Travel Docs</a><span> – The official US visa appointment and application system operates through consulates in New Delhi, Mumbai, Chennai, Kolkata, and Hyderabad.</span></div>
- <div class="embassy-detail"><i class="bi bi-info-circle"></i><span>These authorized service providers accept visa applications on behalf of foreign embassies and consulates. They are located in most major Indian cities and allow applicants to submit biometric data and documents before the embassy processes their visa.</span></div>
- </div>
- </div>
-
- <!-- Tips Section -->
- <div class="methodology-box" style="margin-top:40px;">
- <h3><i class="bi bi-lightbulb" style="color:var(--color-accent);"></i> Tips for Contacting Embassies</h3>
- <ul style="margin-bottom:0;">
- <li>Always check the embassy's website for the most up-to-date information before visiting.</li>
- <li>Most embassies require an appointment for visa services. Walk-in services may not be available.</li>
- <li>Prepare all required documents before your appointment to avoid delays.</li>
- <li>Visa processing times and fees are subject to change. Confirm current fees on the embassy website.</li>
- <li>For urgent visa needs, inquire about expedited processing options when available.</li>
- <li>If applying from outside the US, contact the nearest embassy or consulate in your region.</li>
+ <aside class="n-glance" aria-label="Before you visit">
+ <div class="n-glance-hd"><i class="bi bi-lightbulb" aria-hidden="true"></i> Before you visit</div>
+ <ul class="n-tips">
+ <li><i class="bi bi-calendar-check" aria-hidden="true"></i><div><b>Book an appointment first</b><span>Most embassies and visa centres do not accept walk-ins for visa services.</span></div></li>
+ <li><i class="bi bi-globe2" aria-hidden="true"></i><div><b>Check the official website</b><span>Addresses, hours and fees change &mdash; confirm the latest details before you go.</span></div></li>
+ <li><i class="bi bi-folder-check" aria-hidden="true"></i><div><b>Carry complete documents</b><span>Missing papers are the most common cause of delays and repeat visits.</span></div></li>
+ <li><i class="bi bi-lightning-charge" aria-hidden="true"></i><div><b>Ask about urgent processing</b><span>Expedited options exist for some visas &mdash; enquire early if you are short on time.</span></div></li>
  </ul>
- </div>
-
- <!-- FAQ Section -->
- <div style="margin-top:40px;">
- <h2>Frequently Asked Questions About Embassies</h2>
- <div class="faq-list">
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- What is the difference between an embassy and a consulate?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>An embassy is the main diplomatic mission located in a country's capital city, headed by an ambassador. A consulate is a smaller diplomatic office usually located in major cities outside the capital, providing limited services like visa processing and citizen assistance. Embassies handle broader diplomatic relations, while consulates focus on specific services.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- Do I need an appointment to visit an embassy?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>Yes, most embassies require you to schedule an appointment for visa services, notarial services, or consular assistance. Walk-in services are generally not available for visa applications. Always check the embassy's website for appointment booking procedures before visiting.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- Can I apply for a visa at any embassy?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>Generally, you should apply at the embassy or consulate of the country you plan to visit in your country of residence. Some countries allow you to apply at any embassy worldwide, but most require you to apply in your home country or the country where you have legal residence status.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- How long does it take to get a visa from an embassy?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>Processing times vary significantly by country and visa type. Tourist visas can take anywhere from 3-15 business days, while student or work visas may take several weeks or months. Check our country-specific visa guides for detailed processing time information.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- What documents should I bring to my embassy appointment?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>Required documents typically include a valid passport (with at least 6 months validity), completed visa application form, passport-sized photographs, travel itinerary, proof of accommodation, bank statements, employment letter, and travel insurance. Check the specific visa requirements page for your destination country on our website.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- Can an embassy reject my visa application?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>Yes, embassies have the authority to reject visa applications for various reasons, including incomplete documentation, insufficient funds, previous immigration violations, unclear travel purpose, or security concerns. If your visa is rejected, you may reapply with additional supporting documents or appeal the decision depending on the country's policies.</p>
- </div>
- </div>
- </div>
- </div>
-
+ </aside>
  </div>
  </section>
+
+ <!-- ============ DIRECTORY ============ -->
+ <section class="n-section" id="directory" aria-labelledby="dirTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">Directory</span>
+ <h2 id="dirTitle">Offices &amp; <em>embassies</em></h2>
+ <p>Search by city, country or office name.</p>
+ </div>
+ <div class="n-dir-bar">
+ <div class="n-rdy-tabs n-emb-tabs" role="tablist" aria-label="Directory">
+ <button type="button" role="tab" id="embt-in" aria-controls="emb-in" aria-selected="true">Offices in India <span class="n-emb-n" id="embn-in">13</span></button>
+ <button type="button" role="tab" id="embt-us" aria-controls="emb-us" aria-selected="false" tabindex="-1">Embassies in Washington, D.C. <span class="n-emb-n" id="embn-us">33</span></button>
+ </div>
+ <div class="n-csearch"><i class="bi bi-search" aria-hidden="true"></i><input type="search" id="embFilter" placeholder="Search city, country or office" aria-label="Search the directory"></div>
+ </div>
+
+ <div class="n-emb-panel" role="tabpanel" id="emb-in" aria-labelledby="embt-in">
+ <h3 class="n-dir-l">Visa, passport &amp; FRRO offices in India</h3>
+ <div class="n-emb-grid">
+ <article class="n-emb" data-search="new delhi ministry of external affairs &amp; embassies ministry of external affairs, south block, raisina hill, new delhi 110011 foreigners regional registration office (frro), east block viii, level 2, sector 1, r.k. puram, new delhi 110066 +91 11 2330 2215 (frro delhi) www.mea.gov.in new delhi hosts the ministry of external affairs and most foreign embassies. the frro handles visa extensions, registrations, and exit permits for foreign nationals.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>New Delhi</h3><span>Ministry of External Affairs & Embassies</span></div></div>
+ <p class="n-emb-desc">New Delhi hosts the Ministry of External Affairs and most foreign embassies. The FRRO handles visa extensions, registrations, and exit permits for foreign nationals.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Ministry of External Affairs, South Block, Raisina Hill, New Delhi 110011 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Ministry%20of%20External%20Affairs%2C%20South%20Block%2C%20Raisina%20Hill%2C%20New%20Delhi%20110011" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Foreigners Regional Registration Office (FRRO), East Block VIII, Level 2, Sector 1, R.K. Puram, New Delhi 110066 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Foreigners%20Regional%20Registration%20Office%20%28FRRO%29%2C%20East%20Block%20VIII%2C%20Level%202%2C%20Sector%201%2C%20R.K.%20Puram%2C%20New%20Delhi%20110066" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+911123302215">+91 11 2330 2215 (FRRO Delhi)</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.mea.gov.in" target="_blank" rel="noopener noreferrer">www.mea.gov.in</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="mumbai consulates &amp; visa application centers foreigners regional registration office (frro), annexe ii, cidco bhavan, m.g. road, chhatrapati shivaji maharaj terminus area, mumbai 400001 vfs global india   2nd floor, trade centre, bandra kurla complex, bandra east, mumbai 400051 +91 22 6199 2500 (frro mumbai) www.vfsglobal.com mumbai is home to numerous consulates and major visa application centers including vfs global, bls international, and tlscontact serving travelers to the us, uk, schengen countries, canada, and more.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Mumbai</h3><span>Consulates & Visa Application Centers</span></div></div>
+ <p class="n-emb-desc">Mumbai is home to numerous consulates and major visa application centers including VFS Global, BLS International, and TLScontact serving travelers to the US, UK, Schengen countries, Canada, and more.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Foreigners Regional Registration Office (FRRO), Annexe II, CIDCO Bhavan, M.G. Road, Chhatrapati Shivaji Maharaj Terminus Area, Mumbai 400001 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Foreigners%20Regional%20Registration%20Office%20%28FRRO%29%2C%20Annexe%20II%2C%20CIDCO%20Bhavan%2C%20M.G.%20Road%2C%20Chhatrapati%20Shivaji%20Maharaj%20Terminus%20Area%2C%20Mumbai%20400001" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>VFS Global India – 2nd Floor, Trade Centre, Bandra Kurla Complex, Bandra East, Mumbai 400051 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=VFS%20Global%20India%20%E2%80%93%202nd%20Floor%2C%20Trade%20Centre%2C%20Bandra%20Kurla%20Complex%2C%20Bandra%20East%2C%20Mumbai%20400051" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+912261992500">+91 22 6199 2500 (FRRO Mumbai)</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">www.vfsglobal.com</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="chennai consulates &amp; regional passport office regional passport office, royala towers, iv floor, no.1 &amp; 2, old # 763, new # 294, anna salai, chennai 600002 frro chennai shastri bhavan, 26, haddows road, nungambakkam, chennai 600006 +91 44 4304 6700 (passport office) passport seva portal chennai hosts consulates for the us, uk, germany, france, japan, south korea, singapore, and many other nations. it is a major hub for south indian visa processing.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Chennai</h3><span>Consulates & Regional Passport Office</span></div></div>
+ <p class="n-emb-desc">Chennai hosts consulates for the US, UK, Germany, France, Japan, South Korea, Singapore, and many other nations. It is a major hub for South Indian visa processing.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, Royala Towers, IV Floor, No.1 & 2, Old # 763, New # 294, Anna Salai, Chennai 600002 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%20Royala%20Towers%2C%20IV%20Floor%2C%20No.1%20%26%202%2C%20Old%20%23%20763%2C%20New%20%23%20294%2C%20Anna%20Salai%2C%20Chennai%20600002" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>FRRO Chennai – Shastri Bhavan, 26, Haddows Road, Nungambakkam, Chennai 600006 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=FRRO%20Chennai%20%E2%80%93%20Shastri%20Bhavan%2C%2026%2C%20Haddows%20Road%2C%20Nungambakkam%2C%20Chennai%20600006" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+914443046700">+91 44 4304 6700 (Passport Office)</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://portal2.passportindia.gov.in" target="_blank" rel="noopener noreferrer">Passport Seva Portal</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="kolkata consulates &amp; frro frro kolkata   237, a.j.c. bose road, 3rd floor, kolkata 700020 regional passport office, 1, acharya jagadish chandra bose rd, beniapukur, kolkata 700017 +91 33 2347 6420 (frro kolkata) netaji subhas chandra bose international airport visa desk kolkata has consulates for the us, uk, australia, bangladesh, bhutan, and neighboring countries. visa-on-arrival is available at kolkata airport for eligible nationalities.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Kolkata</h3><span>Consulates & FRRO</span></div></div>
+ <p class="n-emb-desc">Kolkata has consulates for the US, UK, Australia, Bangladesh, Bhutan, and neighboring countries. Visa-on-arrival is available at Kolkata airport for eligible nationalities.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>FRRO Kolkata – 237, A.J.C. Bose Road, 3rd Floor, Kolkata 700020 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=FRRO%20Kolkata%20%E2%80%93%20237%2C%20A.J.C.%20Bose%20Road%2C%203rd%20Floor%2C%20Kolkata%20700020" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, 1, Acharya Jagadish Chandra Bose Rd, Beniapukur, Kolkata 700017 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%201%2C%20Acharya%20Jagadish%20Chandra%20Bose%20Rd%2C%20Beniapukur%2C%20Kolkata%20700017" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+913323476420">+91 33 2347 6420 (FRRO Kolkata)</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.kolkataairport.com" target="_blank" rel="noopener noreferrer">Netaji Subhas Chandra Bose International Airport Visa Desk</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="bengaluru consulates &amp; tech hub frro bengaluru   1st floor, &#x27;&#x27;a&#x27;&#x27; block, cauvery bhavan, k.g. road, bengaluru 560009 vfs global bengaluru no. 28, 3rd floor, crescent road, opposite st. joseph&#x27;s college, bengaluru 560001 +91 80 2229 6365 (frro bengaluru) bls international services bengaluru has consulates for the us, uk, germany, france, israel, singapore, and more. the city&#x27;s visa application centers serve the large it professional community traveling globally.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Bengaluru</h3><span>Consulates & Tech Hub</span></div></div>
+ <p class="n-emb-desc">Bengaluru has consulates for the US, UK, Germany, France, Israel, Singapore, and more. The city's visa application centers serve the large IT professional community traveling globally.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>FRRO Bengaluru – 1st Floor, &ldquo;A&rdquo; Block, Cauvery Bhavan, K.G. Road, Bengaluru 560009 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=FRRO%20Bengaluru%20%E2%80%93%201st%20Floor%2C%20%E2%80%9CA%E2%80%9D%20Block%2C%20Cauvery%20Bhavan%2C%20K.G.%20Road%2C%20Bengaluru%20560009" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>VFS Global Bengaluru – No. 28, 3rd Floor, Crescent Road, Opposite St. Joseph's College, Bengaluru 560001 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=VFS%20Global%20Bengaluru%20%E2%80%93%20No.%2028%2C%203rd%20Floor%2C%20Crescent%20Road%2C%20Opposite%20St.%20Joseph%27s%20College%2C%20Bengaluru%20560001" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+918022296365">+91 80 2229 6365 (FRRO Bengaluru)</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.blsindia.com" target="_blank" rel="noopener noreferrer">BLS International Services</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="hyderabad consulates &amp; visa centers frro hyderabad   3rd floor, new acma bhavan, himayat nagar, hyderabad 500029 regional passport office, 8th floor, mpm building, 5-9-14, saifabad, hyderabad 500063 +91 40 6833 3333 (passport office) vfs global hyderabad hyderabad has consulates for the us, uk (visa application centre), and several other nations. the city serves as a key processing hub for south and central india.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Hyderabad</h3><span>Consulates & Visa Centers</span></div></div>
+ <p class="n-emb-desc">Hyderabad has consulates for the US, UK (Visa Application Centre), and several other nations. The city serves as a key processing hub for South and Central India.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>FRRO Hyderabad – 3rd Floor, New ACMA Bhavan, Himayat Nagar, Hyderabad 500029 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=FRRO%20Hyderabad%20%E2%80%93%203rd%20Floor%2C%20New%20ACMA%20Bhavan%2C%20Himayat%20Nagar%2C%20Hyderabad%20500029" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, 8th Floor, MPM Building, 5-9-14, Saifabad, Hyderabad 500063 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%208th%20Floor%2C%20MPM%20Building%2C%205-9-14%2C%20Saifabad%2C%20Hyderabad%20500063" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+914068333333">+91 40 6833 3333 (Passport Office)</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">VFS Global Hyderabad</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="ahmedabad visa application hub regional passport office, ahmedabad, opp. octroi naka, s.g. highway, ahmedabad 380054 vfs global ahmedabad   2nd floor, neelkanth business park, nathalal colony, vastrapur, ahmedabad 380054 +91 79 7200 0000 (passport office) www.vfsglobal.com ahmedabad has a regional passport office and multiple visa application centers serving gujarat, handling visitor, business, and student visa applications.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Ahmedabad</h3><span>Visa Application Hub</span></div></div>
+ <p class="n-emb-desc">Ahmedabad has a Regional Passport Office and multiple visa application centers serving Gujarat, handling visitor, business, and student visa applications.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, Ahmedabad, Opp. Octroi Naka, S.G. Highway, Ahmedabad 380054 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%20Ahmedabad%2C%20Opp.%20Octroi%20Naka%2C%20S.G.%20Highway%2C%20Ahmedabad%20380054" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>VFS Global Ahmedabad – 2nd Floor, Neelkanth Business Park, Nathalal Colony, Vastrapur, Ahmedabad 380054 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=VFS%20Global%20Ahmedabad%20%E2%80%93%202nd%20Floor%2C%20Neelkanth%20Business%20Park%2C%20Nathalal%20Colony%2C%20Vastrapur%2C%20Ahmedabad%20380054" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+917972000000">+91 79 7200 0000 (Passport Office)</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">www.vfsglobal.com</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="kochi consulates &amp; port city regional passport office, kochi, panampilly nagar, kochi 682036 vfs global kochi   4th floor, sbt avenue, panampilly nagar, kochi 682036 +91 484 4132 000 (passport office) passport seva kochi kochi serves as kerala&#x27;s primary visa processing hub, with consular access for the uae, saudi arabia, and other gulf countries prominent due to the large expatriate community.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Kochi</h3><span>Consulates & Port City</span></div></div>
+ <p class="n-emb-desc">Kochi serves as Kerala's primary visa processing hub, with consular access for the UAE, Saudi Arabia, and other Gulf countries prominent due to the large expatriate community.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, Kochi, Panampilly Nagar, Kochi 682036 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%20Kochi%2C%20Panampilly%20Nagar%2C%20Kochi%20682036" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>VFS Global Kochi – 4th Floor, SBT Avenue, Panampilly Nagar, Kochi 682036 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=VFS%20Global%20Kochi%20%E2%80%93%204th%20Floor%2C%20SBT%20Avenue%2C%20Panampilly%20Nagar%2C%20Kochi%20682036" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+914844132000">+91 484 4132 000 (Passport Office)</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://portal2.passportindia.gov.in" target="_blank" rel="noopener noreferrer">Passport Seva Kochi</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="chandigarh northern hub regional passport office, chandigarh, s.c.o. 26-27, sector 34-a, chandigarh 160022 vfs global chandigarh sco 111-112, 2nd floor, sector 34-a, chandigarh 160022 +91 172 2705 821 (passport office) chandigarh serves punjab, haryana, and himachal pradesh with passport and visa application services. it has a us consulate and several visa application centers.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Chandigarh</h3><span>Northern Hub</span></div></div>
+ <p class="n-emb-desc">Chandigarh serves Punjab, Haryana, and Himachal Pradesh with passport and visa application services. It has a US Consulate and several visa application centers.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, Chandigarh, S.C.O. 26-27, Sector 34-A, Chandigarh 160022 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%20Chandigarh%2C%20S.C.O.%2026-27%2C%20Sector%2034-A%2C%20Chandigarh%20160022" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>VFS Global Chandigarh – SCO 111-112, 2nd Floor, Sector 34-A, Chandigarh 160022 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=VFS%20Global%20Chandigarh%20%E2%80%93%20SCO%20111-112%2C%202nd%20Floor%2C%20Sector%2034-A%2C%20Chandigarh%20160022" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+911722705821">+91 172 2705 821 (Passport Office)</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="goa frro &amp; tourist visa services frro goa   3rd floor, block d, alcon nature&#x27;s edge, opposite gmc, panaji, goa 403001 goa international airport visa desk dabolim, goa 403801 +91 832 2499 500 (frro goa) goa is a popular tourist destination with visa-on-arrival facilities at its international airport. the frro in panaji handles visa extensions for tourists who wish to extend their stay.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Goa</h3><span>FRRO & Tourist Visa Services</span></div></div>
+ <p class="n-emb-desc">Goa is a popular tourist destination with visa-on-arrival facilities at its international airport. The FRRO in Panaji handles visa extensions for tourists who wish to extend their stay.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>FRRO Goa – 3rd Floor, Block D, Alcon Nature's Edge, Opposite GMC, Panaji, Goa 403001 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=FRRO%20Goa%20%E2%80%93%203rd%20Floor%2C%20Block%20D%2C%20Alcon%20Nature%27s%20Edge%2C%20Opposite%20GMC%2C%20Panaji%2C%20Goa%20403001" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Goa International Airport Visa Desk – Dabolim, Goa 403801 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Goa%20International%20Airport%20Visa%20Desk%20%E2%80%93%20Dabolim%2C%20Goa%20403801" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+918322499500">+91 832 2499 500 (FRRO Goa)</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="pune education &amp; business hub regional passport office, pune, 1st floor, trade center, 3-a, moledina road, pune 411001 vfs global pune   2nd floor, ganga prime, bhandarkar road, pune 411004 +91 20 2632 7215 (passport office) pune has a growing visa application infrastructure serving students, it professionals, and business travelers. multiple visa application centers serve the city.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Pune</h3><span>Education & Business Hub</span></div></div>
+ <p class="n-emb-desc">Pune has a growing visa application infrastructure serving students, IT professionals, and business travelers. Multiple visa application centers serve the city.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, Pune, 1st Floor, Trade Center, 3-A, Moledina Road, Pune 411001 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%20Pune%2C%201st%20Floor%2C%20Trade%20Center%2C%203-A%2C%20Moledina%20Road%2C%20Pune%20411001" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>VFS Global Pune – 2nd Floor, Ganga Prime, Bhandarkar Road, Pune 411004 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=VFS%20Global%20Pune%20%E2%80%93%202nd%20Floor%2C%20Ganga%20Prime%2C%20Bhandarkar%20Road%2C%20Pune%20411004" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+912026327215">+91 20 2632 7215 (Passport Office)</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="jaipur regional office regional passport office, jaipur, agra road, near jawahar circle, jaipur 302017 vfs global jaipur   1st floor, shivam tower, 13, lal kot, tonk road, jaipur 302015 +91 141 281 0091 (passport office) jaipur serves rajasthan with a full regional passport office and visa application centers for major destinations including the us, uk, and schengen countries.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Jaipur</h3><span>Regional Office</span></div></div>
+ <p class="n-emb-desc">Jaipur serves Rajasthan with a full Regional Passport Office and visa application centers for major destinations including the US, UK, and Schengen countries.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, Jaipur, Agra Road, Near Jawahar Circle, Jaipur 302017 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%20Jaipur%2C%20Agra%20Road%2C%20Near%20Jawahar%20Circle%2C%20Jaipur%20302017" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>VFS Global Jaipur – 1st Floor, Shivam Tower, 13, Lal Kot, Tonk Road, Jaipur 302015 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=VFS%20Global%20Jaipur%20%E2%80%93%201st%20Floor%2C%20Shivam%20Tower%2C%2013%2C%20Lal%20Kot%2C%20Tonk%20Road%2C%20Jaipur%20302015" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+911412810091">+91 141 281 0091 (Passport Office)</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="lucknow central india hub regional passport office, lucknow, 24, vidhan sabha marg, lucknow 226001 vfs global lucknow   1st floor, vipul plaza, 9/7, park road, hazratganj, lucknow 226001 +91 522 2207 002 (passport office) lucknow serves uttar pradesh and surrounding states with comprehensive passport and visa application services, including centers for us, uk, canada, and schengen visa applications.">
+ <div class="n-emb-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-building"></i></span><div><h3>Lucknow</h3><span>Central India Hub</span></div></div>
+ <p class="n-emb-desc">Lucknow serves Uttar Pradesh and surrounding states with comprehensive passport and visa application services, including centers for US, UK, Canada, and Schengen visa applications.</p>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Regional Passport Office, Lucknow, 24, Vidhan Sabha Marg, Lucknow 226001 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Regional%20Passport%20Office%2C%20Lucknow%2C%2024%2C%20Vidhan%20Sabha%20Marg%2C%20Lucknow%20226001" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>VFS Global Lucknow – 1st Floor, Vipul Plaza, 9/7, Park Road, Hazratganj, Lucknow 226001 <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=VFS%20Global%20Lucknow%20%E2%80%93%201st%20Floor%2C%20Vipul%20Plaza%2C%209/7%2C%20Park%20Road%2C%20Hazratganj%2C%20Lucknow%20226001" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+915222207002">+91 522 2207 002 (Passport Office)</a></span></li>
+ </ul>
+ </article>
+ </div>
+ <div class="n-emb-grp n-prov-wrap" data-search="vfs bls tls tlscontact us travel docs ustraveldocs visa application centre center">
+ <h3 class="n-dir-l">Authorised visa application centres</h3>
+ <p class="n-prov-note">These authorized service providers accept visa applications on behalf of foreign embassies and consulates. They are located in most major Indian cities and allow applicants to submit biometric data and documents before the embassy processes their visa.</p>
+ <div class="n-prov-grid">
+ <a class="n-prov" href="https://www.vfsglobal.com" target="_blank" rel="noopener noreferrer"><b>VFS Global <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></b><span>Operates visa application centers for UK, Australia, New Zealand, Canada, and many Schengen countries in 15+ Indian cities.</span></a>
+ <a class="n-prov" href="https://www.blsindia.com" target="_blank" rel="noopener noreferrer"><b>BLS International <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></b><span>Processes visa applications for Spain, Portugal, Malta, Czech Republic, and other countries across 30+ cities in India.</span></a>
+ <a class="n-prov" href="https://www.tlscontact.com" target="_blank" rel="noopener noreferrer"><b>TLScontact <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></b><span>Handles visa applications for France, Netherlands, Belgium, and other Schengen states from centers in New Delhi, Mumbai, Chennai, Bengaluru, and Hyderabad.</span></a>
+ <a class="n-prov" href="https://www.ustraveldocs.com" target="_blank" rel="noopener noreferrer"><b>US Travel Docs <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></b><span>The official US visa appointment and application system operates through consulates in New Delhi, Mumbai, Chennai, Kolkata, and Hyderabad.</span></a>
+ </div>
+ </div>
+ </div>
+
+ <div class="n-emb-panel" role="tabpanel" id="emb-us" aria-labelledby="embt-us">
+ <div class="n-emb-note"><i class="bi bi-info-circle" aria-hidden="true"></i><p><b>These embassies are in Washington, D.C., USA</b> and serve applicants living in the United States. Applying from India? Use the country's embassy or consulate in India, or its visa application centre.</p></div>
+ <div class="n-emb-grp"><h3 class="n-dir-l">Asia Pacific</h3>
+ <div class="n-emb-grid">
+ <article class="n-emb" data-search="australia embassy of australia, 1601 massachusetts ave nw, washington, dc 20036, usa +1 (202) 797-3434 usa.embassy.gov.au consular.washington@dfat.gov.au">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">AU</span><div><h3>Australia</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Australia, 1601 Massachusetts Ave NW, Washington, DC 20036, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Australia%2C%201601%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020036%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12027973434">+1 (202) 797-3434</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://usa.embassy.gov.au" target="_blank" rel="noopener noreferrer">usa.embassy.gov.au</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:consular.washington@dfat.gov.au">consular.washington@dfat.gov.au</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="cambodia royal embassy of cambodia, 4530 16th st nw, washington, dc 20011, usa +1 (202) 726-8639 www.embassyofcambodia.org info@embassyofcambodia.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">KH</span><div><h3>Cambodia</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Royal Embassy of Cambodia, 4530 16th St NW, Washington, DC 20011, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Royal%20Embassy%20of%20Cambodia%2C%204530%2016th%20St%20NW%2C%20Washington%2C%20DC%2020011%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12027268639">+1 (202) 726-8639</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.embassyofcambodia.org" target="_blank" rel="noopener noreferrer">www.embassyofcambodia.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:info@embassyofcambodia.org">info@embassyofcambodia.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="china embassy of the people&#x27;s republic of china, 3505 international pl nw, washington, dc 20008, usa +1 (202) 495-2500 www.china-embassy.org chinavisausa@gmail.com">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">CN</span><div><h3>China</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of the People's Republic of China, 3505 International Pl NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20the%20People%27s%20Republic%20of%20China%2C%203505%20International%20Pl%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12024952500">+1 (202) 495-2500</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="http://www.china-embassy.org" target="_blank" rel="noopener noreferrer">www.china-embassy.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:chinavisausa@gmail.com">chinavisausa@gmail.com</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="india embassy of india, 2107 massachusetts ave nw, washington, dc 20008, usa +1 (202) 939-2262 www.indianembassyusa.gov.in cons.washington@mea.gov.in">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">IN</span><div><h3>India</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of India, 2107 Massachusetts Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20India%2C%202107%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12029392262">+1 (202) 939-2262</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.indianembassyusa.gov.in" target="_blank" rel="noopener noreferrer">www.indianembassyusa.gov.in</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:cons.washington@mea.gov.in">cons.washington@mea.gov.in</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="indonesia embassy of indonesia, 2020 massachusetts ave nw, washington, dc 20036, usa +1 (202) 775-5200 www.embassyofindonesia.org info@embassyofindonesia.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">ID</span><div><h3>Indonesia</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Indonesia, 2020 Massachusetts Ave NW, Washington, DC 20036, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Indonesia%2C%202020%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020036%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12027755200">+1 (202) 775-5200</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.embassyofindonesia.org" target="_blank" rel="noopener noreferrer">www.embassyofindonesia.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:info@embassyofindonesia.org">info@embassyofindonesia.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="japan embassy of japan, 2520 massachusetts ave nw, washington, dc 20008, usa +1 (202) 238-7100 www.us.emb-japan.go.jp info@ws.mofa.go.jp">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">JP</span><div><h3>Japan</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Japan, 2520 Massachusetts Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Japan%2C%202520%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022387100">+1 (202) 238-7100</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.us.emb-japan.go.jp" target="_blank" rel="noopener noreferrer">www.us.emb-japan.go.jp</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:info@ws.mofa.go.jp">info@ws.mofa.go.jp</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="malaysia embassy of malaysia, 3516 international ct nw, washington, dc 20008, usa +1 (202) 572-9700 www.kln.gov.my malwashingtondc@kln.gov.my">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">MY</span><div><h3>Malaysia</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Malaysia, 3516 International Ct NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Malaysia%2C%203516%20International%20Ct%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12025729700">+1 (202) 572-9700</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.kln.gov.my/web/usa_washington" target="_blank" rel="noopener noreferrer">www.kln.gov.my</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:malwashingtondc@kln.gov.my">malwashingtondc@kln.gov.my</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="nepal embassy of nepal, 2131 leroy pl nw, washington, dc 20008, usa +1 (202) 667-4550 www.nepalembassyusa.gov info@nepalembassyusa.gov">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">NP</span><div><h3>Nepal</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Nepal, 2131 Leroy Pl NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Nepal%2C%202131%20Leroy%20Pl%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12026674550">+1 (202) 667-4550</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.nepalembassyusa.gov" target="_blank" rel="noopener noreferrer">www.nepalembassyusa.gov</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:info@nepalembassyusa.gov">info@nepalembassyusa.gov</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="new zealand embassy of new zealand, 37 observatory cir nw, washington, dc 20008, usa +1 (202) 328-4800 www.mfat.govt.nz embassy@nzembassy.com">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">NZ</span><div><h3>New Zealand</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of New Zealand, 37 Observatory Cir NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20New%20Zealand%2C%2037%20Observatory%20Cir%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12023284800">+1 (202) 328-4800</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.mfat.govt.nz/en/countries-and-regions/americas/united-states-of-america/new-zealand-embassy/" target="_blank" rel="noopener noreferrer">www.mfat.govt.nz</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:embassy@nzembassy.com">embassy@nzembassy.com</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="philippines embassy of the philippines, 1600 massachusetts ave nw, washington, dc 20036, usa +1 (202) 467-6600 www.philippineembassyusa.org info@philippineembassyusa.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">PH</span><div><h3>Philippines</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of the Philippines, 1600 Massachusetts Ave NW, Washington, DC 20036, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20the%20Philippines%2C%201600%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020036%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12024676600">+1 (202) 467-6600</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.philippineembassyusa.org" target="_blank" rel="noopener noreferrer">www.philippineembassyusa.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:info@philippineembassyusa.org">info@philippineembassyusa.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="singapore embassy of singapore, 3501 international pl nw, washington, dc 20008, usa +1 (202) 537-8253 www.mfa.gov.sg/washington singemb_was@mfa.sg">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">SG</span><div><h3>Singapore</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Singapore, 3501 International Pl NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Singapore%2C%203501%20International%20Pl%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12025378253">+1 (202) 537-8253</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.mfa.gov.sg/washington" target="_blank" rel="noopener noreferrer">www.mfa.gov.sg/washington</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:singemb_was@mfa.sg">singemb_was@mfa.sg</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="south korea embassy of south korea, 2450 massachusetts ave nw, washington, dc 20008, usa +1 (202) 939-1451 overseas.mofa.go.kr correspondence@mofa.go.kr">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">KR</span><div><h3>South Korea</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of South Korea, 2450 Massachusetts Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20South%20Korea%2C%202450%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12029391451">+1 (202) 939-1451</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://overseas.mofa.go.kr/us-en/index.do" target="_blank" rel="noopener noreferrer">overseas.mofa.go.kr</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:correspondence@mofa.go.kr">correspondence@mofa.go.kr</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="sri lanka embassy of sri lanka, 2148 wyoming ave nw, washington, dc 20008, usa +1 (202) 483-0725 slembassyusa.org admin@slembassyusa.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">LK</span><div><h3>Sri Lanka</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Sri Lanka, 2148 Wyoming Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Sri%20Lanka%2C%202148%20Wyoming%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12024830725">+1 (202) 483-0725</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://slembassyusa.org" target="_blank" rel="noopener noreferrer">slembassyusa.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:admin@slembassyusa.org">admin@slembassyusa.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="thailand royal thai embassy, 2300 kalorama rd nw, washington, dc 20008, usa +1 (202) 234-4451 thaiembdc.org visa@thaiembdc.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">TH</span><div><h3>Thailand</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Royal Thai Embassy, 2300 Kalorama Rd NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Royal%20Thai%20Embassy%2C%202300%20Kalorama%20Rd%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022344451">+1 (202) 234-4451</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://thaiembdc.org" target="_blank" rel="noopener noreferrer">thaiembdc.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:visa@thaiembdc.org">visa@thaiembdc.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="vietnam embassy of vietnam, 1233 20th st nw, suite 400, washington, dc 20036, usa +1 (202) 861-2536 vietnamembassy-usa.org consular@vietnamembassy-usa.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">VN</span><div><h3>Vietnam</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Vietnam, 1233 20th St NW, Suite 400, Washington, DC 20036, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Vietnam%2C%201233%2020th%20St%20NW%2C%20Suite%20400%2C%20Washington%2C%20DC%2020036%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12028612536">+1 (202) 861-2536</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://vietnamembassy-usa.org" target="_blank" rel="noopener noreferrer">vietnamembassy-usa.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:consular@vietnamembassy-usa.org">consular@vietnamembassy-usa.org</a></span></li>
+ </ul>
+ </article>
+ </div></div>
+ <div class="n-emb-grp"><h3 class="n-dir-l">Europe</h3>
+ <div class="n-emb-grid">
+ <article class="n-emb" data-search="france embassy of france, 4101 reservoir rd nw, washington, dc 20007, usa +1 (202) 944-5000 franceintheus.org info@ambafrance-us.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">FR</span><div><h3>France</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of France, 4101 Reservoir Rd NW, Washington, DC 20007, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20France%2C%204101%20Reservoir%20Rd%20NW%2C%20Washington%2C%20DC%2020007%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12029445000">+1 (202) 944-5000</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://franceintheus.org" target="_blank" rel="noopener noreferrer">franceintheus.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:info@ambafrance-us.org">info@ambafrance-us.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="germany embassy of germany, 4645 reservoir rd nw, washington, dc 20007, usa +1 (202) 298-8141 www.germany.info info@washington.diplo.de">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">DE</span><div><h3>Germany</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Germany, 4645 Reservoir Rd NW, Washington, DC 20007, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Germany%2C%204645%20Reservoir%20Rd%20NW%2C%20Washington%2C%20DC%2020007%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022988141">+1 (202) 298-8141</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.germany.info" target="_blank" rel="noopener noreferrer">www.germany.info</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:info@washington.diplo.de">info@washington.diplo.de</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="italy embassy of italy, 3000 whitehaven st nw, washington, dc 20008, usa +1 (202) 612-2210 ambwashingtondc.esteri.it ambasciata.washington@esteri.it">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">IT</span><div><h3>Italy</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Italy, 3000 Whitehaven St NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Italy%2C%203000%20Whitehaven%20St%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12026122210">+1 (202) 612-2210</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://ambwashingtondc.esteri.it" target="_blank" rel="noopener noreferrer">ambwashingtondc.esteri.it</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:ambasciata.washington@esteri.it">ambasciata.washington@esteri.it</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="netherlands embassy of the netherlands, 4200 linnean ave nw, washington, dc 20008, usa +1 (202) 244-5300 www.netherlandsandyou.nl was@minbuza.nl">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">NL</span><div><h3>Netherlands</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of the Netherlands, 4200 Linnean Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20the%20Netherlands%2C%204200%20Linnean%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022445300">+1 (202) 244-5300</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.netherlandsandyou.nl" target="_blank" rel="noopener noreferrer">www.netherlandsandyou.nl</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:was@minbuza.nl">was@minbuza.nl</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="russia embassy of russia, 2650 wisconsin ave nw, washington, dc 20007, usa +1 (202) 298-2800 washington.mid.ru">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">RU</span><div><h3>Russia</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Russia, 2650 Wisconsin Ave NW, Washington, DC 20007, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Russia%2C%202650%20Wisconsin%20Ave%20NW%2C%20Washington%2C%20DC%2020007%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022982800">+1 (202) 298-2800</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://washington.mid.ru" target="_blank" rel="noopener noreferrer">washington.mid.ru</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="schengen area the schengen area comprises 27 european countries. visa applications are handled by the embassy of the primary destination country. see individual country listings above for france, germany, italy, netherlands, spain, switzerland, and others. view schengen visa guide">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">EU</span><div><h3>Schengen Area</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>The Schengen Area comprises 27 European countries. Visa applications are handled by the embassy of the primary destination country. See individual country listings above for France, Germany, Italy, Netherlands, Spain, Switzerland, and others. <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=The%20Schengen%20Area%20comprises%2027%20European%20countries.%20Visa%20applications%20are%20handled%20by%20the%20embassy%20of%20the%20primary%20destination%20country.%20See%20individual%20country%20listings%20above%20for%20France%2C%20Germany%2C%20Italy%2C%20Netherlands%2C%20Spain%2C%20Switzerland%2C%20and%20others." target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="/visa-guide/schengen-visa">View Schengen Visa Guide</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="spain embassy of spain, 2375 pennsylvania ave nw, washington, dc 20037, usa +1 (202) 452-0100 www.exteriores.gob.es emb.washington@maec.es">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">ES</span><div><h3>Spain</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Spain, 2375 Pennsylvania Ave NW, Washington, DC 20037, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Spain%2C%202375%20Pennsylvania%20Ave%20NW%2C%20Washington%2C%20DC%2020037%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12024520100">+1 (202) 452-0100</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.exteriores.gob.es/Embajadas/washington" target="_blank" rel="noopener noreferrer">www.exteriores.gob.es</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:emb.washington@maec.es">emb.washington@maec.es</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="switzerland embassy of switzerland, 2900 cathedral ave nw, washington, dc 20008, usa +1 (202) 745-6000 www.eda.admin.ch/washington was.vertretung@eda.admin.ch">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">CH</span><div><h3>Switzerland</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Switzerland, 2900 Cathedral Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Switzerland%2C%202900%20Cathedral%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12027456000">+1 (202) 745-6000</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.eda.admin.ch/washington" target="_blank" rel="noopener noreferrer">www.eda.admin.ch/washington</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:was.vertretung@eda.admin.ch">was.vertretung@eda.admin.ch</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="turkey embassy of turkey, 2525 massachusetts ave nw, washington, dc 20008, usa +1 (202) 612-8700 washington.emb.mfa.gov.tr embassy.washington@mfa.gov.tr">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">TR</span><div><h3>Turkey</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Turkey, 2525 Massachusetts Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Turkey%2C%202525%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12026128700">+1 (202) 612-8700</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://washington.emb.mfa.gov.tr" target="_blank" rel="noopener noreferrer">washington.emb.mfa.gov.tr</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:embassy.washington@mfa.gov.tr">embassy.washington@mfa.gov.tr</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="united kingdom british embassy, 3100 massachusetts ave nw, washington, dc 20008, usa +1 (202) 588-6500 www.gov.uk ukinusa@fco.gov.uk">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">GB</span><div><h3>United Kingdom</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>British Embassy, 3100 Massachusetts Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=British%20Embassy%2C%203100%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12025886500">+1 (202) 588-6500</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.gov.uk/world/organisations/british-embassy-washington" target="_blank" rel="noopener noreferrer">www.gov.uk</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:ukinusa@fco.gov.uk">ukinusa@fco.gov.uk</a></span></li>
+ </ul>
+ </article>
+ </div></div>
+ <div class="n-emb-grp"><h3 class="n-dir-l">Americas</h3>
+ <div class="n-emb-grid">
+ <article class="n-emb" data-search="argentina embassy of argentina, 1600 new hampshire ave nw, washington, dc 20009, usa +1 (202) 238-6400 eeeuu.cancilleria.gob.ar eeuu@cancilleria.gob.ar">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">AR</span><div><h3>Argentina</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Argentina, 1600 New Hampshire Ave NW, Washington, DC 20009, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Argentina%2C%201600%20New%20Hampshire%20Ave%20NW%2C%20Washington%2C%20DC%2020009%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022386400">+1 (202) 238-6400</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://eeeuu.cancilleria.gob.ar" target="_blank" rel="noopener noreferrer">eeeuu.cancilleria.gob.ar</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:eeuu@cancilleria.gob.ar">eeuu@cancilleria.gob.ar</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="brazil embassy of brazil, 3006 massachusetts ave nw, washington, dc 20008, usa +1 (202) 238-7328 www.gov.br/mre consular@brazilemb.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">BR</span><div><h3>Brazil</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Brazil, 3006 Massachusetts Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Brazil%2C%203006%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022387328">+1 (202) 238-7328</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.gov.br/mre/en/subjects/embassy-of-brazil-in-washington" target="_blank" rel="noopener noreferrer">www.gov.br/mre</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:consular@brazilemb.org">consular@brazilemb.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="canada embassy of canada, 501 pennsylvania ave nw, washington, dc 20001, usa +1 (202) 682-7740 www.canadainternational.gc.ca consular@international.gc.ca">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">CA</span><div><h3>Canada</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Canada, 501 Pennsylvania Ave NW, Washington, DC 20001, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Canada%2C%20501%20Pennsylvania%20Ave%20NW%2C%20Washington%2C%20DC%2020001%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12026827740">+1 (202) 682-7740</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.canadainternational.gc.ca/united_states-etats_unis/" target="_blank" rel="noopener noreferrer">www.canadainternational.gc.ca</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:consular@international.gc.ca">consular@international.gc.ca</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="mexico embassy of mexico, 1911 pennsylvania ave nw, washington, dc 20006, usa +1 (202) 728-1600 embamex.sre.gob.mx consular@embassyofmexico.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">MX</span><div><h3>Mexico</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Mexico, 1911 Pennsylvania Ave NW, Washington, DC 20006, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Mexico%2C%201911%20Pennsylvania%20Ave%20NW%2C%20Washington%2C%20DC%2020006%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12027281600">+1 (202) 728-1600</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://embamex.sre.gob.mx/eua" target="_blank" rel="noopener noreferrer">embamex.sre.gob.mx</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:consular@embassyofmexico.org">consular@embassyofmexico.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="united states u.s. department of state, 2201 c st nw, washington, dc 20520, usa +1 (202) 647-4000 travel.state.gov visas@state.gov">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">US</span><div><h3>United States</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>U.S. Department of State, 2201 C St NW, Washington, DC 20520, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=U.S.%20Department%20of%20State%2C%202201%20C%20St%20NW%2C%20Washington%2C%20DC%2020520%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12026474000">+1 (202) 647-4000</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://travel.state.gov" target="_blank" rel="noopener noreferrer">travel.state.gov</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:visas@state.gov">visas@state.gov</a></span></li>
+ </ul>
+ </article>
+ </div></div>
+ <div class="n-emb-grp"><h3 class="n-dir-l">Africa &amp; Middle East</h3>
+ <div class="n-emb-grid">
+ <article class="n-emb" data-search="egypt embassy of egypt, 3521 international ct nw, washington, dc 20008, usa +1 (202) 895-5400 www.egyptembassy.net visa@egyptembassy.net">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">EG</span><div><h3>Egypt</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of Egypt, 3521 International Ct NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20Egypt%2C%203521%20International%20Ct%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12028955400">+1 (202) 895-5400</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.egyptembassy.net" target="_blank" rel="noopener noreferrer">www.egyptembassy.net</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:visa@egyptembassy.net">visa@egyptembassy.net</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="south africa embassy of south africa, 3051 massachusetts ave nw, washington, dc 20008, usa +1 (202) 232-1300 www.saembassy.org info@saembassy.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">ZA</span><div><h3>South Africa</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of South Africa, 3051 Massachusetts Ave NW, Washington, DC 20008, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20South%20Africa%2C%203051%20Massachusetts%20Ave%20NW%2C%20Washington%2C%20DC%2020008%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022321300">+1 (202) 232-1300</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.saembassy.org" target="_blank" rel="noopener noreferrer">www.saembassy.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:info@saembassy.org">info@saembassy.org</a></span></li>
+ </ul>
+ </article>
+ <article class="n-emb" data-search="united arab emirates embassy of uae, 1 georgetown mews se, washington, dc 20003, usa +1 (202) 243-8700 www.uae-embassy.org consular@uae-embassy.org">
+ <div class="n-emb-hd"><span class="n-dir-cc" aria-hidden="true">AE</span><div><h3>United Arab Emirates</h3><span>Washington, D.C.</span></div></div>
+ <ul class="n-emb-rows">
+<li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Embassy of UAE, 1 Georgetown Mews SE, Washington, DC 20003, USA <a class="n-emb-map" href="https://www.google.com/maps/search/?api=1&query=Embassy%20of%20UAE%2C%201%20Georgetown%20Mews%20SE%2C%20Washington%2C%20DC%2020003%2C%20USA" target="_blank" rel="noopener noreferrer">Map<span class="sr-only"> (opens Google Maps)</span></a></span></li>
+<li><i class="bi bi-telephone" aria-hidden="true"></i><span><a href="tel:+12022438700">+1 (202) 243-8700</a></span></li>
+<li><i class="bi bi-globe2" aria-hidden="true"></i><span><a href="https://www.uae-embassy.org" target="_blank" rel="noopener noreferrer">www.uae-embassy.org</a></span></li>
+<li><i class="bi bi-envelope" aria-hidden="true"></i><span><a href="mailto:consular@uae-embassy.org">consular@uae-embassy.org</a></span></li>
+ </ul>
+ </article>
+ </div></div>
+ </div>
+ <p class="n-cempty" id="embEmpty">No office matches your search &mdash; <a href="/contact/">ask us</a> and we'll point you to the right one.</p>
+ </div>
+ </section>
+
+ <!-- ============ FAQ ============ -->
+ <section class="n-section n-alt" aria-labelledby="faqTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">FAQ</span>
+ <h2 id="faqTitle">Questions about <em>embassies</em></h2>
+ </div>
+ <div class="n-faq" id="embFaq">
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="efa1" id="efq1">What is the difference between an embassy and a consulate?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="efa1" role="region" aria-labelledby="efq1"><p>An embassy is the main diplomatic mission located in a country's capital city, headed by an ambassador. A consulate is a smaller diplomatic office usually located in major cities outside the capital, providing limited services like visa processing and citizen assistance. Embassies handle broader diplomatic relations, while consulates focus on specific services.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="efa2" id="efq2">Do I need an appointment to visit an embassy?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="efa2" role="region" aria-labelledby="efq2"><p>Yes, most embassies require you to schedule an appointment for visa services, notarial services, or consular assistance. Walk-in services are generally not available for visa applications. Always check the embassy's website for appointment booking procedures before visiting.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="efa3" id="efq3">Can I apply for a visa at any embassy?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="efa3" role="region" aria-labelledby="efq3"><p>Generally, you should apply at the embassy or consulate of the country you plan to visit in your country of residence. Some countries allow you to apply at any embassy worldwide, but most require you to apply in your home country or the country where you have legal residence status.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="efa4" id="efq4">How long does it take to get a visa from an embassy?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="efa4" role="region" aria-labelledby="efq4"><p>Processing times vary significantly by country and visa type. Tourist visas can take anywhere from 3-15 business days, while student or work visas may take several weeks or months. Check our country-specific visa guides for detailed processing time information.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="efa5" id="efq5">What documents should I bring to my embassy appointment?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="efa5" role="region" aria-labelledby="efq5"><p>Required documents typically include a valid passport (with at least 6 months validity), completed visa application form, passport-sized photographs, travel itinerary, proof of accommodation, bank statements, employment letter, and travel insurance. Check the specific visa requirements page for your destination country on our website.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="efa6" id="efq6">Can an embassy reject my visa application?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="efa6" role="region" aria-labelledby="efq6"><p>Yes, embassies have the authority to reject visa applications for various reasons, including incomplete documentation, insufficient funds, previous immigration violations, unclear travel purpose, or security concerns. If your visa is rejected, you may reapply with additional supporting documents or appeal the decision depending on the country's policies.</p></div></div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ CTA ============ -->
+ <section class="n-cta" aria-labelledby="ctaTitle">
+ <div class="container">
+ <div class="n-cta-in n-rv">
+ <h2 id="ctaTitle">Not sure which office to use?</h2>
+ <p>Tell us your destination and where you live. We'll tell you exactly where to apply and what to bring.</p>
+ <div class="n-cta-btns">
+ <a href="/contact/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Talk to an expert</a>
+ <a href="tel:+918551805523" class="n-btn n-btn-g n-btn-lg"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
+ </div>
+ </section>
+ </main>
 
  <footer class="footer" role="contentinfo">
  <div class="container">
@@ -747,29 +717,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h4>Quick Links</h4>
  <ul>
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
- <li><a href="/blog/">Blog</a></li>
-   <li><a href="/contact">Contact</a></li>
- <li><a href="/embassy-address/">Embassy Address</a></li>
- <li><a href="/passport-ranking/">Passport Ranking</a></li>
- <li><a href="/upcoming-events/">Upcoming Events</a></li>
-  <li><a href="/visa-news/">Visa News</a></li>
-  <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
-  <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
-  <li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/visa-photo-requirements/">Visa Photo Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact/">Contact</a></li>
+<li><a href="/embassy-address/">Embassy Address</a></li>
+<li><a href="/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+<li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-news/">Visa News</a></li>
  </ul>
  </div>
  <div class="footer-col">
  <h4>Top Countries</h4>
  <ul>
- <li><a href="/visa-guide/usa-visa">US Visa</a></li>
- <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
- <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
- <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
- <li><a href="/visa-guide/india-visa">India Visa</a></li>
- <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ <li><a href="/visa-guide/usa-visa/">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa/">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa/">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa/">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa/">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa/">Schengen Visa</a></li>
  </ul>
  </div>
  <div class="footer-col">
@@ -783,7 +754,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
  <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
  <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
- <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
  </div>
  </div>
  </div>
@@ -794,105 +764,134 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-bottom">
  <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
  <span class="footer-bottom-links">
- <a href="/privacy-policy">Privacy Policy</a>
- <a href="/terms-of-service">Terms of Service</a>
+ <a href="/privacy-policy/">Privacy Policy</a>
+ <a href="/terms-of-service/">Terms of Service</a>
  </span>
  </div>
  </div>
  </footer>
 
- <!-- Country Logos Scrolling Strip -->
- <div class="country-logos-strip" role="region" aria-label="Country flags">
- <div class="country-logos-track">
-  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
-  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
-  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
-  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
-  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
-  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
-  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
-  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
-  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
-  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
-  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
-  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
-  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
-  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
-  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
-  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
-  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
-  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
-  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
-  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
-  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
-  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
-  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
-  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
-  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
-  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
-  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
-  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
-  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
-  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
-  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
-  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
-  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
-  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
-  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
-  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
-  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
-  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
-  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
-  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
-  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
-  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
-  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
-  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
-  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
-  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
-  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
-  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
-  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
-  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
-  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
-  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
-  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
-  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
-  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
-  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
-  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
-  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
-  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
-  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
-  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
-  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
-  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
-  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
-  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
-  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
-  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
-  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
-  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
-  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
-  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
-  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
-  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
-  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
-  </div>
-
  <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
 
  <script src="/js/main.js" defer></script>
-<!--Start of Tawk.to Script-->
+<script>
+/* Directory tabs, search and FAQ */
+(function () {
+  'use strict';
+  var tabs = document.querySelectorAll('.n-emb-tabs [role="tab"]');
+  function select(tab) {
+    for (var i = 0; i < tabs.length; i++) {
+      var on = tabs[i] === tab;
+      tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
+      tabs[i].tabIndex = on ? 0 : -1;
+      document.getElementById(tabs[i].getAttribute('aria-controls')).hidden = !on;
+    }
+    update();
+  }
+  for (var t = 0; t < tabs.length; t++) {
+    tabs[t].addEventListener('click', function () { select(this); });
+    tabs[t].addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        var next = tabs[(Array.prototype.indexOf.call(tabs, this) + 1) % tabs.length];
+        select(next); next.focus(); e.preventDefault();
+      }
+    });
+  }
+  var input = document.getElementById('embFilter');
+  var empty = document.getElementById('embEmpty'), emptyDefault = empty.innerHTML;
+  function update() {
+    var q = input.value.trim().toLowerCase(), visibleInActive = 0, counts = {}, active = 'in';
+    ['in', 'us'].forEach(function (k) {
+      var panel = document.getElementById('emb-' + k), n = 0;
+      panel.querySelectorAll('.n-emb').forEach(function (c) {
+        var hit = !q || c.getAttribute('data-search').indexOf(q) !== -1;
+        c.hidden = !hit; if (hit) n++;
+      });
+      panel.querySelectorAll('.n-emb-grp').forEach(function (g) {
+        var cards = g.querySelectorAll('.n-emb');
+        var any = cards.length ? Array.prototype.some.call(cards, function (c) { return !c.hidden; })
+                               : (!q || g.getAttribute('data-search').indexOf(q) !== -1);
+        g.hidden = !any;
+      });
+      var h = panel.querySelector(':scope > .n-dir-l');
+      if (h) h.hidden = !!q && !panel.querySelector(':scope > .n-emb-grid > .n-emb:not([hidden])');
+      document.getElementById('embn-' + k).textContent = n;
+      counts[k] = n + (panel.querySelector('.n-prov-wrap:not([hidden])') ? 1 : 0);
+      if (!panel.hidden) { visibleInActive = counts[k]; active = k; }
+    });
+    var other = active === 'in' ? 'us' : 'in';
+    empty.classList.toggle('on', visibleInActive === 0);
+    empty.innerHTML = counts[other]
+      ? 'No matches here &mdash; <button type="button" class="n-emb-switch">see matches in ' + (other === 'in' ? 'Offices in India' : 'Embassies in Washington, D.C.') + '</button>.'
+      : emptyDefault;
+    var sw = empty.querySelector('.n-emb-switch');
+    if (sw) sw.addEventListener('click', function () { select(document.getElementById('embt-' + other)); });
+  }
+  input.addEventListener('input', update);
+  select(tabs[0]);
+
+  var faq = document.getElementById('embFaq');
+  faq.addEventListener('click', function (e) {
+    var btn = e.target.closest('.n-fq-btn');
+    if (!btn) return;
+    var item = btn.parentNode, open = !item.classList.contains('open');
+    faq.querySelectorAll('.n-fq').forEach(function (i) { i.classList.remove('open'); i.querySelector('.n-fq-btn').setAttribute('aria-expanded', 'false'); });
+    if (open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+  });
+})();
+</script>
+<script>
+/* Header state, mobile drawer and reveal-on-scroll (same behaviour as the homepage) */
+(function () {
+  'use strict';
+  var hd = document.getElementById('nxHeader');
+  if (hd) {
+    var upd = function () { hd.classList.toggle('stuck', window.scrollY > 30); };
+    window.addEventListener('scroll', upd, { passive: true });
+    upd();
+  }
+  var b = document.getElementById('nxBurger'), m = document.getElementById('nxMenu'), v = document.getElementById('nxVeil');
+  if (b && m) {
+    var close = function () { b.classList.remove('on'); m.classList.remove('open'); if (v) v.classList.remove('on'); b.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+    b.addEventListener('click', function () {
+      var open = m.classList.toggle('open');
+      b.classList.toggle('on', open);
+      if (v) v.classList.toggle('on', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    if (v) v.addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1024) close(); });
+  }
+  var els = document.querySelectorAll('.n-rv');
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+})();
+</script>
+<!--Start of Tawk.to Script (loaded after first interaction or 6s)-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
+var loaded=false;
+function load(){
+if(loaded)return;loaded=true;
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
+}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){window.addEventListener(ev,load,{once:true,passive:true});});
+setTimeout(load,6000);
 })();
 </script>
 <!--End of Tawk.to Script-->
