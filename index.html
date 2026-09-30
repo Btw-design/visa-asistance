@@ -1020,7 +1020,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (c && err) c.addEventListener('change', function () { err.classList.remove('on'); });
   })();
 
-  /* Sticky header state (collapses topbar) */
+  /* Sticky header: add a shadow once scrolled (never change its height) */
   (function () {
     var hd = document.getElementById('nxHeader');
     if (!hd) return;
