@@ -2,77 +2,8 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
-  --color-accent-alt: #A5D549;
-  --color-accent-alt-light: #bae56a;
-  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
-body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
-a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
-a:hover{color:var(--color-accent)}
-ul{list-style:none}
-h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
-h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
-h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
-h3{font-size:clamp(1.15rem,2vw,1.4rem)}
-p{margin-bottom:1rem;color:var(--color-text)}
-img{max-width:100%;height:auto;display:block}
-.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
-.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
-.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
-.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
-.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
-.btn-lg{padding:16px 36px;font-size:1.1rem}
-.btn-white{background:var(--color-white);color:var(--color-primary)}
-.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
-.btn-sm{padding:8px 16px;font-size:0.85rem}
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
-.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
-.logo span{color:var(--color-accent)}
-.nav{display:flex;align-items:center;gap:12px}
-.nav-list{display:flex;align-items:center;gap:4px}
-.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
-.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
-.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
-.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
-.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
-.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
-.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
-.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
-.nav-overlay.open{opacity:1}
-.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
-.breadcrumbs a{color:var(--color-primary-light)}
-.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
-.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
-.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
-.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:650px;margin:0 auto}
-.section{padding:80px 0}
-.section-alt{background:var(--color-bg-alt)}
-.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
-.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
-.section-heading p{color:var(--color-text-light);font-size:1.1rem}
-.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
-.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
-.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
-.scroll-top.visible{opacity:1;visibility:visible}
-.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
-body.menu-open{overflow:hidden}
-.text-center{text-align:center}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}}
-@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}}
-@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.nav-list{width:100%}}
-</style><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
+ <script>document.documentElement.className+=" js"</script>
+<style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
 
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
@@ -98,79 +29,13 @@ body.menu-open{overflow:hidden}
    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
  <link rel="canonical" href="https://myvisaassistance.com/visa-photo-requirements/">
 
- <!-- Page-specific styles -->
- <style>
- /* ---- Photo Requirements Page ---- */
- .photo-hero { padding:130px 0 50px; background:linear-gradient(135deg,#031B30,#031B30,#031B30); color:var(--color-white); text-align:center; position:relative; overflow:hidden; }
- .photo-hero h1 { color:var(--color-white); font-size:clamp(1.8rem,4vw,2.8rem); }
- .photo-hero p { color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:650px; margin:0 auto; }
 
- .search-section { background:var(--color-white); padding:30px 0; border-bottom:1px solid var(--color-border-light); position:sticky; top:72px; z-index:100; box-shadow:var(--shadow-sm); }
- .search-bar { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center; }
- .search-bar input[type="text"] { min-width:280px; padding:12px 18px; border:2px solid var(--color-border); border-radius:var(--radius); font-size:1rem; outline:none; transition:var(--transition); }
- .search-bar input[type="text"]:focus { border-color:var(--color-primary); box-shadow:0 0 0 3px rgba(3, 27, 48,0.1); }
- .search-bar select { padding:12px 18px; border:2px solid var(--color-border); border-radius:var(--radius); font-size:1rem; outline:none; background:var(--color-white); cursor:pointer; min-width:160px; }
- .search-bar select:focus { border-color:var(--color-primary); }
- .country-count { font-size:0.9rem; color:var(--color-text-light); text-align:center; margin-top:10px; }
-
- .photo-main { display:grid; grid-template-columns:1fr 320px; gap:30px; padding:40px 24px; max-width:var(--max-width); margin:0 auto; }
- @media(max-width:991px){ .photo-main { grid-template-columns:1fr; } }
-
- .photo-card { background:var(--color-white); border:1px solid var(--color-border); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); }
- .photo-card-header { background:var(--color-primary); color:var(--color-white); padding:20px 25px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
- .photo-card-header h2 { color:var(--color-white); margin:0; font-size:1.3rem; }
- .photo-card-header .last-updated { font-size:0.8rem; opacity:0.8; }
- .photo-card-body { padding:25px; }
- .photo-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
- @media(max-width:600px){ .photo-grid { grid-template-columns:1fr; } }
- .photo-field { padding:10px 14px; background:var(--color-bg-alt); border-radius:var(--radius-sm); display:flex; flex-direction:column; gap:3px; }
- .photo-field .label { font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--color-text-muted); }
- .photo-field .value { font-size:0.95rem; color:var(--color-text); }
- .photo-field .value .tag { display:inline-block; padding:2px 10px; border-radius:var(--radius-full); font-size:0.8rem; font-weight:500; }
- .tag-green { background:#d1fae5; color:#065f46; }
- .tag-red { background:#fee2e2; color:#991b1b; }
- .tag-yellow { background:#fef3c7; color:#92400e; }
-
- .photo-sidebar { display:flex; flex-direction:column; gap:20px; }
- .photo-guide-box { background:var(--color-white); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:20px; text-align:center; }
- .photo-guide-box h3 { font-size:1rem; margin-bottom:10px; }
- .photo-guide-box svg { max-width:100%; height:auto; }
-
- .select-prompt { text-align:center; padding:60px 20px; color:var(--color-text-light); }
- .select-prompt i { font-size:3rem; color:var(--color-border); margin-bottom:15px; }
-
- .compare-toggle { display:flex; align-items:center; gap:10px; margin-top:15px; justify-content:center; }
- .compare-toggle label { font-size:0.9rem; color:var(--color-text-light); cursor:pointer; }
- .compare-toggle input[type="checkbox"] { width:18px; height:18px; cursor:pointer; accent-color:var(--color-primary); }
-
- /* Comparison mode */
- .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px; }
- @media(max-width:767px){ .compare-grid { grid-template-columns:1fr; } }
-
- /* Checklist Section */
- .checklist-section { max-width:700px; margin:0 auto; }
- .checklist-item { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--color-border-light); }
- .checklist-item input[type="checkbox"] { width:18px; height:18px; margin-top:3px; accent-color:var(--color-primary); flex-shrink:0; }
- .checklist-item .item-text { font-size:0.95rem; }
-
- /* Source links */
- .source-list { display:flex; flex-direction:column; gap:8px; margin-top:10px; }
- .source-item { padding:10px 14px; background:var(--color-bg-alt); border-radius:var(--radius-sm); font-size:0.9rem; display:flex; align-items:center; gap:8px; }
- .source-item i { color:var(--color-primary); flex-shrink:0; }
-
- /* Region grid for quick select */
- .region-pills { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin:15px 0; }
- .region-pill { padding:6px 16px; border-radius:var(--radius-full); border:1px solid var(--color-border); font-size:0.85rem; cursor:pointer; transition:var(--transition); background:var(--color-white); color:var(--color-text); }
- .region-pill:hover,.region-pill.active { background:var(--color-primary); color:var(--color-white); border-color:var(--color-primary); }
-
- .country-select-flex { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
- .country-select-flex select { min-width:220px; }
-
- .empty-state { text-align:center; padding:40px 20px; color:var(--color-text-light); }
- .empty-state i { font-size:2.5rem; color:var(--color-border); margin-bottom:10px; }
- </style>
-
- <link rel="stylesheet" href="/css/style.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+ <link rel="stylesheet" href="/css/home.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
  
@@ -200,185 +65,208 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   </script>
 </head>
-<body>
-
-<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
-<div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
-</div>
-<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
+<body class="nx">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
- <header class="header" role="banner">
- <div class="header-inner">
- <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>My Visa <span>Assistance</span></a>
- <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
- <nav class="nav" role="navigation" aria-label="Main navigation">
- <ul class="nav-list">
+ <header class="n-head-bar" id="nxHeader" role="banner">
+ <div class="n-topbar">
+ <div class="container n-topbar-in">
+ <span><i class="bi bi-stars"></i> Free expert consultation with every visa application</span>
+ <a href="tel:+918551805523"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
+ <div class="container n-nav">
+ <a href="/" class="n-logo" aria-label="My Visa Assistance - Home">
+ <span class="n-logo-mk"><i class="bi bi-airplane-fill"></i></span>
+ <span>My Visa <em>Assistance</em></span>
+ </a>
+ <button class="n-burger" id="nxBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nxMenu">
+ <span></span><span></span><span></span>
+ </button>
+ <nav aria-label="Main navigation">
+ <ul class="n-menu" id="nxMenu">
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-requirements/">Requirements</a></li>
  <li><a href="/blog/">Blog</a></li>
- 
-<li><a href="/contact">Contact</a></li>
+ <li><a href="/contact/">Contact</a></li>
+ <li class="n-drawer-cta"><a href="/contact/" class="n-btn n-btn-p n-btn-block"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a></li>
  </ul>
  </nav>
+ <div class="n-nav-cta">
+ <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-sm"><i class="bi bi-telephone"></i> Call</a>
+ <a href="/contact/" class="n-btn n-btn-p n-btn-sm"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a>
  </div>
+ </div>
+ <div class="n-veil" id="nxVeil"></div>
  </header>
 
- <nav class="breadcrumbs" aria-label="Breadcrumb">
- <div class="container">
- <a href="/">Home</a><span class="separator">/</span>
- <span>Visa Photo Requirements</span>
+ <main>
+ <!-- ============ HERO + FINDER ============ -->
+ <section class="n-phero" aria-labelledby="phTitle">
+ <div class="container n-phero-grid">
+ <div>
+ <nav class="n-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="bi bi-chevron-right" aria-hidden="true"></i><span aria-current="page">Visa photo requirements</span></nav>
+ <span class="n-eyebrow">Visa photo requirements</span>
+ <h1 id="phTitle">Get your visa photo <em>right first time</em></h1>
+ <p class="n-phero-sub">Exact photo size, background, head position and digital file rules for 42 countries &mdash; with links to the official guidelines.</p>
+ <div class="n-trk n-ph-find">
+ <div class="n-trk-body">
+ <label for="phInput" class="n-trk-lbl">Country</label>
+ <div class="n-trk-combo">
+ <i class="bi bi-search" aria-hidden="true"></i>
+ <input type="text" id="phInput" placeholder="Start typing, e.g. Schengen" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="phList">
+ <ul class="n-trk-list" id="phList" role="listbox" aria-label="Countries"></ul>
  </div>
- </nav>
-
- <!-- Hero -->
- <section class="page-header">
- <div class="container">
- <h1>Visa Photo Requirements by Country</h1>
- <p>Find the exact photo specifications for your visa application–size, background, face position, file format, and official guidelines for every country.</p>
+ <div class="n-trk-pop"><span>Popular:</span><button type="button" class="n-trk-chip" data-id="usa">United States</button><button type="button" class="n-trk-chip" data-id="uk">United Kingdom</button><button type="button" class="n-trk-chip" data-id="schengen">Schengen Area</button><button type="button" class="n-trk-chip" data-id="canada">Canada</button><button type="button" class="n-trk-chip" data-id="australia">Australia</button><button type="button" class="n-trk-chip" data-id="china">China</button><button type="button" class="n-trk-chip" data-id="japan">Japan</button><button type="button" class="n-trk-chip" data-id="singapore">Singapore</button></div>
+ <label class="n-ph-cmp"><input type="checkbox" id="phCompare"><span class="n-ph-sw" aria-hidden="true"></span> Compare two countries</label>
+ </div>
+ </div>
+ </div>
+ <aside class="n-glance n-ph-guide" aria-label="Anatomy of a visa photo">
+ <div class="n-glance-hd"><i class="bi bi-person-bounding-box" aria-hidden="true"></i> Anatomy of a visa photo</div>
+ <svg viewBox="0 0 260 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a correctly framed visa photo: head fills 60-70% of the height, eyes on the eye line, plain background">
+ <rect x="30" y="20" width="200" height="260" rx="6" fill="#F6F7F9" stroke="#0B1F3A" stroke-width="2"/>
+ <ellipse cx="130" cy="125" rx="46" ry="58" fill="#E6EAF2" stroke="#8A97AB" stroke-width="1.2"/>
+ <circle cx="113" cy="116" r="3" fill="#0B1F3A"/><circle cx="147" cy="116" r="3" fill="#0B1F3A"/>
+ <path d="M121 150 Q130 155 139 150" fill="none" stroke="#8A97AB" stroke-width="1.5"/>
+ <path d="M52 280 Q66 222 130 222 Q194 222 208 280 Z" fill="#E6EAF2" stroke="#8A97AB" stroke-width="1.2"/>
+ <line x1="30" y1="116" x2="230" y2="116" stroke="#2F45C5" stroke-width="1" stroke-dasharray="4 3"/>
+ <text x="236" y="119" fill="#2F45C5" font-size="9" font-family="Inter,Arial" font-weight="700">Eyes</text>
+ <line x1="18" y1="67" x2="18" y2="183" stroke="#2F45C5" stroke-width="1.5"/>
+ <line x1="13" y1="67" x2="23" y2="67" stroke="#2F45C5" stroke-width="1.5"/><line x1="13" y1="183" x2="23" y2="183" stroke="#2F45C5" stroke-width="1.5"/>
+ <text x="10" y="128" fill="#2F45C5" font-size="9" font-family="Inter,Arial" font-weight="700" text-anchor="middle" transform="rotate(-90 10 128)">Head 60&#8211;70%</text>
+ <line x1="30" y1="298" x2="230" y2="298" stroke="#56657A" stroke-width="1.2"/>
+ <line x1="30" y1="293" x2="30" y2="303" stroke="#56657A" stroke-width="1.2"/><line x1="230" y1="293" x2="230" y2="303" stroke="#56657A" stroke-width="1.2"/>
+ <text x="130" y="316" fill="#56657A" font-size="9" font-family="Inter,Arial" text-anchor="middle">Width &amp; height vary by country</text>
+</svg>
+ </aside>
  </div>
  </section>
 
- <!-- Search & Filter Bar -->
- <div class="search-section" id="searchSection">
- <div class="container">
- <div class="search-bar">
- <input type="text" id="countrySearch" placeholder="Search country..." oninput="filterCountries()">
- <select id="regionFilter" onchange="filterCountries()">
- <option value="all">All Regions</option>
- <option value="Asia">Asia</option>
- <option value="Europe">Europe</option>
- <option value="North America">North America</option>
- <option value="South America">South America</option>
- <option value="Africa">Africa</option>
- <option value="Oceania">Oceania</option>
- </select>
- <select id="countrySelect" onchange="selectCountry(this.value)" style="min-width:240px;">
- <option value="">-- Select a country --</option>
- </select>
+ <!-- ============ RESULT ============ -->
+ <section class="n-section" id="phResultSec" aria-label="Photo requirements">
+ <div class="container n-ph-main">
+ <div id="phResult" aria-live="polite">
+ <div class="n-ph-empty" id="phEmptyState"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-camera"></i></span><div><b>Choose a country to see its photo rules</b><span>Search above, pick a popular destination, or select one from the table below.</span></div></div>
  </div>
- <div class="region-pills" id="regionPills"></div>
- <div class="country-count" id="countryCount"></div>
- <div class="compare-toggle">
- <input type="checkbox" id="compareMode" onchange="toggleCompare()">
- <label for="compareMode">Compare two countries</label>
- </div>
- </div>
- </div>
-
- <!-- Main Content -->
- <div class="photo-main" id="photoMain">
-
- <!-- Left: Country Details -->
- <div id="detailsPanel">
- <div class="select-prompt" id="selectPrompt">
- <i class="bi bi-search"></i>
- <p>Select a country above to view its visa photo requirements.</p>
- </div>
- <div id="countryDetails" style="display:none;"></div>
- <div id="compareDetails" style="display:none;"></div>
- </div>
-
- <!-- Right: Sidebar -->
- <div class="photo-sidebar">
- <!-- Photo Guide SVG -->
- <div class="photo-guide-box">
- <h3><i class="bi bi-eye" style="color:var(--color-primary);"></i> Photo Guidelines</h3>
- <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg" style="max-width:220px;margin:0 auto;display:block;">
- <rect x="10" y="10" width="240" height="300" rx="10" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
- <rect x="25" y="25" width="210" height="270" rx="6" fill="white" stroke="#031B30" stroke-width="2"/>
- <!-- Head silhouette -->
- <ellipse cx="130" cy="130" rx="45" ry="55" fill="#e8d5c3" stroke="#999" stroke-width="1"/>
- <!-- Eyes -->
- <circle cx="115" cy="120" r="3" fill="#333"/><circle cx="145" cy="120" r="3" fill="#333"/>
- <!-- Nose -->
- <path d="M130 125 L128 140 L132 140 Z" fill="#d4bfaf"/>
- <!-- Mouth -->
- <path d="M118 150 Q130 155 142 150" fill="none" stroke="#b89a8a" stroke-width="1.5"/>
- <!-- Shoulders -->
- <path d="M40 290 Q60 260 130 260 Q200 260 220 290" fill="#e0d0c0" stroke="#ccc" stroke-width="1"/>
- <!-- Dimension arrows -->
- <line x1="25" y1="8" x2="235" y2="8" stroke="#5057EA" stroke-width="2" marker-end="url(#arrowG)"/>
- <text x="130" y="5" text-anchor="middle" fill="#5057EA" font-size="9" font-weight="bold">Width</text>
- <line x1="8" y1="25" x2="8" y2="295" stroke="#5057EA" stroke-width="2"/>
- <text x="3" y="160" text-anchor="middle" fill="#5057EA" font-size="9" font-weight="bold" transform="rotate(-90,3,160)">Height</text>
- <!-- Head size annotation -->
- <line x1="80" y1="75" x2="25" y2="75" stroke="#ff6b6b" stroke-width="1.5" stroke-dasharray="3,2"/>
- <line x1="180" y1="75" x2="235" y2="75" stroke="#ff6b6b" stroke-width="1.5" stroke-dasharray="3,2"/>
- <text x="130" y="72" text-anchor="middle" fill="#ff6b6b" font-size="8">60-70% of photo</text>
- <!-- Eye line -->
- <line x1="25" y1="120" x2="235" y2="120" stroke="#031B30" stroke-width="1" stroke-dasharray="4,3"/>
- <text x="237" y="123" fill="#031B30" font-size="7">Eye level</text>
- <defs>
- <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5057EA"/></marker>
- </defs>
- <text x="130" y="335" text-anchor="middle" fill="#999" font-size="7">Eyes should be at 50-70% from bottom</text>
- </svg>
- </div>
-
- <!-- Info Tips -->
- <div class="photo-guide-box" style="text-align:left;">
- <h3 style="text-align:center;"><i class="bi bi-info-circle" style="color:var(--color-primary);"></i> Quick Tips</h3>
- <ul style="font-size:0.88rem;line-height:1.7;">
- <li><i class="bi bi-check2" style="color:var(--color-accent-dark);"></i> Use a plain white or light grey background</li>
- <li><i class="bi bi-check2" style="color:var(--color-accent-dark);"></i> Face centered, eyes clearly visible</li>
- <li><i class="bi bi-check2" style="color:var(--color-accent-dark);"></i> No shadows on face or background</li>
- <li><i class="bi bi-check2" style="color:var(--color-accent-dark);"></i> No hair covering eyebrows or eyes</li>
- <li><i class="bi bi-check2" style="color:var(--color-accent-dark);"></i> Neutral expression, mouth closed</li>
- <li><i class="bi bi-check2" style="color:var(--color-accent-dark);"></i> No red-eye or filters</li>
- <li><i class="bi bi-check2" style="color:var(--color-accent-dark);"></i> Photo must be recent (usually &le;6 months)</li>
+ <aside class="n-ph-side">
+ <div class="n-glance">
+ <div class="n-glance-hd"><i class="bi bi-lightbulb" aria-hidden="true"></i> Quick tips</div>
+ <ul class="n-ph-tips">
+ <li><i class="bi bi-check2" aria-hidden="true"></i>Use a plain white or light grey background</li>
+ <li><i class="bi bi-check2" aria-hidden="true"></i>Face centred, eyes clearly visible</li>
+ <li><i class="bi bi-check2" aria-hidden="true"></i>No shadows on face or background</li>
+ <li><i class="bi bi-check2" aria-hidden="true"></i>No hair covering eyebrows or eyes</li>
+ <li><i class="bi bi-check2" aria-hidden="true"></i>Neutral expression, mouth closed</li>
+ <li><i class="bi bi-check2" aria-hidden="true"></i>No red-eye, filters or retouching</li>
+ <li><i class="bi bi-check2" aria-hidden="true"></i>Photo must be recent (usually taken in the last 6 months)</li>
  </ul>
  </div>
-
- <!-- Checklist Section -->
- <div class="photo-guide-box" id="checklistBox">
- <h3><i class="bi bi-card-checklist" style="color:var(--color-primary);"></i> Photo Checklist</h3>
- <p style="font-size:0.85rem;color:var(--color-text-light);margin-bottom:10px;">Print this checklist before your photo session.</p>
- <div class="checklist-section" style="text-align:left;">
- <div class="checklist-item"><input type="checkbox"><span class="item-text">Correct size (mm/inches as specified)</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">White/light background (no patterns)</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">Face centered, proper head size</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">Eyes visible, no hair covering</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">Neutral expression, mouth closed</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">No glasses or approved frames only</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">No shadows, uniform lighting</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">Correct file format (JPEG/PNG)</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">File size within limit</span></div>
- <div class="checklist-item"><input type="checkbox"><span class="item-text">Photo taken within last 6 months</span></div>
+ <div class="n-glance" id="photoChecklist">
+ <div class="n-glance-hd"><i class="bi bi-card-checklist" aria-hidden="true"></i> Photo checklist</div>
+ <ul class="n-rdy-list n-ph-check">
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Correct size (mm/inches as specified)</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>White/light background (no patterns)</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Face centred, proper head size</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Eyes visible, no hair covering</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Neutral expression, mouth closed</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>No glasses, or approved frames only</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>No shadows, even lighting</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Correct file format (JPEG/PNG)</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>File size within the limit</label></li>
+ <li><label><input type="checkbox"><span class="n-rdy-box" aria-hidden="true"><i class="bi bi-check-lg"></i></span>Photo taken within the last 6 months</label></li>
+ </ul>
+ <div class="n-glance-ft"><a href="#" id="phPrint"><i class="bi bi-printer" aria-hidden="true"></i> Print checklist</a></div>
  </div>
- <button class="btn btn-outline btn-sm" style="margin-top:12px;width:100%;" onclick="window.print()"><i class="bi bi-printer"></i> Print Checklist</button>
- </div>
- </div>
- </div>
-
- <!-- Sources Section -->
- <section class="section section-alt" id="sourcesSection">
- <div class="container">
- <div class="section-heading">
- <h2>Official Sources &amp; References</h2>
- <p>All information is verified against official government and embassy sources. Links are provided for each country.</p>
- </div>
- <div id="sourceLinks" style="max-width:800px;margin:0 auto;">
- <p style="text-align:center;color:var(--color-text-light);"><i class="bi bi-info-circle"></i> Select a country above to see official source links.</p>
- </div>
+ </aside>
  </div>
  </section>
 
- <!-- CTA -->
- <section class="section" style="background:linear-gradient(135deg,#031B30,#031B30);color:white;text-align:center;">
+ <!-- ============ AT A GLANCE ============ -->
+ <section class="n-section n-alt" aria-labelledby="glTitle">
  <div class="container">
- <h2 style="color:white;">Need Help with Your Visa Application?</h2>
- <p style="color:rgba(255,255,255,0.85);max-width:600px;margin:0 auto 25px;">Our visa experts can review your documents, including your photo, to ensure everything meets the requirements.</p>
- <a href="/contact" class="btn btn-primary btn-lg">Get Free Assistance</a>
- <a href="/visa-guide/" class="btn btn-outline-white btn-lg" style="margin-left:10px;">Visa Guide</a>
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">All countries</span>
+ <h2 id="glTitle">Photo specs <em>at a glance</em></h2>
+ <p>Select a country for its full requirements, including head size and official sources.</p>
+ </div>
+ <div class="n-dir-bar">
+ <div class="n-csearch"><i class="bi bi-funnel" aria-hidden="true"></i><input type="search" id="phFilter" placeholder="Filter countries" aria-label="Filter countries"></div>
+ </div>
+ <div class="n-chipfs" role="group" aria-label="Filter by region"><button type="button" class="n-chipf" data-reg="all" aria-pressed="true">All <span>42</span></button><button type="button" class="n-chipf" data-reg="Africa" aria-pressed="false">Africa <span>3</span></button><button type="button" class="n-chipf" data-reg="Asia" aria-pressed="false">Asia <span>20</span></button><button type="button" class="n-chipf" data-reg="Europe" aria-pressed="false">Europe <span>10</span></button><button type="button" class="n-chipf" data-reg="Europe/Asia" aria-pressed="false">Europe/Asia <span>2</span></button><button type="button" class="n-chipf" data-reg="North America" aria-pressed="false">North America <span>3</span></button><button type="button" class="n-chipf" data-reg="Oceania" aria-pressed="false">Oceania <span>2</span></button><button type="button" class="n-chipf" data-reg="South America" aria-pressed="false">South America <span>2</span></button></div>
+ <div class="n-tbl-wrap">
+ <table class="n-tbl n-ph-tbl" id="phTable">
+ <caption class="sr-only">Visa photo size, background and digital format by country</caption>
+ <thead><tr><th scope="col">Country</th><th scope="col">Photo size</th><th scope="col">Background</th><th scope="col">Digital format</th></tr></thead>
+ <tbody>
+ <tr data-id="argentina" data-reg="South America" data-name="argentina"><th scope="row"><button type="button" class="n-ph-pick" data-id="argentina">Argentina</button></th><td data-label="Photo size">35 × 45 mm (visa). 40 × 40 mm (passport).</td><td data-label="Background">Plain white or light grey</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="australia" data-reg="Oceania" data-name="australia"><th scope="row"><button type="button" class="n-ph-pick" data-id="australia">Australia</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white or light grey</td><td data-label="Digital format">JPEG, JPG</td></tr>
+ <tr data-id="bangladesh" data-reg="Asia" data-name="bangladesh"><th scope="row"><button type="button" class="n-ph-pick" data-id="bangladesh">Bangladesh</button></th><td data-label="Photo size">35 × 45 mm (visa). 30 × 40 mm (passport).</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="brazil" data-reg="South America" data-name="brazil"><th scope="row"><button type="button" class="n-ph-pick" data-id="brazil">Brazil</button></th><td data-label="Photo size">35 × 45 mm (visa). 40 × 50 mm (passport).</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="cambodia" data-reg="Asia" data-name="cambodia"><th scope="row"><button type="button" class="n-ph-pick" data-id="cambodia">Cambodia</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white or light colour</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="canada" data-reg="North America" data-name="canada"><th scope="row"><button type="button" class="n-ph-pick" data-id="canada">Canada</button></th><td data-label="Photo size">50 × 70 mm</td><td data-label="Background">Plain white or light colour</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="china" data-reg="Asia" data-name="china"><th scope="row"><button type="button" class="n-ph-pick" data-id="china">China</button></th><td data-label="Photo size">33 × 48 mm</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="egypt" data-reg="Africa" data-name="egypt"><th scope="row"><button type="button" class="n-ph-pick" data-id="egypt">Egypt</button></th><td data-label="Photo size">35 × 45 mm (visa). 40 × 60 mm (some visa types).</td><td data-label="Background">Plain white or light blue</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="france" data-reg="Europe" data-name="france"><th scope="row"><button type="button" class="n-ph-pick" data-id="france">France</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey or off-white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="germany" data-reg="Europe" data-name="germany"><th scope="row"><button type="button" class="n-ph-pick" data-id="germany">Germany</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey (not pure white)</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="india" data-reg="Asia" data-name="india"><th scope="row"><button type="button" class="n-ph-pick" data-id="india">India</button></th><td data-label="Photo size">51 × 51 mm (2 × 2 in) for physical. 35 × 45 mm for e-Visa digital upload.</td><td data-label="Background">Plain white or off-white (no shadows)</td><td data-label="Digital format">JPEG (e-Visa). 35 × 45 mm digital</td></tr>
+ <tr data-id="indonesia" data-reg="Asia" data-name="indonesia"><th scope="row"><button type="button" class="n-ph-pick" data-id="indonesia">Indonesia</button></th><td data-label="Photo size">35 × 45 mm (visa). 40 × 60 mm (some visa types).</td><td data-label="Background">Plain white or light red</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="ireland" data-reg="Europe" data-name="ireland"><th scope="row"><button type="button" class="n-ph-pick" data-id="ireland">Ireland</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white or light grey</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="italy" data-reg="Europe" data-name="italy"><th scope="row"><button type="button" class="n-ph-pick" data-id="italy">Italy</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey or off-white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="japan" data-reg="Asia" data-name="japan"><th scope="row"><button type="button" class="n-ph-pick" data-id="japan">Japan</button></th><td data-label="Photo size">45 × 45 mm (square) for visa. 35 × 45 mm for some applications.</td><td data-label="Background">Plain white or light colour (no patterns)</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="kenya" data-reg="Africa" data-name="kenya"><th scope="row"><button type="button" class="n-ph-pick" data-id="kenya">Kenya</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="kuwait" data-reg="Asia" data-name="kuwait"><th scope="row"><button type="button" class="n-ph-pick" data-id="kuwait">Kuwait</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="malaysia" data-reg="Asia" data-name="malaysia"><th scope="row"><button type="button" class="n-ph-pick" data-id="malaysia">Malaysia</button></th><td data-label="Photo size">35 × 50 mm (visa). 35 × 45 mm (e-Visa digital).</td><td data-label="Background">Plain white or light blue</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="mexico" data-reg="North America" data-name="mexico"><th scope="row"><button type="button" class="n-ph-pick" data-id="mexico">Mexico</button></th><td data-label="Photo size">35 × 45 mm (visa). 25 × 30 mm (some permits).</td><td data-label="Background">Plain white or light grey</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="myanmar" data-reg="Asia" data-name="myanmar (burma)"><th scope="row"><button type="button" class="n-ph-pick" data-id="myanmar">Myanmar (Burma)</button></th><td data-label="Photo size">35 × 45 mm (visa). 50 × 50 mm (some types).</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="nepal" data-reg="Asia" data-name="nepal"><th scope="row"><button type="button" class="n-ph-pick" data-id="nepal">Nepal</button></th><td data-label="Photo size">35 × 45 mm (visa). 38 × 38 mm (tourist visa photo).</td><td data-label="Background">Plain white or light colour</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="netherlands" data-reg="Europe" data-name="netherlands"><th scope="row"><button type="button" class="n-ph-pick" data-id="netherlands">Netherlands</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey or off-white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="new-zealand" data-reg="Oceania" data-name="new zealand"><th scope="row"><button type="button" class="n-ph-pick" data-id="new-zealand">New Zealand</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white or light grey</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="oman" data-reg="Asia" data-name="oman"><th scope="row"><button type="button" class="n-ph-pick" data-id="oman">Oman</button></th><td data-label="Photo size">40 × 60 mm (visa). 35 × 45 mm (e-Visa).</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="philippines" data-reg="Asia" data-name="philippines"><th scope="row"><button type="button" class="n-ph-pick" data-id="philippines">Philippines</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white or light grey</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="poland" data-reg="Europe" data-name="poland"><th scope="row"><button type="button" class="n-ph-pick" data-id="poland">Poland</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey or off-white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="qatar" data-reg="Asia" data-name="qatar"><th scope="row"><button type="button" class="n-ph-pick" data-id="qatar">Qatar</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="russia" data-reg="Europe/Asia" data-name="russia"><th scope="row"><button type="button" class="n-ph-pick" data-id="russia">Russia</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white or light grey</td><td data-label="Digital format">JPEG or PNG</td></tr>
+ <tr data-id="saudi-arabia" data-reg="Asia" data-name="saudi arabia"><th scope="row"><button type="button" class="n-ph-pick" data-id="saudi-arabia">Saudi Arabia</button></th><td data-label="Photo size">40 × 60 mm (visa). 35 × 45 mm (digital).</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="schengen" data-reg="Europe" data-name="schengen area (eu biometric)"><th scope="row"><button type="button" class="n-ph-pick" data-id="schengen">Schengen Area (EU Biometric)</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey or off-white (not pure white)</td><td data-label="Digital format">JPEG or PNG (digital). 300 dpi for print.</td></tr>
+ <tr data-id="singapore" data-reg="Asia" data-name="singapore"><th scope="row"><button type="button" class="n-ph-pick" data-id="singapore">Singapore</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="south-africa" data-reg="Africa" data-name="south africa"><th scope="row"><button type="button" class="n-ph-pick" data-id="south-africa">South Africa</button></th><td data-label="Photo size">35 × 45 mm (visa). 25 × 35 mm for temporary residence.</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="south-korea" data-reg="Asia" data-name="south korea"><th scope="row"><button type="button" class="n-ph-pick" data-id="south-korea">South Korea</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="spain" data-reg="Europe" data-name="spain"><th scope="row"><button type="button" class="n-ph-pick" data-id="spain">Spain</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey or off-white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="sri-lanka" data-reg="Asia" data-name="sri lanka"><th scope="row"><button type="button" class="n-ph-pick" data-id="sri-lanka">Sri Lanka</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain white or light colour</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="switzerland" data-reg="Europe" data-name="switzerland"><th scope="row"><button type="button" class="n-ph-pick" data-id="switzerland">Switzerland</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey or off-white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="thailand" data-reg="Asia" data-name="thailand"><th scope="row"><button type="button" class="n-ph-pick" data-id="thailand">Thailand</button></th><td data-label="Photo size">35 × 45 mm (standard). 40 × 60 mm for visa on arrival.</td><td data-label="Background">Plain white or light blue</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="turkey" data-reg="Europe/Asia" data-name="turkey"><th scope="row"><button type="button" class="n-ph-pick" data-id="turkey">Turkey</button></th><td data-label="Photo size">50 × 60 mm (visa). 35 × 45 mm (e-Visa digital).</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="uae" data-reg="Asia" data-name="united arab emirates (uae)"><th scope="row"><button type="button" class="n-ph-pick" data-id="uae">United Arab Emirates (UAE)</button></th><td data-label="Photo size">35 × 45 mm (standard). 43 × 55 mm for some visa types.</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG or PNG</td></tr>
+ <tr data-id="uk" data-reg="Europe" data-name="united kingdom (uk)"><th scope="row"><button type="button" class="n-ph-pick" data-id="uk">United Kingdom (UK)</button></th><td data-label="Photo size">35 × 45 mm</td><td data-label="Background">Plain light grey or cream (not white)</td><td data-label="Digital format">JPEG or PNG</td></tr>
+ <tr data-id="usa" data-reg="North America" data-name="united states (usa)"><th scope="row"><button type="button" class="n-ph-pick" data-id="usa">United States (USA)</button></th><td data-label="Photo size">51 × 51 mm (2 × 2 inches)</td><td data-label="Background">Plain white or off-white</td><td data-label="Digital format">JPEG</td></tr>
+ <tr data-id="vietnam" data-reg="Asia" data-name="vietnam"><th scope="row"><button type="button" class="n-ph-pick" data-id="vietnam">Vietnam</button></th><td data-label="Photo size">40 × 60 mm (visa). 35 × 45 mm (e-Visa digital).</td><td data-label="Background">Plain white</td><td data-label="Digital format">JPEG</td></tr>
+ </tbody>
+ </table>
+ </div>
+ <p class="n-cempty" id="phTblEmpty">No country matches &mdash; <a href="/contact/">ask us</a> and we'll check the rules for you.</p>
  </div>
  </section>
+
+ <!-- ============ CTA ============ -->
+ <section class="n-cta" aria-labelledby="ctaTitle">
+ <div class="container">
+ <div class="n-cta-in n-rv">
+ <h2 id="ctaTitle">Not sure your photo will pass?</h2>
+ <p>Our visa experts can review your documents &mdash; including your photo &mdash; before you apply.</p>
+ <div class="n-cta-btns">
+ <a href="/contact/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Get free assistance</a>
+ <a href="/visa-guide/" class="n-btn n-btn-g n-btn-lg"><i class="bi bi-journal-richtext"></i> Visa guides</a>
+ </div>
+ </div>
+ </div>
+ </section>
+ </main>
 
  <footer class="footer" role="contentinfo">
  <div class="container">
@@ -386,7 +274,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-about">
  <div class="footer-brand">
  <span class="footer-logo-icon" aria-hidden="true">
- <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#5057EA"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/></svg>
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#5057EA"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/>
+ </svg>
  </span>
  <span class="footer-brand-text">My Visa <span>Assistance</span></span>
  </div>
@@ -396,30 +288,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h4>Quick Links</h4>
  <ul>
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
- <li><a href="/visa-photo-requirements/">Visa Photo Requirements</a></li>
- <li><a href="/blog/">Blog</a></li>
-   <li><a href="/contact">Contact</a></li>
- <li><a href="/embassy-address/">Embassy Address</a></li>
- <li><a href="/passport-ranking/">Passport Ranking</a></li>
- <li><a href="/upcoming-events/">Upcoming Events</a></li>
- <li><a href="/visa-news/">Visa News</a></li>
- <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
- <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
- <li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/visa-photo-requirements/">Visa Photo Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact/">Contact</a></li>
+<li><a href="/embassy-address/">Embassy Address</a></li>
+<li><a href="/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+<li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-news/">Visa News</a></li>
  </ul>
  </div>
  <div class="footer-col">
  <h4>Top Countries</h4>
  <ul>
- <li><a href="/visa-guide/usa-visa">US Visa</a></li>
- <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
- <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
- <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
- <li><a href="/visa-guide/india-visa">India Visa</a></li>
- <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ <li><a href="/visa-guide/usa-visa/">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa/">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa/">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa/">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa/">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa/">Schengen Visa</a></li>
  </ul>
  </div>
  <div class="footer-col">
@@ -427,22 +319,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <ul class="footer-contact">
  <li><a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope"></i> myvisaassistance@protonmail.com</a></li>
  <li><a href="tel:+918551805523"><i class="bi bi-telephone"></i> +91 85518 05523</a></li>
- <li><i class="bi bi-clock"></i> Mon - Sat: 9 AM - 7 PM</li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
  </ul>
  <div class="footer-social">
  <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
  <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
  <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
- <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
  </div>
  </div>
  </div>
  <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
  <div class="footer-bottom">
- <span>&copy; 2026 My Visa Assistance. All rights reserved.</span>
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
  <span class="footer-bottom-links">
- <a href="/privacy-policy">Privacy Policy</a> &middot;
- <a href="/terms-of-service">Terms of Service</a>
+ <a href="/privacy-policy/">Privacy Policy</a>
+ <a href="/terms-of-service/">Terms of Service</a>
  </span>
  </div>
  </div>
@@ -451,7 +345,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
 
  <script src="/js/main.js" defer></script>
-
 <script>
 // ============================================================
 // COUNTRY DATA
@@ -460,42 +353,42 @@ const countries = [
   {
     id:"usa", name:"United States (USA)", region:"North America",
     size:"51 × 51 mm (2 × 2 inches)", background:"Plain white or off-white",
-    headSize:"Head must be 25 × 35 mm (1€1? inches) from chin to crown. Eyes must be between 30 × 45 mm from bottom of photo.",
+    headSize:"Head must be 25–35 mm (1–1⅜ inches) from chin to crown. Eyes must be between 30–45 mm from bottom of photo.",
     fileFormat:"JPEG", fileSize:"Max 240 KB", glasses:"Not allowed",
     headCovering:"Only for religious or medical reasons with signed statement",
     expression:"Neutral expression, both eyes open, mouth closed, no smile",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"U.S. Department of State–Photo Requirements",url:"https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos.html"},
+      {name:"U.S. Department of State – Photo Requirements",url:"https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos.html"},
       {name:"U.S. Customs and Border Protection",url:"https://www.cbp.gov/" }
     ]
   },
   {
     id:"uk", name:"United Kingdom (UK)", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey or cream (not white)",
-    headSize:"Face must be 29 × 34 mm from chin to crown. Eyes 28 × 35 mm from bottom edge.",
+    headSize:"Face must be 29–34 mm from chin to crown. Eyes 28–35 mm from bottom edge.",
     fileFormat:"JPEG or PNG", fileSize:"Max 10 MB (digital). Print: 600 dpi recommended.",
     glasses:"Not allowed (must be removed for photo)", headCovering:"Only for religious or medical reasons. Face must be fully visible from bottom of chin to top of forehead.",
     expression:"Neutral expression, mouth closed, eyes open and clearly visible",
     validity:"Photo must be taken within the last month for UK Visas & Immigration",
     lastUpdated:"June 2026",
     sources:[
-      {name:"UK Visas & Immigration–Photo Guidelines",url:"https://www.gov.uk/photos-for-passports"},
-      {name:"GOV.UK–Visa Application Photos",url:"https://www.gov.uk/uk-visa-photo-requirements" }
+      {name:"UK Visas & Immigration – Photo Guidelines",url:"https://www.gov.uk/photos-for-passports"},
+      {name:"GOV.UK – Visa Application Photos",url:"https://www.gov.uk/uk-visa-photo-requirements" }
     ]
   },
   {
     id:"canada", name:"Canada", region:"North America",
     size:"50 × 70 mm", background:"Plain white or light colour",
-    headSize:"Face height must be 31 × 36 mm from chin to crown. Eyes should be between 30 × 45 mm from bottom of photo.",
+    headSize:"Face height must be 31–36 mm from chin to crown. Eyes should be between 30–45 mm from bottom of photo.",
     fileFormat:"JPEG", fileSize:"Max 5 MB", glasses:"Allowed but frames must not cover eyes. No tinted glasses or sunglasses.",
     headCovering:"Only for religious or medical reasons. Full face must be visible.",
     expression:"Neutral expression, mouth closed, eyes visible",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"IRCC–Photo Specifications",url:"https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/identity-management/photograph-specifications.html"},
+      {name:"IRCC – Photo Specifications",url:"https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/identity-management/photograph-specifications.html"},
       {name:"Canada Visa Application Centre",url:"https://www.vfsglobal.ca/canada/" }
     ]
   },
@@ -503,36 +396,36 @@ const countries = [
     id:"india", name:"India", region:"Asia",
     size:"51 × 51 mm (2 × 2 in) for physical. 35 × 45 mm for e-Visa digital upload.",
     background:"Plain white or off-white (no shadows)",
-    headSize:"Head must cover 50€69% of the photo. Eyes between 30 × 45 mm from bottom edge.",
-    fileFormat:"JPEG (e-Visa). 35 × 45 mm digital", fileSize:"Max 300 KB (e-Visa upload). 20€300 KB.",
+    headSize:"Head must cover 50–69% of the photo. Eyes between 30–45 mm from bottom edge.",
+    fileFormat:"JPEG (e-Visa). 35 × 45 mm digital", fileSize:"Max 300 KB (e-Visa upload). 20–300 KB.",
     glasses:"Not allowed. If worn, eyes must be clearly visible with no glare.",
     headCovering:"Only for religious reasons (turban, hijab). Face must be fully visible from chin to forehead.",
     expression:"Neutral expression, both eyes open, mouth closed",
     validity:"Photo should be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Indian Bureau of Immigration–Photo Specs",url:"https://boi.gov.in/" },
+      {name:"Indian Bureau of Immigration – Photo Specs",url:"https://boi.gov.in/" },
       {name:"Official Indian e-Visa Portal",url:"https://indianvisaonline.gov.in/" }
     ]
   },
   {
     id:"australia", name:"Australia", region:"Oceania",
     size:"35 × 45 mm", background:"Plain white or light grey",
-    headSize:"Chin to crown 32 × 36 mm. Eyes must be between 20 × 35 mm from bottom of photo.",
+    headSize:"Chin to crown 32–36 mm. Eyes must be between 20–35 mm from bottom of photo.",
     fileFormat:"JPEG, JPG", fileSize:"Max 5 MB", glasses:"Not recommended. If worn, no glare, frames must not cover eyes, no tinted lenses.",
     headCovering:"Only for religious or medical purposes. Full facial features must be visible.",
     expression:"Neutral expression, mouth closed, eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Australian Home Affairs–Visa Photo Requirements",url:"https://immi.homeaffairs.gov.au/help-support/applying-online-or-on-paper/photo-requirements"},
+      {name:"Australian Home Affairs – Visa Photo Requirements",url:"https://immi.homeaffairs.gov.au/help-support/applying-online-or-on-paper/photo-requirements"},
       {name:"Department of Home Affairs",url:"https://www.homeaffairs.gov.au/" }
     ]
   },
   {
     id:"schengen", name:"Schengen Area (EU Biometric)", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey or off-white (not pure white)",
-    headSize:"Face must be 26 × 30 mm from chin to crown (60€70% of photo). Eyes 28 × 35 mm from bottom.",
+    headSize:"Face must be 26–30 mm from chin to crown (60–70% of photo). Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG or PNG (digital). 300 dpi for print.", fileSize:"Max 500 KB (digital upload varies by country)",
     glasses:"Not allowed for biometric Schengen visa. Must be removed.",
     headCovering:"Only for religious reasons. Face must be fully visible without any obstruction.",
@@ -540,44 +433,44 @@ const countries = [
     validity:"Photo must be taken within the last 6 months. ICAO 9303 standard.",
     lastUpdated:"June 2026",
     sources:[
-      {name:"EU–Schengen Visa Photo Requirements",url:"https://ec.europa.eu/home-affairs/policies/schengen-borders-and-visa/schengen-visa_en"},
+      {name:"EU – Schengen Visa Photo Requirements",url:"https://ec.europa.eu/home-affairs/policies/schengen-borders-and-visa/schengen-visa_en"},
       {name:"ICAO 9303 Standard",url:"https://www.icao.int/" }
     ]
   },
   {
     id:"china", name:"China", region:"Asia",
     size:"33 × 48 mm", background:"Plain white",
-    headSize:"Head must be 21 × 24 mm wide and 28 × 33 mm tall. Top of photo to top of hair: 3 × 5 mm.",
+    headSize:"Head must be 21–24 mm wide and 28–33 mm tall. Top of photo to top of hair: 3–5 mm.",
     fileFormat:"JPEG", fileSize:"Max 200 KB (online application)", glasses:"Not allowed. If necessary, no glare or thick frames.",
     headCovering:"Only for religious reasons. Face must be fully visible.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile showing teeth.",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"China Visa Application Service–Photo Guide",url:"https://www.visaforchina.org/" },
-      {name:"Chinese Embassy–Visa Information",url:"http://www.china-embassy.org/" }
+      {name:"China Visa Application Service – Photo Guide",url:"https://www.visaforchina.org/" },
+      {name:"Chinese Embassy – Visa Information",url:"http://www.china-embassy.org/" }
     ]
   },
   {
     id:"japan", name:"Japan", region:"Asia",
     size:"45 × 45 mm (square) for visa. 35 × 45 mm for some applications.",
     background:"Plain white or light colour (no patterns)",
-    headSize:"Face should be 34 × 2 mm from chin to crown. Centered and squarely facing camera.",
+    headSize:"Face should be 34 ± 2 mm from chin to crown. Centered and squarely facing camera.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Allowed but no tinted lenses, no glare. Eyes must be clearly visible.",
     headCovering:"Not allowed except for religious reasons.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Ministry of Foreign Affairs of Japan–Visa",url:"https://www.mofa.go.jp/j_info/visit/visa/" },
-      {name:"Embassy of Japan–Photo Requirements",url:"https://www.in.emb-japan.go.jp/" }
+      {name:"Ministry of Foreign Affairs of Japan – Visa",url:"https://www.mofa.go.jp/j_info/visit/visa/" },
+      {name:"Embassy of Japan – Photo Requirements",url:"https://www.in.emb-japan.go.jp/" }
     ]
   },
   {
     id:"thailand", name:"Thailand", region:"Asia",
     size:"35 × 45 mm (standard). 40 × 60 mm for visa on arrival.",
     background:"Plain white or light blue",
-    headSize:"Head must be 25 × 35 mm from chin to crown. Centered and erect.",
+    headSize:"Head must be 25–35 mm from chin to crown. Centered and erect.",
     fileFormat:"JPEG", fileSize:"Max 200 KB (e-Visa)", glasses:"Not recommended. If worn, no glare and eyes must be fully visible.",
     headCovering:"Only for religious reasons. Face must be unobstructed.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -585,7 +478,7 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Thai Ministry of Foreign Affairs",url:"https://www.thaievisa.go.th/" },
-      {name:"Royal Thai Embassy–Visa Information",url:"http://www.thaiembassy.com/" }
+      {name:"Royal Thai Embassy – Visa Information",url:"http://www.thaiembassy.com/" }
     ]
   },
   {
@@ -600,14 +493,14 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Federal Authority for Identity & Citizenship (ICA)",url:"https://smartservices.icp.gov.ae/" },
-      {name:"UAE Embassy–Visa Information",url:"https://www.uae-embassy.org/" }
+      {name:"UAE Embassy – Visa Information",url:"https://www.uae-embassy.org/" }
     ]
   },
   {
     id:"turkey", name:"Turkey", region:"Europe/Asia",
     size:"50 × 60 mm (visa). 35 × 45 mm (e-Visa digital).",
     background:"Plain white",
-    headSize:"Face height 30 × 35 mm from chin to crown. Eyes should be at ? of photo height from bottom.",
+    headSize:"Face height 30–35 mm from chin to crown.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Face must be fully visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -621,7 +514,7 @@ const countries = [
   {
     id:"singapore", name:"Singapore", region:"Asia",
     size:"35 × 45 mm", background:"Plain white",
-    headSize:"Face 25 × 30 mm from chin to crown. Eyes should be 28 × 33 mm from bottom.",
+    headSize:"Face 25–30 mm from chin to crown. Eyes should be 28–33 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Not recommended. If worn, no glare, no tinted lenses.",
     headCovering:"Only for religious reasons. Full face must be visible from forehead to chin.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -636,7 +529,7 @@ const countries = [
     id:"malaysia", name:"Malaysia", region:"Asia",
     size:"35 × 50 mm (visa). 35 × 45 mm (e-Visa digital).",
     background:"Plain white or light blue",
-    headSize:"Head 20 × 25 mm wide, 30 × 35 mm tall. Centered and full-frontal.",
+    headSize:"Head 20–25 mm wide, 30–35 mm tall. Centered and full-frontal.",
     fileFormat:"JPEG", fileSize:"Max 1 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Hijab allowed. Face must be fully visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -650,14 +543,14 @@ const countries = [
   {
     id:"south-korea", name:"South Korea", region:"Asia",
     size:"35 × 45 mm", background:"Plain white",
-    headSize:"Head 25 × 35 mm from chin to crown. Eyes should be clearly visible at the correct level.",
+    headSize:"Head 25–35 mm from chin to crown. Eyes should be clearly visible at the correct level.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Not allowed except for religious reasons. Face must be fully visible.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile showing teeth.",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Korea Visa Portal–Photo Guidelines",url:"https://www.visa.go.kr/" },
+      {name:"Korea Visa Portal – Photo Guidelines",url:"https://www.visa.go.kr/" },
       {name:"Embassy of the Republic of Korea",url:"https://overseas.mofa.go.kr/" }
     ]
   },
@@ -665,7 +558,7 @@ const countries = [
     id:"vietnam", name:"Vietnam", region:"Asia",
     size:"40 × 60 mm (visa). 35 × 45 mm (e-Visa digital).",
     background:"Plain white",
-    headSize:"Face height 32 × 36 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face height 32–36 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Not recommended. If worn, no glare, no tinted lenses.",
     headCovering:"Only for religious reasons. Full face must be visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -679,7 +572,7 @@ const countries = [
   {
     id:"sri-lanka", name:"Sri Lanka", region:"Asia",
     size:"35 × 45 mm", background:"Plain white or light colour",
-    headSize:"Head must be 32 × 36 mm from chin to crown. Centered.",
+    headSize:"Head must be 32–36 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed",
     headCovering:"Only for religious reasons. Face must be fully visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -687,20 +580,20 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Sri Lanka e-Visa Official Portal",url:"https://evisa.esaralanka.lk/" },
-      {name:"Department of Immigration & Emigration–Sri Lanka",url:"https://www.immigration.gov.lk/" }
+      {name:"Department of Immigration & Emigration – Sri Lanka",url:"https://www.immigration.gov.lk/" }
     ]
   },
   {
     id:"new-zealand", name:"New Zealand", region:"Oceania",
     size:"35 × 45 mm", background:"Plain white or light grey",
-    headSize:"Head must be 30 × 36 mm from chin to crown. Eyes between 25 × 37 mm from bottom.",
+    headSize:"Head must be 30–36 mm from chin to crown. Eyes between 25–37 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 10 MB", glasses:"Allowed but frames must not cover eyes. No tinted or reflective lenses.",
     headCovering:"Only for religious or medical reasons. Full face must be visible.",
     expression:"Natural expression, mouth closed, eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Immigration New Zealand–Photo Requirements",url:"https://www.immigration.govt.nz/" },
+      {name:"Immigration New Zealand – Photo Requirements",url:"https://www.immigration.govt.nz/" },
       {name:"New Zealand Passport Photo Guidelines",url:"https://www.passports.govt.nz/" }
     ]
   },
@@ -708,21 +601,21 @@ const countries = [
     id:"brazil", name:"Brazil", region:"South America",
     size:"35 × 45 mm (visa). 40 × 50 mm (passport).",
     background:"Plain white",
-    headSize:"Face must be 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Face must be 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face must be visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Ministry of Foreign Affairs–Brazil",url:"https://www.gov.br/mre/" },
-      {name:"Brazilian Embassy–Visa Information",url:"https://www.gov.br/mre/en" }
+      {name:"Ministry of Foreign Affairs – Brazil",url:"https://www.gov.br/mre/" },
+      {name:"Brazilian Embassy – Visa Information",url:"https://www.gov.br/mre/en" }
     ]
   },
   {
     id:"russia", name:"Russia", region:"Europe/Asia",
     size:"35 × 45 mm", background:"Plain white or light grey",
-    headSize:"Face must be 28 × 32 mm from chin to crown. Eyes 28 × 32 mm from bottom edge.",
+    headSize:"Face must be 28–32 mm from chin to crown. Eyes 28–32 mm from bottom edge.",
     fileFormat:"JPEG or PNG", fileSize:"Max 300 KB", glasses:"Not allowed",
     headCovering:"Only for religious reasons. Face must be unobstructed.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -730,29 +623,29 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Russian Ministry of Foreign Affairs",url:"https://www.mid.ru/en/" },
-      {name:"Russian Embassy–Visa Information",url:"https://www.russianembassy.org/" }
+      {name:"Russian Embassy – Visa Information",url:"https://www.russianembassy.org/" }
     ]
   },
   {
     id:"south-africa", name:"South Africa", region:"Africa",
     size:"35 × 45 mm (visa). 25 × 35 mm for temporary residence.",
     background:"Plain white",
-    headSize:"Face must be 25 × 30 mm from chin to crown. Dimensions must match ICAO standards.",
+    headSize:"Face must be 25–30 mm from chin to crown. Dimensions must match ICAO standards.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Not recommended. No tinted lenses.",
     headCovering:"Only for religious or medical reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 3 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Department of Home Affairs–South Africa",url:"https://www.dha.gov.za/" },
-      {name:"South African Embassy–Visa Information",url:"http://www.dirco.gov.za/" }
+      {name:"Department of Home Affairs – South Africa",url:"https://www.dha.gov.za/" },
+      {name:"South African Embassy – Visa Information",url:"http://www.dirco.gov.za/" }
     ]
   },
   {
     id:"egypt", name:"Egypt", region:"Africa",
     size:"35 × 45 mm (visa). 40 × 60 mm (some visa types).",
     background:"Plain white or light blue",
-    headSize:"Head should cover 50€60% of the photo. Centered.",
+    headSize:"Head should cover 50–60% of the photo. Centered.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Allowed if no glare. Eyes must be clearly visible.",
     headCovering:"Hijab allowed. Face must be fully visible from forehead to chin.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -760,70 +653,70 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Egypt e-Visa Portal",url:"https://www.visa2egypt.gov.eg/" },
-      {name:"Ministry of Foreign Affairs–Egypt",url:"https://www.mfa.gov.eg/" }
+      {name:"Ministry of Foreign Affairs – Egypt",url:"https://www.mfa.gov.eg/" }
     ]
   },
   {
     id:"philippines", name:"Philippines", region:"Asia",
     size:"35 × 45 mm", background:"Plain white or light grey",
-    headSize:"Face must be 25 × 30 mm from chin to crown. Eyes 28 × 32 mm from bottom.",
+    headSize:"Face must be 25–30 mm from chin to crown. Eyes 28–32 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 1 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face must be visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Bureau of Immigration–Philippines",url:"https://www.immigration.gov.ph/" },
-      {name:"Philippine Embassy–Visa Information",url:"https://www.philembassy.net/" }
+      {name:"Bureau of Immigration – Philippines",url:"https://www.immigration.gov.ph/" },
+      {name:"Philippine Embassy – Visa Information",url:"https://www.philembassy.net/" }
     ]
   },
   {
     id:"indonesia", name:"Indonesia", region:"Asia",
     size:"35 × 45 mm (visa). 40 × 60 mm (some visa types).",
     background:"Plain white or light red",
-    headSize:"Head height 30 × 35 mm. Centered with proper spacing.",
+    headSize:"Head height 30–35 mm. Centered with proper spacing.",
     fileFormat:"JPEG", fileSize:"Max 1 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Hijab allowed for women. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Directorate General of Immigration–Indonesia",url:"https://www.imigrasi.go.id/" },
-      {name:"Embassy of Indonesia–Visa Information",url:"https://www.kemlu.go.id/" }
+      {name:"Directorate General of Immigration – Indonesia",url:"https://www.imigrasi.go.id/" },
+      {name:"Embassy of Indonesia – Visa Information",url:"https://www.kemlu.go.id/" }
     ]
   },
   {
     id:"germany", name:"Germany", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey (not pure white)",
-    headSize:"Face height 26 × 30 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face height 26–30 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face must be visible from chin to forehead.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile.",
     validity:"Photo must be taken within the last 6 months. Biometric standard.",
     lastUpdated:"June 2026",
     sources:[
-      {name:"German Federal Foreign Office–Visa",url:"https://www.auswaertiges-amt.de/en/" },
-      {name:"Embassy of Germany–Photo Guidelines",url:"https://www.germany.info/" }
+      {name:"German Federal Foreign Office – Visa",url:"https://www.auswaertiges-amt.de/en/" },
+      {name:"Embassy of Germany – Photo Guidelines",url:"https://www.germany.info/" }
     ]
   },
   {
     id:"france", name:"France", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey or off-white",
-    headSize:"Face must be 26 × 30 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face must be 26–30 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face must be visible.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile.",
     validity:"Photo must be taken within the last 6 months. ICAO biometric standard.",
     lastUpdated:"June 2026",
     sources:[
-      {name:"France-Visas–Official Portal",url:"https://france-visas.gouv.fr/en/" },
-      {name:"Embassy of France–Visa Information",url:"https://www.ambafrance.org/" }
+      {name:"France-Visas – Official Portal",url:"https://france-visas.gouv.fr/en/" },
+      {name:"Embassy of France – Visa Information",url:"https://www.ambafrance.org/" }
     ]
   },
   {
     id:"netherlands", name:"Netherlands", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey or off-white",
-    headSize:"Face must be 26 × 30 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face must be 26–30 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face must be visible.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile.",
@@ -831,70 +724,70 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Netherlands Immigration Service (IND)",url:"https://ind.nl/en/" },
-      {name:"Embassy of the Netherlands–Visa",url:"https://www.netherlandsandyou.nl/" }
+      {name:"Embassy of the Netherlands – Visa",url:"https://www.netherlandsandyou.nl/" }
     ]
   },
   {
     id:"switzerland", name:"Switzerland", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey or off-white",
-    headSize:"Face must be 26 × 30 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face must be 26–30 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile.",
     validity:"Photo must be taken within the last 6 months.",
     lastUpdated:"June 2026",
     sources:[
-      {name:"State Secretariat for Migration (SEM)–Switzerland",url:"https://www.sem.admin.ch/" },
-      {name:"Embassy of Switzerland–Visa Information",url:"https://www.eda.admin.ch/" }
+      {name:"State Secretariat for Migration (SEM) – Switzerland",url:"https://www.sem.admin.ch/" },
+      {name:"Embassy of Switzerland – Visa Information",url:"https://www.eda.admin.ch/" }
     ]
   },
   {
     id:"italy", name:"Italy", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey or off-white",
-    headSize:"Face must be 26 × 30 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face must be 26–30 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile.",
     validity:"Photo must be taken within the last 6 months.",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Italian Ministry of Foreign Affairs–Visa",url:"https://www.esteri.it/en/" },
-      {name:"Embassy of Italy–Visa Information",url:"https://www.ambnewdelhi.esteri.it/" }
+      {name:"Italian Ministry of Foreign Affairs – Visa",url:"https://www.esteri.it/en/" },
+      {name:"Embassy of Italy – Visa Information",url:"https://www.ambnewdelhi.esteri.it/" }
     ]
   },
   {
     id:"spain", name:"Spain", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey or off-white",
-    headSize:"Face must be 26 × 30 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face must be 26–30 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile.",
     validity:"Photo must be taken within the last 6 months.",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Ministry of Foreign Affairs–Spain",url:"https://www.exteriores.gob.es/en/" },
-      {name:"Embassy of Spain–Visa Information",url:"https://www.exteriores.gob.es/Embajadas/" }
+      {name:"Ministry of Foreign Affairs – Spain",url:"https://www.exteriores.gob.es/en/" },
+      {name:"Embassy of Spain – Visa Information",url:"https://www.exteriores.gob.es/Embajadas/" }
     ]
   },
   {
     id:"saudi-arabia", name:"Saudi Arabia", region:"Asia",
     size:"40 × 60 mm (visa). 35 × 45 mm (digital).",
     background:"Plain white",
-    headSize:"Head 30 × 35 mm from chin to crown. Full frontal view.",
+    headSize:"Head 30–35 mm from chin to crown. Full frontal view.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Hijab mandatory for women. Niqab not allowed. Men: no head covering unless religious.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 3 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Saudi Arabia–Ministry of Foreign Affairs",url:"https://www.mofa.gov.sa/" },
+      {name:"Saudi Arabia – Ministry of Foreign Affairs",url:"https://www.mofa.gov.sa/" },
       {name:"Saudi Visa Portal (KSA Visa)",url:"https://visa.mofa.gov.sa/" }
     ]
   },
   {
     id:"kenya", name:"Kenya", region:"Africa",
     size:"35 × 45 mm", background:"Plain white",
-    headSize:"Head must be 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Head must be 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -902,13 +795,13 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Kenya e-Visa Official Portal",url:"https://evisa.go.ke/" },
-      {name:"Department of Immigration–Kenya",url:"https://www.immigration.go.ke/" }
+      {name:"Department of Immigration – Kenya",url:"https://www.immigration.go.ke/" }
     ]
   },
   {
     id:"cambodia", name:"Cambodia", region:"Asia",
     size:"35 × 45 mm", background:"Plain white or light colour",
-    headSize:"Head 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Head 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 1 MB", glasses:"Not allowed",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -916,14 +809,14 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Cambodia e-Visa Official Portal",url:"https://www.evisa.gov.kh/" },
-      {name:"Ministry of Foreign Affairs–Cambodia",url:"https://www.mfaic.gov.kh/" }
+      {name:"Ministry of Foreign Affairs – Cambodia",url:"https://www.mfaic.gov.kh/" }
     ]
   },
   {
     id:"mexico", name:"Mexico", region:"North America",
     size:"35 × 45 mm (visa). 25 × 30 mm (some permits).",
     background:"Plain white or light grey",
-    headSize:"Head 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Head 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Allowed if no glare. Eyes must be visible.",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -931,13 +824,13 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Mexican Ministry of Foreign Affairs",url:"https://www.gob.mx/sre/" },
-      {name:"Embassy of Mexico–Visa Information",url:"https://embamex.sre.gob.mx/" }
+      {name:"Embassy of Mexico – Visa Information",url:"https://embamex.sre.gob.mx/" }
     ]
   },
   {
     id:"ireland", name:"Ireland", region:"Europe",
     size:"35 × 45 mm", background:"Plain white or light grey",
-    headSize:"Face must be 26 × 30 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face must be 26–30 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 10 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -945,58 +838,58 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Irish Naturalisation and Immigration Service",url:"https://www.irishimmigration.ie/" },
-      {name:"Department of Foreign Affairs–Ireland",url:"https://www.dfa.ie/" }
+      {name:"Department of Foreign Affairs – Ireland",url:"https://www.dfa.ie/" }
     ]
   },
   {
     id:"bangladesh", name:"Bangladesh", region:"Asia",
     size:"35 × 45 mm (visa). 30 × 40 mm (passport).",
     background:"Plain white",
-    headSize:"Head must be 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Head must be 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 300 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Face fully visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Department of Immigration & Passports–Bangladesh",url:"https://www.immigration.gov.bd/" },
-      {name:"Embassy of Bangladesh–Visa Information",url:"https://www.bangladeshembassy.org/" }
+      {name:"Department of Immigration & Passports – Bangladesh",url:"https://www.immigration.gov.bd/" },
+      {name:"Embassy of Bangladesh – Visa Information",url:"https://www.bangladeshembassy.org/" }
     ]
   },
   {
     id:"nepal", name:"Nepal", region:"Asia",
     size:"35 × 45 mm (visa). 38 × 38 mm (tourist visa photo).",
     background:"Plain white or light colour",
-    headSize:"Head 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Head 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 300 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Department of Immigration–Nepal",url:"https://www.immigration.gov.np/" },
+      {name:"Department of Immigration – Nepal",url:"https://www.immigration.gov.np/" },
       {name:"Nepal eVisa Portal",url:"https://nepaliport.immigration.gov.np/" }
     ]
   },
   {
     id:"poland", name:"Poland", region:"Europe",
     size:"35 × 45 mm", background:"Plain light grey or off-white",
-    headSize:"Face must be 26 × 30 mm from chin to crown. Eyes 28 × 35 mm from bottom.",
+    headSize:"Face must be 26–30 mm from chin to crown. Eyes 28–35 mm from bottom.",
     fileFormat:"JPEG", fileSize:"Max 500 KB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open. No smile.",
     validity:"Photo must be taken within the last 6 months. Biometric standard.",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Polish Ministry of Foreign Affairs–Visa",url:"https://www.gov.pl/web/diplomacy" },
-      {name:"Embassy of Poland–Visa Information",url:"https://www.gov.pl/web/india" }
+      {name:"Polish Ministry of Foreign Affairs – Visa",url:"https://www.gov.pl/web/diplomacy" },
+      {name:"Embassy of Poland – Visa Information",url:"https://www.gov.pl/web/india" }
     ]
   },
   {
     id:"myanmar", name:"Myanmar (Burma)", region:"Asia",
     size:"35 × 45 mm (visa). 50 × 50 mm (some types).",
     background:"Plain white",
-    headSize:"Head 25 × 30 mm from chin to crown. Full-frontal view.",
+    headSize:"Head 25–30 mm from chin to crown. Full-frontal view.",
     fileFormat:"JPEG", fileSize:"Max 1 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
@@ -1004,20 +897,20 @@ const countries = [
     lastUpdated:"June 2026",
     sources:[
       {name:"Myanmar e-Visa Official Portal",url:"https://evisa.moip.gov.mm/" },
-      {name:"Ministry of Immigration–Myanmar",url:"https://www.moip.gov.mm/" }
+      {name:"Ministry of Immigration – Myanmar",url:"https://www.moip.gov.mm/" }
     ]
   },
   {
     id:"qatar", name:"Qatar", region:"Asia",
     size:"35 × 45 mm", background:"Plain white",
-    headSize:"Head 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Head 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 3 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Ministry of Interior–Qatar",url:"https://www.moi.gov.qa/" },
+      {name:"Ministry of Interior – Qatar",url:"https://www.moi.gov.qa/" },
       {name:"Qatar Visa Portal",url:"https://portal.moi.gov.qa/" }
     ]
   },
@@ -1025,246 +918,251 @@ const countries = [
     id:"oman", name:"Oman", region:"Asia",
     size:"40 × 60 mm (visa). 35 × 45 mm (e-Visa).",
     background:"Plain white",
-    headSize:"Head 30 × 35 mm from chin to crown. Centered.",
+    headSize:"Head 30–35 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Royal Oman Police–Visa Services",url:"https://www.rop.gov.om/" },
+      {name:"Royal Oman Police – Visa Services",url:"https://www.rop.gov.om/" },
       {name:"Oman eVisa Portal",url:"https://evisa.rop.gov.om/" }
     ]
   },
   {
     id:"kuwait", name:"Kuwait", region:"Asia",
     size:"35 × 45 mm", background:"Plain white",
-    headSize:"Head 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Head 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 1 MB", glasses:"Not allowed (must be removed)",
     headCovering:"Only for religious reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 3 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Ministry of Interior–Kuwait",url:"https://www.moi.gov.kw/" },
-      {name:"Kuwait Embassy–Visa Information",url:"https://www.kuwaitembassy.com/" }
+      {name:"Ministry of Interior – Kuwait",url:"https://www.moi.gov.kw/" },
+      {name:"Kuwait Embassy – Visa Information",url:"https://www.kuwaitembassy.com/" }
     ]
   },
   {
     id:"argentina", name:"Argentina", region:"South America",
     size:"35 × 45 mm (visa). 40 × 40 mm (passport).",
     background:"Plain white or light grey",
-    headSize:"Face must be 25 × 30 mm from chin to crown. Centered.",
+    headSize:"Face must be 25–30 mm from chin to crown. Centered.",
     fileFormat:"JPEG", fileSize:"Max 2 MB", glasses:"Allowed if no glare. Eyes must be clearly visible.",
     headCovering:"Only for religious or medical reasons. Full face visible.",
     expression:"Neutral expression, mouth closed, both eyes open",
     validity:"Photo must be taken within the last 6 months",
     lastUpdated:"June 2026",
     sources:[
-      {name:"Ministry of Foreign Affairs–Argentina",url:"https://www.cancilleria.gob.ar/" },
-      {name:"Embassy of Argentina–Visa Information",url:"https://www.argentina.gob.ar/" }
+      {name:"Ministry of Foreign Affairs – Argentina",url:"https://www.cancilleria.gob.ar/" },
+      {name:"Embassy of Argentina – Visa Information",url:"https://www.argentina.gob.ar/" }
     ]
   }
 ];
 
-// ============================================================
-// APP LOGIC
-// ============================================================
-let compareMode = false;
-let selectedCountry1 = null;
-let selectedCountry2 = null;
+/* ============================================================
+   APP: finder, result card, compare, table filter, print
+   ============================================================ */
+(function () {
+  'use strict';
+  var byId = {};
+  countries.forEach(function (c) { byId[c.id] = c; });
+  var sorted = countries.slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
+  var input = document.getElementById('phInput'), list = document.getElementById('phList');
+  var cmp = document.getElementById('phCompare'), result = document.getElementById('phResult');
+  var picked = [], matches = [], active = -1;
 
-function init() {
-  populateCountrySelect();
-  populateRegionPills();
-  updateCountryCount();
-}
-
-function populateCountrySelect() {
-  const sel = document.getElementById("countrySelect");
-  sel.innerHTML = '<option value="">-- Select a country --</option>';
-  const sorted = [...countries].sort((a,b) => a.name.localeCompare(b.name));
-  sorted.forEach(c => {
-    const opt = document.createElement("option");
-    opt.value = c.id;
-    opt.textContent = c.name;
-    sel.appendChild(opt);
-  });
-}
-
-function populateRegionPills() {
-  const container = document.getElementById("regionPills");
-  const regions = [...new Set(countries.map(c => c.region))].sort();
-  const allPill = document.createElement("button");
-  allPill.className = "region-pill active";
-  allPill.textContent = "All";
-  allPill.onclick = () => { document.getElementById("regionFilter").value = "all"; filterCountries(); };
-  container.appendChild(allPill);
-  regions.forEach(r => {
-    const pill = document.createElement("button");
-    pill.className = "region-pill";
-    pill.textContent = r;
-    pill.onclick = () => { document.getElementById("regionFilter").value = r; filterCountries(); };
-    container.appendChild(pill);
-  });
-}
-
-function filterCountries() {
-  const search = document.getElementById("countrySearch").value.toLowerCase().trim();
-  const region = document.getElementById("regionFilter").value;
-  const sel = document.getElementById("countrySelect");
-  // Update region pills
-  document.querySelectorAll(".region-pill").forEach(p => {
-    p.classList.toggle("active", (region === "all" && p.textContent === "All") || p.textContent === region);
-  });
-  // Filter options
-  let visibleCount = 0;
-  for (let opt of sel.options) {
-    if (!opt.value) continue;
-    const country = countries.find(c => c.id === opt.value);
-    if (!country) continue;
-    const matchSearch = !search || country.name.toLowerCase().includes(search);
-    const matchRegion = region === "all" || country.region === region;
-    opt.style.display = matchSearch && matchRegion ? "block" : "none";
-    if (matchSearch && matchRegion) visibleCount++;
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function tag(kind) {
+    var t = { yes: ['n-tag-ok', 'check2', 'Allowed'], no: ['n-tag-no', 'x-lg', 'Not allowed'], cond: ['n-tag-cond', 'exclamation-triangle', 'Conditional'] }[kind];
+    return '<span class="n-tag ' + t[0] + '"><i class="bi bi-' + t[1] + '" aria-hidden="true"></i> ' + t[2] + '</span>';
   }
-  document.getElementById("countryCount").textContent = `Showing ${visibleCount} of ${countries.length} countries`;
-}
-
-function toggleCompare() {
-  compareMode = document.getElementById("compareMode").checked;
-  if (!compareMode) {
-    selectedCountry2 = null;
-    document.getElementById("compareDetails").style.display = "none";
-    if (selectedCountry1) selectCountry(selectedCountry1.id);
-  } else {
-    if (selectedCountry1) selectCountry(selectedCountry1.id);
+  function glassesTag(c) {
+    var g = c.glasses.toLowerCase();
+    if (g.indexOf('not allowed') !== -1 || g.indexOf('not recommended') !== -1) return tag('no');
+    if (g.indexOf('conditional') !== -1 || g.indexOf('only for') !== -1 || g.indexOf('if n') !== -1) return tag('cond');
+    return g.indexOf('allowed') !== -1 ? tag('yes') : tag('cond');
   }
-}
+  function headTag(c) {
+    var h = c.headCovering.toLowerCase();
+    if (h.indexOf('only for religious') !== -1 || h.indexOf('allowed') !== -1) return tag('cond');
+    return h.indexOf('not allowed') !== -1 ? tag('no') : tag('cond');
+  }
+  function sources(c) {
+    if (!c.sources || !c.sources.length) return '<span class="n-muted">No sources listed</span>';
+    return '<ul class="n-ph-src">' + c.sources.map(function (s) {
+      return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> ' + esc(s.name) + '</a></li>';
+    }).join('') + '</ul>';
+  }
+  var FIELDS = [
+    ['Photo size', function (c) { return esc(c.size); }, 'aspect-ratio'],
+    ['Background', function (c) { return esc(c.background); }, 'square'],
+    ['File format', function (c) { return esc(c.fileFormat); }, 'filetype-jpg'],
+    ['File size limit', function (c) { return esc(c.fileSize); }, 'hdd'],
+    ['Glasses', function (c) { return glassesTag(c) + '<small>' + esc(c.glasses) + '</small>'; }, 'eyeglasses'],
+    ['Head covering', function (c) { return headTag(c) + '<small>' + esc(c.headCovering) + '</small>'; }, 'person'],
+    ['Expression', function (c) { return esc(c.expression); }, 'emoji-neutral'],
+    ['Photo age', function (c) { return esc(c.validity); }, 'calendar-check']
+  ];
+  function card(c) {
+    var h = '<article class="n-ph-card"><div class="n-ph-card-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-camera"></i></span>' +
+      '<div><h2>' + esc(c.name) + '</h2><span>' + esc(c.region) + ' &middot; verified ' + esc(c.lastUpdated) + '</span></div></div><dl class="n-ph-grid">';
+    FIELDS.forEach(function (f) { h += '<div><dt><i class="bi bi-' + f[2] + '" aria-hidden="true"></i> ' + f[0] + '</dt><dd>' + f[1](c) + '</dd></div>'; });
+    if (c.headSize) h += '<div class="n-ph-wide"><dt><i class="bi bi-rulers" aria-hidden="true"></i> Face position &amp; head size</dt><dd>' + esc(c.headSize) + '</dd></div>';
+    h += '</dl><div class="n-ph-sources"><b>Official sources</b>' + sources(c) +
+      '<p>Always confirm with the embassy or official portal before you apply &mdash; rules can change.</p></div></article>';
+    return h;
+  }
+  function compare(a, b) {
+    var h = '<article class="n-ph-card"><div class="n-ph-card-hd"><span class="n-emb-ic" aria-hidden="true"><i class="bi bi-arrow-left-right"></i></span>' +
+      '<div><h2>' + esc(a.name) + ' vs ' + esc(b.name) + '</h2><span>Side-by-side photo requirements</span></div></div>' +
+      '<div class="n-ph-cmpwrap"><table class="n-ph-cmp-tbl"><thead><tr><th scope="col"><span class="sr-only">Requirement</span></th><th scope="col">' + esc(a.name) + '</th><th scope="col">' + esc(b.name) + '</th></tr></thead><tbody>';
+    FIELDS.concat([['Face position &amp; head size', function (c) { return esc(c.headSize || ''); }]]).forEach(function (f) {
+      h += '<tr><th scope="row">' + f[0] + '</th><td>' + f[1](a) + '</td><td>' + f[1](b) + '</td></tr>';
+    });
+    h += '<tr><th scope="row">Official sources</th><td>' + sources(a) + '</td><td>' + sources(b) + '</td></tr></tbody></table></div></article>';
+    return h;
+  }
+  function render() {
+    if (!picked.length) return;
+    if (cmp.checked && picked.length === 2) result.innerHTML = compare(picked[0], picked[1]);
+    else {
+      result.innerHTML = card(picked[picked.length - 1]) +
+        (cmp.checked ? '<p class="n-ph-hint"><i class="bi bi-info-circle" aria-hidden="true"></i> Now choose a second country to compare with ' + esc(picked[0].name) + '.</p>' : '');
+    }
+    document.querySelectorAll('#phTable tbody tr').forEach(function (tr) {
+      tr.classList.toggle('on', picked.some(function (p) { return p.id === tr.dataset.id; }));
+    });
+  }
+  function pick(id, scroll) {
+    var c = byId[id];
+    if (!c) return;
+    if (cmp.checked) {
+      if (picked.length === 1 && picked[0].id !== c.id) picked = [picked[0], c];
+      else picked = [c];
+    } else picked = [c];
+    input.value = c.name;
+    closeList();
+    render();
+    if (scroll) document.getElementById('phResultSec').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  cmp.addEventListener('change', function () {
+    if (!cmp.checked && picked.length) picked = [picked[picked.length - 1]];
+    render();
+  });
 
-function selectCountry(id) {
-  if (!id) return;
-  const country = countries.find(c => c.id === id);
-  if (!country) return;
+  function closeList() { list.classList.remove('open'); input.setAttribute('aria-expanded', 'false'); input.removeAttribute('aria-activedescendant'); active = -1; }
+  function drawList() {
+    list.innerHTML = matches.map(function (c, i) {
+      return '<li role="option" id="phOpt' + i + '" aria-selected="' + (i === active) + '"' + (i === active ? ' class="on"' : '') + ' data-i="' + i + '">' + esc(c.name) + '</li>';
+    }).join('');
+    if (active >= 0) input.setAttribute('aria-activedescendant', 'phOpt' + active);
+  }
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+    if (!q) { closeList(); return; }
+    var starts = [], has = [];
+    sorted.forEach(function (c) { var n = c.name.toLowerCase(); if (n.indexOf(q) === 0) starts.push(c); else if (n.indexOf(q) > 0) has.push(c); });
+    matches = starts.concat(has).slice(0, 8);
+    active = matches.length ? 0 : -1;
+    if (!matches.length) { list.innerHTML = '<li class="n-ph-none">No match &mdash; try the table below</li>'; list.classList.add('open'); return; }
+    drawList(); list.classList.add('open'); input.setAttribute('aria-expanded', 'true');
+  });
+  input.addEventListener('keydown', function (e) {
+    var open = list.classList.contains('open') && matches.length;
+    if (e.key === 'ArrowDown' && open) { active = (active + 1) % matches.length; drawList(); e.preventDefault(); }
+    else if (e.key === 'ArrowUp' && open) { active = (active - 1 + matches.length) % matches.length; drawList(); e.preventDefault(); }
+    else if (e.key === 'Enter') { e.preventDefault(); if (open && active >= 0) pick(matches[active].id, true); }
+    else if (e.key === 'Escape') closeList();
+  });
+  list.addEventListener('mousedown', function (e) {
+    var li = e.target.closest('li[data-i]');
+    if (li) { e.preventDefault(); pick(matches[+li.dataset.i].id, true); }
+  });
+  input.addEventListener('blur', function () { setTimeout(closeList, 100); });
+  document.querySelectorAll('.n-trk-chip[data-id], .n-ph-pick').forEach(function (b) {
+    b.addEventListener('click', function () { pick(b.dataset.id, true); });
+  });
 
-  if (compareMode && selectedCountry1 && selectedCountry1.id !== id) {
-    selectedCountry2 = country;
-    showComparison(selectedCountry1, selectedCountry2);
+  var filter = document.getElementById('phFilter'), reg = 'all';
+  var chips = document.querySelectorAll('.n-chipf');
+  function applyTable() {
+    var q = filter.value.trim().toLowerCase(), n = 0;
+    document.querySelectorAll('#phTable tbody tr').forEach(function (tr) {
+      var hit = (reg === 'all' || tr.dataset.reg === reg) && (!q || tr.dataset.name.indexOf(q) !== -1);
+      tr.hidden = !hit; if (hit) n++;
+    });
+    document.getElementById('phTblEmpty').classList.toggle('on', n === 0);
+  }
+  filter.addEventListener('input', applyTable);
+  chips.forEach(function (b) {
+    b.addEventListener('click', function () {
+      reg = b.dataset.reg;
+      chips.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      applyTable();
+    });
+  });
+
+  document.getElementById('phPrint').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.documentElement.classList.add('n-print-check');
+    window.print();
+    setTimeout(function () { document.documentElement.classList.remove('n-print-check'); }, 500);
+  });
+})();
+</script>
+<script>
+/* Header state, mobile drawer and reveal-on-scroll (same behaviour as the homepage) */
+(function () {
+  'use strict';
+  var hd = document.getElementById('nxHeader');
+  if (hd) {
+    var upd = function () { hd.classList.toggle('stuck', window.scrollY > 30); };
+    window.addEventListener('scroll', upd, { passive: true });
+    upd();
+  }
+  var b = document.getElementById('nxBurger'), m = document.getElementById('nxMenu'), v = document.getElementById('nxVeil');
+  if (b && m) {
+    var close = function () { b.classList.remove('on'); m.classList.remove('open'); if (v) v.classList.remove('on'); b.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+    b.addEventListener('click', function () {
+      var open = m.classList.toggle('open');
+      b.classList.toggle('on', open);
+      if (v) v.classList.toggle('on', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    if (v) v.addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1024) close(); });
+  }
+  var els = document.querySelectorAll('.n-rv');
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
     return;
   }
-
-  selectedCountry1 = country;
-  selectedCountry2 = null;
-  document.getElementById("compareDetails").style.display = "none";
-  showCountry(country);
-}
-
-function showCountry(c) {
-  const panel = document.getElementById("countryDetails");
-  const prompt = document.getElementById("selectPrompt");
-  prompt.style.display = "none";
-  panel.style.display = "block";
-  panel.innerHTML = buildCountryCard(c, false);
-  updateSources(c);
-  document.getElementById("countrySelect").value = c.id;
-}
-
-function showComparison(c1, c2) {
-  const panel = document.getElementById("countryDetails");
-  const comparePanel = document.getElementById("compareDetails");
-  const prompt = document.getElementById("selectPrompt");
-  prompt.style.display = "none";
-  panel.style.display = "block";
-  comparePanel.style.display = "block";
-
-  panel.innerHTML = buildCountryCard(c1, false);
-  comparePanel.innerHTML = '<h3 style="margin-bottom:10px;color:var(--color-primary);"><i class="bi bi-arrow-left-right"></i> Comparison: ' + c1.name + ' vs ' + c2.name + '</h3><div class="compare-grid">' + buildCountryCard(c1, true) + buildCountryCard(c2, true) + '</div>';
-
-  const sourcesDiv = document.getElementById("sourceLinks");
-  sourcesDiv.innerHTML = '<h3 style="margin-bottom:12px;">Sources</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">' +
-    '<div><h4 style="font-size:0.95rem;">' + c1.name + '</h4>' + buildSourcesList(c1) + '</div>' +
-    '<div><h4 style="font-size:0.95rem;">' + c2.name + '</h4>' + buildSourcesList(c2) + '</div></div>';
-}
-
-function buildCountryCard(c, compact) {
-  const yesIcon = '<span class="tag tag-green"><i class="bi bi-check2"></i> Allowed</span>';
-  const noIcon = '<span class="tag tag-red"><i class="bi bi-x"></i> Not Allowed</span>';
-  const conditionalIcon = '<span class="tag tag-yellow"><i class="bi bi-exclamation-triangle"></i> Conditional</span>';
-
-  const glassesTag = c.glasses.toLowerCase().includes("not allowed") || c.glasses.toLowerCase().includes("not recommended") ? noIcon :
-                     c.glasses.toLowerCase().includes("conditional") || c.glasses.toLowerCase().includes("only for") || c.glasses.toLowerCase().includes("if n") ? conditionalIcon :
-                     c.glasses.toLowerCase().includes("allowed") ? yesIcon : conditionalIcon;
-
-  const headCoverTag = c.headCovering.toLowerCase().includes("only for religious") || c.headCovering.toLowerCase().includes("allowed") ? conditionalIcon :
-                       c.headCovering.toLowerCase().includes("not allowed") ? noIcon : conditionalIcon;
-
-  const fields = [
-    {label:"Photo Size", value:c.size},
-    {label:"Background", value:c.background},
-    {label:"File Format", value:c.fileFormat},
-    {label:"File Size Limit", value:c.fileSize},
-    {label:"Glasses", value:glassesTag},
-    {label:"Head Covering", value:headCoverTag},
-    {label:"Expression", value:c.expression},
-    {label:"Validity", value:c.validity}
-  ];
-
-  let html = '';
-  if (!compact) {
-    html = '<div class="photo-card">' +
-      '<div class="photo-card-header"><h2><i class="bi bi-camera"></i> ' + c.name + '</h2><span class="last-updated"><i class="bi bi-clock"></i> Updated: ' + c.lastUpdated + '</span></div>' +
-      '<div class="photo-card-body"><div class="photo-grid">';
-  } else {
-    html = '<div class="photo-card"><div class="photo-card-header"><h2 style="font-size:1rem;">' + c.name + '</h2></div><div class="photo-card-body"><div class="photo-grid">';
-  }
-
-  fields.forEach(f => {
-    html += '<div class="photo-field"><span class="label">' + f.label + '</span><span class="value">' + f.value + '</span></div>';
-  });
-
-  // Head size / face rules in full view
-  if (!compact && c.headSize) {
-    html += '<div class="photo-field" style="grid-column:1/-1;"><span class="label">Face Position / Head Size</span><span class="value">' + c.headSize + '</span></div>';
-  }
-  if (!compact && c.sources) {
-    html += '<div class="photo-field" style="grid-column:1/-1;"><span class="label">Official Sources</span><span class="value">' + buildSourcesList(c) + '</span></div>';
-  }
-
-  html += '</div></div></div>';
-  return html;
-}
-
-function buildSourcesList(c) {
-  if (!c.sources || c.sources.length === 0) return '<span style="color:var(--color-text-light);">No sources available</span>';
-  return c.sources.map(s => '<a href="' + s.url + '" target="_blank" rel="noopener noreferrer" style="display:block;font-size:0.85rem;padding:2px 0;"><i class="bi bi-link-45deg"></i> ' + s.name + '</a>').join('');
-}
-
-function updateSources(c) {
-  const div = document.getElementById("sourceLinks");
-  div.innerHTML = '<h3 style="margin-bottom:12px;"><i class="bi bi-link-45deg" style="color:var(--color-primary);"></i> Official Sources for ' + c.name + '</h3>' +
-    '<p style="font-size:0.9rem;color:var(--color-text-light);margin-bottom:12px;">Verify the latest requirements directly from official government sources:</p>' +
-    buildSourcesList(c) +
-    '<p style="margin-top:15px;font-size:0.85rem;color:var(--color-text-muted);"><i class="bi bi-info-circle"></i> Information verified as of ' + c.lastUpdated + '. Always check the official embassy website for the most current requirements.</p>';
-}
-
-function updateCountryCount() {
-  document.getElementById("countryCount").textContent = 'Showing ' + countries.length + ' of ' + countries.length + ' countries';
-}
-
-// Initialize
-document.addEventListener("DOMContentLoaded", init);
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+})();
 </script>
-
-<!--Start of Tawk.to Script-->
+<!--Start of Tawk.to Script (loaded after first interaction or 6s)-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
+var loaded=false;
+function load(){
+if(loaded)return;loaded=true;
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
+}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){window.addEventListener(ev,load,{once:true,passive:true});});
+setTimeout(load,6000);
 })();
 </script>
 <!--End of Tawk.to Script-->
@@ -1278,3 +1176,4 @@ s0.parentNode.insertBefore(s1,s0);
 </style>
 </body>
 </html>
+

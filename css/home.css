@@ -1,6 +1,6 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded by index.html, about/, contact/, blog/, visa-guide/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
+   Loaded by index.html, about/, contact/, blog/, visa-guide/, visa-photo-requirements/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -681,6 +681,78 @@
 .nx .n-gcard-meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;padding-top:10px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink-2)}
 .nx .n-gcard-meta i{color:var(--muted);margin-right:3px}
 .nx #guideGrid+.n-cempty+.n-india{margin-top:40px}
+
+/* ---------- Visa photo requirements ---------- */
+.nx .n-ph-find{margin-top:4px;max-width:560px;box-shadow:var(--sh)}
+.nx .n-ph-cmp{display:inline-flex;align-items:center;gap:10px;margin-top:14px;font-size:.88rem;font-weight:600;color:var(--ink-2);cursor:pointer}
+.nx .n-ph-cmp input{position:absolute;opacity:0;width:1px;height:1px}
+.nx .n-ph-sw{position:relative;width:36px;height:20px;border-radius:10px;background:#C5CEDD;transition:background .2s}
+.nx .n-ph-sw::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2);transition:transform .2s}
+.nx .n-ph-cmp input:checked+.n-ph-sw{background:var(--indigo)}
+.nx .n-ph-cmp input:checked+.n-ph-sw::after{transform:translateX(16px)}
+.nx .n-ph-cmp input:focus-visible+.n-ph-sw{outline:2px solid var(--indigo);outline-offset:2px}
+.nx .n-ph-guide svg{display:block;width:100%;max-width:280px;height:auto;margin:14px auto 18px}
+.nx .n-trk-list .n-ph-none{color:var(--muted);cursor:default}
+.nx .n-ph-main{display:grid;grid-template-columns:1fr 330px;gap:28px;align-items:start}
+.nx .n-ph-side{display:grid;gap:18px}
+.nx .n-ph-empty{display:flex;align-items:center;gap:14px;padding:26px;border:1px dashed #C5CEDD;border-radius:14px;background:var(--mist)}
+.nx .n-ph-empty b{display:block;color:var(--ink)}
+.nx .n-ph-empty span:not(.n-emb-ic){display:block;font-size:.88rem;color:var(--muted)}
+.nx .n-ph-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh)}
+.nx .n-ph-card-hd{display:flex;align-items:center;gap:13px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.nx .n-ph-card-hd h2{font-size:1.2rem;font-weight:700;margin:0}
+.nx .n-ph-card-hd span:not(.n-emb-ic){font-size:.8rem;color:var(--muted)}
+.nx .n-ph-grid{display:grid;grid-template-columns:1fr 1fr;margin:0}
+.nx .n-ph-grid>div{padding:14px 22px;border-bottom:1px solid var(--line)}
+.nx .n-ph-grid>div:nth-child(odd):not(.n-ph-wide){border-right:1px solid var(--line)}
+.nx .n-ph-grid dt{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.nx .n-ph-grid dt i{margin-right:3px}
+.nx .n-ph-grid dd{margin:0;font-size:.92rem;color:var(--ink);line-height:1.5}
+.nx .n-ph-grid dd small{display:block;margin-top:5px;font-size:.8rem;color:var(--muted);line-height:1.45}
+.nx .n-ph-wide{grid-column:1/-1}
+.nx .n-tag{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:6px;font-size:.78rem;font-weight:700}
+.nx .n-tag-ok{background:#ECFDF3;color:#067647}
+.nx .n-tag-no{background:#FEF3F2;color:#B42318}
+.nx .n-tag-cond{background:#FFF8EB;color:#93540E}
+.nx .n-ph-sources{padding:16px 22px 18px;background:var(--mist)}
+.nx .n-ph-sources b{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.nx .n-ph-sources p{margin:10px 0 0;font-size:.8rem;color:var(--muted)}
+.nx .n-ph-src{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.nx .n-ph-src a{font-size:.88rem;font-weight:600;color:var(--indigo)}
+.nx .n-ph-src a i{font-size:.75rem}
+.nx .n-ph-hint{display:flex;gap:8px;align-items:center;margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--accent-tint);color:var(--ink-2);font-size:.88rem}
+.nx .n-ph-cmpwrap{overflow-x:auto}
+.nx .n-ph-cmp-tbl{width:100%;border-collapse:collapse;font-size:.88rem;min-width:520px}
+.nx .n-ph-cmp-tbl th,.nx .n-ph-cmp-tbl td{padding:12px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;color:var(--ink-2);font-weight:400}
+.nx .n-ph-cmp-tbl thead th{background:var(--mist);font-weight:700;color:var(--ink)}
+.nx .n-ph-cmp-tbl tbody th{width:22%;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.nx .n-ph-cmp-tbl td small{display:block;margin-top:4px;color:var(--muted)}
+.nx .n-ph-tips{list-style:none;margin:0;padding:12px 22px 16px;display:grid;gap:8px}
+.nx .n-ph-tips li{display:flex;gap:9px;font-size:.88rem;color:var(--ink-2);line-height:1.5}
+.nx .n-ph-tips i{color:#16A34A;margin-top:2px}
+.nx .n-ph-check{padding:10px 22px 12px}
+.nx .n-ph-tbl{min-width:640px}
+.nx .n-ph-tbl td{white-space:normal}
+.nx .n-ph-tbl tbody tr.on{background:var(--accent-tint)}
+.nx .n-ph-pick{border:none;background:none;padding:0;font:inherit;font-weight:700;color:var(--indigo);cursor:pointer;text-align:left}
+.nx .n-ph-pick:hover{text-decoration:underline}
+@media(max-width:1024px){.nx .n-ph-main{grid-template-columns:1fr}.nx .n-ph-side{grid-template-columns:1fr 1fr}}
+@media(max-width:767px){
+ .nx .n-ph-side{grid-template-columns:1fr}
+ .nx .n-ph-grid{grid-template-columns:1fr}
+ .nx .n-ph-grid>div:nth-child(odd):not(.n-ph-wide){border-right:none}
+ .nx .n-ph-tbl{min-width:0}
+ .nx .n-ph-tbl tbody th{flex:1 1 100%}
+ .nx .n-ph-tbl td:nth-child(n+2){flex:1 1 100%;font-size:.84rem}
+ .nx .n-tbl.n-ph-tbl td:nth-child(n+2):nth-child(-n+8){order:3;flex:1 1 100%;font-size:.84rem;font-weight:400;color:var(--ink-2)}
+ .nx .n-tbl.n-ph-tbl td:nth-child(n+2):nth-child(-n+8)::before{content:attr(data-label) ": ";display:inline;font-size:inherit;letter-spacing:0;text-transform:none;font-weight:700;color:var(--muted)}
+}
+@media print{
+ html.n-print-check body *{visibility:hidden}
+ html.n-print-check #photoChecklist,html.n-print-check #photoChecklist *{visibility:visible}
+ html.n-print-check #photoChecklist{position:absolute;left:0;top:0;width:100%;box-shadow:none}
+ html.n-print-check #photoChecklist .n-glance-ft{display:none}
+}
 
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
