@@ -1,6 +1,6 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded by index.html and about/. Other pages use style.css.
+   Loaded by index.html, about/ and tracking-links/. Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -454,6 +454,60 @@
  .nx .n-clear-cols{grid-template-columns:1fr}
  .nx .n-glance-ft{flex-direction:column}
 }
+
+/* ---------- Tracking links page ---------- */
+.nx .n-trk-points{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.nx .n-trk-points li{display:flex;align-items:center;gap:10px;font-size:.93rem;color:var(--ink-2)}
+.nx .n-trk-points i{color:var(--indigo);font-size:1.05rem}
+.nx .n-trk{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-lg);overflow:visible}
+.nx .n-trk-hd{display:flex;align-items:center;gap:10px;padding:16px 22px;background:var(--ink);color:#fff;font-weight:700;font-size:.95rem;border-radius:13px 13px 0 0}
+.nx .n-trk-hd i{color:#C9D3F5}
+.nx .n-trk-body{padding:20px 22px 22px}
+.nx .n-trk-lbl{display:block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.nx .n-trk-combo{position:relative}
+.nx .n-trk-combo>i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.nx .n-trk-combo input{width:100%;padding:13px 15px 13px 42px;border:1px solid var(--line);border-radius:8px;background:var(--mist);font-family:inherit;font-size:.95rem;font-weight:600;color:var(--ink)}
+.nx .n-trk-combo input:focus{outline:0;border-color:var(--indigo);background:#fff;box-shadow:0 0 0 3px rgba(47,69,197,.14)}
+.nx .n-trk-list{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:20;list-style:none;margin:0;padding:6px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--sh-lg);max-height:280px;overflow-y:auto}
+.nx .n-trk-list.open{display:block}
+.nx .n-trk-list li{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:7px;font-size:.9rem;font-weight:600;color:var(--ink);cursor:pointer}
+.nx .n-trk-list li:hover,.nx .n-trk-list li.on{background:var(--accent-tint)}
+.nx .n-trk-pop{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;font-size:.78rem;color:var(--muted)}
+.nx .n-trk-pop>span{margin-right:2px}
+.nx .n-trk-chip{padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;font-family:inherit;font-size:.78rem;font-weight:600;color:var(--ink-2);cursor:pointer}
+.nx .n-trk-chip:hover{border-color:var(--indigo);color:var(--indigo)}
+.nx .n-trk-res{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.nx .n-trk-res-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.nx .n-trk-res-hd b{display:block;font-size:1.05rem;color:var(--ink)}
+.nx .n-trk-res-hd div span{display:block;font-size:.84rem;color:var(--muted)}
+.nx .n-trk-res-hd .n-dir-cc{width:42px;height:42px;font-size:.8rem}
+.nx .n-trk-row{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:.86rem}
+.nx .n-trk-row span{color:var(--muted)}
+.nx .n-trk-row b{color:var(--ink);font-weight:600;word-break:break-word}
+.nx .n-trk-res .n-btn{margin-top:12px}
+.nx .n-trk-none{font-size:.9rem;color:var(--ink-2);line-height:1.6;margin:0 0 4px}
+.nx .n-trk-empty{margin:14px 0 0;font-size:.86rem;color:var(--ink-2)}
+.nx .n-trk-empty a{color:var(--indigo);font-weight:700}
+.nx .n-steps-3{grid-template-columns:repeat(3,1fr)}
+.nx .n-dir-cc{width:34px;height:34px;border-radius:8px;background:var(--accent-tint);color:var(--indigo);display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;letter-spacing:.04em;flex-shrink:0}
+.nx .n-dir-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+.nx .n-dir-bar .n-csearch{margin:0;max-width:320px;flex:1 1 240px}
+.nx .n-dir-az{display:flex;flex-wrap:wrap;gap:4px}
+.nx .n-dir-az a{min-width:30px;padding:6px 0;text-align:center;border:1px solid var(--line);border-radius:6px;font-size:.8rem;font-weight:700;color:var(--ink-2)}
+.nx .n-dir-az a:hover{border-color:var(--indigo);color:var(--indigo)}
+.nx .n-dir-grp{scroll-margin-top:96px;margin-bottom:26px}
+.nx .n-dir-l{font-size:.9rem;font-weight:700;color:var(--indigo);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.nx .n-dir-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.nx .n-dir-list a,.nx .n-dir-none{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);height:100%}
+.nx .n-dir-list a:hover{border-color:#C5CEDD;box-shadow:var(--sh)}
+.nx .n-dir-list a:hover b{color:var(--indigo)}
+.nx .n-dir-list a>i{margin-left:auto;color:var(--muted);font-size:.85rem}
+.nx .n-dir-tx{min-width:0}
+.nx .n-dir-tx b{display:block;font-size:.92rem;font-weight:700}
+.nx .n-dir-tx span{display:block;font-size:.78rem;color:var(--muted);line-height:1.4}
+.nx .n-dir-none{background:var(--mist)}
+@media(max-width:1024px){.nx .n-steps-3{grid-template-columns:1fr}}
+@media(max-width:767px){.nx .n-trk-row{grid-template-columns:1fr;gap:2px}.nx .n-dir-list{grid-template-columns:1fr}}
 
 /* ---------- Markup helpers ---------- */
 /* Country codes instead of flag emoji: Windows renders flag emoji as bare letters */
