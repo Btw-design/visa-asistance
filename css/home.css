@@ -1,6 +1,6 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded only by index.html. All other pages use style.css.
+   Loaded by index.html and about/. Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -387,6 +387,69 @@
 .nx .n-rdy-link:hover{color:#2437A6}
 .nx .n-rdy-note{margin:0;padding:11px 22px;background:var(--mist);border-top:1px solid var(--line);font-size:.75rem;color:var(--muted);display:flex;gap:7px;align-items:center}
 @media(max-width:1024px){.nx .n-rdy{margin:0 auto}}
+
+/* ============================================================
+   INNER PAGES (About, …) — reuse the corporate system above
+   ============================================================ */
+.nx .n-phero{background:linear-gradient(180deg,#F6F7F9 0%,#FFFFFF 100%);border-bottom:1px solid var(--line);padding:clamp(40px,6vw,80px) 0}
+.nx .n-phero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(32px,5vw,64px);align-items:center}
+.nx .n-crumbs{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:22px}
+.nx .n-crumbs a{color:var(--muted)}
+.nx .n-crumbs a:hover{color:var(--indigo)}
+.nx .n-crumbs i{font-size:.7rem}
+.nx .n-crumbs span{color:var(--ink);font-weight:600}
+.nx .n-phero h1{font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.12;font-weight:700;margin:0 0 18px;letter-spacing:-.025em}
+.nx .n-phero h1 em{font-style:normal;color:var(--indigo)}
+.nx .n-phero-sub{font-size:clamp(1rem,1.4vw,1.1rem);line-height:1.7;color:var(--muted);max-width:560px;margin:0 0 28px}
+.nx .n-phero .n-hero-cta{margin-bottom:0}
+.nx .n-glance{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-lg);overflow:hidden}
+.nx .n-glance-hd{display:flex;align-items:center;gap:10px;padding:16px 22px;background:var(--ink);color:#fff;font-weight:700;font-size:.95rem}
+.nx .n-glance-hd i{color:#C9D3F5}
+.nx .n-glance dl{margin:0;padding:6px 22px}
+.nx .n-glance dl>div{padding:12px 0;border-bottom:1px solid var(--line)}
+.nx .n-glance dl>div:last-child{border-bottom:none}
+.nx .n-glance dt{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.nx .n-glance dd{margin:0;font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.45}
+.nx .n-glance-ft{display:flex;gap:10px;padding:14px 22px;background:var(--mist);border-top:1px solid var(--line)}
+.nx .n-glance-ft a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:.85rem;font-weight:600;color:var(--ink)}
+.nx .n-glance-ft a:hover{border-color:var(--indigo);color:var(--indigo)}
+
+.nx .n-split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:start}
+.nx .n-split-h{font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.15;font-weight:700;margin:0 0 20px}
+.nx .n-split-h em{font-style:normal;color:var(--indigo)}
+.nx .n-prose p{font-size:1rem;line-height:1.8;color:var(--ink-2);margin:0 0 16px}
+.nx .n-prose p:last-child{margin-bottom:0}
+.nx .n-values{background:var(--mist);border:1px solid var(--line);border-radius:14px;padding:26px 26px 12px}
+.nx .n-values-t{font-size:1.02rem;font-weight:700;margin:0 0 14px}
+.nx .n-values ul{list-style:none;margin:0;padding:0}
+.nx .n-values li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.nx .n-val-ic{width:38px;height:38px;border-radius:9px;background:#fff;border:1px solid var(--line);color:var(--indigo);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nx .n-values strong{display:block;font-size:.95rem;color:var(--ink);margin-bottom:2px}
+.nx .n-values p{margin:0;font-size:.88rem;line-height:1.6;color:var(--muted)}
+
+.nx .n-fgrid-4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+.nx .n-clear{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,56px);align-items:center;border:1px solid var(--line);border-radius:14px;padding:clamp(26px,4vw,44px)}
+.nx .n-clear-intro h2{font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.2;font-weight:700;margin:0 0 12px}
+.nx .n-clear-intro p{margin:0;color:var(--muted);line-height:1.7}
+.nx .n-clear-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.nx .n-clear-cols>div{background:var(--mist);border-radius:12px;padding:20px 22px}
+.nx .n-clear-cols h3{display:flex;align-items:center;gap:8px;font-size:1rem;font-weight:700;margin:0 0 12px}
+.nx .n-yes{color:#16A34A}
+.nx .n-no{color:#B42318}
+.nx .n-clear-cols ul{margin:0;padding:0 0 0 18px;display:grid;gap:8px}
+.nx .n-clear-cols li{font-size:.9rem;line-height:1.55;color:var(--ink-2)}
+
+@media(max-width:1024px){
+ .nx .n-phero-grid,.nx .n-split,.nx .n-clear{grid-template-columns:1fr}
+ .nx .n-glance{max-width:560px}
+}
+@media(max-width:767px){
+ .nx .n-phero .n-hero-cta{flex-direction:column}
+ .nx .n-phero .n-hero-cta .n-btn{width:100%}
+ .nx .n-clear-cols{grid-template-columns:1fr}
+ .nx .n-glance-ft{flex-direction:column}
+}
 
 /* ---------- Markup helpers ---------- */
 /* Country codes instead of flag emoji: Windows renders flag emoji as bare letters */

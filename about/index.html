@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
+ <script>document.documentElement.className+=" js"</script>
  <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
   --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
   --color-accent-alt: #A5D549;
@@ -126,7 +127,6 @@ body.menu-open{overflow:hidden}
  "@type": "AboutPage",
  "name": "About My Visa Assistance",
  "description": "Learn about our mission, expertise, and commitment to providing accurate visa information.",
- "primaryImageOfPage": "https://myvisaassistance.com/images/about-hero.jpg",
  "breadcrumb": {
  "@type": "BreadcrumbList",
  "itemListElement": [{
@@ -151,8 +151,12 @@ body.menu-open{overflow:hidden}
  <link rel="canonical" href="https://myvisaassistance.com/about/">
 
  
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+ <link rel="stylesheet" href="/css/home.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
  
@@ -164,156 +168,177 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
 <!-- End Google Tag Manager -->
 </head>
-<body>
-
-<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
-<div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
-</div>
-<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
+<body class="nx">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
- <header class="header" role="banner">
- <div class="header-inner">
- <a href="/" class="logo" aria-label="My Visa Assistance - Home">
- <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
- My Visa <span>Assistance</span>
+ <header class="n-head-bar" id="nxHeader" role="banner">
+ <div class="n-topbar">
+ <div class="container n-topbar-in">
+ <span><i class="bi bi-stars"></i> Free expert consultation with every visa application</span>
+ <a href="tel:+918551805523"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
+ <div class="container n-nav">
+ <a href="/" class="n-logo" aria-label="My Visa Assistance - Home">
+ <span class="n-logo-mk"><i class="bi bi-airplane-fill"></i></span>
+ <span>My Visa <em>Assistance</em></span>
  </a>
- <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+ <button class="n-burger" id="nxBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nxMenu">
  <span></span><span></span><span></span>
  </button>
- <nav class="nav" role="navigation" aria-label="Main navigation">
- <ul class="nav-list">
+ <nav aria-label="Main navigation">
+ <ul class="n-menu" id="nxMenu">
  <li><a href="/">Home</a></li>
- <li><a href="/about" class="active" aria-current="page">About</a></li>
+ <li><a href="/about/" class="on" aria-current="page">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-requirements/">Requirements</a></li>
  <li><a href="/blog/">Blog</a></li>
- 
-<li><a href="/contact">Contact</a></li>
+ <li><a href="/contact/">Contact</a></li>
+ <li class="n-drawer-cta"><a href="/contact/" class="n-btn n-btn-p n-btn-block"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a></li>
  </ul>
  </nav>
+ <div class="n-nav-cta">
+ <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-sm"><i class="bi bi-telephone"></i> Call</a>
+ <a href="/contact/" class="n-btn n-btn-p n-btn-sm"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a>
  </div>
+ </div>
+ <div class="n-veil" id="nxVeil"></div>
  </header>
 
- <!-- Breadcrumbs -->
- <nav class="breadcrumbs" aria-label="Breadcrumb">
- <div class="container">
- <a href="/">Home</a>
- <span class="separator">/</span>
- <span>About Us</span>
+ <main>
+ <!-- ============ PAGE HERO ============ -->
+ <section class="n-phero" aria-labelledby="aboutTitle">
+ <div class="container n-phero-grid">
+ <div>
+ <nav class="n-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="bi bi-chevron-right" aria-hidden="true"></i><span aria-current="page">About us</span></nav>
+ <span class="n-eyebrow">About us</span>
+ <h1 id="aboutTitle">Clear, honest visa guidance &mdash; <em>so you can travel with confidence</em></h1>
+ <p class="n-phero-sub">My Visa Assistance helps Indian travellers understand exactly what each country asks for, prepare a complete application, and avoid the mistakes that lead to delays and refusals.</p>
+ <div class="n-hero-cta">
+ <a href="/contact/" class="n-btn n-btn-p n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Talk to our team</a>
+ <a href="/visa-guide/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-journal-richtext"></i> Browse visa guides</a>
  </div>
- </nav>
+ </div>
 
- <!-- Page Header -->
- <section class="page-header">
- <div class="container">
- <h1>About My Visa Assistance</h1>
- <p>Your trusted partner in navigating global visa processes with confidence and ease.</p>
+ <aside class="n-glance" aria-label="At a glance">
+ <div class="n-glance-hd"><i class="bi bi-building" aria-hidden="true"></i> At a glance</div>
+ <dl>
+ <div><dt>What we do</dt><dd>Visa information, document checklists and application support</dd></div>
+ <div><dt>Destinations</dt><dd>60+ countries, from the USA and UK to Schengen, UAE and Asia</dd></div>
+ <div><dt>Visa types</dt><dd>Tourist, business, student, work and transit</dd></div>
+ <div><dt>Languages</dt><dd>English, Hindi and Marathi</dd></div>
+ <div><dt>Hours</dt><dd>Mon &ndash; Sat, 9:00 AM &ndash; 7:00 PM</dd></div>
+ </dl>
+ <div class="n-glance-ft">
+ <a href="tel:+918551805523"><i class="bi bi-telephone" aria-hidden="true"></i> +91 85518 05523</a>
+ <a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope" aria-hidden="true"></i> Email us</a>
+ </div>
+ </aside>
  </div>
  </section>
 
- <!-- About Intro -->
- <section class="section">
+ <!-- ============ STATS ============ -->
+ <section class="n-stats" aria-label="Our expertise in numbers">
  <div class="container">
- <div class="about-intro">
- <div>
- <h2>Our Mission</h2>
+ <div class="n-stats-grid">
+ <div class="n-stat"><b>5+ yrs</b><span>Helping travellers with visas</span></div>
+ <div class="n-stat"><b>60+</b><span>Countries covered</span></div>
+ <div class="n-stat"><b>2,500+</b><span>Visa inquiries processed</span></div>
+ <div class="n-stat"><b>98%</b><span>Client satisfaction</span></div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ MISSION & VALUES ============ -->
+ <section class="n-section" aria-labelledby="missionTitle">
+ <div class="container n-split">
+ <div class="n-rv">
+ <span class="n-eyebrow">Our mission</span>
+ <h2 id="missionTitle" class="n-split-h">Making the visa process <em>simple and transparent</em></h2>
+ <div class="n-prose">
  <p>At My Visa Assistance, we believe that exploring the world should be accessible to everyone. Our mission is to simplify the complex world of visa applications by providing accurate, up-to-date, and comprehensive visa information for every country.</p>
  <p>Founded by travel enthusiasts and visa experts, we understand the challenges that travelers face when navigating different countries' visa requirements. From tourist visas to business visas, student permits to work visas, we cover it all.</p>
- <p>Our team of researchers and immigration specialists continuously monitors visa policy changes across 50+ countries to ensure that the information we provide is always current and reliable.</p>
-
- <h3 style="margin-top:30px;">Our Values</h3>
- <ul style="list-style:disc;padding-left:20px;margin-bottom:1rem;">
- <li><strong>Accuracy</strong> - We verify all information through official government sources</li>
- <li><strong>Transparency</strong> - Clear, honest guidance with no hidden fees or promises</li>
- <li><strong>Accessibility</strong> - Free, easy-to-understand visa information for everyone</li>
- <li><strong>Expertise</strong> - Deep knowledge of global visa policies and procedures</li>
- <li><strong>Trust</strong> - Thousands of satisfied travelers trust our guidance</li>
+ <p>Our team of researchers and immigration specialists continuously monitors visa policy changes across 60+ countries to ensure that the information we provide is always current and reliable.</p>
+ </div>
+ </div>
+ <div class="n-values n-rv" aria-label="Our values">
+ <h3 class="n-values-t">What we stand for</h3>
+ <ul>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-patch-check"></i></span><div><strong>Accuracy</strong><p>We verify all information through official government sources.</p></div></li>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-eye"></i></span><div><strong>Transparency</strong><p>Clear, honest guidance with no hidden fees or promises.</p></div></li>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-universal-access"></i></span><div><strong>Accessibility</strong><p>Free, easy-to-understand visa information for everyone.</p></div></li>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-mortarboard"></i></span><div><strong>Expertise</strong><p>Deep knowledge of global visa policies and procedures.</p></div></li>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-people"></i></span><div><strong>Trust</strong><p>Thousands of satisfied travelers trust our guidance.</p></div></li>
  </ul>
  </div>
- <div class="about-image" aria-label="About My Visa Assistance team">
- <i class="bi bi-globe2" style="font-size:4rem;color:var(--color-accent);"></i>
+ </div>
+ </section>
+
+ <!-- ============ WHY TRUST US ============ -->
+ <section class="n-section n-alt" aria-labelledby="trustTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">Why trust us</span>
+ <h2 id="trustTitle">Experience you can <em>rely on</em></h2>
+ <p>How we work to earn &mdash; and keep &mdash; the trust of every traveller.</p>
+ </div>
+ <div class="n-fgrid n-fgrid-4">
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-award" aria-hidden="true"></i></div><h3>Experience</h3><p>With over 5 years of dedicated focus on visa information and assistance, our team has helped thousands of applicants from diverse backgrounds navigate complex visa processes across 60+ countries.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-search" aria-hidden="true"></i></div><h3>Expertise</h3><p>Our content is researched and verified by immigration specialists who track policy changes daily. We cite official government sources and embassy websites to keep our guidance accurate.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-journal-check" aria-hidden="true"></i></div><h3>Authoritativeness</h3><p>My Visa Assistance is recognized as a reliable visa information resource. Our website is referenced by travelers, travel agencies, and educational institutions for accurate visa guidance.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-shield-check" aria-hidden="true"></i></div><h3>Trustworthiness</h3><p>We maintain strict editorial standards, transparent practices, and data privacy. We never guarantee visa approval (as no service can), but we ensure your application is complete and accurate.</p></article>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ TRANSPARENCY ============ -->
+ <section class="n-section" aria-labelledby="clearTitle">
+ <div class="container">
+ <div class="n-clear n-rv">
+ <div class="n-clear-intro">
+ <span class="n-eyebrow">Being clear with you</span>
+ <h2 id="clearTitle">Who we are &mdash; and who we are not</h2>
+ <p>Visa decisions are made only by embassies and consulates. Here is exactly where we fit in.</p>
+ </div>
+ <div class="n-clear-cols">
+ <div>
+ <h3><i class="bi bi-check-circle-fill n-yes" aria-hidden="true"></i> We are</h3>
+ <ul>
+ <li>A private visa information and assistance service</li>
+ <li>Here to explain requirements, fees and timelines</li>
+ <li>Here to help you prepare a complete, accurate application</li>
+ </ul>
+ </div>
+ <div>
+ <h3><i class="bi bi-x-circle-fill n-no" aria-hidden="true"></i> We are not</h3>
+ <ul>
+ <li>A government agency, embassy, consulate or VFS centre</li>
+ <li>Immigration lawyers or authorised government representatives</li>
+ <li>Able to guarantee a visa &mdash; no one honestly can</li>
+ </ul>
+ </div>
  </div>
  </div>
  </div>
  </section>
 
- <!-- Expertise Section -->
- <section class="section section-alt">
+ <!-- ============ CTA ============ -->
+ <section class="n-cta" aria-labelledby="ctaTitle">
  <div class="container">
-  <div class="section-heading has-secondary">
-  <h2>Our Expertise</h2>
-  <p>Years of experience and deep knowledge of global visa systems make us your ideal visa partner.</p>
-  </div>
-  <div class="expertise-grid">
-   <div class="expertise-card has-accent-alt">
-   <div class="num">5+</div>
-   <h3>Years of Experience</h3>
-   <p>Half a decade of helping travelers navigate visa applications worldwide with success.</p>
-   </div>
-   <div class="expertise-card has-accent-alt">
-    <div class="num">34+</div>
-    <h3>Countries Covered</h3>
-    <p>Comprehensive visa guides and requirements for major travel destinations across all continents.</p>
-   </div>
-  <div class="expertise-card has-secondary">
-   <div class="num">2,500+</div>
-   <h3>Visa Inquiries Processed</h3>
-  <p>Thousands of travelers have used our guides and services for their visa applications.</p>
-  </div>
-  <div class="expertise-card has-secondary">
-  <div class="num">98%</div>
-  <h3>Client Satisfaction</h3>
-  <p>Our commitment to quality and accuracy results in exceptional client satisfaction ratings.</p>
-  </div>
-  </div>
+ <div class="n-cta-in n-rv">
+ <h2 id="ctaTitle">Ready to start your visa journey?</h2>
+ <p>Tell us where you are going and we will tell you exactly what you need.</p>
+ <div class="n-cta-btns">
+ <a href="/contact/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-calendar2-check-fill"></i> Contact us today</a>
+ <a href="tel:+918551805523" class="n-btn n-btn-g n-btn-lg"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
  </div>
  </section>
-
- <!-- E-E-A-T Section -->
- <section class="section">
- <div class="container">
- <div class="section-heading">
- <h2>Why Trust My Visa Assistance?</h2>
- <p>We demonstrate Experience, Expertise, Authoritativeness, and Trustworthiness in everything we do.</p>
- </div>
- <div class="features-grid">
- <article class="feature-card has-accent-alt" style="text-align:left;">
- <div class="feature-icon"><i class="bi bi-award"></i></div>
- <h3>Experience</h3>
- <p>With over 5 years of dedicated focus on visa information and assistance, our team has helped thousands of applicants from diverse backgrounds navigate complex visa processes across more than 50 countries.</p>
- </article>
- <article class="feature-card has-accent-alt" style="text-align:left;">
- <div class="feature-icon"><i class="bi bi-search"></i></div>
- <h3>Expertise</h3>
- <p>Our content is researched and verified by immigration specialists who track policy changes daily. We cite official government sources and embassy websites to ensure 100% accuracy.</p>
- </article>
-  <article class="feature-card has-secondary" style="text-align:left;">
-  <div class="feature-icon"><i class="bi bi-mortarboard"></i></div>
-  <h3>Authoritativeness</h3>
-  <p>My Visa Assistance is recognized as a reliable visa information resource. Our website is referenced by travelers, travel agencies, and educational institutions for accurate visa guidance.</p>
-  </article>
-  <article class="feature-card has-secondary" style="text-align:left;">
-  <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
-  <h3>Trustworthiness</h3>
-  <p>We maintain strict editorial standards, transparent practices, and data privacy. We never guarantee visa approval (as no service can), but we ensure your application is complete and accurate.</p>
-  </article>
-  </div>
-  </div>
-  </section>
-  
-  <!-- CTA Section -->
-  <section class="section" style="background:var(--color-primary);color:var(--color-white);text-align:center;">
-  <div class="container">
-  <h2 style="color:var(--color-white);">Ready to Start Your Visa Journey?</h2>
-  <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;margin-bottom:30px;">Get in touch with our team for personalized visa assistance.</p>
-  <a href="/contact" class="btn btn-accent btn-lg">Contact Us Today</a>
- </div>
- </section>
+ </main>
 
  <footer class="footer" role="contentinfo">
  <div class="container">
@@ -335,12 +360,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h4>Quick Links</h4>
  <ul>
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
 <li><a href="/visa-requirements/">Visa Requirements</a></li>
 <li><a href="/visa-photo-requirements/">Visa Photo Requirements</a></li>
 <li><a href="/blog/">Blog</a></li>
-   <li><a href="/contact">Contact</a></li>
+   <li><a href="/contact/">Contact</a></li>
 <li><a href="/embassy-address/">Embassy Address</a></li>
 <li><a href="/passport-ranking/">Passport Ranking</a></li>
 <li><a href="/upcoming-events/">Upcoming Events</a></li>
@@ -353,12 +378,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-col">
  <h4>Top Countries</h4>
  <ul>
- <li><a href="/visa-guide/usa-visa">US Visa</a></li>
- <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
- <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
- <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
- <li><a href="/visa-guide/india-visa">India Visa</a></li>
- <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ <li><a href="/visa-guide/usa-visa/">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa/">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa/">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa/">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa/">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa/">Schengen Visa</a></li>
  </ul>
  </div>
  <div class="footer-col">
@@ -372,7 +397,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
  <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
  <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
- <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
  </div>
  </div>
  </div>
@@ -383,105 +407,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-bottom">
  <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
  <span class="footer-bottom-links">
- <a href="/privacy-policy">Privacy Policy</a>
- <a href="/terms-of-service">Terms of Service</a>
+ <a href="/privacy-policy/">Privacy Policy</a>
+ <a href="/terms-of-service/">Terms of Service</a>
  </span>
  </div>
  </div>
  </footer>
 
- <!-- Country Logos Scrolling Strip -->
- <div class="country-logos-strip" role="region" aria-label="Country flags">
- <div class="country-logos-track">
-  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
-  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
-  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
-  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
-  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
-  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
-   <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
-   <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
-   <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
-  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
-  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
-  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
-  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
-  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
-  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
-  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
-  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
-  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
-  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
-  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
-  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
-  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
-  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
-  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
-  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
-  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
-  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
-  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
-  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
-  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
-  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
-  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
-  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
-  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
-  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
-  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
-  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
-  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
-  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
-  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
-  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
-  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
-  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
-   <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
-   <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
-   <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
-  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
-  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
-  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
-  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
-  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
-  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
-  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
-  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
-  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
-  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
-  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
-  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
-  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
-  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
-  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
-  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
-  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
-  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
-  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
-  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
-  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
-  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
-  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
-  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
-  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
-  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
-  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
-  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
-  </div>
-
  <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
 
  <script src="/js/main.js" defer></script>
-<!--Start of Tawk.to Script-->
+<script>
+/* Header state, mobile drawer and reveal-on-scroll (same behaviour as the homepage) */
+(function () {
+  'use strict';
+  var hd = document.getElementById('nxHeader');
+  if (hd) {
+    var upd = function () { hd.classList.toggle('stuck', window.scrollY > 30); };
+    window.addEventListener('scroll', upd, { passive: true });
+    upd();
+  }
+  var b = document.getElementById('nxBurger'), m = document.getElementById('nxMenu'), v = document.getElementById('nxVeil');
+  if (b && m) {
+    var close = function () { b.classList.remove('on'); m.classList.remove('open'); if (v) v.classList.remove('on'); b.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+    b.addEventListener('click', function () {
+      var open = m.classList.toggle('open');
+      b.classList.toggle('on', open);
+      if (v) v.classList.toggle('on', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    if (v) v.addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1024) close(); });
+  }
+  var els = document.querySelectorAll('.n-rv');
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+})();
+</script>
+<!--Start of Tawk.to Script (loaded after first interaction or 6s)-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
+var loaded=false;
+function load(){
+if(loaded)return;loaded=true;
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
+}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){window.addEventListener(ev,load,{once:true,passive:true});});
+setTimeout(load,6000);
 })();
 </script>
 <!--End of Tawk.to Script-->
