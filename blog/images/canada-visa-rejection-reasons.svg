@@ -25,7 +25,7 @@
   <rect x="70" y="64" width="168" height="40" rx="20" fill="#E86020"/>
   <text x="154" y="89" text-anchor="middle" font-family="Arial" font-size="19" font-weight="700" fill="#FFFFFF">TRAVEL GUIDE</text>
 
-  <text x="70" y="90" text-anchor="end" font-family="Arial" font-size="16" font-weight="700" fill="#9AA6B2">BLOG &bull;</text>
+  <text x="70" y="90" text-anchor="end" font-family="Arial" font-size="16" font-weight="700" fill="#9AA6B2">BLOG &#8226;</text>
 
   <!-- Title -->
   <text x="70" y="196" font-family="Arial" font-size="52" font-weight="800" fill="#031B30">Canada Tourist Visa</text>

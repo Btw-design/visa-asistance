@@ -1,6 +1,6 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded by index.html, about/, contact/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
+   Loaded by index.html, about/, contact/, blog/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -641,6 +641,31 @@
 .nx .n-hours dt{color:var(--muted)}
 .nx .n-hours dd{margin:0;font-weight:600;color:var(--ink)}
 @media(max-width:767px){.nx .n-form-row{grid-template-columns:1fr}}
+
+/* ---------- Blog index ---------- */
+.nx .n-blog-hero{grid-template-columns:1fr 1fr}
+.nx .n-blog-search{margin:0;max-width:520px}
+.nx .n-feat{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh-lg);color:var(--ink)}
+.nx .n-feat:hover h2{color:var(--indigo)}
+.nx .n-feat-body{padding:20px 22px 22px}
+.nx .n-feat h2{font-size:1.2rem;line-height:1.35;font-weight:700;margin:10px 0 8px;transition:color .2s}
+.nx .n-feat p{font-size:.9rem;line-height:1.6;color:var(--muted);margin:0 0 12px}
+.nx .n-bcat-new{background:var(--indigo);color:#fff}
+.nx .n-bimg-ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0B1F3A,#2A3F5F)}
+.nx .n-bimg-ph>i{font-size:2.6rem;color:#C9D3F5}
+.nx .n-blog-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.nx .n-blog-top .n-split-h{margin-bottom:14px}
+.nx .n-blog-count{margin:0;font-size:.88rem;font-weight:600;color:var(--muted)}
+.nx .n-chipfs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.nx .n-chipf{padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;font-family:inherit;font-size:.86rem;font-weight:600;color:var(--ink-2);cursor:pointer}
+.nx .n-chipf span{margin-left:4px;color:var(--muted);font-weight:500}
+.nx .n-chipf:hover{border-color:var(--indigo);color:var(--indigo)}
+.nx .n-chipf[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.nx .n-chipf[aria-pressed="true"] span{color:rgba(255,255,255,.7)}
+.nx .n-blog-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.nx .n-blog-grid .n-bcard h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.nx .n-blog-grid .n-bcard p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:1024px){.nx .n-blog-hero{grid-template-columns:1fr}.nx .n-feat{max-width:620px}}
 
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
