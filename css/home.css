@@ -4,7 +4,7 @@
    Palette: navy ink + electric indigo + coral + lime
    ============================================================ */
 
-.nx{--ink:#0A1B2E;--ink-2:#12263F;--ink-3:#1B3455;--indigo:#4F46E5;--indigo-l:#6366F1;--coral:#F97316;--coral-l:#FB923C;--lime:#A3E635;--teal:#14B8A6;--sky:#38BDF8;--paper:#FFFFFF;--mist:#F6F8FC;--line:#E6EAF2;--muted:#5B6B82;--g:linear-gradient(135deg,#4F46E5 0%,#6366F1 45%,#14B8A6 100%);--g-warm:linear-gradient(135deg,#F97316,#FB923C);--g-lime:linear-gradient(135deg,#A3E635,#4ADE80);--sh:0 2px 4px rgba(10,27,46,.04),0 12px 32px -8px rgba(10,27,46,.10);--sh-lg:0 8px 16px rgba(10,27,46,.06),0 32px 64px -16px rgba(10,27,46,.18);--sh-glow:0 20px 60px -12px rgba(79,70,229,.45);--ease:cubic-bezier(.22,.61,.36,1)}
+.nx{font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;color:#0A1B2E;--ink:#0A1B2E;--ink-2:#12263F;--ink-3:#1B3455;--indigo:#4F46E5;--indigo-l:#6366F1;--coral:#F97316;--coral-l:#FB923C;--lime:#A3E635;--teal:#14B8A6;--sky:#38BDF8;--paper:#FFFFFF;--mist:#F6F8FC;--line:#E6EAF2;--muted:#5B6B82;--g:linear-gradient(135deg,#4F46E5 0%,#6366F1 45%,#14B8A6 100%);--g-warm:linear-gradient(135deg,#F97316,#FB923C);--g-lime:linear-gradient(135deg,#A3E635,#4ADE80);--sh:0 2px 4px rgba(10,27,46,.04),0 12px 32px -8px rgba(10,27,46,.10);--sh-lg:0 8px 16px rgba(10,27,46,.06),0 32px 64px -16px rgba(10,27,46,.18);--sh-glow:0 20px 60px -12px rgba(79,70,229,.45);--ease:cubic-bezier(.22,.61,.36,1)}
 
 /* ---------- Type scale ---------- */
 .nx h1,.nx h2,.nx h3,.nx h4{font-family:'Plus Jakarta Sans',-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:-.03em}
@@ -291,8 +291,8 @@
 .nx .n-sub-msg{display:none;align-items:center;justify-content:center;gap:9px;margin-top:18px;font-size:.9rem;font-weight:700;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:12px 20px;border-radius:999px}
 .nx .n-sub-msg.on{display:flex;animation:nxIn .45s var(--ease) both}
 
-/* ---------- Reveal ---------- */
-.nx .n-rv{opacity:0;transform:translateY(30px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+/* ---------- Reveal (only when JS is running, so content never stays hidden) ---------- */
+.js .nx .n-rv{opacity:0;transform:translateY(30px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
 .nx .n-rv.in{opacity:1;transform:none}
 .nx .n-rv:nth-child(2){transition-delay:.07s}
 .nx .n-rv:nth-child(3){transition-delay:.14s}
@@ -330,8 +330,13 @@
  .nx .n-burger.on{background:var(--ink);border-color:var(--ink)}
  .nx .n-burger.on span{background:#fff}
  .nx .n-nav-cta .n-btn{display:none}
- .nx .n-nav-cta{display:block;margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
- .nx .n-menu .n-nav-cta{display:block}
+ .nx .n-nav-cta{display:none}
+ .nx .n-burger{margin-left:auto}
+ .nx .n-menu .n-drawer-cta{display:block;border-bottom:none;margin-top:14px}
+ .nx .n-menu .n-drawer-cta .n-btn{width:100%;color:#fff;padding:14px 20px}
+ .nx .n-menu .n-drawer-cta .n-btn::after{display:none}
+ /* backdrop-filter would make the fixed drawer relative to the header bar */
+ .nx .n-head-bar{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}
  .nx .n-veil{position:fixed;inset:0;background:rgba(10,27,46,.42);opacity:0;pointer-events:none;transition:opacity .32s;z-index:1000;backdrop-filter:blur(2px)}
  .nx .n-veil.on{opacity:1;pointer-events:auto}
 }
@@ -377,5 +382,25 @@
 /* ---------- Reduced motion ---------- */
 @media(prefers-reduced-motion:reduce){
  .nx *,.nx *::before,.nx *::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
- .nx .n-rv{opacity:1;transform:none}
+ .js .nx .n-rv{opacity:1;transform:none}
+}
+
+/* ---------- Markup helpers ---------- */
+/* Country codes instead of flag emoji: Windows renders flag emoji as bare letters */
+.nx .n-cflag{font-size:.8rem;font-weight:800;letter-spacing:.04em;color:var(--indigo)}
+.nx .n-ccard:hover .n-cflag{color:#fff;background:rgba(255,255,255,.16)}
+.nx .n-mq .fl{font-size:.68rem;font-weight:800;letter-spacing:.04em;color:var(--indigo);background:rgba(79,70,229,.08);border-radius:6px;padding:3px 6px}
+.nx .n-drawer-cta{display:none}
+.nx .n-find-err{display:none;margin:10px 0 0;font-size:.82rem;font-weight:600;color:#C2410C}
+.nx .n-find-err.on{display:block}
+.nx .n-cempty{display:none;text-align:center;color:var(--muted);font-weight:600;margin:8px 0 0}
+.nx .n-cempty.on{display:block}
+.nx .n-cempty a{color:var(--indigo);font-weight:800}
+.nx .n-sub-msg.err{background:rgba(10,27,46,.35)}
+/* The dashboard is decorative; on phones it pushes the real content a full screen down */
+@media(max-width:767px){
+ .nx .n-dash{display:none}
+ .nx .n-hero-grid{gap:0}
+ .nx .n-chips{gap:7px}
+ .nx .n-chip{padding:7px 12px;font-size:.78rem}
 }

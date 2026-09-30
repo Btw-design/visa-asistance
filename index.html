@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
+ <script>document.documentElement.className+=" js"</script>
  <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
   --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
   --color-accent-alt: #A5D549;
@@ -183,32 +184,60 @@ body.menu-open{overflow:hidden}
 
   <!-- FAQ Schema -->
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [{
-  "@type": "Question",
-  "name": "What visa services do you offer?",
-  "acceptedAnswer": {
-  "@type": "Answer",
-  "text": "My Visa Assistance provides comprehensive visa guides, requirements information, and application support for tourist, business, student, work, and transit visas for all countries worldwide."
-  }
-  }, {
-  "@type": "Question",
-  "name": "How do I start my visa application?",
-  "acceptedAnswer": {
-  "@type": "Answer",
-  "text": "Browse our Visa Guide section, select your destination country, review the specific visa requirements, and submit your inquiry through our contact form. Our team will guide you through the entire process."
-  }
-  }, {
-  "@type": "Question",
-  "name": "How long does visa processing take?",
-  "acceptedAnswer": {
-  "@type": "Answer",
-  "text": "Visa processing times vary by country and visa type. Tourist visas typically take 3-15 business days. Check our country-specific visa guides for detailed processing times."
-  }
-  }]
-  }
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a visa consultancy cost in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most tourist and business files fall between ₹3,500 and ₹12,000 depending on destination, category and number of applicants. Student and work files are quoted separately. Government fees are always listed separately, and we confirm the full amount in writing before you pay anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to travel to the VFS centre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — biometrics must be captured in person for most countries. We prepare and upload your documents beforehand, so the centre visit is short. For e-visas and certain transit categories, no visit is required at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the whole process take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tourist and business visas typically take 7 to 15 working days from the appointment date, while study permits can run 4 to 8 weeks. Our fastest average is 6 working days for e-visas and 11 days for a UK Standard Visitor approval."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help if my previous visa was refused?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We start with a written refusal analysis covering the likely ground — funds, intent, previous refusals or inconsistencies — then rebuild the profile around it. Re-application consultation is included free for twelve months after the refusal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my passport safe with you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Passport copies are stored encrypted, accessed only by your assigned consultant, and shared only with the embassy or consulate. Original passports are returned by courier or hand delivery after the decision, and digital copies are deleted on request."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which countries do you cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "60+ destinations including the USA, UK, Canada, Australia, Schengen, Japan, UAE, Singapore, China, South Korea and Thailand — plus e-visa and transit categories for 40+ additional countries."
+      }
+    }
+  ]
+}
   </script>
 
   <!-- Breadcrumb Schema -->
@@ -255,11 +284,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 </head>
 <body class="nx">
-<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
-<div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#E86020"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#E86020"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
-</div>
-<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -276,25 +300,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="container n-nav">
  <a href="/" class="n-logo" aria-label="My Visa Assistance - Home">
  <span class="n-logo-mk"><i class="bi bi-airplane-fill"></i></span>
- My Visa <em>Assistance</em>
+ <span>My Visa <em>Assistance</em></span>
  </a>
- <button class="n-burger" id="nxBurger" aria-label="Toggle navigation menu" aria-expanded="false">
+ <button class="n-burger" id="nxBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nxMenu">
  <span></span><span></span><span></span>
  </button>
  <nav aria-label="Main navigation">
  <ul class="n-menu" id="nxMenu">
  <li><a href="/" class="on" aria-current="page">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
  <li><a href="/visa-requirements/">Requirements</a></li>
  <li><a href="/blog/">Blog</a></li>
- <li><a href="/contact">Contact</a></li>
- <li class="n-drawer-cta"><a href="/contact" class="n-btn n-btn-p n-btn-block"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a></li>
+ <li><a href="/contact/">Contact</a></li>
+ <li class="n-drawer-cta"><a href="/contact/" class="n-btn n-btn-p n-btn-block"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a></li>
  </ul>
  </nav>
  <div class="n-nav-cta">
  <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-sm"><i class="bi bi-telephone"></i> Call</a>
- <a href="/contact" class="n-btn n-btn-p n-btn-sm"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a>
+ <a href="/contact/" class="n-btn n-btn-p n-btn-sm"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a>
  </div>
  </div>
  <div class="n-veil" id="nxVeil"></div>
@@ -311,14 +335,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <div class="n-hero-copy">
  <div class="n-hero-tag">
- <span class="pulse"></span> Trusted by 12,000+ travellers
+ <span class="pulse"></span> Trusted by 2,500+ travellers
  <span class="cnt">4.9/5</span>
  </div>
  <h1>Visa approvals, made <span class="rot" id="rotateWord">simple</span></h1>
  <p class="n-hero-sub">India's most trusted visa partner. We handle documentation, appointment slots and embassy follow-up, so you travel with confidence &mdash; not guesswork.</p>
 
  <div class="n-hero-cta">
- <a href="/contact" class="n-btn n-btn-p n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Get Free Consultation</a>
+ <a href="/contact/" class="n-btn n-btn-p n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Get Free Consultation</a>
  <a href="/visa-guide/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-journal-richtext"></i> Browse Visa Guides</a>
  </div>
 
@@ -366,9 +390,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  </div>
  <button type="submit" class="n-btn n-btn-p n-btn-block"><i class="bi bi-arrow-right-circle"></i> Get My Visa Checklist</button>
+ <p class="n-find-err" id="qcErr" role="alert">Please choose a destination first.</p>
  <div class="n-prog">
- <span>Trusted by <b>12,000+</b> applicants</span>
- <span>Average approval rate <b>94%</b></span>
+ <span><b>Free</b> &mdash; no sign-up needed</span>
+ <span>Most tourist visas: <b>3&ndash;15 days</b></span>
  </div>
  </form>
 
@@ -378,11 +403,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <span class="n-av" style="background:#F97316">PK</span>
  <span class="n-av" style="background:#14B8A6">AM</span>
  <span class="n-av" style="background:#38BDF8">SJ</span>
- <span class="n-av more">+12k</span>
+ <span class="n-av more">+2.5k</span>
  </div>
  <div class="n-rating">
  <b>&#9733;&#9733;&#9733;&#9733;&#9733;</b>
- <span>4.9/5 from 850+ verified reviews</span>
+ <span>Rated 4.9/5 by 2,500+ travellers</span>
  </div>
  </div>
  </div>
@@ -391,16 +416,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="n-dash-glow" aria-hidden="true"></div>
 
  <div class="n-float n-float-1"><i class="bi bi-patch-check-fill"></i> Documents verified</div>
- <div class="n-float n-float-2"><i class="bi bi-clock-history"></i> Avg. 6 days</div>
- <div class="n-float n-float-3"><i class="bi bi-graph-up-arrow"></i> 94% approval rate</div>
+ <div class="n-float n-float-2"><i class="bi bi-clock-history"></i> Avg. 3&ndash;15 days</div>
+ <div class="n-float n-float-3"><i class="bi bi-emoji-smile"></i> 98% client satisfaction</div>
 
  <div class="n-panel">
  <div class="n-panel-hd">
- <div class="t"><i class="bi bi-globe2"></i> Live Application Tracker</div>
- <div class="live"><span class="d"></span> Live</div>
+ <div class="t"><i class="bi bi-globe2"></i> Popular routes from India</div>
+ <div class="live"><span class="d"></span> 60+ destinations</div>
  </div>
  <div class="n-map">
- <svg viewBox="0 0 420 250" role="img" aria-label="World map with live visa application routes">
+ <svg viewBox="0 0 420 250" role="img" aria-label="Map of popular visa routes from India">
  <defs>
  <linearGradient id="nxSea" x1="0" y1="0" x2="0" y2="1">
  <stop offset="0" stop-color="#16304f"></stop>
@@ -460,8 +485,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </svg>
  </div>
  <div class="n-panel-ft">
- <span class="s"><i class="bi bi-circle-fill" style="font-size:.5rem"></i> 1,284 files in review</span>
- <span>Updated <b>just now</b></span>
+ <span><b>India</b> &rarr; Worldwide</span>
+ <span class="s"><i class="bi bi-lightning-charge-fill"></i> Avg 3&ndash;15 days</span>
  </div>
  </div>
  </div>
@@ -475,36 +500,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="n-marq-lb"><i class="bi bi-globe"></i> Destinations we cover</div>
  <div class="n-marq-vp">
  <div class="n-marq-tr" id="nxMarq">
- <a href="/visa-guide/usa-visa" class="n-mq"><span class="fl">🇺🇸</span> USA Visa</a>
- <a href="/visa-guide/uk-visa" class="n-mq"><span class="fl">🇬🇧</span> UK Visa</a>
- <a href="/visa-guide/canada-visa" class="n-mq"><span class="fl">🇨🇦</span> Canada Visa</a>
- <a href="/visa-guide/australia-visa" class="n-mq"><span class="fl">🇦🇺</span> Australia Visa</a>
- <a href="/visa-guide/schengen-visa" class="n-mq"><span class="fl">🇪🇺</span> Schengen Visa</a>
- <a href="/visa-guide/japan-visa" class="n-mq"><span class="fl">🇯🇵</span> Japan Visa</a>
- <a href="/visa-guide/uae-visa" class="n-mq"><span class="fl">🇦🇪</span> Dubai Visa</a>
- <a href="/visa-guide/singapore-visa" class="n-mq"><span class="fl">🇸🇬</span> Singapore Visa</a>
- <a href="/visa-guide/china-visa" class="n-mq"><span class="fl">🇨🇳</span> China Visa</a>
- <a href="/visa-guide/thailand-visa" class="n-mq"><span class="fl">🇹🇭</span> Thailand Visa</a>
- <a href="/visa-guide/south-korea-visa" class="n-mq"><span class="fl">🇰🇷</span> Korea Visa</a>
- <a href="/visa-guide/italy-visa" class="n-mq"><span class="fl">🇮🇹</span> Italy Visa</a>
- <a href="/visa-guide/germany-visa" class="n-mq"><span class="fl">🇩🇪</span> Germany Visa</a>
- <a href="/visa-guide/france-visa" class="n-mq"><span class="fl">🇫🇷</span> France Visa</a>
- <a href="/visa-guide/turkey-visa" class="n-mq"><span class="fl">🇹🇷</span> Turkey Visa</a>
- <a href="/visa-guide/usa-visa" class="n-mq"><span class="fl">🇺🇸</span> USA Visa</a>
- <a href="/visa-guide/uk-visa" class="n-mq"><span class="fl">🇬🇧</span> UK Visa</a>
- <a href="/visa-guide/canada-visa" class="n-mq"><span class="fl">🇨🇦</span> Canada Visa</a>
- <a href="/visa-guide/australia-visa" class="n-mq"><span class="fl">🇦🇺</span> Australia Visa</a>
- <a href="/visa-guide/schengen-visa" class="n-mq"><span class="fl">🇪🇺</span> Schengen Visa</a>
- <a href="/visa-guide/japan-visa" class="n-mq"><span class="fl">🇯🇵</span> Japan Visa</a>
- <a href="/visa-guide/uae-visa" class="n-mq"><span class="fl">🇦🇪</span> Dubai Visa</a>
- <a href="/visa-guide/singapore-visa" class="n-mq"><span class="fl">🇸🇬</span> Singapore Visa</a>
- <a href="/visa-guide/china-visa" class="n-mq"><span class="fl">🇨🇳</span> China Visa</a>
- <a href="/visa-guide/thailand-visa" class="n-mq"><span class="fl">🇹🇭</span> Thailand Visa</a>
- <a href="/visa-guide/south-korea-visa" class="n-mq"><span class="fl">🇰🇷</span> Korea Visa</a>
- <a href="/visa-guide/italy-visa" class="n-mq"><span class="fl">🇮🇹</span> Italy Visa</a>
- <a href="/visa-guide/germany-visa" class="n-mq"><span class="fl">🇩🇪</span> Germany Visa</a>
- <a href="/visa-guide/france-visa" class="n-mq"><span class="fl">🇫🇷</span> France Visa</a>
- <a href="/visa-guide/turkey-visa" class="n-mq"><span class="fl">🇹🇷</span> Turkey Visa</a>
+ <a href="/visa-guide/usa-visa/" class="n-mq"><span class="fl" aria-hidden="true">US</span> USA Visa</a>
+ <a href="/visa-guide/uk-visa/" class="n-mq"><span class="fl" aria-hidden="true">GB</span> UK Visa</a>
+ <a href="/visa-guide/canada-visa/" class="n-mq"><span class="fl" aria-hidden="true">CA</span> Canada Visa</a>
+ <a href="/visa-guide/australia-visa/" class="n-mq"><span class="fl" aria-hidden="true">AU</span> Australia Visa</a>
+ <a href="/visa-guide/schengen-visa/" class="n-mq"><span class="fl" aria-hidden="true">EU</span> Schengen Visa</a>
+ <a href="/visa-guide/japan-visa/" class="n-mq"><span class="fl" aria-hidden="true">JP</span> Japan Visa</a>
+ <a href="/visa-guide/uae-visa/" class="n-mq"><span class="fl" aria-hidden="true">AE</span> Dubai Visa</a>
+ <a href="/visa-guide/singapore-visa/" class="n-mq"><span class="fl" aria-hidden="true">SG</span> Singapore Visa</a>
+ <a href="/visa-guide/china-visa/" class="n-mq"><span class="fl" aria-hidden="true">CN</span> China Visa</a>
+ <a href="/visa-guide/thailand-visa/" class="n-mq"><span class="fl" aria-hidden="true">TH</span> Thailand Visa</a>
+ <a href="/visa-guide/south-korea-visa/" class="n-mq"><span class="fl" aria-hidden="true">KR</span> Korea Visa</a>
+ <a href="/visa-guide/italy-visa/" class="n-mq"><span class="fl" aria-hidden="true">IT</span> Italy Visa</a>
+ <a href="/visa-guide/germany-visa/" class="n-mq"><span class="fl" aria-hidden="true">DE</span> Germany Visa</a>
+ <a href="/visa-guide/france-visa/" class="n-mq"><span class="fl" aria-hidden="true">FR</span> France Visa</a>
+ <a href="/visa-guide/turkey-visa/" class="n-mq"><span class="fl" aria-hidden="true">TR</span> Turkey Visa</a>
+ <a href="/visa-guide/usa-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">US</span> USA Visa</a>
+ <a href="/visa-guide/uk-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">GB</span> UK Visa</a>
+ <a href="/visa-guide/canada-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">CA</span> Canada Visa</a>
+ <a href="/visa-guide/australia-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">AU</span> Australia Visa</a>
+ <a href="/visa-guide/schengen-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">EU</span> Schengen Visa</a>
+ <a href="/visa-guide/japan-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">JP</span> Japan Visa</a>
+ <a href="/visa-guide/uae-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">AE</span> Dubai Visa</a>
+ <a href="/visa-guide/singapore-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">SG</span> Singapore Visa</a>
+ <a href="/visa-guide/china-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">CN</span> China Visa</a>
+ <a href="/visa-guide/thailand-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">TH</span> Thailand Visa</a>
+ <a href="/visa-guide/south-korea-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">KR</span> Korea Visa</a>
+ <a href="/visa-guide/italy-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">IT</span> Italy Visa</a>
+ <a href="/visa-guide/germany-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">DE</span> Germany Visa</a>
+ <a href="/visa-guide/france-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">FR</span> France Visa</a>
+ <a href="/visa-guide/turkey-visa/" class="n-mq" tabindex="-1" aria-hidden="true"><span class="fl" aria-hidden="true">TR</span> Turkey Visa</a>
  </div>
  </div>
  </section>
@@ -515,22 +540,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="n-stats-grid">
  <div class="n-stat n-rv">
  <div class="n-stat-ic"><i class="bi bi-people-fill"></i></div>
- <b data-count="12000" data-suffix="+">0</b>
- <span>Happy visa approvals</span>
+ <b data-count="2500" data-suffix="+">2,500+</b>
+ <span>Visa inquiries processed</span>
  </div>
  <div class="n-stat n-rv">
  <div class="n-stat-ic"><i class="bi bi-globe-americas"></i></div>
- <b data-count="65" data-suffix="+">0</b>
+ <b data-count="60" data-suffix="+">60+</b>
  <span>Countries covered</span>
  </div>
  <div class="n-stat n-rv">
  <div class="n-stat-ic"><i class="bi bi-award-fill"></i></div>
- <b data-count="94" data-suffix="%">0</b>
- <span>Approval rate</span>
+ <b data-count="98" data-suffix="%">98%</b>
+ <span>Client satisfaction</span>
  </div>
  <div class="n-stat n-rv">
  <div class="n-stat-ic"><i class="bi bi-lightning-charge-fill"></i></div>
- <b data-count="14" data-suffix=" yrs">0</b>
+ <b data-count="5" data-suffix="+ yrs">5+ yrs</b>
  <span>Visa expertise</span>
  </div>
  </div>
@@ -547,28 +572,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  <div class="n-csearch n-rv">
  <i class="bi bi-search"></i>
- <input type="text" id="countrySearch" placeholder="Search 65+ countries &mdash; try Canada, Japan, UAE" aria-label="Search countries" autocomplete="off">
+ <input type="text" id="homeCountrySearch" placeholder="Search countries &mdash; try Canada, Japan, UAE" aria-label="Search countries" autocomplete="off">
  </div>
  <div class="n-cgrid" id="nxCgrid">
- <a href="/visa-guide/usa-visa" class="n-ccard n-rv" data-country="United States USA America"><span class="n-cflag">🇺🇸</span><span><span class="n-cnm">United States</span><span class="n-ctag">H1B &amp; tourist</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/uk-visa" class="n-ccard n-rv" data-country="United Kingdom UK England Britain"><span class="n-cflag">🇬🇧</span><span><span class="n-cnm">United Kingdom</span><span class="n-ctag">Standard visitor</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/canada-visa" class="n-ccard n-rv" data-country="Canada"><span class="n-cflag">🇨🇦</span><span><span class="n-cnm">Canada</span><span class="n-ctag">Study &amp; PR</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/australia-visa" class="n-ccard n-rv" data-country="Australia"><span class="n-cflag">🇦🇺</span><span><span class="n-cnm">Australia</span><span class="n-ctag">Skilled migration</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/schengen-visa" class="n-ccard n-rv" data-country="Schengen Area Europe"><span class="n-cflag">🇪🇺</span><span><span class="n-cnm">Schengen Area</span><span class="n-ctag">26 countries</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/japan-visa" class="n-ccard n-rv" data-country="Japan"><span class="n-cflag">🇯🇵</span><span><span class="n-cnm">Japan</span><span class="n-ctag">Tourist &amp; work</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/uae-visa" class="n-ccard n-rv" data-country="UAE Dubai"><span class="n-cflag">🇦🇪</span><span><span class="n-cnm">UAE (Dubai)</span><span class="n-ctag">Tourist &amp; golden</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/singapore-visa" class="n-ccard n-rv" data-country="Singapore"><span class="n-cflag">🇸🇬</span><span><span class="n-cnm">Singapore</span><span class="n-ctag">Business &amp; PR</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/china-visa" class="n-ccard n-rv" data-country="China"><span class="n-cflag">🇨🇳</span><span><span class="n-cnm">China</span><span class="n-ctag">Business &amp; tourist</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/thailand-visa" class="n-ccard n-rv" data-country="Thailand"><span class="n-cflag">🇹🇭</span><span><span class="n-cnm">Thailand</span><span class="n-ctag">Tourist &amp; DTV</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/south-korea-visa" class="n-ccard n-rv" data-country="South Korea Korea"><span class="n-cflag">🇰🇷</span><span><span class="n-cnm">South Korea</span><span class="n-ctag">Tourist</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/turkey-visa" class="n-ccard n-rv" data-country="Turkey"><span class="n-cflag">🇹🇷</span><span><span class="n-cnm">Turkey</span><span class="n-ctag">E-visa</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/germany-visa" class="n-ccard n-rv" data-country="Germany"><span class="n-cflag">🇩🇪</span><span><span class="n-cnm">Germany</span><span class="n-ctag">Work &amp; study</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/france-visa" class="n-ccard n-rv" data-country="France"><span class="n-cflag">🇫🇷</span><span><span class="n-cnm">France</span><span class="n-ctag">Schengen</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/italy-visa" class="n-ccard n-rv" data-country="Italy"><span class="n-cflag">🇮🇹</span><span><span class="n-cnm">Italy</span><span class="n-ctag">Schengen</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
- <a href="/visa-guide/india-visa" class="n-ccard n-rv" data-country="India"><span class="n-cflag">🇮🇳</span><span><span class="n-cnm">India</span><span class="n-ctag">e-Visa</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/usa-visa/" class="n-ccard n-rv" data-country="United States USA America"><span class="n-cflag" aria-hidden="true">US</span><span><span class="n-cnm">United States</span><span class="n-ctag">H1B &amp; tourist</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/uk-visa/" class="n-ccard n-rv" data-country="United Kingdom UK England Britain"><span class="n-cflag" aria-hidden="true">GB</span><span><span class="n-cnm">United Kingdom</span><span class="n-ctag">Standard visitor</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/canada-visa/" class="n-ccard n-rv" data-country="Canada"><span class="n-cflag" aria-hidden="true">CA</span><span><span class="n-cnm">Canada</span><span class="n-ctag">Study &amp; PR</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/australia-visa/" class="n-ccard n-rv" data-country="Australia"><span class="n-cflag" aria-hidden="true">AU</span><span><span class="n-cnm">Australia</span><span class="n-ctag">Skilled migration</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/schengen-visa/" class="n-ccard n-rv" data-country="Schengen Area Europe"><span class="n-cflag" aria-hidden="true">EU</span><span><span class="n-cnm">Schengen Area</span><span class="n-ctag">29 countries</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/japan-visa/" class="n-ccard n-rv" data-country="Japan"><span class="n-cflag" aria-hidden="true">JP</span><span><span class="n-cnm">Japan</span><span class="n-ctag">Tourist &amp; work</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/uae-visa/" class="n-ccard n-rv" data-country="UAE Dubai"><span class="n-cflag" aria-hidden="true">AE</span><span><span class="n-cnm">UAE (Dubai)</span><span class="n-ctag">Tourist &amp; golden</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/singapore-visa/" class="n-ccard n-rv" data-country="Singapore"><span class="n-cflag" aria-hidden="true">SG</span><span><span class="n-cnm">Singapore</span><span class="n-ctag">Business &amp; PR</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/china-visa/" class="n-ccard n-rv" data-country="China"><span class="n-cflag" aria-hidden="true">CN</span><span><span class="n-cnm">China</span><span class="n-ctag">Business &amp; tourist</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/thailand-visa/" class="n-ccard n-rv" data-country="Thailand"><span class="n-cflag" aria-hidden="true">TH</span><span><span class="n-cnm">Thailand</span><span class="n-ctag">Tourist &amp; DTV</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/south-korea-visa/" class="n-ccard n-rv" data-country="South Korea Korea"><span class="n-cflag" aria-hidden="true">KR</span><span><span class="n-cnm">South Korea</span><span class="n-ctag">Tourist</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/turkey-visa/" class="n-ccard n-rv" data-country="Turkey"><span class="n-cflag" aria-hidden="true">TR</span><span><span class="n-cnm">Turkey</span><span class="n-ctag">E-visa</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/germany-visa/" class="n-ccard n-rv" data-country="Germany"><span class="n-cflag" aria-hidden="true">DE</span><span><span class="n-cnm">Germany</span><span class="n-ctag">Work &amp; study</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/france-visa/" class="n-ccard n-rv" data-country="France"><span class="n-cflag" aria-hidden="true">FR</span><span><span class="n-cnm">France</span><span class="n-ctag">Schengen</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/italy-visa/" class="n-ccard n-rv" data-country="Italy"><span class="n-cflag" aria-hidden="true">IT</span><span><span class="n-cnm">Italy</span><span class="n-ctag">Schengen</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
+ <a href="/visa-guide/india-visa/" class="n-ccard n-rv" data-country="India"><span class="n-cflag" aria-hidden="true">IN</span><span><span class="n-cnm">India</span><span class="n-ctag">e-Visa</span></span><i class="bi bi-arrow-right n-cgo"></i></a>
  </div>
+ <p class="n-cempty" id="nxCempty">Not in this list &mdash; <a href="/visa-guide/">see all 60+ country guides</a>.</p>
  <div class="n-morewrap">
- <a href="/visa-guide/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-grid-3x3-gap"></i> View All 65+ Countries</a>
+ <a href="/visa-guide/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-grid-3x3-gap"></i> View All 60+ Countries</a>
  </div>
  </div>
  </section>
@@ -604,7 +630,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <span class="n-step-n">04</span>
  <div class="n-step-ic"><i class="bi bi-patch-check-fill"></i></div>
  <h3>Visa approved</h3>
- <p>Track your file in real time and get it in your inbox the moment the embassy stamps it.</p>
+ <p>We keep you updated until the embassy decides, and help you get ready to travel.</p>
  </article>
  </div>
  </div>
@@ -619,31 +645,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Whether it is a weekend holiday or a 4-year degree, we have handled that exact category before.</p>
  </div>
  <div class="n-vgrid">
- <a href="/visa-guide/tourist-visa" class="n-vcard n-rv">
+ <a href="/visa-guide/" class="n-vcard n-rv">
  <div class="n-vic"><i class="bi bi-suit-diamond-fill"></i></div>
  <h3>Tourist &amp; visitor</h3>
  <p>Leisure trips, visiting family or friends. We cover biometrics, funds proof and interview prep.</p>
  <span class="n-vlink">Explore tourist visas <i class="bi bi-arrow-right"></i></span>
  </a>
- <a href="/visa-guide/business-visa" class="n-vcard n-rv">
+ <a href="/visa-guide/" class="n-vcard n-rv">
  <div class="n-vic"><i class="bi bi-briefcase-fill"></i></div>
  <h3>Business &amp; conference</h3>
  <p>Invitations, trade fairs, CPHI and medical congresses &mdash; including MICE and pharma industry files.</p>
  <span class="n-vlink">Explore business visas <i class="bi bi-arrow-right"></i></span>
  </a>
- <a href="/visa-guide/student-visa" class="n-vcard n-rv">
+ <a href="/visa-guide/" class="n-vcard n-rv">
  <div class="n-vic"><i class="bi bi-mortarboard-fill"></i></div>
  <h3>Student</h3>
  <p>CAS, I-20, study permit and funding evidence. Track admit-to-visa timelines for each intake.</p>
  <span class="n-vlink">Explore student visas <i class="bi bi-arrow-right"></i></span>
  </a>
- <a href="/visa-guide/work-visa" class="n-vcard n-rv">
+ <a href="/visa-guide/" class="n-vcard n-rv">
  <div class="n-vic"><i class="bi bi-tools"></i></div>
  <h3>Work &amp; skilled migration</h3>
  <p>Points-based PR, work permits, dependent visas and employer-sponsored routes.</p>
  <span class="n-vlink">Explore work visas <i class="bi bi-arrow-right"></i></span>
  </a>
- <a href="/visa-guide/transit-visa" class="n-vcard n-rv">
+ <a href="/visa-guide/" class="n-vcard n-rv">
  <div class="n-vic"><i class="bi bi-airplane-fill"></i></div>
  <h3>Transit &amp; e-visa</h3>
  <p>Airport transit, 30/60-day e-visas and same-day electronic approvals for 40+ countries.</p>
@@ -652,8 +678,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <a href="/visa-requirements/" class="n-vcard n-rv">
  <div class="n-vic"><i class="bi bi-folder2-open"></i></div>
  <h3>Not sure which one?</h3>
- <p>Answer 6 short questions and get your personalised visa roadmap with documents and timelines.</p>
- <span class="n-vlink">Check eligibility <i class="bi bi-arrow-right"></i></span>
+ <p>Compare requirements country by country, or ask us and we will point you to the right visa.</p>
+ <span class="n-vlink">Compare requirements <i class="bi bi-arrow-right"></i></span>
  </a>
  </div>
  </div>
@@ -665,7 +691,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="n-head n-rv">
  <span class="n-eyebrow"><span class="dot"></span> Why travellers choose us</span>
  <h2>Consultants, <em>not a call centre</em></h2>
- <p>Fourteen years of filing experience, one named consultant per file, and honest advice even when it saves us a fee.</p>
+ <p>5+ years of filing experience, one named consultant per file, and honest advice even when it saves us a fee.</p>
  </div>
  <div class="n-fgrid">
  <article class="n-fcard n-rv">
@@ -739,7 +765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Practical guides, updated requirements and real rejection case studies.</p>
  </div>
  <div class="n-bgrid">
- <a href="/blog/canada-visa-rejection-reasons" class="n-bcard n-rv">
+ <a href="/blog/canada-visa-rejection-reasons/" class="n-bcard n-rv">
  <div class="n-bimg">
  <img src="/blog/images/canada-visa-rejection-reasons.svg" alt="Canada Tourist Visa Rejection Reasons 2026" loading="lazy" width="640" height="360">
  <span class="n-bcat">Guides</span>
@@ -751,7 +777,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <span class="n-bl">Read article <i class="bi bi-arrow-right"></i></span>
  </div>
  </a>
- <a href="/blog/one-wrong-answer-us-visa" class="n-bcard n-rv">
+ <a href="/blog/one-wrong-answer-us-visa/" class="n-bcard n-rv">
  <div class="n-bimg">
  <img src="/blog/images/one-wrong-answer-us-visa.svg" alt="Can One Wrong Answer Affect Your US Visa Decision?" loading="lazy" width="640" height="360">
  <span class="n-bcat">US Visa</span>
@@ -763,7 +789,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <span class="n-bl">Read article <i class="bi bi-arrow-right"></i></span>
  </div>
  </a>
- <a href="/blog/singapore-visa-validity" class="n-bcard n-rv">
+ <a href="/blog/singapore-visa-validity/" class="n-bcard n-rv">
  <div class="n-bimg">
  <img src="/blog/images/singapore-visa-validity.svg" alt="Singapore Visa Validity: Why 2 Months vs 2 Years?" loading="lazy" width="640" height="360">
  <span class="n-bcat">Explainers</span>
@@ -813,7 +839,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  <div class="n-fq n-rv">
  <button class="n-fq-btn" type="button" aria-expanded="false">Which countries do you cover?<i class="bi bi-plus-lg n-fq-ic"></i></button>
- <div class="n-fq-a"><p>Over 65 destinations including the USA, UK, Canada, Australia, Schengen, Japan, UAE, Singapore, China, South Korea and Thailand &mdash; plus e-visa and transit categories for 40+ additional countries.</p></div>
+ <div class="n-fq-a"><p>60+ destinations including the USA, UK, Canada, Australia, Schengen, Japan, UAE, Singapore, China, South Korea and Thailand &mdash; plus e-visa and transit categories for 40+ additional countries.</p></div>
  </div>
  </div>
  </div>
@@ -826,14 +852,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h2>Your visa journey starts with one free call</h2>
  <p>Tell us where you are going. We will tell you exactly what you need &mdash; even if the answer is that you do not need a visa yet.</p>
  <div class="n-cta-btns">
- <a href="/contact" class="n-btn n-btn-l n-btn-lg"><i class="bi bi-calendar2-check-fill"></i> Book Free Consultation</a>
+ <a href="/contact/" class="n-btn n-btn-l n-btn-lg"><i class="bi bi-calendar2-check-fill"></i> Book Free Consultation</a>
  <a href="tel:+918551805523" class="n-btn n-btn-g n-btn-lg"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
  </div>
- <form class="n-sub" onsubmit="return newsletterSubmit(event)">
- <input type="email" id="nlEmail" placeholder="Get free visa updates in your inbox" required aria-label="Email address for visa updates">
+ <form class="n-sub" id="nlForm" action="https://formspree.io/f/maqzrvbg" method="POST" onsubmit="return newsletterSubmit(event)">
+ <input type="hidden" name="_subject" value="Newsletter signup (homepage)">
+ <input type="email" name="email" id="nlEmail" placeholder="Get free visa updates in your inbox" required aria-label="Email address for visa updates">
  <button type="submit"><i class="bi bi-send-fill"></i> Subscribe</button>
  </form>
- <div class="n-sub-msg" id="nlMsg"><i class="bi bi-check-circle-fill"></i> Thanks for subscribing! Visa updates are on the way.</div>
+ <div class="n-sub-msg" id="nlMsg" role="status"></div>
  </div>
  </div>
  </section>
@@ -861,12 +888,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h4>Quick Links</h4>
  <ul>
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
   <li><a href="/visa-requirements/">Visa Requirements</a></li>
   <li><a href="/visa-photo-requirements/">Visa Photo Requirements</a></li>
   <li><a href="/blog/">Blog</a></li>
-   <li><a href="/contact">Contact</a></li>
+   <li><a href="/contact/">Contact</a></li>
   <li><a href="/embassy-address/">Embassy Address</a></li>
   <li><a href="/passport-ranking/">Passport Ranking</a></li>
   <li><a href="/upcoming-events/">Upcoming Events</a></li>
@@ -879,12 +906,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-col">
  <h4>Top Countries</h4>
  <ul>
- <li><a href="/visa-guide/usa-visa">US Visa</a></li>
- <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
- <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
- <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
- <li><a href="/visa-guide/india-visa">India Visa</a></li>
- <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ <li><a href="/visa-guide/usa-visa/">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa/">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa/">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa/">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa/">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa/">Schengen Visa</a></li>
  </ul>
  </div>
  <div class="footer-col">
@@ -898,7 +925,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
  <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
  <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
- <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
  </div>
 
  <!-- Visa Timeline Checker -->
@@ -946,8 +972,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-bottom">
  <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
  <span class="footer-bottom-links">
- <a href="/privacy-policy">Privacy Policy</a>
- <a href="/terms-of-service">Terms of Service</a>
+ <a href="/privacy-policy/">Privacy Policy</a>
+ <a href="/terms-of-service/">Terms of Service</a>
  </span>
  </div>
  </div>
@@ -967,10 +993,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.quickVisaCheck = function (e) {
     if (e && e.preventDefault) e.preventDefault();
     var c = document.getElementById('qcCountry');
-    if (!c || !c.value) { if (c) c.focus(); return false; }
-    window.location.href = '/visa-guide/' + c.value;
+    if (!c || !c.value) {
+      var err = document.getElementById('qcErr');
+      if (err) err.classList.add('on');
+      if (c) c.focus();
+      return false;
+    }
+    window.location.href = '/visa-guide/' + c.value + '/';
     return false;
   };
+
+  (function () {
+    var c = document.getElementById('qcCountry'), err = document.getElementById('qcErr');
+    if (c && err) c.addEventListener('change', function () { err.classList.remove('on'); });
+  })();
 
   /* Sticky header state (collapses topbar) */
   (function () {
@@ -988,13 +1024,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   (function () {
     var b = document.getElementById('nxBurger'), m = document.getElementById('nxMenu'), v = document.getElementById('nxVeil');
     if (!b || !m) return;
-    function close() { b.classList.remove('on'); m.classList.remove('open'); if (v) v.classList.remove('on'); b.setAttribute('aria-expanded', 'false'); }
+    function close() { b.classList.remove('on'); m.classList.remove('open'); if (v) v.classList.remove('on'); b.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
     b.addEventListener('click', function () {
       var open = m.classList.toggle('open');
       b.classList.toggle('on', open);
       if (v) v.classList.toggle('on', open);
       b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
     });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     if (v) v.addEventListener('click', close);
     m.addEventListener('click', function (e) { if (e.target.tagName === 'A') close(); });
     window.addEventListener('resize', function () { if (window.innerWidth > 1024) close(); });
@@ -1056,16 +1094,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   /* Country search */
   (function () {
-    var input = document.getElementById('countrySearch');
+    var input = document.getElementById('homeCountrySearch');
     if (!input) return;
     var cards = document.querySelectorAll('.n-ccard');
+    var empty = document.getElementById('nxCempty');
     input.addEventListener('input', function () {
-      var q = input.value.trim().toLowerCase();
+      var q = input.value.trim().toLowerCase(), shown = 0;
       for (var i = 0; i < cards.length; i++) {
         var name = (cards[i].getAttribute('data-country') || '').toLowerCase();
         var hit = q === '' || name.indexOf(q) !== -1;
         cards[i].style.display = hit ? '' : 'none';
+        if (hit) shown++;
       }
+      if (empty) empty.classList.toggle('on', shown === 0);
     });
   })();
 
@@ -1092,11 +1133,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /* Newsletter */
   window.newsletterSubmit = function (e) {
     if (e && e.preventDefault) e.preventDefault();
+    var form = document.getElementById('nlForm');
     var email = document.getElementById('nlEmail');
     var msg = document.getElementById('nlMsg');
-    if (!email || !email.value || !msg) return false;
-    msg.classList.add('on');
-    email.value = '';
+    if (!form || !email || !email.value || !msg) return false;
+    var btn = form.querySelector('button');
+    btn.disabled = true;
+    function show(text, isErr) {
+      msg.textContent = text;
+      msg.classList.toggle('err', !!isErr);
+      msg.classList.add('on');
+      btn.disabled = false;
+    }
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        email.value = '';
+        show('Thanks for subscribing! Visa updates are on the way.');
+      })
+      .catch(function () { show('Sorry, that didn\u2019t go through. Please try again or email myvisaassistance@protonmail.com.', true); });
     return false;
   };
 })();
@@ -1105,12 +1160,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
+var loaded=false;
+function load(){
+if(loaded)return;loaded=true;
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
+}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){window.addEventListener(ev,load,{once:true,passive:true});});
+setTimeout(load,6000);
 })();
 </script>
 <!--End of Tawk.to Script-->
