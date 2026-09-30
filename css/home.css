@@ -754,6 +754,83 @@
  html.n-print-check #photoChecklist .n-glance-ft{display:none}
 }
 
+/* ---------- Country visa guide (article) ---------- */
+.n-progress{position:fixed;top:0;left:0;height:3px;width:0;background:#2F45C5;z-index:1100;transition:width .1s linear}
+.nx .n-guide .n-phero h1{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+.nx .n-guide-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:start;padding-top:44px;padding-bottom:64px}
+.nx .n-guide-side{position:sticky;top:96px;display:grid;gap:16px}
+.nx .n-toc ul{list-style:none;margin:0;padding:8px 10px 10px}
+.nx .n-toc a{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:8px;font-size:.88rem;font-weight:600;color:var(--ink-2)}
+.nx .n-toc a i{color:var(--muted)}
+.nx .n-toc a:hover{background:var(--mist);color:var(--ink)}
+.nx .n-toc a.on{background:var(--accent-tint);color:var(--indigo)}
+.nx .n-toc a.on i{color:var(--indigo)}
+.nx .n-side-help>p{margin:0;padding:14px 20px 0;font-size:.88rem;line-height:1.6;color:var(--ink-2)}
+.nx .n-side-btns{display:grid;gap:8px;padding:14px 20px}
+.nx .n-share{display:flex;align-items:center;gap:12px;padding:12px 20px;border-top:1px solid var(--line);background:var(--mist)}
+.nx .n-share span{font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:auto}
+.nx .n-share a{color:var(--ink-2);font-size:1.05rem}
+.nx .n-share a:hover{color:var(--indigo)}
+.nx .n-toc-m{display:none}
+
+.nx .n-art{min-width:0;font-size:1rem;line-height:1.75;color:var(--ink-2)}
+.nx .n-art-meta{display:flex;align-items:center;gap:8px;margin:0 0 24px;padding-bottom:16px;border-bottom:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+.nx .n-art-meta i{color:#16A34A}
+.nx .n-art h2{font-size:clamp(1.35rem,2.2vw,1.65rem);line-height:1.3;font-weight:700;color:var(--ink);margin:52px 0 14px;padding-top:26px;border-top:1px solid var(--line);scroll-margin-top:96px;display:flex;align-items:center;gap:12px}
+.nx .n-art h2 i,.nx .n-art h3 i{flex-shrink:0;width:36px;height:36px;border-radius:9px;background:var(--accent-tint);color:var(--indigo);display:inline-flex;align-items:center;justify-content:center;font-size:1rem}
+.nx .n-art h3{font-size:1.08rem;font-weight:700;color:var(--ink);margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+.nx .n-art h3 i{width:28px;height:28px;border-radius:7px;font-size:.85rem}
+.nx .n-art h4{font-size:1rem;font-weight:700;color:var(--ink);margin:0 0 8px}
+.nx .n-art p{margin:0 0 16px}
+.nx .n-art a{color:var(--indigo);font-weight:600}
+.nx .n-art a:hover{text-decoration:underline}
+.nx .n-art ul{margin:0 0 20px;padding-left:22px;list-style:disc}
+.nx .n-art li{margin:0 0 8px}
+.nx .n-art li::marker{color:var(--indigo)}
+.nx .n-art strong{color:var(--ink)}
+.nx .n-art .info-box{margin:0 0 26px;padding:20px 22px;border:1px solid #D6DDF6;border-left:4px solid var(--indigo);border-radius:10px;background:#F7F8FE;scroll-margin-top:96px}
+.nx .n-art .info-box p:last-child{margin-bottom:0}
+.nx .n-art .visa-table-wrapper{margin:0 0 24px;border:1px solid var(--line);border-radius:12px;overflow-x:auto;background:#fff}
+.nx .n-art .visa-table{width:100%;border-collapse:collapse;font-size:.9rem;line-height:1.5}
+.nx .n-art .visa-table th{background:var(--mist);text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+.nx .n-art .visa-table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.nx .n-art .visa-table tr:last-child td{border-bottom:none}
+.nx .n-art .visa-table td:first-child{font-weight:600;color:var(--ink)}
+.nx .n-art .visa-table tbody tr:hover{background:#FAFBFD}
+.nx .n-art .process-timeline{margin:0 0 24px}
+.nx .n-art .process-step{position:relative;display:flex;gap:16px;padding:0 0 20px}
+.nx .n-art .process-step:not(:last-child)::before{content:'';position:absolute;left:17px;top:38px;bottom:4px;width:2px;background:var(--line)}
+.nx .n-art .process-step-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+.nx .n-art .process-step-body{padding-top:6px}
+.nx .n-art .process-step-body strong{display:block;margin-bottom:3px}
+.nx .n-art .process-step-body p{margin:0;font-size:.94rem}
+.nx .n-art .faq-list{display:grid;gap:10px;margin:0 0 24px}
+.nx .n-art .faq-item{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
+.nx .n-art .faq-item.active{border-color:#C5CEDD;box-shadow:var(--sh)}
+.nx .n-art .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:none;background:none;text-align:left;font-family:inherit;font-size:.98rem;font-weight:700;color:var(--ink);cursor:pointer}
+.nx .n-art .faq-question:hover{color:var(--indigo)}
+.nx .n-art .faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--accent-tint);color:var(--indigo);display:flex;align-items:center;justify-content:center;font-weight:700;transition:transform .25s}
+.nx .n-art .faq-item.active .faq-icon{transform:rotate(45deg);background:var(--indigo);color:#fff}
+.nx .n-art .faq-answer{padding:0 18px;font-size:.94rem}
+.nx .n-art .faq-item.active .faq-answer{padding:0 18px 16px}
+.nx .n-art .faq-answer ul{margin-bottom:0}
+
+@media(max-width:1024px){
+ .nx .n-guide-grid{grid-template-columns:1fr;gap:0;padding-top:0}
+ .nx .n-guide-side{position:static;margin-top:24px}
+ .nx .n-toc{display:none}
+ .nx .n-toc-m{display:block;position:sticky;top:74px;z-index:5;margin:0 -24px 20px;padding:10px 24px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+ .nx .n-toc-m::-webkit-scrollbar{display:none}
+ .nx .n-toc-m ul{list-style:none;margin:0;padding:0;display:flex;gap:6px;width:max-content}
+ .nx .n-toc-m a{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--line);border-radius:8px;font-size:.8rem;font-weight:600;color:var(--ink-2);white-space:nowrap}
+ .nx .n-toc-m a.on{background:var(--ink);border-color:var(--ink);color:#fff}
+ .nx .n-toc-m a.on i{color:#fff}
+}
+@media(max-width:767px){
+ .nx .n-toc-m{top:66px;margin:0 -18px 18px;padding:10px 18px}
+ .nx .n-art h2{margin-top:40px}
+}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
