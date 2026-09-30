@@ -1,6 +1,6 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded by index.html, about/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
+   Loaded by index.html, about/, contact/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -609,7 +609,42 @@
  .nx .n-india-links .n-btn{width:100%}
 }
 
+/* ---------- Contact page ---------- */
+.nx .n-contact-hero .n-phero-grid{align-items:start}
+.nx .n-quick{display:grid;gap:10px;margin:0 0 24px;max-width:520px}
+.nx .n-quick-i{display:flex;align-items:center;gap:13px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink-2);font-size:.88rem}
+.nx .n-quick-i b{display:block;font-size:.92rem;color:var(--ink)}
+.nx .n-quick-i:hover{border-color:var(--indigo);box-shadow:var(--sh)}
+.nx .n-quick-i:hover b{color:var(--indigo)}
+.nx .n-quick-i>span:last-child{min-width:0;word-break:break-word}
+.nx .n-form{padding:20px 22px 22px;display:grid;gap:14px}
+.nx .n-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.nx .n-form .n-field label{font-size:.72rem}
+.nx .n-form .n-field label span{color:#B42318}
+.nx .n-form .n-field .n-opt{color:var(--muted);text-transform:none;letter-spacing:0;font-weight:500}
+.nx .n-form textarea{width:100%;padding:12px 15px;border:1px solid var(--line);border-radius:8px;background:var(--mist);color:var(--ink);font-family:inherit;font-size:.93rem;font-weight:500;resize:vertical;min-height:110px}
+.nx .n-form textarea:focus{outline:0;border-color:var(--indigo);background:#fff;box-shadow:0 0 0 4px rgba(79,70,229,.12)}
+.nx .n-form input,.nx .n-form select,.nx .n-form textarea{font-weight:500}
+.nx .n-form-err{margin:0;padding:10px 12px;border-radius:8px;background:#FEF3F2;border:1px solid #FECDCA;color:#B42318;font-size:.85rem}
+.nx .n-form-err a{color:#B42318;font-weight:700}
+.nx .n-form-note{margin:0;font-size:.76rem;color:var(--muted)}
+.nx .n-form-note a{color:var(--indigo)}
+.nx .n-form-ok{padding:40px 26px;text-align:center;outline:none}
+.nx .n-form-ok-ic{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:#ECFDF3;color:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.nx .n-form-ok h2{font-size:1.3rem;font-weight:700;margin:0 0 8px}
+.nx .n-form-ok p{margin:0;color:var(--muted);line-height:1.65}
+.nx .n-form-ok a{color:var(--indigo);font-weight:700}
+.nx .n-card-link{display:inline-block;margin-top:12px;font-size:.9rem;font-weight:700;color:var(--indigo);word-break:break-word}
+.nx .n-hours{margin:0}
+.nx .n-hours div{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.nx .n-hours div:last-child{border-bottom:none}
+.nx .n-hours dt{color:var(--muted)}
+.nx .n-hours dd{margin:0;font-weight:600;color:var(--ink)}
+@media(max-width:767px){.nx .n-form-row{grid-template-columns:1fr}}
+
 /* ---------- Markup helpers ---------- */
+/* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
+.nx [hidden]{display:none!important}
 /* Country codes instead of flag emoji: Windows renders flag emoji as bare letters */
 .nx .n-cflag{font-size:.8rem;font-weight:800;letter-spacing:.04em;color:var(--indigo)}
 .nx .n-ccard:hover .n-cflag{color:#fff;background:rgba(255,255,255,.16)}
