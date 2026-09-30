@@ -1,6 +1,6 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded by index.html, about/, tracking-links/ and embassy-address/. Other pages use style.css.
+   Loaded by index.html, about/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -554,6 +554,59 @@
  .nx .n-emb-grid{grid-template-columns:1fr}
  .nx .n-emb-tabs{width:100%}
  .nx .n-emb-tabs button{white-space:normal;padding:9px 8px;font-size:.8rem}
+}
+
+/* ---------- Passport ranking ---------- */
+.nx .n-podium ol{list-style:none;margin:0;padding:6px 22px}
+.nx .n-podium li{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.nx .n-podium li:last-child{border-bottom:none}
+.nx .n-podium li>div{flex:1;min-width:0}
+.nx .n-podium b{display:block;font-size:.98rem;color:var(--ink)}
+.nx .n-podium li span:not(.n-rank){display:block;font-size:.8rem;color:var(--muted);line-height:1.45}
+.nx .n-podium em{font-style:normal;font-size:1.35rem;font-weight:700;color:var(--ink)}
+.nx .n-podium-ft{margin:0;padding:11px 22px;background:var(--mist);border-top:1px solid var(--line);font-size:.75rem;color:var(--muted)}
+.nx .n-rank{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 6px;border-radius:8px;background:var(--mist);border:1px solid var(--line);font-size:.82rem;font-weight:700;color:var(--ink-2)}
+.nx .n-rank.n-top{background:var(--ink);border-color:var(--ink);color:#fff}
+.nx .n-pp-sort{display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.nx .n-pp-sort select{padding:10px 36px 10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356657A' stroke-width='2.4' stroke-linecap='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 12px center/14px;-webkit-appearance:none;appearance:none;font-family:inherit;font-size:.88rem;font-weight:600;color:var(--ink);cursor:pointer}
+.nx .n-pp-sort select:focus{outline:0;border-color:var(--indigo);box-shadow:0 0 0 3px rgba(47,69,197,.14)}
+.nx .n-tbl-wrap{border:1px solid var(--line);border-radius:12px;overflow:auto;background:#fff}
+.nx .n-tbl{width:100%;border-collapse:collapse;font-size:.9rem;min-width:860px}
+.nx .n-tbl thead th{position:sticky;top:0;background:var(--mist);text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+.nx .n-tbl td,.nx .n-tbl tbody th{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--ink-2);text-align:left;font-weight:400;white-space:nowrap}
+.nx .n-tbl tbody tr:last-child td,.nx .n-tbl tbody tr:last-child th{border-bottom:none}
+.nx .n-tbl tbody tr:hover{background:#FAFBFD}
+.nx .n-pp{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--ink)}
+.nx .n-pp .n-dir-cc{width:30px;height:30px;font-size:.66rem}
+.nx .n-score{display:flex;align-items:center;gap:10px}
+.nx .n-score b{min-width:28px;color:var(--ink)}
+.nx .n-bar{width:110px;height:6px;border-radius:3px;background:var(--mist);border:1px solid var(--line);overflow:hidden}
+.nx .n-bar span{display:block;height:100%;background:var(--indigo)}
+.nx .n-up{color:#16A34A}
+.nx .n-down{color:#B42318}
+.nx .n-flat,.nx .n-muted{color:var(--muted)}
+.nx .n-tbl-note{margin:12px 0 0;font-size:.8rem;color:var(--muted)}
+.nx .n-india{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:36px;padding:26px 28px;border:1px solid var(--line);border-radius:14px;background:var(--mist)}
+.nx .n-india h3{font-size:1.2rem;font-weight:700;margin:0;color:var(--ink)}
+.nx .n-india .n-eyebrow{margin-bottom:6px}
+.nx .n-india-links{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:767px){
+ .nx .n-pp-sort{width:100%;justify-content:space-between}
+ .nx .n-tbl-wrap{border:none;overflow:visible;background:none}
+ .nx .n-tbl{min-width:0}
+ .nx .n-tbl thead{display:none}
+ .nx .n-tbl,.nx .n-tbl tbody{display:block}
+ .nx .n-tbl tr{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding:14px 16px;margin-bottom:10px;border:1px solid var(--line);border-radius:12px;background:#fff}
+ .nx .n-tbl tr[hidden]{display:none}
+ .nx .n-tbl td,.nx .n-tbl tbody th{padding:0;border:none;white-space:normal}
+ .nx .n-tbl tbody th{flex:1;min-width:0}
+ .nx .n-tbl td:nth-child(9){order:1}
+ .nx .n-tbl td:nth-child(3){order:2;flex:0 0 100%}
+ .nx .n-tbl td:nth-child(3) .n-bar{flex:1;width:auto}
+ .nx .n-tbl td:nth-child(n+4):nth-child(-n+8){order:3;flex:1 1 28%;font-size:.86rem;font-weight:600;color:var(--ink)}
+ .nx .n-tbl td:nth-child(n+4):nth-child(-n+8)::before{content:attr(data-label);display:block;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+ .nx .n-india{padding:22px}
+ .nx .n-india-links .n-btn{width:100%}
 }
 
 /* ---------- Markup helpers ---------- */

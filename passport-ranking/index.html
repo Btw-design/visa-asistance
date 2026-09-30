@@ -2,99 +2,8 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
-  --color-accent-alt: #A5D549;
-  --color-accent-alt-light: #bae56a;
-  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
-body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
-a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
-a:hover{color:var(--color-accent)}
-ul{list-style:none}
-h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
-h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
-h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
-h3{font-size:clamp(1.15rem,2vw,1.4rem)}
-p{margin-bottom:1rem;color:var(--color-text)}
-img{max-width:100%;height:auto;display:block}
-.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
-.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
-.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
-.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
-.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
-.btn-lg{padding:16px 36px;font-size:1.1rem}
-.btn-white{background:var(--color-white);color:var(--color-primary)}
-.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
-.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
-.logo span{color:var(--color-accent)}
-.nav{display:flex;align-items:center;gap:12px}
-.nav-list{display:flex;align-items:center;gap:4px}
-.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
-.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
-.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
-.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
-.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
-.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
-.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
-.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
-.nav-overlay.open{opacity:1}
-.hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
-.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
-.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
-.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
-.hero-badge i,.hero-badge svg{color:var(--color-accent)}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
-.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
-.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
-.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
-.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
-.hero-form h3{color:var(--color-primary);font-size:1.25rem}
-.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
-.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
-.breadcrumbs a{color:var(--color-primary-light)}
-.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
-.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
-.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
-.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
-.section{padding:80px 0}
-.section-alt{background:var(--color-bg-alt)}
-.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
-.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
-.section-heading p{color:var(--color-text-light);font-size:1.1rem}
-.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
-.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
-
-
-.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
-.scroll-top.visible{opacity:1;visibility:visible}
-.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
-
-.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden}
-.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
-.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
-.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
-.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
-.country-hero .breadcrumb a:hover{color:var(--color-accent)}
-body.menu-open{overflow:hidden}
-.text-center{text-align:center}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
-@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
-@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
-</style><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
+ <script>document.documentElement.className+=" js"</script>
+<style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
 
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -156,33 +65,15 @@ body.menu-open{overflow:hidden}
    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
  <link rel="canonical" href="https://myvisaassistance.com/passport-ranking/">
 
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+ <link rel="stylesheet" href="/css/home.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
  
- <style>
- .ranking-table { width:100%; border-collapse:collapse; margin:30px 0; }
- .ranking-table th { background:var(--color-primary); color:white; padding:14px 12px; text-align:left; font-weight:600; }
- .ranking-table td { padding:12px; border-bottom:1px solid #e0e0e0; }
- .ranking-table tr:hover { background:#f5f7ff; }
- .ranking-table .rank-num { font-weight:700; font-size:1.1rem; color:var(--color-primary); text-align:center; }
- .ranking-table .top-rank { background:#f0f8e8; }
- .ranking-table .top-rank:hover { background:#e8f5d8; }
- .mobility-bar { display:inline-block; height:8px; border-radius:4px; background:linear-gradient(90deg, var(--color-accent), var(--color-primary)); min-width:20px; }
- .score-badge { display:inline-block; background:var(--color-primary); color:white; padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; }
- .visa-free-badge { color:#2e7d32; font-weight:600; }
- .voa-badge { color:#e65100; font-weight:600; }
- .eta-badge { color:#1565c0; font-weight:600; }
- .visa-req-badge { color:#c62828; font-weight:600; }
- .passport-rank-section { margin:40px 0; }
- .methodology-box { background:#f5f7ff; border-radius:12px; padding:25px; margin:30px 0; border-left:4px solid var(--color-primary); }
- .methodology-box h3 { margin-top:0; }
- .table-wrap { overflow-x:auto; }
- @media (max-width:768px) {
- .ranking-table th, .ranking-table td { padding:8px 6px; font-size:0.85rem; }
- }
- </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -190,608 +81,293 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
 <!-- End Google Tag Manager -->
+ <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is a Mobility Score?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The Mobility Score represents the total number of countries and territories that a passport holder can visit without obtaining a traditional visa. It includes visa-free access, visa on arrival, eTA (Electronic Travel Authorization), and eVisa. A higher score means greater travel freedom."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which passport is the strongest in 2026?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Singapore holds the strongest passport in 2026 with a Mobility Score of 195, granting access to 159 visa-free destinations, 22 visa-on-arrival destinations, and 9 eTA-eligible territories. Singapore citizens can visit 97.4% of the world without a traditional visa."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why did the US passport rank drop?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The United States passport has seen a relative decline as other countries have expanded their visa-free networks more aggressively. While the US still has strong passport power (ranked 8th with 186 destinations), it has been surpassed by nations like Singapore, Japan, and several European countries that have negotiated broader visa-waiver agreements."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How are passport rankings calculated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Passport rankings are calculated by counting the number of destinations accessible without a prior visa. The three main categories are: (1) Visa-Free - enter with just a passport, (2) Visa on Arrival - obtain a visa upon arrival, and (3) eTA - Electronic Travel Authorization obtained online before travel. The Mobility Score is the sum of all three categories."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where can I find the official Henley Passport Index?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The official Henley Passport Index is available at henleyglobal.com/passport-index. The Passport Index by Arton Capital is available at passportindex.org. Both sources are updated regularly throughout the year as visa policies change."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can a passport's ranking change during the year?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, passport rankings can change at any time as countries update their visa policies. New visa-waiver agreements, diplomatic changes, and policy shifts can affect a passport's Mobility Score. Our ranking is updated regularly to reflect the latest policy changes."
+   }
+  }
+ ]
+}
+ </script>
 </head>
-<body>
-
-<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
-<div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
-</div>
-<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
+<body class="nx">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
- <header class="header" role="banner">
- <div class="header-inner">
- <a href="/" class="logo" aria-label="My Visa Assistance - Home">
- <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
- My Visa <span>Assistance</span>
+ <header class="n-head-bar" id="nxHeader" role="banner">
+ <div class="n-topbar">
+ <div class="container n-topbar-in">
+ <span><i class="bi bi-stars"></i> Free expert consultation with every visa application</span>
+ <a href="tel:+918551805523"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
+ <div class="container n-nav">
+ <a href="/" class="n-logo" aria-label="My Visa Assistance - Home">
+ <span class="n-logo-mk"><i class="bi bi-airplane-fill"></i></span>
+ <span>My Visa <em>Assistance</em></span>
  </a>
- <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+ <button class="n-burger" id="nxBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nxMenu">
  <span></span><span></span><span></span>
  </button>
- <nav class="nav" role="navigation" aria-label="Main navigation">
- <ul class="nav-list">
+ <nav aria-label="Main navigation">
+ <ul class="n-menu" id="nxMenu">
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/visa-requirements/">Requirements</a></li>
  <li><a href="/blog/">Blog</a></li>
- 
-<li><a href="/contact">Contact</a></li>
+ <li><a href="/contact/">Contact</a></li>
+ <li class="n-drawer-cta"><a href="/contact/" class="n-btn n-btn-p n-btn-block"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a></li>
  </ul>
  </nav>
+ <div class="n-nav-cta">
+ <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-sm"><i class="bi bi-telephone"></i> Call</a>
+ <a href="/contact/" class="n-btn n-btn-p n-btn-sm"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a>
  </div>
+ </div>
+ <div class="n-veil" id="nxVeil"></div>
  </header>
 
- <nav class="breadcrumbs" aria-label="Breadcrumb">
- <div class="container">
- <a href="/">Home</a>
- <span class="separator">/</span>
- <span>Passport Ranking 2026</span>
+ <main>
+ <!-- ============ HERO ============ -->
+ <section class="n-phero" aria-labelledby="ppTitle">
+ <div class="container n-phero-grid">
+ <div>
+ <nav class="n-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="bi bi-chevron-right" aria-hidden="true"></i><span aria-current="page">Passport ranking 2026</span></nav>
+ <span class="n-eyebrow">Passport ranking 2026</span>
+ <h1 id="ppTitle">The world's most <em>powerful passports</em> in 2026</h1>
+ <p class="n-phero-sub">Ranked by Mobility Score &mdash; how many destinations a passport opens without a traditional visa. Based on the Henley Passport Index and Passport Index, as of June 2026.</p>
+ <div class="n-hero-cta">
+ <a href="#ranking" class="n-btn n-btn-p n-btn-lg"><i class="bi bi-table"></i> See the full ranking</a>
+ <a href="/blog/henley-passport-index-2026/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-flag"></i> Where does India rank?</a>
  </div>
- </nav>
+ </div>
+ <aside class="n-glance n-podium" aria-label="Top 3 passports">
+ <div class="n-glance-hd"><i class="bi bi-trophy" aria-hidden="true"></i> Top of the table</div>
+ <ol>
+ <li><span class="n-rank n-top">1</span><div><b>Singapore</b><span>159 visa-free &middot; 97.4% world reach</span></div><em>195</em></li>
+ <li><span class="n-rank n-top">2</span><div><b>Japan</b><span>156 visa-free &middot; 96.4% world reach</span></div><em>193</em></li>
+ <li><span class="n-rank n-top">3</span><div><b>6 passports tied</b><span>Finland, France, Germany, Italy, South Korea, Spain</span></div><em>191</em></li>
+ </ol>
+ <p class="n-podium-ft">Mobility score &middot; data as of June 2026</p>
+ </aside>
+ </div>
+ </section>
 
- <section class="page-header">
+ <!-- ============ STATS ============ -->
+ <section class="n-stats" aria-label="Ranking at a glance">
  <div class="container">
- <h1><i class="bi bi-passport" style="color:var(--color-accent);margin-right:10px;"></i> Passport Ranking 2026</h1>
- <p>Discover the world's most powerful passports ranked by Mobility Score, visa-free access, and global reach.</p>
+ <div class="n-stats-grid">
+ <div class="n-stat"><b>195</b><span>Highest mobility score</span></div>
+ <div class="n-stat"><b>49</b><span>Passports in the top 20 ranks</span></div>
+ <div class="n-stat"><b>27</b><span>EU passports among them</span></div>
+ <div class="n-stat"><b>170+</b><span>Score needed for the top 20</span></div>
+ </div>
  </div>
  </section>
 
- <section class="section">
+ <!-- ============ RANKING ============ -->
+ <section class="n-section" id="ranking" aria-labelledby="rankTitle">
  <div class="container">
-
- <!-- Introduction -->
- <div class="content-grid">
- <div class="main-content">
- <h2>Top 20 Most Powerful Passports in 2026</h2>
- <p>Our passport ranking is based on the number of destinations that passport holders can access without a visa, with a visa on arrival, or with an Electronic Travel Authorization (eTA). The <strong>Mobility Score</strong> represents the total number of destinations accessible without a traditional visa application.</p>
- <p>The ranking below reflects data from the <strong>Henley Passport Index</strong> and <strong>Passport Index</strong> as of June 2026, showing the top 20 most powerful passports for global travel.</p>
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">Full ranking</span>
+ <h2 id="rankTitle">Top 20 ranks &mdash; <em>49 passports</em></h2>
+ <p>Tied passports share a rank. Search for a country or sort by any column.</p>
  </div>
+ <div class="n-dir-bar">
+ <div class="n-csearch"><i class="bi bi-search" aria-hidden="true"></i><input type="search" id="ppFilter" placeholder="Find a passport" aria-label="Find a passport"></div>
+ <label class="n-pp-sort">Sort by
+ <select id="ppSort">
+ <option value="rank">Rank</option>
+ <option value="vf">Most visa-free</option>
+ <option value="req">Fewest visas required</option>
+ <option value="name">Country A&ndash;Z</option>
+ </select>
+ </label>
  </div>
-
- <!-- Methodology -->
- <div class="methodology-box">
- <h3><i class="bi bi-info-circle" style="color:var(--color-primary);"></i> How We Rank</h3>
- <p><strong>Mobility Score</strong> = Visa-Free + Visa on Arrival + eTA (Electronic Travel Authorization) + eVisa. This represents the total number of destinations a passport holder can visit without obtaining a traditional visa.</p>
- <p><strong>World Reach</strong> = Percentage of world destinations accessible without a visa. Calculated as (Mobility Score / 195) &times; 100.</p>
- <p><strong>Passport Power Rank</strong> = Overall position based on the composite Mobility Score, with ties broken by visa-free count.</p>
- </div>
-
- <!-- Ranking Table -->
- <div class="table-wrap">
- <table class="ranking-table">
- <thead>
- <tr>
- <th>Rank</th>
- <th>Country</th>
- <th>Mobility Score</th>
- <th>Visa-Free</th>
- <th>Visa on Arrival</th>
- <th>eTA</th>
- <th>Visa Required</th>
- <th>World Reach</th>
- <th>Trend</th>
- </tr>
- </thead>
+ <div class="n-tbl-wrap">
+ <table class="n-tbl" id="ppTable">
+ <caption class="sr-only">Passport ranking 2026: mobility score, visa-free, visa on arrival, eTA, visa required, world reach and trend</caption>
+ <thead><tr><th scope="col">Rank</th><th scope="col">Passport</th><th scope="col">Mobility score</th><th scope="col">Visa-free</th><th scope="col">Visa on arrival</th><th scope="col">eTA</th><th scope="col">Visa required</th><th scope="col">World reach</th><th scope="col">Trend</th></tr></thead>
  <tbody>
- <tr class="top-rank">
- <td class="rank-num"><i class="bi bi-trophy" style="color:gold;"></i> 1</td>
- <td><strong>Singapore</strong></td>
- <td><span class="score-badge">195</span></td>
- <td class="visa-free-badge">159</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">5</td>
- <td>97.4%</td>
- <td><i class="bi bi-arrow-up" style="color:#2e7d32;" title="Up"></i></td>
- </tr>
- <tr>
- <td class="rank-num">2</td>
- <td><strong>Japan</strong></td>
- <td><span class="score-badge">193</span></td>
- <td class="visa-free-badge">156</td>
- <td class="voa-badge">23</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">7</td>
- <td>96.4%</td>
- <td><i class="bi bi-arrow-up" style="color:#2e7d32;" title="Up"></i></td>
- </tr>
- <tr>
- <td class="rank-num">3</td>
- <td><strong>Finland</strong></td>
- <td><span class="score-badge">191</span></td>
- <td class="visa-free-badge">155</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">9</td>
- <td>95.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">3</td>
- <td><strong>France</strong></td>
- <td><span class="score-badge">191</span></td>
- <td class="visa-free-badge">155</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">9</td>
- <td>95.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">3</td>
- <td><strong>Germany</strong></td>
- <td><span class="score-badge">191</span></td>
- <td class="visa-free-badge">155</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">9</td>
- <td>95.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">3</td>
- <td><strong>Italy</strong></td>
- <td><span class="score-badge">191</span></td>
- <td class="visa-free-badge">155</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">9</td>
- <td>95.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">3</td>
- <td><strong>South Korea</strong></td>
- <td><span class="score-badge">191</span></td>
- <td class="visa-free-badge">156</td>
- <td class="voa-badge">21</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">9</td>
- <td>95.9%</td>
- <td><i class="bi bi-arrow-up" style="color:#2e7d32;" title="Up"></i></td>
- </tr>
- <tr>
- <td class="rank-num">3</td>
- <td><strong>Spain</strong></td>
- <td><span class="score-badge">191</span></td>
- <td class="visa-free-badge">155</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">9</td>
- <td>95.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">4</td>
- <td><strong>Austria</strong></td>
- <td><span class="score-badge">190</span></td>
- <td class="visa-free-badge">154</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">10</td>
- <td>95.4%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">4</td>
- <td><strong>Denmark</strong></td>
- <td><span class="score-badge">190</span></td>
- <td class="visa-free-badge">154</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">10</td>
- <td>95.4%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">4</td>
- <td><strong>Ireland</strong></td>
- <td><span class="score-badge">190</span></td>
- <td class="visa-free-badge">154</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">10</td>
- <td>95.4%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">4</td>
- <td><strong>Luxembourg</strong></td>
- <td><span class="score-badge">190</span></td>
- <td class="visa-free-badge">154</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">10</td>
- <td>95.4%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">4</td>
- <td><strong>Netherlands</strong></td>
- <td><span class="score-badge">190</span></td>
- <td class="visa-free-badge">154</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">10</td>
- <td>95.4%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">4</td>
- <td><strong>Sweden</strong></td>
- <td><span class="score-badge">190</span></td>
- <td class="visa-free-badge">154</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">10</td>
- <td>95.4%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">5</td>
- <td><strong>Belgium</strong></td>
- <td><span class="score-badge">189</span></td>
- <td class="visa-free-badge">153</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">11</td>
- <td>94.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">5</td>
- <td><strong>New Zealand</strong></td>
- <td><span class="score-badge">189</span></td>
- <td class="visa-free-badge">153</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">11</td>
- <td>94.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">5</td>
- <td><strong>Norway</strong></td>
- <td><span class="score-badge">189</span></td>
- <td class="visa-free-badge">153</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">11</td>
- <td>94.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">5</td>
- <td><strong>Switzerland</strong></td>
- <td><span class="score-badge">189</span></td>
- <td class="visa-free-badge">153</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">11</td>
- <td>94.9%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">5</td>
- <td><strong>United Kingdom</strong></td>
- <td><span class="score-badge">189</span></td>
- <td class="visa-free-badge">153</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">11</td>
- <td>94.9%</td>
- <td><i class="bi bi-arrow-up" style="color:#2e7d32;" title="Up"></i></td>
- </tr>
- <tr>
- <td class="rank-num">6</td>
- <td><strong>Australia</strong></td>
- <td><span class="score-badge">188</span></td>
- <td class="visa-free-badge">152</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">12</td>
- <td>94.4%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">6</td>
- <td><strong>Portugal</strong></td>
- <td><span class="score-badge">188</span></td>
- <td class="visa-free-badge">152</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">12</td>
- <td>94.4%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">7</td>
- <td><strong>Greece</strong></td>
- <td><span class="score-badge">187</span></td>
- <td class="visa-free-badge">151</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">13</td>
- <td>93.8%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">7</td>
- <td><strong>Malta</strong></td>
- <td><span class="score-badge">187</span></td>
- <td class="visa-free-badge">151</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">13</td>
- <td>93.8%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">8</td>
- <td><strong>Canada</strong></td>
- <td><span class="score-badge">186</span></td>
- <td class="visa-free-badge">150</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">14</td>
- <td>93.3%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">8</td>
- <td><strong>Poland</strong></td>
- <td><span class="score-badge">186</span></td>
- <td class="visa-free-badge">150</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">14</td>
- <td>93.3%</td>
- <td><i class="bi bi-arrow-up" style="color:#2e7d32;" title="Up"></i></td>
- </tr>
- <tr>
- <td class="rank-num">8</td>
- <td><strong>United States</strong></td>
- <td><span class="score-badge">186</span></td>
- <td class="visa-free-badge">150</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">14</td>
- <td>93.3%</td>
- <td><i class="bi bi-arrow-down" style="color:#c62828;" title="Down"></i></td>
- </tr>
- <tr>
- <td class="rank-num">9</td>
- <td><strong>Czechia</strong></td>
- <td><span class="score-badge">185</span></td>
- <td class="visa-free-badge">149</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">15</td>
- <td>92.8%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">9</td>
- <td><strong>Estonia</strong></td>
- <td><span class="score-badge">185</span></td>
- <td class="visa-free-badge">149</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">15</td>
- <td>92.8%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">9</td>
- <td><strong>Hungary</strong></td>
- <td><span class="score-badge">185</span></td>
- <td class="visa-free-badge">149</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">15</td>
- <td>92.8%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">9</td>
- <td><strong>United Arab Emirates</strong></td>
- <td><span class="score-badge">185</span></td>
- <td class="visa-free-badge">152</td>
- <td class="voa-badge">19</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">15</td>
- <td>92.8%</td>
- <td><i class="bi bi-arrow-up" style="color:#2e7d32;" title="Up"></i></td>
- </tr>
- <tr>
- <td class="rank-num">10</td>
- <td><strong>Iceland</strong></td>
- <td><span class="score-badge">184</span></td>
- <td class="visa-free-badge">148</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">16</td>
- <td>92.3%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">10</td>
- <td><strong>Latvia</strong></td>
- <td><span class="score-badge">184</span></td>
- <td class="visa-free-badge">148</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">16</td>
- <td>92.3%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">10</td>
- <td><strong>Lithuania</strong></td>
- <td><span class="score-badge">184</span></td>
- <td class="visa-free-badge">148</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">16</td>
- <td>92.3%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">10</td>
- <td><strong>Slovakia</strong></td>
- <td><span class="score-badge">184</span></td>
- <td class="visa-free-badge">148</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">16</td>
- <td>92.3%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
- <tr>
- <td class="rank-num">10</td>
- <td><strong>Slovenia</strong></td>
- <td><span class="score-badge">184</span></td>
- <td class="visa-free-badge">148</td>
- <td class="voa-badge">22</td>
- <td class="eta-badge">9</td>
- <td class="visa-req-badge">16</td>
- <td>92.3%</td>
- <td><i class="bi bi-dash" style="color:#666;" title="Stable"></i></td>
- </tr>
+<tr data-name="singapore" data-rank="1" data-m="195" data-vf="159" data-req="5" data-i="0"><td data-label="Rank"><span class="n-rank n-top">1</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">SG</span>Singapore</span></th><td data-label="Mobility score"><span class="n-score"><b>195</b><span class="n-bar" aria-hidden="true"><span style="width:100%"></span></span></span></td><td data-label="Visa-free">159</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">5</td><td data-label="World reach">97.4%</td><td data-label="Trend"><i class="bi bi-arrow-up-right n-up" aria-hidden="true"></i><span class="sr-only">Up</span></td></tr>
+<tr data-name="japan" data-rank="2" data-m="193" data-vf="156" data-req="7" data-i="1"><td data-label="Rank"><span class="n-rank n-top">2</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">JP</span>Japan</span></th><td data-label="Mobility score"><span class="n-score"><b>193</b><span class="n-bar" aria-hidden="true"><span style="width:96%"></span></span></span></td><td data-label="Visa-free">156</td><td data-label="Visa on arrival">23</td><td data-label="eTA">9</td><td data-label="Visa required">7</td><td data-label="World reach">96.4%</td><td data-label="Trend"><i class="bi bi-arrow-up-right n-up" aria-hidden="true"></i><span class="sr-only">Up</span></td></tr>
+<tr data-name="finland" data-rank="3" data-m="191" data-vf="155" data-req="9" data-i="2"><td data-label="Rank"><span class="n-rank n-top">3</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">FI</span>Finland</span></th><td data-label="Mobility score"><span class="n-score"><b>191</b><span class="n-bar" aria-hidden="true"><span style="width:91%"></span></span></span></td><td data-label="Visa-free">155</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">9</td><td data-label="World reach">95.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="france" data-rank="3" data-m="191" data-vf="155" data-req="9" data-i="3"><td data-label="Rank"><span class="n-rank n-top">3</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">FR</span>France</span></th><td data-label="Mobility score"><span class="n-score"><b>191</b><span class="n-bar" aria-hidden="true"><span style="width:91%"></span></span></span></td><td data-label="Visa-free">155</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">9</td><td data-label="World reach">95.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="germany" data-rank="3" data-m="191" data-vf="155" data-req="9" data-i="4"><td data-label="Rank"><span class="n-rank n-top">3</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">DE</span>Germany</span></th><td data-label="Mobility score"><span class="n-score"><b>191</b><span class="n-bar" aria-hidden="true"><span style="width:91%"></span></span></span></td><td data-label="Visa-free">155</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">9</td><td data-label="World reach">95.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="italy" data-rank="3" data-m="191" data-vf="155" data-req="9" data-i="5"><td data-label="Rank"><span class="n-rank n-top">3</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">IT</span>Italy</span></th><td data-label="Mobility score"><span class="n-score"><b>191</b><span class="n-bar" aria-hidden="true"><span style="width:91%"></span></span></span></td><td data-label="Visa-free">155</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">9</td><td data-label="World reach">95.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="south korea" data-rank="3" data-m="191" data-vf="156" data-req="9" data-i="6"><td data-label="Rank"><span class="n-rank n-top">3</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">KR</span>South Korea</span></th><td data-label="Mobility score"><span class="n-score"><b>191</b><span class="n-bar" aria-hidden="true"><span style="width:91%"></span></span></span></td><td data-label="Visa-free">156</td><td data-label="Visa on arrival">21</td><td data-label="eTA">9</td><td data-label="Visa required">9</td><td data-label="World reach">95.9%</td><td data-label="Trend"><i class="bi bi-arrow-up-right n-up" aria-hidden="true"></i><span class="sr-only">Up</span></td></tr>
+<tr data-name="spain" data-rank="3" data-m="191" data-vf="155" data-req="9" data-i="7"><td data-label="Rank"><span class="n-rank n-top">3</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">ES</span>Spain</span></th><td data-label="Mobility score"><span class="n-score"><b>191</b><span class="n-bar" aria-hidden="true"><span style="width:91%"></span></span></span></td><td data-label="Visa-free">155</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">9</td><td data-label="World reach">95.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="austria" data-rank="4" data-m="190" data-vf="154" data-req="10" data-i="8"><td data-label="Rank"><span class="n-rank">4</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">AT</span>Austria</span></th><td data-label="Mobility score"><span class="n-score"><b>190</b><span class="n-bar" aria-hidden="true"><span style="width:89%"></span></span></span></td><td data-label="Visa-free">154</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">10</td><td data-label="World reach">95.4%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="denmark" data-rank="4" data-m="190" data-vf="154" data-req="10" data-i="9"><td data-label="Rank"><span class="n-rank">4</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">DK</span>Denmark</span></th><td data-label="Mobility score"><span class="n-score"><b>190</b><span class="n-bar" aria-hidden="true"><span style="width:89%"></span></span></span></td><td data-label="Visa-free">154</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">10</td><td data-label="World reach">95.4%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="ireland" data-rank="4" data-m="190" data-vf="154" data-req="10" data-i="10"><td data-label="Rank"><span class="n-rank">4</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">IE</span>Ireland</span></th><td data-label="Mobility score"><span class="n-score"><b>190</b><span class="n-bar" aria-hidden="true"><span style="width:89%"></span></span></span></td><td data-label="Visa-free">154</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">10</td><td data-label="World reach">95.4%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="luxembourg" data-rank="4" data-m="190" data-vf="154" data-req="10" data-i="11"><td data-label="Rank"><span class="n-rank">4</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">LU</span>Luxembourg</span></th><td data-label="Mobility score"><span class="n-score"><b>190</b><span class="n-bar" aria-hidden="true"><span style="width:89%"></span></span></span></td><td data-label="Visa-free">154</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">10</td><td data-label="World reach">95.4%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="netherlands" data-rank="4" data-m="190" data-vf="154" data-req="10" data-i="12"><td data-label="Rank"><span class="n-rank">4</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">NL</span>Netherlands</span></th><td data-label="Mobility score"><span class="n-score"><b>190</b><span class="n-bar" aria-hidden="true"><span style="width:89%"></span></span></span></td><td data-label="Visa-free">154</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">10</td><td data-label="World reach">95.4%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="sweden" data-rank="4" data-m="190" data-vf="154" data-req="10" data-i="13"><td data-label="Rank"><span class="n-rank">4</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">SE</span>Sweden</span></th><td data-label="Mobility score"><span class="n-score"><b>190</b><span class="n-bar" aria-hidden="true"><span style="width:89%"></span></span></span></td><td data-label="Visa-free">154</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">10</td><td data-label="World reach">95.4%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="belgium" data-rank="5" data-m="189" data-vf="153" data-req="11" data-i="14"><td data-label="Rank"><span class="n-rank">5</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">BE</span>Belgium</span></th><td data-label="Mobility score"><span class="n-score"><b>189</b><span class="n-bar" aria-hidden="true"><span style="width:87%"></span></span></span></td><td data-label="Visa-free">153</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">11</td><td data-label="World reach">94.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="new zealand" data-rank="5" data-m="189" data-vf="153" data-req="11" data-i="15"><td data-label="Rank"><span class="n-rank">5</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">NZ</span>New Zealand</span></th><td data-label="Mobility score"><span class="n-score"><b>189</b><span class="n-bar" aria-hidden="true"><span style="width:87%"></span></span></span></td><td data-label="Visa-free">153</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">11</td><td data-label="World reach">94.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="norway" data-rank="5" data-m="189" data-vf="153" data-req="11" data-i="16"><td data-label="Rank"><span class="n-rank">5</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">NO</span>Norway</span></th><td data-label="Mobility score"><span class="n-score"><b>189</b><span class="n-bar" aria-hidden="true"><span style="width:87%"></span></span></span></td><td data-label="Visa-free">153</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">11</td><td data-label="World reach">94.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="switzerland" data-rank="5" data-m="189" data-vf="153" data-req="11" data-i="17"><td data-label="Rank"><span class="n-rank">5</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">CH</span>Switzerland</span></th><td data-label="Mobility score"><span class="n-score"><b>189</b><span class="n-bar" aria-hidden="true"><span style="width:87%"></span></span></span></td><td data-label="Visa-free">153</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">11</td><td data-label="World reach">94.9%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="united kingdom" data-rank="5" data-m="189" data-vf="153" data-req="11" data-i="18"><td data-label="Rank"><span class="n-rank">5</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">GB</span>United Kingdom</span></th><td data-label="Mobility score"><span class="n-score"><b>189</b><span class="n-bar" aria-hidden="true"><span style="width:87%"></span></span></span></td><td data-label="Visa-free">153</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">11</td><td data-label="World reach">94.9%</td><td data-label="Trend"><i class="bi bi-arrow-up-right n-up" aria-hidden="true"></i><span class="sr-only">Up</span></td></tr>
+<tr data-name="australia" data-rank="6" data-m="188" data-vf="152" data-req="12" data-i="19"><td data-label="Rank"><span class="n-rank">6</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">AU</span>Australia</span></th><td data-label="Mobility score"><span class="n-score"><b>188</b><span class="n-bar" aria-hidden="true"><span style="width:84%"></span></span></span></td><td data-label="Visa-free">152</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">12</td><td data-label="World reach">94.4%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="portugal" data-rank="6" data-m="188" data-vf="152" data-req="12" data-i="20"><td data-label="Rank"><span class="n-rank">6</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">PT</span>Portugal</span></th><td data-label="Mobility score"><span class="n-score"><b>188</b><span class="n-bar" aria-hidden="true"><span style="width:84%"></span></span></span></td><td data-label="Visa-free">152</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">12</td><td data-label="World reach">94.4%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="greece" data-rank="7" data-m="187" data-vf="151" data-req="13" data-i="21"><td data-label="Rank"><span class="n-rank">7</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">GR</span>Greece</span></th><td data-label="Mobility score"><span class="n-score"><b>187</b><span class="n-bar" aria-hidden="true"><span style="width:82%"></span></span></span></td><td data-label="Visa-free">151</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">13</td><td data-label="World reach">93.8%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="malta" data-rank="7" data-m="187" data-vf="151" data-req="13" data-i="22"><td data-label="Rank"><span class="n-rank">7</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">MT</span>Malta</span></th><td data-label="Mobility score"><span class="n-score"><b>187</b><span class="n-bar" aria-hidden="true"><span style="width:82%"></span></span></span></td><td data-label="Visa-free">151</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">13</td><td data-label="World reach">93.8%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="canada" data-rank="8" data-m="186" data-vf="150" data-req="14" data-i="23"><td data-label="Rank"><span class="n-rank">8</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">CA</span>Canada</span></th><td data-label="Mobility score"><span class="n-score"><b>186</b><span class="n-bar" aria-hidden="true"><span style="width:80%"></span></span></span></td><td data-label="Visa-free">150</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">14</td><td data-label="World reach">93.3%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="poland" data-rank="8" data-m="186" data-vf="150" data-req="14" data-i="24"><td data-label="Rank"><span class="n-rank">8</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">PL</span>Poland</span></th><td data-label="Mobility score"><span class="n-score"><b>186</b><span class="n-bar" aria-hidden="true"><span style="width:80%"></span></span></span></td><td data-label="Visa-free">150</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">14</td><td data-label="World reach">93.3%</td><td data-label="Trend"><i class="bi bi-arrow-up-right n-up" aria-hidden="true"></i><span class="sr-only">Up</span></td></tr>
+<tr data-name="united states" data-rank="8" data-m="186" data-vf="150" data-req="14" data-i="25"><td data-label="Rank"><span class="n-rank">8</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">US</span>United States</span></th><td data-label="Mobility score"><span class="n-score"><b>186</b><span class="n-bar" aria-hidden="true"><span style="width:80%"></span></span></span></td><td data-label="Visa-free">150</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">14</td><td data-label="World reach">93.3%</td><td data-label="Trend"><i class="bi bi-arrow-down-right n-down" aria-hidden="true"></i><span class="sr-only">Down</span></td></tr>
+<tr data-name="czechia" data-rank="9" data-m="185" data-vf="149" data-req="15" data-i="26"><td data-label="Rank"><span class="n-rank">9</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">CZ</span>Czechia</span></th><td data-label="Mobility score"><span class="n-score"><b>185</b><span class="n-bar" aria-hidden="true"><span style="width:78%"></span></span></span></td><td data-label="Visa-free">149</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">15</td><td data-label="World reach">92.8%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="estonia" data-rank="9" data-m="185" data-vf="149" data-req="15" data-i="27"><td data-label="Rank"><span class="n-rank">9</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">EE</span>Estonia</span></th><td data-label="Mobility score"><span class="n-score"><b>185</b><span class="n-bar" aria-hidden="true"><span style="width:78%"></span></span></span></td><td data-label="Visa-free">149</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">15</td><td data-label="World reach">92.8%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="hungary" data-rank="9" data-m="185" data-vf="149" data-req="15" data-i="28"><td data-label="Rank"><span class="n-rank">9</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">HU</span>Hungary</span></th><td data-label="Mobility score"><span class="n-score"><b>185</b><span class="n-bar" aria-hidden="true"><span style="width:78%"></span></span></span></td><td data-label="Visa-free">149</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">15</td><td data-label="World reach">92.8%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="united arab emirates" data-rank="9" data-m="185" data-vf="152" data-req="15" data-i="29"><td data-label="Rank"><span class="n-rank">9</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">AE</span>United Arab Emirates</span></th><td data-label="Mobility score"><span class="n-score"><b>185</b><span class="n-bar" aria-hidden="true"><span style="width:78%"></span></span></span></td><td data-label="Visa-free">152</td><td data-label="Visa on arrival">19</td><td data-label="eTA">9</td><td data-label="Visa required">15</td><td data-label="World reach">92.8%</td><td data-label="Trend"><i class="bi bi-arrow-up-right n-up" aria-hidden="true"></i><span class="sr-only">Up</span></td></tr>
+<tr data-name="iceland" data-rank="10" data-m="184" data-vf="148" data-req="16" data-i="30"><td data-label="Rank"><span class="n-rank">10</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">IS</span>Iceland</span></th><td data-label="Mobility score"><span class="n-score"><b>184</b><span class="n-bar" aria-hidden="true"><span style="width:76%"></span></span></span></td><td data-label="Visa-free">148</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">16</td><td data-label="World reach">92.3%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="latvia" data-rank="10" data-m="184" data-vf="148" data-req="16" data-i="31"><td data-label="Rank"><span class="n-rank">10</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">LV</span>Latvia</span></th><td data-label="Mobility score"><span class="n-score"><b>184</b><span class="n-bar" aria-hidden="true"><span style="width:76%"></span></span></span></td><td data-label="Visa-free">148</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">16</td><td data-label="World reach">92.3%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="lithuania" data-rank="10" data-m="184" data-vf="148" data-req="16" data-i="32"><td data-label="Rank"><span class="n-rank">10</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">LT</span>Lithuania</span></th><td data-label="Mobility score"><span class="n-score"><b>184</b><span class="n-bar" aria-hidden="true"><span style="width:76%"></span></span></span></td><td data-label="Visa-free">148</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">16</td><td data-label="World reach">92.3%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="slovakia" data-rank="10" data-m="184" data-vf="148" data-req="16" data-i="33"><td data-label="Rank"><span class="n-rank">10</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">SK</span>Slovakia</span></th><td data-label="Mobility score"><span class="n-score"><b>184</b><span class="n-bar" aria-hidden="true"><span style="width:76%"></span></span></span></td><td data-label="Visa-free">148</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">16</td><td data-label="World reach">92.3%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="slovenia" data-rank="10" data-m="184" data-vf="148" data-req="16" data-i="34"><td data-label="Rank"><span class="n-rank">10</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">SI</span>Slovenia</span></th><td data-label="Mobility score"><span class="n-score"><b>184</b><span class="n-bar" aria-hidden="true"><span style="width:76%"></span></span></span></td><td data-label="Visa-free">148</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">16</td><td data-label="World reach">92.3%</td><td data-label="Trend"><i class="bi bi-dash n-flat" aria-hidden="true"></i><span class="sr-only">Stable</span></td></tr>
+<tr data-name="croatia" data-rank="11" data-m="183" data-vf="147" data-req="17" data-i="35"><td data-label="Rank"><span class="n-rank">11</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">HR</span>Croatia</span></th><td data-label="Mobility score"><span class="n-score"><b>183</b><span class="n-bar" aria-hidden="true"><span style="width:73%"></span></span></span></td><td data-label="Visa-free">147</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">17</td><td data-label="World reach">91.8%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="romania" data-rank="11" data-m="183" data-vf="147" data-req="17" data-i="36"><td data-label="Rank"><span class="n-rank">11</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">RO</span>Romania</span></th><td data-label="Mobility score"><span class="n-score"><b>183</b><span class="n-bar" aria-hidden="true"><span style="width:73%"></span></span></span></td><td data-label="Visa-free">147</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">17</td><td data-label="World reach">91.8%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="bulgaria" data-rank="12" data-m="182" data-vf="146" data-req="18" data-i="37"><td data-label="Rank"><span class="n-rank">12</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">BG</span>Bulgaria</span></th><td data-label="Mobility score"><span class="n-score"><b>182</b><span class="n-bar" aria-hidden="true"><span style="width:71%"></span></span></span></td><td data-label="Visa-free">146</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">18</td><td data-label="World reach">91.3%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="cyprus" data-rank="12" data-m="182" data-vf="146" data-req="18" data-i="38"><td data-label="Rank"><span class="n-rank">12</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">CY</span>Cyprus</span></th><td data-label="Mobility score"><span class="n-score"><b>182</b><span class="n-bar" aria-hidden="true"><span style="width:71%"></span></span></span></td><td data-label="Visa-free">146</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">18</td><td data-label="World reach">91.3%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="monaco" data-rank="13" data-m="181" data-vf="145" data-req="19" data-i="39"><td data-label="Rank"><span class="n-rank">13</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">MC</span>Monaco</span></th><td data-label="Mobility score"><span class="n-score"><b>181</b><span class="n-bar" aria-hidden="true"><span style="width:69%"></span></span></span></td><td data-label="Visa-free">145</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">19</td><td data-label="World reach">90.8%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="chile" data-rank="14" data-m="179" data-vf="143" data-req="21" data-i="40"><td data-label="Rank"><span class="n-rank">14</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">CL</span>Chile</span></th><td data-label="Mobility score"><span class="n-score"><b>179</b><span class="n-bar" aria-hidden="true"><span style="width:64%"></span></span></span></td><td data-label="Visa-free">143</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">21</td><td data-label="World reach">89.7%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="argentina" data-rank="15" data-m="177" data-vf="141" data-req="23" data-i="41"><td data-label="Rank"><span class="n-rank">15</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">AR</span>Argentina</span></th><td data-label="Mobility score"><span class="n-score"><b>177</b><span class="n-bar" aria-hidden="true"><span style="width:60%"></span></span></span></td><td data-label="Visa-free">141</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">23</td><td data-label="World reach">88.7%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="brazil" data-rank="16" data-m="176" data-vf="140" data-req="24" data-i="42"><td data-label="Rank"><span class="n-rank">16</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">BR</span>Brazil</span></th><td data-label="Mobility score"><span class="n-score"><b>176</b><span class="n-bar" aria-hidden="true"><span style="width:58%"></span></span></span></td><td data-label="Visa-free">140</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">24</td><td data-label="World reach">88.2%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="israel" data-rank="16" data-m="176" data-vf="140" data-req="24" data-i="43"><td data-label="Rank"><span class="n-rank">16</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">IL</span>Israel</span></th><td data-label="Mobility score"><span class="n-score"><b>176</b><span class="n-bar" aria-hidden="true"><span style="width:58%"></span></span></span></td><td data-label="Visa-free">140</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">24</td><td data-label="World reach">88.2%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="mexico" data-rank="17" data-m="174" data-vf="138" data-req="26" data-i="44"><td data-label="Rank"><span class="n-rank">17</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">MX</span>Mexico</span></th><td data-label="Mobility score"><span class="n-score"><b>174</b><span class="n-bar" aria-hidden="true"><span style="width:53%"></span></span></span></td><td data-label="Visa-free">138</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">26</td><td data-label="World reach">87.2%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="andorra" data-rank="18" data-m="173" data-vf="137" data-req="27" data-i="45"><td data-label="Rank"><span class="n-rank">18</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">AD</span>Andorra</span></th><td data-label="Mobility score"><span class="n-score"><b>173</b><span class="n-bar" aria-hidden="true"><span style="width:51%"></span></span></span></td><td data-label="Visa-free">137</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">27</td><td data-label="World reach">86.7%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="san marino" data-rank="18" data-m="173" data-vf="137" data-req="27" data-i="46"><td data-label="Rank"><span class="n-rank">18</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">SM</span>San Marino</span></th><td data-label="Mobility score"><span class="n-score"><b>173</b><span class="n-bar" aria-hidden="true"><span style="width:51%"></span></span></span></td><td data-label="Visa-free">137</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">27</td><td data-label="World reach">86.7%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="bahamas" data-rank="19" data-m="171" data-vf="135" data-req="29" data-i="47"><td data-label="Rank"><span class="n-rank">19</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">BS</span>Bahamas</span></th><td data-label="Mobility score"><span class="n-score"><b>171</b><span class="n-bar" aria-hidden="true"><span style="width:47%"></span></span></span></td><td data-label="Visa-free">135</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">29</td><td data-label="World reach">85.6%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
+<tr data-name="uruguay" data-rank="20" data-m="170" data-vf="134" data-req="30" data-i="48"><td data-label="Rank"><span class="n-rank">20</span></td><th scope="row" data-label="Passport"><span class="n-pp"><span class="n-dir-cc" aria-hidden="true">UY</span>Uruguay</span></th><td data-label="Mobility score"><span class="n-score"><b>170</b><span class="n-bar" aria-hidden="true"><span style="width:44%"></span></span></span></td><td data-label="Visa-free">134</td><td data-label="Visa on arrival">22</td><td data-label="eTA">9</td><td data-label="Visa required">30</td><td data-label="World reach">85.1%</td><td data-label="Trend"><span class="n-muted" aria-label="No data">&ndash;</span></td></tr>
  </tbody>
  </table>
  </div>
-
- <!-- Additional Passports (11-20) -->
- <h2 style="margin-top:50px;">Passports Ranked 11-20</h2>
- <div class="table-wrap">
- <table class="ranking-table">
- <thead>
- <tr>
- <th>Rank</th>
- <th>Country</th>
- <th>Mobility Score</th>
- <th>Visa-Free</th>
- <th>Visa on Arrival</th>
- <th>eTA</th>
- <th>Visa Required</th>
- <th>World Reach</th>
- </tr>
- </thead>
- <tbody>
- <tr><td>11</td><td><strong>Croatia</strong></td><td>183</td><td class="visa-free-badge">147</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">17</td><td>91.8%</td></tr>
- <tr><td>11</td><td><strong>Romania</strong></td><td>183</td><td class="visa-free-badge">147</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">17</td><td>91.8%</td></tr>
- <tr><td>12</td><td><strong>Bulgaria</strong></td><td>182</td><td class="visa-free-badge">146</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">18</td><td>91.3%</td></tr>
- <tr><td>12</td><td><strong>Cyprus</strong></td><td>182</td><td class="visa-free-badge">146</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">18</td><td>91.3%</td></tr>
- <tr><td>13</td><td><strong>Monaco</strong></td><td>181</td><td class="visa-free-badge">145</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">19</td><td>90.8%</td></tr>
- <tr><td>14</td><td><strong>Chile</strong></td><td>179</td><td class="visa-free-badge">143</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">21</td><td>89.7%</td></tr>
- <tr><td>15</td><td><strong>Argentina</strong></td><td>177</td><td class="visa-free-badge">141</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">23</td><td>88.7%</td></tr>
- <tr><td>16</td><td><strong>Brazil</strong></td><td>176</td><td class="visa-free-badge">140</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">24</td><td>88.2%</td></tr>
- <tr><td>16</td><td><strong>Israel</strong></td><td>176</td><td class="visa-free-badge">140</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">24</td><td>88.2%</td></tr>
- <tr><td>17</td><td><strong>Mexico</strong></td><td>174</td><td class="visa-free-badge">138</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">26</td><td>87.2%</td></tr>
- <tr><td>18</td><td><strong>Andorra</strong></td><td>173</td><td class="visa-free-badge">137</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">27</td><td>86.7%</td></tr>
- <tr><td>18</td><td><strong>San Marino</strong></td><td>173</td><td class="visa-free-badge">137</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">27</td><td>86.7%</td></tr>
- <tr><td>19</td><td><strong>Bahamas</strong></td><td>171</td><td class="visa-free-badge">135</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">29</td><td>85.6%</td></tr>
- <tr><td>20</td><td><strong>Uruguay</strong></td><td>170</td><td class="visa-free-badge">134</td><td class="voa-badge">22</td><td class="eta-badge">9</td><td class="visa-req-badge">30</td><td>85.1%</td></tr>
- </tbody>
- </table>
- </div>
-
- <!-- Key Insights -->
- <div class="passport-rank-section">
- <h2>Key Insights from the 2026 Passport Ranking</h2>
- <div class="features-grid" style="margin-top:20px;">
- <article class="feature-card" style="text-align:left;">
- <div class="feature-icon"><i class="bi bi-trophy"></i></div>
- <h3>Singapore Leads the World</h3>
- <p>Singapore claims the top spot with an unmatched Mobility Score of 195, offering visa-free or visa-on-arrival access to 97.4% of the world. Its strategic diplomacy and strong international relations continue to expand travel freedom for its citizens.</p>
- </article>
- <article class="feature-card" style="text-align:left;">
- <div class="feature-icon"><i class="bi bi-arrow-up-circle"></i></div>
- <h3>UAE on the Rise</h3>
- <p>The United Arab Emirates continues its remarkable ascent, now ranked 9th with 185 destinations. The UAE passport has gained visa-free access to more countries than any other passport over the past decade.</p>
- </article>
- <article class="feature-card" style="text-align:left;">
- <div class="feature-icon"><i class="bi bi-globe"></i></div>
- <h3>European Passports Dominate</h3>
- <p>European Union member states dominate the top 20, occupying 18 of the 34 ranked positions. The Schengen Area's collective visa liberalization agreements benefit all EU member states equally.</p>
- </article>
- <article class="feature-card" style="text-align:left;">
- <div class="feature-icon"><i class="bi bi-currency-exchange"></i></div>
- <h3>Passport Power & Economy</h3>
- <p>There is a strong correlation between a country's economic development and its passport power. Higher-ranked passports enable easier business travel, tourism, and economic exchange, creating a virtuous cycle of global engagement.</p>
- </article>
- </div>
- </div>
-
- <!-- FAQ Section -->
- <div class="passport-rank-section">
- <h2>Frequently Asked Questions About Passport Rankings</h2>
- <div class="faq-list">
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- What is a Mobility Score?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>The Mobility Score represents the total number of countries and territories that a passport holder can visit without obtaining a traditional visa. It includes visa-free access, visa on arrival, eTA (Electronic Travel Authorization), and eVisa. A higher score means greater travel freedom.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- Which passport is the strongest in 2026?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>Singapore holds the strongest passport in 2026 with a Mobility Score of 195, granting access to 159 visa-free destinations, 22 visa-on-arrival destinations, and 9 eTA-eligible territories. Singapore citizens can visit 97.4% of the world without a traditional visa.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- Why did the US passport rank drop?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>The United States passport has seen a relative decline as other countries have expanded their visa-free networks more aggressively. While the US still has strong passport power (ranked 8th with 186 destinations), it has been surpassed by nations like Singapore, Japan, and several European countries that have negotiated broader visa-waiver agreements.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- How are passport rankings calculated?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>Passport rankings are calculated by counting the number of destinations accessible without a prior visa. The three main categories are: (1) Visa-Free - enter with just a passport, (2) Visa on Arrival - obtain a visa upon arrival, and (3) eTA - Electronic Travel Authorization obtained online before travel. The Mobility Score is the sum of all three categories.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- Where can I find the official Henley Passport Index?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>The official Henley Passport Index is available at <a href="https://www.henleyglobal.com/passport-index" target="_blank" rel="noopener noreferrer">henleyglobal.com/passport-index</a>. The Passport Index by Arton Capital is available at <a href="https://www.passportindex.org" target="_blank" rel="noopener noreferrer">passportindex.org</a>. Both sources are updated regularly throughout the year as visa policies change.</p>
- </div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- Can a passport's ranking change during the year?
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">
- <p>Yes, passport rankings can change at any time as countries update their visa policies. New visa-waiver agreements, diplomatic changes, and policy shifts can affect a passport's Mobility Score. Our ranking is updated regularly to reflect the latest policy changes.</p>
- </div>
- </div>
- </div>
- </div>
-
+ <p class="n-cempty" id="ppEmpty">That passport isn't in the top 20 ranks. <a href="/blog/henley-passport-index-2026/">See our full index analysis</a>.</p>
+ <p class="n-tbl-note">Trend is shown for ranks 1&ndash;10. Mobility bars are scaled between 150 and 195 so small differences are visible.</p>
  </div>
  </section>
+
+ <!-- ============ HOW TO READ ============ -->
+ <section class="n-section n-alt" aria-labelledby="readTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">Methodology</span>
+ <h2 id="readTitle">How to read <em>this ranking</em></h2>
+ </div>
+ <div class="n-fgrid">
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-speedometer2" aria-hidden="true"></i></div><h3>Mobility Score</h3><p>Visa-free + visa on arrival + eTA + eVisa destinations: everywhere you can go without a traditional visa.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-globe2" aria-hidden="true"></i></div><h3>World Reach</h3><p>The share of the world's destinations you can visit without a traditional visa.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-sort-numeric-down" aria-hidden="true"></i></div><h3>Rank &amp; ties</h3><p>Passports are ranked on the composite Mobility Score, with ties broken by visa-free count.</p></article>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ INSIGHTS ============ -->
+ <section class="n-section" aria-labelledby="insTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">Key insights</span>
+ <h2 id="insTitle">What the 2026 ranking <em>tells us</em></h2>
+ </div>
+ <div class="n-fgrid n-fgrid-4">
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-trophy" aria-hidden="true"></i></div><h3>Singapore Leads the World</h3><p>Singapore claims the top spot with an unmatched Mobility Score of 195, offering visa-free or visa-on-arrival access to 97.4% of the world. Its strategic diplomacy and strong international relations continue to expand travel freedom for its citizens.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-arrow-up-circle" aria-hidden="true"></i></div><h3>UAE on the Rise</h3><p>The United Arab Emirates continues its remarkable ascent, now ranked 9th with 185 destinations. The UAE passport has gained visa-free access to more countries than any other passport over the past decade.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-globe" aria-hidden="true"></i></div><h3>European Passports Dominate</h3><p>All 27 European Union member states appear in the top 20 ranks &mdash; 27 of the 49 passports listed. The Schengen Area's collective visa liberalization agreements benefit all EU member states equally.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-currency-exchange" aria-hidden="true"></i></div><h3>Passport Power & Economy</h3><p>There is a strong correlation between a country's economic development and its passport power. Higher-ranked passports enable easier business travel, tourism, and economic exchange, creating a virtuous cycle of global engagement.</p></article>
+ </div>
+ <div class="n-india n-rv">
+ <div><span class="n-eyebrow">Travelling on an Indian passport?</span><h3>See where India ranks and where you can go visa-free</h3></div>
+ <div class="n-india-links">
+ <a href="/blog/henley-passport-index-2026/" class="n-btn n-btn-p">India's 2026 passport rank <i class="bi bi-arrow-right"></i></a>
+ <a href="/blog/e-visa-countries-2026/" class="n-btn n-btn-o">e-Visa countries for Indians</a>
+ <a href="/blog/malaysia-visa-free-indians/" class="n-btn n-btn-o">Malaysia visa-free guide</a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ FAQ ============ -->
+ <section class="n-section n-alt" aria-labelledby="faqTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">FAQ</span>
+ <h2 id="faqTitle">Passport ranking <em>questions</em></h2>
+ </div>
+ <div class="n-faq" id="ppFaq">
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="pfa1" id="pfq1">What is a Mobility Score?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="pfa1" role="region" aria-labelledby="pfq1"><p>The Mobility Score represents the total number of countries and territories that a passport holder can visit without obtaining a traditional visa. It includes visa-free access, visa on arrival, eTA (Electronic Travel Authorization), and eVisa. A higher score means greater travel freedom.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="pfa2" id="pfq2">Which passport is the strongest in 2026?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="pfa2" role="region" aria-labelledby="pfq2"><p>Singapore holds the strongest passport in 2026 with a Mobility Score of 195, granting access to 159 visa-free destinations, 22 visa-on-arrival destinations, and 9 eTA-eligible territories. Singapore citizens can visit 97.4% of the world without a traditional visa.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="pfa3" id="pfq3">Why did the US passport rank drop?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="pfa3" role="region" aria-labelledby="pfq3"><p>The United States passport has seen a relative decline as other countries have expanded their visa-free networks more aggressively. While the US still has strong passport power (ranked 8th with 186 destinations), it has been surpassed by nations like Singapore, Japan, and several European countries that have negotiated broader visa-waiver agreements.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="pfa4" id="pfq4">How are passport rankings calculated?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="pfa4" role="region" aria-labelledby="pfq4"><p>Passport rankings are calculated by counting the number of destinations accessible without a prior visa. The three main categories are: (1) Visa-Free - enter with just a passport, (2) Visa on Arrival - obtain a visa upon arrival, and (3) eTA - Electronic Travel Authorization obtained online before travel. The Mobility Score is the sum of all three categories.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="pfa5" id="pfq5">Where can I find the official Henley Passport Index?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="pfa5" role="region" aria-labelledby="pfq5"><p>The official Henley Passport Index is available at <a href="https://www.henleyglobal.com/passport-index" target="_blank" rel="noopener noreferrer">henleyglobal.com/passport-index</a>. The Passport Index by Arton Capital is available at <a href="https://www.passportindex.org" target="_blank" rel="noopener noreferrer">passportindex.org</a>. Both sources are updated regularly throughout the year as visa policies change.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="pfa6" id="pfq6">Can a passport's ranking change during the year?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="pfa6" role="region" aria-labelledby="pfq6"><p>Yes, passport rankings can change at any time as countries update their visa policies. New visa-waiver agreements, diplomatic changes, and policy shifts can affect a passport's Mobility Score. Our ranking is updated regularly to reflect the latest policy changes.</p></div></div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ CTA ============ -->
+ <section class="n-cta" aria-labelledby="ctaTitle">
+ <div class="container">
+ <div class="n-cta-in n-rv">
+ <h2 id="ctaTitle">Planning a trip that needs a visa?</h2>
+ <p>We'll tell you exactly which visa you need for your passport and destination &mdash; and help you get it right first time.</p>
+ <div class="n-cta-btns">
+ <a href="/contact/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Talk to an expert</a>
+ <a href="/visa-guide/" class="n-btn n-btn-g n-btn-lg"><i class="bi bi-journal-richtext"></i> Browse visa guides</a>
+ </div>
+ </div>
+ </div>
+ </section>
+ </main>
 
  <footer class="footer" role="contentinfo">
  <div class="container">
@@ -813,29 +389,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <h4>Quick Links</h4>
  <ul>
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
- <li><a href="/blog/">Blog</a></li>
-   <li><a href="/contact">Contact</a></li>
- <li><a href="/embassy-address/">Embassy Address</a></li>
- <li><a href="/passport-ranking/">Passport Ranking</a></li>
- <li><a href="/upcoming-events/">Upcoming Events</a></li>
-  <li><a href="/visa-news/">Visa News</a></li>
-  <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
-  <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
-  <li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/visa-photo-requirements/">Visa Photo Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact/">Contact</a></li>
+<li><a href="/embassy-address/">Embassy Address</a></li>
+<li><a href="/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+<li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-news/">Visa News</a></li>
  </ul>
  </div>
  <div class="footer-col">
  <h4>Top Countries</h4>
  <ul>
- <li><a href="/visa-guide/usa-visa">US Visa</a></li>
- <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
- <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
- <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
- <li><a href="/visa-guide/india-visa">India Visa</a></li>
- <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
+ <li><a href="/visa-guide/usa-visa/">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa/">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa/">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa/">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa/">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa/">Schengen Visa</a></li>
  </ul>
  </div>
  <div class="footer-col">
@@ -849,7 +426,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
  <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
  <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
- <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
  </div>
  </div>
  </div>
@@ -860,105 +436,103 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="footer-bottom">
  <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
  <span class="footer-bottom-links">
- <a href="/privacy-policy">Privacy Policy</a>
- <a href="/terms-of-service">Terms of Service</a>
+ <a href="/privacy-policy/">Privacy Policy</a>
+ <a href="/terms-of-service/">Terms of Service</a>
  </span>
  </div>
  </div>
  </footer>
 
- <!-- Country Logos Scrolling Strip -->
- <div class="country-logos-strip" role="region" aria-label="Country flags">
- <div class="country-logos-track">
-  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
-  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
-  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
-  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
-  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
-  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
-  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
-  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
-  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
-  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
-  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
-  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
-  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
-  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
-  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
-  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
-  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
-  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
-  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
-  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
-  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
-  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
-  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
-  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
-  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
-  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
-  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
-  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
-  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
-  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
-  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
-  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
-  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
-  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
-  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
-  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
-  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
-  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
-  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
-  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
-  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
-  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
-  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
-  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
-  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
-  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
-  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
-  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
-  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
-  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
-  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
-  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
-  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
-  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
-  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
-  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
-  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
-  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
-  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
-  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
-  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
-  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
-  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
-  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
-  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
-  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
-  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
-  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
-  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
-  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
-  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
-  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
-  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
-  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
-  </div>
-
  <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
 
  <script src="/js/main.js" defer></script>
-<!--Start of Tawk.to Script-->
+<script>
+/* Passport table: filter, sort, FAQ */
+(function () {
+  'use strict';
+  var tbody = document.querySelector('#ppTable tbody');
+  var rows = Array.prototype.slice.call(tbody.rows);
+  var filter = document.getElementById('ppFilter'), sort = document.getElementById('ppSort');
+  function apply() {
+    var q = filter.value.trim().toLowerCase(), k = sort.value, shown = 0;
+    var sorted = rows.slice().sort(function (a, b) {
+      if (k === 'name') return a.dataset.name.localeCompare(b.dataset.name);
+      if (k === 'vf') return (+b.dataset.vf - +a.dataset.vf) || (+a.dataset.i - +b.dataset.i);
+      if (k === 'req') return (+a.dataset.req - +b.dataset.req) || (+a.dataset.i - +b.dataset.i);
+      return +a.dataset.i - +b.dataset.i;
+    });
+    sorted.forEach(function (r) {
+      var hit = !q || r.dataset.name.indexOf(q) !== -1;
+      r.hidden = !hit; if (hit) shown++;
+      tbody.appendChild(r);
+    });
+    document.getElementById('ppEmpty').classList.toggle('on', shown === 0);
+  }
+  filter.addEventListener('input', apply);
+  sort.addEventListener('change', apply);
+
+  var faq = document.getElementById('ppFaq');
+  faq.addEventListener('click', function (e) {
+    var btn = e.target.closest('.n-fq-btn');
+    if (!btn) return;
+    var item = btn.parentNode, open = !item.classList.contains('open');
+    faq.querySelectorAll('.n-fq').forEach(function (i) { i.classList.remove('open'); i.querySelector('.n-fq-btn').setAttribute('aria-expanded', 'false'); });
+    if (open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+  });
+})();
+</script>
+<script>
+/* Header state, mobile drawer and reveal-on-scroll (same behaviour as the homepage) */
+(function () {
+  'use strict';
+  var hd = document.getElementById('nxHeader');
+  if (hd) {
+    var upd = function () { hd.classList.toggle('stuck', window.scrollY > 30); };
+    window.addEventListener('scroll', upd, { passive: true });
+    upd();
+  }
+  var b = document.getElementById('nxBurger'), m = document.getElementById('nxMenu'), v = document.getElementById('nxVeil');
+  if (b && m) {
+    var close = function () { b.classList.remove('on'); m.classList.remove('open'); if (v) v.classList.remove('on'); b.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+    b.addEventListener('click', function () {
+      var open = m.classList.toggle('open');
+      b.classList.toggle('on', open);
+      if (v) v.classList.toggle('on', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    if (v) v.addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1024) close(); });
+  }
+  var els = document.querySelectorAll('.n-rv');
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+})();
+</script>
+<!--Start of Tawk.to Script (loaded after first interaction or 6s)-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
+var loaded=false;
+function load(){
+if(loaded)return;loaded=true;
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
+}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){window.addEventListener(ev,load,{once:true,passive:true});});
+setTimeout(load,6000);
 })();
 </script>
 <!--End of Tawk.to Script-->
