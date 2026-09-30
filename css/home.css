@@ -101,35 +101,8 @@
 .nx .n-prog{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);font-size:.8rem;color:var(--muted);font-weight:600}
 .nx .n-prog b{color:var(--ink);font-weight:800}
 
-/* Hero right: dashboard */
+/* Hero right column */
 .nx .n-dash{position:relative;display:flex;align-items:center;justify-content:center;min-height:470px}
-.nx .n-dash-glow{position:absolute;inset:-40px;background:radial-gradient(ellipse at center,rgba(79,70,229,.3),transparent 68%);filter:blur(34px);animation:nxGlow 5s ease-in-out infinite;pointer-events:none}
-.nx .n-panel{position:relative;width:100%;max-width:452px;background:linear-gradient(158deg,rgba(18,38,63,.97),rgba(10,27,46,.99));border:1px solid rgba(255,255,255,.13);border-radius:26px;box-shadow:0 36px 80px -22px rgba(10,27,46,.6);overflow:hidden;animation:nxFloat 7s ease-in-out infinite;z-index:2}
-.nx .n-panel::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.09),transparent 42%);pointer-events:none}
-.nx .n-panel-hd{display:flex;align-items:center;justify-content:space-between;padding:17px 22px;border-bottom:1px solid rgba(255,255,255,.09)}
-.nx .n-panel-hd .t{display:flex;align-items:center;gap:9px;color:#fff;font-weight:700;font-size:.92rem}
-.nx .n-panel-hd .t i{color:var(--lime);font-size:1.05rem}
-.nx .n-panel-hd .live{display:flex;align-items:center;gap:7px;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.66)}
-.nx .n-panel-hd .live .d{width:7px;height:7px;border-radius:50%;background:#22C55E;animation:nxPing 1.7s ease-out infinite}
-.nx .n-map{padding:6px 10px 0}
-.nx .n-map svg{display:block;width:100%;height:auto}
-.nx .n-route{stroke-dasharray:5 7;stroke-linecap:round;animation:nxDash 1.1s linear infinite}
-.nx .n-plane{fill:#fff;filter:drop-shadow(0 0 5px rgba(255,255,255,.75))}
-.nx .n-pin{fill:#F97316}
-.nx .n-pin-ring{fill:none;stroke:#F97316;stroke-width:1.6;transform-box:fill-box;transform-origin:center;animation:nxPin 2.4s ease-out infinite}
-.nx .n-org{fill:#A3E635}
-.nx .n-org-ring{fill:none;stroke:#A3E635;stroke-width:1.6;transform-box:fill-box;transform-origin:center;animation:nxPin 2.4s ease-out infinite}
-.nx .n-lbl{fill:rgba(255,255,255,.78);font-size:9.5px;font-weight:700;letter-spacing:.05em}
-.nx .n-panel-ft{display:flex;align-items:center;justify-content:space-between;padding:14px 22px 17px;border-top:1px solid rgba(255,255,255,.09);font-size:.79rem;color:rgba(255,255,255,.64)}
-.nx .n-panel-ft b{color:#fff;font-weight:800}
-.nx .n-panel-ft .s{display:flex;align-items:center;gap:7px;color:var(--lime);font-weight:700}
-.nx .n-float{position:absolute;display:inline-flex;align-items:center;gap:8px;padding:11px 17px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-lg);color:var(--ink);font-size:.84rem;font-weight:700;z-index:3;white-space:nowrap;animation:nxFloat 5.5s ease-in-out infinite}
-.nx .n-float-1{top:2%;left:-8px;animation-delay:-1s}
-.nx .n-float-1 i{color:#16A34A}
-.nx .n-float-2{bottom:9%;right:-10px;animation-delay:-2.6s}
-.nx .n-float-2 i{color:var(--coral)}
-.nx .n-float-3{top:44%;right:-14px;animation-delay:-4s}
-.nx .n-float-3 i{color:#65A30D}
 .nx .n-proof{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
 .nx .n-avatars{display:flex}
 .nx .n-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.73rem;font-weight:800;border:2.5px solid #fff;margin-left:-10px;box-shadow:0 3px 10px rgba(10,27,46,.16)}
@@ -314,8 +287,6 @@
 @media(max-width:1024px){
  .nx .n-hero-grid{grid-template-columns:1fr;gap:52px}
  .nx .n-dash{min-height:auto;padding:14px 0}
- .nx .n-float-1{left:auto;right:6%}
- .nx .n-float-3{display:none}
  .nx .n-hero-sub,.nx .n-find{max-width:640px}
  .nx .n-steps{grid-template-columns:1fr 1fr}
  .nx .n-steps::before{display:none}
@@ -356,9 +327,6 @@
  .nx .n-find-row{grid-template-columns:1fr}
  .nx .n-proof{justify-content:center;text-align:center}
  .nx .n-dash{min-height:auto}
- .nx .n-panel{border-radius:20px}
- .nx .n-float-1{top:auto;bottom:-14px;left:50%;transform:translateX(-50%);animation:none}
- .nx .n-float-2{display:none}
  .nx .n-steps{grid-template-columns:1fr}
  .nx .n-stats-grid{grid-template-columns:1fr 1fr;gap:13px}
  .nx .n-stat{padding:24px 13px;border-radius:18px}
@@ -385,6 +353,41 @@
  .js .nx .n-rv{opacity:1;transform:none}
 }
 
+/* ---------- Hero: visa readiness checklist ---------- */
+.nx .n-rdy{width:100%;max-width:460px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-lg);overflow:hidden}
+.nx .n-rdy-hd{display:flex;align-items:center;gap:13px;padding:18px 22px;background:var(--ink);color:#fff}
+.nx .n-rdy-ic{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:#C9D3F5;flex-shrink:0}
+.nx .n-rdy-t{font-size:1rem;font-weight:700;color:#fff;margin:0;letter-spacing:-.01em;line-height:1.3}
+.nx .n-rdy-hd p{margin:2px 0 0;font-size:.8rem;color:rgba(255,255,255,.66)}
+.nx .n-rdy-tabs{display:flex;gap:4px;margin:16px 22px 0;padding:4px;background:var(--mist);border:1px solid var(--line);border-radius:10px}
+.nx .n-rdy-tabs button{flex:1;padding:8px 6px;border:none;border-radius:7px;background:none;font-family:inherit;font-size:.84rem;font-weight:600;color:var(--muted);cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+.nx .n-rdy-tabs button:hover{color:var(--ink)}
+.nx .n-rdy-tabs button[aria-selected="true"]{background:#fff;color:var(--indigo);box-shadow:0 1px 3px rgba(11,31,58,.12)}
+.nx .n-rdy-tabs button:focus-visible,.nx .n-rdy-list input:focus-visible+.n-rdy-box{outline:2px solid var(--indigo);outline-offset:2px}
+.nx .n-rdy-panel{padding:16px 22px 18px}
+.nx .n-rdy-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+.nx .n-rdy-meta dt{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.nx .n-rdy-meta dd{margin:0;font-size:.86rem;font-weight:600;color:var(--ink);line-height:1.4}
+.nx .n-rdy-prog{display:flex;align-items:center;gap:12px;font-size:.8rem;color:var(--muted);margin-bottom:10px}
+.nx .n-rdy-prog b{color:var(--ink)}
+.nx .n-rdy-bar{flex:1;height:6px;border-radius:3px;background:var(--mist);border:1px solid var(--line);overflow:hidden}
+.nx .n-rdy-bar span{display:block;width:0;height:100%;background:var(--indigo);transition:width .35s var(--ease)}
+.nx .n-rdy-panel.complete .n-rdy-bar span{background:#16A34A}
+.nx .n-rdy-list{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.nx .n-rdy-list label{display:flex;align-items:center;gap:11px;padding:8px 10px;margin:0 -10px;border-radius:8px;font-size:.88rem;color:var(--ink-2);cursor:pointer;transition:background .15s}
+.nx .n-rdy-list label:hover{background:var(--mist)}
+.nx .n-rdy-list input{position:absolute;opacity:0;width:1px;height:1px}
+.nx .n-rdy-box{width:20px;height:20px;border:1.5px solid #B8C2D3;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:.8rem;transition:background .15s,border-color .15s}
+.nx .n-rdy-box i{opacity:0}
+.nx .n-rdy-list input:checked+.n-rdy-box{background:var(--indigo);border-color:var(--indigo)}
+.nx .n-rdy-list input:checked+.n-rdy-box i{opacity:1}
+.nx .n-rdy-list input:checked~*,.nx .n-rdy-list label:has(input:checked){color:var(--muted)}
+.nx .n-rdy-ft{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.nx .n-rdy-link{font-size:.86rem;font-weight:700;color:var(--indigo);display:inline-flex;align-items:center;gap:6px}
+.nx .n-rdy-link:hover{color:#2437A6}
+.nx .n-rdy-note{margin:0;padding:11px 22px;background:var(--mist);border-top:1px solid var(--line);font-size:.75rem;color:var(--muted);display:flex;gap:7px;align-items:center}
+@media(max-width:1024px){.nx .n-rdy{margin:0 auto}}
+
 /* ---------- Markup helpers ---------- */
 /* Country codes instead of flag emoji: Windows renders flag emoji as bare letters */
 .nx .n-cflag{font-size:.8rem;font-weight:800;letter-spacing:.04em;color:var(--indigo)}
@@ -397,7 +400,7 @@
 .nx .n-cempty.on{display:block}
 .nx .n-cempty a{color:var(--indigo);font-weight:800}
 .nx .n-sub-msg.err{background:rgba(10,27,46,.35)}
-/* The dashboard is decorative; on phones it pushes the real content a full screen down */
+/* On phones the hero already has the quick-check form; the checklist would push content a full screen down */
 @media(max-width:767px){
  .nx .n-dash{display:none}
  .nx .n-hero-grid{gap:0}
@@ -440,7 +443,7 @@
 
 /* Hero: plain light surface, no orbs or dot grid */
 .nx .n-hero{background:linear-gradient(180deg,#F6F7F9 0%,#FFFFFF 100%);border-bottom:1px solid var(--line)}
-.nx .n-hero::before,.nx .n-orb,.nx .n-dash-glow{display:none}
+.nx .n-hero::before,.nx .n-orb{display:none}
 .nx .n-hero-tag{box-shadow:none;border-radius:8px}
 .nx .n-hero-tag .pulse{background:#16A34A;box-shadow:none;animation:none}
 .nx .n-hero-tag .cnt{border-radius:6px}
@@ -453,18 +456,6 @@
 .nx .n-av.more{background:var(--indigo);border-style:solid;border-color:#fff}
 .nx .n-rating b{color:#D69E2E}
 
-/* Hero panel: static, muted routes */
-.nx .n-panel{animation:none;border-radius:14px;box-shadow:0 24px 48px -24px rgba(11,31,58,.45)}
-.nx .n-panel::before{display:none}
-.nx .n-panel-hd .t i{color:#9FB0E8}
-.nx .n-panel-hd .live .d{background:#16A34A;animation:none}
-.nx .n-route path{stroke:rgba(201,211,245,.55)}
-.nx .n-pin,.nx .n-org{fill:#fff}
-.nx .n-pin-ring,.nx .n-org-ring{stroke:rgba(255,255,255,.6)}
-.nx .n-lbl text[fill]{fill:#fff}
-.nx .n-panel-ft .s{color:#C9D3F5}
-.nx .n-float{animation:none;border-radius:10px;box-shadow:var(--sh)}
-.nx .n-float i,.nx .n-float-1 i,.nx .n-float-2 i,.nx .n-float-3 i{color:var(--indigo)}
 
 /* Destinations strip: static list instead of a scrolling ticker */
 .nx .n-marq{background:#fff}
