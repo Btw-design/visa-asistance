@@ -1,10 +1,10 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
    Loaded only by index.html. All other pages use style.css.
-   Palette: navy ink + electric indigo + coral + lime
+   Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
-.nx{font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;color:#0A1B2E;--ink:#0A1B2E;--ink-2:#12263F;--ink-3:#1B3455;--indigo:#4F46E5;--indigo-l:#6366F1;--coral:#F97316;--coral-l:#FB923C;--lime:#A3E635;--teal:#14B8A6;--sky:#38BDF8;--paper:#FFFFFF;--mist:#F6F8FC;--line:#E6EAF2;--muted:#5B6B82;--g:linear-gradient(135deg,#4F46E5 0%,#6366F1 45%,#14B8A6 100%);--g-warm:linear-gradient(135deg,#F97316,#FB923C);--g-lime:linear-gradient(135deg,#A3E635,#4ADE80);--sh:0 2px 4px rgba(10,27,46,.04),0 12px 32px -8px rgba(10,27,46,.10);--sh-lg:0 8px 16px rgba(10,27,46,.06),0 32px 64px -16px rgba(10,27,46,.18);--sh-glow:0 20px 60px -12px rgba(79,70,229,.45);--ease:cubic-bezier(.22,.61,.36,1)}
+.nx{font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;color:#0B1F3A;--ink:#0B1F3A;--ink-2:#1C2E4A;--ink-3:#2A3F5F;--indigo:#2F45C5;--indigo-l:#4A5FD6;--accent-tint:#EEF1FB;--coral:#2F45C5;--coral-l:#4A5FD6;--lime:#C9D3F5;--teal:#2F45C5;--sky:#2F45C5;--paper:#FFFFFF;--mist:#F6F7F9;--line:#E3E7EE;--muted:#56657A;--g:linear-gradient(#2F45C5,#2F45C5);--g-warm:linear-gradient(#2F45C5,#2F45C5);--g-lime:linear-gradient(#2F45C5,#2F45C5);--sh:0 1px 2px rgba(11,31,58,.05),0 4px 12px -4px rgba(11,31,58,.08);--sh-lg:0 2px 4px rgba(11,31,58,.05),0 12px 28px -10px rgba(11,31,58,.14);--sh-glow:none;--ease:cubic-bezier(.22,.61,.36,1)}
 
 /* ---------- Type scale ---------- */
 .nx h1,.nx h2,.nx h3,.nx h4{font-family:'Plus Jakarta Sans',-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:-.03em}
@@ -403,4 +403,122 @@
  .nx .n-hero-grid{gap:0}
  .nx .n-chips{gap:7px}
  .nx .n-chip{padding:7px 12px;font-size:.78rem}
+}
+
+/* ============================================================
+   CORPORATE THEME
+   Calm, single-accent styling layered over the v3 layout:
+   solid colours, tinted icon tiles, restrained motion.
+   ============================================================ */
+
+/* Type: a little less heavy and less tightly tracked */
+.nx h1,.nx h2,.nx h3,.nx h4{letter-spacing:-.02em;color:var(--ink)}
+.nx .n-hero h1{font-weight:700;letter-spacing:-.025em}
+.nx .n-head h2{font-weight:700}
+.nx .n-head h2 em,.nx .n-hero h1 .rot,.nx .n-logo em{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--indigo)}
+.nx .n-eyebrow,.nx .n-eyebrow.warm,.nx .n-eyebrow.lime{background:none;border:none;padding:0;color:var(--indigo);letter-spacing:.12em;font-size:.74rem;margin-bottom:14px}
+.nx .n-eyebrow .dot{display:none}
+
+/* Buttons: solid, squared-off, no shimmer */
+.nx .n-btn{border-radius:10px}
+.nx .n-btn-p,.nx .n-btn-w,.nx .n-btn-l{background:var(--indigo);color:#fff;box-shadow:none}
+.nx .n-btn-p:hover,.nx .n-btn-w:hover,.nx .n-btn-l:hover{background:#2437A6;color:#fff;transform:none;box-shadow:none}
+.nx .n-btn-p::after{display:none}
+.nx .n-btn-o{box-shadow:none}
+.nx .n-btn-o:hover{transform:none;box-shadow:none;border-color:var(--ink-3)}
+.nx .n-btn-g:hover{transform:none}
+
+/* Header */
+.nx .n-topbar i{color:#9FB0E8}
+.nx .n-topbar a:hover{color:#fff}
+.nx .n-logo-mk{background:var(--ink);border-radius:10px;box-shadow:none}
+.nx .n-logo:hover .n-logo-mk{transform:none}
+.nx .n-menu a{border-radius:8px}
+.nx .n-menu a::after{display:none}
+.nx .n-menu a.on{background:var(--accent-tint)}
+.nx .n-burger{border-radius:10px}
+
+/* Hero: plain light surface, no orbs or dot grid */
+.nx .n-hero{background:linear-gradient(180deg,#F6F7F9 0%,#FFFFFF 100%);border-bottom:1px solid var(--line)}
+.nx .n-hero::before,.nx .n-orb,.nx .n-dash-glow{display:none}
+.nx .n-hero-tag{box-shadow:none;border-radius:8px}
+.nx .n-hero-tag .pulse{background:#16A34A;box-shadow:none;animation:none}
+.nx .n-hero-tag .cnt{border-radius:6px}
+.nx .n-chip{box-shadow:none;border-radius:8px;color:var(--ink-2)}
+.nx .n-chip i{color:var(--indigo)}
+.nx .n-find{border-radius:14px;box-shadow:var(--sh)}
+.nx .n-field select,.nx .n-field input{border-radius:8px}
+.nx .n-av{box-shadow:none}
+.nx .n-av:not(.more){background:var(--ink-3)}
+.nx .n-av.more{background:var(--indigo);border-style:solid;border-color:#fff}
+.nx .n-rating b{color:#D69E2E}
+
+/* Hero panel: static, muted routes */
+.nx .n-panel{animation:none;border-radius:14px;box-shadow:0 24px 48px -24px rgba(11,31,58,.45)}
+.nx .n-panel::before{display:none}
+.nx .n-panel-hd .t i{color:#9FB0E8}
+.nx .n-panel-hd .live .d{background:#16A34A;animation:none}
+.nx .n-route path{stroke:rgba(201,211,245,.55)}
+.nx .n-pin,.nx .n-org{fill:#fff}
+.nx .n-pin-ring,.nx .n-org-ring{stroke:rgba(255,255,255,.6)}
+.nx .n-lbl text[fill]{fill:#fff}
+.nx .n-panel-ft .s{color:#C9D3F5}
+.nx .n-float{animation:none;border-radius:10px;box-shadow:var(--sh)}
+.nx .n-float i,.nx .n-float-1 i,.nx .n-float-2 i,.nx .n-float-3 i{color:var(--indigo)}
+
+/* Destinations strip: static list instead of a scrolling ticker */
+.nx .n-marq{background:#fff}
+.nx .n-marq-lb i{color:var(--indigo)}
+.nx .n-marq-vp{-webkit-mask-image:none;mask-image:none}
+.nx .n-marq-tr{animation:none;width:auto;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:0 auto;padding:0 20px}
+.nx .n-mq[aria-hidden="true"]{display:none}
+.nx .n-mq{border-radius:8px;padding:7px 13px;font-size:.82rem}
+.nx .n-mq:hover{transform:none;box-shadow:none}
+
+/* Stats: solid navy band */
+.nx .n-stats{background:var(--ink)}
+.nx .n-stats::before,.nx .n-stats::after{display:none}
+.nx .n-stat{background:none;border:none;border-left:1px solid rgba(255,255,255,.12);border-radius:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.nx .n-stat:first-child{border-left:none}
+.nx .n-stat:hover{transform:none;background:none}
+.nx .n-stat-ic{display:none}
+.nx .n-stat b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#fff;font-weight:700}
+.nx .n-stat span{color:rgba(255,255,255,.7)}
+
+/* Cards: flat, bordered, tinted icon tiles, no lift */
+.nx .n-ccard,.nx .n-step,.nx .n-vcard,.nx .n-fcard,.nx .n-tcard,.nx .n-bcard,.nx .n-fq{border-radius:12px;box-shadow:none}
+.nx .n-ccard:hover,.nx .n-step:hover,.nx .n-vcard:hover,.nx .n-fcard:hover,.nx .n-tcard:hover,.nx .n-bcard:hover{transform:none;box-shadow:var(--sh);border-color:#C5CEDD}
+.nx .n-ccard::before,.nx .n-vcard::before,.nx .n-fcard::before,.nx .n-fcard::after,.nx .n-tcard::before{display:none}
+.nx .n-ccard:hover .n-cnm{color:var(--indigo)}
+.nx .n-ccard:hover .n-ctag{color:var(--muted)}
+.nx .n-ccard:hover .n-cgo{color:var(--indigo)}
+.nx .n-cflag,.nx .n-ccard:hover .n-cflag{border-radius:8px;background:var(--accent-tint);border-color:transparent;color:var(--indigo);transform:none}
+.nx .n-csearch input{border-radius:10px;box-shadow:none}
+.nx .n-steps::before{background:var(--line);opacity:1}
+.nx .n-step-n{color:rgba(11,31,58,.07)}
+.nx .n-steps .n-step .n-step-ic,.nx .n-vgrid .n-vcard .n-vic,.nx .n-fgrid .n-fcard .n-fic{background:var(--accent-tint);color:var(--indigo);box-shadow:none;border-radius:10px;transform:none}
+.nx .n-tgrid .n-tcard .n-tav{background:var(--ink-3);color:#fff;box-shadow:none}
+.nx .n-tstars{color:#D69E2E}
+.nx .n-bcat{border-radius:6px;box-shadow:none;color:var(--ink-2)}
+.nx .n-bcard:hover .n-bimg img{transform:none}
+.nx .n-fq.open .n-fq-ic{background:var(--indigo)}
+.nx .n-fq-ic{border-radius:8px;background:var(--accent-tint)}
+
+/* Closing CTA: navy, one primary action */
+.nx .n-cta{background:var(--ink)}
+.nx .n-cta::before,.nx .n-cta::after{display:none}
+.nx .n-cta .n-btn-l,.nx .n-cta .n-btn-o{background:#fff;color:var(--ink);border-color:transparent}
+.nx .n-cta .n-btn-l:hover,.nx .n-cta .n-btn-o:hover{background:#E8ECF5;color:var(--ink)}
+.nx .n-sub input,.nx .n-sub button,.nx .n-sub-msg{border-radius:10px}
+.nx .n-sub button{background:var(--indigo)}
+.nx .n-sub button:hover{background:#2437A6;transform:none}
+
+/* Reveal: a short fade only */
+.js .nx .n-rv{transform:translateY(12px);transition-duration:.5s}
+
+@media(max-width:1024px){
+ .nx .n-stat:nth-child(3){border-left:none}
+}
+@media(max-width:420px){
+ .nx .n-stat{border-left:none}
 }
