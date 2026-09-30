@@ -1,6 +1,6 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded by index.html, about/, contact/, blog/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
+   Loaded by index.html, about/, contact/, blog/, visa-guide/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -666,6 +666,21 @@
 .nx .n-blog-grid .n-bcard h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .nx .n-blog-grid .n-bcard p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 @media(max-width:1024px){.nx .n-blog-hero{grid-template-columns:1fr}.nx .n-feat{max-width:620px}}
+
+/* ---------- Visa guide index ---------- */
+.nx .n-vg-pop{margin-top:14px}
+.nx .n-vg-pop a{text-decoration:none}
+.nx .n-ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.nx .n-gcard{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px 12px;padding:16px 16px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.nx .n-gcard:hover{border-color:#C5CEDD;box-shadow:var(--sh)}
+.nx .n-gcard:hover b{color:var(--indigo)}
+.nx .n-gcard-tx b{display:block;font-size:.98rem;font-weight:700;transition:color .2s}
+.nx .n-gcard-tx span{display:block;font-size:.78rem;color:var(--muted)}
+.nx .n-gcard-go{grid-column:3;grid-row:1;color:var(--muted);transition:transform .2s,color .2s}
+.nx .n-gcard:hover .n-gcard-go{color:var(--indigo);transform:translateX(3px)}
+.nx .n-gcard-meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;padding-top:10px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink-2)}
+.nx .n-gcard-meta i{color:var(--muted);margin-right:3px}
+.nx #guideGrid+.n-cempty+.n-india{margin-top:40px}
 
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
