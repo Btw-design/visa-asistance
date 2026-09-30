@@ -106,6 +106,9 @@ body.menu-open{overflow:hidden}
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
  <!-- Primary Meta Tags -->
@@ -262,9 +265,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <!-- ============ HEADER ============ -->
  <header class="header" role="banner">
+ <div class="announcement-bar">
+ <div class="container announcement-bar-inner">
+ <span class="announcement-text"><i class="bi bi-patch-check-fill"></i> India's trusted visa partner &mdash; free consultation for every application</span>
+ <a href="tel:+918551805523" class="announcement-phone"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
  <div class="header-inner">
  <a href="/" class="logo" aria-label="My Visa Assistance - Home">
- <i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i>
+ <span class="logo-mark"><i class="bi bi-airplane-fill" aria-hidden="true"></i></span>
  My Visa <span>Assistance</span>
  </a>
 
@@ -281,34 +290,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <li><a href="/visa-guide/">Visa Guide</a></li>
  <li><a href="/visa-requirements/">Visa Requirements</a></li>
  <li><a href="/blog/">Blog</a></li>
- 
-<li><a href="/contact">Contact</a></li>
+ <li><a href="/contact">Contact</a></li>
  </ul>
+ <div class="nav-cta">
+ <a href="/contact" class="btn btn-primary"><i class="bi bi-chat-dots"></i> Free Consultation</a>
+ </div>
  </nav>
  </div>
  </header>
 
- <!-- ============ HERO SECTION (Enhanced with Carousel) ============ -->
- <section class="hero hero-carousel" role="region" aria-label="Hero section">
+<!-- ============ HERO SECTION (V2) ============ -->
+ <section class="hero hero-v2" role="region" aria-label="Hero section">
+ <div class="hero-v2-bg" aria-hidden="true">
+  <div class="hero-v2-mesh mesh-a"></div>
+  <div class="hero-v2-mesh mesh-b"></div>
+  <div class="hero-v2-mesh mesh-c"></div>
+  <div class="hero-v2-dots"></div>
+  <div class="hero-v2-globe">
+  <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+  <radialGradient id="globeFill" cx="35%" cy="30%" r="80%">
+  <stop offset="0%" stop-color="rgba(80,87,234,0.22)"/>
+  <stop offset="100%" stop-color="rgba(3,27,48,0.03)"/>
+  </radialGradient>
+  </defs>
+  <circle cx="200" cy="200" r="150" fill="url(#globeFill)" stroke="rgba(3,27,48,0.16)" stroke-width="1.5"/>
+  <ellipse cx="200" cy="200" rx="150" ry="58" stroke="rgba(3,27,48,0.1)" stroke-width="1"/>
+  <ellipse cx="200" cy="200" rx="150" ry="110" stroke="rgba(3,27,48,0.07)" stroke-width="1"/>
+  <ellipse cx="200" cy="200" rx="58" ry="150" stroke="rgba(3,27,48,0.1)" stroke-width="1"/>
+  <ellipse cx="200" cy="200" rx="110" ry="150" stroke="rgba(3,27,48,0.07)" stroke-width="1"/>
+  <path d="M50 200h300M200 50v300" stroke="rgba(3,27,48,0.06)" stroke-width="1"/>
+  <g>
+  <circle cx="148" cy="168" r="5" fill="#E86020"/>
+  <circle class="pin-pulse" cx="148" cy="168" r="5" fill="none" stroke="#E86020" stroke-width="2"/>
+  </g>
+  <g>
+  <circle cx="242" cy="138" r="5" fill="#A5D549"/>
+  <circle class="pin-pulse" cx="242" cy="138" r="5" fill="none" stroke="#A5D549" stroke-width="2" style="animation-delay:.8s"/>
+  </g>
+  <g>
+  <circle cx="212" cy="232" r="5" fill="#6b72ee"/>
+  <circle class="pin-pulse" cx="212" cy="232" r="5" fill="none" stroke="#6b72ee" stroke-width="2" style="animation-delay:1.6s"/>
+  </g>
+  </svg>
+  </div>
+ </div>
  <div class="container">
- <div class="hero-enhanced">
- <div class="hero-enhanced-content">
- <h1>Your Trusted Visa <span style="color: var(--color-accent);">Assistance</span> Partner</h1>
+ <div class="hero-v2-grid">
+ <div class="hero-v2-content">
+ <span class="hero-eyebrow"><span class="dot"></span> India's Trusted Visa Partner</span>
+ <h1>Your Visa Journey, <span class="gradient-text"><span class="rotate-word" id="rotateWord">Made Simple</span></span></h1>
  <p class="hero-subtitle">Comprehensive visa guides, requirements, and expert support for 34+ countries worldwide. Start your journey with confidence.</p>
 
  <div class="hero-badges">
  <span class="hero-badge">
  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
  34+ Countries
-  </span>
+ </span>
  <span class="hero-badge">
  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
  Expert Guidance
  </span>
     <span class="hero-badge">
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-  Up-to-Date Info
-  </span>
+ <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+ Up-to-Date Info
+ </span>
   <span class="hero-badge is-secondary">
   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
   Free Consultation
@@ -320,68 +366,147 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <a href="/visa-requirements/" class="btn btn-outline-white btn-lg">Check Requirements</a>
  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);"><i class="bi bi-file-text"></i> Fill the form for details</a>
  </div>
+
+ <!-- Quick Visa Check -->
+ <div class="hero-visa-check" role="region" aria-label="Quick visa check">
+ <div class="hero-visa-check-title"><i class="bi bi-search"></i> Quick Visa Check &mdash; select your destination</div>
+ <form class="hero-visa-check-form" id="quickVisaCheck" onsubmit="return quickVisaCheck(event)">
+ <select id="qcCountry" aria-label="Select destination country" required>
+ <option value="">Select Country</option>
+ <option value="usa-visa">United States</option>
+ <option value="uk-visa">United Kingdom</option>
+ <option value="canada-visa">Canada</option>
+ <option value="australia-visa">Australia</option>
+ <option value="schengen-visa">Schengen Area</option>
+ <option value="india-visa">India</option>
+ <option value="japan-visa">Japan</option>
+ <option value="china-visa">China</option>
+ <option value="thailand-visa">Thailand</option>
+ <option value="uae-visa">UAE (Dubai)</option>
+ <option value="singapore-visa">Singapore</option>
+ <option value="malaysia-visa">Malaysia</option>
+ <option value="germany-visa">Germany</option>
+ <option value="france-visa">France</option>
+ <option value="italy-visa">Italy</option>
+ <option value="south-korea-visa">South Korea</option>
+ <option value="turkey-visa">Turkey</option>
+ <option value="new-zealand-visa">New Zealand</option>
+ <option value="indonesia-visa">Indonesia</option>
+ <option value="vietnam-visa">Vietnam</option>
+ <option value="egypt-visa">Egypt</option>
+ <option value="brazil-visa">Brazil</option>
+ </select>
+ <select id="qcVisaType" aria-label="Select visa type">
+ <option value="">All Visa Types</option>
+ <option value="tourist">Tourist</option>
+ <option value="business">Business</option>
+ <option value="student">Student</option>
+ <option value="work">Work</option>
+ </select>
+ <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-right-circle"></i> Check Requirements</button>
+ </form>
  </div>
 
- <!-- Carousel Slider -->
- <div class="hero-slider" role="region" aria-label="Popular countries carousel" aria-roledescription="carousel">
- <div class="hero-slider-arrows">
- <button class="hero-slider-arrow hero-slider-prev" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
- <button class="hero-slider-arrow hero-slider-next" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
+ <!-- Social Proof -->
+ <div class="hero-social-proof">
+ <div class="hero-avatars" aria-hidden="true">
+ <span class="hero-avatar" style="background:#5057EA;">RM</span>
+ <span class="hero-avatar" style="background:#E86020;">YD</span>
+ <span class="hero-avatar" style="background:#A5D549;color:#031B30;">DP</span>
+ <span class="hero-avatar hero-avatar-more">+2.5k</span>
  </div>
- <div class="hero-slides" aria-live="polite">
- <!-- Slide 1: USA -->
- <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
- <div class="hero-slide-flag"><i class="bi bi-passport"></i></div>
- <div class="hero-slide-info">
- <h3>United States Visa</h3>
- <p>Tourist, business, student, and work visas available. Average processing: 3-15 business days.</p>
- </div>
- <a href="/visa-guide/usa-visa" class="hero-slide-cta">View Guide <i class="bi bi-arrow-right"></i></a>
- </div>
- <!-- Slide 2: UK -->
- <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
- <div class="hero-slide-flag"><i class="bi bi-passport"></i></div>
- <div class="hero-slide-info">
- <h3>United Kingdom Visa</h3>
- <p>Standard Visitor, Student, and Work visas for the UK. Processing: 3-8 weeks.</p>
- </div>
- <a href="/visa-guide/uk-visa" class="hero-slide-cta">View Guide <i class="bi bi-arrow-right"></i></a>
- </div>
- <!-- Slide 3: Canada -->
- <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
- <div class="hero-slide-flag"><i class="bi bi-passport"></i></div>
- <div class="hero-slide-info">
- <h3>Canada Visa</h3>
- <p>Visitor, Study, and Express Entry visas. Biometrics required. Processing: 2-12 weeks.</p>
- </div>
- <a href="/visa-guide/canada-visa" class="hero-slide-cta">View Guide <i class="bi bi-arrow-right"></i></a>
- </div>
- <!-- Slide 4: Australia -->
- <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
- <div class="hero-slide-flag"><i class="bi bi-passport"></i></div>
- <div class="hero-slide-info">
- <h3>Australia Visa</h3>
- <p>Visitor, Work, and Student visas. ETA available for eligible countries. Processing: 1-8 weeks.</p>
- </div>
- <a href="/visa-guide/australia-visa" class="hero-slide-cta">View Guide <i class="bi bi-arrow-right"></i></a>
- </div>
- <!-- Slide 5: Schengen -->
- <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
- <div class="hero-slide-flag"><i class="bi bi-passport"></i></div>
- <div class="hero-slide-info">
- <h3>Schengen Visa</h3>
- <p>Travel to 27 European countries with one visa. Processing: 15-45 days. Apply in advance.</p>
- </div>
- <a href="/visa-guide/schengen-visa" class="hero-slide-cta">View Guide <i class="bi bi-arrow-right"></i></a>
+ <div class="hero-rating">
+ <div class="hero-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+ <span>Rated 4.9/5 by 2,500+ travellers</span>
  </div>
  </div>
- <div class="hero-slider-nav" role="tablist" aria-label="Slides">
- <button class="hero-slider-dot active" role="tab" aria-selected="true" aria-label="Slide 1: United States" data-index="0"></button>
- <button class="hero-slider-dot" role="tab" aria-selected="false" aria-label="Slide 2: United Kingdom" data-index="1"></button>
- <button class="hero-slider-dot" role="tab" aria-selected="false" aria-label="Slide 3: Canada" data-index="2"></button>
- <button class="hero-slider-dot" role="tab" aria-selected="false" aria-label="Slide 4: Australia" data-index="3"></button>
- <button class="hero-slider-dot" role="tab" aria-selected="false" aria-label="Slide 5: Schengen" data-index="4"></button>
  </div>
+
+ <!-- Flight Routes Visual -->
+ <div class="hero-v2-visual">
+ <div class="flight-map">
+ <div class="flight-map-header">
+ <span class="flight-map-title"><i class="bi bi-airplane-fill"></i> Live Routes</span>
+ <span class="flight-map-live"><span class="live-dot"></span> 34+ Destinations</span>
+ </div>
+ <div class="flight-map-body">
+ <svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <!-- Continents (stylized) -->
+ <path d="M30 40 Q 70 20, 95 45 Q 110 70, 85 90 Q 50 100, 30 75 Z" fill="rgba(255,255,255,0.05)"/>
+ <path d="M130 30 Q 160 22, 180 40 Q 185 60, 160 65 Q 135 60, 130 45 Z" fill="rgba(255,255,255,0.05)"/>
+ <path d="M180 60 Q 260 40, 330 60 Q 360 100, 320 140 Q 260 160, 200 130 Q 170 90, 180 60 Z" fill="rgba(255,255,255,0.05)"/>
+ <path d="M120 130 Q 160 115, 190 140 Q 195 170, 165 185 Q 130 180, 120 155 Z" fill="rgba(255,255,255,0.05)"/>
+ <path d="M60 160 Q 90 150, 105 175 Q 100 200, 75 205 Q 55 190, 60 160 Z" fill="rgba(255,255,255,0.05)"/>
+ <path d="M300 180 Q 330 170, 350 190 Q 345 210, 320 215 Q 300 205, 300 180 Z" fill="rgba(255,255,255,0.05)"/>
+ <!-- Flight routes -->
+ <path id="route-usa" d="M210 205 Q 90 60, 55 55" stroke="#E86020" stroke-width="1.6" class="route-line"/>
+ <path id="route-uk" d="M210 205 Q 160 70, 150 40" stroke="#5057EA" stroke-width="1.6" class="route-line"/>
+ <path id="route-uae" d="M210 205 Q 150 140, 120 120" stroke="#A5D549" stroke-width="1.6" class="route-line"/>
+ <path id="route-japan" d="M210 205 Q 290 70, 330 55" stroke="#0ea5e9" stroke-width="1.6" class="route-line"/>
+ <path id="route-aus" d="M210 205 Q 300 190, 330 200" stroke="#f472b6" stroke-width="1.6" class="route-line"/>
+ <!-- Planes flying along routes -->
+ <g class="route-plane">
+ <path d="M0 -3 L9 0 L0 3 L2.5 0 Z"/>
+ <animateMotion dur="4.5s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#route-usa"/></animateMotion>
+ </g>
+ <g class="route-plane">
+ <path d="M0 -3 L9 0 L0 3 L2.5 0 Z"/>
+ <animateMotion dur="5s" begin="1.2s" repeatCount="indefinite" rotate="auto"><mpath href="#route-uk"/></animateMotion>
+ </g>
+ <g class="route-plane">
+ <path d="M0 -3 L9 0 L0 3 L2.5 0 Z"/>
+ <animateMotion dur="4s" begin="2.4s" repeatCount="indefinite" rotate="auto"><mpath href="#route-uae"/></animateMotion>
+ </g>
+ <g class="route-plane">
+ <path d="M0 -3 L9 0 L0 3 L2.5 0 Z"/>
+ <animateMotion dur="5.5s" begin="0.8s" repeatCount="indefinite" rotate="auto"><mpath href="#route-japan"/></animateMotion>
+ </g>
+ <g class="route-plane">
+ <path d="M0 -3 L9 0 L0 3 L2.5 0 Z"/>
+ <animateMotion dur="4.8s" begin="1.8s" repeatCount="indefinite" rotate="auto"><mpath href="#route-aus"/></animateMotion>
+ </g>
+ <!-- Destination pins -->
+ <g>
+ <circle cx="55" cy="55" r="4" class="dest-pin"/>
+ <circle cx="55" cy="55" r="4" class="dest-pin-ring"/>
+ <text x="66" y="58" class="dest-label">USA</text>
+ </g>
+ <g>
+ <circle cx="150" cy="40" r="4" class="dest-pin" style="fill:#5057EA"/>
+ <circle cx="150" cy="40" r="4" class="dest-pin-ring" style="stroke:#5057EA"/>
+ <text x="161" y="43" class="dest-label">UK</text>
+ </g>
+ <g>
+ <circle cx="120" cy="120" r="4" class="dest-pin" style="fill:#A5D549"/>
+ <circle cx="120" cy="120" r="4" class="dest-pin-ring" style="stroke:#A5D549"/>
+ <text x="131" y="123" class="dest-label">UAE</text>
+ </g>
+ <g>
+ <circle cx="330" cy="55" r="4" class="dest-pin" style="fill:#0ea5e9"/>
+ <circle cx="330" cy="55" r="4" class="dest-pin-ring" style="stroke:#0ea5e9"/>
+ <text x="341" y="58" class="dest-label">Japan</text>
+ </g>
+ <g>
+ <circle cx="330" cy="200" r="4" class="dest-pin" style="fill:#f472b6"/>
+ <circle cx="330" cy="200" r="4" class="dest-pin-ring" style="stroke:#f472b6"/>
+ <text x="341" y="203" class="dest-label">Australia</text>
+ </g>
+ <!-- Origin -->
+ <g>
+ <circle cx="210" cy="205" r="5" class="origin-pin"/>
+ <circle cx="210" cy="205" r="5" class="origin-ring"/>
+ <text x="222" y="209" class="dest-label" fill="#A5D549">New Delhi</text>
+ </g>
+ </svg>
+ </div>
+ <div class="flight-map-footer">
+ <span><strong>New Delhi</strong> &rarr; Worldwide</span>
+ <span class="flight-map-stats"><i class="bi bi-lightning-charge-fill"></i> Avg 3-15 days</span>
+ </div>
+ </div>
+ <div class="float-chip chip-1"><i class="bi bi-check-circle-fill"></i> Visa Approved</div>
+ <div class="float-chip chip-2"><i class="bi bi-airplane-fill"></i> 34+ Countries</div>
+ <div class="float-chip chip-3"><i class="bi bi-lightning-charge-fill"></i> 3-15 Days Avg</div>
  </div>
  </div>
 
@@ -411,6 +536,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <section class="section" role="region" aria-label="Our services">
  <div class="container">
   <div class="section-heading has-secondary">
+  <span class="section-eyebrow is-secondary">Why Choose Us</span>
   <h2>Why Choose My Visa Assistance?</h2>
   <p>We provide accurate, up-to-date visa information and expert guidance to make your travel dreams a reality.</p>
   </div>
@@ -440,11 +566,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h3>Real-Time Updates and Alerts</h3>
   <p>Stay informed about visa policy changes, travel advisories, and new requirements that may affect your application.</p>
   </article>
-  <article class="feature-card has-secondary">
-  <div class="feature-icon"><i class="bi bi-telephone"></i></div>
-  <h3>Dedicated Support Team</h3>
-  <p>Our experienced team is available to answer your questions and provide assistance throughout your visa journey.</p>
-  </article>
+<article class="feature-card has-secondary">
+ <div class="feature-icon"><i class="bi bi-telephone"></i></div>
+ <h3>Dedicated Support Team</h3>
+ <p>Our experienced team is available to answer your questions and provide assistance throughout your visa journey.</p>
+ </article>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ HOW IT WORKS ============ -->
+ <section class="section section-alt" role="region" aria-label="How it works">
+ <div class="container">
+ <div class="section-heading">
+ <span class="section-eyebrow">Simple Process</span>
+ <h2>How It Works</h2>
+ <p>Getting your visa sorted is easier than you think. Follow these four simple steps.</p>
+ </div>
+ <div class="steps-grid">
+ <article class="step-card reveal">
+ <span class="step-num">01</span>
+ <div class="step-icon"><i class="bi bi-globe2"></i></div>
+ <h3>Choose Your Destination</h3>
+ <p>Browse our visa guides for 34+ countries and pick where you want to travel.</p>
+ </article>
+ <article class="step-card reveal">
+ <span class="step-num">02</span>
+ <div class="step-icon"><i class="bi bi-file-earmark-text"></i></div>
+ <h3>Get Requirements</h3>
+ <p>Review the exact documents, fees, and processing times for your visa type.</p>
+ </article>
+ <article class="step-card reveal">
+ <span class="step-num">03</span>
+ <div class="step-icon"><i class="bi bi-clipboard-check"></i></div>
+ <h3>Prepare Your Application</h3>
+ <p>Follow our step-by-step checklists to build a complete, error-free application.</p>
+ </article>
+ <article class="step-card reveal">
+ <span class="step-num">04</span>
+ <div class="step-icon"><i class="bi bi-chat-dots"></i></div>
+ <h3>Get Expert Support</h3>
+ <p>Talk to our team for document review, guidance, and answers to your questions.</p>
+ </article>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ VISA TYPES ============ -->
+ <section class="section" role="region" aria-label="Visa types we cover">
+ <div class="container">
+ <div class="section-heading">
+ <span class="section-eyebrow is-secondary">What We Cover</span>
+ <h2>Visa Types We Help With</h2>
+ <p>From short trips to long stays &mdash; we cover every visa category you might need.</p>
+ </div>
+ <div class="visa-types-grid">
+ <a href="/visa-guide/" class="visa-type-card reveal">
+ <div class="visa-type-icon"><i class="bi bi-suitcase2"></i></div>
+ <h3>Tourist Visa</h3>
+ <p>For holidays, sightseeing, and visiting family. Requirements, fees, and processing times for every destination.</p>
+ <span class="visa-type-link">Explore Guides <i class="bi bi-arrow-right"></i></span>
+ </a>
+ <a href="/visa-guide/" class="visa-type-card reveal">
+ <div class="visa-type-icon"><i class="bi bi-briefcase"></i></div>
+ <h3>Business Visa</h3>
+ <p>For meetings, conferences, trade fairs, and corporate travel. Get the right documents for a smooth approval.</p>
+ <span class="visa-type-link">Explore Guides <i class="bi bi-arrow-right"></i></span>
+ </a>
+ <a href="/visa-guide/" class="visa-type-card reveal">
+ <div class="visa-type-icon"><i class="bi bi-mortarboard"></i></div>
+ <h3>Student Visa</h3>
+ <p>For studying abroad. Understand admission-linked requirements, financial proof, and interview preparation.</p>
+ <span class="visa-type-link">Explore Guides <i class="bi bi-arrow-right"></i></span>
+ </a>
+ <a href="/visa-guide/" class="visa-type-card reveal">
+ <div class="visa-type-icon"><i class="bi bi-person-workspace"></i></div>
+ <h3>Work Visa</h3>
+ <p>For employment and skilled migration. Know the sponsorship rules, quotas, and documentation needed.</p>
+ <span class="visa-type-link">Explore Guides <i class="bi bi-arrow-right"></i></span>
+ </a>
+ <a href="/visa-guide/" class="visa-type-card reveal">
+ <div class="visa-type-icon"><i class="bi bi-airplane"></i></div>
+ <h3>Transit Visa</h3>
+ <p>For layovers and connecting flights. Check whether your stopover country requires a transit visa.</p>
+ <span class="visa-type-link">Explore Guides <i class="bi bi-arrow-right"></i></span>
+ </a>
+ <a href="/visa-guide/" class="visa-type-card reveal">
+ <div class="visa-type-icon"><i class="bi bi-people"></i></div>
+ <h3>Family &amp; Visit Visa</h3>
+ <p>For spouse, parent, and dependent visits. Learn about invitation letters and relationship proof.</p>
+ <span class="visa-type-link">Explore Guides <i class="bi bi-arrow-right"></i></span>
+ </a>
  </div>
  </div>
  </section>
@@ -453,58 +665,93 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <section class="section section-alt" role="region" aria-label="Popular visa destinations">
  <div class="container">
  <div class="section-heading">
+ <span class="section-eyebrow">Top Destinations</span>
  <h2>Popular Visa Destinations</h2>
  <p>Explore visa information for the world's most sought-after travel destinations.</p>
  </div>
+ <div class="country-filter">
+ <i class="bi bi-search"></i>
+ <input type="text" id="countrySearch" placeholder="Search countries &mdash; e.g. Canada, Japan, UAE" aria-label="Search countries">
+ </div>
  <div class="country-grid">
  <a href="/visa-guide/china-visa" class="country-card" data-country="China">
- <i class="bi bi-flag" style="color:var(--color-accent);font-size:1.2rem;"></i>
+ <span class="country-flag">🇨🇳</span>
  <span class="country-name">China</span>
  <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
  </a>
  <a href="/visa-guide/india-visa" class="country-card" data-country="India">
- <i class="bi bi-flag" style="color:var(--color-accent);font-size:1.2rem;"></i>
+ <span class="country-flag">🇮🇳</span>
  <span class="country-name">India</span>
  <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
  </a>
  <a href="/visa-guide/usa-visa" class="country-card" data-country="United States">
- <i class="bi bi-flag" style="color:var(--color-accent);font-size:1.2rem;"></i>
+ <span class="country-flag">🇺🇸</span>
  <span class="country-name">United States</span>
  <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
  </a>
  <a href="/visa-guide/uk-visa" class="country-card" data-country="United Kingdom">
- <i class="bi bi-flag" style="color:var(--color-accent);font-size:1.2rem;"></i>
+ <span class="country-flag">🇬🇧</span>
  <span class="country-name">United Kingdom</span>
  <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
  </a>
   <a href="/visa-guide/canada-visa" class="country-card has-secondary" data-country="Canada">
-  <i class="bi bi-flag" style="color:var(--color-secondary);font-size:1.2rem;"></i>
+  <span class="country-flag">🇨🇦</span>
   <span class="country-name">Canada</span>
   <i class="bi bi-arrow-right" style="color:var(--color-secondary);font-size:0.9rem;"></i>
   </a>
   <a href="/visa-guide/australia-visa" class="country-card has-secondary" data-country="Australia">
-  <i class="bi bi-flag" style="color:var(--color-secondary);font-size:1.2rem;"></i>
+  <span class="country-flag">🇦🇺</span>
   <span class="country-name">Australia</span>
   <i class="bi bi-arrow-right" style="color:var(--color-secondary);font-size:0.9rem;"></i>
   </a>
   <a href="/visa-guide/schengen-visa" class="country-card" data-country="Schengen Area">
-  <i class="bi bi-flag" style="color:var(--color-accent);font-size:1.2rem;"></i>
+  <span class="country-flag">🇪🇺</span>
   <span class="country-name">Schengen Area</span>
   <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
   </a>
   <a href="/visa-guide/japan-visa" class="country-card has-secondary" data-country="Japan">
-  <i class="bi bi-flag" style="color:var(--color-secondary);font-size:1.2rem;"></i>
+  <span class="country-flag">🇯🇵</span>
   <span class="country-name">Japan</span>
   <i class="bi bi-arrow-right" style="color:var(--color-secondary);font-size:0.9rem;"></i>
   </a>
   <a href="/visa-guide/thailand-visa" class="country-card" data-country="Thailand">
-  <i class="bi bi-flag" style="color:var(--color-accent);font-size:1.2rem;"></i>
+  <span class="country-flag">🇹🇭</span>
   <span class="country-name">Thailand</span>
   <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
   </a>
   <a href="/visa-guide/uae-visa" class="country-card has-secondary" data-country="UAE">
-  <i class="bi bi-flag" style="color:var(--color-secondary);font-size:1.2rem;"></i>
+  <span class="country-flag">🇦🇪</span>
   <span class="country-name">UAE (Dubai)</span>
+  <i class="bi bi-arrow-right" style="color:var(--color-secondary);font-size:0.9rem;"></i>
+  </a>
+  <a href="/visa-guide/singapore-visa" class="country-card" data-country="Singapore">
+  <span class="country-flag">🇸🇬</span>
+  <span class="country-name">Singapore</span>
+  <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
+  </a>
+  <a href="/visa-guide/germany-visa" class="country-card has-secondary" data-country="Germany">
+  <span class="country-flag">🇩🇪</span>
+  <span class="country-name">Germany</span>
+  <i class="bi bi-arrow-right" style="color:var(--color-secondary);font-size:0.9rem;"></i>
+  </a>
+  <a href="/visa-guide/france-visa" class="country-card" data-country="France">
+  <span class="country-flag">🇫🇷</span>
+  <span class="country-name">France</span>
+  <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
+  </a>
+  <a href="/visa-guide/italy-visa" class="country-card has-secondary" data-country="Italy">
+  <span class="country-flag">🇮🇹</span>
+  <span class="country-name">Italy</span>
+  <i class="bi bi-arrow-right" style="color:var(--color-secondary);font-size:0.9rem;"></i>
+  </a>
+  <a href="/visa-guide/south-korea-visa" class="country-card" data-country="South Korea">
+  <span class="country-flag">🇰🇷</span>
+  <span class="country-name">South Korea</span>
+  <i class="bi bi-arrow-right" style="color:var(--color-accent);font-size:0.9rem;"></i>
+  </a>
+  <a href="/visa-guide/turkey-visa" class="country-card has-secondary" data-country="Turkey">
+  <span class="country-flag">🇹🇷</span>
+  <span class="country-name">Turkey</span>
   <i class="bi bi-arrow-right" style="color:var(--color-secondary);font-size:0.9rem;"></i>
   </a>
  </div>
@@ -520,22 +767,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="stats-enhanced-grid">
  <div class="stats-enhanced-item">
  <div class="stats-enhanced-icon"><i class="bi bi-globe"></i></div>
- <h3 data-target="34">34+</h3>
+ <h3 data-target="34" data-suffix="+">34+</h3>
  <p>Countries Covered</p>
  </div>
  <div class="stats-enhanced-item">
  <div class="stats-enhanced-icon"><i class="bi bi-envelope-open"></i></div>
-  <h3 data-target="2500">2,500+</h3>
-  <p>Visa Inquiries Processed</p>
+<h3 data-target="2500" data-suffix="+">2,500+</h3>
+ <p>Visa Inquiries Processed</p>
  </div>
  <div class="stats-enhanced-item">
  <div class="stats-enhanced-icon"><i class="bi bi-check-circle"></i></div>
-  <h3 data-target="1200">1,200+</h3>
-  <p>Successful Applications</p>
+<h3 data-target="1200" data-suffix="+">1,200+</h3>
+ <p>Successful Applications</p>
  </div>
  <div class="stats-enhanced-item">
  <div class="stats-enhanced-icon"><i class="bi bi-star"></i></div>
- <h3 data-target="98">98%</h3>
+ <h3 data-target="98" data-suffix="%">98%</h3>
  <p>Client Satisfaction Rate</p>
  </div>
  </div>
@@ -546,6 +793,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <section class="section section-alt" role="region" aria-label="Client testimonials">
  <div class="container">
  <div class="section-heading">
+ <span class="section-eyebrow is-secondary">Success Stories</span>
  <h2>What Our Clients Say</h2>
  <p>Hear from travelers who successfully obtained their visas with our assistance.</p>
  </div>
@@ -587,10 +835,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  </section>
 
+ <!-- ============ LATEST FROM THE BLOG ============ -->
+ <section class="section" role="region" aria-label="Latest from the blog">
+ <div class="container">
+ <div class="section-heading">
+ <span class="section-eyebrow is-secondary">Visa Tips &amp; Guides</span>
+ <h2>Latest from the Blog</h2>
+ <p>Expert advice, country guides, and the latest visa updates to help you travel with confidence.</p>
+ </div>
+ <div class="blog-preview-grid">
+ <a href="/blog/canada-visa-rejection-reasons" class="blog-preview-card reveal">
+ <div class="blog-preview-image"><img src="/blog/images/canada-visa-rejection-reasons.svg" alt="Canada Tourist Visa Rejection Reasons 2026" loading="lazy"></div>
+ <div class="blog-preview-body">
+ <div class="blog-preview-meta"><span>August 1, 2026</span><span>9 min read</span></div>
+ <h3>Canada Tourist Visa Rejection Reasons 2026: Why Applications Get Denied &amp; How to Fix It</h3>
+ <p>Discover the top 10 reasons Canada tourist visa applications get rejected for Indians in 2026, and how to avoid them.</p>
+ <span class="blog-preview-link">Read Article <i class="bi bi-arrow-right"></i></span>
+ </div>
+ </a>
+ <a href="/blog/cphi-milan-2026" class="blog-preview-card reveal">
+ <div class="blog-preview-image"><img src="/blog/images/cphi-milan-2026.svg" alt="CPHI Milan 2026: Complete Guide for Pharma Professionals" loading="lazy"></div>
+ <div class="blog-preview-body">
+ <div class="blog-preview-meta"><span>July 11, 2026</span><span>5 min read</span></div>
+ <h3>CPHI Milan 2026: Complete Guide for Pharma Professionals</h3>
+ <p>Planning to attend CPHI Milan 2026 from 6&ndash;8 October? Key highlights, who should attend, and Italy business visa tips.</p>
+ <span class="blog-preview-link">Read Article <i class="bi bi-arrow-right"></i></span>
+ </div>
+ </a>
+ <a href="/blog/one-wrong-answer-us-visa" class="blog-preview-card reveal">
+ <div class="blog-preview-image"><img src="/blog/images/one-wrong-answer-us-visa.svg" alt="Can One Wrong Answer Affect Your US Visa Decision?" loading="lazy"></div>
+ <div class="blog-preview-body">
+ <div class="blog-preview-meta"><span>July 11, 2026</span><span>8 min read</span></div>
+ <h3>Can One Wrong Answer Affect Your US Visa Decision?</h3>
+ <p>Learn how consular officers evaluate responses, the difference between mistakes and lies, and how Section 214(b) works.</p>
+ <span class="blog-preview-link">Read Article <i class="bi bi-arrow-right"></i></span>
+ </div>
+ </a>
+ <a href="/blog/singapore-visa-validity" class="blog-preview-card reveal">
+ <div class="blog-preview-image"><img src="/blog/images/singapore-visa-validity.svg" alt="Singapore Visa Validity: Why 2 Months vs 2 Years?" loading="lazy"></div>
+ <div class="blog-preview-body">
+ <div class="blog-preview-meta"><span>July 10, 2026</span><span>12 min read</span></div>
+ <h3>Singapore Visa Validity: Why 2 Months vs 2 Years?</h3>
+ <p>Understand Singapore visa validity, entry pass rules, and why two travellers can get very different visa durations.</p>
+ <span class="blog-preview-link">Read Article <i class="bi bi-arrow-right"></i></span>
+ </div>
+ </a>
+ </div>
+ <div style="text-align:center;margin-top:36px;">
+ <a href="/blog/" class="btn btn-accent"><i class="bi bi-journal-text"></i> View All Articles</a>
+ </div>
+ </div>
+ </section>
+
  <!-- ============ FAQ SECTION ============ -->
  <section class="section" role="region" aria-label="Frequently asked questions">
  <div class="container">
  <div class="section-heading">
+ <span class="section-eyebrow">Got Questions?</span>
  <h2>Frequently Asked Questions</h2>
  <p>Common questions about visa applications and our services.</p>
  </div>
@@ -640,15 +941,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p>No legitimate visa service can guarantee approval, as visa decisions are made solely by embassy officials. However, we help ensure your application is complete and accurate, significantly increasing your chances of approval.</p>
   </div>
   </div>
-  <div class="faq-item">
-  <button class="faq-question" aria-expanded="false">
-  How much does your visa assistance cost?
-  <span class="faq-icon">+</span>
-  </button>
-  <div class="faq-answer">
-  <p>Our initial consultation and visa requirement information are free. For full application support and document review, we offer affordable packages starting from ₹4,099. Contact us for a personalized quote.</p>
-  </div>
-  </div>
+<div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ How much does your visa assistance cost?
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">
+ <p>Our initial consultation and visa requirement information are free. For full application support and document review, we offer affordable packages starting from ₹4,099. Contact us for a personalized quote.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============ CTA BANNER ============ -->
+ <section class="cta-banner" role="region" aria-label="Get started with your visa">
+ <div class="container">
+ <div class="cta-banner-inner">
+ <h2>Ready to Start Your Visa Journey?</h2>
+ <p>Get expert guidance, accurate requirements, and complete application support &mdash; all in one place. Your dream destination is closer than you think.</p>
+ <div class="cta-banner-buttons">
+ <a href="/contact" class="btn btn-primary btn-lg"><i class="bi bi-chat-dots"></i> Talk to an Expert</a>
+ <a href="/visa-guide/" class="btn btn-outline-white btn-lg">Browse Visa Guides</a>
+ </div>
+ <form class="cta-newsletter" onsubmit="return newsletterSubmit(event)">
+ <input type="email" id="nlEmail" placeholder="Your email for visa updates &amp; alerts" required aria-label="Email address">
+ <button type="submit" class="btn btn-primary"><i class="bi bi-envelope-check"></i> Subscribe</button>
+ </form>
+ <div class="cta-newsletter-msg" id="nlMsg"><i class="bi bi-check-circle-fill"></i> Thanks for subscribing! You'll get visa updates straight to your inbox.</div>
  </div>
  </div>
  </section>
@@ -808,11 +1128,132 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
    <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
   </div>
+ </div>
 
  
  <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
 
  <script src="/js/main.js" defer></script>
+
+<script>
+/* Quick Visa Check - redirect to the selected country's visa guide */
+function quickVisaCheck(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  var country = document.getElementById('qcCountry');
+  if (!country || !country.value) {
+    if (country) { country.focus(); country.style.borderColor = 'var(--color-secondary)'; }
+    return false;
+  }
+  window.location.href = '/visa-guide/' + country.value;
+  return false;
+}
+
+/* Auto-reveal for grid children (features, steps, countries, testimonials, faq, stats) */
+(function() {
+  var grids = document.querySelectorAll('.features-grid, .steps-grid, .visa-types-grid, .country-grid, .testimonials-grid, .faq-list, .stats-enhanced-grid, .blog-preview-grid');
+  for (var g = 0; g < grids.length; g++) {
+    var children = grids[g].children;
+    for (var c = 0; c < children.length; c++) {
+      if (!children[c].classList.contains('reveal')) children[c].classList.add('reveal');
+    }
+  }
+})();
+
+/* Reveal-on-scroll animation */
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('visible');
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+})();
+
+/* Animated counters */
+(function() {
+  var nums = document.querySelectorAll('.stats-enhanced-item h3[data-target]');
+  if (!nums.length) return;
+  function animate(el) {
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 1700, start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString('en-IN') + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (!('IntersectionObserver' in window)) {
+    for (var n = 0; n < nums.length; n++) animate(nums[n]);
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  for (var m = 0; m < nums.length; m++) io.observe(nums[m]);
+})();
+
+/* Rotating headline word */
+(function() {
+  var el = document.getElementById('rotateWord');
+  if (!el) return;
+  var words = ['Made Simple', 'Stress-Free', 'Worry-Free'];
+  var i = 0;
+  setInterval(function() {
+    i = (i + 1) % words.length;
+    el.classList.add('fade-out');
+    setTimeout(function() {
+      el.textContent = words[i];
+      el.classList.remove('fade-out');
+    }, 320);
+  }, 3200);
+})();
+
+/* Country search filter */
+(function() {
+  var input = document.getElementById('countrySearch');
+  if (!input) return;
+  input.addEventListener('input', function() {
+    var q = input.value.trim().toLowerCase();
+    var cards = document.querySelectorAll('.country-card');
+    var visible = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var name = (cards[i].getAttribute('data-country') || '').toLowerCase();
+      var show = name.indexOf(q) !== -1;
+      cards[i].style.display = show ? '' : 'none';
+      if (show) visible++;
+    }
+  });
+})();
+
+/* Newsletter submit */
+function newsletterSubmit(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  var email = document.getElementById('nlEmail');
+  var msg = document.getElementById('nlMsg');
+  if (!email || !email.value || !msg) return false;
+  msg.classList.add('show');
+  email.value = '';
+  return false;
+}
+</script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
