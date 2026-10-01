@@ -385,7 +385,7 @@
       banner.setAttribute('role', 'alert');
       banner.setAttribute('aria-live', 'polite');
       banner.innerHTML =
-        '<span>We use cookies to enhance your experience. By continuing, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</span>' +
+        '<span>We use cookies to enhance your experience. By continuing, you agree to our <a href="/privacy-policy/">Privacy Policy</a>.</span>' +
         '<button id="cookie-accept">Accept</button>';
       document.body.appendChild(banner);
       on($('#cookie-accept'), 'click', function() {
