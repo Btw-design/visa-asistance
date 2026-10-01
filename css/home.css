@@ -841,6 +841,17 @@
  .nx .n-toc-m{margin:0 -14px 18px;padding:10px 14px}
 }
 
+/* Assigned visa expert on country guides */
+.nx .n-expert-line{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0 0;font-size:.9rem;color:var(--ink-2)}
+.nx .n-expert-line b{color:var(--ink)}
+.nx .n-expert-av{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;letter-spacing:.02em}
+.nx .n-expert-li{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;font-size:.8rem;font-weight:600;color:#0A66C2}
+.nx .n-expert-li:hover{border-color:#0A66C2}
+.nx .n-expert{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.nx .n-expert .n-expert-av{width:42px;height:42px;font-size:.82rem}
+.nx .n-expert-k{display:block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.nx .n-expert b{display:block;font-size:.98rem;color:var(--ink);margin-bottom:5px}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
