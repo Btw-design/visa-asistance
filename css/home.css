@@ -1,6 +1,8 @@
 /* ============================================================
    HOME PAGE — COMPLETE REDESIGN (v3)
-   Loaded by index.html, about/, contact/, blog/, visa-guide/, visa-requirements/, visa-photo-requirements/, tracking-links/, embassy-address/ and passport-ranking/. Other pages use style.css.
+   Loaded by the homepage, about/, contact/, blog/ (index), visa-guide/ (index and country guides),
+   visa-requirements/ (index), visa-photo-requirements/, tracking-links/, embassy-address/ and passport-ranking/.
+   Other pages use style.css.
    Palette: navy ink + one deep-blue accent + neutral greys (corporate)
    ============================================================ */
 
@@ -776,6 +778,11 @@
 .nx .n-art{min-width:0;font-size:1rem;line-height:1.75;color:var(--ink-2)}
 .nx .n-art-meta{display:flex;align-items:center;gap:8px;margin:0 0 24px;padding-bottom:16px;border-bottom:1px solid var(--line);font-size:.84rem;color:var(--muted)}
 .nx .n-art-meta i{color:#16A34A}
+.nx .n-art .n-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:0 0 24px}
+.nx .n-art .n-facts>div{padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--mist)}
+.nx .n-art .n-facts dt{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.nx .n-art .n-facts dd{margin:0;font-size:.95rem;font-weight:700;color:var(--ink)}
+.nx .n-art .n-facts small{display:block;font-size:.76rem;font-weight:500;color:var(--muted)}
 .nx .n-art h2{font-size:clamp(1.35rem,2.2vw,1.65rem);line-height:1.3;font-weight:700;color:var(--ink);margin:52px 0 14px;padding-top:26px;border-top:1px solid var(--line);scroll-margin-top:96px;display:flex;align-items:center;gap:12px}
 .nx .n-art h2 i,.nx .n-art h3 i{flex-shrink:0;width:36px;height:36px;border-radius:9px;background:var(--accent-tint);color:var(--indigo);display:inline-flex;align-items:center;justify-content:center;font-size:1rem}
 .nx .n-art h3{font-size:1.08rem;font-weight:700;color:var(--ink);margin:30px 0 10px;display:flex;align-items:center;gap:10px}
@@ -829,6 +836,9 @@
 @media(max-width:767px){
  .nx .n-toc-m{top:66px;margin:0 -18px 18px;padding:10px 18px}
  .nx .n-art h2{margin-top:40px}
+}
+@media(max-width:420px){
+ .nx .n-toc-m{margin:0 -14px 18px;padding:10px 14px}
 }
 
 /* ---------- Markup helpers ---------- */

@@ -1,96 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8">
-<style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
-  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
-  --color-accent-alt: #A5D549;
-  --color-accent-alt-light: #bae56a;
-  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
-body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
-a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
-a:hover{color:var(--color-accent)}
-ul{list-style:none}
-h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
-h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
-h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
-h3{font-size:clamp(1.15rem,2vw,1.4rem)}
-p{margin-bottom:1rem;color:var(--color-text)}
-img{max-width:100%;height:auto;display:block}
-.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
-.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
-.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
-.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
-.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
-.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
-.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
-.btn-lg{padding:16px 36px;font-size:1.1rem}
-.btn-white{background:var(--color-white);color:var(--color-primary)}
-.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
-.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
-.logo span{color:var(--color-accent)}
-.nav{display:flex;align-items:center;gap:12px}
-.nav-list{display:flex;align-items:center;gap:4px}
-.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
-.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
-.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
-.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
-.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
-.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
-.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
-.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
-.nav-overlay.open{opacity:1}
-.hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
-.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
-.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
-.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
-.hero-badge i,.hero-badge svg{color:var(--color-accent)}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
-.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
-.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
-.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
-.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
-.hero-form h3{color:var(--color-primary);font-size:1.25rem}
-.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
-.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
-.breadcrumbs a{color:var(--color-primary-light)}
-.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
-.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
-.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
-.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
-.section{padding:80px 0}
-.section-alt{background:var(--color-bg-alt)}
-.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
-.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
-.section-heading p{color:var(--color-text-light);font-size:1.1rem}
-.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
-.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
-.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
-.scroll-top.visible{opacity:1;visibility:visible}
-.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
-.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden}
-.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
-.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
-.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
-.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
-.country-hero .breadcrumb a:hover{color:var(--color-accent)}
-body.menu-open{overflow:hidden}
-.text-center{text-align:center}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
-@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
-@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
-</style><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
+<script>document.documentElement.className+=" js"</script><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
@@ -103,17 +14,22 @@ body.menu-open{overflow:hidden}
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Azerbaijan Visa for Indians 2026: Types, Fees, Process & Requirements - My Visa Assistance</title>
-<meta name="description" content="Complete guide to Azerbaijan Visa for Indians 2026: Types, Fees, Process &amp; Requirements visas for Indian citizens  covering all visa types with 2026 fees, processing times, step-by-step application guidance, and essential travel tips.">
+<meta name="description" content="Complete guide to Azerbaijan visas for Indian citizens — visa types, 2026 fees, processing times, documents and step-by-step application help.">
 <meta name="author" content="My Visa Assistance Editorial Team">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://myvisaassistance.com/visa-guide/azerbaijan-visa">
+<meta property="og:url" content="https://myvisaassistance.com/visa-guide/azerbaijan-visa/">
 <meta property="og:title" content="Azerbaijan Visa for Indians 2026: Types, Fees, Process &amp; Requirements">
-<meta property="og:description" content="Complete guide to Azerbaijan Visa for Indians 2026: Types, Fees, Process &amp; Requirements visas for Indian citizens  covering all visa types with 2026 fees, processing times, step-by-step application guidance, and essential travel tips.">
+<meta property="og:description" content="Complete guide to Azerbaijan visas for Indian citizens — visa types, 2026 fees, processing times, documents and step-by-step application help.">
 <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
-<link rel="canonical" href="https://myvisaassistance.com/visa-guide/azerbaijan-visa">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="canonical" href="https://myvisaassistance.com/visa-guide/azerbaijan-visa/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+<link rel="stylesheet" href="/css/home.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
 
@@ -143,144 +59,95 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "@type": "ListItem",
   "position": 3,
   "name": "Azerbaijan Visa",
-  "item": "https://myvisaassistance.com/visa-guide/azerbaijan-visa"
+  "item": "https://myvisaassistance.com/visa-guide/azerbaijan-visa/"
   }]
   }
   </script>
 </head>
-<body>
-<!-- Reading Progress Bar -->
-<div class="reading-progress" id="readingProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-
-
-<style>#page-loader{position:fixed;inset:0;z-index:999999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#page-loader svg{width:90%;max-width:480px;height:auto}@media(max-width:480px){#page-loader svg{max-width:300px}}</style>
-<div id="page-loader" aria-hidden="true">
-<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ldrGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#031B30"/><stop offset="50%" stop-color="#5057EA"/><stop offset="100%" stop-color="#031B30"/></linearGradient></defs><text x="300" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="url(#ldrGrad)">MY VISA ASSISTANCE</text><rect x="220" y="100" width="160" height="4" rx="2" fill="#E5E7EB"/><rect x="220" y="100" width="40" height="4" rx="2" fill="#5057EA"><animate attributeName="x" values="220;340;220" dur="1.5s" repeatCount="indefinite"/></rect></svg>
-</div>
-<script>(function(){var l=document.getElementById('page-loader');function h(){if(l){l.classList.add('hidden');setTimeout(function(){l.style.display='none'},500)}}if(document.readyState!=='loading'){h()}else{document.addEventListener('DOMContentLoaded',h)}})()</script>
+<body class="nx">
+<div class="n-progress" id="readingProgress" aria-hidden="true"></div>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<header class="header" role="banner">
- <div class="header-inner">
- <a href="/" class="logo"><i class="bi bi-airplane" aria-hidden="true" style="margin-right:6px;"></i> My Visa <span>Assistance</span></a>
- <button class="menu-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
- <nav class="nav" role="navigation" aria-label="Main navigation">
- <ul class="nav-list">
+
+ <header class="n-head-bar" id="nxHeader" role="banner">
+ <div class="n-topbar">
+ <div class="container n-topbar-in">
+ <span><i class="bi bi-stars"></i> Free expert consultation with every visa application</span>
+ <a href="tel:+918551805523"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
+ <div class="container n-nav">
+ <a href="/" class="n-logo" aria-label="My Visa Assistance - Home">
+ <span class="n-logo-mk"><i class="bi bi-airplane-fill"></i></span>
+ <span>My Visa <em>Assistance</em></span>
+ </a>
+ <button class="n-burger" id="nxBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nxMenu">
+ <span></span><span></span><span></span>
+ </button>
+ <nav aria-label="Main navigation">
+ <ul class="n-menu" id="nxMenu">
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
- <li><a href="/visa-guide/" class="active">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
+ <li><a href="/about/">About</a></li>
+ <li><a href="/visa-guide/" class="on" aria-current="page">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Requirements</a></li>
  <li><a href="/blog/">Blog</a></li>
- 
-<li><a href="/contact">Contact</a></li>
+ <li><a href="/contact/">Contact</a></li>
+ <li class="n-drawer-cta"><a href="/contact/" class="n-btn n-btn-p n-btn-block"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a></li>
  </ul>
  </nav>
+ <div class="n-nav-cta">
+ <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-sm"><i class="bi bi-telephone"></i> Call</a>
+ <a href="/contact/" class="n-btn n-btn-p n-btn-sm"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a>
  </div>
+ </div>
+ <div class="n-veil" id="nxVeil"></div>
  </header>
 
-<div class="country-hero">
-<div class="container">
-<nav class="breadcrumb">
-<a href="/">Home</a> <span>/</span>
-<a href="/visa-guide/">Visa Guide</a> <span>/</span>
-<span>Azerbaijan Visa</span>
-</nav>
-<h1>Azerbaijan Visa for Indians 2026: Types, Fees, Process &amp; Requirements</h1>
-<p style="color:rgba(255,255,255,0.85);font-size:1.1rem;">Complete guide to Azerbaijan Visa for Indians 2026: Types, Fees, Process &amp; Requirements visas for Indian citizens  covering all visa types with 2026 fees, processing times, step-by-step application guidance, and essential travel tips.</p>
+ <main class="n-guide">
+ <section class="n-phero" aria-labelledby="gTitle">
+ <div class="container n-phero-grid">
+ <div>
+ <nav class="n-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="bi bi-chevron-right" aria-hidden="true"></i><a href="/visa-guide/">Visa guide</a><i class="bi bi-chevron-right" aria-hidden="true"></i><span aria-current="page">Azerbaijan</span></nav>
+ <span class="n-eyebrow">Visa guide &middot; updated June 2026</span>
+ <h1 id="gTitle">Azerbaijan Visa for Indians 2026: Types, Fees, Process &amp; Requirements</h1>
+ <p class="n-phero-sub">Complete guide to Azerbaijan visas for Indian citizens &mdash; visa types, 2026 fees, processing times, documents and step-by-step application help.</p>
+ <div class="n-hero-cta">
+ <a href="/contact/" class="n-btn n-btn-p n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Get free consultation</a>
+ <a href="/visa-requirements/azerbaijan-visa-requirements/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-list-check"></i> Document checklist</a>
+ </div>
+ </div>
+ <aside class="n-glance" aria-label="Azerbaijan visa at a glance">
+ <div class="n-glance-hd"><i class="bi bi-passport" aria-hidden="true"></i> Azerbaijan visa at a glance</div>
+ <dl>
+ <div><dt>Visa needed for Indians</dt><dd>Yes</dd></div>
+ <div><dt>Most common visa</dt><dd>ASAN eVisa (Tourist)</dd></div>
+ <div><dt>Processing</dt><dd>3-5 working days</dd></div>
+ <div><dt>Fee</dt><dd>$25 (₹2,225)</dd></div>
+ <div><dt>Maximum stay</dt><dd>30 days</dd></div>
+ </dl>
+ <p class="n-podium-ft">Figures for the ASAN eVisa (Tourist). See all visa types below.</p>
+ </aside>
+ </div>
+ </section>
 
-<div class="hero-badges">
-<span class="hero-badge"><i class="bi bi-check-circle-fill"></i> Visa required</span>
-<span class="hero-badge"><i class="bi bi-clock"></i> 3 hours processing</span>
-<span class="hero-badge"><i class="bi bi-calendar-check"></i> Up to 30 days stay</span>
-<span class="hero-badge"><i class="bi bi-shield-check"></i> 95% approval</span>
-</div>
-</div></div>
-
-<link rel="stylesheet" href="/visa-guide/css-v3-redesign.css">
-
-
-
-<!-- Sticky Table of Contents -->
-<nav class="sticky-toc" id="stickyToc" aria-label="Page navigation">
-<div class="toc-inner">
-<a href="#overview" class="toc-link active"><i class="bi bi-info-circle"></i> Overview</a>
-<a href="#visa-types" class="toc-link"><i class="bi bi-card-checklist"></i> Visa Types</a>
-<a href="#fees" class="toc-link"><i class="bi bi-currency-rupee"></i> Fees</a>
-<a href="#documents" class="toc-link"><i class="bi bi-file-earmark-text"></i> Documents</a>
-<a href="#process" class="toc-link"><i class="bi bi-signpost-2"></i> Process</a>
-<a href="#processing-time" class="toc-link"><i class="bi bi-clock"></i> Processing</a>
-<a href="#faq" class="toc-link"><i class="bi bi-question-circle"></i> FAQ</a>
-<a href="#resources" class="toc-link"><i class="bi bi-link-45deg"></i> Resources</a>
-</div>
-</nav>
-<section class="country-content">
-<div class="container">
-<div class="content-grid">
-<div class="main-content">
-
-<div class="update-bar">
-<strong>Last Updated:</strong> June 2026 | My Visa Assistance &nbsp;|&nbsp;
-<strong>Author:</strong> My Visa Assistance Editorial Team &nbsp;|&nbsp;
-<strong>Reviewed:</strong> June 2026 &nbsp;|&nbsp;
-<strong>Sources Last Verified:</strong> 01 June 2026 &nbsp;|&nbsp;
-<strong>Next Scheduled Review:</strong> December 2026
-</div>
-
-<div class="quick-stats-grid" id="overview">
-<div class="stat-card">
-<div class="stat-icon"><i class="bi bi-passport"></i></div>
-<div class="stat-label">Visa Required?</div>
-<div class="stat-value">Yes, Indian citizens need a ...</div>
-<div class="stat-sub"></div>
-</div>
-<div class="stat-card">
-<div class="stat-icon"><i class="bi bi-clock"></i></div>
-<div class="stat-label">Processing</div>
-<div class="stat-value">3-5 working days for eVisa (...</div>
-<div class="stat-sub"></div>
-</div>
-<div class="stat-card">
-<div class="stat-icon"><i class="bi bi-currency-dollar"></i></div>
-<div class="stat-label">Visa Fee</div>
-<div class="stat-value">$25 (eVisa) to $300 (work vi...</div>
-<div class="stat-sub"></div>
-</div>
-<div class="stat-card">
-<div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
-<div class="stat-label">Max Stay</div>
-<div class="stat-value">30 days for eVisa; up to 90 ...</div>
-<div class="stat-sub"></div>
-</div>
-<div class="stat-card">
-<div class="stat-icon"><i class="bi bi-shield-check"></i></div>
-<div class="stat-label">Approval Rate</div>
-<div class="stat-value">~95% for eVisa applications</div>
-<div class="stat-sub"></div>
-</div>
-<div class="stat-card">
-<div class="stat-icon"><i class="bi bi-fingerprint"></i></div>
-<div class="stat-label">Biometrics</div>
-<div class="stat-value">Not required for eVisa</div>
-<div class="stat-sub">See details below</div>
-</div>
-<div class="stat-card">
-<div class="stat-icon"><i class="bi bi-geo-alt"></i></div>
-<div class="stat-label">Entry Mode</div>
-<div class="stat-value">Varies</div>
-<div class="stat-sub">See details below</div>
-</div>
-<div class="stat-card">
-<div class="stat-icon"><i class="bi bi-people"></i></div>
-<div class="stat-label">Financial Req</div>
-<div class="stat-value">Proof of sufficient funds fo...</div>
-<div class="stat-sub"></div>
-</div>
-</div>
-
-<div class="info-box">
-<h4>What is a Azerbaijan Visa?</h4>
+ <div class="container n-guide-grid">
+ <nav class="n-toc-m" aria-label="On this page (mobile)"><ul>
+ <li><a href="#overview"><i class="bi bi-info-circle" aria-hidden="true"></i> Overview</a></li>
+ <li><a href="#visa-types"><i class="bi bi-card-checklist" aria-hidden="true"></i> Visa types</a></li>
+ <li><a href="#fees"><i class="bi bi-currency-rupee" aria-hidden="true"></i> Fees</a></li>
+ <li><a href="#documents"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Documents</a></li>
+ <li><a href="#process"><i class="bi bi-signpost-2" aria-hidden="true"></i> How to apply</a></li>
+ <li><a href="#processing-time"><i class="bi bi-clock" aria-hidden="true"></i> Processing time</a></li>
+ <li><a href="#faq"><i class="bi bi-question-circle" aria-hidden="true"></i> FAQs</a></li>
+ <li><a href="#updates2026"><i class="bi bi-megaphone" aria-hidden="true"></i> 2026 updates</a></li>
+ <li><a href="#resources"><i class="bi bi-link-45deg" aria-hidden="true"></i> Official links</a></li>
+ </ul></nav>
+ <article class="n-art" id="article">
+ <p class="n-art-meta"><i class="bi bi-patch-check" aria-hidden="true"></i> Reviewed June 2026 by the My Visa Assistance editorial team &middot; next review December 2026</p>
+<div class="info-box" id="overview">
+<h4>What is an Azerbaijan Visa?</h4>
 <p>Azerbaijan offers a convenient eVisa system (ASAN Visa) for Indian citizens, making it easy to visit the &#x27;Land of Fire.&#x27; Baku offers a unique blend of ancient and modern architecture.</p>
 <p style="margin-bottom:0;"><strong>2026 Updates at a Glance:</strong> See the <a href="#updates2026">Updates table</a> below for all 2026 changes.</p>
 </div>
@@ -308,11 +175,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Every visa application requires proof of identity, purpose of visit, and financial capacity.</p>
 
 <h3><i class="bi bi-card-checklist"></i> Core Documents (All Visa Types)</h3>
-<ul><li><strong>Valid Indian passport  Must have at least 3 months validity beyond intended stay. At least 1 blank page.</strong></li>
-<li><strong>Digital photograph  35₹45mm, white background, taken within 6 months.</strong></li>
-<li><strong>Completed ASAN Visa application  Via the official portal. All details must match your passport exactly.</strong></li>
-<li><strong>Travel itinerary  Including flight bookings and accommodation details.</strong></li>
-<li><strong>Proof of sufficient funds  Bank statements or credit card showing adequate funds.</strong></li>
+<ul><li><strong>Valid Indian passport</strong> &mdash; Must have at least 3 months validity beyond intended stay. At least 1 blank page.</li>
+<li><strong>Digital photograph</strong> &mdash; 35×45 mm, white background, taken within 6 months.</li>
+<li><strong>Completed ASAN Visa application</strong> &mdash; Via the official portal. All details must match your passport exactly.</li>
+<li><strong>Travel itinerary</strong> &mdash; Including flight bookings and accommodation details.</li>
+<li><strong>Proof of sufficient funds</strong> &mdash; Bank statements or credit card showing adequate funds.</li>
 </ul>
 
 <h2 id="process"><i class="bi bi-signpost-2"></i> Azerbaijan Visa Application Process for Indians</h2>
@@ -354,6 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="info-box">
 <h4>Processing Time Note</h4>
 <p>Processing times are estimates. Apply well in advance of your planned travel date. Peak application periods (April-June and September-November) may experience longer processing due to higher volumes. We recommend applying at least 3-4 weeks before your intended departure, and 6-8 weeks for work or student visa categories.</p>
+</div>
 
 <h2><i class="bi bi-shield-check"></i> Travel Insurance Requirements</h2>
 <p>Travel insurance is recommended for all visitors to Azerbaijan:</p>
@@ -366,7 +234,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2><i class="bi bi-calendar-event"></i> Best Time to Visit Azerbaijan</h2>
 <p>Azerbaijan, the Land of Fire, has diverse climate zones from subtropical to alpine. Choosing the right season enhances your experience:</p>
 <ul>
-<li><strong>Spring (April to June):</strong> The best time to visit Baku and the Caspian coast with temperatures of 15-25C. The countryside is green and blooming  ideal for visiting Gobustan and Sheki. Novruz holiday (March) is a vibrant cultural celebration.</li>
+<li><strong>Spring (April to June):</strong> The best time to visit Baku and the Caspian coast with temperatures of 15-25C. The countryside is green and blooming — ideal for visiting Gobustan and Sheki. Novruz holiday (March) is a vibrant cultural celebration.</li>
 <li><strong>Summer (July to August):</strong> Hot in Baku at 30-35C with occasional humidity. The Caspian beaches are popular. The mountains of Quba and Lankaran offer cooler escapes. Peak season for domestic tourism.</li>
 <li><strong>Autumn (September to October):</strong> Harvest season in the wine regions. Pleasant temperatures of 18-25C in Baku. Perfect for exploring the ancient city of Sheki and the Caucasus Mountains. The Baku International Jazz Festival often takes place in October.</li>
 <li><strong>Winter (November to March):</strong> Cold in Baku at 5-10C with strong Caspian winds. Skiing season in Shahdag and Tufandag mountain resorts. Fewer tourists and lower hotel rates in the capital.</li>
@@ -375,7 +243,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2><i class="bi bi-x-circle"></i> Common Reasons for Azerbaijan Visa Rejection</h2>
 <p>Azerbaijan has streamlined its visa process with the ASAN eVisa system, but rejections still happen for these reasons:</p>
 <ul>
-<li><strong>Photo Not Meeting Specifications:</strong> The ASAN eVisa requires a specific photo format (3.5₹4.5 cm, white background). Selfies or scanned photos from old documents are commonly rejected.</li>
+<li><strong>Photo Not Meeting Specifications:</strong> The ASAN eVisa requires a specific photo format (3.5×4.5 cm, white background). Selfies or scanned photos from old documents are commonly rejected.</li>
 <li><strong>Passport Expiry Too Close:</strong> Your passport must be valid for at least 3 months beyond your intended departure from Azerbaijan. Many applicants overlook this and their eVisa is denied.</li>
 <li><strong>Previous Nagorno-Karabakh Visit:</strong> If your passport contains evidence of visiting the Nagorno-Karabakh region without Azerbaijan's authorization, you will be denied entry or face visa refusal.</li>
 <li><strong>Purpose of Visit Mismatch:</strong> The visa category must match your actual purpose. Applying for a tourist visa while mentioning business activities can trigger additional scrutiny.</li>
@@ -389,8 +257,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>Currency:</strong> Azerbaijani Manat (AZN) is the local currency. Credit cards are widely accepted in Baku's restaurants, hotels, and malls. Cash is essential in rural areas and markets. ATMs are plentiful in the capital.</li>
 <li><strong>Transportation:</strong> Heydar Aliyev International Airport (GYD) in Baku is the main gateway. The Baku Metro is efficient and affordable. Bolt and Uber are available for ride-hailing. For intercity travel, trains connect Baku to Ganja and Sheki.</li>
 <li><strong>Language:</strong> Azerbaijani (Azeri) is the official language. Russian is widely spoken by the older generation. English is becoming more common in Baku but limited elsewhere. Learning a few phrases like "Salam" (Hello) helps.</li>
-<li><strong>Local Customs:</strong> Azerbaijan is a secular Muslim-majority country. Dress is generally liberal in Baku but modest attire is expected in rural areas and mosques. Hospitality is a key part of Azeri culture  expect generous treatment.</li>
-<li><strong>Cuisine:</strong> Must-try dishes include Plov (saffron rice with lamb), Dolma (stuffed grape leaves), Kebab, and fresh Caspian fish. Black tea is central to Azeri hospitality  always accept if offered. Try local wines from the Shamakhi region.</li>
+<li><strong>Local Customs:</strong> Azerbaijan is a secular Muslim-majority country. Dress is generally liberal in Baku but modest attire is expected in rural areas and mosques. Hospitality is a key part of Azeri culture — expect generous treatment.</li>
+<li><strong>Cuisine:</strong> Must-try dishes include Plov (saffron rice with lamb), Dolma (stuffed grape leaves), Kebab, and fresh Caspian fish. Black tea is central to Azeri hospitality — always accept if offered. Try local wines from the Shamakhi region.</li>
 <li><strong>Fire and Architecture:</strong> Visit the Yanar Dag burning mountain, the Ateshgah Fire Temple, and the futuristic Heydar Aliyev Center designed by Zaha Hadid. The UNESCO-listed Old City (Icherisheher) is a must-see.</li>
 </ul>
 
@@ -405,8 +273,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-answer"><p>Available visa types for Indian citizens traveling to Azerbaijan:</p><ul><li><strong>Tourist visa:</strong> For tourism and leisure travel. See the <a href="#visa-types">Visa Types section</a> for details.</li><li><strong>Business visa:</strong> For business meetings, conferences, and trade activities.</li><li><strong>Student visa:</strong> For enrolled students at Azerbaijan educational institutions.</li><li><strong>Transit visa:</strong> For connecting flights through Azerbaijan.</li><li>Each visa type has specific <strong>document requirements and fee structures</strong>.</li></ul></div>
 </div>
 <div class="faq-item">
-<button class="faq-question" aria-expanded="false">What documents are required for a Azerbaijan visa?<span class="faq-icon">+</span></button>
-<div class="faq-answer"><p>Standard document requirements for a Azerbaijan visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> — minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> — 35×45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> — accurately filled with matching details.</li><li><strong>Travel itinerary</strong> — flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li></ul></div>
+<button class="faq-question" aria-expanded="false">What documents are required for an Azerbaijan visa?<span class="faq-icon">+</span></button>
+<div class="faq-answer"><p>Standard document requirements for an Azerbaijan visa. See the <a href="#documents">full checklist</a>:</p><ul><li><strong>Valid Indian passport</strong> — minimum 6 months validity beyond intended stay, with at least 2 blank pages.</li><li><strong>Passport-size photographs</strong> — 35×45mm, white background, taken within 6 months.</li><li><strong>Completed visa application form</strong> — accurately filled with matching details.</li><li><strong>Travel itinerary</strong> — flight bookings and accommodation details.</li><li><strong>Bank statements</strong> for the last 3-6 months showing sufficient funds.</li></ul></div>
 </div>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">How long does it take to process a Azerbaijan visa?<span class="faq-icon">+</span></button>
@@ -429,7 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-answer"><p>The best time to visit Azerbaijan depends on your preferences:</p><ul><li>Research the <strong>climate and seasons</strong> of Azerbaijan before planning your trip.</li><li>Consider factors like <strong>temperature, rainfall, and tourist crowds</strong>.</li><li>Check for <strong>local festivals and events</strong> that may enhance your travel experience.</li><li>Book flights and accommodation <strong>in advance</strong> during peak tourist seasons.</li></ul></div>
 </div>
 <div class="faq-item">
-<button class="faq-question" aria-expanded="false">Can I get a Azerbaijan visa on arrival as an Indian?<span class="faq-icon">+</span></button>
+<button class="faq-question" aria-expanded="false">Can I get an Azerbaijan visa on arrival as an Indian?<span class="faq-icon">+</span></button>
 <div class="faq-answer"><p>Visa-on-arrival availability for Indian citizens in Azerbaijan:</p><ul><li>Check the <strong>current visa policy</strong> for Indian nationals — most countries require a visa in advance.</li><li>If no visa on arrival is available, you must apply for a <strong>visa before travel</strong>.</li><li>See the <a href="#process">Application Process section</a> for the complete step-by-step guide.</li><li>Always verify current requirements with the <strong>official embassy website</strong>.</li></ul></div>
 </div>
 <div class="faq-item">
@@ -459,119 +327,105 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 
-<h2><i class="bi bi-megaphone"></i> 2026 Updates</h2>
+<h2 id="updates2026"><i class="bi bi-megaphone"></i> 2026 Updates</h2>
 <div class="visa-table-wrapper"><table class="visa-table"><thead><tr><th>Category</th><th>Previous</th><th>Current (2026)</th></tr></thead><tbody><tr><td>Fee</td><td>$25 (standard)</td><td>$25 (unchanged)</td></tr><tr><td>Processing</td><td>3-5 working days</td><td>3-5 working days (consistent)</td></tr><tr><td>Policy</td><td>Standard eVisa</td><td>Urgent eVisa (3-hour) option introduced</td></tr></tbody></table></div>
 
 <h2 id="resources"><i class="bi bi-link-45deg"></i> Official Links</h2><ul><li><a href="https://evisa.gov.az/" target="_blank" rel="noopener noreferrer">ASAN Visa</a></li>
 <li><a href="https://newdelhi.mfa.gov.az/" target="_blank" rel="noopener noreferrer">Azerbaijan Embassy</a></li>
 </ul>
+ </article>
+ <aside class="n-guide-side">
+ <nav class="n-glance n-toc" aria-label="On this page">
+ <div class="n-glance-hd"><i class="bi bi-list-ul" aria-hidden="true"></i> On this page</div>
+ <ul>
+ <li><a href="#overview"><i class="bi bi-info-circle" aria-hidden="true"></i> Overview</a></li>
+ <li><a href="#visa-types"><i class="bi bi-card-checklist" aria-hidden="true"></i> Visa types</a></li>
+ <li><a href="#fees"><i class="bi bi-currency-rupee" aria-hidden="true"></i> Fees</a></li>
+ <li><a href="#documents"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Documents</a></li>
+ <li><a href="#process"><i class="bi bi-signpost-2" aria-hidden="true"></i> How to apply</a></li>
+ <li><a href="#processing-time"><i class="bi bi-clock" aria-hidden="true"></i> Processing time</a></li>
+ <li><a href="#faq"><i class="bi bi-question-circle" aria-hidden="true"></i> FAQs</a></li>
+ <li><a href="#updates2026"><i class="bi bi-megaphone" aria-hidden="true"></i> 2026 updates</a></li>
+ <li><a href="#resources"><i class="bi bi-link-45deg" aria-hidden="true"></i> Official links</a></li>
+ </ul>
+ </nav>
+ <div class="n-glance n-side-help">
+ <div class="n-glance-hd"><i class="bi bi-headset" aria-hidden="true"></i> Need help with this visa?</div>
+ <p>Our experts check your documents and guide you through the Azerbaijan visa application.</p>
+ <div class="n-side-btns">
+ <a href="/contact/" class="n-btn n-btn-p n-btn-block">Get free consultation</a>
+ <button type="button" class="n-btn n-btn-o n-btn-block" onclick="downloadChecklist()"><i class="bi bi-download"></i> Download checklist</button>
+ </div>
+ <div class="n-share"><span>Share</span>
+ <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/visa-guide/azerbaijan-visa/" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/intent/tweet?text=Azerbaijan Visa for Indians 2026: Types, Fees, Process &amp; Requirements&amp;url=https://myvisaassistance.com/visa-guide/azerbaijan-visa/" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://myvisaassistance.com/visa-guide/azerbaijan-visa/" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+ <a href="https://wa.me/?text=https://myvisaassistance.com/visa-guide/azerbaijan-visa/" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+ </div>
+ </div>
+ </aside>
+ </div>
 
-<div class="cta-section">
-<h2>Need Help With Your Azerbaijan Visa?</h2>
-<p>Contact My Visa Assistance for expert guidance on your visa application process.</p>
-<a href="/contact" class="btn">Get Free Consultation</a>
-</div>
+ <section class="n-cta" aria-labelledby="ctaTitle">
+ <div class="container">
+ <div class="n-cta-in">
+ <h2 id="ctaTitle">Need help with your Azerbaijan visa?</h2>
+ <p>Tell us your travel dates and purpose. We'll confirm the right visa, check your documents and guide your application.</p>
+ <div class="n-cta-btns">
+ <a href="/contact/" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Get free consultation</a>
+ <a href="/visa-guide/" class="n-btn n-btn-g n-btn-lg"><i class="bi bi-grid"></i> All visa guides</a>
+ </div>
+ </div>
+ </div>
+ </section>
+ </main>
 
-</div>
-
-
-  <aside class="sidebar">
-  <div class="sidebar-card">
-  <h3>Quick Facts</h3>
-  <ul>
-  <li><strong>Country:</strong> Azerbaijan</li>
-  <li><strong>Capital:</strong> Baku</li>
-  <li><strong>Visa Required:</strong> Yes (for Indians)</li>
-  <li><strong>Currency:</strong> Azerbaijani Manat (AZN)</li>
-  <li><strong>Processing:</strong> 3-5 working days (eVisa)</li>
-  <li><strong>Biometrics:</strong> Not required</li>
-  </ul>
-  </div>
-
-  <div class="sidebar-card">
-  <h3>Popular Visa Types</h3>
-  <ul>
-  <li><a href="#fees">Tourist Visa</a></li>
-  <li><a href="#fees">Business Visa</a></li>
-  <li><a href="#fees">Student Visa</a></li>
-  <li><a href="#fees">Work Visa</a></li>
-  <li><a href="#fees">Transit Visa</a></li>
-  </ul>
-  </div>
-
-  <div class="sidebar-card" style="background:linear-gradient(135deg,#031B30,#031B30);color:white;border:none;">
-  <h3 style="color:#5057EA;margin:0 0 8px;">Download Checklist</h3>
-  <p style="color:rgba(255,255,255,0.85);font-size:0.9rem;margin:0 0 12px;">Get a printable document checklist for your visa application.</p>
-  <button onclick="downloadChecklist()" class="btn btn-primary" style="width:100%;text-align:center;">
-  <i class="bi bi-download"></i> Download Full Checklist
-  </button>
-  </div>
-
-  <div class="sidebar-card sidebar-cta">
-  <h3>Need Visa Help?</h3>
-  <p>Our experts can guide you through the Azerbaijan visa process.</p>
-  <a href="/contact" class="btn btn-primary" style="margin-bottom:8px;">Get Assistance</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_cW3T5Zup2-T_ud9ngisCWkwh3dVmQbuGdBS7Lb1c2r9bog/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--color-accent);color:var(--color-primary-dark);display:block;text-align:center;"><i class="bi bi-file-text"></i> Fill the form for details</a>
-  </div>
-
-  <div class="sidebar-card">
-  <h3>Related Guides</h3>
-  <ul>
-  <li><a href="https://myvisaassistance.com/visa-requirements/azerbaijan-visa-requirements">Azerbaijan Visa Requirements</a></li>
-  <li><a href="/visa-guide/">View All Countries</a></li>
-  </ul>
-  </div>
-
-  <div class="sidebar-card">
-  <h3>Share This Guide</h3>
-  <p style="font-size:0.85rem;color:var(--color-text-light);">Help others find this information</p>
-  <div style="display:flex;gap:10px;margin-top:10px;">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://myvisaassistance.com/visa-guide/azerbaijan-visa" target="_blank" rel="noopener noreferrer" style="color:#1877F2;font-size:1.5rem;" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a>
-  <a href="https://twitter.com/intent/tweet?text=Azerbaijan%20Visa%20for%20Indians%202026%3A%20Types%2C%20Fees%2C%20Process%20%26%20Requirements%20-%20My%20Visa%20Assistance&url=https://myvisaassistance.com/visa-guide/azerbaijan-visa" target="_blank" rel="noopener noreferrer" style="color:#1DA1F2;font-size:1.5rem;" aria-label="Share on Twitter"><i class="bi bi-twitter-x"></i></a>
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://myvisaassistance.com/visa-guide/azerbaijan-visa" target="_blank" rel="noopener noreferrer" style="color:#0A66C2;font-size:1.5rem;" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
-  </div>
-  </div>
-  </aside>
-
-</div></div>
-</section>
-
-<footer class="footer" role="contentinfo">
+ <footer class="footer" role="contentinfo">
  <div class="container">
  <div class="footer-grid">
  <div class="footer-about">
  <div class="footer-brand">
  <span class="footer-logo-icon" aria-hidden="true">
- <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#5057EA"/><path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/><path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/></svg></span>
- <span class="footer-brand-text">My Visa <span>Assistance</span></span></div>
- <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p></div>
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#5057EA"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/>
+ </svg>
+ </span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
  <div class="footer-col">
  <h4>Quick Links</h4>
  <ul>
  <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
+ <li><a href="/about/">About</a></li>
  <li><a href="/visa-guide/">Visa Guide</a></li>
- <li><a href="/visa-requirements/">Visa Requirements</a></li>
- <li><a href="/blog/">Blog</a></li>
-   <li><a href="/contact">Contact</a></li>
- <li><a href="/embassy-address/">Embassy Address</a></li>
- <li><a href="/passport-ranking/">Passport Ranking</a></li>
- <li><a href="/upcoming-events/">Upcoming Events</a></li>
- <li><a href="/visa-news/">Visa News</a></li>
- <li><a href="/visa-services-pune/">Visa Services Pune</a></li>
- <li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
- <li><a href="/tracking-links/">Tracking Links</a></li>
- </ul></div>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/visa-photo-requirements/">Visa Photo Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact/">Contact</a></li>
+<li><a href="/embassy-address/">Embassy Address</a></li>
+<li><a href="/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+<li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
  <div class="footer-col">
  <h4>Top Countries</h4>
  <ul>
- <li><a href="/visa-guide/usa-visa">US Visa</a></li>
- <li><a href="/visa-guide/uk-visa">UK Visa</a></li>
- <li><a href="/visa-guide/canada-visa">Canada Visa</a></li>
- <li><a href="/visa-guide/australia-visa">Australia Visa</a></li>
- <li><a href="/visa-guide/india-visa">India Visa</a></li>
- <li><a href="/visa-guide/schengen-visa">Schengen Visa</a></li>
- </ul></div>
+ <li><a href="/visa-guide/usa-visa/">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa/">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa/">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa/">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa/">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa/">Schengen Visa</a></li>
+ </ul>
+ </div>
  <div class="footer-col">
  <h4>Contact</h4>
  <ul class="footer-contact">
@@ -583,147 +437,99 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
  <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
  <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
- <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
- </div></div></div>
+ </div>
+ </div>
+ </div>
  <div class="footer-divider"></div>
  <div class="footer-disclaimer">
- <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p></div>
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
  <div class="footer-bottom">
  <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
- <span class="footer-bottom-links"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></span>
- </div></div>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy/">Privacy Policy</a>
+ <a href="/terms-of-service/">Terms of Service</a>
+ </span>
+ </div>
+ </div>
  </footer>
-<div class="country-logos-strip" role="region" aria-label="Country flags">
-<div class="country-logos-track">
-  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
-  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
-  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
-  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
-  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
-  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
-  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
-  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
-  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
-  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
-  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
-  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
-  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
-  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
-  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
-  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
-  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
-  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
-  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
-  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
-  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
-  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
-  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
-  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
-  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
-  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
-  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
-  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
-  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
-  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
-  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
-  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
-  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
-  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
-  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
-  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
-  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
-  <a href="/visa-guide/usa-visa" class="country-logo-item">USA</a>
-  <a href="/visa-guide/uk-visa" class="country-logo-item">UK</a>
-  <a href="/visa-guide/canada-visa" class="country-logo-item">Canada</a>
-  <a href="/visa-guide/australia-visa" class="country-logo-item">Australia</a>
-  <a href="/visa-guide/schengen-visa" class="country-logo-item">Schengen</a>
-  <a href="/visa-guide/india-visa" class="country-logo-item">India</a>
-  <a href="/visa-guide/japan-visa" class="country-logo-item">Japan</a>
-  <a href="/visa-guide/kazakhstan-visa" class="country-logo-item">Kazakhstan</a>
-  <a href="/visa-guide/china-visa" class="country-logo-item">China</a>
-  <a href="/visa-guide/thailand-visa" class="country-logo-item">Thailand</a>
-  <a href="/visa-guide/uae-visa" class="country-logo-item">UAE</a>
-  <a href="/visa-guide/singapore-visa" class="country-logo-item">Singapore</a>
-  <a href="/visa-guide/malaysia-visa" class="country-logo-item">Malaysia</a>
-  <a href="/visa-guide/germany-visa" class="country-logo-item">Germany</a>
-  <a href="/visa-guide/france-visa" class="country-logo-item">France</a>
-  <a href="/visa-guide/italy-visa" class="country-logo-item">Italy</a>
-  <a href="/visa-guide/spain-visa" class="country-logo-item">Spain</a>
-  <a href="/visa-guide/netherlands-visa" class="country-logo-item">Netherlands</a>
-  <a href="/visa-guide/switzerland-visa" class="country-logo-item">Switzerland</a>
-  <a href="/visa-guide/south-korea-visa" class="country-logo-item">South Korea</a>
-  <a href="/visa-guide/turkey-visa" class="country-logo-item">Turkey</a>
-  <a href="/visa-guide/new-zealand-visa" class="country-logo-item">New Zealand</a>
-  <a href="/visa-guide/south-africa-visa" class="country-logo-item">South Africa</a>
-  <a href="/visa-guide/brazil-visa" class="country-logo-item">Brazil</a>
-  <a href="/visa-guide/egypt-visa" class="country-logo-item">Egypt</a>
-  <a href="/visa-guide/russia-visa" class="country-logo-item">Russia</a>
-  <a href="/visa-guide/indonesia-visa" class="country-logo-item">Indonesia</a>
-  <a href="/visa-guide/vietnam-visa" class="country-logo-item">Vietnam</a>
-  <a href="/visa-guide/philippines-visa" class="country-logo-item">Philippines</a>
-  <a href="/visa-guide/albania-visa" class="country-logo-item">Albania</a>
-  <a href="/visa-guide/algeria-visa" class="country-logo-item">Algeria</a>
-  <a href="/visa-guide/andorra-visa" class="country-logo-item">Andorra</a>
-  <a href="/visa-guide/angola-visa" class="country-logo-item">Angola</a>
-  <a href="/visa-guide/antigua-and-barbuda-visa" class="country-logo-item">Antigua</a>
-  <a href="/visa-guide/armenia-visa" class="country-logo-item">Armenia</a>
-  <a href="/visa-guide/austria-visa" class="country-logo-item">Austria</a>
-  <a href="/visa-guide/azerbaijan-visa" class="country-logo-item">Azerbaijan</a>
-  </div>
-<button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
 
-<!-- Reading Progress & TOC Active State -->
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var progressBar = document.getElementById('readingProgress');
-  var tocLinks = document.querySelectorAll('.toc-link');
-  var sections = [];
-  tocLinks.forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      var section = document.querySelector(href);
-      if (section) sections.push({ el: section, link: link });
-    }
-  });
-  var ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() {
-        var scrollTop = window.scrollY;
-        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
-        var current = 0;
-        for (var i = 0; i < sections.length; i++) {
-          if (sections[i].el.offsetTop - 200 <= scrollTop) current = i;
-        }
-        tocLinks.forEach(function(l, idx) {
-          l.classList.toggle('active', idx === current);
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-  var toc = document.getElementById('stickyToc');
-  if (toc) {
-    window.addEventListener('scroll', function() {
-      toc.classList.toggle('scrolled', window.scrollY > 50);
-    });
+/* Guide page: reading progress + active section in the table of contents */
+(function () {
+  'use strict';
+  var bar = document.getElementById('readingProgress');
+  var links = document.querySelectorAll('.n-toc a, .n-toc-m a');
+  var ids = Array.prototype.map.call(document.querySelectorAll('.n-toc a'), function (a) { return a.getAttribute('href').slice(1); });
+  var secs = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var tick = false;
+  function update() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (bar) bar.style.width = (h > 0 ? Math.min(window.scrollY / h * 100, 100) : 0) + '%';
+    var cur = secs.length ? secs[0].id : null;
+    secs.forEach(function (s) { if (s.getBoundingClientRect().top < 140) cur = s.id; });
+    links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + cur); });
+    tick = false;
   }
-});
+  window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+})();
 </script>
-<script src="/js/main.js" defer></script>
-<!--Start of Tawk.to Script-->
+<script>
+/* Header state, mobile drawer and reveal-on-scroll (same behaviour as the homepage) */
+(function () {
+  'use strict';
+  var hd = document.getElementById('nxHeader');
+  if (hd) {
+    var upd = function () { hd.classList.toggle('stuck', window.scrollY > 30); };
+    window.addEventListener('scroll', upd, { passive: true });
+    upd();
+  }
+  var b = document.getElementById('nxBurger'), m = document.getElementById('nxMenu'), v = document.getElementById('nxVeil');
+  if (b && m) {
+    var close = function () { b.classList.remove('on'); m.classList.remove('open'); if (v) v.classList.remove('on'); b.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+    b.addEventListener('click', function () {
+      var open = m.classList.toggle('open');
+      b.classList.toggle('on', open);
+      if (v) v.classList.toggle('on', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    if (v) v.addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1024) close(); });
+  }
+  var els = document.querySelectorAll('.n-rv');
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+})();
+</script>
+<!--Start of Tawk.to Script (loaded after first interaction or 6s)-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
+var loaded=false;
+function load(){
+if(loaded)return;loaded=true;
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
+}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){window.addEventListener(ev,load,{once:true,passive:true});});
+setTimeout(load,6000);
 })();
 </script>
 <!--End of Tawk.to Script-->
@@ -737,3 +543,4 @@ s0.parentNode.insertBefore(s1,s0);
 </style>
 </body>
 </html>
+
