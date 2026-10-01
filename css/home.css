@@ -862,6 +862,11 @@
 .nx .n-art ol.n-cols li{break-inside:avoid}
 .nx .n-post-disc{margin-top:28px;padding:14px 18px;border:1px solid var(--line);border-radius:10px;background:var(--mist);font-size:.88rem;color:var(--muted)}
 
+/* BTW Visa relationship */
+.footer-initiative{margin:-6px 0 14px;font-size:0.8rem;font-weight:600;letter-spacing:0.04em;color:rgba(255,255,255,0.72)}
+.nx .n-form-disc{display:flex;align-items:flex-start;gap:8px;margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--mist);font-size:.84rem;color:var(--ink-2)}
+.nx .n-form-disc i{color:var(--indigo);margin-top:2px}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
