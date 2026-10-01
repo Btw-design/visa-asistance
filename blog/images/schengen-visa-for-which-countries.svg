@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="29 Schengen countries in 2026">
+  <rect width="1200" height="630" fill="#0B1F3A"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#2F45C5"/>
+  <g fill="none" stroke="#2A3F5F" stroke-width="2">
+    <circle cx="930" cy="315" r="230"/><circle cx="930" cy="315" r="160"/><circle cx="930" cy="315" r="90"/>
+  </g>
+  <g fill="#C9D3F5">
+    <circle cx="1125.0" cy="315.0" r="7"/><circle cx="1120.4" cy="356.9" r="7"/><circle cx="1107.0" cy="396.9" r="7"/><circle cx="1085.2" cy="433.0" r="7"/><circle cx="1056.2" cy="463.6" r="7"/><circle cx="1021.3" cy="487.3" r="7"/><circle cx="982.2" cy="502.9" r="7"/><circle cx="940.6" cy="509.7" r="7"/><circle cx="898.5" cy="507.4" r="7"/><circle cx="857.8" cy="496.2" r="7"/><circle cx="820.6" cy="476.4" r="7"/><circle cx="788.4" cy="449.1" r="7"/><circle cx="762.9" cy="415.5" r="7"/><circle cx="745.2" cy="377.3" r="7"/><circle cx="736.1" cy="336.1" r="7"/><circle cx="736.1" cy="293.9" r="7"/><circle cx="745.2" cy="252.7" r="7"/><circle cx="762.9" cy="214.5" r="7"/><circle cx="788.4" cy="180.9" r="7"/><circle cx="820.6" cy="153.6" r="7"/><circle cx="857.8" cy="133.8" r="7"/><circle cx="898.5" cy="122.6" r="7"/><circle cx="940.6" cy="120.3" r="7"/><circle cx="982.2" cy="127.1" r="7"/><circle cx="1021.3" cy="142.7" r="7"/><circle cx="1056.2" cy="166.4" r="7"/><circle cx="1085.2" cy="197.0" r="7"/><circle cx="1107.0" cy="233.1" r="7"/><circle cx="1120.4" cy="273.1" r="7"/>
+  </g>
+  <text x="930" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="120" font-weight="700" fill="#FFFFFF">29</text>
+  <text x="930" y="350" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#C9D3F5" letter-spacing="3">COUNTRIES</text>
+  <text x="80" y="150" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#9FB0E8" letter-spacing="4">SCHENGEN AREA 2026</text>
+  <text x="80" y="250" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700" fill="#FFFFFF">Schengen visa</text>
+  <text x="80" y="325" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700" fill="#FFFFFF">for which countries?</text>
+  <text x="80" y="400" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#C9D3F5">The complete list, the 90/180-day rule</text>
+  <text x="80" y="440" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#C9D3F5">and where to apply</text>
+  <text x="80" y="550" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">My Visa Assistance</text>
+</svg>

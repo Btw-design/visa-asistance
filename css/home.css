@@ -852,6 +852,16 @@
 .nx .n-expert-k{display:block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .nx .n-expert b{display:block;font-size:.98rem;color:var(--ink);margin-bottom:5px}
 
+/* Blog post (new layout) */
+.nx .n-post-hero{max-width:900px}
+.nx .n-post-hero h1{font-size:clamp(1.8rem,3.6vw,2.7rem);margin-bottom:16px}
+.nx .n-post-fig{margin:0 0 28px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.nx .n-post-fig img{display:block;width:100%;height:auto}
+.nx .n-art ol{margin:0 0 20px;padding-left:24px}
+.nx .n-art ol.n-cols{columns:3 150px;column-gap:28px}
+.nx .n-art ol.n-cols li{break-inside:avoid}
+.nx .n-post-disc{margin-top:28px;padding:14px 18px;border:1px solid var(--line);border-radius:10px;background:var(--mist);font-size:.88rem;color:var(--muted)}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
