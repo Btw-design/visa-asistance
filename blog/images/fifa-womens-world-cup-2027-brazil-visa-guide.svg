@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="FIFA Women's World Cup 2027 in Brazil: visa guide for Indian fans">
+  <rect width="1200" height="630" fill="#0B1F3A"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#2F45C5"/>
+  <circle cx="950" cy="315" r="170" fill="#FFFFFF"/>
+  <circle cx="950" cy="315" r="170" fill="none" stroke="#C9D3F5" stroke-width="6"/>
+  <polygon points="950,255 1007,296 985,363 915,363 893,296" fill="#0B1F3A"/>
+  <g stroke="#0B1F3A" stroke-width="6" fill="none" stroke-linecap="round">
+    <line x1="950" y1="255" x2="950" y2="150"/><line x1="1007" y1="296" x2="1108" y2="262"/><line x1="985" y1="363" x2="1048" y2="450"/>
+    <line x1="915" y1="363" x2="852" y2="450"/><line x1="893" y1="296" x2="792" y2="262"/>
+  </g>
+  <text x="80" y="150" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#9FB0E8" letter-spacing="4">BRAZIL 2027</text>
+  <text x="80" y="245" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">Women's World Cup</text>
+  <text x="80" y="315" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">visa guide for</text>
+  <text x="80" y="385" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">Indian fans</text>
+  <text x="80" y="455" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#C9D3F5">24 June to 25 July 2027, eight host cities</text>
+  <text x="80" y="550" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">My Visa Assistance</text>
+</svg>
