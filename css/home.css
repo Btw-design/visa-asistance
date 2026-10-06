@@ -867,6 +867,9 @@
 .nx .n-form-disc{display:flex;align-items:flex-start;gap:8px;margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--mist);font-size:.84rem;color:var(--ink-2)}
 .nx .n-form-disc i{color:var(--indigo);margin-top:2px}
 
+/* Buttons inside article text keep their own colours */
+.nx .n-art a.n-btn-p,.nx .n-art a.n-btn-p:hover{color:#fff;text-decoration:none}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
