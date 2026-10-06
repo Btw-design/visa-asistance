@@ -870,6 +870,11 @@
 /* Buttons inside article text keep their own colours */
 .nx .n-art a.n-btn-p,.nx .n-art a.n-btn-p:hover{color:#fff;text-decoration:none}
 
+/* Work visa guides section on the visa guide listing */
+.nx .n-art ul.n-cols{columns:2 220px;column-gap:28px}
+.nx .n-art ul.n-cols li{break-inside:avoid}
+.nx .n-work-intro{margin:0 0 24px;max-width:760px;color:var(--ink-2)}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
