@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <script>document.documentElement.className+=" js"</script>
+ <style>:root{--color-white:#ffffff;--color-primary: #031B30;--color-primary-light: #0a2a4a;--color-primary-dark: #021221;
+  --color-secondary: #E86020;--color-accent:#5057EA;--color-accent-light:#6b72ee;--color-accent-dark:#3a41c8;
+  --color-accent-alt: #A5D549;
+  --color-accent-alt-light: #bae56a;
+  --color-accent-alt-dark: #8cba30;--color-accent-alt:#A5D549;--color-accent-alt-light:#bae56a;--color-accent-alt-dark:#8cba30;--color-success:#10b981;--color-warning:#f59e0b;--color-error:#ef4444;--color-text:#1f2937;--color-text-light:#6b7280;--color-text-muted:#9ca3af;--color-bg:#ffffff;--color-bg-alt:#f8fafc;--color-bg-warm:#fafbf5;--color-bg-card:#ffffff;--color-bg-dark: #031B30;--color-border:#e5e7eb;--color-border-light:#f3f4f6;--font-primary:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;--max-width:1200px;--header-height:72px;--radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04),0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 15px rgba(0,0,0,0.05);--shadow-lg:0 10px 25px rgba(0,0,0,0.06),0 20px 40px rgba(0,0,0,0.04);--shadow-xl:0 25px 50px rgba(0,0,0,0.08);--transition:all 0.2s ease;--transition-slow:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-primary);color:var(--color-text);background-color:var(--color-bg);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word}
+a{color:var(--color-primary-light);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--color-accent)}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);color:var(--color-primary);line-height:1.3;margin-bottom:0.5em;font-weight:700}
+h1{font-size:clamp(1.75rem,4vw,3rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--color-text)}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;font-family:var(--font-primary);font-size:1rem;font-weight:600;border:none;border-radius:var(--radius);cursor:pointer;transition:var(--transition-slow);text-decoration:none;line-height:1.4;white-space:nowrap}
+.btn-primary{background:var(--color-accent);color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(80, 87, 234,0.35)}
+.btn-primary:hover{background:var(--color-accent-dark);color:var(--color-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(80, 87, 234,0.45)}
+.btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary)}
+.btn-outline:hover{background:var(--color-primary);color:var(--color-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:var(--color-white);color:var(--color-white);transform:translateY(-2px)}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.btn-white{background:var(--color-white);color:var(--color-primary)}
+.btn-white:hover{background:var(--color-bg-alt);color:var(--color-primary);transform:translateY(-2px)}
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);height:var(--header-height);transition:var(--transition-slow);border-bottom:1px solid transparent}
+.header.scrolled{border-bottom-color:var(--color-border-light);box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--color-primary);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--color-accent)}
+.nav{display:flex;align-items:center;gap:12px}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-list a{font-size:0.925rem;font-weight:500;color:var(--color-text);padding:8px 16px;border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-list a:hover{color:var(--color-primary);background:var(--color-bg-alt)}
+.nav-list a.active{color:var(--color-primary);font-weight:600;background:rgba(3, 27, 48,0.06)}
+.nav-cta .btn{padding:9px 20px;font-size:0.875rem;border-radius:var(--radius-sm)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--radius-sm)}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--color-primary);transition:var(--transition-slow);border-radius:2px;transform-origin:center}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1}
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,#031B30,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:70%;height:150%;background:radial-gradient(ellipse,rgba(80, 87, 234,0.12),transparent 70%);pointer-events:none}
+.hero-content h1{color:var(--color-white);font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.02em;line-height:1.15}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;max-width:540px;font-weight:400}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.1);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 14px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,0.12)}
+.hero-badge i,.hero-badge svg{color:var(--color-accent)}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-trust-num{font-size:1.8rem;font-weight:800;color:var(--color-accent);letter-spacing:-0.02em}
+.hero-trust-label{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+.hero-form{background:var(--color-white);border-radius:var(--radius-lg);padding:35px;box-shadow:var(--shadow-xl)}
+.hero-form h3{color:var(--color-primary);font-size:1.25rem}
+.hero-form p{color:var(--color-text-light);font-size:0.9rem;margin-bottom:1.2rem}
+.breadcrumbs{padding:14px 0;font-size:0.85rem;color:var(--color-text-light);background:var(--color-bg-alt);border-bottom:1px solid var(--color-border-light)}
+.breadcrumbs a{color:var(--color-primary-light)}
+.breadcrumbs .separator{margin:0 8px;color:var(--color-text-muted)}
+.page-header{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);text-align:center;position:relative;overflow:hidden}
+.page-header h1{color:var(--color-white);letter-spacing:-0.02em}
+.page-header p{color:rgba(255,255,255,0.8);font-size:1.1rem;max-width:600px;margin:0 auto}
+.section{padding:80px 0}
+.section-alt{background:var(--color-bg-alt)}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 50px}
+.section-heading h2::after{content:'';display:block;width:60px;height:3px;background:var(--color-accent);border-radius:2px;margin:12px auto 0}
+.section-heading p{color:var(--color-text-light);font-size:1.1rem}
+.footer{background:var(--color-bg-dark);color:rgba(255,255,255,0.85);padding:64px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light),var(--color-accent))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px}
+
+
+.scroll-top{position:fixed;bottom:calc(36px + env(safe-area-inset-bottom,0px));right:calc(28px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--color-primary);color:var(--color-white);border:none;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;z-index:999;cursor:pointer;transition:var(--transition-slow);box-shadow:0 4px 12px rgba(3, 27, 48,0.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-3px)}
+
+.country-hero{padding:130px 0 50px;background:linear-gradient(135deg,#031B30,#031B30);color:var(--color-white);position:relative;overflow:hidden}
+.country-hero h1{color:var(--color-white);font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-0.02em}
+.country-hero p{color:rgba(255,255,255,0.8);font-size:1.05rem;max-width:650px}
+.country-hero .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;margin-bottom:1rem;color:rgba(255,255,255,0.6)}
+.country-hero .breadcrumb a{color:rgba(255,255,255,0.7)}
+.country-hero .breadcrumb a:hover{color:var(--color-accent)}
+body.menu-open{overflow:hidden}
+.text-center{text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:991px){.hero{min-height:auto;padding:120px 0 60px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-content{text-align:center}.hero-content .hero-subtitle{margin-left:auto;margin-right:auto}.hero-badges{justify-content:center}.hero-buttons{justify-content:center}.hero-trust{gap:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.page-header{padding:110px 0 40px}.page-header h1{font-size:2rem}.country-hero{padding:110px 0 45px}.country-hero h1{font-size:1.8rem}}
+@media(max-width:767px){.menu-toggle{display:flex}.nav-overlay{display:block;pointer-events:none}.nav-overlay.open{pointer-events:auto}.nav-list{display:flex;flex-direction:column;position:fixed;top:0;right:0;width:280px;height:100vh;height:100dvh;background:var(--color-white);padding:calc(var(--header-height) + 20px) 24px 30px;z-index:999;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}.nav-list.open{transform:translateX(0)}.nav-list a{padding:14px 0;border-bottom:1px solid var(--color-border-light);width:100%;font-size:1rem}.nav-list a:last-child{border-bottom:none}.nav-list a::after{display:none}.nav-cta{display:block;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-light)}.nav-cta .btn{width:100%;text-align:center}.menu-toggle{z-index:1001}body.menu-open{overflow:hidden}.hero{padding:100px 0 50px}.hero-content h1{font-size:clamp(1.6rem,5vw,2rem)}.hero-subtitle{font-size:1rem}.hero-badge{font-size:0.78rem;padding:5px 12px}.hero-buttons .btn-lg{padding:14px 24px;font-size:1rem}.hero-form{padding:24px}.hero-trust{gap:16px;margin-top:28px;padding-top:20px}.hero-trust-num{font-size:1.5rem}.hero-trust-label{font-size:0.8rem}.section{padding:50px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:1.5rem}.section-heading p{font-size:0.95rem}.page-header{padding:100px 0 35px}.page-header h1{font-size:1.5rem}.page-header p{font-size:0.95rem}.country-hero{padding:100px 0 35px}.country-hero h1{font-size:1.4rem}.country-hero p{font-size:0.95rem}.breadcrumbs{font-size:0.8rem;padding:12px 0}.container{padding:0 18px}.footer{padding:48px 0 0}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.scroll-top{width:40px;height:40px;font-size:1rem;bottom:20px;right:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}}
+@media(max-width:420px){.container{padding:0 14px}:root{--header-height:64px}.logo{font-size:1.1rem}.hero{padding:90px 0 40px}.hero-content h1{font-size:1.4rem}.section{padding:36px 0}.page-header{padding:90px 0 30px}.page-header h1{font-size:1.3rem}.country-hero h1{font-size:1.25rem}.nav-list{width:100%}}
+</style><style>.bi{display:inline-block;min-width:1em;min-height:1em;vertical-align:-.125em}</style>
+
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+ <style>@font-face{font-family:'bootstrap-icons';src:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2) format('woff2');font-display:swap}</style>
+ <link rel="preconnect" href="https://cdn.jsdelivr.net">
+ <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://embed.tawk.to">
+  <link rel="dns-prefetch" href="https://embed.tawk.to">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Visa Consultant in Mumbai | Online + Doorstep Service</title>
+ <meta name="title" content="About My Visa Assistance | Our Mission & Expertise">
+ <meta name="description" content="Visa consultant in Mumbai for USA, UK, Schengen, Canada and UAE visas. Online + doorstep document pickup. Call or WhatsApp +91 85518 05523.">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Yogesh Prajapati">
+
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://myvisaassistance.com/visa-consultant-mumbai/">
+ <meta property="og:title" content="Visa Consultant in Mumbai | Online + Doorstep Service">
+ <meta property="og:description" content="Visa consultant in Mumbai for USA, UK, Schengen, Canada and UAE visas. Online + doorstep document pickup. Call or WhatsApp +91 85518 05523.">
+
+ <!-- Schema.org -->
+
+ 
+ 
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="canonical" href="https://myvisaassistance.com/visa-consultant-mumbai/">
+
+ 
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+ <link rel="stylesheet" href="/css/home.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
+ 
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MQQTWDVD');</script>
+<!-- End Google Tag Manager -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://myvisaassistance.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Visa Consultant in Mumbai",
+   "item": "https://myvisaassistance.com/visa-consultant-mumbai/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "name": "My Visa Assistance",
+ "description": "Online visa consultation and application assistance for Mumbai residents, with doorstep document pickup. No walk-in office in Mumbai.",
+ "url": "https://myvisaassistance.com/visa-consultant-mumbai/",
+ "telephone": "+918551805523",
+ "email": "myvisaassistance@protonmail.com",
+ "parentOrganization": {
+  "@type": "Organization",
+  "name": "BTW Visa"
+ },
+ "areaServed": [
+  {
+   "@type": "City",
+   "name": "Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Andheri, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Bandra, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "BKC, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Dadar, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Lower Parel, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Colaba, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Powai, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Ghatkopar, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Kurla, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Chembur, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Mulund, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Goregaon, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Malad, Mumbai"
+  },
+  {
+   "@type": "Place",
+   "name": "Borivali, Mumbai"
+  }
+ ],
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+   ],
+   "opens": "09:00",
+   "closes": "19:00"
+  }
+ ],
+ "availableLanguage": [
+  "English",
+  "Hindi",
+  "Marathi"
+ ],
+ "serviceType": [
+  "Tourist visa assistance",
+  "Business visa assistance",
+  "Student visa assistance",
+  "Work visa assistance",
+  "Transit visa assistance"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do I have to visit a consulate in Mumbai to apply for a visa?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Usually not. Most countries take applications and biometrics at a visa application centre rather than at the consulate. The main exception is the USA, where you attend the Visa Application Center and then an interview at the US Consulate General, both in Bandra Kurla Complex."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which visa application centres are in Mumbai?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The US Visa Application Center and the VFS Global Trade Centre office are in Bandra Kurla Complex. VFS centres for Canada, Germany and Japan are in the Urmi Axis building at Mahalaxmi. BLS International handles Spain from Dalamal Towers at Nariman Point. Addresses can change, so check your appointment letter."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there a My Visa Assistance office in Mumbai?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. We offer an online + doorstep service in Mumbai: consultation by phone and WhatsApp, and a doorstep pickup when physical documents are needed. You do not need to visit us."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "I live in Mumbai. Do I apply to the consulate in Mumbai or the embassy in Delhi?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "For most countries with a consulate in Mumbai, applicants living in Maharashtra apply in Mumbai. The US Consulate General Mumbai, the Consulate-General of Japan in Mumbai and the Consulate General of Italy in Mumbai all list Maharashtra in their jurisdiction. We confirm the rule for your destination before booking."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How early should I leave for a visa appointment in Bandra Kurla Complex?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Plan to arrive well before your slot. Office-hour traffic into Bandra Kurla Complex is heavy, security checks take time, and several centres limit bags and electronics. Applicants arriving late can lose the appointment."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body class="nx">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQQTWDVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <header class="n-head-bar" id="nxHeader" role="banner">
+ <div class="n-topbar">
+ <div class="container n-topbar-in">
+ <span><i class="bi bi-stars"></i> Free expert consultation with every visa application</span>
+ <a href="tel:+918551805523"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ </div>
+ </div>
+ <div class="container n-nav">
+ <a href="/" class="n-logo" aria-label="My Visa Assistance - Home">
+ <span class="n-logo-mk"><i class="bi bi-airplane-fill"></i></span>
+ <span>My Visa <em>Assistance</em></span>
+ </a>
+ <button class="n-burger" id="nxBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nxMenu">
+ <span></span><span></span><span></span>
+ </button>
+ <nav aria-label="Main navigation">
+ <ul class="n-menu" id="nxMenu">
+ <li><a href="/">Home</a></li>
+ <li><a href="/about/">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+ <li><a href="/visa-requirements/">Requirements</a></li>
+ <li><a href="/blog/">Blog</a></li>
+ <li><a href="/contact/">Contact</a></li>
+ <li class="n-drawer-cta"><a href="/contact/" class="n-btn n-btn-p n-btn-block"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a></li>
+ </ul>
+ </nav>
+ <div class="n-nav-cta">
+ <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-sm"><i class="bi bi-telephone"></i> Call</a>
+ <a href="/contact/" class="n-btn n-btn-p n-btn-sm"><i class="bi bi-chat-dots-fill"></i> Free Consultation</a>
+ </div>
+ </div>
+ <div class="n-veil" id="nxVeil"></div>
+ </header>
+
+ <main>
+ <section class="n-phero" aria-labelledby="mbTitle">
+ <div class="container n-phero-grid">
+ <div>
+ <nav class="n-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i class="bi bi-chevron-right" aria-hidden="true"></i><span aria-current="page">Mumbai</span></nav>
+ <span class="n-eyebrow">Online + doorstep service &middot; A BTW Visa Initiative</span>
+ <h1 id="mbTitle">Visa Consultant in Mumbai</h1>
+ <p class="n-phero-sub">A visa consultant in Mumbai should save you time, not add another commute. My Visa Assistance has no office in the city; we run an online + doorstep service instead. You speak to one consultant by phone or WhatsApp, we collect physical documents from your door when they are needed, and we book you into the correct centre. Mumbai has many consulates and visa application centres, spread across the city, and each country uses a different one. Knowing which building to go to, and when, is half the work.</p>
+ <div class="n-hero-cta">
+ <a href="/contact/" class="n-btn n-btn-p n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Get free consultation</a>
+ <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-telephone"></i> +91 85518 05523</a>
+ </div>
+ </div>
+ <aside class="n-glance" aria-label="At a glance">
+ <div class="n-glance-hd"><i class="bi bi-geo-alt" aria-hidden="true"></i> For Mumbai applicants</div>
+ <dl>
+ <div><dt>Service</dt><dd>Online, with doorstep document pickup</dd></div>
+ <div><dt>Office in Mumbai</dt><dd>None; no visit needed</dd></div>
+ <div><dt>First consultation</dt><dd>Free</dd></div>
+ <div><dt>Hours</dt><dd>Mon &ndash; Sat, 9:00 AM &ndash; 7:00 PM</dd></div>
+ <div><dt>Call or WhatsApp</dt><dd>+91 85518 05523</dd></div>
+ </dl>
+ <div class="n-glance-ft">
+ <a href="tel:+918551805523"><i class="bi bi-telephone" aria-hidden="true"></i> Call</a>
+ <a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+ </div>
+ </aside>
+ </div>
+ </section>
+
+ <section class="n-section" aria-labelledby="svcTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">What we handle</span>
+ <h2 id="svcTitle">Visa services we offer in Mumbai</h2>
+ <p>Our visa services Mumbai applicants use most, each handled by the same consultant from first call to decision.</p>
+ </div>
+ <div class="n-fgrid n-fgrid-5">
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-airplane" aria-hidden="true"></i></div><h3>Tourist visas</h3><p>Holidays and family visits, with itinerary, funds and leave letter matched to what the embassy checks.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-briefcase" aria-hidden="true"></i></div><h3>Business visas</h3><p>Trade fairs, client meetings and conferences, with invitation letters and company NOCs in the right format.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-mortarboard" aria-hidden="true"></i></div><h3>Student visas</h3><p>Admission, funding and academic papers organised into one complete file.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-person-workspace" aria-hidden="true"></i></div><h3>Work visas</h3><p>For applicants who already hold a job offer. We do not arrange jobs or sponsorship.</p></article>
+ <article class="n-fcard n-rv"><div class="n-fic"><i class="bi bi-signpost-split" aria-hidden="true"></i></div><h3>Transit visas</h3><p>We check whether your connection out of Mumbai airport needs a transit visa before you book.</p></article>
+ </div>
+ </div>
+ </section>
+
+ <section class="n-section n-alt" aria-labelledby="destTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">Where our applicants go</span>
+ <h2 id="destTitle">Popular destinations from Mumbai</h2>
+ <p>One line each. The linked guides carry the full documents, fees and process.</p>
+ </div>
+ <div class="visa-table-wrapper n-rv"><table class="visa-table"><thead><tr><th>Country</th><th>What Mumbai applicants should know</th><th>Full guide</th></tr></thead><tbody>
+<tr><td>USA</td><td>Two visits to Bandra Kurla Complex: fingerprints at the Visa Application Center, then the consulate interview.</td><td><a href="/visa-guide/usa-visa/">USA visa guide</a></td></tr>
+<tr><td>UK</td><td>Apply online and give biometrics at a VFS centre in the city; most visitors are not interviewed.</td><td><a href="/visa-guide/uk-visa/">UK visa guide</a></td></tr>
+<tr><td>Schengen</td><td>Apply to your main destination country. France and Italy use VFS at Bandra Kurla Complex, Germany uses Mahalaxmi, Spain uses BLS at Nariman Point.</td><td><a href="/visa-guide/schengen-visa/">Schengen visa guide</a></td></tr>
+<tr><td>Canada</td><td>Apply online; biometrics are taken at the Canada centre in Mahalaxmi.</td><td><a href="/visa-guide/canada-visa/">Canada visa guide</a></td></tr>
+<tr><td>UAE</td><td>Normally processed online, with no centre visit.</td><td><a href="/visa-guide/uae-visa/">UAE visa guide</a></td></tr>
+ </tbody></table></div>
+ </div>
+ </section>
+
+ <section class="n-section" aria-labelledby="centreTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">The Mumbai advantage</span>
+ <h2 id="centreTitle">VFS / BLS centres and consulates in Mumbai</h2>
+ <p>Two different kinds of building matter. Visa application centres take your documents and biometrics. Consulates make the decision, and most do not accept walk-in visa applicants.</p>
+ </div>
+ <h3 class="n-loc-h3 n-rv">Visa application centres: where you submit</h3>
+ <div class="visa-table-wrapper n-rv"><table class="visa-table"><thead><tr><th>Country</th><th>Centre</th><th>Location</th></tr></thead><tbody>
+<tr><td>USA</td><td>US Visa Application Center</td><td>Parinee Crescenzo, 1st Floor, A Wing, G Block, Bandra Kurla Complex</td></tr>
+<tr><td>France, Italy</td><td>VFS Global</td><td>Trade Centre, First Floor, G Block, Bandra Kurla Complex</td></tr>
+<tr><td>Canada</td><td>VFS Global, Canada Visa Application Centre</td><td>Urmi Axis, 4th floor, behind Famous Studio, Mahalaxmi (West)</td></tr>
+<tr><td>Germany</td><td>VFS Global</td><td>Urmi Axis, 3rd floor, Mahalaxmi (West)</td></tr>
+<tr><td>Japan</td><td>VFS Global, Japan Visa Application Centre</td><td>Urmi Axis, 1st floor, Mahalaxmi (West)</td></tr>
+<tr><td>Spain</td><td>BLS International</td><td>Dalamal Towers, Ground Floor, 211 Nariman Point</td></tr>
+<tr><td>UK</td><td>VFS Global</td><td>In Mumbai; we confirm the centre when booking</td></tr>
+ </tbody></table></div>
+ <h3 class="n-loc-h3 n-rv">Consulates in Mumbai: who decides</h3>
+ <div class="visa-table-wrapper n-rv"><table class="visa-table"><thead><tr><th>Country</th><th>Mission</th><th>Location</th></tr></thead><tbody>
+<tr><td>USA</td><td>US Consulate General Mumbai</td><td>C-49, G Block, Bandra Kurla Complex</td></tr>
+<tr><td>UK</td><td>British Deputy High Commission</td><td>Naman Chambers, C/32 G Block, Bandra Kurla Complex</td></tr>
+<tr><td>Australia</td><td>Australian Consulate-General</td><td>Level 10, A Wing, Crescenzo Building, G Block, Bandra Kurla Complex</td></tr>
+<tr><td>France</td><td>Consulate General of France</td><td>Wockhardt Towers, East Wing, 5th floor, Bandra Kurla Complex</td></tr>
+<tr><td>Canada</td><td>Consulate General of Canada</td><td>One International Center, Tower 2, 21st Floor, Senapati Bapat Marg</td></tr>
+<tr><td>Germany</td><td>German Consulate General</td><td>Hoechst House, 10th Floor, Nariman Point</td></tr>
+<tr><td>Italy</td><td>Consulate General of Italy</td><td>Kanchanjunga, Ground Floor, 72 G. Deshmukh Marg</td></tr>
+<tr><td>Japan</td><td>Consulate-General of Japan</td><td>No. 1, M.L. Dahanukar Marg, Cumballa Hill</td></tr>
+<tr><td>UAE</td><td>Consulate General of the UAE</td><td>Jolly Maker Apartment No. 1, Cuffe Parade</td></tr>
+ </tbody></table></div>
+ <div class="n-prose n-loc-prose n-rv">
+ <p><strong>Three clusters.</strong> Nearly everything sits in three pockets: Bandra Kurla Complex, Mahalaxmi, and the Nariman Point and Cuffe Parade end of the island city. Your destination decides which one you travel to.</p>
+ <p><strong>Jurisdiction.</strong> The US Consulate General Mumbai, the Consulate-General of Japan and the Consulate General of Italy each list Maharashtra in their district, so Mumbai residents apply here rather than in Delhi.</p>
+ <p><strong>Rules worth knowing.</strong> Since 20 April 2026 the Japanese consulate no longer accepts visa applications directly; they go through VFS. The German visa section admits applicants only at their appointed time. The British Deputy High Commission is open to the public by appointment only.</p>
+ <p><strong>Getting there.</strong> For Bandra Kurla Complex, the nearest suburban stations are Bandra on the Western line and Kurla on the Central and Harbour lines, and Metro Line 3 has a BKC station. Mahalaxmi has its own Western line station. For Nariman Point, use Churchgate or CSMT.</p>
+ <p>Centres relocate and change hours. The address on your appointment letter is the one to follow.</p>
+ </div>
+ </div>
+ </section>
+
+ <section class="n-section n-alt" aria-labelledby="howTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">Four steps</span>
+ <h2 id="howTitle">How it works</h2>
+ </div>
+ <div class="n-steps">
+ <article class="n-step n-rv">
+ <span class="n-step-n">01</span>
+ <div class="n-step-ic"><i class="bi bi-telephone-inbound-fill"></i></div>
+ <h3>Free call</h3>
+ <p>Tell us your destination, purpose and dates. We confirm the right visa type.</p>
+ </article>
+ <article class="n-step n-rv">
+ <span class="n-step-n">02</span>
+ <div class="n-step-ic"><i class="bi bi-file-earmark-check-fill"></i></div>
+ <h3>Checklist</h3>
+ <p>You get a checklist for your case. Send scans, or ask for a doorstep pickup.</p>
+ </article>
+ <article class="n-step n-rv">
+ <span class="n-step-n">03</span>
+ <div class="n-step-ic"><i class="bi bi-calendar-check-fill"></i></div>
+ <h3>Filing and appointment</h3>
+ <p>We complete the forms with you and book the correct Mumbai centre.</p>
+ </article>
+ <article class="n-step n-rv">
+ <span class="n-step-n">04</span>
+ <div class="n-step-ic"><i class="bi bi-patch-check-fill"></i></div>
+ <h3>Decision</h3>
+ <p>You attend the appointment. We stay in touch until the embassy decides.</p>
+ </article>
+ </div>
+ </div>
+ </section>
+
+ <section class="n-section" aria-labelledby="whyTitle">
+ <div class="container n-split">
+ <div class="n-values n-rv" aria-label="Why choose us">
+ <h2 id="whyTitle" class="n-values-t">Why Mumbai travellers choose My Visa Assistance</h2>
+ <ul>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-person-check"></i></span><div><strong>One named consultant</strong><p>The person who takes your first call stays on your file. No call-centre handoffs.</p></div></li>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-receipt"></i></span><div><strong>Transparent pricing</strong><p>We tell you our fee before you commit. Government and visa centre fees are separate and paid to them.</p></div></li>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-calendar2-week"></i></span><div><strong>Appointment slot tracking</strong><p>Mumbai slots fill quickly in peak season, so we watch for openings and book as soon as your file is ready.</p></div></li>
+ <li><span class="n-val-ic" aria-hidden="true"><i class="bi bi-arrow-repeat"></i></span><div><strong>Refusal support</strong><p>If you were refused before, we review the refusal letter and help you prepare a stronger application.</p></div></li>
+ </ul>
+ <p class="n-loc-note">Looking for the best visa consultant Mumbai can offer? Judge any visa agent in Mumbai on these four points, and on whether they promise approval. We do not, because no one honestly can.</p>
+ </div>
+ <div class="n-rv">
+ <figure class="n-loc-quote">
+ <blockquote><p>&ldquo;I attended CPHI Milan on a business visa and the invitation letter plus company NOC were formatted perfectly. VFS appointment was booked before my colleagues even applied.&rdquo;</p></blockquote>
+ <figcaption><strong>Priya Kulkarni</strong>, Mumbai &middot; Italy Business Visa</figcaption>
+ </figure>
+ <span class="n-eyebrow">Coverage</span>
+ <h2 id="areaTitle" class="n-split-h">Areas we serve in Mumbai</h2>
+ <div class="n-prose">
+ <p>Our online + doorstep service covers Mumbai City and Mumbai Suburban, including Andheri, Bandra, BKC, Dadar, Lower Parel, Colaba, Powai, Ghatkopar, Kurla, Chembur, Mulund, Goregaon, Malad and Borivali.</p>
+ <p>Wherever you are in the city, the process is the same: calls and WhatsApp for the consultation, and a pickup from your home or office when original documents are needed.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section class="n-section n-alt" aria-labelledby="faqTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <span class="n-eyebrow">Local questions</span>
+ <h2 id="faqTitle">FAQs</h2>
+ </div>
+ <div class="n-faq" id="thFaq">
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="mfa1" id="mfq1">Do I have to visit a consulate in Mumbai to apply for a visa?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="mfa1" role="region" aria-labelledby="mfq1"><p>Usually not. Most countries take applications and biometrics at a visa application centre rather than at the consulate. The main exception is the USA, where you attend the Visa Application Center and then an interview at the US Consulate General, both in Bandra Kurla Complex.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="mfa2" id="mfq2">Which visa application centres are in Mumbai?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="mfa2" role="region" aria-labelledby="mfq2"><p>The US Visa Application Center and the VFS Global Trade Centre office are in Bandra Kurla Complex. VFS centres for Canada, Germany and Japan are in the Urmi Axis building at Mahalaxmi. BLS International handles Spain from Dalamal Towers at Nariman Point. Addresses can change, so check your appointment letter.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="mfa3" id="mfq3">Is there a My Visa Assistance office in Mumbai?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="mfa3" role="region" aria-labelledby="mfq3"><p>No. We offer an online + doorstep service in Mumbai: consultation by phone and WhatsApp, and a doorstep pickup when physical documents are needed. You do not need to visit us.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="mfa4" id="mfq4">I live in Mumbai. Do I apply to the consulate in Mumbai or the embassy in Delhi?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="mfa4" role="region" aria-labelledby="mfq4"><p>For most countries with a consulate in Mumbai, applicants living in Maharashtra apply in Mumbai. The US Consulate General Mumbai, the Consulate-General of Japan in Mumbai and the Consulate General of Italy in Mumbai all list Maharashtra in their jurisdiction. We confirm the rule for your destination before booking.</p></div></div>
+ <div class="n-fq n-rv"><button class="n-fq-btn" type="button" aria-expanded="false" aria-controls="mfa5" id="mfq5">How early should I leave for a visa appointment in Bandra Kurla Complex?<i class="bi bi-plus-lg n-fq-ic" aria-hidden="true"></i></button><div class="n-fq-a" id="mfa5" role="region" aria-labelledby="mfq5"><p>Plan to arrive well before your slot. Office-hour traffic into Bandra Kurla Complex is heavy, security checks take time, and several centres limit bags and electronics. Applicants arriving late can lose the appointment.</p></div></div>
+ </div>
+ </div>
+ </section>
+
+ <section class="n-section" aria-labelledby="alsoTitle">
+ <div class="container">
+ <div class="n-head n-rv">
+ <h2 id="alsoTitle">We also serve</h2>
+ <p class="n-loc-also"><a href="/visa-consultant-in-thane/">Visa consultant in Thane</a> &middot; <a href="/visa-consultant-navi-mumbai/">Visa consultant in Navi Mumbai</a> &middot; <a href="/visa-services-pune/">Visa consultant in Pune</a> &middot; <a href="/visa-consultants-in-india/">Visa consultant in India</a></p>
+ </div>
+ </div>
+ </section>
+
+ <section class="n-cta" aria-labelledby="ctaTitle">
+ <div class="container">
+ <div class="n-cta-in n-rv">
+ <h2 id="ctaTitle">Book your free consultation</h2>
+ <p>Call or WhatsApp +91 85518 05523, Monday to Saturday, 9:00 AM to 7:00 PM. Tell us where you are going and when; we will tell you what to prepare. Your inquiry will be handled by BTW Visa&rsquo;s visa assistance team.</p>
+ <div class="n-cta-btns">
+ <a href="tel:+918551805523" class="n-btn n-btn-o n-btn-lg"><i class="bi bi-telephone-fill"></i> +91 85518 05523</a>
+ <a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="n-btn n-btn-g n-btn-lg"><i class="bi bi-whatsapp"></i> WhatsApp us</a>
+ <a href="/contact/" class="n-btn n-btn-g n-btn-lg"><i class="bi bi-chat-dots-fill"></i> Free consultation form</a>
+ </div>
+ </div>
+ </div>
+ </section>
+ </main>
+
+ <footer class="footer" role="contentinfo">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-about">
+ <div class="footer-brand">
+ <span class="footer-logo-icon" aria-hidden="true">
+ <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="32" height="32" rx="8" fill="#5057EA"/>
+ <path d="M16 6C12.6863 6 10 8.68629 10 12C10 15.3137 12.6863 18 16 18C19.3137 18 22 15.3137 22 12C22 8.68629 19.3137 6 16 6Z" fill="#031B30"/>
+ <path d="M16 20C11.5817 20 8 23.5817 8 28H24C24 23.5817 20.4183 20 16 20Z" fill="#031B30"/>
+ </svg>
+ </span>
+ <span class="footer-brand-text">My Visa <span>Assistance</span></span>
+ </div>
+ <p class="footer-initiative">A BTW Visa Initiative</p>
+ <p class="footer-tagline">Your trusted partner for comprehensive visa information, requirements, and application support worldwide.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Quick Links</h4>
+ <ul>
+ <li><a href="/">Home</a></li>
+ <li><a href="/about/">About</a></li>
+ <li><a href="/visa-guide/">Visa Guide</a></li>
+<li><a href="/visa-requirements/">Visa Requirements</a></li>
+<li><a href="/visa-photo-requirements/">Visa Photo Requirements</a></li>
+<li><a href="/blog/">Blog</a></li>
+   <li><a href="/contact/">Contact</a></li>
+<li><a href="/embassy-address/">Embassy Address</a></li>
+<li><a href="/passport-ranking/">Passport Ranking</a></li>
+<li><a href="/upcoming-events/">Upcoming Events</a></li>
+<li><a href="/visa-services-pune/">Visa Services Pune</a></li>
+<li><a href="/visa-consultants-in-india/">Visa Consultants in India</a></li>
+<li><a href="/tracking-links/">Tracking Links</a></li>
+<li><a href="/visa-news/">Visa News</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Top Countries</h4>
+ <ul>
+ <li><a href="/visa-guide/usa-visa/">US Visa</a></li>
+ <li><a href="/visa-guide/uk-visa/">UK Visa</a></li>
+ <li><a href="/visa-guide/canada-visa/">Canada Visa</a></li>
+ <li><a href="/visa-guide/australia-visa/">Australia Visa</a></li>
+ <li><a href="/visa-guide/india-visa/">India Visa</a></li>
+ <li><a href="/visa-guide/schengen-visa/">Schengen Visa</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Contact</h4>
+ <ul class="footer-contact">
+ <li><a href="mailto:myvisaassistance@protonmail.com"><i class="bi bi-envelope"></i> myvisaassistance@protonmail.com</a></li>
+ <li><a href="tel:+918551805523"><i class="bi bi-telephone"></i> +91 85518 05523</a></li>
+ <li><i class="bi bi-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+ </ul>
+ <div class="footer-social">
+ <a href="https://facebook.com/myvisaassistance" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+ <a href="https://twitter.com/myvisahelp" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+ <a href="https://linkedin.com/company/myvisaassistance" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-divider"></div>
+ <div class="footer-disclaimer">
+ <p><strong>Disclaimer:</strong> My Visa Assistance is a private visa information and assistance portal. We are not affiliated with any government agency, embassy, or consulate. We are not authorized representatives, immigration lawyers, or government officials. The information provided on this website is for general informational purposes only and should not be construed as legal or official advice. Visa policies, requirements, and fees are subject to change without notice. Always verify current requirements directly with the official embassy or consulate of your destination country.</p>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; <span id="currentYear">2026</span> My Visa Assistance. All rights reserved.</span>
+ <span class="footer-bottom-links">
+ <a href="/privacy-policy/">Privacy Policy</a>
+ <a href="/terms-of-service/">Terms of Service</a>
+ </span>
+ </div>
+ </div>
+ </footer>
+
+ <button class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+ <script src="/js/main.js" defer></script>
+<script>
+/* FAQ accordion */
+(function () {
+  var faq = document.getElementById('thFaq');
+  faq.addEventListener('click', function (e) {
+    var b = e.target.closest('.n-fq-btn');
+    if (!b) return;
+    var item = b.parentNode, open = !item.classList.contains('open');
+    faq.querySelectorAll('.n-fq').forEach(function (i) { i.classList.remove('open'); i.querySelector('.n-fq-btn').setAttribute('aria-expanded', 'false'); });
+    if (open) { item.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
+  });
+})();
+</script>
+<script>
+/* Header state, mobile drawer and reveal-on-scroll (same behaviour as the homepage) */
+(function () {
+  'use strict';
+  var hd = document.getElementById('nxHeader');
+  if (hd) {
+    var upd = function () { hd.classList.toggle('stuck', window.scrollY > 30); };
+    window.addEventListener('scroll', upd, { passive: true });
+    upd();
+  }
+  var b = document.getElementById('nxBurger'), m = document.getElementById('nxMenu'), v = document.getElementById('nxVeil');
+  if (b && m) {
+    var close = function () { b.classList.remove('on'); m.classList.remove('open'); if (v) v.classList.remove('on'); b.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+    b.addEventListener('click', function () {
+      var open = m.classList.toggle('open');
+      b.classList.toggle('on', open);
+      if (v) v.classList.toggle('on', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    if (v) v.addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1024) close(); });
+  }
+  var els = document.querySelectorAll('.n-rv');
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+})();
+</script>
+<!--Start of Tawk.to Script (loaded after first interaction or 6s)-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var loaded=false;
+function load(){
+if(loaded)return;loaded=true;
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a2cfd33d6a95f1c2c58c672/1jqvrq49a';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+}
+['scroll','pointerdown','keydown','touchstart'].forEach(function(ev){window.addEventListener(ev,load,{once:true,passive:true});});
+setTimeout(load,6000);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- WhatsApp Widget -->
+<a href="https://wa.me/918551805523" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<style>
+.whatsapp-widget{position:fixed;bottom:36px;left:28px;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;animation:waFadeIn .5s ease .5s both}.whatsapp-widget:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.6);color:#fff}@keyframes waFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:767px){.whatsapp-widget{width:48px;height:48px;font-size:1.4rem;bottom:20px;left:16px}}
+</style>
+</body>
+</html>
+

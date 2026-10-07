@@ -883,6 +883,13 @@
 .nx .n-section .visa-table-wrapper{margin:0 0 8px;border:1px solid var(--line);border-radius:12px;overflow-x:auto;background:#fff}
 .nx .n-section .visa-table a{color:var(--indigo);font-weight:600}
 @media(min-width:1100px){.nx .n-fgrid-5{grid-template-columns:repeat(5,1fr)}}
+.nx .n-loc-h3{font-size:1.1rem;margin:26px 0 12px;color:var(--ink)}
+.nx .n-loc-note{margin:18px 0 0;font-size:.92rem;color:var(--ink-2)}
+.nx .n-loc-quote{margin:0 0 30px;padding:22px 24px;border:1px solid var(--line);border-left:3px solid var(--indigo);border-radius:12px;background:#fff}
+.nx .n-loc-quote blockquote{margin:0}
+.nx .n-loc-quote blockquote p{margin:0 0 12px;font-size:1.02rem;line-height:1.65;color:var(--ink)}
+.nx .n-loc-quote figcaption{font-size:.88rem;color:var(--muted)}
+.nx .n-loc-quote figcaption strong{color:var(--ink)}
 .nx .n-loc-links{margin:28px 0 0;color:var(--ink-2);font-size:.95rem}
 .nx .n-loc-links a{color:var(--indigo);font-weight:600}
 
