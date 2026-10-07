@@ -32,8 +32,8 @@
   <text x="70" y="276" font-family="Arial" font-size="52" font-weight="800" fill="#031B30">for Indians</text>
 
   <!-- Subtitle -->
-  <text x="70" y="350" font-family="Arial" font-size="27" font-weight="600" fill="#5A6B7B">Complete Guide to South Korea's</text>
-  <text x="70" y="388" font-family="Arial" font-size="27" font-weight="600" fill="#5A6B7B">Electronic Travel Auth</text>
+  <text x="70" y="350" font-family="Arial" font-size="27" font-weight="600" fill="#5A6B7B">Not for Indian passports:</text>
+  <text x="70" y="388" font-family="Arial" font-size="27" font-weight="600" fill="#5A6B7B">a visa is required</text>
 
   <!-- Date badge -->
   <rect x="70" y="508" width="308" height="54" rx="27" fill="#FFFFFF" stroke="#E0E6F2" stroke-width="2" filter="url(#shadowSoft)"/>
@@ -59,11 +59,11 @@
   <path d="M915 258 L945 274 L945 302 C945 330 933 346 915 356 C897 346 885 330 885 302 L885 274 Z" fill="#FFFFFF" opacity="0.2"/>
   <path d="M895 300 L909 314 L937 282" fill="none" stroke="#A5D549" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <text x="915" y="400" text-anchor="middle" font-family="Arial" font-size="26" font-weight="900" fill="#031B30">APPROVED</text>
+  <text x="915" y="400" text-anchor="middle" font-family="Arial" font-size="26" font-weight="900" fill="#031B30">VISA NEEDED</text>
   <text x="915" y="430" text-anchor="middle" font-family="Arial" font-size="16" font-weight="600" fill="#7C3AED">E-TRAVEL AUTHORITY</text>
 
   <!-- Badge -->
   <rect x="815" y="452" width="200" height="44" rx="22" fill="#7C3AED"/>
-  <text x="915" y="480" text-anchor="middle" font-family="Arial" font-size="19" font-weight="700" fill="#FFFFFF">90-DAY STAY</text>
+  <text x="915" y="480" text-anchor="middle" font-family="Arial" font-size="19" font-weight="700" fill="#FFFFFF">C-3-9 VISA</text>
 
 </svg>
