@@ -875,6 +875,10 @@
 .nx .n-art ul.n-cols li{break-inside:avoid}
 .nx .n-work-intro{margin:0 0 24px;max-width:760px;color:var(--ink-2)}
 
+/* Location pages */
+.nx .n-loc-links{margin:28px 0 0;color:var(--ink-2);font-size:.95rem}
+.nx .n-loc-links a{color:var(--indigo);font-weight:600}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
