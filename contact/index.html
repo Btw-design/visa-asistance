@@ -203,7 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="n-field"><label for="contact-email">Email <span aria-hidden="true">*</span></label><input type="email" id="contact-email" name="email" autocomplete="email" required></div>
  </div>
  <div class="n-form-row">
- <div class="n-field"><label for="contact-phone">Phone <span aria-hidden="true">*</span></label><input type="tel" id="contact-phone" name="phone" autocomplete="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" placeholder="9876543210" aria-describedby="contactPhoneHint" required><span class="n-form-note" id="contactPhoneHint">10-digit mobile number, digits only.</span></div>
+ <div class="n-field"><label for="contact-phone">Phone <span aria-hidden="true">*</span></label><input type="tel" id="contact-phone" name="phone" autocomplete="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" title="Enter a 10-digit mobile number starting with 6, 7, 8 or 9" placeholder="9876543210" aria-describedby="contactPhoneHint" required><span class="n-form-note" id="contactPhoneHint">10-digit mobile number, digits only.</span></div>
  <div class="n-field"><label for="contact-subject">Subject <span aria-hidden="true">*</span></label><select id="contact-subject" name="subject" required>
  <option value="">Select a subject</option>
  <option value="Visa Inquiry">Visa Inquiry</option>
@@ -404,8 +404,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
   phone.addEventListener('blur', function () { phone.setCustomValidity(phoneError(phone.value)); });
   /* Email verification. OTP_URL is the Google Apps Script web app (apps-script/contact-otp.gs).
-     While it is empty the form sends straight to Formspree, as before. */
-  var OTP_URL = '';
+     The enquiry reaches Formspree only after the code is verified there.
+     If OTP_URL is ever emptied, the form sends straight to Formspree. */
+  var OTP_URL = 'https://script.google.com/macros/s/AKfycbz9NBTQm0xKKgWOiVJiICnXZkHktTVqw6mIgdIaShMMVKV0vJz5o4QHEW0FrALzyvmL8A/exec';
   var CALL = 'call <a href="tel:+918551805523">+91 85518 05523</a>';
   var otp = document.getElementById('contactOtp'), otpCode = document.getElementById('otpCode');
   var otpErr = document.getElementById('otpErr'), otpBtn = document.getElementById('otpVerify');
