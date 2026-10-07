@@ -13,6 +13,9 @@ Allow: /visa-guide/
 Allow: /visa-requirements/
 Allow: /visa-consultants-in-india/
 Allow: /visa-services-pune/
+Allow: /visa-consultant-in-thane/
+Allow: /visa-consultant-navi-mumbai/
+Allow: /visa-consultant-mumbai/
 Allow: /visa-photo-requirements/
 Allow: /visa-news/
 Allow: /blog/
@@ -29,8 +32,8 @@ Allow: /images/
 # ---- Blocked: non-content / internal / backup directories ----
 Disallow: /.git/
 Disallow: /.github/
-Disallow: /favicon/
 Disallow: /scripts/
+Disallow: /terms-of-service/scripts/
 Disallow: /visa-guide/_backup-non-b/
 Disallow: /generate-countries.ps1
 
