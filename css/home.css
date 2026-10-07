@@ -950,6 +950,48 @@
 @media(max-width:900px){.nx .n-cpanels,.nx .n-cpanels-uneven{grid-template-columns:1fr}}
 @media(max-width:560px){.nx .n-crows li{padding:13px 16px}.nx .n-loc-quote{padding:28px 22px 24px}.nx .n-also{flex-direction:column;align-items:flex-start}}
 
+/* Visa consultants (India) page */
+.nx .n-bandsec{padding:0 0 8px}
+.nx .n-section+.n-bandsec{margin-top:-28px}
+.nx .n-band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;padding:30px 34px;border-radius:18px;background:var(--ink);color:#fff;position:relative;z-index:1}
+.nx .n-band h2{margin:0 0 6px;font-size:clamp(1.25rem,2.2vw,1.6rem);color:#fff}
+.nx .n-band p{margin:0;color:#C9D3F5;font-size:.98rem;max-width:560px}
+.nx .n-band-btns{display:flex;flex-wrap:wrap;gap:10px}
+.nx .n-svcs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.nx .n-svc{padding:26px;border:1px solid var(--line);border-radius:16px;background:#fff;scroll-margin-top:110px}
+.nx .n-svc-hd{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.nx .n-svc-hd .n-fic{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--accent-tint);color:var(--indigo);display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem}
+.nx .n-svc h3{margin:0;font-size:1.25rem;color:var(--ink)}
+.nx .n-svc p{margin:0 0 12px;font-size:.95rem;line-height:1.7;color:var(--ink-2)}
+.nx .n-svc-req{padding:12px 14px;border-radius:10px;background:var(--mist);font-size:.9rem!important}
+.nx .n-svc-req strong{color:var(--ink)}
+.nx .n-svc-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.nx .n-svc-links span{flex-basis:100%;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.nx .n-svc-links a{padding:5px 11px;border:1px solid var(--line);border-radius:999px;font-size:.8rem;font-weight:600;color:var(--ink);background:#fff;transition:border-color .2s,color .2s}
+.nx .n-svc-links a:hover{border-color:var(--indigo);color:var(--indigo)}
+.nx .n-tools{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.nx .n-toolcard{padding:30px;border:1px solid var(--line);border-radius:18px;background:#fff;scroll-margin-top:110px}
+.nx .n-toolcard h2{margin:8px 0 8px;font-size:clamp(1.35rem,2.2vw,1.7rem)}
+.nx .n-toolcard>p{margin:0 0 20px;color:var(--ink-2)}
+.nx .n-toolcard-in{display:flex;gap:14px;padding:18px;margin-bottom:20px;border-radius:12px;background:var(--mist)}
+.nx .n-toolcard-in .n-fic{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:var(--accent-tint);color:var(--indigo);display:inline-flex;align-items:center;justify-content:center;font-size:1.15rem}
+.nx .n-toolcard-in h3{margin:0 0 4px;font-size:1.02rem;color:var(--ink)}
+.nx .n-toolcard-in p{margin:0;font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.nx .n-tl{display:grid;gap:14px}
+.nx .n-tl .n-field label{display:block;margin-bottom:6px;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.nx .n-tl select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--mist);font:inherit;font-size:.95rem;color:var(--ink)}
+.nx .n-tl select:focus{outline:2px solid var(--indigo);outline-offset:1px}
+.nx .n-tl-res{padding:18px;border:1px solid var(--line);border-left:3px solid var(--indigo);border-radius:12px;background:var(--accent-tint)}
+.nx .n-tl-res .n-tl-k{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.nx .n-tl-res b{display:block;margin:4px 0 2px;font-size:1.3rem;color:var(--ink)}
+.nx .n-tl-res .n-tl-for{display:block;font-size:.9rem;color:var(--ink-2)}
+.nx .n-tl-res small{display:block;margin-top:10px;font-size:.78rem;color:var(--muted)}
+.nx .n-tl-warn{border-left-color:#B45309;background:#FFF7ED;color:var(--ink)}
+.nx .n-faq-morewrap{text-align:center;margin:24px 0 0}
+.nx .n-glance dd a{color:var(--indigo);font-weight:600}
+@media(max-width:900px){.nx .n-svcs,.nx .n-tools{grid-template-columns:1fr}}
+@media(max-width:560px){.nx .n-band{padding:24px 20px}.nx .n-svc,.nx .n-toolcard{padding:22px 18px}.nx .n-band-btns .n-btn{flex:1 1 100%;justify-content:center}}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
