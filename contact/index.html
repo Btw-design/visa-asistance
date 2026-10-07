@@ -239,7 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </form>
  <div class="n-form n-otp" id="contactOtp" hidden>
  <h2 class="n-otp-h" id="otpTitle" tabindex="-1">Check your email</h2>
- <p class="n-otp-p">We sent a 6-digit code to <b id="otpEmail"></b>. Enter it below to send your enquiry. The code is valid for 10 minutes.</p>
+ <p class="n-otp-p">We sent a 6-digit code to <b id="otpEmail"></b>. Enter it below to send your enquiry. The code is valid for 10 minutes. If you receive more than one code, use the latest.</p>
  <div class="n-field"><label for="otpCode">Verification code</label><input type="text" id="otpCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="000000" class="n-otp-in" aria-describedby="otpHelp"></div>
  <button type="button" class="n-btn n-btn-p n-btn-block n-btn-lg" id="otpVerify"><i class="bi bi-shield-check" aria-hidden="true"></i> Verify and send</button>
  <p class="n-form-err" id="otpErr" role="alert" hidden></p>
@@ -424,14 +424,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   };
   function show(el, html) { el.innerHTML = html; el.hidden = false; }
   function done() { form.hidden = true; otp.hidden = true; ok.hidden = false; ok.focus(); }
-  function api(payload) {
-    return fetch(OTP_URL, { method: 'POST', body: JSON.stringify(payload) }).then(function (r) {
+  /* Google's web-app endpoint now and then drops or stalls a response. Each call is retried
+     (three attempts, 20 seconds each); the request id lets the script recognise a repeat,
+     so a retry never sends a second code or delivers an enquiry twice. */
+  function rid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 12); }
+  function api(payload, attempt) {
+    attempt = attempt || 1;
+    var ctl = window.AbortController ? new AbortController() : null;
+    var timer = ctl && setTimeout(function () { ctl.abort(); }, 20000);
+    return fetch(OTP_URL, { method: 'POST', body: JSON.stringify(payload), signal: ctl ? ctl.signal : undefined }).then(function (r) {
       if (!r.ok) throw new Error(r.status);
       return r.json();
+    }).then(function (j) { clearTimeout(timer); j.retried = attempt > 1; return j; }, function (e) {
+      clearTimeout(timer);
+      if (attempt >= 3) throw e;
+      return new Promise(function (res) { setTimeout(res, 1200); }).then(function () { return api(payload, attempt + 1); });
     });
   }
   function fields() {
-    var o = { action: 'send' };
+    var o = { action: 'send', rid: rid() };
     new FormData(form).forEach(function (v, k) { if (k.charAt(0) !== '_') o[k] = v; });
     return o;
   }
@@ -477,6 +488,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     otpBtn.innerHTML = WAIT + 'Checking&hellip;';
     api({ action: 'verify', token: token, code: code }).then(function (r) {
       if (r.ok) { done(); return; }
+      if (r.error === 'expired' && r.retried) {   /* the first try may have gone through before the reply was lost */
+        show(otpErr, 'We could not confirm whether your enquiry was sent. If you do not hear from us within 24 hours, please send it again or ' + CALL + '.');
+        return;
+      }
       show(otpErr, MSG[r.error] || 'Sorry, something went wrong. Please try again, or ' + CALL + '.');
       otpCode.select();
     }).catch(function () {
