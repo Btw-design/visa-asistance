@@ -893,6 +893,63 @@
 .nx .n-loc-links{margin:28px 0 0;color:var(--ink-2);font-size:.95rem}
 .nx .n-loc-links a{color:var(--indigo);font-weight:600}
 
+/* Location pages: redesigned components */
+.nx .n-phero-more{margin:14px 0 0;font-size:.98rem;line-height:1.7;color:var(--muted);max-width:560px}
+.nx .n-lchips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:20px 0 0;padding:0}
+.nx .n-lchips li{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.84rem;font-weight:600;color:var(--ink)}
+.nx .n-lchips i{color:var(--indigo)}
+.nx .n-lchips+.n-hero-cta,.nx .n-lchips~.n-hero-cta{margin-top:24px}
+.nx .n-dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
+.nx .n-dcard{display:flex;flex-direction:column;gap:12px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fff;transition:border-color .2s,box-shadow .2s}
+.nx .n-dcard:hover{border-color:var(--indigo);box-shadow:0 10px 26px rgba(11,31,58,.07)}
+.nx .n-dcard-top{display:flex;align-items:center;gap:12px}
+.nx .n-dcard h3{margin:0;font-size:1.08rem;color:var(--ink)}
+.nx .n-dcard p{margin:0;flex:1;font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.nx .n-dcard .n-bl{font-size:.88rem}
+.nx .n-cpanels{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.nx .n-cpanels-uneven{grid-template-columns:1.6fr 1fr}
+.nx .n-cpanel{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
+.nx .n-cpanel-hd{display:flex;align-items:center;gap:10px;margin:0;padding:16px 20px;background:var(--ink);color:#fff;font-size:1rem}
+.nx .n-cpanel-hd i{color:#C9D3F5}
+.nx .n-crows{list-style:none;margin:0;padding:0}
+.nx .n-crows li{display:flex;gap:14px;align-items:flex-start;padding:14px 20px;border-top:1px solid var(--line)}
+.nx .n-crows li:first-child{border-top:0}
+.nx .n-crows li>div{min-width:0}
+.nx .n-crow-k{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.nx .n-crows strong{display:block;font-size:.96rem;color:var(--ink);line-height:1.4}
+.nx .n-crow-l{display:block;margin-top:2px;font-size:.86rem;color:var(--ink-2);line-height:1.5}
+.nx .n-crow-l i{color:var(--indigo);font-size:.82rem}
+.nx .n-ltiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:18px;margin-top:22px}
+.nx .n-ltile{display:flex;gap:14px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--mist)}
+.nx .n-ltile-ic,.nx .n-atile-ic{flex-shrink:0;width:40px;height:40px;border-radius:10px;background:var(--accent-tint);color:var(--indigo);display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+.nx .n-ltile strong{display:block;margin-bottom:4px;color:var(--ink);font-size:.98rem}
+.nx .n-ltile p{margin:0;font-size:.9rem;line-height:1.6;color:var(--ink-2)}
+.nx .n-lnote{display:flex;gap:10px;align-items:flex-start;margin:20px 0 0;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:.9rem;color:var(--ink-2)}
+.nx .n-lnote i{color:var(--indigo);margin-top:2px}
+.nx .n-lnote-plain{display:block;text-align:center;border:0;background:none;max-width:760px;margin:26px auto 0}
+.nx .n-split-top{align-items:start}
+.nx .n-loc-quote{position:relative;margin:0;padding:34px 30px 28px;border:0;border-radius:16px;background:var(--ink);color:#fff}
+.nx .n-loc-quote-ic{display:block;font-size:2.2rem;line-height:1;color:#7F93E8;margin-bottom:8px}
+.nx .n-loc-quote blockquote p{margin:0 0 18px;font-size:1.12rem;line-height:1.65;color:#fff}
+.nx .n-loc-quote figcaption{font-size:.9rem;color:#C9D3F5}
+.nx .n-loc-quote figcaption strong{color:#fff}
+.nx .n-achips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:14px 0 18px;padding:0}
+.nx .n-achips li{padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.88rem;font-weight:600;color:var(--ink)}
+.nx .n-atiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.nx .n-atiles li{display:flex;gap:14px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.nx .n-atile-n{display:block;font-weight:700;color:var(--ink);font-size:1rem}
+.nx .n-atile-n strong{font-weight:700}
+.nx .n-atiles p{margin:3px 0 0;font-size:.9rem;line-height:1.55;color:var(--ink-2)}
+.nx .n-also-sec{padding:44px 0}
+.nx .n-also{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px}
+.nx .n-also h2{margin:0;font-size:1.3rem}
+.nx .n-also-links{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.nx .n-also-links a{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.9rem;font-weight:600;color:var(--ink);transition:border-color .2s,color .2s}
+.nx .n-also-links a:hover{border-color:var(--indigo);color:var(--indigo)}
+.nx .n-also-links i{color:var(--indigo)}
+@media(max-width:900px){.nx .n-cpanels,.nx .n-cpanels-uneven{grid-template-columns:1fr}}
+@media(max-width:560px){.nx .n-crows li{padding:13px 16px}.nx .n-loc-quote{padding:28px 22px 24px}.nx .n-also{flex-direction:column;align-items:flex-start}}
+
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}
