@@ -1023,6 +1023,12 @@
 .nx .n-toolcard-dark .n-fic{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.1);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem}
 @media(max-width:560px){.nx .n-pflow{grid-template-columns:1fr}}
 
+.nx .n-otp-h{font-size:1.2rem;font-weight:700;margin:0;outline:none}
+.nx .n-otp-p{margin:0;font-size:.9rem;color:var(--muted)}
+.nx .n-otp-p b{color:var(--ink);word-break:break-all}
+.nx .n-field input.n-otp-in{font-size:1.4rem;letter-spacing:.4em;text-align:center;font-variant-numeric:tabular-nums}
+.nx .n-linkbtn{padding:0;border:0;background:none;font:inherit;color:var(--indigo);font-weight:700;text-decoration:underline;cursor:pointer}
+.nx .n-linkbtn:disabled{opacity:.5;cursor:default}
 /* ---------- Markup helpers ---------- */
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute */
 .nx [hidden]{display:none!important}

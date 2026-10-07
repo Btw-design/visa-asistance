@@ -203,7 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="n-field"><label for="contact-email">Email <span aria-hidden="true">*</span></label><input type="email" id="contact-email" name="email" autocomplete="email" required></div>
  </div>
  <div class="n-form-row">
- <div class="n-field"><label for="contact-phone">Phone <span aria-hidden="true">*</span></label><input type="tel" id="contact-phone" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="+91 98765 43210" aria-describedby="contactPhoneHint" required><span class="n-form-note" id="contactPhoneHint">10-digit Indian mobile number, or include your country code (e.g. +44).</span></div>
+ <div class="n-field"><label for="contact-phone">Phone <span aria-hidden="true">*</span></label><input type="tel" id="contact-phone" name="phone" autocomplete="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" placeholder="9876543210" aria-describedby="contactPhoneHint" required><span class="n-form-note" id="contactPhoneHint">10-digit mobile number, digits only.</span></div>
  <div class="n-field"><label for="contact-subject">Subject <span aria-hidden="true">*</span></label><select id="contact-subject" name="subject" required>
  <option value="">Select a subject</option>
  <option value="Visa Inquiry">Visa Inquiry</option>
@@ -237,6 +237,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p class="n-form-err" id="contactErr" role="alert" hidden></p>
  <p class="n-form-note">By sending this form you agree to our <a href="/privacy-policy/">privacy policy</a>. Fields marked * are required.</p>
  </form>
+ <div class="n-form n-otp" id="contactOtp" hidden>
+ <h2 class="n-otp-h" id="otpTitle" tabindex="-1">Check your email</h2>
+ <p class="n-otp-p">We sent a 6-digit code to <b id="otpEmail"></b>. Enter it below to send your enquiry. The code is valid for 10 minutes.</p>
+ <div class="n-field"><label for="otpCode">Verification code</label><input type="text" id="otpCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="000000" class="n-otp-in" aria-describedby="otpHelp"></div>
+ <button type="button" class="n-btn n-btn-p n-btn-block n-btn-lg" id="otpVerify"><i class="bi bi-shield-check" aria-hidden="true"></i> Verify and send</button>
+ <p class="n-form-err" id="otpErr" role="alert" hidden></p>
+ <p class="n-form-note" id="otpHelp">No email? Check your spam folder, or <button type="button" class="n-linkbtn" id="otpResend">send a new code</button>. Wrong address? <button type="button" class="n-linkbtn" id="otpBack">Edit your details</button>.</p>
+ </div>
  <div class="n-form-ok" id="contactOk" hidden tabindex="-1">
  <span class="n-form-ok-ic" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
  <h2>Message sent</h2>
@@ -379,50 +387,112 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var form = document.getElementById('contactForm'), ok = document.getElementById('contactOk');
   var err = document.getElementById('contactErr'), btn = document.getElementById('contactSubmit');
   var phone = document.getElementById('contact-phone');
-  /* Indian mobiles: 10 digits starting 6-9, with an optional +91, 91 or 0 in front.
-     Other countries: + and the country code, 8 to 15 digits in all. */
+  /* Mobile number: exactly 10 digits, starting 6-9. Nothing else can be typed. */
   function phoneError(v) {
-    v = v.trim();
     if (!v) return '';
-    if (!/^\+?[\d\s().-]+$/.test(v)) return 'Use digits only. You can start with + for a country code.';
-    var plus = v.charAt(0) === '+', d = v.replace(/\D/g, '');
-    if (/^(\d)\1+$/.test(d.slice(-10))) return 'Please enter a real mobile number.';
-    if (plus && d.slice(0, 2) !== '91') {
-      return d.length >= 8 && d.length <= 15 ? '' : 'Enter the full number with country code, for example +44 7700 900123.';
-    }
-    var n = d;
-    if (plus || (n.length === 12 && n.slice(0, 2) === '91')) n = n.replace(/^91/, '');
-    else if (n.length === 11 && n.charAt(0) === '0') n = n.slice(1);
-    return /^[6-9]\d{9}$/.test(n) ? '' : 'Enter a valid 10-digit Indian mobile number (starting with 6, 7, 8 or 9), or add your country code, for example +44.';
+    if (v.length !== 10) return 'Enter a 10-digit mobile number.';
+    if (/^(\d)\1+$/.test(v)) return 'Please enter a real mobile number.';
+    return /^[6-9]/.test(v) ? '' : 'Mobile numbers start with 6, 7, 8 or 9.';
   }
   phone.addEventListener('input', function () {
-    var c = phone.value.replace(/[^\d+\s().-]/g, '');
+    var c = phone.value.replace(/\D/g, '');
+    if (c.length === 12 && c.slice(0, 2) === '91') c = c.slice(2);        /* pasted with +91 */
+    else if (c.length === 11 && c.charAt(0) === '0') c = c.slice(1);     /* pasted with a leading 0 */
+    c = c.slice(0, 10);
     if (c !== phone.value) phone.value = c;
     phone.setCustomValidity('');
   });
   phone.addEventListener('blur', function () { phone.setCustomValidity(phoneError(phone.value)); });
+  /* Email verification. OTP_URL is the Google Apps Script web app (apps-script/contact-otp.gs).
+     While it is empty the form sends straight to Formspree, as before. */
+  var OTP_URL = '';
+  var CALL = 'call <a href="tel:+918551805523">+91 85518 05523</a>';
+  var otp = document.getElementById('contactOtp'), otpCode = document.getElementById('otpCode');
+  var otpErr = document.getElementById('otpErr'), otpBtn = document.getElementById('otpVerify');
+  var otpResend = document.getElementById('otpResend'), token = '', resendAt = 0;
+  var SEND_HTML = '<i class="bi bi-send" aria-hidden="true"></i> Send message';
+  var VERIFY_HTML = '<i class="bi bi-shield-check" aria-hidden="true"></i> Verify and send';
+  var WAIT = '<i class="bi bi-hourglass-split" aria-hidden="true"></i> ';
+  var MSG = {
+    email: 'That email address does not look right. Please check it.',
+    too_many: 'We have already sent several codes to this address. Please wait 15 minutes, or ' + CALL + '.',
+    busy: 'We cannot send codes right now. Please try later, or ' + CALL + '.',
+    wrong: 'That code is not correct. Please check the email and try again.',
+    locked: 'Too many wrong attempts. Please send a new code.',
+    expired: 'This code has expired. Please send a new code.'
+  };
+  function show(el, html) { el.innerHTML = html; el.hidden = false; }
+  function done() { form.hidden = true; otp.hidden = true; ok.hidden = false; ok.focus(); }
+  function api(payload) {
+    return fetch(OTP_URL, { method: 'POST', body: JSON.stringify(payload) }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    });
+  }
+  function fields() {
+    var o = { action: 'send' };
+    new FormData(form).forEach(function (v, k) { if (k.charAt(0) !== '_') o[k] = v; });
+    return o;
+  }
+  function requestCode(from) {
+    var b = from === 'resend' ? null : btn, e = from === 'resend' ? otpErr : err;
+    e.hidden = true;
+    if (b) { b.disabled = true; b.innerHTML = WAIT + 'Sending code&hellip;'; }
+    otpResend.disabled = true;
+    return api(fields()).then(function (r) {
+      if (!r.ok) { show(e, MSG[r.error] || 'Sorry, we could not send the code. Please try again, or ' + CALL + '.'); return; }
+      token = r.token;
+      resendAt = Date.now() + 30000;
+      document.getElementById('otpEmail').textContent = form.elements.email.value;
+      otpCode.value = '';
+      form.hidden = true; otp.hidden = false;
+      if (from === 'resend') show(otpErr, 'A new code is on its way.');
+      otpCode.focus();
+    }).catch(function () {
+      show(e, 'Sorry, we could not send the verification code. Please try again, or ' + CALL + '.');
+    }).then(function () {
+      if (b) { b.disabled = false; b.innerHTML = SEND_HTML; }
+      otpResend.disabled = false;
+    });
+  }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     phone.setCustomValidity(phoneError(phone.value));
     if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (OTP_URL) { requestCode('form'); return; }
     err.hidden = true;
     btn.disabled = true;
-    btn.innerHTML = '<i class="bi bi-hourglass-split" aria-hidden="true"></i> Sending&hellip;';
+    btn.innerHTML = WAIT + 'Sending&hellip;';
     fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-      .then(function (r) {
-        if (!r.ok) throw new Error(r.status);
-        form.hidden = true;
-        ok.hidden = false;
-        ok.focus();
-      })
-      .catch(function () {
-        err.innerHTML = 'Sorry, your message didn\u2019t go through. Please try again, or call <a href="tel:+918551805523">+91 85518 05523</a>.';
-        err.hidden = false;
-      })
-      .then(function () {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="bi bi-send" aria-hidden="true"></i> Send message';
-      });
+      .then(function (r) { if (!r.ok) throw new Error(r.status); done(); })
+      .catch(function () { show(err, 'Sorry, your message didn\u2019t go through. Please try again, or ' + CALL + '.'); })
+      .then(function () { btn.disabled = false; btn.innerHTML = SEND_HTML; });
+  });
+  function verify() {
+    var code = otpCode.value.replace(/\D/g, '');
+    if (code.length !== 6) { show(otpErr, 'Enter the 6-digit code from the email.'); otpCode.focus(); return; }
+    otpErr.hidden = true;
+    otpBtn.disabled = true;
+    otpBtn.innerHTML = WAIT + 'Checking&hellip;';
+    api({ action: 'verify', token: token, code: code }).then(function (r) {
+      if (r.ok) { done(); return; }
+      show(otpErr, MSG[r.error] || 'Sorry, something went wrong. Please try again, or ' + CALL + '.');
+      otpCode.select();
+    }).catch(function () {
+      show(otpErr, 'Sorry, we could not check the code. Please try again, or ' + CALL + '.');
+    }).then(function () { otpBtn.disabled = false; otpBtn.innerHTML = VERIFY_HTML; });
+  }
+  otpBtn.addEventListener('click', verify);
+  otpCode.addEventListener('input', function () { otpCode.value = otpCode.value.replace(/\D/g, '').slice(0, 6); });
+  otpCode.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); verify(); } });
+  otpResend.addEventListener('click', function () {
+    var wait = Math.ceil((resendAt - Date.now()) / 1000);
+    if (wait > 0) { show(otpErr, 'Please wait ' + wait + ' seconds before asking for a new code.'); return; }
+    requestCode('resend');
+  });
+  document.getElementById('otpBack').addEventListener('click', function () {
+    otp.hidden = true; otpErr.hidden = true; form.hidden = false;
+    form.elements.email.focus();
   });
 
   var faq = document.getElementById('ctFaq');
