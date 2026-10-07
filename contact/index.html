@@ -203,7 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <div class="n-field"><label for="contact-email">Email <span aria-hidden="true">*</span></label><input type="email" id="contact-email" name="email" autocomplete="email" required></div>
  </div>
  <div class="n-form-row">
- <div class="n-field"><label for="contact-phone">Phone <span aria-hidden="true">*</span></label><input type="tel" id="contact-phone" name="phone" autocomplete="tel" placeholder="+91" required></div>
+ <div class="n-field"><label for="contact-phone">Phone <span aria-hidden="true">*</span></label><input type="tel" id="contact-phone" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="+91 98765 43210" aria-describedby="contactPhoneHint" required><span class="n-form-note" id="contactPhoneHint">10-digit Indian mobile number, or include your country code (e.g. +44).</span></div>
  <div class="n-field"><label for="contact-subject">Subject <span aria-hidden="true">*</span></label><select id="contact-subject" name="subject" required>
  <option value="">Select a subject</option>
  <option value="Visa Inquiry">Visa Inquiry</option>
@@ -378,8 +378,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   'use strict';
   var form = document.getElementById('contactForm'), ok = document.getElementById('contactOk');
   var err = document.getElementById('contactErr'), btn = document.getElementById('contactSubmit');
+  var phone = document.getElementById('contact-phone');
+  /* Indian mobiles: 10 digits starting 6-9, with an optional +91, 91 or 0 in front.
+     Other countries: + and the country code, 8 to 15 digits in all. */
+  function phoneError(v) {
+    v = v.trim();
+    if (!v) return '';
+    if (!/^\+?[\d\s().-]+$/.test(v)) return 'Use digits only. You can start with + for a country code.';
+    var plus = v.charAt(0) === '+', d = v.replace(/\D/g, '');
+    if (/^(\d)\1+$/.test(d.slice(-10))) return 'Please enter a real mobile number.';
+    if (plus && d.slice(0, 2) !== '91') {
+      return d.length >= 8 && d.length <= 15 ? '' : 'Enter the full number with country code, for example +44 7700 900123.';
+    }
+    var n = d;
+    if (plus || (n.length === 12 && n.slice(0, 2) === '91')) n = n.replace(/^91/, '');
+    else if (n.length === 11 && n.charAt(0) === '0') n = n.slice(1);
+    return /^[6-9]\d{9}$/.test(n) ? '' : 'Enter a valid 10-digit Indian mobile number (starting with 6, 7, 8 or 9), or add your country code, for example +44.';
+  }
+  phone.addEventListener('input', function () {
+    var c = phone.value.replace(/[^\d+\s().-]/g, '');
+    if (c !== phone.value) phone.value = c;
+    phone.setCustomValidity('');
+  });
+  phone.addEventListener('blur', function () { phone.setCustomValidity(phoneError(phone.value)); });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    phone.setCustomValidity(phoneError(phone.value));
     if (!form.checkValidity()) { form.reportValidity(); return; }
     err.hidden = true;
     btn.disabled = true;
