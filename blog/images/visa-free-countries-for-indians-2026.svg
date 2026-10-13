@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Visa-free countries for Indians in 2026: what changed this year">
+  <rect width="1200" height="630" fill="#0B1F3A"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#2F45C5"/>
+  <circle cx="950" cy="315" r="170" fill="#FFFFFF"/>
+  <circle cx="950" cy="315" r="170" fill="none" stroke="#C9D3F5" stroke-width="6"/>
+  <g fill="none" stroke="#2F45C5" stroke-width="6">
+    <ellipse cx="950" cy="315" rx="70" ry="170"/><line x1="780" y1="315" x2="1120" y2="315"/>
+    <path d="M806 225 Q950 275 1094 225"/><path d="M806 405 Q950 355 1094 405"/>
+  </g>
+  <circle cx="1075" cy="190" r="54" fill="#16A34A"/>
+  <path d="M1050 190 l18 18 l34 -38" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="80" y="150" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#9FB0E8" letter-spacing="4">INDIAN PASSPORT 2026</text>
+  <text x="80" y="245" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">Visa-free countries</text>
+  <text x="80" y="315" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">for Indians in 2026:</text>
+  <text x="80" y="385" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">what changed</text>
+  <text x="80" y="455" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#C9D3F5">What got easier, what got harder</text>
+  <text x="80" y="550" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">My Visa Assistance</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Japan tourist eVISA for Indians: how it works in 2026">
+  <rect width="1200" height="630" fill="#0B1F3A"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#2F45C5"/>
+  <rect x="820" y="95" width="260" height="440" rx="34" fill="#FFFFFF"/>
+  <rect x="820" y="95" width="260" height="440" rx="34" fill="none" stroke="#C9D3F5" stroke-width="6"/>
+  <rect x="910" y="118" width="80" height="10" rx="5" fill="#C9D3F5"/>
+  <circle cx="950" cy="270" r="62" fill="#D7263D"/>
+  <rect x="865" y="370" width="170" height="14" rx="7" fill="#0B1F3A"/>
+  <rect x="885" y="400" width="130" height="12" rx="6" fill="#C9D3F5"/>
+  <rect x="870" y="445" width="160" height="46" rx="23" fill="#2F45C5"/>
+  <text x="950" y="476" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">eVISA</text>
+  <text x="80" y="150" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#9FB0E8" letter-spacing="4">JAPAN eVISA</text>
+  <text x="80" y="245" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">Japan tourist eVISA</text>
+  <text x="80" y="315" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">for Indians:</text>
+  <text x="80" y="385" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">how it works in 2026</text>
+  <text x="80" y="455" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#C9D3F5">Apply through VFS, show it live on your phone</text>
+  <text x="80" y="550" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">My Visa Assistance</text>
+</svg>
