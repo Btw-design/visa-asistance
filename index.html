@@ -1193,6 +1193,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!form || !email || !email.value || !msg) return false;
     var btn = form.querySelector('button');
     btn.disabled = true;
+    /* Also store the signup in the CRM. Formspree still sends the notification, so there is no second email. */
+    try { fetch('https://api.myvisaassistance.com/api/crm-newsletter.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email.value, _subject: 'Newsletter signup (homepage)' }), keepalive: true }).catch(function () {}); } catch (err) {}
     function show(text, isErr) {
       msg.textContent = text;
       msg.classList.toggle('err', !!isErr);
