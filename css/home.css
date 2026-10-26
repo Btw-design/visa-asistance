@@ -1225,3 +1225,61 @@
 }
 .nx .n-vg-credit{margin:18px 0 0;font-size:.76rem;color:var(--muted)}
 .nx .n-vg-credit i{margin-right:4px}
+
+/* Visa guide: visa application centres in India (lists + map) */
+.nx .n-vac-intro{margin:0 0 18px;color:var(--ink-2)}
+.nx .n-vac{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--sh);margin:0 0 12px}
+.nx .n-vac-side{display:flex;flex-direction:column;gap:14px;padding:22px 20px}
+.nx .n-vac-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.nx .n-vac-cols.one{grid-template-columns:1fr}
+.nx .n-vac-cols.one .n-vac-list{columns:2;column-gap:18px}
+.nx .n-vac-col h3{margin:10px 0 8px;padding-bottom:8px;border-bottom:1px solid #C7D2FE;font-size:.82rem;font-weight:700;color:var(--ink)}
+.nx .n-vac-ring{--p:100;display:inline-grid;place-items:center;width:58px;height:58px;border-radius:50%;background:conic-gradient(var(--indigo) calc(var(--p)*1%),#E5E7EB 0)}
+.nx .n-vac-ring b{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#fff;font-size:1.3rem;font-weight:700;color:var(--ink)}
+.nx .n-vac-ring.x{background:conic-gradient(#38BDF8 calc(var(--p)*1%),#E5E7EB 0)}
+.nx .n-vac-list{list-style:none;margin:0;padding:0}
+.nx .n-vac-list li{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:6px 8px;margin:0 -8px;border-radius:6px;font-size:.86rem;color:var(--ink-2);cursor:default;break-inside:avoid}
+.nx .n-vac-list li small{flex-basis:100%;margin-left:15px;font-size:.74rem;color:var(--muted)}
+.nx .n-vac-list li.on,.nx .n-vac-list li.pick{background:var(--accent-tint);color:var(--ink);font-weight:600}
+.nx .n-vac-dot{width:7px;height:7px;border-radius:50%;background:var(--indigo);flex-shrink:0;transform:translateY(-1px)}
+.nx .n-vac-list li.x .n-vac-dot{background:#38BDF8}
+.nx .n-vac-note{margin:0 0 8px;padding:9px 10px;border-radius:8px;background:#EFF6FF;color:#1E40AF;font-size:.74rem;line-height:1.5;font-style:italic}
+.nx .n-vac-short .n-vac-list li:nth-child(n+7){display:none}
+.nx .n-vac-min{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:0;border:0;background:none;font:inherit;font-size:.84rem;font-weight:700;color:var(--indigo);text-decoration:underline;cursor:pointer}
+.nx .n-vac-near{width:100%;justify-content:center}
+.nx .n-vac-out{margin:0;min-height:1.2em;font-size:.82rem;color:var(--ink-2)}
+.nx .n-vac-map{position:relative;background:#EEF1F6;padding:22px 18px;align-self:stretch;display:flex;align-items:flex-start;justify-content:center;border-left:1px solid var(--line)}
+.nx .n-vac-mapin{position:sticky;top:96px}
+.nx .n-vac-mapin{position:relative;width:100%;max-width:460px;aspect-ratio:560/626}
+.nx .n-vac-mapin>img{display:block;width:100%;height:100%}
+.nx .n-vac-pin{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--indigo);border:2px solid #fff;box-shadow:0 1px 3px rgba(15,23,42,.35);transition:transform .15s}
+.nx .n-vac-pin.x{background:#38BDF8}
+.nx .n-vac-pin.on{transform:scale(1.5);z-index:2}
+.nx .n-vac-tip{position:absolute;left:50%;bottom:150%;transform:translateX(-50%);padding:3px 8px;border-radius:6px;background:var(--ink);color:#fff;font-size:.7rem;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s}
+.nx .n-vac-pin.on .n-vac-tip{opacity:1}
+.nx .n-vac-foot{margin:0 0 8px;font-size:.84rem;color:var(--ink-2)}
+.nx .n-vac-src{margin:0 0 28px;font-size:.76rem;color:var(--muted)}
+.nx .n-vac-src a{color:var(--indigo)}
+.nx .n-vac-none{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:#fff;margin:0 0 10px}
+.nx .n-vac-none>i{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;flex-shrink:0;border-radius:10px;background:var(--accent-tint);color:var(--indigo);font-size:1.2rem}
+.nx .n-vac-none b{display:block;margin-bottom:3px;color:var(--ink)}
+.nx .n-vac-none p{margin:0;font-size:.9rem;color:var(--ink-2)}
+.nx .n-vac-none a{color:var(--indigo);font-weight:600}
+@media(max-width:760px){
+ .nx .n-vac{grid-template-columns:1fr}
+ .nx .n-vac-map{order:-1;padding:12px}
+ .nx .n-vac-mapin{position:relative;top:auto;max-width:300px}
+ .nx .n-vac-map{border-left:0;border-bottom:1px solid var(--line)}
+}
+@media(max-width:420px){.nx .n-vac-cols{grid-template-columns:1fr}}
+
+/* Visa guide: popular places */
+.nx .n-city-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 10px}
+.nx .n-city{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;transition:transform .25s,box-shadow .25s}
+.nx .n-city:hover{transform:translateY(-3px);box-shadow:var(--sh-lg)}
+.nx .n-city img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover}
+.nx .n-city figcaption{padding:11px 13px 13px}
+.nx .n-city b{display:block;font-size:.95rem;color:var(--ink);margin-bottom:3px}
+.nx .n-city span{display:block;font-size:.8rem;line-height:1.5;color:var(--muted)}
+.nx .n-city-credit{padding:0;margin:0 0 28px}
+@media(max-width:900px){.nx .n-city-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
