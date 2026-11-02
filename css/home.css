@@ -1176,9 +1176,9 @@
 .nx .n-vg-mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,minmax(0,1fr));gap:10px;aspect-ratio:4/3.3}
 .nx .n-vg-tile{position:relative;display:block;overflow:hidden;border-radius:14px;background:var(--mist);box-shadow:var(--sh)}
 .nx .n-vg-tile:first-child{grid-column:1/3;grid-row:1/3}
-.nx .n-vg-tile>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.nx .n-vg-tile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .nx .n-vg-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 45%,rgba(15,23,42,.72) 100%)}
-.nx .n-vg-tile:hover>img{transform:scale(1.05)}
+.nx .n-vg-tile:hover .n-vg-tile-img{transform:scale(1.05)}
 .nx .n-vg-tile-tx{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;display:flex;align-items:center;gap:8px;color:#fff;line-height:1.2}
 .nx .n-vg-tile-tx img{width:24px;height:18px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.6);flex-shrink:0}
 .nx .n-vg-tile-tx b{font-size:.92rem;font-weight:700}
@@ -1283,3 +1283,6 @@
 .nx .n-city span{display:block;font-size:.8rem;line-height:1.5;color:var(--muted)}
 .nx .n-city-credit{padding:0;margin:0 0 28px}
 @media(max-width:900px){.nx .n-city-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Responsive images: <picture> wrappers must not affect layout */
+.nx .n-pic{display:contents}
