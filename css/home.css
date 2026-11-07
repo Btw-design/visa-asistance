@@ -1286,3 +1286,29 @@
 
 /* Responsive images: <picture> wrappers must not affect layout */
 .nx .n-pic{display:contents}
+
+/* Homepage: result-oriented process, honesty note, reviews placeholder */
+.nx .n-steps.n-steps-6{grid-template-columns:repeat(3,1fr)}
+.nx .n-honest{display:flex;gap:10px;align-items:flex-start;max-width:860px;margin:32px auto 0;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:.9rem;line-height:1.6;color:var(--ink-2)}
+.nx .n-honest i{color:var(--indigo);margin-top:2px}
+.nx .n-review-empty{display:flex;align-items:center;gap:18px;max-width:860px;margin:0 auto;padding:22px 24px;border:1px dashed #C7D2FE;border-radius:16px;background:#fff}
+.nx .n-review-empty>i{font-size:1.8rem;color:var(--indigo)}
+.nx .n-review-empty h3{margin:0 0 4px;font-size:1.05rem}
+.nx .n-review-empty p{margin:0;font-size:.9rem;color:var(--muted)}
+.nx .n-review-empty .n-btn{margin-left:auto;flex-shrink:0}
+@media(max-width:991px){.nx .n-steps.n-steps-6{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.nx .n-steps.n-steps-6{grid-template-columns:1fr}.nx .n-review-empty{flex-direction:column;align-items:flex-start}.nx .n-review-empty .n-btn{margin-left:0}}
+
+/* Service pages: promise box, number-only steps */
+.nx .n-promise{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:960px;margin:0 auto}
+.nx .n-promise>div{padding:22px 24px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.nx .n-promise h3{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:1.05rem}
+.nx .n-promise>div:first-child h3 i{color:#16A34A}
+.nx .n-promise>div:last-child h3 i{color:#DC2626}
+.nx .n-promise ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:.92rem;line-height:1.55;color:var(--ink-2)}
+.nx .n-steps-plain .n-step-n{margin-bottom:10px}
+@media(max-width:760px){.nx .n-promise{grid-template-columns:1fr}}
+
+/* Header menu: seven items must stay on one line */
+.nx .n-menu a{white-space:nowrap}
+@media(min-width:1025px) and (max-width:1320px){.nx .n-menu a{padding:9px 11px;font-size:.9rem}}
